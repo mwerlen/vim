@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -567,6 +567,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Feb 10 2005 Karsten Hopp <karsten@redhat.de> 6.3.061-3
+- spec.vim fix from Andrew Overholt
+
 * Mon Feb 07 2005 Karsten Hopp <karsten@redhat.de> 6.3.061-2 
 - fix tmpfile patch (#147192)
 

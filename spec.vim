@@ -2,7 +2,7 @@
 " Language:	spec file
 " Maintainer:	Guillaume Rousse <rousse@ccr.jussieu.fr>
 " URL:		http://lis.snv.jussieu.fr/~rousse/linux/spec.vim
-" Version:	$Id: spec.vim,v 1.1 2004/09/09 14:07:26 cvsdist Exp $
+" Version:	$Id: spec.vim,v 1.2 2005/02/10 16:45:35 karsten Exp $
 
 if exists("b:did_ftplugin")
 	finish
@@ -73,9 +73,9 @@ if !exists("*s:InsertChangelogEntry")
 	" Insert a changelog entry just after the given line
 	function s:InsertChangelogEntry(line)
 		" insert changelog entry
-		call append(a:line, "- ")
+		call append(a:line, "-")
 		" position cursor here
-		execute a:line
+		execute a:line +1
 		" enter insert mode
 		startinsert!
 	endfunction
