@@ -81,3 +81,6 @@ Individual patches for Vim 6.3:
   2091  6.3.056  window title wrong for specific multi-byte character
   1748  6.3.057  folds are not updated after a filter command
   4440  6.3.058  crash when zero columns room; can't compile without :vsplit
+  2286  6.3.059  crash when editing a file with spaces and shell expansion
+  1609  6.3.060  register name isn't checked for CTRL-R CTRL-O in Insert mode
+  1984  6.3.061  display mess when multi-byte char at right edge of screen
