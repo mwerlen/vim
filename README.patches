@@ -49,3 +49,5 @@ Individual patches for Vim 6.3:
   2456  6.3.024  missing NUL for strings created with ga_concat()
   1409  6.3.025  (extra) missing NUL for list of server names
   3070  6.3.026  setting 'bg' in syncolor.vim may cause endless loop or crash
+  7500  6.3.027  VMS: Writing a file may insert extra CR characters
+  2128  6.3.028  the BOM marker is written when appending to a file

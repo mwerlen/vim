@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 026
+%define patchlevel 028
 
 Summary: The VIM editor.
 Name: vim
@@ -75,6 +75,9 @@ Patch022: ftp://ftp.vim.org/pub/vim/patches/6.3.022
 Patch023: ftp://ftp.vim.org/pub/vim/patches/6.3.023
 Patch024: ftp://ftp.vim.org/pub/vim/patches/6.3.024
 Patch025: ftp://ftp.vim.org/pub/vim/patches/6.3.025
+Patch026: ftp://ftp.vim.org/pub/vim/patches/6.3.026
+Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3.027
+Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3.028
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -219,6 +222,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch023 -p0
 %patch024 -p0
 # Win32 %patch025 -p0
+%patch26 -p0
+# VMS %patch27 -p0
+%patch28 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -479,6 +485,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Sep 21 2004 Than Ngo <than@redhat.com> 6.3.028-1
+- add patchlevel 27,28
+
 * Tue Sep 14 2004 Karsten Hopp <karsten@redhat.de> 6.3.026-1
 - patchlevel 26 (fixes an endless loop in syntax highlighting)
 
