@@ -2,7 +2,7 @@ Summary: The VIM editor.
 Name: vim
 Version: 5.7
 %define vimversion vim57
-Release: 6
+Release: 8
 Copyright: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-src.tar.gz
@@ -17,6 +17,7 @@ Patch5: vim-5.6-destdir.patch
 Patch6: vim-5.7-redhat.patch
 Patch7: vim-5.7-docpath.patch
 Patch8: vim-5.7-crv.patch
+Patch9: vim-5.7-security.patch
 Patch101: 5.7.001
 Patch102: 5.7.002
 Patch103: 5.7.003
@@ -25,6 +26,19 @@ Patch105: 5.7.005
 Patch106: 5.7.006
 Patch107: 5.7.007
 Patch108: 5.7.008
+Patch112: 5.7.012
+Patch113: 5.7.013
+Patch114: 5.7.014
+Patch115: 5.7.015
+Patch116: 5.7.016
+Patch117: 5.7.017
+Patch118: 5.7.018
+Patch119: 5.7.019
+Patch120: 5.7.020
+Patch121: 5.7.021
+Patch122: 5.7.022
+Patch123: 5.7.023
+Patch124: 5.7.024
 Buildroot: /var/tmp/vim-root
 Buildrequires: python-devel perl gtk+-devel
 
@@ -115,6 +129,7 @@ find . -name \*.paths | xargs rm -f
 %patch6 -p1 -b .redhat
 %patch7 -p1 -b .docs
 %patch8 -p1 -b .crv
+%patch9 -p1 -b .security
 
 %patch101 -p0 -b .p1
 %patch102 -p0 -b .p2
@@ -124,6 +139,19 @@ find . -name \*.paths | xargs rm -f
 %patch106 -p0 -b .p6
 %patch107 -p0 -b .p7
 %patch108 -p0 -b .p8
+%patch112 -p0 -b .p12
+%patch113 -p0 -b .p13
+%patch114 -p0 -b .p14
+%patch115 -p0 -b .p15
+%patch116 -p0 -b .p16
+%patch117 -p0 -b .p17
+%patch118 -p0 -b .p18
+%patch119 -p0 -b .p19
+%patch120 -p0 -b .p20
+%patch121 -p0 -b .p21
+%patch122 -p0 -b .p22
+%patch123 -p0 -b .p23
+%patch124 -p0 -b .p24
 
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
@@ -249,6 +277,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gvim.*
 
 %changelog
+* Mon Jan 29 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- Apply bugfix patch #24, fixes security bug #25194
+
+* Wed Dec 20 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- Fix mktemp() potential DoS (#22594, #22595)
+- Apply bugfix patches #9 to #19
+
 * Sun Aug  6 2000 Tim Waugh <twaugh@redhat.com>
 - xterm doesn't have request version string (#14570)
 
