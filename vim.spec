@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -328,6 +328,30 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
     ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
 )
 
+pushd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/tutor
+mkdir conv
+   iconv -f CP1252 -t UTF8 tutor.ca > conv/tutor.ca
+   iconv -f CP1252 -t UTF8 tutor.it > conv/tutor.it
+   iconv -f CP1253 -t UTF8 tutor.gr > conv/tutor.gr
+   iconv -f CP1252 -t UTF8 tutor.fr > conv/tutor.fr
+   iconv -f CP1252 -t UTF8 tutor.es > conv/tutor.es
+   iconv -f CP1252 -t UTF8 tutor.de > conv/tutor.de
+   #iconv -f CP737 -t UTF8 tutor.gr.cp737 > conv/tutor.gr.cp737
+   #iconv -f EUC-JP -t UTF8 tutor.ja.euc > conv/tutor.ja.euc
+   #iconv -f SJIS -t UTF8 tutor.ja.sjis > conv/tutor.ja.sjis
+   iconv -f UTF8 -t UTF8 tutor.ja.utf-8 > conv/tutor.ja.utf-8
+   iconv -f UTF8 -t UTF8 tutor.ko.utf-8 > conv/tutor.ko.utf-8
+   iconv -f CP1252 -t UTF8 tutor.no > conv/tutor.no
+   iconv -f CP1250 -t UTF8 tutor.pl > conv/tutor.pl
+   iconv -f CP1250 -t UTF8 tutor.sk > conv/tutor.sk
+   iconv -f CP1251 -t UTF8 tutor.ru > conv/tutor.ru
+   iconv -f CP1252 -t UTF8 tutor.sv > conv/tutor.sv
+   mv -f tutor.gr.cp737 tutor.ja.euc tutor.ja.sjis tutor.ko.euc tutor.pl.cp1250 tutor.zh.big5 tutor.ru.cp1251 tutor.zh.euc conv/
+   rm -f tutor.ca tutor.de tutor.es tutor.fr tutor.gr tutor.it tutor.ja.utf-8 tutor.ko.utf-8 tutor.no tutor.pl tutor.sk tutor.ru tutor.sv
+mv -f conv/* .
+rmdir conv
+popd
+
 # Dependency cleanups
 chmod 644 $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc/vim2html.pl \
  $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/tools/*.pl \
@@ -424,6 +448,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Jul 05 2004 Karsten Hopp <karsten@redhat.de> 6.3.011-2 
+- convert tutorial files to UTF8 (#125376)
+
 * Sat Jul 03 2004 Karsten Hopp <karsten@redhat.de> 6.3.011-1 
 - patchlevel 11
 
