@@ -1,3 +1,6 @@
+# REMOVE ME -- temporary hack
+ExcludeArch: s390 s390x
+
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -28,7 +31,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -131,7 +134,7 @@ package is installed.
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
 Requires: vim-common 
-Requires:  %(perl -le 'use Config;print $Config{archlibexp}')
+Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Obsoletes: vim-color
 
 %description enhanced
@@ -454,6 +457,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Jul 26 2004 Warren Togami <wtogami@redhat.com> 6.3.014-2
+- future proof vim-enhanced perl dep
+
 * Thu Jul 22 2004 Karsten Hopp <karsten@redhat.de> 6.3.014-1
 - patchlevel 14, fixes 'helplang' default settings
 - fix escape sequence in /etc/vimrc (#128344)
