@@ -26,6 +26,7 @@ Collection of patches for Vim 6.2:
  68765  6.2.001-100.gz	      patches 6.2.001 to 6.2.100, gzip'ed
 138268  6.2.101-200.gz        patches 6.2.101 to 6.2.200, gzip'ed
 136345  6.2.201-300.gz        patches 6.2.201 to 6.2.300, gzip'ed
+ 98866  6.2.301-400.gz        patches 6.2.301 to 6.2.400, gzip'ed
 
 Individual patches for Vim 6.2:
   SIZE  NAME     FIXES
@@ -356,6 +357,136 @@ Individual patches for Vim 6.2:
   2197  6.2.325  ":set tags=~/tags" doesn't work when $HOME includes a space
   3122  6.2.326  ":windo set syntax=foo" doesn't work
  37769  6.2.327  text formatting deletes marks and always moves the cursor
+ 12214  6.2.328  can't see what XIM is doing, add logging function
+  2117  6.2.329  ":=" prints the current line number instead of the last line
+  1562  6.2.330  (extra, after 6.2.267) Win32: crash tearing off a menu
+  2526  6.2.331  (after 6.2.327) "gwap" moves cursor to first paragraph line
+  2965  6.2.332  (extra) Amiga: compile errors, with and without GUI
+  1688  6.2.333  (extra) Win32: can't specify charset when printing
+  2106  6.2.334  (extra, after 6.2.296) Win32: remote eval in debug mode prblm
+  1944  6.2.335  cannot put another command after ":sign"
+  1696  6.2.336  (after 6.2.327) mixup of items in expression
+  2280  6.2.337  (extra, after 6.2.319) building gvimext.dll with MingW fails
+  4316  6.2.338  (after 6.2.331) cursor posn wrong: undo "gwap" or auto-fomat
+  5760  6.2.339  crash when using many highlight groups and UserN highlighting
+  2482  6.2.340  ":reg" does not show actual contents of the clipboard
+  2971  6.2.341  (extra) Win32: diff mode doesn't work if $VIM includes a space
+  5658  6.2.342  (extra) Win32: WINVER defined to 0x400 instead of 0x0400
+  5356  6.2.343  X11: setting window title fails with a few window managers
+  3588  6.2.344  (extra, after 6.2.337) can't build GvimExt with MingW on Linux
+  8112  6.2.345  (extra) Win32: copy/paste fails when 'encoding' is wrong
+  2045  6.2.346  Win32 console: console codepage is not detected
+  2715  6.2.347  (extra) MS-Windows XP theme support is missing.
+  1707  6.2.348  Win32: "vim c:\dir\(test)" doesn't work
+  5198  6.2.349  crash using 'mathpairs'; 'matchpairs' not used for 'showmatch'
+  2052  6.2.350  not enough info about startup timing
+  2210  6.2.351  Win32: %VAR% in $HOME is not expanded
+  2290  6.2.352  (after 6.2.335) ":sign texthl=||" doesn't work
+  2632  6.2.353  (extra) Win32: length of Vim server name is limited
+  1531  6.2.354  (extra) mouse pointer remains hidden when on a tear-off menu
+ 12211  6.2.355  (after 6.2.303) problems with double-byte 'encoding'
+  2657  6.2.356  "vy" only yanks for byte of a double-byte character
+  2096  6.2.357  (after 6.2.321) memory leak when resizing the Vim window
+  1622  6.2.358  (after 6.2.299) memory leak when help tag with lang. not found
+  1583  6.2.359  (after 6.2.352) compiler warning for long to int type cast
+  1560  6.2.360  "100|" in an empty line gives wrong ruler "0-100"
+  2354  6.2.361  (extra) Win32: mouse pointer disappears after Alt-Tab-Esc
+  2123  6.2.362  (extra, after 6.2.347) Win32: gvim doesn't run everywhere
+  2314  6.2.363  ruler in empty line shows "0-1" instead of "1" in Insert mode
+  2085  6.2.364  HTML version of the help files don't mention the encoding used
+ 12659  6.2.365  configure for Perl and Python may cause building to break
+  1435  6.2.366  no error message when the GUI can't start b.o. a missing font
+  1870  6.2.367  building help tags fails if there is another Vim in $PATH
+  2072  6.2.368  'autochdir' is not used when closing a window
+ 14349  6.2.369  various memory leaks and use of NULL pointers
+  3723  6.2.370  (extra, after 6.2.341) Win32: still problems with diff mode
+  1938  6.2.371  "dtx" doesn't delete the whole Tab before "x"
+  8803  6.2.372  balloon evaluation doesn't do "p->item" and "array[val]"
+  2015  6.2.373  in a zero-height window the ruler always shows "Top"
+  6650  6.2.374  "echo 'hello' | silent normal n" clears the "hello"
+  1511  6.2.375  hit-enter prompt may be off-screen after changing 'guioptions'
+  1856  6.2.376  Win32: Ruby interface doesn't work with Ruby 1.6
+  2212  6.2.377  (after 6.2.372) signed/unsigned warning
+  4620  6.2.378  (extra, after 6.2.118) Mac: can't build with Project Builder
+  6986  6.2.379  ":mkvimrc" may use "delete" value for 'bufhidden'
+  1862  6.2.380  (extra) DOS: can't repeat "make test" or do it with Borland C
+  3056  6.2.381  no error for ":set fenc=latin1,utf8", title not updated
+  2011  6.2.382  "make test" puts marks in viminfo file
+  1310  6.2.383  crash when doing ":hi foo term='bla'"
+  3726  6.2.384  ":menu a.&b" ":unmenu a.b" doesn't work with translations
+  2754  6.2.385  (extra) Win32 console: can't compile with small features
+  1851  6.2.386  wasting time reading marks from viminfo that won't be there
+  7493  6.2.387  translated items in help files can't be highlighted
+  3621  6.2.388  GTK2: some double-wide chars are displayed as single-wide
+  2893  6.2.389  if last line doesn't fit it is drawn unnecessarily
+  1785  6.2.390  "r*" in Visual mode replaces only half of multi-byte chars
+  6616  6.2.391  (extra) the ":highlight" command isn't tested
+  1626  6.2.392  (after patch 6.2.384) compiler warning for unused variable
+  9263  6.2.393  with very long line in register viminfo can become very long
+  1869  6.2.394  (after 6.2.391) test 51 fails on terminal with eight colors
+ 14021  6.2.395  ":pop" may change the order of matching tag
+  1543  6.2.396  CTRL-T does not always go to the desired line
+  6184  6.2.397  mapping <M-x> doesn't work with double-byte 'encoding'
+ 10046  6.2.398  (extra) Win32 console: extra modifiers don't work
+  2982  6.2.399  get part of error message for ":set" inside try/catch
+  1527  6.2.400  can't compile if_xcmdsrv.c on HPUX 11
+  1858  6.2.401  cursor position wrong in buffer when first line has indent
+  1674  6.2.402  Mac: "make install" doesn't generate help tags
+  2302  6.2.403  ":@y" may read from stdin, which may fail in the GUI
+  7685  6.2.404  library wcwidth() may work better than our own function
+  2472  6.2.405  cannot remap zero without disabling typing a count
+  2077  6.2.406  ":help \zs" and ":help \<=" don't find useful help
+  1811  6.2.407  ":help \@<=" doesn't work
+  8307  6.2.408  ":compiler" sets local options but a global variable
+  2363  6.2.409  cursor in wrong column when using 'indentexpr'
+  1957  6.2.410  (after 6.2.389) diff mode: filler lines are not drawn
+  8974  6.2.411  a "\n" in a pattern doesn't match a "\n" in a string
+  3778  6.2.412  ":python <<EOF" doesn't always work inside a function
+  1743  6.2.413  (after 6.2.411) missing prototype for vim_regexec_nl()
+  9745  6.2.414  cannot use <SID> for custom completion function
+  2205  6.2.415  crash when resizing window and changing 'guioptions'
+  1470  6.2.416  compiler warning for pointer type of poll() argument
+  7409  6.2.417  users often forget to put a \ before the " item in 'viminfo'
+  2082  6.2.418  abbreviation still used for result of ":noremap" mapping
+  9709  6.2.419  (extra) Win32: can't open Vim inside an MDI application
+ 10310  6.2.420  cannot edit a file in binary mode without ":set binary"
+  2792  6.2.421  cannot set '[ and '] marks when needed
+  3169  6.2.422  the Insert mode completion messages are not optimal
+  3706  6.2.423  ":vert wincmd ]" does not split vertically
+  1653  6.2.424  BufEnter autocmd stops 'mousefocus' from working
+  2017  6.2.425  can only drag rightmost status line above cmdline window
+  1756  6.2.426  matchgroup highlighting of region end only does last line
+ 15470  6.2.427  (extra) pasting a long text causes conversion errors
+ 11149  6.2.428  (CORRECTED) X11: wrong copy/paste: two Vims and 'enc' differs
+  2591  6.2.429  Unix: glob() doesn't work for a name with a single quote
+  2192  6.2.430  BOM at the start of a Vim script file is not recognized
+ 12773  6.2.431  horizontal scrollbar is limited by length of cursor line
+  2045  6.2.432  (after 6.2.430 and 6.2.431) lint warnings
+  2283  6.2.433  translating Visual mode messages gives weird results
+  1495  6.2.434  (after 6.2.431) compiler warning
+  1985  6.2.435  minimal Vim window height is wrong with vertical splits
+  3139  6.2.436  running test 49 changes the user's viminfo file
+  1869  6.2.437  ":mksession" uses ":set nocompatible" which has side effects
+  2290  6.2.438  after backspacing with 'v' in 'cpo' too much is overtyped
+  4048  6.2.439  GTK: changing 'lines' can give a messed up window layout
+  3526  6.2.440  window title and status are still updated when 'lz' is set
+  2484  6.2.441  trailing space after ":unabbr" command is not ignored
+ 16605  6.2.442  can't manipulate the command line from a function
+  6692  6.2.443  source info for error msg is not redirected after ":silent!"
+ 11457  6.2.444  adding 'c' flag to ":s" sometimes finds more matches
+  2902  6.2.445  vimtutor creates a temp file in a way that's not 100% secure
+  2436  6.2.446  (after 6.2.404) library wcwidth() doesn't work properly
+  1471  6.2.447  (after 6.2.440) can't update window title from a function
+  6004  6.2.448  (after 6.2.427) Mac: pasting a long text doesn't work
+  1800  6.2.449  (after 6.2.431) errors when there is a horizontal scrollbar
+  3861  6.2.450  default 'include' and 'define' don't allow spaces before #
+ 23450  6.2.451  GTK: various problems when using XIM
+  5309  6.2.452  with DiffAdd and DiffText equal, DiffChange used for new line
+  2418  6.2.453  ":s/foo\|\nbar/x/g" only replaces foo in "foo\nbar"
+  1862  6.2.454  ":let b:changedtick" doesn't work
+  2626  6.2.455  current locale confuses Python library functions
+ 24720  6.2.456  (extra) Win32: can't handle filenames with multi-byte chars
+  2482  6.2.457  (after 6.2.244) wrong utf-8 to latin1 conv. when writing file
 
 
 Collection of patches for Vim 6.1:

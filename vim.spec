@@ -23,7 +23,7 @@
 
 %define baseversion 6.2
 %define vimdir vim62
-%define patchlevel 327
+%define patchlevel 457
 
 Summary: The VIM editor.
 Name: vim
@@ -47,7 +47,7 @@ Patch2005: vim-6.0r-crv.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
-# (for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.2.%03d\n" $i $i; done)
+# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.2.%03d\n" $i $i; done
 Patch001: ftp://ftp.vim.org/pub/vim/patches/6.2.001
 Patch002: ftp://ftp.vim.org/pub/vim/patches/6.2.002
 Patch003: ftp://ftp.vim.org/pub/vim/patches/6.2.003
@@ -375,6 +375,136 @@ Patch324: ftp://ftp.vim.org/pub/vim/patches/6.2.324
 Patch325: ftp://ftp.vim.org/pub/vim/patches/6.2.325
 Patch326: ftp://ftp.vim.org/pub/vim/patches/6.2.326
 Patch327: ftp://ftp.vim.org/pub/vim/patches/6.2.327
+Patch328: ftp://ftp.vim.org/pub/vim/patches/6.2.328
+Patch329: ftp://ftp.vim.org/pub/vim/patches/6.2.329
+Patch330: ftp://ftp.vim.org/pub/vim/patches/6.2.330
+Patch331: ftp://ftp.vim.org/pub/vim/patches/6.2.331
+Patch332: ftp://ftp.vim.org/pub/vim/patches/6.2.332
+Patch333: ftp://ftp.vim.org/pub/vim/patches/6.2.333
+Patch334: ftp://ftp.vim.org/pub/vim/patches/6.2.334
+Patch335: ftp://ftp.vim.org/pub/vim/patches/6.2.335
+Patch336: ftp://ftp.vim.org/pub/vim/patches/6.2.336
+Patch337: ftp://ftp.vim.org/pub/vim/patches/6.2.337
+Patch338: ftp://ftp.vim.org/pub/vim/patches/6.2.338
+Patch339: ftp://ftp.vim.org/pub/vim/patches/6.2.339
+Patch340: ftp://ftp.vim.org/pub/vim/patches/6.2.340
+Patch341: ftp://ftp.vim.org/pub/vim/patches/6.2.341
+Patch342: ftp://ftp.vim.org/pub/vim/patches/6.2.342
+Patch343: ftp://ftp.vim.org/pub/vim/patches/6.2.343
+Patch344: ftp://ftp.vim.org/pub/vim/patches/6.2.344
+Patch345: ftp://ftp.vim.org/pub/vim/patches/6.2.345
+Patch346: ftp://ftp.vim.org/pub/vim/patches/6.2.346
+Patch347: ftp://ftp.vim.org/pub/vim/patches/6.2.347
+Patch348: ftp://ftp.vim.org/pub/vim/patches/6.2.348
+Patch349: ftp://ftp.vim.org/pub/vim/patches/6.2.349
+Patch350: ftp://ftp.vim.org/pub/vim/patches/6.2.350
+Patch351: ftp://ftp.vim.org/pub/vim/patches/6.2.351
+Patch352: ftp://ftp.vim.org/pub/vim/patches/6.2.352
+Patch353: ftp://ftp.vim.org/pub/vim/patches/6.2.353
+Patch354: ftp://ftp.vim.org/pub/vim/patches/6.2.354
+Patch355: ftp://ftp.vim.org/pub/vim/patches/6.2.355
+Patch356: ftp://ftp.vim.org/pub/vim/patches/6.2.356
+Patch357: ftp://ftp.vim.org/pub/vim/patches/6.2.357
+Patch358: ftp://ftp.vim.org/pub/vim/patches/6.2.358
+Patch359: ftp://ftp.vim.org/pub/vim/patches/6.2.359
+Patch360: ftp://ftp.vim.org/pub/vim/patches/6.2.360
+Patch361: ftp://ftp.vim.org/pub/vim/patches/6.2.361
+Patch362: ftp://ftp.vim.org/pub/vim/patches/6.2.362
+Patch363: ftp://ftp.vim.org/pub/vim/patches/6.2.363
+Patch364: ftp://ftp.vim.org/pub/vim/patches/6.2.364
+Patch365: ftp://ftp.vim.org/pub/vim/patches/6.2.365
+Patch366: ftp://ftp.vim.org/pub/vim/patches/6.2.366
+Patch367: ftp://ftp.vim.org/pub/vim/patches/6.2.367
+Patch368: ftp://ftp.vim.org/pub/vim/patches/6.2.368
+Patch369: ftp://ftp.vim.org/pub/vim/patches/6.2.369
+Patch370: ftp://ftp.vim.org/pub/vim/patches/6.2.370
+Patch371: ftp://ftp.vim.org/pub/vim/patches/6.2.371
+Patch372: ftp://ftp.vim.org/pub/vim/patches/6.2.372
+Patch373: ftp://ftp.vim.org/pub/vim/patches/6.2.373
+Patch374: ftp://ftp.vim.org/pub/vim/patches/6.2.374
+Patch375: ftp://ftp.vim.org/pub/vim/patches/6.2.375
+Patch376: ftp://ftp.vim.org/pub/vim/patches/6.2.376
+Patch377: ftp://ftp.vim.org/pub/vim/patches/6.2.377
+Patch378: ftp://ftp.vim.org/pub/vim/patches/6.2.378
+Patch379: ftp://ftp.vim.org/pub/vim/patches/6.2.379
+Patch380: ftp://ftp.vim.org/pub/vim/patches/6.2.380
+Patch381: ftp://ftp.vim.org/pub/vim/patches/6.2.381
+Patch382: ftp://ftp.vim.org/pub/vim/patches/6.2.382
+Patch383: ftp://ftp.vim.org/pub/vim/patches/6.2.383
+Patch384: ftp://ftp.vim.org/pub/vim/patches/6.2.384
+Patch385: ftp://ftp.vim.org/pub/vim/patches/6.2.385
+Patch386: ftp://ftp.vim.org/pub/vim/patches/6.2.386
+Patch387: ftp://ftp.vim.org/pub/vim/patches/6.2.387
+Patch388: ftp://ftp.vim.org/pub/vim/patches/6.2.388
+Patch389: ftp://ftp.vim.org/pub/vim/patches/6.2.389
+Patch390: ftp://ftp.vim.org/pub/vim/patches/6.2.390
+Patch391: ftp://ftp.vim.org/pub/vim/patches/6.2.391
+Patch392: ftp://ftp.vim.org/pub/vim/patches/6.2.392
+Patch393: ftp://ftp.vim.org/pub/vim/patches/6.2.393
+Patch394: ftp://ftp.vim.org/pub/vim/patches/6.2.394
+Patch395: ftp://ftp.vim.org/pub/vim/patches/6.2.395
+Patch396: ftp://ftp.vim.org/pub/vim/patches/6.2.396
+Patch397: ftp://ftp.vim.org/pub/vim/patches/6.2.397
+Patch398: ftp://ftp.vim.org/pub/vim/patches/6.2.398
+Patch399: ftp://ftp.vim.org/pub/vim/patches/6.2.399
+Patch400: ftp://ftp.vim.org/pub/vim/patches/6.2.400
+Patch401: ftp://ftp.vim.org/pub/vim/patches/6.2.401
+Patch402: ftp://ftp.vim.org/pub/vim/patches/6.2.402
+Patch403: ftp://ftp.vim.org/pub/vim/patches/6.2.403
+Patch404: ftp://ftp.vim.org/pub/vim/patches/6.2.404
+Patch405: ftp://ftp.vim.org/pub/vim/patches/6.2.405
+Patch406: ftp://ftp.vim.org/pub/vim/patches/6.2.406
+Patch407: ftp://ftp.vim.org/pub/vim/patches/6.2.407
+Patch408: ftp://ftp.vim.org/pub/vim/patches/6.2.408
+Patch409: ftp://ftp.vim.org/pub/vim/patches/6.2.409
+Patch410: ftp://ftp.vim.org/pub/vim/patches/6.2.410
+Patch411: ftp://ftp.vim.org/pub/vim/patches/6.2.411
+Patch412: ftp://ftp.vim.org/pub/vim/patches/6.2.412
+Patch413: ftp://ftp.vim.org/pub/vim/patches/6.2.413
+Patch414: ftp://ftp.vim.org/pub/vim/patches/6.2.414
+Patch415: ftp://ftp.vim.org/pub/vim/patches/6.2.415
+Patch416: ftp://ftp.vim.org/pub/vim/patches/6.2.416
+Patch417: ftp://ftp.vim.org/pub/vim/patches/6.2.417
+Patch418: ftp://ftp.vim.org/pub/vim/patches/6.2.418
+Patch419: ftp://ftp.vim.org/pub/vim/patches/6.2.419
+Patch420: ftp://ftp.vim.org/pub/vim/patches/6.2.420
+Patch421: ftp://ftp.vim.org/pub/vim/patches/6.2.421
+Patch422: ftp://ftp.vim.org/pub/vim/patches/6.2.422
+Patch423: ftp://ftp.vim.org/pub/vim/patches/6.2.423
+Patch424: ftp://ftp.vim.org/pub/vim/patches/6.2.424
+Patch425: ftp://ftp.vim.org/pub/vim/patches/6.2.425
+Patch426: ftp://ftp.vim.org/pub/vim/patches/6.2.426
+Patch427: ftp://ftp.vim.org/pub/vim/patches/6.2.427
+Patch428: ftp://ftp.vim.org/pub/vim/patches/6.2.428
+Patch429: ftp://ftp.vim.org/pub/vim/patches/6.2.429
+Patch430: ftp://ftp.vim.org/pub/vim/patches/6.2.430
+Patch431: ftp://ftp.vim.org/pub/vim/patches/6.2.431
+Patch432: ftp://ftp.vim.org/pub/vim/patches/6.2.432
+Patch433: ftp://ftp.vim.org/pub/vim/patches/6.2.433
+Patch434: ftp://ftp.vim.org/pub/vim/patches/6.2.434
+Patch435: ftp://ftp.vim.org/pub/vim/patches/6.2.435
+Patch436: ftp://ftp.vim.org/pub/vim/patches/6.2.436
+Patch437: ftp://ftp.vim.org/pub/vim/patches/6.2.437
+Patch438: ftp://ftp.vim.org/pub/vim/patches/6.2.438
+Patch439: ftp://ftp.vim.org/pub/vim/patches/6.2.439
+Patch440: ftp://ftp.vim.org/pub/vim/patches/6.2.440
+Patch441: ftp://ftp.vim.org/pub/vim/patches/6.2.441
+Patch442: ftp://ftp.vim.org/pub/vim/patches/6.2.442
+Patch443: ftp://ftp.vim.org/pub/vim/patches/6.2.443
+Patch444: ftp://ftp.vim.org/pub/vim/patches/6.2.444
+Patch445: ftp://ftp.vim.org/pub/vim/patches/6.2.445
+Patch446: ftp://ftp.vim.org/pub/vim/patches/6.2.446
+Patch447: ftp://ftp.vim.org/pub/vim/patches/6.2.447
+Patch448: ftp://ftp.vim.org/pub/vim/patches/6.2.448
+Patch449: ftp://ftp.vim.org/pub/vim/patches/6.2.449
+Patch450: ftp://ftp.vim.org/pub/vim/patches/6.2.450
+Patch451: ftp://ftp.vim.org/pub/vim/patches/6.2.451
+Patch452: ftp://ftp.vim.org/pub/vim/patches/6.2.452
+Patch453: ftp://ftp.vim.org/pub/vim/patches/6.2.453
+Patch454: ftp://ftp.vim.org/pub/vim/patches/6.2.454
+Patch455: ftp://ftp.vim.org/pub/vim/patches/6.2.455
+Patch456: ftp://ftp.vim.org/pub/vim/patches/6.2.456
+Patch457: ftp://ftp.vim.org/pub/vim/patches/6.2.457
 
 Patch3001: vim-6.1-syntax.patch
 Patch3002: vim-6.2-rh1.patch
@@ -531,7 +661,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch030 -p0
 %patch031 -p0
 %patch032 -p0
-# %patch033 -p0 # Mac
+#%patch033 -p0 # Mac
 %patch034 -p0
 %patch035 -p0
 # %patch036 -p0 # Mac
@@ -539,7 +669,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # %patch038 -p0 -b .pl038 # Win32
 # %patch039 -p0 -b .pl039 # Win32
 # %patch040 -p0 -b .pl040 # Mac
-# %patch041 -p0 -b .pl041 # Win32
+#%patch041 -p0 # Mac
 # %patch042 -p0 -b .pl042 # Cygwin
 %patch043 -p0
 %patch044 -p0
@@ -616,17 +746,18 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # %patch115 -p0 # Amiga
 # %patch116 -p0 # Win
 %patch117 -p0
-# %patch118 -p0 # Mac
+# Modified:
+%patch118 -p0
 # %patch119 -p0 # Win
 %patch120 -p0
 # %patch121 -p0 # Mac
 # %patch122 -p0 # Mac
-# %patch123 -p0 # Mac
+%patch123 -p0
 # %patch124 -p0 # Mac
 # %patch125 -p0 # Win32
 # %patch126 -p0 # Win32
 #%patch127 -p0 # Win32
-# %patch128 -p0 # Mac
+%patch128 -p0
 %patch129 -p0
 # %patch130 -p0 # Win32
 # %patch131 -p0 # Win32
@@ -638,9 +769,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch137 -p0
 # %patch138 -p0 # VMS
 %patch139 -p0
-# %patch140 -p0 # Mac
-# %patch141 -p0 # Mac
-# %patch142 -p0 # Mac
+%patch140 -p0
+#%patch141 -p0
+%patch142 -p0
 %patch143 -p0
 %patch144 -p0
 %patch145 -p0
@@ -732,7 +863,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #%patch230 -p0 # Win32
 %patch231 -p0
 %patch232 -p0
-#%patch233 -p0 # Mac
+%patch233 -p0
 %patch234 -p0
 #%patch235 -p0 # Win32
 #%patch236 -p0 # NetBeans
@@ -827,6 +958,139 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch325 -p0
 %patch326 -p0
 %patch327 -p0
+%patch328 -p0
+%patch329 -p0
+#%patch330 -p0 # Win32
+%patch331 -p0
+#%patch332 -p0 # Amiga
+#%patch333 -p0 # Win32
+#%patch334 -p0 # Win32
+%patch335 -p0
+%patch336 -p0
+#%patch337 -p0 # Win32
+%patch338 -p0
+%patch339 -p0
+%patch340 -p0
+#%patch341 -p0 # Win32
+#%patch342 -p0 # Win32
+%patch343 -p0
+#%patch344 -p0 # Win32
+#%patch345 -p0 # Win32
+#%patch346 -p0 # Win32
+#%patch347 -p0 # WinXP
+#%patch348 -p0 # Win32
+%patch349 -p0
+%patch350 -p0
+#%patch351 -p0 # Win32
+%patch352 -p0
+#%patch353 -p0 # Win32
+#%patch354 -p0 # Win32
+# Modified:
+%patch355 -p0
+%patch356 -p0
+%patch357 -p0
+%patch358 -p0
+%patch359 -p0
+%patch360 -p0
+#%patch361 -p0 # Win32
+#%patch362 -p0 # Win32
+%patch363 -p0
+%patch364 -p0
+%patch365 -p0
+%patch366 -p0
+%patch367 -p0
+%patch368 -p0
+%patch369 -p0
+#%patch370 -p0 # Win32
+%patch371 -p0
+%patch372 -p0
+%patch373 -p0
+%patch374 -p0
+%patch375 -p0
+#%patch376 -p0 # Win32
+%patch377 -p0
+#%patch378 -p0 # Mac
+%patch379 -p0
+#%patch380 -p0 # DOS
+%patch381 -p0
+%patch382 -p0
+%patch383 -p0
+%patch384 -p0
+#%patch385 -p0 # Win32
+%patch386 -p0
+%patch387 -p0
+%patch388 -p0
+%patch389 -p0
+%patch390 -p0
+#Modified, removed amiga, os2, vms stuff
+%patch391 -p0
+%patch392 -p0
+%patch393 -p0
+%patch394 -p0
+%patch395 -p0
+%patch396 -p0
+%patch397 -p0
+#%patch398 -p0 # Win32
+%patch399 -p0
+%patch400 -p0
+%patch401 -p0
+#%patch402 -p0 # Mac
+%patch403 -p0
+%patch404 -p0
+%patch405 -p0
+%patch406 -p0
+%patch407 -p0
+%patch408 -p0
+%patch409 -p0
+%patch410 -p0
+%patch411 -p0
+%patch412 -p0
+%patch413 -p0
+%patch414 -p0
+%patch415 -p0
+%patch416 -p0
+%patch417 -p0
+%patch418 -p0
+#%patch419 -p0 # Win32
+%patch420 -p0
+%patch421 -p0
+%patch422 -p0
+%patch423 -p0
+%patch424 -p0
+%patch425 -p0
+%patch426 -p0
+#Modified, removed amiga, win32 stuff:
+%patch427 -p0
+%patch428 -p0
+%patch429 -p0
+%patch430 -p0
+%patch431 -p0
+%patch432 -p0
+%patch433 -p0
+%patch434 -p0
+%patch435 -p0
+%patch436 -p0
+%patch437 -p0
+%patch438 -p0
+%patch439 -p0
+%patch440 -p0
+%patch441 -p0
+%patch442 -p0
+%patch443 -p0
+%patch444 -p0
+%patch445 -p0
+%patch446 -p0
+%patch447 -p0
+#%patch448 -p0 # Mac
+%patch449 -p0
+%patch450 -p0
+%patch451 -p0
+%patch452 -p0
+%patch453 -p0
+%patch454 -p0
+%patch455 -p0
+#%patch456 -p0 # Win32
+%patch457 -p0
 
 #%patch3000 -p1 -b .kh1
 %patch3001 -p1 -b .syntx
@@ -836,7 +1100,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3005 -p1 -b .rcloc
 %patch3006 -p1 -b .rh4
 %patch3007 -p1 -b .rh5
-%patch3008 -p1 -b .perlthread
+# %patch3008 -p1 -b .perlthread
 %patch3009 -p1 -b .stx
 
 %patch3100 -p1
@@ -1049,6 +1313,15 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Apr 07 2004 Karsten Hopp <karsten@redhat.de> 6.2.457-1 
+- patchlevel 457
+
+* Fri Mar 26 2004 Karsten Hopp <karsten@redhat.de> 6.2.403-1
+- patchlevel 403
+
+* Thu Mar 18 2004 Karsten Hopp <karsten@redhat.de> 6.2.380-1 
+- patchlevel 380
+
 * Mon Mar 08 2004 Karsten Hopp <karsten@redhat.de> 6.2.327-1 
 - patchlevel 327
 
