@@ -65,3 +65,7 @@ Individual patches for Vim 6.3:
  18020  6.3.040  window count for a buffer was wrong after error handling
   1932  6.3.041  (extra) Win32: ":cd %:p:h" doesn't work when 'enc' is not ACP
   1760  6.3.042  CTRL-X CTRL-E in Insert mode does not scroll fold correctly
+  8053  6.3.043  'hlsearch' highlighting sometimes disappears
+  2812  6.3.044  (extra) Mac: pixels left behind when 'linespace' is non-zero
+ 12283  6.3.045  some option values may cause trouble in a modeline
+  2231  6.3.046  ":registers" doesn't show multi-byte characters correctly

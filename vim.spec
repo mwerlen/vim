@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 042
+%define patchlevel 046
 
 Summary: The VIM editor.
 Name: vim
@@ -92,6 +92,10 @@ Patch039: ftp://ftp.vim.org/pub/vim/patches/6.3.039
 Patch040: ftp://ftp.vim.org/pub/vim/patches/6.3.040
 Patch041: ftp://ftp.vim.org/pub/vim/patches/6.3.041
 Patch042: ftp://ftp.vim.org/pub/vim/patches/6.3.042
+Patch043: ftp://ftp.vim.org/pub/vim/patches/6.3.043
+Patch044: ftp://ftp.vim.org/pub/vim/patches/6.3.044
+Patch045: ftp://ftp.vim.org/pub/vim/patches/6.3.045
+Patch046: ftp://ftp.vim.org/pub/vim/patches/6.3.046
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -256,6 +260,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Win32
 #%patch41 -p0
 %patch42 -p0
+%patch043 -p0
+# Win32
+#%patch044 -p0
+%patch045 -p0
+%patch046 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
