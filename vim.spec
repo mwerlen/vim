@@ -2,12 +2,17 @@ Summary: The VIM editor.
 Name: vim
 Version: 5.7
 %define vimversion vim57
-Release: 8
-Copyright: freeware
+Release: 8tc1
+Packager: Red Hat, Inc. <http://bugzilla.redhat.com/bugzilla>
+Vendor: Red Hat, Inc.
+Copyright: Charityware
 Group: Applications/Editors
 Source0: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-src.tar.gz
 Source1: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-rt.tar.gz
+# By CLE {
 Source3: vimrc
+Source4: gvimrc
+# }
 Patch0: vim-4.2-speed_t.patch
 Patch1: vim-5.1-vimnotvi.patch
 Patch2: vim-5.6a-paths.patch
@@ -17,7 +22,6 @@ Patch5: vim-5.6-destdir.patch
 Patch6: vim-5.7-redhat.patch
 Patch7: vim-5.7-docpath.patch
 Patch8: vim-5.7-crv.patch
-Patch9: vim-5.7-security.patch
 Patch101: 5.7.001
 Patch102: 5.7.002
 Patch103: 5.7.003
@@ -26,19 +30,6 @@ Patch105: 5.7.005
 Patch106: 5.7.006
 Patch107: 5.7.007
 Patch108: 5.7.008
-Patch112: 5.7.012
-Patch113: 5.7.013
-Patch114: 5.7.014
-Patch115: 5.7.015
-Patch116: 5.7.016
-Patch117: 5.7.017
-Patch118: 5.7.018
-Patch119: 5.7.019
-Patch120: 5.7.020
-Patch121: 5.7.021
-Patch122: 5.7.022
-Patch123: 5.7.023
-Patch124: 5.7.024
 Buildroot: /var/tmp/vim-root
 Buildrequires: python-devel perl gtk+-devel
 
@@ -129,7 +120,6 @@ find . -name \*.paths | xargs rm -f
 %patch6 -p1 -b .redhat
 %patch7 -p1 -b .docs
 %patch8 -p1 -b .crv
-%patch9 -p1 -b .security
 
 %patch101 -p0 -b .p1
 %patch102 -p0 -b .p2
@@ -139,19 +129,6 @@ find . -name \*.paths | xargs rm -f
 %patch106 -p0 -b .p6
 %patch107 -p0 -b .p7
 %patch108 -p0 -b .p8
-%patch112 -p0 -b .p12
-%patch113 -p0 -b .p13
-%patch114 -p0 -b .p14
-%patch115 -p0 -b .p15
-%patch116 -p0 -b .p16
-%patch117 -p0 -b .p17
-%patch118 -p0 -b .p18
-%patch119 -p0 -b .p19
-%patch120 -p0 -b .p20
-%patch121 -p0 -b .p21
-%patch122 -p0 -b .p22
-%patch123 -p0 -b .p23
-%patch124 -p0 -b .p24
 
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
@@ -160,7 +137,7 @@ cd src
 perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimversion},g" os_unix.h
 perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimversion}/macros,g" os_unix.h
 
-%configure --enable-max-features=yes --enable-pythoninterp --enable-perlinterp --disable-tclinterp --with-x=yes --enable-gui=gtk --exec-prefix=/usr/X11R6
+%configure --enable-max-features=yes --enable-pythoninterp --enable-perlinterp --disable-tclinterp --with-x=yes --enable-gui=gtk --exec-prefix=/usr/X11R6 --enable-xim --enable-multibyte --enable-fontset
 make if_perl.c
 perl -pi -e "s,#define.*PL_na.*,,g" if_perl.c
 perl -pi -e "s,#define.*PL_defgv.*,,g" if_perl.c
@@ -225,8 +202,12 @@ Type=Application
 Comment=VI editor for X Windows
 Exec=gvim
 EOF
+# By CLE {
   install -s -m644 %{SOURCE3} ./usr/share/vim/%{vimversion}/macros/
-  ln -s vimrc ./usr/share/vim/%{vimversion}/macros/gvimrc
+  install -s -m644 %{SOURCE4} ./usr/share/vim/%{vimversion}/macros/
+#  install -s -m644 %{SOURCE3} ./usr/share/vim/%{vimversion}/macros/
+#  ln -s vimrc ./usr/share/vim/%{vimversion}/macros/gvimrc
+# }
 )
 
 # Dependency cleanups
@@ -253,6 +234,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/vi.*
 %{_mandir}/man1/view.*
 %{_mandir}/man1/rvi.*
+%{_mandir}/man1/gvim.*
 %{_mandir}/man1/rview.*
 %{_mandir}/man1/xxd.*
 
@@ -277,12 +259,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gvim.*
 
 %changelog
-* Mon Jan 29 2001 Bernhard Rosenkraenzer <bero@redhat.com>
-- Apply bugfix patch #24, fixes security bug #25194
+* Tue Dec  5 2000 Andrew Lee <andrew@linux.org.tw>
+- Candyz alreay patch this on CLE 0.9p1
+- rebuild on RH7
 
-* Wed Dec 20 2000 Bernhard Rosenkraenzer <bero@redhat.com>
-- Fix mktemp() potential DoS (#22594, #22595)
-- Apply bugfix patches #9 to #19
+* Wed Oct 11 2000 Chung-Yen Chang <candyz@cle.linux.org.tw>
+- configure with --enable-xim --enable-multibyte --enable-fontset
+- add default vimrc and gvimrc for Chinese
+
 
 * Sun Aug  6 2000 Tim Waugh <twaugh@redhat.com>
 - xterm doesn't have request version string (#14570)
