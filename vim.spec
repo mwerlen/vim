@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -448,6 +448,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Jul 07 2004 Karsten Hopp <karsten@redhat.de> 6.3.011-3
+- rebuild with new gcc
+
 * Mon Jul 05 2004 Karsten Hopp <karsten@redhat.de> 6.3.011-2 
 - convert tutorial files to UTF8 (#125376)
 
