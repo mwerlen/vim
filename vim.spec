@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 4
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -448,6 +448,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Jul 8 2004 Dan Walsh <dwalsh@redhat.com> 6.3.011-4
+- Fix selinux patch to handle symlinks
+
 * Wed Jul 07 2004 Karsten Hopp <karsten@redhat.de> 6.3.011-3
 - rebuild with new gcc
 
