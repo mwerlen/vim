@@ -10,14 +10,12 @@
 %if %{enterprise}
 # don't build gvim
 %define withgui 0
-# don't build the gtk2 gui
-%define withgtk2 0
 # don't include ruby interpreter
 %define withruby 0
 %else
 %define withgui 1
-%define withgtk2 1
 %define withruby 0
+%define withnetbeans 0
 %endif
 
 
@@ -28,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -164,11 +162,7 @@ need to install the vim-common package.
 Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
 Requires: vim-common libattr
-%if "%{withgtk2}" == "1"
 BuildRequires: gtk2-devel
-%else
-BuildRequires: gtk+-devel
-%endif
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -253,17 +247,19 @@ export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
 %if "%{withgui}" == "1"
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
   --disable-tclinterp --with-x=yes --exec-prefix=/usr/X11R6 \
-  --enable-xim --enable-multibyte --enable-fontset \
-  --disable-netbeans \
-  --with-compiledby="<bugzilla@redhat.com>" \
-%if "%{withruby}" == "1"
-  --enable-rubyinterp \
-%endif
-%if "%{withgtk2}" == "1"
-  --enable-gtk2-check --enable-gui=gtk2
+  --enable-xim --enable-multibyte \
+  --enable-gtk2-check --enable-gui=gtk2 \
+  --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
+  --with-modified-by="<bugzilla@redhat.com>" \
+%if "%{withnetbeans}" == "1"
+  --enable-netbeans \
 %else
-   --enable-gui=gtk
+  --disable-netbeans \
 %endif
+%if "%{withruby}" == "1"
+  --enable-rubyinterp
+%endif
+%
 make
 cp vim gvim
 make clean
@@ -271,9 +267,14 @@ make clean
 
 %configure --prefix=/usr --with-features=huge --enable-pythoninterp \
  --enable-perlinterp --disable-tclinterp --with-x=no \
- --enable-gui=no --exec-prefix=/usr --enable-multibyte --enable-fontset \
- --disable-netbeans \
+ --enable-gui=no --exec-prefix=/usr --enable-multibyte \
+ --disable-netbeans --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
  --with-compiledby="<bugzilla@redhat.com>" \
+%if "%{withnetbeans}" == "1"
+  --enable-netbeans \
+%else
+  --disable-netbeans \
+%endif
 %if "%{withruby}" == "1"
   --enable-rubyinterp
 %endif
@@ -478,6 +479,11 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Sep 08 2004 Karsten Hopp <karsten@redhat.de> 6.3.025-2 
+- clean up spec file
+- disable fontset
+- enable cscope
+
 * Mon Sep 06 2004 Karsten Hopp <karsten@redhat.de> 6.3.025-1 
 - patchlevel 25
 
