@@ -91,3 +91,4 @@ Individual patches for Vim 6.3:
   1586  6.3.064  line2byte(line("$") + 1) sometimes returns the wrong number  
   4436  6.3.065  there was no digraph for euro in Unicode
   4728  6.3.066  permissions of backup file may be wrong
+  2200  6.3.067  (after 6.3.066) newly created file gets execute permission

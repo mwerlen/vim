@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 066
+%define patchlevel 067
 
 Summary: The VIM editor.
 Name: vim
@@ -117,6 +117,7 @@ Patch063: ftp://ftp.vim.org/pub/vim/patches/6.3.063
 Patch064: ftp://ftp.vim.org/pub/vim/patches/6.3.064
 Patch065: ftp://ftp.vim.org/pub/vim/patches/6.3.065
 Patch066: ftp://ftp.vim.org/pub/vim/patches/6.3.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/6.3.067
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -310,6 +311,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch064 -p0
 %patch065 -p0
 %patch066 -p0
+%patch067 -p0
 
 
 %patch3000 -p1
@@ -579,6 +581,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Mar 23 2005 Karsten Hopp <karsten@redhat.de> 6.3.067-1
+- Newly created files got execute permission (intruduced by patch 66)
+  #151667
+
 * Fri Mar 18 2005 Karsten Hopp <karsten@redhat.de> 6.3.066-1
 - patchlevel 66
 
