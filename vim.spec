@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 046
+%define patchlevel 054
 
 Summary: The VIM editor.
 Name: vim
@@ -46,6 +46,7 @@ Patch2001: vim-5.6a-paths.patch
 Patch2002: vim-6.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
 Patch2004: vim-6.0r-crv.patch
+Patch2005: vim-6.3-tmpfile.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
@@ -96,6 +97,14 @@ Patch043: ftp://ftp.vim.org/pub/vim/patches/6.3.043
 Patch044: ftp://ftp.vim.org/pub/vim/patches/6.3.044
 Patch045: ftp://ftp.vim.org/pub/vim/patches/6.3.045
 Patch046: ftp://ftp.vim.org/pub/vim/patches/6.3.046
+Patch047: ftp://ftp.vim.org/pub/vim/patches/6.3.047
+Patch048: ftp://ftp.vim.org/pub/vim/patches/6.3.048
+Patch049: ftp://ftp.vim.org/pub/vim/patches/6.3.049
+Patch050: ftp://ftp.vim.org/pub/vim/patches/6.3.050
+Patch051: ftp://ftp.vim.org/pub/vim/patches/6.3.051
+Patch052: ftp://ftp.vim.org/pub/vim/patches/6.3.052
+Patch053: ftp://ftp.vim.org/pub/vim/patches/6.3.053
+Patch054: ftp://ftp.vim.org/pub/vim/patches/6.3.054
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -211,6 +220,7 @@ find . -name \*.paths | xargs rm -f
 %patch2002 -p1 -b .fixkeys
 %patch2003 -p1 -b .highlite
 %patch2004 -p1 -b .crv
+%patch2005 -p1 -b .tmpfile
 %patch2010 -p1 -b .xxdloc
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
@@ -265,6 +275,19 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #%patch044 -p0
 %patch045 -p0
 %patch046 -p0
+# Win XP
+#%patch047 -p0
+# VMS
+#%patch048 -p0
+%patch049 -p0
+%patch050 -p0
+%patch051 -p0
+# Win 98
+#%patch052 -p0
+# Win 32
+#%patch053 -p0
+%patch054 -p0
+
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -529,6 +552,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Jan 12 2005 Karsten Hopp <karsten@redhat.de> 6.3.054-1
+- patchlevel 54
+- fix unsecure tempfile usage (#144698)
+
 * Mon Dec 06 2004 Karsten Hopp <karsten@redhat.de> 6.3.042-1 
 - patchlevel 42
 

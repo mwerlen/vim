@@ -76,3 +76,4 @@ Individual patches for Vim 6.3:
   1661  6.3.051  crash when 'wildmenu' set and completing multi-byte file name
   3175  6.3.052  (extra) Win 98: can't enter non-ASCII characters if 'enc' set
   1576  6.3.053  Win32: ":loadview" doesn't work for files with non-latin chars
+  1981  6.3.054  when 'im' is set redraw remains off when repeating an insert
