@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 064
+%define patchlevel 066
 
 Summary: The VIM editor.
 Name: vim
@@ -113,6 +113,10 @@ Patch059: ftp://ftp.vim.org/pub/vim/patches/6.3.059
 Patch060: ftp://ftp.vim.org/pub/vim/patches/6.3.060
 Patch061: ftp://ftp.vim.org/pub/vim/patches/6.3.061
 Patch062: ftp://ftp.vim.org/pub/vim/patches/6.3.062
+Patch063: ftp://ftp.vim.org/pub/vim/patches/6.3.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/6.3.064
+Patch065: ftp://ftp.vim.org/pub/vim/patches/6.3.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/6.3.066
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -302,6 +306,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch060 -p0
 %patch061 -p0
 %patch062 -p0
+%patch063 -p0
+%patch064 -p0
+%patch065 -p0
+%patch066 -p0
 
 
 %patch3000 -p1
@@ -571,6 +579,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Fri Mar 18 2005 Karsten Hopp <karsten@redhat.de> 6.3.066-1
+- patchlevel 66
+
 * Mon Mar 14 2005 Karsten Hopp <karsten@redhat.de> 6.3.064-1
 - patchlevel 64
 - fix selinux warning (#150126)

@@ -20,6 +20,8 @@ an argument to make it patch the right file:
 After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
+Checksums for the patch files can be found in the file MD5.
+
 Individual patches for Vim 6.3:
 
   SIZE  NAME     FIXES
@@ -87,3 +89,5 @@ Individual patches for Vim 6.3:
   2337  6.3.062  ":normal! gQ" hangs
   1434  6.3.063  after the CursorHold event 'mousefocus' may stop working
   1586  6.3.064  line2byte(line("$") + 1) sometimes returns the wrong number  
+  4436  6.3.065  there was no digraph for euro in Unicode
+  4728  6.3.066  permissions of backup file may be wrong
