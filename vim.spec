@@ -491,6 +491,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Nov 02 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-3 
+- fix selinux patch, so that HAVE_SELINUX will not be defined on 
+  non-selinux systems (#137860)
+
 * Tue Oct 19 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-3 
 - fix dependencies on vim-common (#132371)
 

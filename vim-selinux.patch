@@ -1,6 +1,6 @@
 --- vim62/src/configure.in.selinux	2004-01-20 11:34:17.177103792 -0500
 +++ vim62/src/configure.in	2004-01-20 11:34:18.507126105 -0500
-@@ -195,6 +195,20 @@
+@@ -195,6 +195,21 @@
  fi
  
  
@@ -12,8 +12,9 @@
 +	, [enable_selinux="yes"])
 +if test "$enable_selinux" = "yes"; then
 +   AC_MSG_RESULT(no)
-+   AC_CHECK_LIB(selinux, is_selinux_enabled, [LIBS="$LIBS -lselinux"])
-+   AC_DEFINE(HAVE_SELINUX)
++   AC_CHECK_LIB(selinux, is_selinux_enabled,
++     [LIBS="$LIBS -lselinux"
++      AC_DEFINE(HAVE_SELINUX)])
 +else
 +   AC_MSG_RESULT(yes)
 +fi
