@@ -38,3 +38,5 @@ Individual patches for Vim 6.3:
  11947  6.3.013  crash when using CTRL-R = in command line uses "normal :cmd"
   1566  6.3.014  default value of 'helplang' is wrong for Chinese and Taiwanese
   1207  6.3.015  the string returned by winrestcmd() may end in garbage
+  1735  6.3.016  'define' default had "\s" before #, breaks "[d"
+  1364  6.3.017  "9zz" could place the cursor beyond the end of a line
