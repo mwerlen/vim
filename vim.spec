@@ -5,27 +5,18 @@
 # Set this to 0 if you don't want to build gvim:
 %define withgui 1
 
-%define rescue %{nil}
 Summary: The VIM editor.
 Name: vim
 Version: 6.1
-%define alpha %{nil}
-%define vimversion vim61%{alpha}
-%define rel 18.8x.1
-%if "%{alpha}" != ""
-Release: 0.%{alpha}.%{rel}%{rescue}
-%else
-Release: %{rel}%{rescue}
-%endif
+%define vimversion vim61
+Release: 29
 License: freeware
 Group: Applications/Editors
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{version}%{alpha}.tar.bz2
-Source1: ftp://ftp.vim.org/pub/vim/unreleased/extra/vim-%{version}%{alpha}-lang.tar.bz2
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{version}.tar.bz2
+Source1: ftp://ftp.vim.org/pub/vim/unreleased/extra/vim-%{version}-lang.tar.bz2
 Source2: gvim.desktop
 Source3: vimrc
-Source4: hardlink.c
-Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
-ExclusiveArch: i386
+Source4: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Patch0: vim-4.2-speed_t.patch
 Patch1: vim-5.1-vimnotvi.patch
 Patch2: vim-5.6a-paths.patch
@@ -309,9 +300,65 @@ Patch1262: ftp://ftp.vim.org/pub/vim/patches/6.1.262
 Patch1263: ftp://ftp.vim.org/pub/vim/patches/6.1.263
 Patch1264: ftp://ftp.vim.org/pub/vim/patches/6.1.264
 Patch1265: ftp://ftp.vim.org/pub/vim/patches/6.1.265
+Patch1266: ftp://ftp.vim.org/pub/vim/patches/6.1.266
+Patch1267: ftp://ftp.vim.org/pub/vim/patches/6.1.267
+Patch1268: ftp://ftp.vim.org/pub/vim/patches/6.1.268
+Patch1269: ftp://ftp.vim.org/pub/vim/patches/6.1.269
+Patch1270: ftp://ftp.vim.org/pub/vim/patches/6.1.270
+Patch1271: ftp://ftp.vim.org/pub/vim/patches/6.1.271
+Patch1272: ftp://ftp.vim.org/pub/vim/patches/6.1.272
+Patch1273: ftp://ftp.vim.org/pub/vim/patches/6.1.273
+Patch1274: ftp://ftp.vim.org/pub/vim/patches/6.1.274
+Patch1275: ftp://ftp.vim.org/pub/vim/patches/6.1.275
+Patch1276: ftp://ftp.vim.org/pub/vim/patches/6.1.276
+Patch1277: ftp://ftp.vim.org/pub/vim/patches/6.1.277
+Patch1278: ftp://ftp.vim.org/pub/vim/patches/6.1.278
+Patch1279: ftp://ftp.vim.org/pub/vim/patches/6.1.279
+Patch1280: ftp://ftp.vim.org/pub/vim/patches/6.1.280
+Patch1281: ftp://ftp.vim.org/pub/vim/patches/6.1.281
+Patch1282: ftp://ftp.vim.org/pub/vim/patches/6.1.282
+Patch1283: ftp://ftp.vim.org/pub/vim/patches/6.1.283
+Patch1284: ftp://ftp.vim.org/pub/vim/patches/6.1.284
+Patch1285: ftp://ftp.vim.org/pub/vim/patches/6.1.285
+Patch1286: ftp://ftp.vim.org/pub/vim/patches/6.1.286
+Patch1287: ftp://ftp.vim.org/pub/vim/patches/6.1.287
+Patch1288: ftp://ftp.vim.org/pub/vim/patches/6.1.288
+Patch1289: ftp://ftp.vim.org/pub/vim/patches/6.1.289
+# Patches 290-292 are Win32 only
+Patch1293: ftp://ftp.vim.org/pub/vim/patches/6.1.293
+Patch1294: ftp://ftp.vim.org/pub/vim/patches/6.1.294
+Patch1295: ftp://ftp.vim.org/pub/vim/patches/6.1.295
+# Patch 296 is Win32 only
+Patch1297: ftp://ftp.vim.org/pub/vim/patches/6.1.297
+Patch1298: ftp://ftp.vim.org/pub/vim/patches/6.1.298
+Patch1299: ftp://ftp.vim.org/pub/vim/patches/6.1.299
+# Patch 300 is Win32 only
+Patch1301: ftp://ftp.vim.org/pub/vim/patches/6.1.301
+Patch1302: ftp://ftp.vim.org/pub/vim/patches/6.1.302
+# Patches 303-304 are win32 only
+Patch1305: ftp://ftp.vim.org/pub/vim/patches/6.1.305
+Patch1306: ftp://ftp.vim.org/pub/vim/patches/6.1.306
+Patch1307: ftp://ftp.vim.org/pub/vim/patches/6.1.307
+Patch1308: ftp://ftp.vim.org/pub/vim/patches/6.1.308
+Patch1309: ftp://ftp.vim.org/pub/vim/patches/6.1.309
+Patch1310: ftp://ftp.vim.org/pub/vim/patches/6.1.310
+# patch 311 is VMS only
+Patch1312: ftp://ftp.vim.org/pub/vim/patches/6.1.312
+Patch1313: ftp://ftp.vim.org/pub/vim/patches/6.1.313
+Patch1314: ftp://ftp.vim.org/pub/vim/patches/6.1.314
+# modified patch, removed other OS stuff:
+Patch1315: ftp://ftp.vim.org/pub/vim/patches/6.1.315
+Patch1316: ftp://ftp.vim.org/pub/vim/patches/6.1.316
+Patch1317: ftp://ftp.vim.org/pub/vim/patches/6.1.317
+Patch1318: ftp://ftp.vim.org/pub/vim/patches/6.1.318
+Patch1319: ftp://ftp.vim.org/pub/vim/patches/6.1.319
+Patch1320: ftp://ftp.vim.org/pub/vim/patches/6.1.320
 
 Patch3000: vim-6.1-kh1.patch
 Patch3001: vim-6.1-syntax.patch
+Patch3002: vim-6.1-rh1.patch
+Patch3003: vim-6.1-rh2.patch
+Patch3004: vim-6.1-rh3.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl
 %if %{desktop_file}
@@ -319,8 +366,6 @@ Requires: /usr/bin/desktop-file-install
 BuildPrereq: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 1
-# FIXME: Remove this as soon as the alpha build environment is fixed
-#Excludearch: alpha
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -414,6 +459,7 @@ find . -name \*.paths | xargs rm -f
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
+# for i in `seq 312 320`; do echo "%patch`expr 1000 + $i` -p0 -b .pl`expr 1000 + $i | sed -e 's,^.,,'`"; done
 %patch1001 -p0
 %patch1003 -p0
 %patch1004 -p0
@@ -655,17 +701,70 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch1257 -p0
 %patch1258 -p0
 # %patch1259 -p0 # Mac
-%patch1260 -p0 -b .pl260
-%patch1261 -p0 -b .pl261
-%patch1262 -p0 -b .pl262
-%patch1263 -p0 -b .pl263
-%patch1264 -p0 -b .pl264
-%patch1265 -p0 -b .pl265
+%patch1260 -p0
+%patch1261 -p0
+%patch1262 -p0
+%patch1263 -p0
+%patch1264 -p0
+%patch1265 -p0
+%patch1266 -p0
+%patch1267 -p0
+%patch1268 -p0
+%patch1269 -p0
+%patch1270 -p0
+%patch1271 -p0
+%patch1272 -p0
+%patch1273 -p0
+%patch1274 -p0
+%patch1275 -p0
+%patch1276 -p0
+%patch1277 -p0
+%patch1278 -p0
+%patch1279 -p0
+%patch1280 -p0
+%patch1281 -p0
+%patch1282 -p0
+%patch1283 -p0
+%patch1284 -p0
+%patch1285 -p0
+%patch1286 -p0
+%patch1287 -p0
+%patch1288 -p0
+%patch1289 -p0
+%patch1293 -p0
+%patch1294 -p0
+%patch1295 -p0
+%patch1297 -p0
+%patch1298 -p0
+%patch1299 -p0
+# patch 300 is win32 only
+%patch1301 -p0
+%patch1302 -p0
+# patches 303-304 are win32 only
+%patch1305 -p0
+%patch1306 -p0
+%patch1307 -p0
+%patch1308 -p0
+%patch1309 -p0
+%patch1310 -p0
+# patch 311 is VMS only
+%patch1312 -p0 -b .pl312
+%patch1313 -p0 -b .pl313
+%patch1314 -p0 -b .pl314
+%patch1315 -p0 -b .pl315
+%patch1316 -p0 -b .pl316
+%patch1317 -p0 -b .pl317
+%patch1318 -p0 -b .pl318
+%patch1319 -p0 -b .pl319
+%patch1320 -p0 -b .pl320
 
 %patch3000 -p1 -b .kh1
 %patch3001 -p1 -b .syntx
+%patch3002 -p1 -b .rh1
+%patch3003 -p1 -b .rh2
+%patch3004 -p1 -b .rh3
+
 %build
-%if "%{rescue}" == ""
 cd src
 perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimversion},g" os_unix.h
 perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimversion}/macros,g" os_unix.h
@@ -695,19 +794,6 @@ make clean
   --with-tlib=termcap --enable-gui=no --disable-gpm --exec-prefix=/ --with-compiledby="<bugzilla@redhat.com>"
 perl -pi -e "s,-I/usr/local/include,,g" auto/config.mk # FIXME: remove once perl is fixed
 make
-%else
-# Rescue disk version - somewhat more featureful than vim-minimal,
-# but not quite a vim-enhanced
-%configure --prefix='${DEST}'/usr --with-features=small --with-x=no \
-  --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
-  --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/
-perl -pi -e "s,-I/usr/local/include,,g" auto/config.mk # FIXME: remove once perl is fixed
-perl -pi -e "s,-O2,-O2 -Os,g" auto/config.mk
-make
-%endif
-
-gcc -O2 -o hardlink %{SOURCE4}
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -718,12 +804,10 @@ cd src
 %makeinstall BINDIR=/bin DESTDIR=$RPM_BUILD_ROOT
 mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin
 make installmacros DESTDIR=$RPM_BUILD_ROOT
-%if "%{rescue}" == "" 
 %if "%{withgui}" == "1"
 install -s -m755 gvim $RPM_BUILD_ROOT/usr/X11R6/bin
 %endif
 install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
-%endif
 
 ( cd $RPM_BUILD_ROOT
   mv ./bin/vimtutor ./usr/bin
@@ -733,7 +817,6 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
   ln -sf vi ./bin/ex
   ln -sf vi ./bin/rvi
   ln -sf vi ./bin/rview
-%if "%{rescue}" == ""
   ln -sf vim ./usr/bin/ex
   ln -sf vim ./usr/bin/rvim
   ln -sf vim ./usr/bin/vimdiff
@@ -742,15 +825,10 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
   ln -sf gvim ./usr/X11R6/bin/gex
 %endif
   ln -sf gvim ./usr/X11R6/bin/evim
-%else
-  ln -sf vi ./bin/vim
-  ln -sf vi ./usr/bin/ex
-%endif
   perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
   rm -f .%{_mandir}/man1/rvim.1
   ln -sf vim.1.gz .%{_mandir}/man1/vi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvi.1.gz
-%if "%{rescue}" == ""
   ln -sf vim.1.gz .%{_mandir}/man1/gvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/evim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvim.1.gz
@@ -768,7 +846,6 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
     cp %{SOURCE2} ./etc/X11/applnk/Applications/gvim.desktop
   %endif
 %endif
-%endif
   install -s -m644 %{SOURCE3} ./usr/share/vim/%{vimversion}/macros/
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./usr/share/vim/%{vimversion}/lang; \
@@ -781,7 +858,6 @@ chmod 644 $RPM_BUILD_ROOT/usr/share/vim/%{vimversion}/doc/vim2html.pl \
  $RPM_BUILD_ROOT/usr/share/vim/%{vimversion}/tools/vim132
 chmod 644 ../runtime/doc/vim2html.pl
 
-%if "%{rescue}" == ""
 mkdir -p $RPM_BUILD_ROOT/etc/profile.d
 cat >$RPM_BUILD_ROOT/etc/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
@@ -793,41 +869,32 @@ cat >$RPM_BUILD_ROOT/etc/profile.d/vim.csh <<EOF
 alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
-%endif
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/vim61/doc docs;)
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%if "%{rescue}" != ""
-%files
-%defattr(-,root,root)
-%doc README*.txt runtime/macros/README.txt runtime/tools/README.txt
-%doc runtime/docs
-%doc %{SOURCE5}
-/usr/bin/xxd
-/usr/share/vim
-%{_mandir}/man1/vim.*
-%{_mandir}/man1/ex.*
-%{_mandir}/man1/vi.*
-%{_mandir}/man1/view.*
-%{_mandir}/man1/rvi.*
-%{_mandir}/man1/rview.*
-%{_mandir}/man1/xxd.*
-/bin/ex
-/bin/vi
-/bin/vim
-/bin/view
-/bin/rvi
-/bin/rview
-%else
 %files common
 %defattr(-,root,root)
 %doc README*.txt runtime/macros/README.txt runtime/tools/README.txt
 %doc runtime/docs
-/usr/bin/xxd
-
 /usr/share/vim
+%config(noreplace) /usr/share/vim/vim61/macros/vimrc
+%lang(af) /usr/share/vim/vim61/lang/af/*
+%lang(cs) /usr/share/vim/vim61/lang/cs/*
+%lang(de) /usr/share/vim/vim61/lang/de/*
+%lang(es) /usr/share/vim/vim61/lang/es/*
+%lang(fr) /usr/share/vim/vim61/lang/fr/*
+%lang(it) /usr/share/vim/vim61/lang/it/*
+%lang(ja) /usr/share/vim/vim61/lang/ja/*
+%lang(ko) /usr/share/vim/vim61/lang/ko/*
+%lang(pl) /usr/share/vim/vim61/lang/pl/*
+%lang(sk) /usr/share/vim/vim61/lang/sk/*
+%lang(uk) /usr/share/vim/vim61/lang/uk/*
+%lang(zh_CN) /usr/share/vim/vim61/lang/zh_CN/*
+%lang(zh_CN.UTF-8) /usr/share/vim/vim61/lang/zh_CN.UTF-8/*
+%lang(zh_TW) /usr/share/vim/vim61/lang/zh_TW/*
+/usr/bin/xxd
 %{_mandir}/man1/vim.*
 %{_mandir}/man1/ex.*
 %{_mandir}/man1/vi.*
@@ -872,14 +939,47 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gvim.*
 %{_mandir}/man1/evim.*
 %endif
-%endif
 
 %changelog
-* Mon Dec 23 2002 Karsten Hopp <karsten@redhat.de> 6.1-18.8x.1
-- use official patch for the modeline issue 
+* Wed Feb 12 2003 Karsten Hopp <karsten@redhat.de> 1:6.1-29
+- clean up vimrc (fix #84088)
+- clean up specfile so that it works with vim's specfile mode
+- remove unused rescue stuff from specfile
 
-* Sat Dec 21 2002 Karsten Hopp <karsten@redhat.de> 6.1-18.8x.0
+* Mon Feb 10 2003 Karsten Hopp <karsten@redhat.de> 1.6.1-28
+- patchlevel 320, to fix 'file changed' warning after :wq
+- don't overwrite systemwide config file (#82037)
+
+* Wed Jan 29 2003 Karsten Hopp <karsten@redhat.de> 6.1-27
+- patchlevel 311
+- fix #78837, only install message catalog for selected language
+
+* Tue Jan 28 2003 Karsten Hopp <karsten@redhat.de> 6.1.26
+- patchlevel 302
+- added epoch to automated changelog entry (specs.vim)
+- don't warn (vim-minimal) about not implemented functions
+
+* Thu Jan 23 2003 Karsten Hopp <karsten@redhat.de> 6.1.25
+- patchlevel 300
+
+* Wed Jan 22 2003 Tim Powers <timp@redhat.com>
+- rebuilt
+
+* Fri Jan 10 2003 Karsten Hopp <karsten@redhat.de> 6.1.23
+- patchlevel 287
+
+* Wed Jan 08 2003 Karsten Hopp <karsten@redhat.de> 6.1.22
+- use Red Hat style for spec files
+
+* Tue Jan 07 2003 Karsten Hopp <karsten@redhat.de> 6.1.21
+- patchlevel 284
+
+* Mon Dec 23 2002 Karsten Hopp <karsten@redhat.de> 6.1.20
+- upstream patch for the modeline issue
+
+* Sat Dec 21 2002 Karsten Hopp <karsten@redhat.de> 6.1-19
 - disable libcall() and system() in modelines
+- Patchlevel 264
 
 * Tue Dec 17 2002 Karsten Hopp <karsten@redhat.de> 6.1-17
 - Patchlevel 263

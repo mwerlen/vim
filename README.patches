@@ -24,6 +24,7 @@ Collection of patches for Vim 6.1:
   SIZE  NAME                  INCLUDES
  85516  6.1.1-100.gz	      patches 6.1.001 to 6.1.100, gzip'ed
 128949  6.1.101-200.gz        patches 6.1.101 to 6.1.200, gzip'ed
+ 99305  6.1.201-300.gz        patches 6.1.201 to 6.1.300, gzip'ed
 
 Individual patches for Vim 6.1:
   SIZE  NAME     FIXES
@@ -281,6 +282,72 @@ Individual patches for Vim 6.1:
   2513  6.1.252  "vi}" did not include line break when this is desired
  16593  6.1.253  (extra) Cygwin improvements: better Makefile and path fix
  20434  6.1.254  various fixes for using magic braces in expressions
+  3060  6.1.255  (depends on 6.1.254) fix crash when resourcing menu.vim
+  2131  6.1.256  (depends on 6.1.255) ":delfunc" leaks memory
+  3469  6.1.257  ":cwindow" doesn't remember previous window correctly
+  2680  6.1.258  buffers menu entries can't shorten multi-byte file names
+  1973  6.1.259  (extra) Mac OS X: 'patchmode' truncates file names
+  2997  6.1.260  (depends on 6.1.104) gcc 3.2 has an optimizer bug
+  1697  6.1.261  Perl interface: Delete() may move cursor in wrong window
+  1419  6.1.262  "z[" and "zj" don't set the previous context mark
+  2345  6.1.263  multi-byte char that triggers an abbreviation was lost
+  4236  6.1.264  (depends on 6.1.254) exists() does not work for builtin func
+  5692  6.1.265  security problem: 'foldexpr' may use libcall() or rename()
+  1536  6.1.266  (depends on 6.1.265) Win32 compile error
+  1697  6.1.267  "p" with Visual selection may cause a crash
+  3704  6.1.268  triggering an abbreviation with a multi-byte char may fail
+  1593  6.1.269  text written by ":redir" gets extra indent after using input()
+  3236  6.1.270  (depends on 6.1.260) gcc 3.2.1 still has an optimizer bug
+  4267  6.1.271  compiling with +syntax feature causes errors
+  1584  6.1.272  crash after using ":set define<"
+  1507  6.1.273  GUI: cursor invisible after redrawing an exposed area
+  2050  6.1.274  resetting iconv() state is wrong for an incomplete sequence
+  1587  6.1.275  using "v" in a startup script gives warning message
+ 17970  6.1.276  "gvim --remote file" doesn't work for encrypted file
+  1642  6.1.277  (depends on 6.1.276) compilation error without GUI
+  2101  6.1.278  using signs causes line number in closed fold to be misaligned
+  5415  6.1.279  prototype for smgs() didn't match function definition
+  3936  6.1.280  no error for using lastline and firstline as function args
+  1738  6.1.281  after CTRL-X CTRL-G in Insert mode cursor is in wrong position
+  2088  6.1.282  accept "se " in a modeline where "set " is accepted
+  1995  6.1.283  cannot use a space in icon file name for ":sign" command
+  2215  6.1.284  warning for "struct utimbuf" on Solaris
+  3552  6.1.285  can't wipe out a buffer with the 'bufhidden' option
+  3015  6.1.286  'showbreak' cannot contain multi-byte characters
+  1866  6.1.287  (depends on 6.1.285) mixed up "wipe"/"delete" in 'bufhidden'
+  4088  6.1.288  ":silent function F" hangs
+  2090  6.1.289  compiler warning for char pointer
+  1842  6.1.290  (extra) multi-byte string in message box truncated wrong
+  2469  6.1.291  (extra) Win32 GUI: CTRL-@ doesn't work
+ 17657  6.1.292  (extra)(depends on 6.1.253) various fixes for Win32 makefiles
+  5191  6.1.293  byte2line() returns a wrong line number for some values
+  2584  6.1.294  support "\u1234": multi-byte character in a string
+  2137  6.1.295  error when processing cs.po, Czech message translations
+  2184  6.1.296  Win32: cancelling font dialog leaves 'guifont' set to "*"
+  1956  6.1.297  test 6 fails in an UTF-8 environment
+  2104  6.1.298  redraw error for sign in first line of closed fold
+  3744  6.1.299  "+cmd" argument for edit commands didn't handle '\' correctly
+  3479  6.1.300  (extra) simplify handling of ETO_IGNORELANGUAGE
+  1654  6.1.301  (extra) missing file name in French file save dialog
+  2229  6.1.302  size of Visual area is incorrect for closed folds
+  3563  6.1.303  (extra) Win32: bold characters may be displayed too wide
+  4105  6.1.304  (extra, depends on 6.1.292) problems in bc5 and ming makefiles
+  1839  6.1.305  with 'verbose' >= 14 listing a function causes a crash
+  1752  6.1.306  AIX: VisualAge compiler doesn't define __STDC__
+  2121  6.1.307  display mess after double-byte char with illegal tail byte
+  6721  6.1.308  can't reset the Visual mode returned by visualmode()
+102677  6.1.309  add German and Greek tutor translations
+  1584  6.1.310  (depends on 6.1.307) all double-byte chars displayed as XX
+ 14578  6.1.311  (extra) VMS: various fixes for file name handling
+  2963  6.1.312  in debugging mode ":silent" needs to be disabled
+  9624  6.1.313  ":drop fname" didn't use another window containing "fname"
+ 29940  6.1.314  (depends on 6.1.126) missing backslash in syntax menu item
+  3698  6.1.315  (extra) hostname() may return garbage
+  2146  6.1.316  may get 'file changed' warning when using ":wq"
+  2241  6.1.317  window position wrong after closing a window with splits
+  3169  6.1.318  quotes in compiler flags cause trouble in auto/pathdef.c
+  2012  6.1.319  :vim --remote +cmd file" did not execute "cmd"
+  4713  6.1.320  (depends on 6.1.313) '\' in ":drop file\ name" not removed
 
 
 Collection of patches for Vim 6.0:
