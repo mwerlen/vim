@@ -401,17 +401,17 @@ mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin
 make installmacros DESTDIR=$RPM_BUILD_ROOT
 %if "%{withgui}" == "1"
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -s -m755 gvim $RPM_BUILD_ROOT/usr/X11R6/bin
-install -s -m644 %{SOURCE7} \
+install -m755 gvim $RPM_BUILD_ROOT/usr/X11R6/bin
+install -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
-install -s -m644 %{SOURCE8} \
+install -m644 %{SOURCE8} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/gvim.png
-install -s -m644 %{SOURCE9} \
+install -m644 %{SOURCE9} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
-install -s -m644 %{SOURCE10} \
+install -m644 %{SOURCE10} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
 %endif
-install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
+install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
 
 ( cd $RPM_BUILD_ROOT
   mv ./bin/vimtutor ./usr/bin
@@ -501,7 +501,7 @@ cat >$RPM_BUILD_ROOT/etc/profile.d/vim.csh <<EOF
 alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
-install -s -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
+install -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
 (cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc;
  gzip -9 *.txt; gzip -d help.txt.gz
  cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags)
@@ -598,6 +598,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Mar 31 2005 Karsten Hopp <karsten@redhat.de> 6.3-068
 - pathlevel 68 (can't write when editing symbolic link to compressed file)
+- remove -s parameter from install, this should fix debuginfo packages
 
 * Mon Mar 28 2005 Christopher Aillon <caillon@redhat.com>
 - rebuilt
