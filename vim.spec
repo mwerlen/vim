@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -422,7 +422,9 @@ alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
 install -s -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
-(pwd; ls; cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc; gzip -9 *.txt)
+(cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc;
+ gzip -9 *.txt; gzip -d help.txt.gz
+ cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags)
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;
  mv -f  macros/README.txt ../README.macros;
  mv -f  tools/README.txt ../README.tools;
@@ -502,6 +504,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Dec 02 2004 Karsten Hopp <karsten@redhat.de> 6.3.035-2 
+- fix compressed docs handling (#141565)
+
 * Wed Dec 01 2004 Karsten Hopp <karsten@redhat.de> 6.3.035-1 
 - patchlevel 35
 - allow remapping of 'g' (#140747)
