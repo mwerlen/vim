@@ -84,3 +84,4 @@ Individual patches for Vim 6.3:
   2286  6.3.059  crash when editing a file with spaces and shell expansion
   1609  6.3.060  register name isn't checked for CTRL-R CTRL-O in Insert mode
   1984  6.3.061  display mess when multi-byte char at right edge of screen
+  2337  6.3.062  ":normal! gQ" hangs

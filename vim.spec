@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 061
+%define patchlevel 062
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -112,6 +112,7 @@ Patch058: ftp://ftp.vim.org/pub/vim/patches/6.3.058
 Patch059: ftp://ftp.vim.org/pub/vim/patches/6.3.059
 Patch060: ftp://ftp.vim.org/pub/vim/patches/6.3.060
 Patch061: ftp://ftp.vim.org/pub/vim/patches/6.3.061
+Patch062: ftp://ftp.vim.org/pub/vim/patches/6.3.062
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -300,6 +301,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch059 -p0
 %patch060 -p0
 %patch061 -p0
+%patch062 -p0
 
 
 %patch3000 -p1
@@ -567,6 +569,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Mar 02 2005 Karsten Hopp <karsten@redhat.de> 6.3.062-1
+- patchlevel 62, build with gcc-4
+
 * Thu Feb 10 2005 Karsten Hopp <karsten@redhat.de> 6.3.061-3
 - spec.vim fix from Andrew Overholt
 
