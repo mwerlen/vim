@@ -1,10 +1,10 @@
 %define rescue %{nil}
 Summary: The VIM editor.
 Name: vim
-Version: 6.0
+Version: 6.1
 %define alpha %{nil}
-%define vimversion vim60%{alpha}
-%define rel 7.13
+%define vimversion vim61%{alpha}
+%define rel 1
 %if "%{alpha}" != ""
 Release: 0.%{alpha}.%{rel}%{rescue}
 %else
@@ -22,154 +22,8 @@ Patch2: vim-5.6a-paths.patch
 Patch3: vim-6.0-fixkeys.patch
 Patch4: vim-6.0-specsyntax.patch
 Patch5: vim-6.0r-crv.patch
-Patch7: vim-6.0t-phphighlight.patch
-Patch8: vim-6.0at-lilo.patch
-Patch9: vim-6.0ad-xsd.patch
 Patch10: xxd-locale.patch
 Patch11: vim-6.0-gcc31.patch
-Patch100: 6.0.001
-Patch101: 6.0.002
-Patch102: 6.0.003
-Patch103: 6.0.004
-Patch104: 6.0.005
-Patch105: 6.0.006
-Patch106: 6.0.007
-Patch107: 6.0.008
-Patch108: 6.0.009
-Patch109: 6.0.010
-Patch110: 6.0.011
-Patch111: 6.0.012
-Patch112: 6.0.013
-Patch113: 6.0.014
-Patch114: 6.0.015
-Patch115: 6.0.016
-Patch116: 6.0.017
-Patch117: 6.0.018
-Patch118: 6.0.019
-Patch119: 6.0.020
-Patch120: 6.0.021
-Patch121: 6.0.022
-Patch122: 6.0.023
-Patch123: 6.0.024
-Patch124: 6.0.025
-Patch125: 6.0.026
-Patch126: 6.0.027
-Patch127: 6.0.028
-Patch128: 6.0.029
-Patch129: 6.0.030
-Patch130: 6.0.031
-Patch131: 6.0.032
-Patch132: 6.0.033
-Patch133: 6.0.034
-Patch134: 6.0.035
-Patch135: 6.0.036
-Patch136: 6.0.037
-Patch137: 6.0.038
-Patch138: 6.0.039
-Patch139: 6.0.040
-Patch140: 6.0.041
-Patch141: 6.0.042
-Patch142: 6.0.043
-Patch143: 6.0.044
-Patch144: 6.0.045
-Patch145: 6.0.046
-Patch146: 6.0.047
-Patch147: 6.0.048
-Patch148: 6.0.049
-Patch149: 6.0.050
-Patch150: 6.0.051
-Patch151: 6.0.052
-Patch152: 6.0.053
-Patch153: 6.0.054
-Patch154: 6.0.055
-Patch155: 6.0.056
-Patch156: 6.0.057
-Patch157: 6.0.058
-Patch158: 6.0.059
-Patch159: 6.0.060
-Patch160: 6.0.061
-Patch161: 6.0.062
-Patch162: 6.0.063
-Patch163: 6.0.064
-Patch164: 6.0.065
-Patch165: 6.0.066
-Patch166: 6.0.067
-Patch167: 6.0.068
-Patch168: 6.0.069
-# Patch 6.0.070 fixed to apply on non-Windoze
-Patch169: 6.0.070.bero
-Patch170: 6.0.071
-Patch171: 6.0.072
-Patch172: 6.0.073
-Patch173: 6.0.074
-Patch174: 6.0.075
-Patch175: 6.0.076
-Patch176: 6.0.077
-Patch177: 6.0.078
-Patch178: 6.0.079
-Patch179: 6.0.080
-Patch180: 6.0.081
-Patch181: 6.0.082
-Patch182: 6.0.083
-Patch183: 6.0.084
-Patch184: 6.0.085
-Patch185: 6.0.086
-Patch186: 6.0.087
-Patch187: 6.0.088
-Patch188: 6.0.089
-Patch189: 6.0.090
-Patch190: 6.0.091
-Patch191: 6.0.092
-Patch192: 6.0.093
-Patch193: 6.0.094
-Patch194: 6.0.095
-Patch195: 6.0.096
-Patch196: 6.0.097
-Patch197: 6.0.098
-Patch198: 6.0.099
-Patch199: 6.0.100
-Patch200: 6.0.101
-Patch201: 6.0.102
-Patch202: 6.0.103
-Patch203: 6.0.104
-Patch204: 6.0.105
-Patch207: 6.0.108
-Patch208: 6.0.109
-Patch209: 6.0.110
-Patch210: 6.0.111
-Patch211: 6.0.112
-Patch212: 6.0.113
-Patch213: 6.0.114
-Patch217: 6.0.118
-Patch219: 6.0.120
-Patch223: 6.0.124
-Patch225: 6.0.126
-Patch226: 6.0.127
-Patch227: 6.0.128
-Patch228: 6.0.129
-Patch229: 6.0.130
-Patch230: 6.0.131
-Patch231: 6.0.132
-Patch232: 6.0.133
-Patch233: 6.0.134
-Patch234: 6.0.135.bero
-Patch235: 6.0.136
-Patch236: 6.0.137
-Patch237: 6.0.138
-Patch238: 6.0.139
-Patch239: 6.0.140
-Patch240: 6.0.141
-Patch241: 6.0.142
-Patch242: 6.0.143
-Patch243: 6.0.144
-Patch244: 6.0.145
-Patch245: 6.0.146
-Patch246: 6.0.147
-Patch247: 6.0.148
-Patch248: 6.0.149
-Patch249: 6.0.150
-Patch250: 6.0.151
-Patch251: 6.0.152
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl gtk+-devel
 Epoch: 1
@@ -258,154 +112,8 @@ find . -name \*.paths | xargs rm -f
 %patch3 -p1 -b .fixkeys
 %patch4 -p1 -b .highlite
 %patch5 -p1 -b .crv
-%patch7 -p1 -b .php
-%patch8 -p1 -b .lilo
-%patch9 -p1 -b .xsd
 %patch10 -p1 -b .xxdloc
 %patch11 -p1 -b .gcc31
-%patch100 -p0 -b .pl1
-%patch101 -p0 -b .pl2
-%patch102 -p0 -b .pl3
-%patch103 -p0 -b .pl4
-%patch104 -p0 -b .pl5
-%patch105 -p0 -b .pl6
-%patch106 -p0 -b .pl7
-%patch107 -p0 -b .pl8
-%patch108 -p0 -b .pl9
-%patch109 -p0 -b .pl10
-%patch110 -p0 -b .pl11
-# %patch111 -p0 -b .pl12
-%patch112 -p0 -b .pl13
-%patch113 -p0 -b .pl14
-%patch114 -p0 -b .pl15
-%patch115 -p0 -b .pl16
-%patch116 -p0 -b .pl17
-%patch117 -p0 -b .pl18
-%patch118 -p0 -b .pl19
-%patch119 -p0 -b .pl20
-%patch120 -p0 -b .pl21
-%patch121 -p0 -b .pl22
-%patch122 -p0 -b .pl23
-%patch123 -p0 -b .pl24
-%patch124 -p0 -b .pl25
-%patch125 -p0 -b .pl26
-# %patch126 -p0 -b .pl27 VMS crap
-%patch127 -p0 -b .pl28
-%patch128 -p0 -b .pl29
-%patch129 -p0 -b .pl30
-%patch130 -p0 -b .pl31
-%patch131 -p0 -b .pl32
-%patch132 -p0 -b .pl33
-%patch133 -p0 -b .pl34
-%patch134 -p0 -b .pl35
-%patch135 -p0 -b .pl36
-%patch136 -p0 -b .pl37
-%patch137 -p0 -b .pl38
-%patch138 -p0 -b .pl39
-%patch139 -p0 -b .pl40
-%patch140 -p0 -b .pl41
-%patch141 -p0 -b .pl42
-%patch142 -p0 -b .pl43
-%patch143 -p0 -b .pl44
-%patch144 -p0 -b .pl45
-%patch145 -p0 -b .pl46
-%patch146 -p0 -b .pl47
-# %patch147 -p0 -b .pl48 Windoze crap
-%patch148 -p0 -b .pl49
-%patch149 -p0 -b .pl50
-%patch150 -p0 -b .pl51
-%patch151 -p0 -b .pl52
-# %patch152 -p0 -b .pl53 This is QNX only stuff
-%patch153 -p0 -b .pl54
-%patch154 -p0 -b .pl55
-%patch155 -p0 -b .pl56
-%patch156 -p0 -b .pl57
-%patch157 -p0 -b .pl58
-%patch158 -p0 -b .pl59
-%patch159 -p0 -b .pl60
-%patch160 -p0 -b .pl61
-%patch161 -p0 -b .pl62
-%patch162 -p0 -b .pl63
-# %patch163 -p0 -b .pl64 Windoze only
-%patch164 -p0 -b .pl65
-%patch165 -p0 -b .pl66
-%patch166 -p0 -b .pl67
-%patch167 -p0 -b .pl68
-%patch168 -p0 -b .pl69
-%patch169 -p0 -b .pl70
-%patch170 -p0 -b .pl71
-%patch171 -p0 -b .pl72
-# %patch172 -p0 -b .pl73 DOS only
-%patch173 -p0 -b .pl74
-%patch174 -p0 -b .pl75
-%patch175 -p0 -b .pl76
-%patch176 -p0 -b .pl77
-%patch177 -p0 -b .pl78
-%patch178 -p0 -b .pl79
-%patch179 -p0 -b .pl80
-%patch180 -p0 -b .pl81
-%patch181 -p0 -b .pl82
-%patch182 -p0 -b .pl83
-%patch183 -p0 -b .pl84
-%patch184 -p0 -b .pl85
-%patch185 -p0 -b .pl86
-# %patch186 -p0 -b .pl87 N/A
-%patch187 -p0 -b .pl88
-%patch188 -p0 -b .pl89
-%patch189 -p0 -b .pl90
-%patch190 -p0 -b .pl91
-%patch191 -p0 -b .pl92
-%patch192 -p0 -b .pl93
-%patch193 -p0 -b .pl94
-%patch194 -p0 -b .pl95
-%patch195 -p0 -b .pl96
-%patch196 -p0 -b .pl97
-%patch197 -p0 -b .pl98
-%patch198 -p0 -b .pl99
-%patch199 -p0 -b .pl100
-%patch200 -p0 -b .pl101
-%patch201 -p0 -b .pl102
-%patch202 -p0 -b .pl103
-%patch203 -p0 -b .pl104
-%patch204 -p0 -b .pl105
-%patch207 -p0 -b .pl108
-%patch208 -p0 -b .pl109
-%patch209 -p0 -b .pl110
-%patch210 -p0 -b .pl111
-%patch211 -p0 -b .pl112
-%patch212 -p0 -b .pl113
-%patch213 -p0 -b .pl114
-%patch217 -p0 -b .pl118
-%patch219 -p0 -b .pl120
-%patch223 -p0 -b .pl124
-%patch225 -p0 -b .pl126
-%patch226 -p0 -b .pl127
-%patch227 -p0 -b .pl128
-%patch228 -p0 -b .pl129
-%patch229 -p0 -b .pl130
-%patch230 -p0 -b .pl131
-%patch231 -p0 -b .pl132
-%patch232 -p0 -b .pl133
-%patch233 -p0 -b .pl134
-%patch234 -p0 -b .pl135
-%patch235 -p0 -b .pl136
-%patch236 -p0 -b .pl137
-%patch237 -p0 -b .pl138
-%patch238 -p0 -b .pl139
-%patch239 -p0 -b .pl140
-%patch240 -p0 -b .pl141
-%patch241 -p0 -b .pl142
-%patch242 -p0 -b .pl143
-%patch243 -p0 -b .pl144
-%patch244 -p0 -b .pl145
-%patch245 -p0 -b .pl146
-%patch246 -p0 -b .pl147
-%patch247 -p0 -b .pl148
-%patch248 -p0 -b .pl149
-%patch249 -p0 -b .pl150
-%patch250 -p0 -b .pl151
-%patch251 -p0 -b .pl152
-
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %build
@@ -463,6 +171,7 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
 %endif
 
 ( cd $RPM_BUILD_ROOT
+  mv ./bin/vimtutor ./usr/bin
   mv ./bin/vim ./bin/vi
   rm -f ./bin/rvim
   ln -sf vi ./bin/view
@@ -552,12 +261,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc README*.txt runtime/macros/README.txt runtime/tools/README.txt
 %doc runtime/doc runtime/syntax runtime/termcap runtime/tutor
 %doc runtime/*.vim
-/bin/vimtutor
 /usr/bin/xxd
 
 /usr/share/vim
 %{_mandir}/man1/vim.*
-%{_mandir}/man1/vimtutor.*
 %{_mandir}/man1/ex.*
 %{_mandir}/man1/vi.*
 %{_mandir}/man1/view.*
@@ -579,9 +286,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/rvim
 /usr/bin/vimdiff
 /usr/bin/ex
+/usr/bin/vimtutor
 %config /etc/profile.d/vim.*
 %{_mandir}/man1/rvim.*
 %{_mandir}/man1/vimdiff.*
+%{_mandir}/man1/vimtutor.*
 
 %files X11
 %defattr(-,root,root)
@@ -596,6 +305,13 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Sun Mar 24 2002 Bernhard Rosenkraenzer <bero@redhat.com> 6.1-1
+- Update to 6.1 (pure bugfix release)
+
+* Mon Mar 11 2002 Bernhard Rosenkraenzer <bero@redhat.com> 6.0-14
+- Patchlevel 270
+- Move vimtutor to /usr/bin and vim-enhanced (#60772)
+
 * Mon Jan 28 2002 Bernhard Rosenkraenzer <bero@redhat.com> 6.0-13
 - Patchlevel 152
 - Add symlinks for evim, rvim and vimdiff as described in vim docs
