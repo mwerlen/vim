@@ -53,3 +53,6 @@ Individual patches for Vim 6.3:
   2128  6.3.028  the BOM marker is written when appending to a file
   2173  6.3.029  crash in syntax highlighting code when inserting a line break
   4579  6.3.030  GTK 2: crash when 'enc' is set to "utf-8" and menus redefined
+  1483  6.3.031  pressing Tab when entering a mapping may cause a display error
+  2094  6.3.032  with Python 2.3 using threads doesn't work
+  1552  6.3.033  mapping ending in two-char command doesn't restart Insert mode

@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 030
+%define patchlevel 033
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -80,6 +80,9 @@ Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3.027
 Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3.028
 Patch029: ftp://ftp.vim.org/pub/vim/patches/6.3.029
 Patch030: ftp://ftp.vim.org/pub/vim/patches/6.3.030
+Patch031: ftp://ftp.vim.org/pub/vim/patches/6.3.031
+Patch032: ftp://ftp.vim.org/pub/vim/patches/6.3.032
+Patch033: ftp://ftp.vim.org/pub/vim/patches/6.3.033
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -89,6 +92,7 @@ Patch3004: vim-6.2-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
 Patch3007: vim-6.3-dnssyntax.patch
+Patch3008: vim-6.3-rh6.patch
 
 Patch3100: vim-selinux.patch
 
@@ -230,6 +234,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch28 -p0
 %patch29 -p0
 %patch30 -p0
+%patch31 -p0
+%patch32 -p0
+%patch33 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -239,6 +246,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3005 -p1 -b .rh4
 %patch3006 -p1 -b .rh5
 %patch3007 -p1 -b .dns
+%patch3008 -p1 -b .rh6
 
 %if %{WITH_SELINUX}
 %patch3100 -p1 -b .selinux
@@ -412,6 +420,7 @@ alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
 install -s -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
+(pwd; ls; cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc; gzip -9 *.txt)
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;
  mv -f  macros/README.txt ../README.macros;
  mv -f  tools/README.txt ../README.tools;
@@ -491,6 +500,12 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Fri Nov 19 2004 Karsten Hopp <karsten@redhat.de> 6.3.033-1 
+- patchlevel 33
+
+* Tue Nov 16 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-4 
+- compress docs
+
 * Tue Nov 02 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-3 
 - fix selinux patch, so that HAVE_SELINUX will not be defined on 
   non-selinux systems (#137860)
