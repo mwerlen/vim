@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 054
+%define patchlevel 058
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -105,6 +105,10 @@ Patch051: ftp://ftp.vim.org/pub/vim/patches/6.3.051
 Patch052: ftp://ftp.vim.org/pub/vim/patches/6.3.052
 Patch053: ftp://ftp.vim.org/pub/vim/patches/6.3.053
 Patch054: ftp://ftp.vim.org/pub/vim/patches/6.3.054
+Patch055: ftp://ftp.vim.org/pub/vim/patches/6.3.055
+Patch056: ftp://ftp.vim.org/pub/vim/patches/6.3.056
+Patch057: ftp://ftp.vim.org/pub/vim/patches/6.3.057
+Patch058: ftp://ftp.vim.org/pub/vim/patches/6.3.058
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -212,11 +216,10 @@ vim-common package.
 %prep
 %setup -q -b 1 -n %{vimdir}
 cp -f %{SOURCE6} runtime/ftplugin/spec.vim
-%patch2000 -p1 -b .4.2
+%patch2000 -p1
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
-%patch2001 -p1 -b .paths
-find . -name \*.paths | xargs rm -f
+%patch2001 -p1
 %patch2002 -p1
 %patch2003 -p1
 %patch2004 -p1
@@ -287,6 +290,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Win 32
 #%patch053 -p0
 %patch054 -p0
+%patch055 -p0
+%patch056 -p0
+%patch057 -p0
+%patch058 -p0
 
 
 %patch3000 -p1
@@ -552,6 +559,11 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Jan 18 2005 Karsten Hopp <karsten@redhat.de> 6.3.058-1
+- Patchlevel 58
+- rebuild with new perl
+- remove all rpm backup files
+
 * Wed Jan 12 2005 Karsten Hopp <karsten@redhat.de> 6.3.054-2
 - remove backup files
 

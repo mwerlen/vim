@@ -77,3 +77,7 @@ Individual patches for Vim 6.3:
   3175  6.3.052  (extra) Win 98: can't enter non-ASCII characters if 'enc' set
   1576  6.3.053  Win32: ":loadview" doesn't work for files with non-latin chars
   1981  6.3.054  when 'im' is set redraw remains off when repeating an insert
+  8844  6.3.055  wrong text and crash using <C-R>= or <C-\>e in command line
+  2091  6.3.056  window title wrong for specific multi-byte character
+  1748  6.3.057  folds are not updated after a filter command
+  4440  6.3.058  crash when zero columns room; can't compile without :vsplit
