@@ -69,3 +69,10 @@ Individual patches for Vim 6.3:
   2812  6.3.044  (extra) Mac: pixels left behind when 'linespace' is non-zero
  12283  6.3.045  some option values may cause trouble in a modeline
   2231  6.3.046  ":registers" doesn't show multi-byte characters correctly
+  2196  6.3.047  (extra) Win XP with Borland: new file is created read-only
+ 18175  6.3.048  (extra) VMS: doesn't build on IA64
+  1776  6.3.049  (after 6.3.045) compiler warning for pointer type
+  2225  6.3.050  a SIGHUP while already exiting may cause a crash
+  1661  6.3.051  crash when 'wildmenu' set and completing multi-byte file name
+  3175  6.3.052  (extra) Win 98: can't enter non-ASCII characters if 'enc' set
+  1576  6.3.053  Win32: ":loadview" doesn't work for files with non-latin chars
