@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 028
+%define patchlevel 029
 
 Summary: The VIM editor.
 Name: vim
@@ -78,6 +78,7 @@ Patch025: ftp://ftp.vim.org/pub/vim/patches/6.3.025
 Patch026: ftp://ftp.vim.org/pub/vim/patches/6.3.026
 Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3.027
 Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3.028
+Patch029: ftp://ftp.vim.org/pub/vim/patches/6.3.029
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -145,7 +146,7 @@ package is installed.
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
 Requires: vim-common 
-Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Requires: %(perl -le 'printf("perl >= %vd\n",$^V);')
 Obsoletes: vim-color
 
 %description enhanced
@@ -226,6 +227,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch26 -p0
 # VMS %patch27 -p0
 %patch28 -p0
+%patch29 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -487,6 +489,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Oct 06 2004 Karsten Hopp <karsten@redhat.de> 6.3.029-2 
+- fix perl requirement
+- patchlevel 29 to fix crash when inserting a line break
+
 * Wed Sep 29 2004 Karsten Hopp <karsten@redhat.de> 6.3.028-2 
 - add patch from Ulrich Drepper to fix syntax highlighting of 
   DNS config files (#133746)

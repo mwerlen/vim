@@ -51,3 +51,4 @@ Individual patches for Vim 6.3:
   3070  6.3.026  setting 'bg' in syncolor.vim may cause endless loop or crash
   7500  6.3.027  VMS: Writing a file may insert extra CR characters
   2128  6.3.028  the BOM marker is written when appending to a file
+  2173  6.3.029  crash in syntax highlighting code when inserting a line break
