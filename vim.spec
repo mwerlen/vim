@@ -217,11 +217,11 @@ cp -f %{SOURCE6} runtime/ftplugin/spec.vim
 chmod -x runtime/tools/mve.awk
 %patch2001 -p1 -b .paths
 find . -name \*.paths | xargs rm -f
-%patch2002 -p1 -b .fixkeys
-%patch2003 -p1 -b .highlite
-%patch2004 -p1 -b .crv
-%patch2005 -p1 -b .tmpfile
-%patch2010 -p1 -b .xxdloc
+%patch2002 -p1
+%patch2003 -p1
+%patch2004 -p1
+%patch2005 -p1
+%patch2010 -p1
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
@@ -289,17 +289,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch054 -p0
 
 
-%patch3000 -p1 -b .syntx
-%patch3001 -p1 -b .rh1
-%patch3002 -p1 -b .rh2
-%patch3003 -p1 -b .rh3
-%patch3004 -p1 -b .rcloc
-%patch3005 -p1 -b .rh4
-%patch3006 -p1 -b .rh5
-%patch3007 -p1 -b .dns
+%patch3000 -p1
+%patch3001 -p1
+%patch3002 -p1
+%patch3003 -p1
+%patch3004 -p1
+%patch3005 -p1
+%patch3006 -p1
+%patch3007 -p1
 
 %if %{WITH_SELINUX}
-%patch3100 -p1 -b .selinux
+%patch3100 -p1
 %endif
 
 %build
@@ -552,6 +552,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Jan 12 2005 Karsten Hopp <karsten@redhat.de> 6.3.054-2
+- remove backup files
+
 * Wed Jan 12 2005 Karsten Hopp <karsten@redhat.de> 6.3.054-1
 - patchlevel 54
 - fix unsecure tempfile usage (#144698)
