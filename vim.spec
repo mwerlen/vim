@@ -4,7 +4,7 @@ Name: vim
 Version: 6.1
 %define alpha %{nil}
 %define vimversion vim61%{alpha}
-%define rel 1
+%define rel 2
 %if "%{alpha}" != ""
 Release: 0.%{alpha}.%{rel}%{rescue}
 %else
@@ -305,6 +305,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Mar 27 2002 Bernhard Rosenkraenzer <bero@redhat.com> 6.1-2
+- Rebuild with new perl
+
 * Sun Mar 24 2002 Bernhard Rosenkraenzer <bero@redhat.com> 6.1-1
 - Update to 6.1 (pure bugfix release)
 
