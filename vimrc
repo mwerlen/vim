@@ -1,3 +1,20 @@
+if v:lang =~ "^ko"
+   set fileencodings=euc-kr
+   set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
+elseif v:lang =~ "^ja_JP"
+   set fileencodings=euc-jp
+   set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
+elseif v:lang =~ "^zh_TW"
+   set fileencodings=big5
+   set guifontset=-sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1,-taipei-fixed-medium-r-normal--16-150-75-75-c-160-big5-0
+elseif v:lang =~ "^zh_CN"
+   set fileencodings=gb2312
+   set guifontset=*-r-*
+endif
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+   set fileencodings=utf-8
+endif
+
 set nocompatible	" Use Vim defaults (much better!)
 set bs=2		" allow backspacing over everything in insert mode
 "set ai			" always set autoindenting on
@@ -12,7 +29,10 @@ if has("autocmd")
   " In text files, always limit the width of text to 78 characters
   autocmd BufRead *.txt set tw=78
   " When editing a file, always jump to the last cursor position
-  autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
 endif
 
 " Don't use Ex mode, use Q for formatting
@@ -85,20 +105,3 @@ nmap ,hs wbi<strong><ESC>ea</strong><ESC>bb
 nmap ,ht wbi<tt><ESC>ea</tt><ESC>bb
 nmap ,hx wbF<df>f<df>
 
-" Language definition
-if $LANG =~ "^ko"
-     set fe=korea
-     set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*,*
-elseif $LANG =~ "^ja"
-     set fe=japan
-     set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*,*
-elseif $LANG =~ "^zh_TW"
-     set fe=taiwan
-     set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*,*
-elseif $LANG =~ "^zh_CN"
-     set fe=prc
-     set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*,*
-endif
-if $LANG =~ "utf8$" || $LANG =~ "UTF-8$"
-    set fe=unicode
-endif
