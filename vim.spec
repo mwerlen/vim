@@ -1,4 +1,3 @@
-ExcludeArch: ppc64 ppc
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -29,7 +28,7 @@ ExcludeArch: ppc64 ppc
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 4
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -1484,6 +1483,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Fri Jun 04 2004 Karsten Hopp <karsten@redhat.de> 6.2.532-4 
+- enable build on ppc*
+
 * Wed Jun 02 2004 Karsten Hopp <karsten@redhat.de> 6.2.532-3
 - rebuild
 
