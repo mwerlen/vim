@@ -48,3 +48,4 @@ Individual patches for Vim 6.3:
   6419  6.3.023  when <Space> is remapped abbreviations are not expanded
   2456  6.3.024  missing NUL for strings created with ga_concat()
   1409  6.3.025  (extra) missing NUL for list of server names
+  3070  6.3.026  setting 'bg' in syncolor.vim may cause endless loop or crash

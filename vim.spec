@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 025
+%define patchlevel 026
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -479,6 +479,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Sep 14 2004 Karsten Hopp <karsten@redhat.de> 6.3.026-1
+- patchlevel 26 (fixes an endless loop in syntax highlighting)
+
 * Wed Sep 08 2004 Karsten Hopp <karsten@redhat.de> 6.3.025-2 
 - clean up spec file
 - disable fontset
