@@ -1,20 +1,3 @@
-if v:lang =~ "^ko"
-   set fileencodings=euc-kr
-   set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
-elseif v:lang =~ "^ja_JP"
-   set fileencodings=euc-jp
-   set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
-elseif v:lang =~ "^zh_TW"
-   set fileencodings=big5
-   set guifontset=-sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1,-taipei-fixed-medium-r-normal--16-150-75-75-c-160-big5-0
-elseif v:lang =~ "^zh_CN"
-   set fileencodings=gb2312
-   set guifontset=*-r-*
-endif
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-   set fileencodings=utf-8
-endif
-
 set nocompatible	" Use Vim defaults (much better!)
 set bs=2		" allow backspacing over everything in insert mode
 "set ai			" always set autoindenting on
