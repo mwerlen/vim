@@ -11,7 +11,7 @@ Name: vim
 Version: 6.1
 %define alpha %{nil}
 %define vimversion vim61%{alpha}
-%define rel 14
+%define rel 18.8x.1
 %if "%{alpha}" != ""
 Release: 0.%{alpha}.%{rel}%{rescue}
 %else
@@ -24,6 +24,8 @@ Source1: ftp://ftp.vim.org/pub/vim/unreleased/extra/vim-%{version}%{alpha}-lang.
 Source2: gvim.desktop
 Source3: vimrc
 Source4: hardlink.c
+Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
+ExclusiveArch: i386
 Patch0: vim-4.2-speed_t.patch
 Patch1: vim-5.1-vimnotvi.patch
 Patch2: vim-5.6a-paths.patch
@@ -36,7 +38,7 @@ Patch11: vim-6.0-gcc31.patch
 # If you're as lazy as me, generate the list using
 # (for i in `seq 1 57`; do echo "Patch`expr 1000 + $i`: ftp://ftp.vim.org/pub/vim/patches/6.1.`expr 1000 + $i | sed -e 's,^.,,'`"; done) >vimpatches
 Patch1001: ftp://ftp.vim.org/pub/vim/patches/6.1.001
-# Patch 2 is Windoze only
+# Patch 2 is Windows only
 Patch1003: ftp://ftp.vim.org/pub/vim/patches/6.1.003
 Patch1004: ftp://ftp.vim.org/pub/vim/patches/6.1.004
 Patch1005: ftp://ftp.vim.org/pub/vim/patches/6.1.005
@@ -50,10 +52,10 @@ Patch1012: ftp://ftp.vim.org/pub/vim/patches/6.1.012
 Patch1013: ftp://ftp.vim.org/pub/vim/patches/6.1.013
 Patch1014: ftp://ftp.vim.org/pub/vim/patches/6.1.014
 Patch1015: ftp://ftp.vim.org/pub/vim/patches/6.1.015
-# Patch 16 is Windoze only
+# Patch 16 is Windows only
 Patch1017: ftp://ftp.vim.org/pub/vim/patches/6.1.017
 Patch1018: ftp://ftp.vim.org/pub/vim/patches/6.1.018
-# Patch 19 is Windoze only
+# Patch 19 is Windows only
 Patch1020: ftp://ftp.vim.org/pub/vim/patches/6.1.020
 Patch1021: ftp://ftp.vim.org/pub/vim/patches/6.1.021
 Patch1022: ftp://ftp.vim.org/pub/vim/patches/6.1.022
@@ -69,7 +71,7 @@ Patch1031: ftp://ftp.vim.org/pub/vim/patches/6.1.031
 Patch1032: ftp://ftp.vim.org/pub/vim/patches/6.1.032
 Patch1033: ftp://ftp.vim.org/pub/vim/patches/6.1.033
 Patch1034: ftp://ftp.vim.org/pub/vim/patches/6.1.034
-# Patch 35 is Windoze only
+# Patch 35 is Windows only
 Patch1036: ftp://ftp.vim.org/pub/vim/patches/6.1.036
 Patch1037: ftp://ftp.vim.org/pub/vim/patches/6.1.037
 Patch1038: ftp://ftp.vim.org/pub/vim/patches/6.1.038
@@ -78,7 +80,7 @@ Patch1040: ftp://ftp.vim.org/pub/vim/patches/6.1.040
 Patch1041: ftp://ftp.vim.org/pub/vim/patches/6.1.041
 Patch1042: ftp://ftp.vim.org/pub/vim/patches/6.1.042
 Patch1043: ftp://ftp.vim.org/pub/vim/patches/6.1.043
-# Patch 44 is Windoze only
+# Patch 44 is Windows only
 Patch1045: ftp://ftp.vim.org/pub/vim/patches/6.1.045
 Patch1046: ftp://ftp.vim.org/pub/vim/patches/6.1.046
 Patch1047: ftp://ftp.vim.org/pub/vim/patches/6.1.047
@@ -123,19 +125,19 @@ Patch1084: ftp://ftp.vim.org/pub/vim/patches/6.1.084
 Patch1085: ftp://ftp.vim.org/pub/vim/patches/6.1.085
 Patch1086: ftp://ftp.vim.org/pub/vim/patches/6.1.086
 Patch1087: ftp://ftp.vim.org/pub/vim/patches/6.1.087
-# Patch 88 is Windoze only
+# Patch 88 is Windows only
 Patch1089: ftp://ftp.vim.org/pub/vim/patches/6.1.089
 Patch1090: ftp://ftp.vim.org/pub/vim/patches/6.1.090
 Patch1091: ftp://ftp.vim.org/pub/vim/patches/6.1.091
 Patch1092: ftp://ftp.vim.org/pub/vim/patches/6.1.092
-# Patch 93 is Windoze  and Mac only
+# Patch 93 is Windows  and Mac only
 Patch1094: ftp://ftp.vim.org/pub/vim/patches/6.1.094
 Patch1095: ftp://ftp.vim.org/pub/vim/patches/6.1.095
 Patch1096: ftp://ftp.vim.org/pub/vim/patches/6.1.096
 Patch1097: ftp://ftp.vim.org/pub/vim/patches/6.1.097
 Patch1098: ftp://ftp.vim.org/pub/vim/patches/6.1.098
 Patch1099: ftp://ftp.vim.org/pub/vim/patches/6.1.099
-# Patch 100 is Windoze only
+# Patch 100 is Windows only
 Patch1101: ftp://ftp.vim.org/pub/vim/patches/6.1.101
 Patch1102: ftp://ftp.vim.org/pub/vim/patches/6.1.102
 Patch1103: ftp://ftp.vim.org/pub/vim/patches/6.1.103
@@ -198,9 +200,118 @@ Patch1162: ftp://ftp.vim.org/pub/vim/patches/6.1.162
 Patch1163: ftp://ftp.vim.org/pub/vim/patches/6.1.163
 Patch1164: ftp://ftp.vim.org/pub/vim/patches/6.1.164
 Patch1165: ftp://ftp.vim.org/pub/vim/patches/6.1.165
+Patch1166: ftp://ftp.vim.org/pub/vim/patches/6.1.166
+Patch1167: ftp://ftp.vim.org/pub/vim/patches/6.1.167
+Patch1168: ftp://ftp.vim.org/pub/vim/patches/6.1.168
+Patch1169: ftp://ftp.vim.org/pub/vim/patches/6.1.169
+Patch1170: ftp://ftp.vim.org/pub/vim/patches/6.1.170
+Patch1171: ftp://ftp.vim.org/pub/vim/patches/6.1.171
+Patch1172: ftp://ftp.vim.org/pub/vim/patches/6.1.172
+# Modified patch, removed VisVim part:
+Patch1173: ftp://ftp.vim.org/pub/vim/patches/6.1.173
+Patch1174: ftp://ftp.vim.org/pub/vim/patches/6.1.174
+Patch1175: ftp://ftp.vim.org/pub/vim/patches/6.1.175
+Patch1176: ftp://ftp.vim.org/pub/vim/patches/6.1.176
+Patch1177: ftp://ftp.vim.org/pub/vim/patches/6.1.177
+Patch1178: ftp://ftp.vim.org/pub/vim/patches/6.1.178
+Patch1179: ftp://ftp.vim.org/pub/vim/patches/6.1.179
+Patch1180: ftp://ftp.vim.org/pub/vim/patches/6.1.180
+Patch1181: ftp://ftp.vim.org/pub/vim/patches/6.1.181
+Patch1182: ftp://ftp.vim.org/pub/vim/patches/6.1.182
+Patch1183: ftp://ftp.vim.org/pub/vim/patches/6.1.183
+Patch1184: ftp://ftp.vim.org/pub/vim/patches/6.1.184
+Patch1185: ftp://ftp.vim.org/pub/vim/patches/6.1.185
+Patch1186: ftp://ftp.vim.org/pub/vim/patches/6.1.186
+Patch1187: ftp://ftp.vim.org/pub/vim/patches/6.1.187
+Patch1188: ftp://ftp.vim.org/pub/vim/patches/6.1.188
+Patch1189: ftp://ftp.vim.org/pub/vim/patches/6.1.189
+Patch1190: ftp://ftp.vim.org/pub/vim/patches/6.1.190
+Patch1191: ftp://ftp.vim.org/pub/vim/patches/6.1.191
+Patch1192: ftp://ftp.vim.org/pub/vim/patches/6.1.192
+Patch1193: ftp://ftp.vim.org/pub/vim/patches/6.1.193
+Patch1194: ftp://ftp.vim.org/pub/vim/patches/6.1.194
+Patch1195: ftp://ftp.vim.org/pub/vim/patches/6.1.195
+Patch1196: ftp://ftp.vim.org/pub/vim/patches/6.1.196
+Patch1197: ftp://ftp.vim.org/pub/vim/patches/6.1.197
+Patch1198: ftp://ftp.vim.org/pub/vim/patches/6.1.198
+Patch1199: ftp://ftp.vim.org/pub/vim/patches/6.1.199
+Patch1200: ftp://ftp.vim.org/pub/vim/patches/6.1.200
+Patch1201: ftp://ftp.vim.org/pub/vim/patches/6.1.201
+Patch1202: ftp://ftp.vim.org/pub/vim/patches/6.1.202
+Patch1203: ftp://ftp.vim.org/pub/vim/patches/6.1.203
+Patch1204: ftp://ftp.vim.org/pub/vim/patches/6.1.204
+Patch1205: ftp://ftp.vim.org/pub/vim/patches/6.1.205
+Patch1206: ftp://ftp.vim.org/pub/vim/patches/6.1.206
+Patch1207: ftp://ftp.vim.org/pub/vim/patches/6.1.207
+Patch1208: ftp://ftp.vim.org/pub/vim/patches/6.1.208
+Patch1209: ftp://ftp.vim.org/pub/vim/patches/6.1.209
+Patch1210: ftp://ftp.vim.org/pub/vim/patches/6.1.210
+Patch1211: ftp://ftp.vim.org/pub/vim/patches/6.1.211
+Patch1212: ftp://ftp.vim.org/pub/vim/patches/6.1.212
+Patch1213: ftp://ftp.vim.org/pub/vim/patches/6.1.213
+Patch1214: ftp://ftp.vim.org/pub/vim/patches/6.1.214
+Patch1215: ftp://ftp.vim.org/pub/vim/patches/6.1.215
+Patch1216: ftp://ftp.vim.org/pub/vim/patches/6.1.216
+Patch1217: ftp://ftp.vim.org/pub/vim/patches/6.1.217
+Patch1218: ftp://ftp.vim.org/pub/vim/patches/6.1.218
+Patch1219: ftp://ftp.vim.org/pub/vim/patches/6.1.219
+Patch1220: ftp://ftp.vim.org/pub/vim/patches/6.1.220
+# modified patch, removed other OS stuff:
+Patch1221: ftp://ftp.vim.org/pub/vim/patches/6.1.221
+Patch1222: ftp://ftp.vim.org/pub/vim/patches/6.1.222
+# modified patch, removed other OS stuff:
+Patch1223: ftp://ftp.vim.org/pub/vim/patches/6.1.223
+Patch1224: ftp://ftp.vim.org/pub/vim/patches/6.1.224
+Patch1225: ftp://ftp.vim.org/pub/vim/patches/6.1.225
+Patch1226: ftp://ftp.vim.org/pub/vim/patches/6.1.226
+Patch1227: ftp://ftp.vim.org/pub/vim/patches/6.1.227
+# Win32 only:
+#Patch1228: ftp://ftp.vim.org/pub/vim/patches/6.1.228
+#Patch1229: ftp://ftp.vim.org/pub/vim/patches/6.1.229
+#Patch1230: ftp://ftp.vim.org/pub/vim/patches/6.1.230
+Patch1231: ftp://ftp.vim.org/pub/vim/patches/6.1.231
+Patch1232: ftp://ftp.vim.org/pub/vim/patches/6.1.232
+Patch1233: ftp://ftp.vim.org/pub/vim/patches/6.1.233
+Patch1234: ftp://ftp.vim.org/pub/vim/patches/6.1.234
+Patch1235: ftp://ftp.vim.org/pub/vim/patches/6.1.235
+Patch1236: ftp://ftp.vim.org/pub/vim/patches/6.1.236
+Patch1237: ftp://ftp.vim.org/pub/vim/patches/6.1.237
+# Modifed patch, removed w32_gui stuff:
+Patch1238: ftp://ftp.vim.org/pub/vim/patches/6.1.238
+Patch1239: ftp://ftp.vim.org/pub/vim/patches/6.1.239
+# Win32 only:
+#Patch1240: ftp://ftp.vim.org/pub/vim/patches/6.1.240
+Patch1241: ftp://ftp.vim.org/pub/vim/patches/6.1.241
+Patch1242: ftp://ftp.vim.org/pub/vim/patches/6.1.242
+# Win32 only:
+#Patch1243: ftp://ftp.vim.org/pub/vim/patches/6.1.243
+Patch1244: ftp://ftp.vim.org/pub/vim/patches/6.1.244
+Patch1245: ftp://ftp.vim.org/pub/vim/patches/6.1.245
+Patch1246: ftp://ftp.vim.org/pub/vim/patches/6.1.246
+Patch1247: ftp://ftp.vim.org/pub/vim/patches/6.1.247
+Patch1248: ftp://ftp.vim.org/pub/vim/patches/6.1.248
+Patch1249: ftp://ftp.vim.org/pub/vim/patches/6.1.249
+Patch1250: ftp://ftp.vim.org/pub/vim/patches/6.1.250
+Patch1251: ftp://ftp.vim.org/pub/vim/patches/6.1.251
+Patch1252: ftp://ftp.vim.org/pub/vim/patches/6.1.252
+# Win32 only:
+#Patch1253: ftp://ftp.vim.org/pub/vim/patches/6.1.253
+Patch1254: ftp://ftp.vim.org/pub/vim/patches/6.1.254
+Patch1255: ftp://ftp.vim.org/pub/vim/patches/6.1.255
+Patch1256: ftp://ftp.vim.org/pub/vim/patches/6.1.256
+Patch1257: ftp://ftp.vim.org/pub/vim/patches/6.1.257
+Patch1258: ftp://ftp.vim.org/pub/vim/patches/6.1.258
+# Mac only:
+#Patch1259: ftp://ftp.vim.org/pub/vim/patches/6.1.259
+Patch1260: ftp://ftp.vim.org/pub/vim/patches/6.1.260
+Patch1261: ftp://ftp.vim.org/pub/vim/patches/6.1.261
+Patch1262: ftp://ftp.vim.org/pub/vim/patches/6.1.262
+Patch1263: ftp://ftp.vim.org/pub/vim/patches/6.1.263
+Patch1264: ftp://ftp.vim.org/pub/vim/patches/6.1.264
+Patch1265: ftp://ftp.vim.org/pub/vim/patches/6.1.265
 
-
-Patch2000: vim-6.1-kh1.patch
+Patch3000: vim-6.1-kh1.patch
+Patch3001: vim-6.1-syntax.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl
 %if %{desktop_file}
@@ -303,155 +414,256 @@ find . -name \*.paths | xargs rm -f
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
-%patch1001 -p0 -b .pl1
-%patch1003 -p0 -b .pl3
-%patch1004 -p0 -b .pl4
-%patch1005 -p0 -b .pl5
-%patch1006 -p0 -b .pl6
-%patch1007 -p0 -b .pl7
-%patch1008 -p0 -b .pl8
-%patch1009 -p0 -b .pl9
-%patch1010 -p0 -b .pl10
-%patch1011 -p0 -b .pl11
-%patch1012 -p0 -b .pl12
-%patch1013 -p0 -b .pl13
-%patch1014 -p0 -b .pl14
-%patch1015 -p0 -b .pl15
-%patch1017 -p0 -b .pl17
-%patch1018 -p0 -b .pl18
-%patch1020 -p0 -b .pl20
-%patch1021 -p0 -b .pl21
-%patch1022 -p0 -b .pl22
-%patch1024 -p0 -b .pl24
-%patch1025 -p0 -b .pl25
-%patch1026 -p0 -b .pl26
-%patch1027 -p0 -b .pl27
-%patch1028 -p0 -b .pl28
-%patch1029 -p0 -b .pl29
-%patch1030 -p0 -b .pl30
-%patch1031 -p0 -b .pl31
-%patch1032 -p0 -b .pl32
-%patch1033 -p0 -b .pl33
-%patch1034 -p0 -b .pl34
-%patch1036 -p0 -b .pl36
-%patch1037 -p0 -b .pl37
-%patch1038 -p0 -b .pl38
-%patch1039 -p0 -b .pl39
-%patch1040 -p0 -b .pl40
-%patch1041 -p0 -b .pl41
-%patch1042 -p0 -b .pl42
-%patch1043 -p0 -b .pl43
-%patch1045 -p0 -b .pl45
-%patch1046 -p0 -b .pl46
-%patch1047 -p0 -b .pl47
-%patch1048 -p0 -b .pl48
-%patch1049 -p0 -b .pl49
-%patch1051 -p0 -b .pl51
-%patch1052 -p0 -b .pl52
-%patch1053 -p0 -b .pl53
-%patch1054 -p0 -b .pl54
-%patch1055 -p0 -b .pl55
-%patch1056 -p0 -b .pl56
-%patch1057 -p0 -b .pl57
-%patch1058 -p0 -b .pl58
-%patch1059 -p0 -b .pl59
-%patch1060 -p0 -b .pl60
-%patch1061 -p0 -b .pl61
-%patch1062 -p0 -b .pl62
-%patch1063 -p0 -b .pl63
-%patch1064 -p0 -b .pl64
-%patch1065 -p0 -b .pl65
-%patch1066 -p0 -b .pl66
-%patch1067 -p0 -b .pl67
-%patch1068 -p0 -b .pl68
-%patch1069 -p0 -b .pl69
-%patch1070 -p0 -b .pl70
-%patch1071 -p0 -b .pl71
-%patch1072 -p0 -b .pl72
-%patch1074 -p0 -b .pl74
-%patch1075 -p0 -b .pl75
-%patch1077 -p0 -b .pl77
-%patch1078 -p0 -b .pl78
-%patch1079 -p0 -b .pl79
-%patch1080 -p0 -b .pl80
-%patch1081 -p0 -b .pl81
-%patch1082 -p0 -b .pl82
-%patch1083 -p0 -b .pl83
-#%patch1084 -p0 -b .pl84
-%patch1085 -p0 -b .pl85
-%patch1086 -p0 -b .pl86
-%patch1087 -p0 -b .pl87
-%patch1089 -p0 -b .pl89
-%patch1090 -p0 -b .pl90
-%patch1091 -p0 -b .pl91
-%patch1092 -p0 -b .pl92
-%patch1094 -p0 -b .pl94
-%patch1095 -p0 -b .pl95
-%patch1096 -p0 -b .pl96
-%patch1097 -p0 -b .pl97
-%patch1098 -p0 -b .pl98
-%patch1099 -p0 -b .pl99
-%patch1101 -p0 -b .pl101
-%patch1102 -p0 -b .pl102
-%patch1103 -p0 -b .pl103
-%patch1104 -p0 -b .pl104
-%patch1105 -p0 -b .pl105
-%patch1106 -p0 -b .pl106
-%patch1107 -p0 -b .pl107
-%patch1108 -p0 -b .pl108
-%patch1109 -p0 -b .pl109
-%patch1110 -p0 -b .pl110
-%patch1111 -p0 -b .pl111
-%patch1112 -p0 -b .pl112
-%patch1113 -p0 -b .pl113
-%patch1114 -p0 -b .pl114
-%patch1115 -p0 -b .pl115
-%patch1116 -p0 -b .pl116
-%patch1117 -p0 -b .pl117
-%patch1118 -p0 -b .pl118
-#%patch1119 -p0 -b .pl119
-%patch1120 -p0 -b .pl120
-%patch1121 -p0 -b .pl121
-%patch1122 -p0 -b .pl122
-%patch1123 -p0 -b .pl123
-%patch1124 -p0 -b .pl124
-%patch1125 -p0 -b .pl125
-%patch1126 -p0 -b .pl126
-%patch1127 -p0 -b .pl127
-%patch1128 -p0 -b .pl128
-%patch1129 -p0 -b .pl129
-%patch1130 -p0 -b .pl130
-%patch1131 -p0 -b .pl131
-%patch1132 -p0 -b .pl132
-%patch1133 -p0 -b .pl133
-%patch1134 -p0 -b .pl134
-%patch1135 -p0 -b .pl135
-%patch1136 -p0 -b .pl136
-%patch1137 -p0 -b .pl137
-%patch1138 -p0 -b .pl138
-%patch1139 -p0 -b .pl139
-%patch1140 -p0 -b .pl140
-%patch1141 -p0 -b .pl141
-%patch1142 -p0 -b .pl142
-%patch1143 -p0 -b .pl143
-%patch1144 -p0 -b .pl144
-%patch1145 -p0 -b .pl145
-%patch1146 -p0 -b .pl146
-%patch1150 -p0 -b .pl150
-%patch1151 -p0 -b .pl151
-%patch1152 -p0 -b .pl152
-%patch1153 -p0 -b .pl153
-%patch1157 -p0 -b .pl157
-%patch1158 -p0 -b .pl158
-%patch1159 -p0 -b .pl159
-%patch1160 -p0 -b .pl160
-%patch1161 -p0 -b .pl161
-%patch1162 -p0 -b .pl162
-%patch1163 -p0 -b .pl163
-%patch1164 -p0 -b .pl164
-%patch1165 -p0 -b .pl165
+%patch1001 -p0
+%patch1003 -p0
+%patch1004 -p0
+%patch1005 -p0
+%patch1006 -p0
+%patch1007 -p0
+%patch1008 -p0
+%patch1009 -p0
+%patch1010 -p0
+%patch1011 -p0
+%patch1012 -p0
+%patch1013 -p0
+%patch1014 -p0
+%patch1015 -p0
+%patch1017 -p0
+%patch1018 -p0
+%patch1020 -p0
+%patch1021 -p0
+%patch1022 -p0
+%patch1024 -p0
+%patch1025 -p0
+%patch1026 -p0
+%patch1027 -p0
+%patch1028 -p0
+%patch1029 -p0
+%patch1030 -p0
+%patch1031 -p0
+%patch1032 -p0
+%patch1033 -p0
+%patch1034 -p0
+%patch1036 -p0
+%patch1037 -p0
+%patch1038 -p0
+%patch1039 -p0
+%patch1040 -p0
+%patch1041 -p0
+%patch1042 -p0
+%patch1043 -p0
+%patch1045 -p0
+%patch1046 -p0
+%patch1047 -p0
+%patch1048 -p0
+%patch1049 -p0
+%patch1051 -p0
+%patch1052 -p0
+%patch1053 -p0
+%patch1054 -p0
+%patch1055 -p0
+%patch1056 -p0
+%patch1057 -p0
+%patch1058 -p0
+%patch1059 -p0
+%patch1060 -p0
+%patch1061 -p0
+%patch1062 -p0
+%patch1063 -p0
+%patch1064 -p0
+%patch1065 -p0
+%patch1066 -p0
+%patch1067 -p0
+%patch1068 -p0
+%patch1069 -p0
+%patch1070 -p0
+%patch1071 -p0
+%patch1072 -p0
+%patch1074 -p0
+%patch1075 -p0
+%patch1077 -p0
+%patch1078 -p0
+%patch1079 -p0
+%patch1080 -p0
+%patch1081 -p0
+%patch1082 -p0
+%patch1083 -p0
+#%patch1084 -p0
+%patch1085 -p0
+%patch1086 -p0
+%patch1087 -p0
+%patch1089 -p0
+%patch1090 -p0
+%patch1091 -p0
+%patch1092 -p0
+%patch1094 -p0
+%patch1095 -p0
+%patch1096 -p0
+%patch1097 -p0
+%patch1098 -p0
+%patch1099 -p0
+%patch1101 -p0
+%patch1102 -p0
+%patch1103 -p0
+%patch1104 -p0
+%patch1105 -p0
+%patch1106 -p0
+%patch1107 -p0
+%patch1108 -p0
+%patch1109 -p0
+%patch1110 -p0
+%patch1111 -p0
+%patch1112 -p0
+%patch1113 -p0
+%patch1114 -p0
+%patch1115 -p0
+%patch1116 -p0
+%patch1117 -p0
+%patch1118 -p0
+#%patch1119 -p0
+%patch1120 -p0
+%patch1121 -p0
+%patch1122 -p0
+%patch1123 -p0
+%patch1124 -p0
+%patch1125 -p0
+%patch1126 -p0
+%patch1127 -p0
+%patch1128 -p0
+%patch1129 -p0
+%patch1130 -p0
+%patch1131 -p0
+%patch1132 -p0
+%patch1133 -p0
+%patch1134 -p0
+%patch1135 -p0
+%patch1136 -p0
+%patch1137 -p0
+%patch1138 -p0
+%patch1139 -p0
+%patch1140 -p0
+%patch1141 -p0
+%patch1142 -p0
+%patch1143 -p0
+%patch1144 -p0
+%patch1145 -p0
+%patch1146 -p0
+%patch1150 -p0
+%patch1151 -p0
+%patch1152 -p0
+%patch1153 -p0
+%patch1157 -p0
+%patch1158 -p0
+%patch1159 -p0
+%patch1160 -p0
+%patch1161 -p0
+%patch1162 -p0
+%patch1163 -p0
+%patch1164 -p0
+%patch1165 -p0
+%patch1166 -p0
+%patch1167 -p0
+%patch1168 -p0
+%patch1169 -p0
+%patch1170 -p0
+%patch1171 -p0
+%patch1172 -p0
+%patch1173 -p0
+%patch1174 -p0
+%patch1175 -p0
+%patch1176 -p0
+%patch1177 -p0
+%patch1178 -p0
+%patch1179 -p0
+%patch1180 -p0
+%patch1181 -p0
+%patch1182 -p0
+%patch1183 -p0
+# %patch1184 -p0 # Win32
+%patch1185 -p0
+%patch1186 -p0
+%patch1187 -p0
+%patch1188 -p0
+%patch1189 -p0
+# %patch1190 -p0 # VMS 
+%patch1191 -p0
+%patch1192 -p0
+%patch1193 -p0
+%patch1194 -p0
+%patch1195 -p0
+# %patch1196 -p0 # Patch doesn't apply, but seems to be Mac only
+%patch1197 -p0
+# %patch1198 -p0 # This one is Mac only
+# %patch1199 -p0 # Win32
+%patch1200 -p0
+%patch1201 -p0
+# %patch1202 -p0 # Win32
+%patch1203 -p0
+%patch1204 -p0
+%patch1205 -p0
+%patch1206 -p0
+%patch1207 -p0
+%patch1208 -p0
+%patch1209 -p0
+%patch1210 -p0
+%patch1211 -p0
+%patch1212 -p0
+%patch1213 -p0
+%patch1214 -p0
+%patch1215 -p0
+%patch1216 -p0
+%patch1217 -p0
+%patch1218 -p0
+%patch1219 -p0
+%patch1220 -p0
+%patch1221 -p0
+%patch1222 -p0
+%patch1223 -p0
+%patch1224 -p0
+%patch1225 -p0
+%patch1226 -p0
+%patch1227 -p0
+#%patch1228 -p0 # Win32
+#%patch1229 -p0 # Win32
+#%patch1230 -p0 # Win16
+%patch1231 -p0
+%patch1232 -p0
+%patch1233 -p0
+%patch1234 -p0
+%patch1235 -p0
+%patch1236 -p0
+%patch1237 -p0
+%patch1238 -p0
+%patch1239 -p0
+#%patch1240 -p0 # Win32
+%patch1241 -p0
+%patch1242 -p0
+#%patch1243 -p0 # Win32
+%patch1244 -p0
+%patch1245 -p0
+%patch1246 -p0
+%patch1247 -p0
+%patch1248 -p0
+%patch1249 -p0
+%patch1250 -p0
+%patch1251 -p0
+%patch1252 -p0
+#%patch1253 -p0 # Win32
+%patch1254 -p0
+%patch1255 -p0
+%patch1256 -p0
+%patch1257 -p0
+%patch1258 -p0
+# %patch1259 -p0 # Mac
+%patch1260 -p0 -b .pl260
+%patch1261 -p0 -b .pl261
+%patch1262 -p0 -b .pl262
+%patch1263 -p0 -b .pl263
+%patch1264 -p0 -b .pl264
+%patch1265 -p0 -b .pl265
 
-%patch2000 -p1 -b .kh1
+%patch3000 -p1 -b .kh1
+%patch3001 -p1 -b .syntx
 %build
 %if "%{rescue}" == ""
 cd src
@@ -572,8 +784,8 @@ chmod 644 ../runtime/doc/vim2html.pl
 %if "%{rescue}" == ""
 mkdir -p $RPM_BUILD_ROOT/etc/profile.d
 cat >$RPM_BUILD_ROOT/etc/profile.d/vim.sh <<EOF
-if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" ]; then
-  # for bash and pdksh and if no alias is already set
+if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
+  # for bash, pdksh and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
@@ -592,6 +804,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README*.txt runtime/macros/README.txt runtime/tools/README.txt
 %doc runtime/docs
+%doc %{SOURCE5}
 /usr/bin/xxd
 /usr/share/vim
 %{_mandir}/man1/vim.*
@@ -662,6 +875,29 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Dec 23 2002 Karsten Hopp <karsten@redhat.de> 6.1-18.8x.1
+- use official patch for the modeline issue 
+
+* Sat Dec 21 2002 Karsten Hopp <karsten@redhat.de> 6.1-18.8x.0
+- disable libcall() and system() in modelines
+
+* Tue Dec 17 2002 Karsten Hopp <karsten@redhat.de> 6.1-17
+- Patchlevel 263
+- gvim works again (#79355)
+- don't backup all those patched files
+
+* Tue Nov 12 2002 Karsten Hopp <karsten@redhat.de>
+- added a lot of upstream patches + the README describing them
+- fix alias for zsh (#77007)
+- FIXME: gvim is currently broken
+
+* Wed Oct 02 2002 Karsten Hopp <karsten@redhat.de>
+- include the other httpd config files for syntax highlight
+
+* Wed Oct 02 2002 Karsten Hopp <karsten@redhat.de>
+- PL 206
+- fix #74135
+
 * Wed Aug 28 2002 Karsten Hopp <karsten@redhat.de>
 - PL 165: 
  - when conversion to xxd fails 'filetype' was set anyway
