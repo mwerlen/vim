@@ -11,7 +11,7 @@ Name: vim
 Version: 6.1
 %define alpha %{nil}
 %define vimversion vim61%{alpha}
-%define rel 12
+%define rel 13
 %if "%{alpha}" != ""
 Release: 0.%{alpha}.%{rel}%{rescue}
 %else
@@ -188,6 +188,11 @@ Patch1150: ftp://ftp.vim.org/pub/vim/patches/6.1.150
 Patch1151: ftp://ftp.vim.org/pub/vim/patches/6.1.151
 Patch1152: ftp://ftp.vim.org/pub/vim/patches/6.1.152
 Patch1153: ftp://ftp.vim.org/pub/vim/patches/6.1.153
+# 154 is MSDOS only
+Patch1157: ftp://ftp.vim.org/pub/vim/patches/6.1.157
+Patch1158: ftp://ftp.vim.org/pub/vim/patches/6.1.158
+Patch1159: ftp://ftp.vim.org/pub/vim/patches/6.1.159
+
 
 Patch2000: vim-6.1-kh1.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-root
@@ -430,6 +435,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch1151 -p0 -b .pl151
 %patch1152 -p0 -b .pl152
 %patch1153 -p0 -b .pl153
+%patch1157 -p0 -b .pl157
+%patch1158 -p0 -b .pl158
+%patch1159 -p0 -b .pl159
 
 %patch2000 -p1 -b .kh1
 %build
@@ -458,6 +466,7 @@ cp vim enhanced-vim
 make clean
 
 %configure --prefix='${DEST}'/usr --with-features=tiny --with-x=no \
+  --enable-multibyte \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
   --with-tlib=termcap --enable-gui=no --disable-gpm --exec-prefix=/ --with-compiledby="<bugzilla@redhat.com>"
 perl -pi -e "s,-I/usr/local/include,,g" auto/config.mk # FIXME: remove once perl is fixed
@@ -641,6 +650,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Aug 19 2002 Karsten Hopp <karsten@redhat.de>
+- PL 159: expanding a multi-byte abbreviation deletes too much
+- build /bin/vi with --enably-multibyte (#71282)
+
 * Thu Aug 15 2002 Karsten Hopp <karsten@redhat.de>
 - Patchlevel 153:
   translated menus are not used when lang contains "iso8859"
