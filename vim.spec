@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 035
+%define patchlevel 042
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -85,6 +85,13 @@ Patch032: ftp://ftp.vim.org/pub/vim/patches/6.3.032
 Patch033: ftp://ftp.vim.org/pub/vim/patches/6.3.033
 Patch034: ftp://ftp.vim.org/pub/vim/patches/6.3.034
 Patch035: ftp://ftp.vim.org/pub/vim/patches/6.3.035
+Patch036: ftp://ftp.vim.org/pub/vim/patches/6.3.036
+Patch037: ftp://ftp.vim.org/pub/vim/patches/6.3.037
+Patch038: ftp://ftp.vim.org/pub/vim/patches/6.3.038
+Patch039: ftp://ftp.vim.org/pub/vim/patches/6.3.039
+Patch040: ftp://ftp.vim.org/pub/vim/patches/6.3.040
+Patch041: ftp://ftp.vim.org/pub/vim/patches/6.3.041
+Patch042: ftp://ftp.vim.org/pub/vim/patches/6.3.042
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -240,6 +247,15 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch33 -p0
 %patch34 -p0
 #%patch35 -p0
+%patch36 -p0
+%patch37 -p0
+# Win32
+#%patch38 -p0
+%patch39 -p0
+%patch40 -p0
+# Win32
+#%patch41 -p0
+%patch42 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -504,6 +520,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Dec 06 2004 Karsten Hopp <karsten@redhat.de> 6.3.042-1 
+- patchlevel 42
+
 * Thu Dec 02 2004 Karsten Hopp <karsten@redhat.de> 6.3.035-2 
 - fix compressed docs handling (#141565)
 
