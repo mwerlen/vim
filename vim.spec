@@ -1,36 +1,26 @@
 Summary: The VIM editor.
 Name: vim
-Version: 5.7
-%define vimversion vim57
-Release: 8tc1
-Packager: Red Hat, Inc. <http://bugzilla.redhat.com/bugzilla>
-Vendor: Red Hat, Inc.
-Copyright: Charityware
+Version: 6.0
+%define alpha z
+%define vimversion vim60%{alpha}
+Release: 0.27
+Copyright: freeware
 Group: Applications/Editors
-Source0: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-src.tar.gz
-Source1: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-rt.tar.gz
-# By CLE {
-Source3: vimrc
-Source4: gvimrc
-# }
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{version}%{alpha}-src.tar.bz2
+Source1: ftp://ftp.vim.org/pub/vim/unix/vim-%{version}%{alpha}-rt.tar.bz2
+Source2: ftp://ftp.vim.org/pub/vim/unreleased/extra/vim-%{version}%{alpha}-lang.tar.bz2
+Source3: gvim.desktop
+Source4: vimrc
 Patch0: vim-4.2-speed_t.patch
 Patch1: vim-5.1-vimnotvi.patch
 Patch2: vim-5.6a-paths.patch
-Patch3: vim-5.6-fixkeys.patch
-Patch4: vim-5.6-specsyntax.patch
-Patch5: vim-5.6-destdir.patch
-Patch6: vim-5.7-redhat.patch
-Patch7: vim-5.7-docpath.patch
-Patch8: vim-5.7-crv.patch
-Patch101: 5.7.001
-Patch102: 5.7.002
-Patch103: 5.7.003
-Patch104: 5.7.004
-Patch105: 5.7.005
-Patch106: 5.7.006
-Patch107: 5.7.007
-Patch108: 5.7.008
-Buildroot: /var/tmp/vim-root
+Patch3: vim-6.0-fixkeys.patch
+Patch4: vim-6.0-specsyntax.patch
+Patch5: vim-6.0r-crv.patch
+Patch6: vim-6.0z-menui18n.patch
+Patch7: vim-6.0t-phphighlight.patch
+Patch8: vim-6.0v-lilo.patch
+Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl gtk+-devel
 
 %description
@@ -107,7 +97,7 @@ with graphics and mouse capabilities.  You'll also need to install the
 vim-common package.
 
 %prep
-%setup -q -b 1
+%setup -q -b 1 -n %{vimversion}
 %patch0 -p1 -b .4.2
 %patch1 -p1 -b .vim
 # fix rogue dependencies from sample code
@@ -116,20 +106,10 @@ chmod -x runtime/tools/mve.awk
 find . -name \*.paths | xargs rm -f
 %patch3 -p1 -b .fixkeys
 %patch4 -p1 -b .highlite
-%patch5 -p1 -b .destdir
-%patch6 -p1 -b .redhat
-%patch7 -p1 -b .docs
-%patch8 -p1 -b .crv
-
-%patch101 -p0 -b .p1
-%patch102 -p0 -b .p2
-%patch103 -p0 -b .p3
-%patch104 -p0 -b .p4
-%patch105 -p0 -b .p5
-%patch106 -p0 -b .p6
-%patch107 -p0 -b .p7
-%patch108 -p0 -b .p8
-
+%patch5 -p1 -b .crv
+%patch6 -p1 -b .menui18n
+%patch7 -p1 -b .php
+%patch8 -p1 -b .lilo
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %build
@@ -137,33 +117,24 @@ cd src
 perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimversion},g" os_unix.h
 perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimversion}/macros,g" os_unix.h
 
-%configure --enable-max-features=yes --enable-pythoninterp --enable-perlinterp --disable-tclinterp --with-x=yes --enable-gui=gtk --exec-prefix=/usr/X11R6 --enable-xim --enable-multibyte --enable-fontset
-make if_perl.c
-perl -pi -e "s,#define.*PL_na.*,,g" if_perl.c
-perl -pi -e "s,#define.*PL_defgv.*,,g" if_perl.c
-perl -pi -e "s,#define.*PL_errgv.*,,g" if_perl.c
+export CFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64"
+export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64"
+
+%configure --with-features=huge --enable-pythoninterp --enable-perlinterp --disable-tclinterp --with-x=yes --enable-gui=gnome --exec-prefix=/usr/X11R6 --enable-xim --enable-multibyte --enable-fontset
 make 
 cp vim gvim
 make clean
 
-%configure --prefix=/usr --enable-max-features=yes --enable-pythoninterp \
+%configure --prefix=/usr --with-features=huge --enable-pythoninterp \
  --enable-perlinterp --disable-tclinterp --with-x=no --enable-gui=no \
- --exec-prefix=/usr
-make if_perl.c
-perl -pi -e "s,#define.*PL_na.*,,g" if_perl.c
-perl -pi -e "s,#define.*PL_defgv.*,,g" if_perl.c
-perl -pi -e "s,#define.*PL_errgv.*,,g" if_perl.c
+ --exec-prefix=/usr --enable-multibyte --enable-fontset
 make
 cp vim enhanced-vim
 make clean
 
-%configure --prefix='${DEST}'/usr --enable-min-features=yes --with-x=no \
+%configure --prefix='${DEST}'/usr --with-features=tiny --with-x=no \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
   --with-tlib=termcap --enable-gui=no --disable-gpm --exec-prefix=/
-make if_perl.c
-perl -pi -e "s,#define.*PL_na.*,,g" if_perl.c
-perl -pi -e "s,#define.*PL_defgv.*,,g" if_perl.c
-perl -pi -e "s,#define.*PL_errgv.*,,g" if_perl.c
 make
 
 
@@ -181,13 +152,14 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
 
 ( cd $RPM_BUILD_ROOT
   mv ./bin/vim ./bin/vi
-  mv ./bin/vimtutor ./usr/bin
   rm -f ./bin/rvim
   ln -sf vi ./bin/view
   ln -sf vi ./bin/ex
   ln -sf vi ./bin/rvi
   ln -sf vi ./bin/rview
   ln -sf vim ./usr/bin/ex
+  ln -sf gvim ./usr/X11R6/bin/gview
+  ln -sf gvim ./usr/X11R6/bin/gex
   perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
   rm -f .%{_mandir}/man1/rvim.1
   ln -sf vim.1.gz .%{_mandir}/man1/vi.1.gz
@@ -195,19 +167,15 @@ install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
   ln -sf vim.1.gz .%{_mandir}/man1/gvim.1.gz
   ln -sf gvim ./usr/X11R6/bin/vimx
   mkdir -p ./etc/X11/applnk/Utilities
-  cat > ./etc/X11/applnk/Utilities/gvim.desktop <<EOF
-[Desktop Entry]
-Name=gvim
-Type=Application
-Comment=VI editor for X Windows
-Exec=gvim
-EOF
-# By CLE {
-  install -s -m644 %{SOURCE3} ./usr/share/vim/%{vimversion}/macros/
+  cp %{SOURCE3} ./etc/X11/applnk/Utilities/gvim.desktop
   install -s -m644 %{SOURCE4} ./usr/share/vim/%{vimversion}/macros/
-#  install -s -m644 %{SOURCE3} ./usr/share/vim/%{vimversion}/macros/
-#  ln -s vimrc ./usr/share/vim/%{vimversion}/macros/gvimrc
-# }
+  # Extract trick to translated menus
+  tar xjvf %{SOURCE2} '*/runtime/lang/*' -C ./
+  ( cd %{vimversion}/runtime; tar cf - lang/* )| \
+    ( cd ./usr/share/vim/%{vimversion}/ ; tar xvf - )
+  # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
+  ( cd ./usr/share/vim/%{vimversion}/lang; \
+    ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
 )
 
 # Dependency cleanups
@@ -224,7 +192,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README*.txt runtime/macros/README.txt runtime/tools/README.txt
 %doc runtime/doc runtime/syntax runtime/termcap runtime/tutor
 %doc runtime/*.vim
-/usr/bin/vimtutor
+/bin/vimtutor
 /usr/bin/xxd
 
 /usr/share/vim
@@ -234,7 +202,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/vi.*
 %{_mandir}/man1/view.*
 %{_mandir}/man1/rvi.*
-%{_mandir}/man1/gvim.*
 %{_mandir}/man1/rview.*
 %{_mandir}/man1/xxd.*
 
@@ -255,33 +222,108 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %config(missingok) /etc/X11/applnk/Utilities/gvim.desktop
 /usr/X11R6/bin/gvim
+/usr/X11R6/bin/gview
+/usr/X11R6/bin/gex
 /usr/X11R6/bin/vimx
 %{_mandir}/man1/gvim.*
 
 %changelog
-* Tue Dec  5 2000 Andrew Lee <andrew@linux.org.tw>
-- Candyz alreay patch this on CLE 0.9p1
-- rebuild on RH7
+* Fri Mar 30 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- Fix large file handling (#34061)
 
-* Wed Oct 11 2000 Chung-Yen Chang <candyz@cle.linux.org.tw>
-- configure with --enable-xim --enable-multibyte --enable-fontset
-- add default vimrc and gvimrc for Chinese
+* Mon Feb 26 2001 Trond Eivind Glomsrød <teg@redhat.com>
+- use %%{_tmppath}
 
+* Thu Feb 15 2001 Yukihiro Nakai <ynakai@redhat.com>
+- vimrc update for 6.0v
 
-* Sun Aug  6 2000 Tim Waugh <twaugh@redhat.com>
-- xterm doesn't have request version string (#14570)
+* Mon Feb 12 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- Fix "lba32" keyword in lilo.conf syntax highlighting
+- Fix build with current glibc
 
-* Sat Aug  5 2000 Bernhard Rosenkraenzer <bero@redhat.com>
-- Patchlevel 8
+* Fri Feb  2 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- Fix crontab -e in vim-minimal (#25376)
 
-* Fri Aug  4 2000 Bernhard Rosenkraenzer <bero@redhat.com>
-- Fix paths in vim.1 manpage (Bug #15387)
+* Tue Jan 30 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- Fix segfault on q, up, up, q (Bug #25261)
 
-* Wed Jul 19 2000 Bernhard Rosenkraenzer <bero@redhat.com>
-- Fix up vimtutor (Bug #11455)
+* Mon Jan 22 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- Set minlines=500 as default in PHP syntax highlighting (RFE #24374)
+- Don't symlink gvimrc to vimrc (Bug #22518)
+- Add symlinks gview -> gvim and gex -> gvim in -X11 (RFE #24394)
+- 6.0t
 
-* Thu Jul 13 2000 Prospector <bugzilla@redhat.com>
-- automatic rebuild
+* Mon Jan 15 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- More fixes to rpm specfile syntax highlighting:
+  - recognize %%ifnarch
+  - recognize "j" as a tar option
+  - recognize %{_libdir}
+
+* Sun Jan 14 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0s
+
+* Wed Jan  3 2001 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0r
+- Restore crv patch (this should fix #23135 for whoever is seeing it;
+  I'm not).
+
+* Tue Dec 19 2000 Yukihiro Nakai <ynakai@redhat.com>
+- Symbolic link to menu_ja_jp.ujis.vim to menu_ja_jp.eucjp.vim
+
+* Mon Dec 18 2000 Yukihiro Nakai <ynakai@redhat.com>
+- Delete i18n patch (already implmented by author)
+- Add menu i18n patch
+- Update vimrc to support CJK
+- Add menu translations.
+
+* Sun Dec 17 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0q
+
+* Sun Dec 17 2000 Yukihiro Nakai <ynakai@redhat.com>
+- Add --enable-fontset to configure options.
+- Add i18nrc patch and resources.
+
+* Tue Dec 12 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0p, new ncurses
+
+* Mon Dec 11 2000 Karsten Hopp <karsten@redhat.de>
+- rebuilt to fix permissions of /usr/share/doc/ and
+  /usr/share/vim
+
+* Mon Nov 13 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0m
+
+* Thu Nov  9 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0l
+
+* Mon Oct 30 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0k
+
+* Tue Oct 17 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0i
+- add new desktop file w/ translations
+
+* Thu Aug 31 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0h
+
+* Wed Aug 30 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0g
+
+* Mon Aug 14 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0f
+
+* Wed Aug  9 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0e
+
+* Sun Jul 23 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0c
+- get rid of the DESTDIR patch, no longer needed
+
+* Sun Jul 16 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0b
+
+* Mon Jul 10 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 6.0a
 
 * Sun Jun 25 2000 Bernhard Rosenkraenzer <bero@redhat.com>
 - 5.7 release
