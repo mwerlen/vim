@@ -40,3 +40,6 @@ Individual patches for Vim 6.3:
   1207  6.3.015  the string returned by winrestcmd() may end in garbage
   1735  6.3.016  'define' default had "\s" before #, breaks "[d"
   1364  6.3.017  "9zz" could place the cursor beyond the end of a line
+  1844  6.3.018  ":0argadd zero" added the argument after the first one
+  1992  6.3.019  crash during startup when compiled for debugging
+  1915  6.3.020  "dw" doesn't work right for UTF-8 when 'delcombine' is set
