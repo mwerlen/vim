@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -510,13 +510,13 @@ install -s -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
 
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
-if [-x /usr/bin/gtk-update-icon-cache ]; then
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
   gtk-update-icon-cache %{_datadir}/icons/hicolor
 fi
 
 %postun X11
 touch --no-create %{_datadir}/icons/hicolor
-if [-x /usr/bin/gtk-update-icon-cache ]; then
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
   gtk-update-icon-cache %{_datadir}/icons/hicolor
 fi
 
@@ -594,6 +594,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Mar 28 2005 Christopher Aillon <caillon@redhat.com>
+- rebuilt
+
 * Fri Mar 25 2005 Christopher Aillon <caillon@redhat.com> 6.3.067-2
 - Update the GTK+ theme icon cache on (un)install
 
