@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 033
+%define patchlevel 035
 
 Summary: The VIM editor.
 Name: vim
@@ -83,6 +83,8 @@ Patch030: ftp://ftp.vim.org/pub/vim/patches/6.3.030
 Patch031: ftp://ftp.vim.org/pub/vim/patches/6.3.031
 Patch032: ftp://ftp.vim.org/pub/vim/patches/6.3.032
 Patch033: ftp://ftp.vim.org/pub/vim/patches/6.3.033
+Patch034: ftp://ftp.vim.org/pub/vim/patches/6.3.034
+Patch035: ftp://ftp.vim.org/pub/vim/patches/6.3.035
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -236,6 +238,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch31 -p0
 %patch32 -p0
 %patch33 -p0
+%patch34 -p0
+#%patch35 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -498,6 +502,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Dec 01 2004 Karsten Hopp <karsten@redhat.de> 6.3.035-1 
+- patchlevel 35
+- allow remapping of 'g' (#140747)
+
 * Fri Nov 19 2004 Karsten Hopp <karsten@redhat.de> 6.3.033-1 
 - patchlevel 33
 

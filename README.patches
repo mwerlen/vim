@@ -56,3 +56,5 @@ Individual patches for Vim 6.3:
   1483  6.3.031  pressing Tab when entering a mapping may cause a display error
   2094  6.3.032  with Python 2.3 using threads doesn't work
   1552  6.3.033  mapping ending in two-char command doesn't restart Insert mode
+  1618  6.3.034  VMS: crash in RTL when using :help, caused by ? wildcard
+  7883  6.3.035  (extra) RISC OS: compilation problems, better Makefile
