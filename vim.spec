@@ -2,7 +2,7 @@ Summary: The VIM editor.
 Name: vim
 Version: 5.8
 %define vimversion vim58
-Release: 4
+Release: 6
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-src.tar.bz2
@@ -24,6 +24,8 @@ Patch102: ftp://ftp.vim.org/pub/vim/patches/5.8.002
 Patch103: ftp://ftp.vim.org/pub/vim/patches/5.8.003
 Patch104: ftp://ftp.vim.org/pub/vim/patches/5.8.004
 Patch105: ftp://ftp.vim.org/pub/vim/patches/5.8.005
+Patch106: ftp://ftp.vim.org/pub/vim/patches/5.8.006
+Patch107: ftp://ftp.vim.org/pub/vim/patches/5.8.007
 
 Buildroot: %{_tmppath}/vim-root
 Buildrequires: python-devel, perl, gtk+-devel, libtermcap-devel
@@ -121,6 +123,8 @@ find . -name \*.paths | xargs rm -f
 %patch103 -p0 -b .pl3
 %patch104 -p0 -b .pl4
 %patch105 -p0 -b .pl5
+%patch106 -p0 -b .pl6
+%patch107 -p0 -b .pl7
 
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
@@ -240,7 +244,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/vim
 %{_bindir}/ex
-%config /etc/profile.d/*
+# no frigging way vim is vim
+# %config /etc/profile.d/*
 
 %files X11
 %defattr(-,root,root)
@@ -250,8 +255,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gvim.*
 
 %changelog
+* Fri Jul 20 2001 Tim Powers <timp@redhat.com>
+- don't alias vi to be vim.
+
+* Tue Jul 10 2001 Bernhard Rosenkraenzer <bero@redhat.com> 5.8-5
+- Fix vimtutor race condition (#46518)
+
+* Mon Jul  2 2001 Bernhard Rosenkraenzer <bero@redhat.com> 5.8-4
+- Add patches #6 and #7 from the maintainer
+
 * Mon Jul 02 2001 Karsten Hopp <karsten@redhat.de>
-- fix vim.sh (vi filename doesn't work, vim filename does)
+- fix vim.sh (#46856 vi filename doesn't work, vim filename does)
 
 * Wed Jun 27 2001 Bernhard Rosenkraenzer <bero@redhat.com> 5.8-3
 - Fix up lilo.conf syntax highlighting (as done earlier)
@@ -260,8 +274,6 @@ rm -rf $RPM_BUILD_ROOT
 - Add BuildRequires (as done earlier)
 - Get rid of patches that worked around bugs in Red Hat Linux 4.x (as done
   earlier)
-- Send people who downgrade other people's packages WITHOUT AT THE VERY
-  LEAST backporting fixes/patches to hell!!!!! >:-((
 - Add fixes from the maintainer, we're now at 5.8.005
 - Add postfix config syntax highlighting (RFE #44778)
 
