@@ -582,7 +582,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Mar 23 2005 Karsten Hopp <karsten@redhat.de> 6.3.067-1
-- Newly created files got execute permission (intruduced by patch 66)
+- Newly created files got execute permission (caused by patch 66)
   #151667
 
 * Fri Mar 18 2005 Karsten Hopp <karsten@redhat.de> 6.3.066-1
