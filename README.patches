@@ -52,3 +52,4 @@ Individual patches for Vim 6.3:
   7500  6.3.027  VMS: Writing a file may insert extra CR characters
   2128  6.3.028  the BOM marker is written when appending to a file
   2173  6.3.029  crash in syntax highlighting code when inserting a line break
+  4579  6.3.030  GTK 2: crash when 'enc' is set to "utf-8" and menus redefined

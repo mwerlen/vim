@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 029
+%define patchlevel 030
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -79,6 +79,7 @@ Patch026: ftp://ftp.vim.org/pub/vim/patches/6.3.026
 Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3.027
 Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3.028
 Patch029: ftp://ftp.vim.org/pub/vim/patches/6.3.029
+Patch030: ftp://ftp.vim.org/pub/vim/patches/6.3.030
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -228,6 +229,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # VMS %patch27 -p0
 %patch28 -p0
 %patch29 -p0
+%patch30 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -489,6 +491,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Fri Oct 08 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-2
+- patchlevel 30
+
 * Wed Oct 06 2004 Karsten Hopp <karsten@redhat.de> 6.3.029-2 
 - fix perl requirement
 - patchlevel 29 to fix crash when inserting a line break
