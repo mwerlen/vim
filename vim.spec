@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -207,6 +207,7 @@ Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr
 BuildRequires: gtk2-devel
+Prereq: gtk2 >= 2.6
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -507,6 +508,18 @@ install -s -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
  mv -f  tools/README.txt ../README.tools;
 )
 
+%post X11
+touch --no-create %{_datadir}/icons/hicolor
+if [-x /usr/bin/gtk-update-icon-cache ]; then
+  gtk-update-icon-cache %{_datadir}/icons/hicolor
+fi
+
+%postun X11
+touch --no-create %{_datadir}/icons/hicolor
+if [-x /usr/bin/gtk-update-icon-cache ]; then
+  gtk-update-icon-cache %{_datadir}/icons/hicolor
+fi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -581,6 +594,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Fri Mar 25 2005 Christopher Aillon <caillon@redhat.com> 6.3.067-2
+- Update the GTK+ theme icon cache on (un)install
+
 * Wed Mar 23 2005 Karsten Hopp <karsten@redhat.de> 6.3.067-1
 - Newly created files got execute permission (caused by patch 66)
   #151667
