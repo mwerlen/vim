@@ -37,3 +37,4 @@ Individual patches for Vim 6.3:
   2882  6.3.012  lalloc(0) error for substitute command with multi-line pattern
  11947  6.3.013  crash when using CTRL-R = in command line uses "normal :cmd"
   1566  6.3.014  default value of 'helplang' is wrong for Chinese and Taiwanese
+  1207  6.3.015  the string returned by winrestcmd() may end in garbage
