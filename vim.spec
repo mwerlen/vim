@@ -1,3 +1,4 @@
+ExcludeArch: ppc64 ppc
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -23,12 +24,12 @@
 
 %define baseversion 6.2
 %define vimdir vim62
-%define patchlevel 457
+%define patchlevel 532
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -38,6 +39,10 @@ Source3: gvim.desktop
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source6: spec.vim
+Source7: gvim16.png
+Source8: gvim32.png
+Source9: gvim48.png
+Source10: gvim64.png
 Patch2000: vim-4.2-speed_t.patch
 Patch2001: vim-5.1-vimnotvi.patch
 Patch2002: vim-5.6a-paths.patch
@@ -505,6 +510,81 @@ Patch454: ftp://ftp.vim.org/pub/vim/patches/6.2.454
 Patch455: ftp://ftp.vim.org/pub/vim/patches/6.2.455
 Patch456: ftp://ftp.vim.org/pub/vim/patches/6.2.456
 Patch457: ftp://ftp.vim.org/pub/vim/patches/6.2.457
+Patch458: ftp://ftp.vim.org/pub/vim/patches/6.2.458
+Patch459: ftp://ftp.vim.org/pub/vim/patches/6.2.459
+Patch460: ftp://ftp.vim.org/pub/vim/patches/6.2.460
+Patch461: ftp://ftp.vim.org/pub/vim/patches/6.2.461
+Patch462: ftp://ftp.vim.org/pub/vim/patches/6.2.462
+Patch463: ftp://ftp.vim.org/pub/vim/patches/6.2.463
+Patch464: ftp://ftp.vim.org/pub/vim/patches/6.2.464
+Patch465: ftp://ftp.vim.org/pub/vim/patches/6.2.465
+Patch466: ftp://ftp.vim.org/pub/vim/patches/6.2.466
+Patch467: ftp://ftp.vim.org/pub/vim/patches/6.2.467
+Patch468: ftp://ftp.vim.org/pub/vim/patches/6.2.468
+Patch469: ftp://ftp.vim.org/pub/vim/patches/6.2.469
+Patch470: ftp://ftp.vim.org/pub/vim/patches/6.2.470
+Patch471: ftp://ftp.vim.org/pub/vim/patches/6.2.471
+Patch472: ftp://ftp.vim.org/pub/vim/patches/6.2.472
+Patch473: ftp://ftp.vim.org/pub/vim/patches/6.2.473
+Patch474: ftp://ftp.vim.org/pub/vim/patches/6.2.474
+Patch475: ftp://ftp.vim.org/pub/vim/patches/6.2.475
+Patch476: ftp://ftp.vim.org/pub/vim/patches/6.2.476
+Patch477: ftp://ftp.vim.org/pub/vim/patches/6.2.477
+Patch478: ftp://ftp.vim.org/pub/vim/patches/6.2.478
+Patch479: ftp://ftp.vim.org/pub/vim/patches/6.2.479
+Patch480: ftp://ftp.vim.org/pub/vim/patches/6.2.480
+Patch481: ftp://ftp.vim.org/pub/vim/patches/6.2.481
+Patch482: ftp://ftp.vim.org/pub/vim/patches/6.2.482
+Patch483: ftp://ftp.vim.org/pub/vim/patches/6.2.483
+Patch484: ftp://ftp.vim.org/pub/vim/patches/6.2.484
+Patch485: ftp://ftp.vim.org/pub/vim/patches/6.2.485
+Patch486: ftp://ftp.vim.org/pub/vim/patches/6.2.486
+Patch487: ftp://ftp.vim.org/pub/vim/patches/6.2.487
+Patch488: ftp://ftp.vim.org/pub/vim/patches/6.2.488
+Patch489: ftp://ftp.vim.org/pub/vim/patches/6.2.489
+Patch490: ftp://ftp.vim.org/pub/vim/patches/6.2.490
+Patch491: ftp://ftp.vim.org/pub/vim/patches/6.2.491
+Patch492: ftp://ftp.vim.org/pub/vim/patches/6.2.492
+Patch493: ftp://ftp.vim.org/pub/vim/patches/6.2.493
+Patch494: ftp://ftp.vim.org/pub/vim/patches/6.2.494
+Patch495: ftp://ftp.vim.org/pub/vim/patches/6.2.495
+Patch496: ftp://ftp.vim.org/pub/vim/patches/6.2.496
+Patch497: ftp://ftp.vim.org/pub/vim/patches/6.2.497
+Patch498: ftp://ftp.vim.org/pub/vim/patches/6.2.498
+Patch499: ftp://ftp.vim.org/pub/vim/patches/6.2.499
+Patch500: ftp://ftp.vim.org/pub/vim/patches/6.2.500
+Patch501: ftp://ftp.vim.org/pub/vim/patches/6.2.501
+Patch502: ftp://ftp.vim.org/pub/vim/patches/6.2.502
+Patch503: ftp://ftp.vim.org/pub/vim/patches/6.2.503
+Patch504: ftp://ftp.vim.org/pub/vim/patches/6.2.504
+Patch505: ftp://ftp.vim.org/pub/vim/patches/6.2.505
+Patch506: ftp://ftp.vim.org/pub/vim/patches/6.2.506
+Patch507: ftp://ftp.vim.org/pub/vim/patches/6.2.507
+Patch508: ftp://ftp.vim.org/pub/vim/patches/6.2.508
+Patch509: ftp://ftp.vim.org/pub/vim/patches/6.2.509
+Patch510: ftp://ftp.vim.org/pub/vim/patches/6.2.510
+Patch511: ftp://ftp.vim.org/pub/vim/patches/6.2.511
+Patch512: ftp://ftp.vim.org/pub/vim/patches/6.2.512
+Patch513: ftp://ftp.vim.org/pub/vim/patches/6.2.513
+Patch514: ftp://ftp.vim.org/pub/vim/patches/6.2.514
+Patch515: ftp://ftp.vim.org/pub/vim/patches/6.2.515
+Patch516: ftp://ftp.vim.org/pub/vim/patches/6.2.516
+Patch517: ftp://ftp.vim.org/pub/vim/patches/6.2.517
+Patch518: ftp://ftp.vim.org/pub/vim/patches/6.2.518
+Patch519: ftp://ftp.vim.org/pub/vim/patches/6.2.519
+Patch520: ftp://ftp.vim.org/pub/vim/patches/6.2.520
+Patch521: ftp://ftp.vim.org/pub/vim/patches/6.2.521
+Patch522: ftp://ftp.vim.org/pub/vim/patches/6.2.522
+Patch523: ftp://ftp.vim.org/pub/vim/patches/6.2.523
+Patch524: ftp://ftp.vim.org/pub/vim/patches/6.2.524
+Patch525: ftp://ftp.vim.org/pub/vim/patches/6.2.525
+Patch526: ftp://ftp.vim.org/pub/vim/patches/6.2.526
+Patch527: ftp://ftp.vim.org/pub/vim/patches/6.2.527
+Patch528: ftp://ftp.vim.org/pub/vim/patches/6.2.528
+Patch529: ftp://ftp.vim.org/pub/vim/patches/6.2.529
+Patch530: ftp://ftp.vim.org/pub/vim/patches/6.2.530
+Patch531: ftp://ftp.vim.org/pub/vim/patches/6.2.531
+Patch532: ftp://ftp.vim.org/pub/vim/patches/6.2.532
 
 Patch3001: vim-6.1-syntax.patch
 Patch3002: vim-6.2-rh1.patch
@@ -522,8 +602,12 @@ Patch3101: vim-selinux.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl libtermcap-devel gettext
+Buildrequires: libacl-devel gpm-devel
 %if "%{withruby}" == "1"
 Buildrequires: ruby ruby-devel
+%endif
+%if %{WITH_SELINUX}
+Buildrequires: libselinux-devel
 %endif
 %if %{desktop_file}
 Requires: /usr/bin/desktop-file-install
@@ -628,7 +712,7 @@ find . -name \*.paths | xargs rm -f
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
-# for i in `seq 1 14`; do printf "%%patch%03d -p0 -b .pl%03d\n" $i $i; done
+# for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
 %patch001 -p0
 %patch002 -p0
 %patch003 -p0
@@ -1091,6 +1175,82 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch455 -p0
 #%patch456 -p0 # Win32
 %patch457 -p0
+%patch458 -p0 
+%patch459 -p0 
+#%patch460 -p0 # Win32
+%patch461 -p0 
+%patch462 -p0 
+#%patch463 -p0 # Win32 
+#%patch464 -p0 # Amiga
+%patch465 -p0 
+#%patch466 -p0 # Win32
+#%patch467 -p0 # Win32
+%patch468 -p0 
+#%patch469 -p0 # Win32
+%patch470 -p0 
+%patch471 -p0 
+%patch472 -p0 
+%patch473 -p0 
+#%patch474 -p0 #Win32
+%patch475 -p0 
+%patch476 -p0 
+%patch477 -p0 
+#%patch478 -p0 # Win32
+%patch479 -p0 
+#%patch480 -p0 # NetBeans
+%patch481 -p0 
+%patch482 -p0
+#%patch483 -p0 # Photon
+#%patch484 -p0 # Windows
+%patch485 -p0 
+%patch486 -p0 
+#%patch487 -p0 # Win32
+%patch488 -p0 
+%patch489 -p0 
+%patch490 -p0 
+%patch491 -p0 
+%patch492 -p0 
+%patch493 -p0 
+%patch494 -p0 
+#%patch495 -p0 # Win32
+%patch496 -p0 
+%patch497 -p0 
+%patch498 -p0 
+%patch499 -p0 
+#%patch500 -p0 # DOS
+#%patch501 -p0 # MorphOS
+%patch502 -p0 
+%patch503 -p0 
+%patch504 -p0 
+%patch505 -p0 
+#%patch506 -p0 # Win32
+#%patch507 -p0 # NetBeans
+%patch508 -p0 
+%patch509 -p0 
+#%patch510 -p0 # NetBeans
+%patch511 -p0 
+%patch512 -p0
+#%patch513 -p0 # NetBeans 
+%patch514 -p0 
+%patch515 -p0 
+%patch516 -p0 
+%patch517 -p0 
+%patch518 -p0 
+%patch519 -p0 
+#%patch520 -p0 # Win32
+%patch521 -p0 
+%patch522 -p0 
+%patch523 -p0 
+#%patch524 -p0 # Win32
+%patch525 -p0 
+%patch526 -p0 
+%patch527 -p0 
+#Modified, removed nbdebug stuff:
+%patch528 -p0 
+#%patch529 -p0 # VisVim
+%patch530 -p0 
+%patch531 -p0 
+#%patch532 -p0 # Win32/MSVC41
 
 #%patch3000 -p1 -b .kh1
 %patch3001 -p1 -b .syntx
@@ -1172,7 +1332,16 @@ cd src
 mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin
 make installmacros DESTDIR=$RPM_BUILD_ROOT
 %if "%{withgui}" == "1"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
 install -s -m755 gvim $RPM_BUILD_ROOT/usr/X11R6/bin
+install -s -m644 %{SOURCE7} \
+   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
+install -s -m644 %{SOURCE8} \
+   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/gvim.png
+install -s -m644 %{SOURCE9} \
+   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
+install -s -m644 %{SOURCE10} \
+   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
 %endif
 install -s -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
 
@@ -1276,6 +1445,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files minimal
 %defattr(-,root,root)
+%config(noreplace) /etc/vimrc
 /bin/ex
 /bin/vi
 /bin/view
@@ -1310,9 +1480,21 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/bin/evim
 %{_mandir}/man1/evim.*
 %{_mandir}/man1/gvim*
+%{_datadir}/icons/hicolor/*/apps/*
 %endif
 
 %changelog
+* Wed Jun 02 2004 Karsten Hopp <karsten@redhat.de> 6.2.532-3
+- rebuild
+
+* Wed Jun 02 2004 Karsten Hopp <karsten@redhat.de> 6.2.532-2
+- rebuild
+
+* Thu Jun 01 2004 Karsten Hopp <karsten@redhat.de> 6.2.532-1 
+- patchlevel 532
+- include vimrc in vim-minimal (#123205)
+- add gvim icons (#110033)
+
 * Wed Apr 07 2004 Karsten Hopp <karsten@redhat.de> 6.2.457-1 
 - patchlevel 457
 

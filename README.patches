@@ -27,6 +27,7 @@ Collection of patches for Vim 6.2:
 138268  6.2.101-200.gz        patches 6.2.101 to 6.2.200, gzip'ed
 136345  6.2.201-300.gz        patches 6.2.201 to 6.2.300, gzip'ed
  98866  6.2.301-400.gz        patches 6.2.301 to 6.2.400, gzip'ed
+124916  6.2.401-500.gz        patches 6.2.401 to 6.2.500, gzip'ed 
 
 Individual patches for Vim 6.2:
   SIZE  NAME     FIXES
@@ -487,6 +488,81 @@ Individual patches for Vim 6.2:
   2626  6.2.455  current locale confuses Python library functions
  24720  6.2.456  (extra) Win32: can't handle filenames with multi-byte chars
   2482  6.2.457  (after 6.2.244) wrong utf-8 to latin1 conv. when writing file
+  2024  6.2.458  when 'virtualedit' is set "y$" does not include trailing ^M
+  1584  6.2.459  (after 6.2.454) variable "b" cannot be assigned to
+  1580  6.2.460  (extra, after 6.2.456) missing function prototypes
+  2333  6.2.461  after searching "x" puts single chars in numbered registers
+  3711  6.2.462  "%" doesn't handle backslash in a trail byte correctly
+  9708  6.2.463  (extra) Win32: info streams are not copied properly
+  1627  6.2.464  (extra) Amiga: gcc can't handle #ifdef in Read()
+  1741  6.2.465  GUI: resizing the window sometimes moves it off-screen
+  2190  6.2.466  (extra) Win32: can't compile with Borland C
+  1866  6.2.467  (extra, after 6.2.463) Win32: compiling requires mbyte feat.
+ 21017  6.2.468  compiler warnings for shadowed variables
+  2440  6.2.469  (extra, after 6.2.456) Win32: can't create swap file
+  2007  6.2.470  tempname() may return name also used for shell output
+  9596  6.2.471  configure: superfluous "-L/usr/lib", -ldl and -lw missing
+  7260  6.2.472  window count wrong when autocommand changes buffer
+  1621  6.2.473  using CTRL-] in a help buffer without a name causes a crash
+  8977  6.2.474  (extra, after 6.2.456) Win32: runtime files not found
+  9880  6.2.475  skipping over ":perl <<EOF" does not work properly
+  1665  6.2.476  buffer reloaded after changed outside of Vim becomes readonly
+  3021  6.2.477  remote_send(v:servername, "\<C-V>") causes Vim to hang
+  3831  6.2.478  Win32: "gvim --remote" fails when cur. dir starts with quote
+  2758  6.2.479  error message from recovery goes unnoticed
+  3832  6.2.480  NetBeans: using wrong array index, reads past trailing \
+  8210  6.2.481  cannot specify that writing breaks soft and/or hard links
+ 58209  6.2.482  isdigit() considers superscript 1 to be a digit
+  3959  6.2.483  (extra, after 6.2.482) extra part of patch 6.2.482
+  6545  6.2.484  MS-Windows: diff mode ignores text changes after CTRL-Z
+  4846  6.2.485  in BufWriteCmd autocmd don't know if ! was used for ":write"
+  4514  6.2.486  (after 6.2.482) diff for src/eval.c was missing
+  1809  6.2.487  (extra, after 6.2.456) non-static prototype for static func
+  1458  6.2.488  missing parenthesis in *.ch filetype detection
+  2511  6.2.489  loading a session already opened gives a lot of prompts
+  2045  6.2.490  two spaces in 'paragraph' do not match a dot by itself
+  3987  6.2.491  decrementing position is wrong for multi-byte characters
+  1569  6.2.492  after ":redraw" a message is not overwritten
+  2906  6.2.493  using "CTRL-O @x" in Insert mode inserts the commands
+  1953  6.2.494  fold opens in other window when moving cursor in diff mode
+ 13372  6.2.495  (extra, after 6.2.456) file dialog doesn't work on Win95
+  6753  6.2.496  FreeBSD: with threads out-of-stack situation is not handled
+  3973  6.2.497  (extra) only one encoding for Russian messages supported
+  3712  6.2.498  help files in utf-8 only work when 'encoding' is "utf-8"
+  2222  6.2.499  on journalling filesystem written file may be lost
+  3496  6.2.500  (extra) dos install program doesn't use "diff --binary"
+  7850  6.2.501  can't compile on MorphOS
+  3119  6.2.502  missing message translation files breaks building
+  3732  6.2.503  Mac: can't build with big features without GUI
+ 64022  6.2.504  various wrong indent amounts with 'cindent'
+  2627  6.2.505  help for -P argument is missing
+ 18515  6.2.506  (extra) Win32: conversion from/to codepages doesn't work
+  7383  6.2.507  NetBeans: missing check if connection file is world readable
+  3410  6.2.508  Win32: value displayed for message language is wrong
+  1668  6.2.509  (after 6.2.508) Win32: crash when $LANG is empty
+  1561  6.2.510  (after 6.2.507) compiler warning for pointer type
+ 23509  6.2.511  cannot handle help tags in utf-8 encoding
+  3367  6.2.512  translating "\"\n" is not very useful
+  1990  6.2.513  (after 6.2.507) NetBeans: checking user ID is not necessary
+  2124  6.2.514  syntax/highlight group name is not checked for invalid chars
+  2859  6.2.515  ":options" resets global 'swapfile'
+ 11740  6.2.516  the sign column is invisible, looks like extra indent
+  4015  6.2.517  multi-byte characters not handled well with "r" in Visual mode
+  1944  6.2.518  display error after doing "J" and then "D"
+  6722  6.2.519  Mac: reading and writing MacRoman files does not always work
+ 20161  6.2.520  (extra) Win32: NSIS installer is outdated
+  1583  6.2.521  silent ex mode waits after a message that is skipped
+  1650  6.2.522  setting 'cmdheight' while starting up causes layout problems
+  2711  6.2.523  aborting a session leaves the user with useless windows
+ 30826  6.2.524  (extra, after 6.2.520) Win32: NSIS installer problems
+  2432  6.2.525  crash with ":history" when history entry is very long
+  2280  6.2.526  menu translations not found when s:lang is two characters
+  5959  6.2.527  2html.vim does not work in combination with some autocmds
+  5917  6.2.528  changes for "~" are not reported to NetBeans
+  1952  6.2.529  (extra)  VisVim only works for Admin
+  1208  6.2.530  Amiga: compiler warning in version.c
+  2923  6.2.531  can't see debug messages in silent Ex mode
+  5825  6.2.532  (extra) can't compile with MSVC 4.1 for Win32s version
 
 
 Collection of patches for Vim 6.1:
