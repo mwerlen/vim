@@ -2,7 +2,7 @@ Summary: The VIM editor.
 Name: vim
 Version: 5.8
 %define vimversion vim58
-Release: 6
+Release: 7
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.home.vim.org/pub/vim/unix/vim-%{version}-src.tar.bz2
@@ -133,7 +133,7 @@ cd src
 perl -pi -e "s,\\\$VIMRUNTIME,%{_datadir}/vim/%{vimversion},g" os_unix.h
 perl -pi -e "s,\\\$VIM,%{_datadir}/vim/%{vimversion}/macros,g" os_unix.h
 # Build gvim.
-%configure --enable-max-features=yes --enable-pythoninterp --enable-perlinterp --disable-tclinterp --with-x=yes --enable-gui=gtk --exec-prefix=/usr/X11R6
+%configure --enable-max-features=yes --enable-pythoninterp --enable-perlinterp --disable-tclinterp --with-x=yes --enable-gui=gtk --enable-fontset --enable-xim --exec-prefix=/usr/X11R6
 make 
 cp vim gvim
 make clean
@@ -255,6 +255,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gvim.*
 
 %changelog
+* Tue Aug  7 2001 Yukihiro Nakai <ynakai@redhat.com>
+- Add language settings to vimrc
+- Build gvim with  --enable-fontset --enable-xim
+
 * Fri Jul 20 2001 Tim Powers <timp@redhat.com>
 - don't alias vi to be vim.
 

@@ -85,3 +85,20 @@ nmap ,hs wbi<strong><ESC>ea</strong><ESC>bb
 nmap ,ht wbi<tt><ESC>ea</tt><ESC>bb
 nmap ,hx wbF<df>f<df>
 
+" Language definition
+if $LANG =~ "^ko"
+     set fe=korea
+     set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*,*
+elseif $LANG =~ "^ja"
+     set fe=japan
+     set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*,*
+elseif $LANG =~ "^zh_TW"
+     set fe=taiwan
+     set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*,*
+elseif $LANG =~ "^zh_CN"
+     set fe=prc
+     set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*,*
+endif
+if $LANG =~ "utf8$" || $LANG =~ "UTF-8$"
+    set fe=unicode
+endif
