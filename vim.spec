@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -86,6 +86,7 @@ Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-6.2-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
+Patch3007: vim-6.3-dnssyntax.patch
 
 Patch3100: vim-selinux.patch
 
@@ -233,6 +234,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3004 -p1 -b .rcloc
 %patch3005 -p1 -b .rh4
 %patch3006 -p1 -b .rh5
+%patch3007 -p1 -b .dns
 
 %if %{WITH_SELINUX}
 %patch3100 -p1 -b .selinux
@@ -485,6 +487,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Sep 29 2004 Karsten Hopp <karsten@redhat.de> 6.3.028-2 
+- add patch from Ulrich Drepper to fix syntax highlighting of 
+  DNS config files (#133746)
+
 * Tue Sep 21 2004 Than Ngo <than@redhat.com> 6.3.028-1
 - add patchlevel 27,28
 
