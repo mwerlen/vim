@@ -11,7 +11,7 @@ Name: vim
 Version: 6.1
 %define alpha %{nil}
 %define vimversion vim61%{alpha}
-%define rel 13
+%define rel 14
 %if "%{alpha}" != ""
 Release: 0.%{alpha}.%{rel}%{rescue}
 %else
@@ -192,6 +192,12 @@ Patch1153: ftp://ftp.vim.org/pub/vim/patches/6.1.153
 Patch1157: ftp://ftp.vim.org/pub/vim/patches/6.1.157
 Patch1158: ftp://ftp.vim.org/pub/vim/patches/6.1.158
 Patch1159: ftp://ftp.vim.org/pub/vim/patches/6.1.159
+Patch1160: ftp://ftp.vim.org/pub/vim/patches/6.1.160
+Patch1161: ftp://ftp.vim.org/pub/vim/patches/6.1.161
+Patch1162: ftp://ftp.vim.org/pub/vim/patches/6.1.162
+Patch1163: ftp://ftp.vim.org/pub/vim/patches/6.1.163
+Patch1164: ftp://ftp.vim.org/pub/vim/patches/6.1.164
+Patch1165: ftp://ftp.vim.org/pub/vim/patches/6.1.165
 
 
 Patch2000: vim-6.1-kh1.patch
@@ -438,6 +444,12 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch1157 -p0 -b .pl157
 %patch1158 -p0 -b .pl158
 %patch1159 -p0 -b .pl159
+%patch1160 -p0 -b .pl160
+%patch1161 -p0 -b .pl161
+%patch1162 -p0 -b .pl162
+%patch1163 -p0 -b .pl163
+%patch1164 -p0 -b .pl164
+%patch1165 -p0 -b .pl165
 
 %patch2000 -p1 -b .kh1
 %build
@@ -650,6 +662,12 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Aug 28 2002 Karsten Hopp <karsten@redhat.de>
+- PL 165: 
+ - when conversion to xxd fails 'filetype' was set anyway
+ - undo information is corrupted when splitting a saved line
+- add latin1 to fileencodings to fix 'conversion errors'
+
 * Mon Aug 19 2002 Karsten Hopp <karsten@redhat.de>
 - PL 159: expanding a multi-byte abbreviation deletes too much
 - build /bin/vi with --enably-multibyte (#71282)

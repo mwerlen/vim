@@ -12,7 +12,7 @@ elseif v:lang =~ "^zh_CN"
    set guifontset=*-r-*
 endif
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-   set fileencodings=utf-8
+   set fileencodings=utf-8,latin1
 endif
 
 set nocompatible	" Use Vim defaults (much better!)
