@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -146,7 +146,7 @@ package is installed.
 %package enhanced
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
-Requires: vim-common 
+Requires: vim-common = %{epoch}:%{version}-%{release}
 Requires: %(perl -le 'printf("perl >= %vd\n",$^V);')
 Obsoletes: vim-color
 
@@ -167,7 +167,7 @@ need to install the vim-common package.
 %package X11
 Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
-Requires: vim-common libattr
+Requires: vim-common = %{epoch}:%{version}-%{release} libattr
 BuildRequires: gtk2-devel
 
 %description X11
@@ -491,6 +491,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Oct 19 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-3 
+- fix dependencies on vim-common (#132371)
+
 * Mon Oct 11 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-2 
 - add cscope to vimrc so that cscope DB will be used 
   automatically when available
