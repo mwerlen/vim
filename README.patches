@@ -92,3 +92,4 @@ Individual patches for Vim 6.3:
   4436  6.3.065  there was no digraph for euro in Unicode
   4728  6.3.066  permissions of backup file may be wrong
   2200  6.3.067  (after 6.3.066) newly created file gets execute permission
+  2247  6.3.068  can't write when editing symbolic link to compressed file
