@@ -25,6 +25,7 @@ Collection of patches for Vim 6.2:
   SIZE  NAME                  INCLUDES
  68765  6.2.001-100.gz	      patches 6.2.001 to 6.2.100, gzip'ed
 138268  6.2.101-200.gz        patches 6.2.101 to 6.2.200, gzip'ed
+136345  6.2.201-300.gz        patches 6.2.201 to 6.2.300, gzip'ed
 
 Individual patches for Vim 6.2:
   SIZE  NAME     FIXES
@@ -242,7 +243,119 @@ Individual patches for Vim 6.2:
   2458  6.2.212  (after 6.2.199) NetBeans: problem when replacing with a count
   1834  6.2.213  (after 6.2.208) "{{{1" doesn't start a new fold when it should
   1601  6.2.214  (extra, after 6.2.211) warning for unused variable
-
+  5428  6.2.215  NetBeans: confusion about modified/unmodified buffer
+  1551  6.2.216  (after 6.2.206) still can't use multi-byte char as hotkey
+  1577  6.2.217  GTK: window title isn't always set successfully
+  2149  6.2.218  warning for missing prototype in balloon eval code
+  5570  6.2.219  hang in syntax highlighting for empty item with nextgroup
+  1653  6.2.220  console server doesn't use message from client until key hit
+  1581  6.2.221  no file name completion for ":cscope" command
+  2544  6.2.222  remote server can't handle two client messages at once
+ 16310  6.2.223  cscope may hang on a prompt; perror() messes up display
+  1718  6.2.224  Mac: can't compile with tiny features and GUI
+  1839  6.2.225  modified state reported to NetBeans isn't exactly right
+  3318  6.2.226  (after 6.2.107, extra) "ws2-32.lib" isn't always available
+  3676  6.2.227  (extra) "PC" is defined but never used
+  4448  6.2.228  CTRL-\ CTRL-N is not recognized after "f" and "m"
+  1638  6.2.229  function name with curlies doesn't work inside a function
+  8244  6.2.230  (extra) Win32: a complicated pattern may cause a crash
+ 21018  6.2.231  raising an exception in a builtin function not done correctly
+  2462  6.2.232  invoking ":python" recursively crashes Vim
+ 24292  6.2.233  Mac: configure/build problems for Ruby, Perl, Tcl and Python
+  3258  6.2.234  GTK2: cursor isn't removed after ":sp" and then ":q"
+  1481  6.2.235  (extra) cursor isn't removed when "0" causes scrolling
+  2891  6.2.236  NetBeans: get "connection lost" messages when using Agide
+  2976  6.2.237  GTK2: Thai text is displayed wrong
+ 96331  6.2.238  (after 6.2.231) cannot define a function inside a while loop
+  3551  6.2.239  GTK2: arrow of scrollbar doesn't work well for closed folds
+  3758  6.2.240  GTK2: searching toolbar icons works different from other GUIs
+  7738  6.2.241  GTK2: search/replace dialog buttons don't work properly
+  5155  6.2.242  when compiled with Gnome --help does not show Vim help
+  2527  6.2.243  Mac: Dropping a file on a Vim icon causes a hit-enter prompt
+  1723  6.2.244  echoing an illegal byte that could be a lead byte is wrong
+  3332  6.2.245  completion doesn't work for ":keepmarks" and ":lockmarks"
+  3635  6.2.246  Mac: starting gvim from Finder doesn't show error messages
+  1528  6.2.247  (after 6.2.193) search pat from viminfo misses last char
+  8278  6.2.248  GTK 2: When XIM is enabled "2" and keypad "2" are identical
+  5240  6.2.249  after ":cnfile" there is no way to go back
+  3454  6.2.250  memory leaks when using signs
+  3491  6.2.251  GTK 2: 'v' flag in 'guioptions' was not supported
+  2059  6.2.252  (extra, after 6.2.243) hit-enter prompt for dropped file
+  1379  6.2.253  ":tag foo" may not work when 'tagstack' is off
+  1868  6.2.254  error messages may not fit in buffer
+  1683  6.2.255  GTK: new menu item appears in the wrong position
+  2074  6.2.256  Mac: MacRoman encoding is not recognized
+  1714  6.2.257  (after 6.2.250) signs deleted too early, with ":bdel"
+  2281  6.2.258  grey-out of popup menu items doesn't work
+  2997  6.2.259  not using hit-enter prompt on exiting when needed
+  5998  6.2.260  GTK: Esc and Enter not handled properly for dialogs
+  1517  6.2.261  'cindent' does not work on comment when 'autoindent' is set
+  1544  6.2.262  1 CTRL-W w beeps when there is one window
+  6247  6.2.263  various lint warnings and unnecessary code
+  1628  6.2.264  (after 6.2.247) reading past allocated memory
+  3792  6.2.265  in the sandbox ":set" doesnt work but ":let &opt = val" does
+  2587  6.2.266  line breaks missing in redirected text when ":silent" is used
+ 11043  6.2.267  (extra) Win32: torn off menu cannot contain "&"
+  3049  6.2.268  GUI: window goes off-screen when adding flags in 'guioptions'
+  1717  6.2.269  diff highlighting is wrong for a change in combining char
+  1810  6.2.270  redo of Insert mode completion doesn't work for combining char
+ 11056  6.2.271  NetBeans: connection info is not passed securely
+  5021  6.2.272  deleting "src/po" dir after configuring causes make to loop
+  1846  6.2.273  with wrong range arguments of a function are not skipped over
+  2060  6.2.274  missing empty lines when 'list' set, "eol" not in 'listchars'
+  2159  6.2.275  (extra, after 6.2.267) warning for uninitialized variable
+  1844  6.2.276  missing line break for ":echo func()" command
+  1402  6.2.277  crash when using ":runtime" recursively
+  1606  6.2.278  using "too much" instead of "too many" in an error message
+  2920  6.2.279  confirm() does not have a default choice
+  5284  6.2.280  "do" and ":diffget" can't get deleted lines at buffer end
+  2883  6.2.281  PostScript printing on Mac OS X 10.3.2 doesn't work
+  4430  6.2.282  help buffer: CTRL-O makes it listed, 'isk' not always set
+  2450  6.2.283  wrong encoding for local additions list in help index
+  2896  6.2.284  listing function and variables can't be quit properly
+  1593  6.2.285  cursor not removed when "gj" causes a wrapped line to scroll
+  2269  6.2.286  rename(from, to) deletes "to" when "from" doesn't exist
+  3439  6.2.287  (after 6.2.264) command line history lines are repeated
+  1891  6.2.288  (extra) Mac: CTRL-C doesn't interrupt an external command
+  3657  6.2.289  Tcl with threads causes ":make" to fail
+  5890  6.2.290  (extra) Mac: the mousewheel doesn't work
+  5069  6.2.291  (extra) Mac: the close and zoom buttons don't work
+  2077  6.2.292  Motif: removing GUI arguments duplicates the last argument
+  2665  6.2.293  (after 6.2.255) GTK: menu items appear before the tearoff item
+  1841  6.2.294  (extra) Mac: modifiers don't work for Space, Tab, Enter, Esc
+ 20431  6.2.295  crash when receiving a message from a client in debug mode  
+  7404  6.2.296  (extra) addition to 6.2.295 for extra files
+  5511  6.2.297  (after 6.2.232) can't use ":python" recursive with Python 2.3
+ 21157  6.2.298  can't move to old change positions or skip setting '.
+ 48457  6.2.299  (CORRECTED) cannot use translated help files
+  1615  6.2.300  (after 6.2.297) missing semicolon
+  5866  6.2.301  the "select all" popup menu doesn't work in Select mode
+  8258  6.2.302  CTRL-O . in Insert mode doesn't work properly
+  3827  6.2.303  cannot use Unicode digraphs when 'encoding' is not Unicode
+ 11109  6.2.304  (extra, after 6.2.256) Mac: no proper support for 'encoding'
+  3646  6.2.305  (after 6.2.300) Win32: can't compile with Python 2.3
+  1627  6.2.306  (extra) BCC 5.5: missing prototype warning for console Vim
+  2112  6.2.307  (after 6.2.299) installing help files fails
+  1939  6.2.308  some systems don't have "whoami", causes an empty user name
+  2287  6.2.309  "3grx" doesn't work, waits for two Esc to be typed
+  1689  6.2.310  setting 'undolevels' just after a change causes error message
+ 11472  6.2.311  (after 6.2.298) "xxx" adds three entries to change list
+  2433  6.2.312  (after 6.2.299) "make install" clears screen making doc tags
+ 11056  6.2.313  when opening folds in diff mode can't comparing windows
+  2218  6.2.314  crash with "rx" in virtualedit block selection and using "$"
+  1868  6.2.315  CTRL-C in vmap with 'im' set stops return to Insert mode
+  1932  6.2.316  (after 6.2.307) connect to X server when installing help files
+  2153  6.2.317  (after 6.2.313) "zi" doesn't have effect on other diff windows
+  1713  6.2.318  external commands don't echo when compiled with _THREAD_SAFE
+  3445  6.2.319  (extra) building gvimext.dll with Mingw doesn't work properly
+  2216  6.2.320  when adding/removing menu bar 'lines' decreases
+ 11600  6.2.321  modeless selection inserts line break for wrapped line
+  2237  6.2.322  'showcmd' may not display "d" after using "dd"
+  3916  6.2.323  Win32: "~/file" in autocmd pattern expands with backslashes
+  2562  6.2.324  (extra) Win32: space in "vimrun.exe" path makes ":!xxd" fail
+  2197  6.2.325  ":set tags=~/tags" doesn't work when $HOME includes a space
+  3122  6.2.326  ":windo set syntax=foo" doesn't work
+ 37769  6.2.327  text formatting deletes marks and always moves the cursor
 
 
 Collection of patches for Vim 6.1:
