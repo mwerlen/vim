@@ -23,7 +23,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 006
+%define patchlevel 011
 
 Summary: The VIM editor.
 Name: vim
@@ -57,6 +57,11 @@ Patch003: ftp://ftp.vim.org/pub/vim/patches/6.3.003
 Patch004: ftp://ftp.vim.org/pub/vim/patches/6.3.004
 Patch005: ftp://ftp.vim.org/pub/vim/patches/6.3.005
 Patch006: ftp://ftp.vim.org/pub/vim/patches/6.3.006
+Patch007: ftp://ftp.vim.org/pub/vim/patches/6.3.007
+Patch008: ftp://ftp.vim.org/pub/vim/patches/6.3.008
+Patch009: ftp://ftp.vim.org/pub/vim/patches/6.3.009
+Patch010: ftp://ftp.vim.org/pub/vim/patches/6.3.010
+Patch011: ftp://ftp.vim.org/pub/vim/patches/6.3.011
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -186,6 +191,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch004 -p0
 %patch005 -p0
 %patch006 -p0
+%patch007 -p0
+%patch008 -p0
+%patch009 -p0
+%patch010 -p0
+%patch011 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -414,6 +424,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Sat Jul 03 2004 Karsten Hopp <karsten@redhat.de> 6.3.011-1 
+- patchlevel 11
+
 * Thu Jun 17 2004 Karsten Hopp <karsten@redhat.de> 6.3.006-1 
 - update to new major release
 

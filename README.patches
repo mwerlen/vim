@@ -21,6 +21,7 @@ After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
 Individual patches for Vim 6.3:
+
   SIZE  NAME     FIXES
   2672  6.3.001  ":browse split" gives file selection dialog twice
   3913  6.3.002  utf-8 detection in translated help files is wrong
@@ -28,3 +29,8 @@ Individual patches for Vim 6.3:
   2438  6.3.004  too many hit-enter prompts when searching for long string
   2809  6.3.005  crash when searching with character offset in closed fold
   1566  6.3.006  the current directory is prepended to the ":breakadd" argument
+  1755  6.3.007  swap file is not deleted for a "nofile" buffer after ":cd"
+  1865  6.3.008  OS/2: can't compile, missing error message
+  3670  6.3.009  (after 6.3.006) ":breakadd file" does not match for a symlink
+  2450  6.3.010  writing to a named pipe causes an error message for fsync()
+  1896  6.3.011  crash when user command completion uses "normal :cmd"
