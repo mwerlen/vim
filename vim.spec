@@ -23,12 +23,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 013
+%define patchlevel 014
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -64,6 +64,7 @@ Patch010: ftp://ftp.vim.org/pub/vim/patches/6.3.010
 Patch011: ftp://ftp.vim.org/pub/vim/patches/6.3.011
 Patch012: ftp://ftp.vim.org/pub/vim/patches/6.3.012
 Patch013: ftp://ftp.vim.org/pub/vim/patches/6.3.013
+Patch014: ftp://ftp.vim.org/pub/vim/patches/6.3.014
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -200,6 +201,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch011 -p0
 %patch012 -p0
 %patch013 -p0
+%patch014 -p0
 
 %patch3000 -p1 -b .syntx
 %patch3001 -p1 -b .rh1
@@ -452,6 +454,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Jul 22 2004 Karsten Hopp <karsten@redhat.de> 6.3.014-1
+- patchlevel 14, fixes 'helplang' default settings
+- fix escape sequence in /etc/vimrc (#128344)
+
 * Fri Jul 16 2004 Karsten Hopp <karsten@redhat.de> 6.3.013-2
 - use different encoding for tutor.pl (#125376)
 
