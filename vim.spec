@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 062
+%define patchlevel 064
 
 Summary: The VIM editor.
 Name: vim
@@ -475,14 +475,16 @@ chmod 644 ../runtime/doc/vim2html.pl
 
 mkdir -p $RPM_BUILD_ROOT/etc/profile.d
 cat >$RPM_BUILD_ROOT/etc/profile.d/vim.sh <<EOF
-[ -w /etc/passwd ] && return
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
-  # for bash, pdksh and zsh, only if no alias is already set
+  [ -x /usr/bin/id ] || return
+  [ `/usr/bin/id -u` -le 100 ] && return
+  # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
 cat >$RPM_BUILD_ROOT/etc/profile.d/vim.csh <<EOF
-[ -w /etc/passwd ] && return
+[ -x /usr/bin/id ] || exit
+[ `/usr/bin/id -u` -le 100 ] && exit
 alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
@@ -569,6 +571,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Mar 14 2005 Karsten Hopp <karsten@redhat.de> 6.3.064-1
+- patchlevel 64
+- fix selinux warning (#150126)
+
 * Wed Mar 02 2005 Karsten Hopp <karsten@redhat.de> 6.3.062-1
 - patchlevel 62, build with gcc-4
 
