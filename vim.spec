@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -491,6 +491,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Oct 11 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-2 
+- add cscope to vimrc so that cscope DB will be used 
+  automatically when available
+
 * Fri Oct 08 2004 Karsten Hopp <karsten@redhat.de> 6.3.030-2
 - patchlevel 30
 
