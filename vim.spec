@@ -1,3 +1,4 @@
+%define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
 %define desktop_file_utils_version 0.2.93
@@ -22,7 +23,7 @@
 
 %define baseversion 6.2
 %define vimdir vim62
-%define patchlevel 121
+%define patchlevel 214
 
 Summary: The VIM editor.
 Name: vim
@@ -36,6 +37,7 @@ Source2: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-extra.tar.gz
 Source3: gvim.desktop
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
+Source6: spec.vim
 Patch2000: vim-4.2-speed_t.patch
 Patch2001: vim-5.1-vimnotvi.patch
 Patch2002: vim-5.6a-paths.patch
@@ -167,13 +169,114 @@ Patch118: ftp://ftp.vim.org/pub/vim/patches/6.2.118
 Patch119: ftp://ftp.vim.org/pub/vim/patches/6.2.119
 Patch120: ftp://ftp.vim.org/pub/vim/patches/6.2.120
 Patch121: ftp://ftp.vim.org/pub/vim/patches/6.2.121
+Patch122: ftp://ftp.vim.org/pub/vim/patches/6.2.122
+Patch123: ftp://ftp.vim.org/pub/vim/patches/6.2.123
+Patch124: ftp://ftp.vim.org/pub/vim/patches/6.2.124
+Patch125: ftp://ftp.vim.org/pub/vim/patches/6.2.125
+Patch126: ftp://ftp.vim.org/pub/vim/patches/6.2.126
+Patch127: ftp://ftp.vim.org/pub/vim/patches/6.2.127
+Patch128: ftp://ftp.vim.org/pub/vim/patches/6.2.128
+Patch129: ftp://ftp.vim.org/pub/vim/patches/6.2.129
+Patch130: ftp://ftp.vim.org/pub/vim/patches/6.2.130
+Patch131: ftp://ftp.vim.org/pub/vim/patches/6.2.131
+Patch132: ftp://ftp.vim.org/pub/vim/patches/6.2.132
+Patch133: ftp://ftp.vim.org/pub/vim/patches/6.2.133
+Patch134: ftp://ftp.vim.org/pub/vim/patches/6.2.134
+Patch135: ftp://ftp.vim.org/pub/vim/patches/6.2.135
+Patch136: ftp://ftp.vim.org/pub/vim/patches/6.2.136
+Patch137: ftp://ftp.vim.org/pub/vim/patches/6.2.137
+Patch138: ftp://ftp.vim.org/pub/vim/patches/6.2.138
+Patch139: ftp://ftp.vim.org/pub/vim/patches/6.2.139
+Patch140: ftp://ftp.vim.org/pub/vim/patches/6.2.140
+Patch141: ftp://ftp.vim.org/pub/vim/patches/6.2.141
+Patch142: ftp://ftp.vim.org/pub/vim/patches/6.2.142
+Patch143: ftp://ftp.vim.org/pub/vim/patches/6.2.143
+Patch144: ftp://ftp.vim.org/pub/vim/patches/6.2.144
+Patch145: ftp://ftp.vim.org/pub/vim/patches/6.2.145
+Patch146: ftp://ftp.vim.org/pub/vim/patches/6.2.146
+Patch147: ftp://ftp.vim.org/pub/vim/patches/6.2.147
+Patch148: ftp://ftp.vim.org/pub/vim/patches/6.2.148
+Patch149: ftp://ftp.vim.org/pub/vim/patches/6.2.149
+Patch150: ftp://ftp.vim.org/pub/vim/patches/6.2.150
+Patch151: ftp://ftp.vim.org/pub/vim/patches/6.2.151
+Patch152: ftp://ftp.vim.org/pub/vim/patches/6.2.152
+Patch153: ftp://ftp.vim.org/pub/vim/patches/6.2.153
+Patch154: ftp://ftp.vim.org/pub/vim/patches/6.2.154
+Patch155: ftp://ftp.vim.org/pub/vim/patches/6.2.155
+Patch156: ftp://ftp.vim.org/pub/vim/patches/6.2.156
+Patch157: ftp://ftp.vim.org/pub/vim/patches/6.2.157
+Patch158: ftp://ftp.vim.org/pub/vim/patches/6.2.158
+Patch159: ftp://ftp.vim.org/pub/vim/patches/6.2.159
+Patch160: ftp://ftp.vim.org/pub/vim/patches/6.2.160
+Patch161: ftp://ftp.vim.org/pub/vim/patches/6.2.161
+Patch162: ftp://ftp.vim.org/pub/vim/patches/6.2.162
+Patch163: ftp://ftp.vim.org/pub/vim/patches/6.2.163
+Patch164: ftp://ftp.vim.org/pub/vim/patches/6.2.164
+Patch165: ftp://ftp.vim.org/pub/vim/patches/6.2.165
+Patch166: ftp://ftp.vim.org/pub/vim/patches/6.2.166
+Patch167: ftp://ftp.vim.org/pub/vim/patches/6.2.167
+Patch168: ftp://ftp.vim.org/pub/vim/patches/6.2.168
+Patch169: ftp://ftp.vim.org/pub/vim/patches/6.2.169
+Patch170: ftp://ftp.vim.org/pub/vim/patches/6.2.170
+Patch171: ftp://ftp.vim.org/pub/vim/patches/6.2.171
+Patch172: ftp://ftp.vim.org/pub/vim/patches/6.2.172
+Patch173: ftp://ftp.vim.org/pub/vim/patches/6.2.173
+Patch174: ftp://ftp.vim.org/pub/vim/patches/6.2.174
+Patch175: ftp://ftp.vim.org/pub/vim/patches/6.2.175
+Patch176: ftp://ftp.vim.org/pub/vim/patches/6.2.176
+Patch177: ftp://ftp.vim.org/pub/vim/patches/6.2.177
+Patch178: ftp://ftp.vim.org/pub/vim/patches/6.2.178
+Patch179: ftp://ftp.vim.org/pub/vim/patches/6.2.179
+Patch180: ftp://ftp.vim.org/pub/vim/patches/6.2.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/6.2.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/6.2.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/6.2.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/6.2.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/6.2.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/6.2.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/6.2.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/6.2.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/6.2.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/6.2.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/6.2.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/6.2.192
+Patch193: ftp://ftp.vim.org/pub/vim/patches/6.2.193
+Patch194: ftp://ftp.vim.org/pub/vim/patches/6.2.194
+Patch195: ftp://ftp.vim.org/pub/vim/patches/6.2.195
+Patch196: ftp://ftp.vim.org/pub/vim/patches/6.2.196
+Patch197: ftp://ftp.vim.org/pub/vim/patches/6.2.197
+Patch198: ftp://ftp.vim.org/pub/vim/patches/6.2.198
+Patch199: ftp://ftp.vim.org/pub/vim/patches/6.2.199
+Patch200: ftp://ftp.vim.org/pub/vim/patches/6.2.200
+Patch201: ftp://ftp.vim.org/pub/vim/patches/6.2.201
+Patch202: ftp://ftp.vim.org/pub/vim/patches/6.2.202
+Patch203: ftp://ftp.vim.org/pub/vim/patches/6.2.203
+Patch204: ftp://ftp.vim.org/pub/vim/patches/6.2.204
+Patch205: ftp://ftp.vim.org/pub/vim/patches/6.2.205
+Patch206: ftp://ftp.vim.org/pub/vim/patches/6.2.206
+Patch207: ftp://ftp.vim.org/pub/vim/patches/6.2.207
+Patch208: ftp://ftp.vim.org/pub/vim/patches/6.2.208
+Patch209: ftp://ftp.vim.org/pub/vim/patches/6.2.209
+Patch210: ftp://ftp.vim.org/pub/vim/patches/6.2.210
+Patch211: ftp://ftp.vim.org/pub/vim/patches/6.2.211
+Patch212: ftp://ftp.vim.org/pub/vim/patches/6.2.212
+Patch213: ftp://ftp.vim.org/pub/vim/patches/6.2.213
+Patch214: ftp://ftp.vim.org/pub/vim/patches/6.2.214
 
 Patch3001: vim-6.1-syntax.patch
-Patch3002: vim-6.1-rh1.patch
+Patch3002: vim-6.2-rh1.patch
 Patch3003: vim-6.1-rh2.patch
 Patch3004: vim-6.1-rh3.patch
 Patch3005: vim-6.2-rclocation.patch
 Patch3006: vim-6.2-rh4.patch
+Patch3007: vim-6.2-rh5.patch
+Patch3008: vim-6.2-perlthread.patch
+Patch3009: vim-6.2-shsyntax.patch
+
+Patch3100: vim-6.2-runtimeupdate.patch
+
+Patch3101: vim-selinux.patch
+
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl libtermcap-devel gettext
 %if "%{withruby}" == "1"
@@ -184,8 +287,6 @@ Requires: /usr/bin/desktop-file-install
 BuildPrereq: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 1
-# remove this when we have ruby and python-devel on ppc64:
-ExcludeArch: ppc64
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -205,13 +306,12 @@ multiple windows, multi-level undo, block highlighting and more.  The
 vim-common package contains files which every VIM binary will need in
 order to run.
 
-If you are installing any version of the VIM editor, you'll also need
-to the vim-common package installed.
+If you are installing vim-enhanced or vim-X11, you'll also need
+to install the vim-common package.
 
 %package minimal
 Summary: A minimal version of the VIM editor.
 Group: Applications/Editors
-Requires: vim-common
 Obsoletes:  vim
 
 %description minimal
@@ -221,12 +321,14 @@ still very popular.  VIM improves on vi by adding new features:
 multiple windows, multi-level undo, block highlighting and more. The
 vim-minimal package includes a minimal version of VIM, which is
 installed into /bin/vi for use when only the root partition is
-present.
+present. NOTE: The online help is only available when the vim-common
+package is installed.
 
 %package enhanced
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
-Requires: vim-common
+Requires: vim-common 
+Requires:  %(perl -le 'use Config;print $Config{archlibexp}')
 Obsoletes: vim-color
 
 %description enhanced
@@ -246,7 +348,7 @@ need to install the vim-common package.
 %package X11
 Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
-Requires: vim-common
+Requires: vim-common libattr
 %if "%{withgtk2}" == "1"
 BuildRequires: gtk2-devel
 %else
@@ -269,8 +371,9 @@ vim-common package.
 
 %prep
 %setup -q -b 1 -n %{vimdir}
+cp -f %{SOURCE6} runtime/ftplugin/spec.vim
 %patch2000 -p1 -b .4.2
-%patch2001 -p1 -b .vim
+# %patch2001 -p1 -b .vim
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1 -b .paths
@@ -381,29 +484,123 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # %patch096 -p0 # Win32
 %patch097 -p0
 %patch098 -p0
-%patch099 -p0 -b .pl099
-%patch100 -p0 -b .pl100
-%patch101 -p0 -b .pl101
-%patch102 -p0 -b .pl102
+%patch099 -p0
+%patch100 -p0
+%patch101 -p0
+%patch102 -p0
 # %patch103 -p0 # Mac
-%patch104 -p0 -b .pl104
-%patch105 -p0 -b .pl105
-%patch106 -p0 -b .pl106
+%patch104 -p0
+%patch105 -p0
+%patch106 -p0
 # %patch107 -p0 # Win32
-%patch108 -p0 -b .pl108
-%patch109 -p0 -b .pl109
-%patch110 -p0 -b .pl110
-%patch111 -p0 -b .pl111
-%patch112 -p0 -b .pl112
-%patch113 -p0 -b .pl113
-%patch114 -p0 -b .pl114
+%patch108 -p0
+%patch109 -p0
+%patch110 -p0
+%patch111 -p0
+%patch112 -p0
+%patch113 -p0
+%patch114 -p0
 # %patch115 -p0 # Amiga
 # %patch116 -p0 # Win
-%patch117 -p0 -b .pl117
+%patch117 -p0
 # %patch118 -p0 # Mac
 # %patch119 -p0 # Win
-%patch120 -p0 -b .pl120
+%patch120 -p0
 # %patch121 -p0 # Mac
+# %patch122 -p0 # Mac
+# %patch123 -p0 # Mac
+# %patch124 -p0 # Mac
+# %patch125 -p0 # Win32
+# %patch126 -p0 # Win32
+#%patch127 -p0 # Win32
+# %patch128 -p0 # Mac
+%patch129 -p0
+# %patch130 -p0 # Win32
+# %patch131 -p0 # Win32
+# %patch132 -p0 # Win32
+%patch133 -p0
+# %patch134 -p0 # Win32
+%patch135 -p0
+%patch136 -p0
+%patch137 -p0
+# %patch138 -p0 # VMS
+%patch139 -p0
+# %patch140 -p0 # Mac
+# %patch141 -p0 # Mac
+# %patch142 -p0 # Mac
+%patch143 -p0
+%patch144 -p0
+%patch145 -p0
+%patch146 -p0
+%patch147 -p0
+%patch148 -p0
+%patch149 -p0
+%patch150 -p0
+%patch151 -p0
+%patch152 -p0
+#%patch153 -p0 # Win32
+%patch154 -p0
+#%patch155 -p0 # Win32
+#%patch156 -p0 # Win32
+%patch157 -p0
+%patch158 -p0
+%patch159 -p0
+%patch160 -p0
+#%patch161 -p0 # VMS
+%patch162 -p0
+%patch163 -p0
+%patch164 -p0
+%patch165 -p0
+%patch166 -p0
+%patch167 -p0
+%patch168 -p0
+%patch169 -p0
+%patch170 -p0
+%patch171 -p0
+%patch172 -p0
+#%patch173 -p0 # Win32
+%patch174 -p0
+%patch175 -p0
+%patch176 -p0
+#%patch177 -p0 # VisVim
+%patch178 -p0
+%patch179 -p0
+#%patch180 -p0 # Win32
+%patch181 -p0
+%patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+#%patch188 -p0 # Win32
+%patch189 -p0
+%patch190 -p0
+%patch191 -p0
+%patch192 -p0
+%patch193 -p0
+#%patch194 -p0 # Netbeans stuff doesn't apply
+%patch195 -p0
+%patch196 -p0
+%patch197 -p0
+%patch198 -p0
+#%patch199 -p0 # NetBeans
+%patch200 -p0
+%patch201 -p0
+%patch202 -p0
+%patch203 -p0
+%patch204 -p0
+#%patch205 -p0 # Win32
+%patch206 -p0
+%patch207 -p0
+%patch208 -p0
+%patch209 -p0
+#%patch210 -p0 # MacOSX
+# Modified patch! Mac and W48 stuff deleted:
+%patch211 -p0
+#%patch212 # NetBeans
+%patch213 -p0
+#%patch214 -p0 # w48
 
 #%patch3000 -p1 -b .kh1
 %patch3001 -p1 -b .syntx
@@ -412,9 +609,19 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3004 -p1 -b .rh3
 %patch3005 -p1 -b .rcloc
 %patch3006 -p1 -b .rh4
+%patch3007 -p1 -b .rh5
+%patch3008 -p1 -b .perlthread
+%patch3009 -p1 -b .stx
+
+%patch3100 -p1
+
+%if %{WITH_SELINUX}
+%patch3101 -p1 -b .selinux
+%endif
 
 %build
 cd src
+autoconf
 perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimdir},g" os_unix.h
 perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimdir}/macros,g" os_unix.h
 
@@ -613,6 +820,63 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Jan 29 2004 Karsten Hopp <karsten@redhat.de> 6.2.214-1 
+- Patchlevel 214
+
+* Mon Jan 26 2004 Dan Walsh <dwalsh@redhat.com> 1:6.2.195-5
+- Fix call to is_selinux_enabled()
+
+* Sat Jan 24 2004 Karsten Hopp <karsten@redhat.de> 6.2.195-4
+- fix perl requirement
+
+* Fri Jan 23 2004 Dan Walsh <dwalsh@redhat.com> 1:6.2.195-3
+- Only attempt to change context if it is different
+
+* Thu Jan 22 2004 Karsten Hopp <karsten@redhat.de> 6.2.195-1
+- update to patchlevel 195
+- enable ppc64 build
+
+* Mon Jan 12 2004 Karsten Hopp <karsten@redhat.de> 6.2.180-2 
+- vim-enhanced requires perl >= 5.8.2 (#111592)
+
+* Mon Jan 12 2004 Karsten Hopp <karsten@redhat.de> 6.2.180-1 
+- Patchlevel 180
+- update spec.vim, use g:packager instead of {Packager} macro
+
+* Tue Jan 6 2004 Dan Walsh <dwalsh@redhat.com> 1:6.2.154-7
+- Enable selinux support for vim-minimal
+
+* Wed Dec 17 2003 Dan Walsh <dwalsh@redhat.com> 1:6.2.154-6
+- Enable selinux support
+
+* Thu Dec 04 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.154-5
+- rebuild with new perl
+
+* Wed Dec 03 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.154-4
+- fix sh.vim syntax file (#104312)
+
+* Tue Dec 02 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.154-3
+- perl interface was disabled when perl had thread support.
+
+* Thu Nov 27 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.154-2
+- fix date in specfile changelog entries
+
+* Thu Nov 13 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.154-1
+- Patchlevel 154
+- vim-minimal doesn't really require vim-common to run, removed dependency
+  (#109819)
+
+* Mon Nov 10 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.149-1
+- Patchlevel 149
+- fix fstab syntax file (Robert G. (Doc) Savage)
+- lots of updates for syntax files, macros, documentation
+- disable vimnotvi patch so that vim's behaviour matches documentation
+- clean up vimrc
+
+* Thu Nov 06 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.145-1
+- rebuild with new Python
+- Patchlevel 145
+
 * Tue Oct 14 2003 Karsten Hopp <karsten@redhat.de> 1:6.2.121-1
 - patchlevel 121
 - fix buildrequires (#106824, #105832)

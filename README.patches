@@ -20,6 +20,12 @@ an argument to make it patch the right file:
 After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
+
+Collection of patches for Vim 6.2:
+  SIZE  NAME                  INCLUDES
+ 68765  6.2.001-100.gz	      patches 6.2.001 to 6.2.100, gzip'ed
+138268  6.2.101-200.gz        patches 6.2.101 to 6.2.200, gzip'ed
+
 Individual patches for Vim 6.2:
   SIZE  NAME     FIXES
   2146  6.2.001  help tags for ":stopinsert" were missing
@@ -143,6 +149,100 @@ Individual patches for Vim 6.2:
   6132  6.2.119  (after 6.2.107) DOS/Windows source archive misses a few files
   2287  6.2.120  Win32 GUI: console dialogs are not supported for no reason
   1503  6.2.121  (after 6.2.118) not every make accepts += in Makefile
+  4137  6.2.122  (after 6.2.119) Aap recipe missing; add "clean" maze program
+  2032  6.2.123  (after 6.2.118) running configure fails on "=="
+ 11900  6.2.124  (after 6.2.121)(extra) problem with M4FLAGS and runtime files
+  1939  6.2.125  Win32: the winsock2.h file is not always available
+  1531  6.2.126  Win32: CTRL-C for confirm() doesn't throw an exception
+  1574  6.2.127  (extra) Win32 console: no exception for CTRL-C in confirm()
+  1889  6.2.128  (after 6.2.118) configure script is older than configure.in
+  2212  6.2.129  add columns to 'wrapmargin' for 'number' and other options
+  1942  6.2.130  (extra) Win32 console: 'norestorescreen' clears screen on exit
+  1715  6.2.131  (extra) Win32 GUI: leaking font handles when switching fonts
+  2618  6.2.132  (extra) Win32 console: doesn't work on Windows Server 2003
+  2180  6.2.133  error message for 'imactivatekey' may be given at wrong moment
+  3997  6.2.134  (extra) Win32: avoid unnecessary redrawing when scrolling
+  1530  6.2.135  <> argument of ":command" is interpreted as <args>
+  1782  6.2.136  ":e ++enc=utf8 newfile" did not set 'fenc' in a new file
+  4414  6.2.137  "d%" can't be repeated when using the matchit plugin
+  2268  6.2.138  (extra) VMS: compilation problems in vms_read()
+  5688  6.2.139  code is repeated in two Perl files
+ 10751  6.2.140  (after 6.2.121) Mac: compiling with Python/Perl doesn't work
+  3757  6.2.141  (extra) Mac: The b_FSSpec field is sometimes unused
+ 13862  6.2.142  (after 5.2.124) Mac: can't compile without Carbon
+  2105  6.2.143  "K" in Visual mode fails to include all bytes of last char
+  7081  6.2.144  2html script doesn't work correctly when g:html_use_css is set
+  1388  6.2.145  undefining "bool" in vim.h doesn't work for some systems
+  3026  6.2.146  warning for iconv() argument because of wrong prototype
+  2209  6.2.147  substituting with "\=col('.')" always resulted in "1"
+  4007  6.2.148  an insert action can't be partly undone; add CTRL-G u
+  4906  6.2.149  display errors and a crash when using over 21,474,748 lines
+  2709  6.2.150  when reading from stdin lines are broken at NUL characters
+  2467  6.2.151  "--remote +startinsert" inserts commands as text
+  1471  6.2.152  cursor() doesn't reset the offset for 'virtualedit'
+  2555  6.2.153  Win32: ":lang german" doesn't use German messages
+  3001  6.2.154  Python bails out when giving a warning message
+  1561  6.2.155  Win32: ":tjump www" results in two matches, should be one
+  1767  6.2.156  Win32: NetBeans fails to build because EINTR is undefined
+  1656  6.2.157  "%p" in 'errorformat' uses a wrong column number
+  2643  6.2.158  configure doesn't get the right compile flags for Perl
+  1843  6.2.159  "undo" in 'foldopen' doesn't work with expression folding
+  1711  6.2.160  crash with 'virtualedit' and selecting double-wide character
+  4432  6.2.161  (extra) VMS: missing include file; avoid busy wait
+  1372  6.2.162  ":redraw" doesn't adjust the view before redrawing
+  2286  6.2.163  "AAPDIR" directories should not be installed
+  2984  6.2.164  (after 6.2.144) 2html script still fails when css used
+  2318  6.2.165  autoconf 2.57 cannot handle the configure script
+  3980  6.2.166  the gzip plugin doesn't work when $GZIP contains -N
+  2985  6.2.167  the Python interface may leak memory
+  3428  6.2.168  Python interface: can't get the indices from a range object
+  1716  6.2.169  get a warning for the _Xmblen() prototype
+  2547  6.2.170  when using Sun Workshop 'autochdir' isn't set automatically
+  2389  6.2.171  (after 6.2.163) not all "find" versions accept "-or"
+  1737  6.2.172  (after 6.2.169) _Xmblen prototype still causes trouble
+  7194  6.2.173  (extra) Ruby 1.8 doesn't work with Cygwin, MingW and BC5
+  3003  6.2.174  mouse click at hit-enter prompt only works in last line
+  2048  6.2.175  setting 'backupext' in a *WritePre autocommand doesn't work
+  2226  6.2.176  accented characters in help are not used in 'iskeyword'
+  5518  6.2.177  (extra) VisVim: space in file name, random chars are executed
+  2266  6.2.178  newbies can't figure out how to exit and try CTRL-C 
+  8091  6.2.179  (extra) English message translations don't work
+  3564  6.2.180  Win32: compiling with GTK doesn't work
+  2477  6.2.181  (after 6.2.171) CVS directories still unecessarily installed
+  2258  6.2.182  tiny features compile fails with missing get_past_head()
+  1685  6.2.183  warning for char vs char_u pointer use
+ 17719  6.2.184  when auto-formatting text paragraph may be split
+ 16279  6.2.185  resizing windows (from session) doesn't work properly
+ 25517  6.2.186  (after 6.2.185) mistakes in eval.txt help file
+ 14704  6.2.187  reading uninit. memory and memory leaks detected by Insure
+  1398  6.2.188  (extra) Win32: window title can't have multi-byte chars
+  1814  6.2.189  no marks stored when setting 'viminfo' after reading a buffer
+ 14493  6.2.190  marks are lost when editing a compressed file
+ 15447  6.2.191  information about registering and sponsoring is missing
+  1620  6.2.192  using CTRL-T and CTRL-D with "gR" messes up the text
+ 12364  6.2.193  recalling search pat from history has problems with separator
+ 27798  6.2.194  (after 6.2.068) NetBeans needs to save a file itself
+  2080  6.2.195  (after 6.2.190) compiling fails on missing symbol
+  1635  6.2.196  (after 6.2.191) help tags from sponsor.txt are missing
+  4685  6.2.197  can't redraw statuslines without side effects
+  1535  6.2.198  a few messages are not marked to be translated
+  4958  6.2.199  (after 6.2.194) NetBeans: reset timestamp when saving et al.
+  1907  6.2.200  recovering a file doesn't set 'ff', 'fenc', etc. correctly
+  2383  6.2.201  ":qall" doesn't obey the 'autowriteall' option
+ 29178  6.2.202  use filetype "ch" for CH script, "chill" for Chill (was "ch")
+  1787  6.2.203  "3P" and "3p" don't work as expected with characterwise text
+  2055  6.2.204  "]]" skips over closed folds
+  2868  6.2.205  (extra) Win32: Vim window posn. wrong when taskbar at the left
+ 11915  6.2.206  cannot use multi-byte characters as hotkey in console dialog
+  2189  6.2.207  with 'multi-byte' 'enc': expanding abbrev. replaces too much
+  4375  6.2.208  folding with markers sometimes doesn't work correctly
+  1853  6.2.209  using "P" in the middle of a closed fold messes up folds
+ 10479  6.2.210  (extra) Mac OSX: doesn't use antialiased fonts
+ 20317  6.2.211  (extra) handling files dropped on Vim doesn't use position
+  2458  6.2.212  (after 6.2.199) NetBeans: problem when replacing with a count
+  1834  6.2.213  (after 6.2.208) "{{{1" doesn't start a new fold when it should
+  1601  6.2.214  (extra, after 6.2.211) warning for unused variable
+
 
 
 Collection of patches for Vim 6.1:

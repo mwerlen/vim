@@ -1,0 +1,20 @@
+--- vim62/runtime/ftplugin/spec.vim.rh1	2004-01-12 14:16:15.000000000 +0100
++++ vim62/runtime/ftplugin/spec.vim	2004-01-12 14:18:06.000000000 +0100
+@@ -12,7 +12,7 @@
+ " Add mappings, unless user doesn't want
+ if !exists("no_plugin_maps") && !exists("no_spec_maps")
+ 	if !hasmapto("<Plug>AddChangelogBlock")
+-		map <buffer> <LocalLeader>ch <Plug>AddChangelogBlock
++		map <buffer> <LocalLeader>c <Plug>AddChangelogBlock
+ 	endif
+ 	if !hasmapto("<Plug>AddChangelogEntry")
+ 		map <buffer> <LocalLeader>CH <Plug>AddChangelogEntry
+@@ -62,7 +62,7 @@
+ 		" insert changelog header
+ 		call append(a:line,
+ 			\ "* " . strftime("%a %b %d %Y") . 
+-			\ " " . <SID>GetTagValue("Packager") .
++			\ " " . g:packager .
+ 			\ " " . <SID>GetTagValue("Version") .
+ 			\ "-" . <SID>GetTagValue("Release")
+ 			\)
