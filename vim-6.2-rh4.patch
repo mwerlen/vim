@@ -1,0 +1,13 @@
+--- vim62/src/osdef2.h.in.rh4	Tue Sep 16 09:05:14 2003
++++ vim62/src/osdef2.h.in	Tue Sep 16 09:04:49 2003
+@@ -48,8 +48,8 @@
+ extern int	tgetent __ARGS((char *, char *));
+ extern int	tgetnum __ARGS((char *));
+ extern int	tgetflag __ARGS((char *));
+-extern char	*tgoto __ARGS((char *, int, int));
+-extern int	tputs __ARGS((char *, int, int (*)(int)));
++extern char	*tgoto __ARGS((const char *, int, int));
++extern void	tputs __ARGS((const char *, int, int (*)(int)));
+ 
+ #ifdef HAVE_TERMIOS_H
+ struct termios;		/* for tcgetattr __ARGS */

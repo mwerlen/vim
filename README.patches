@@ -20,11 +20,137 @@ an argument to make it patch the right file:
 After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
+Individual patches for Vim 6.2:
+  SIZE  NAME     FIXES
+  2146  6.2.001  help tags for ":stopinsert" were missing
+  1803  6.2.002  crash for UTF-8 char when compiled without +eval feature
+  2363  6.2.003  GTK 2: wide characters between 128 and 256 not displayed right
+  1890  6.2.004  put in Visual-line selection at end of file goes wrong
+  1350  6.2.005  GTK: Find and Find-Replace dialogs don't work
+  5612  6.2.006  the netbeans code had an obsolete function with "vim61"
+  2922  6.2.007  listing Cscope tag matches does not always work
+  1505  6.2.008  XIM with GTK 2: preedit chars wrong after using backspace
+  4129  6.2.009  Win32: self-installing exe "Full" install doesn't work
+  1584  6.2.010  cursor can't move with multi-byte char and 'virtualedit' set
+  1617  6.2.011  compilation problem when stat() is a macro
+  1959  6.2.012  may hang when polling for a character when XSMP is supported
+  1657  6.2.013  (extra) Win32: GvimExt uninstall key used "Vim 6.1"
+  1493  6.2.014  (after 6.2.012) XSMP doesn't work when using poll()
+  2821  6.2.015  the +xsmp feature is never enabled
+  5242  6.2.016  small problems with cscope, also on Win32
+  2102  6.2.017  test 11 sometimes prompts the user for a changed file
+  3108  6.2.018  Unix: may need to press a key when reading from stdin
+  2635  6.2.019  (lang) Portugese menu contains a split line
+  2537  6.2.020  the "Syntax/Set syntax only" menu item causes an error message
+  4626  6.2.021  the user manual section on exceptions contains small mistakes
+  1929  6.2.022  (extra) Win32: delete menu item remains in torn off menu
+  1699  6.2.023  (extra) the clean rule of Make_ivc.mak didn't clean enough
+  2058  6.2.024  (extra) Win32: compiler warnings for typecasts
+  1553  6.2.025  Mac: missing prototype for sigaltstack()
+  1439  6.2.026  may get a warning for utimes() argument
+  1475  6.2.027  warning for uninitialized variable when not using multi-byte
+  1709  6.2.028  cscope may kill wrong process
+  1364  6.2.029  using remote server may cause memory to leak
+  3355  6.2.030  Mac: warnings for not using precompiled header files
+  3392  6.2.031  ":options" causes a couple of errors
+  2356  6.2.032  the lpc filetype was never recognized
+  3676  6.2.033  (extra) Mac: various compiler warnings
+  1522  6.2.034  Mac: avoid redefining DEFAULT_TERM
+  2547  6.2.035  Mac: avoid compiler warnings in Python interface
+  2182  6.2.036  Mac: add slash to directory names like on Unix
+  1698  6.2.037  Win32: could get arbitrary codepage from encoding name
+  5094  6.2.038  (extra) Win32: warning messages when using the MingW compiler
+  1947  6.2.039  (extra) fix a few more warning messages for MingW
+  2241  6.2.040  crash while starting up when using +xsmp feature
+  3110  6.2.041  (extra, after 6.2.033) Mac: fix various compiler warnings
+  2157  6.2.042  (extra) Cygwin: avoid optimizer problem with GCC 3.2
+  6364  6.2.043  compiling with both netbeans and workshop doesn't work
+  4119  6.2.044  confusing error message for ":au" about wrong event name
+  2065  6.2.045  obtaining the '( mark changes the '' mark
+  1910  6.2.046  with error in function arguments the function is still called
+  2266  6.2.047  (extra) Win32: more MingW compiler warning fixes
+  2462  6.2.048  Win32: Python interface doesn't work with Python 2.3
+  1579  6.2.049  ":command -range=" doesn't give an error message
+  1557  6.2.050  test 32 doesn't work on MS-Windows
+  2110  6.2.051  when using "\=submatch(0)" in ":s" line breaks become NUL
+  2008  6.2.052  a couple of messages are not translated
+  1645  6.2.053  prototype for bzero() differs from what most systems use
+  2136  6.2.054  backslash in trail byte doesn't work inside strings
+  1499  6.2.055  wrong result when using col('.') after CTRL-O in Insert mode
+  1744  6.2.056  (extra) Win32: building with Sniff++ doesn't work
+  3848  6.2.057  (extra) Mac: compiler warnings when using -DMACOS_X
+  1752  6.2.058  crash when 'autochdir' is set and buffer has no name
+  1858  6.2.059  part of window not updated after listing completions
+  3760  6.2.060  (extra) Win32: lalloc(0) error for copy/paste when 'enc' set
+  1446  6.2.061  GUI: shift-left-click scrolls text instead of doing "*"
+  1579  6.2.062  syntax highlighting wrong when using "containedin"
+ 21709  6.2.063  when using custom completion end up with no matches
+ 21234  6.2.064  resolve() only does one symlink; add the simplify() function
+  1769  6.2.065  ":windo 123" only updates other windows when entering them
+  7705  6.2.066  (extra) the Ruby interface doesn't work with Ruby 1.8
+  2028  6.2.067  redraw error when searched text starts with composing char
+  2359  6.2.068  Netbeans: file name with special characters causes trouble
+  2732  6.2.069  (after 6.2.064) warnings for unused variables
+  1749  6.2.070  (after 6.2.069) still a warning for an unused variable
+  2779  6.2.071  limit for nr of items in 'statusline' is too low
+  2762  6.2.072  using foldlevel() in 'foldexpr' cannot get level of prev. line
+  7937  6.2.073  adding filetype detection requires editing "filetype.vim"
+  3295  6.2.074  warnings when compiling the Python interface
+  1696  6.2.075  message for failed writing of viminfo file contains NULL
+  8821  6.2.076  cscope tags can be listed in the wrong order
+  1869  6.2.077  custom completion function gets zero instead of empty string
+  1925  6.2.078  "make test" doesn't work if Vim was not compiled yet
+  2238  6.2.079  ":w ++enc=utf-8 !cmd" doesn't work
+  3320  6.2.080  when 't_ti' is not empty "ZZ" may not clear the command line
+  1469  6.2.081  length of multibyte string in the statusline is computed wrong
+  2298  6.2.082  can't compile with Perl 5.8.1
+  4112  6.2.083  words marked with ^^^^ in quickfix window don't line up
+  1813  6.2.084  in Visual mode "g_" always goes to past the end of the line
+  3876  6.2.085  ":verb set ts" should refer to "-c" and "--cmd" argument
+  2331  6.2.086  "{" and "}" don't work very well with closed folds
+  3779  6.2.087  CTRL-^ and ":bnext" don't respect the 'confirm' option
+  3125  6.2.088  when 'sidescrolloff' is set 'showmatch' may not work correctly
+  1880  6.2.089  ":set isk+=" adds a comma
+  3024  6.2.090  (extra) #pragma's cause trouble for MingW compiler
+  2329  6.2.091  dropping a file on Vim may cause following messages to scroll
+  3202  6.2.092  a few invalid tags appear in the help tags file
+  1639  6.2.093  "nnoremenu" worked like ":noremenu"
+  3083  6.2.094  GTK version can't be compiled with tiny features
+  1796  6.2.095  the message "Cannot go to buffer x" is confusing for ":buf 6"
+  2426  6.2.096  Win32: ":let @* = ''" put a newline on the clipboard
+  2064  6.2.097  changing 'insertmode' doesn't always have immediate effect
+  3231  6.2.098  (after 6.2.097) can't compile with tiny features
+  1636  6.2.099  (extra) test 49 fails because of a wrong Polish translation
+  2670  6.2.100  cannot generate prototypes when Perl interface is enabled
+  3248  6.2.101  syntax highlighting can become very slow for big files
+ 33002  6.2.102  CR and equal() conflict with Mac header files, rename them
+  2422  6.2.103  (extra) extra files for patch 6.2.102
+  1999  6.2.104  unmatched curly braces in table with options
+  2860  6.2.105  crash in rare situation when using cindent()
+  2682  6.2.106  tag searching gets stuck on a very long line in tags file
+ 71562  6.2.107  (extra) Win32: add support for Netbeans interface
+  2708  6.2.108  crash when giving German message for ignoring case in tag
+  2199  6.2.109  compiler warning for Amiga compiler (and others)
+  2186  6.2.110  a menu translation without encoding isn't always found
+  1482  6.2.111  encoding "cp1251" is not recognized
+  2995  6.2.112  "make clean" doesn't delete enough files in src/testdir
+  1901  6.2.113  using ":startinsert" after "$" works like "a" instead of "i"
+  2647  6.2.114  size of screen may be wrong when stdout is redirected
+  8474  6.2.115  (extra) compiler warnings with various Amiga compilers
+  1925  6.2.116  (extra) keypad problems on German keyboard with numlock set
+  6688  6.2.117  breakpoints did not work in while loops
+ 50945  6.2.118  (extra) Mac: compile Carbon version with Unix Makefile
+  6132  6.2.119  (after 6.2.107) DOS/Windows source archive misses a few files
+  2287  6.2.120  Win32 GUI: console dialogs are not supported for no reason
+  1503  6.2.121  (after 6.2.118) not every make accepts += in Makefile
+
+
 Collection of patches for Vim 6.1:
   SIZE  NAME                  INCLUDES
  85516  6.1.1-100.gz	      patches 6.1.001 to 6.1.100, gzip'ed
 128949  6.1.101-200.gz        patches 6.1.101 to 6.1.200, gzip'ed
  99305  6.1.201-300.gz        patches 6.1.201 to 6.1.300, gzip'ed
+199266  6.1.301-400.gz        patches 6.1.301 to 6.1.400, gzip'ed
 
 Individual patches for Vim 6.1:
   SIZE  NAME     FIXES
@@ -348,6 +474,160 @@ Individual patches for Vim 6.1:
   3169  6.1.318  quotes in compiler flags cause trouble in auto/pathdef.c
   2012  6.1.319  :vim --remote +cmd file" did not execute "cmd"
   4713  6.1.320  (depends on 6.1.313) '\' in ":drop file\ name" not removed
+  2435  6.1.321  when 'mouse' is "n" the mouse may still start Visual mode
+  1831  6.1.322  (extra, depends on 6.1.315) Win32: host name starts with "PC"
+  5887  6.1.323  ":registers" doesn't stop for "q" at more prompt
+ 10357  6.1.324  drag vert. separator may crash Vim; keep focus when dragging
+  1549  6.1.325  in an xterm shift-Tab is not recognized
+  1737  6.1.326  searching may result in reading from uninitialzed data
+  3319  6.1.327  UTF-8 characters in mbyte.txt help file are unreadable
+  1923  6.1.328  missing prototype for enc_canon_search()
+  2544  6.1.329  expanding ":Cmd %" does not work properly for file "a b c"
+  4021  6.1.330  GUI: keypad keys produce same code as normal keys
+  2645  6.1.331  in a translated help file "LOCAL ADDITIONS" cannot be found
+  9886  6.1.332  (extra) Win32: Perl 5.8 cannot be used
+ 20579  6.1.333  (extra) Win32: Unicode on the clipboard is not supported
+  2929  6.1.334  (extra, depends on 6.1.303) Hebrew characters drawn wrong
+  1763  6.1.335  (extra) failure of obtaining position/size is ignored
+  1552  6.1.336  (extra) Win32: warning for prototype of smsg()
+  2001  6.1.337  "finish" in debug mode doesn't stop at end of each function
+  1709  6.1.338  in Insert mode files changed outside of Vim are not detected
+  1677  6.1.339  cmdline completion for ":let g:" doesn't work
+  2352  6.1.340  (extra, depends on 6.1.332) can't build with Perl interface
+  7066  6.1.341  problems with double-wide chars in Insert mode
+  2285  6.1.342  (depends on 6.1.341) cursor wrong for "c" on double-wide char
+  3860  6.1.343  (depends on 6.1.342) can't compile with(out) some features
+  1514  6.1.344  ":silent filetype" writes to the message history
+  3209  6.1.345  (extra) Win32: 'imdisable' doesn't work
+  7584  6.1.346  make the scroll wheel scroll the window at the mouse pointer
+  3554  6.1.347  tags listed for cscope are sometimes in the wrong order
+  3797  6.1.348  ":set wildmode=list,full" sometimes returned wrong entry
+ 19583  6.1.349  "vim --serverlist" didn't work properly without Vim servers
+  2401  6.1.350  ":bnext" may overrule cursor position from autocommand
+  3044  6.1.351  crash on first startup in an X server
+  2658  6.1.352  (extra, depends on 6.1.345) crash when setting 'imd' in vimrc
+  2954  6.1.353  (extra, depends on 6.1.334) problem drawing multi-byte chars
+  1842  6.1.354  (extra, depends on 6.1.333) notepad can't paste from clipboard
+ 20777  6.1.355  '\n' in a regexp will never match anything in a string
+  5880  6.1.356  (extra, depends on various) fix compiler warnings
+  1661  6.1.357  in Insert mode CR in quickfix window doesn't jump to error
+  2609  6.1.358  tutor does not select another local version correctly
+  3005  6.1.359  (extra) Mac: set focus; crash when using horizontal scrollbar
+  8367  6.1.360  (depends on 6.1.341) ^R ESC in Insert mode garbles multi-byte
+  4367  6.1.361  cannot jump to another file with ":'M"
+  7017  6.1.362  error code from tgetent() and tgetflag() may be misinterpreted
+  1791  6.1.363  byte2line() can return one more than the number of lines
+  5443  6.1.364  the FileChangedShell event does not allow nesting
+  1457  6.1.365  ":breakadd" doesn't work for a relative file name
+181487  6.1.366  add the Netbeans interface, 'autochdir', -bg and -fg for GTK
+  2418  6.1.367  (depends on 6.1.365) can't set a breakpoint in a function
+  4231  6.1.368  ":map" completion and ":mkexrc" misses <silent> and <script>
+ 20765  6.1.369  (extra) VMS: hang for read-only file; quickfix version problem
+ 17194  6.1.370  #ifdef nesting is unclear in os_unix.c
+  2044  6.1.371  "%V" in 'statusline' doesn't show "0-1" in an empty line
+  9996  6.1.372  warnings when using 16 bit ints in syntax.c
+  7785  6.1.373  'printheader' and 'titleold' are not translated
+  6269  6.1.374  (extra) support building GvimExt with MingW and Cygwin
+  1771  6.1.375  ':!dir "%"' doesn't work if file name contains spaces
+  2118  6.1.376  "vim --help" and "vim --version" have a non-zero exit code
+  1714  6.1.377  can't add words to 'lispwords' option
+  3592  6.1.378  two ambiguous buffer-local user commands obscure global one
+  1882  6.1.379  Linux: busy hang if terminal exits and compiled with threading
+  1476  6.1.380  quickfix window can be zero lines high
+  1555  6.1.381  window closed even when a BufWriteCmd fails to write the file
+  5252  6.1.382  (extra) Win32: cannot handle two monitors properly
+ 19578  6.1.383  multi-byte characters in 'statusline' cause filling to fail
+  4562  6.1.384  cannot detect if a certain patch has been included
+  1544  6.1.385  (depends on 6.1.383) compilation problem without +multi_byte
+  5183  6.1.386  duplicate tags when using ":helptags"
+  1629  6.1.387  (depends on 6.1.373) compiler warning
+  1881  6.1.388  (depends on 6.1.388) compiler warning
+ 45272  6.1.389  (depends on 6.1.366) add +balloon_eval and sign icons for GTK
+ 16322  6.1.390  (depends on 6.1.389) extend Netbeans, support multi-byte signs
+  1539  6.1.391  ml_get error when using 'virtualedit'
+  2162  6.1.392  highlighting in 'statusline' positioned wrong when truncating
+  5378  6.1.393  Linux + Python: Vim loops forever when the terminal is killed
+  2039  6.1.394  can't define multi-byte text glyph through Netbeans interface
+  4334  6.1.395  (extra, depends on 6.1.369) VMS: fix makefile and prototype
+  2381  6.1.396  compiler warnings for using enum
+  2344  6.1.397  (extra) default diff command doesn't work with space in path
+  5642  6.1.398  add command to avoid saving typeahead in debug mode
+  1521  6.1.399  compiler warning for unused variable two_or_more
+  2077  6.1.400  a BufWriteCmd that wipes out a buffer causes trouble
+ 16078  6.1.401  (extra) make Win16 makefile work with Borland C 5.01
+  4847  6.1.402  error in evaluationg curly braces is not handled consistently
+  6152  6.1.403  (extra) compiler warnings for 16 bit MS-Windows
+ 54168  6.1.404  (extra) various small fixes, additions and corrections
+  1482  6.1.405  a few files are missing from the toplevel Makefile
+  1534  6.1.406  not fitting statusline item causes arbitrary text to appear
+  1456  6.1.407  'scrollbind' can be set in help window
+  3133  6.1.408  unprintable char 0x0c was displayed as >c0< if 'rightleft' set
+  1729  6.1.409  generating help tags doesn't work in some locales
+  1552  6.1.410  linking fails with +netbeans_intg but without sign icons
+  1681  6.1.411  with 'virtualedit' set Visual block can be displayed wrong
+  1722  6.1.412  shell prompt after hit-enter prompt when using ":gui"
+  4842  6.1.413  "p" doesn't work in Visual mode if "unnamed" is in 'clipboard'
+  3429  6.1.414  (extra, dep. 6.1.369) VMS: busy wait for input
+  2286  6.1.415  wrong window layout when reducing height with quickfix window
+  2313  6.1.416  (depends on 6.1.366) Netbeans: can't change a line with a sign
+  6610  6.1.417  unprintable multi-byte characters are not handled correctly
+ 13963  6.1.418  (extra) strftime() can be used with wrong encoding
+  3152  6.1.419  cannot compile on AIX 5.1
+  7237  6.1.420  (extra) inconsistent use of convert_input(), string_convert()
+  6305  6.1.421  (extra) MS-Windows 9x: clipboard encoding can be wrong
+  1876  6.1.422  don't get hit-enter prompt for error message from .vimrc
+ 20254  6.1.423  add ":helpgrep" command to be able to search in help files
+  2360  6.1.424  (extra) Vim compiled with VC 7.0 won't show menus on Win95
+  3143  6.1.425  ":helptags $VIMRUNTIME/doc" doesn't add "help-tags" tag
+  1631  6.1.426  "vim --remote-wait +cmd file" waited forever
+ 13458  6.1.427  many messages for using regexp patterns are not translated
+  2127  6.1.428  FreeBSD: using system() in a startup script may cause a hang
+  1636  6.1.429  when using a text sign and removing the text Vim may crash
+  1555  6.1.430  Lisp: when matching parens skip over backslashed ()[]{}
+  1938  6.1.431  debug commands end up in redirected text
+  1819  6.1.432  (after 6.1.375) MS-Windows: ":!make %" doubles backslashes
+ 10377  6.1.433  make ":popup" work for GTK
+ 11383  6.1.434  (extra) click on scrollbar arrow didn't always scroll one line
+  2205  6.1.435  ":winsize" and ":winpos" don't check for wrong arguments
+  2755  6.1.436  add line number to warning for illegal byte when reading file
+  3026  6.1.437  (extra, after 6.1.421) Win32: can't compile without multi-byte
+  3830  6.1.438  add configure check to disable Perl when it has thread support
+  8740  6.1.439  Netbeans: implement the missing "create" function
+  4677  6.1.440  ":@*" didn't obtain the actual contents of the clipboard
+  2431  6.1.441  "zj" and "zk" cannot be used after an operator
+ 11727  6.1.442  update multi-byte tables for Unicode 3.2
+  2234  6.1.443  (extra) Win32 Borland: the gvimext.dll requires another DLL
+  4114  6.1.444  (extra) Win32: enable gettext support differs for bc5 and mvc
+  1413  6.1.445  (extra) DJGPP: get warning for argument of putenv()
+ 18999  6.1.446  (extra) use yes/no for MingW make arguments, more IME support
+  1912  6.1.447  don't use "make" directly, use $(MAKE)
+  1531  6.1.448  max field width default in 'titlestring' was an arbitrary 50
+  2424  6.1.449  with "1a" in 'fo' appending moves every word to the next line
+  3350  6.1.450  back-tab termcap/terminfo code is not used
+  2041  6.1.451  get backslash before '/' and '?' in GUI find dialog text
+  1622  6.1.452  (extra, after 6.1.446) IME doesn't work with MSVC
+  1611  6.1.453  (after 6.1.429) crash adding sign without sign icons support
+ 37558  6.1.454  (extra) Win32: encoding conversion from/to clipboard wrong
+ 11743  6.1.455  add 'ambiwidth' option to chose cell width of Unicode chars
+  2718  6.1.456  (extra, after 6.1.454) Win32: IME doesn't work
+  1940  6.1.457  empty register in viminfo causes conversion failure
+  1619  6.1.458  compiler warning for pointer
+  3565  6.1.459  (extra) Win32: better check for libcall() returned pointer
+  3764  6.1.460  scrolling one line with scrollbar doesn't always work
+  2243  6.1.461  first character typed in Select mode isn't keymapped
+ 10270  6.1.462  wiping out a buffer in autocommands may cause a crash
+  3002  6.1.463  the gzip plugin uses a weird name for writing compressed file
+  3951  6.1.464  crash when using complicated syntax highlighting
+  2429  6.1.465  (after 6.1.454) compilation problems with Cygwin
+  5348  6.1.466  add --nofork argument as an alternative to -f
+  3775  6.1.467  setting window title to Chinese doesn't work properly
+  1771  6.1.468  ":mksession" stores folds for unrestorable buffers
+ 11961  6.1.469  'fillchars' cannot contain utf-8 characters
+  8304  6.1.470  (lang) wrong Polish msgs on MS-Windows; English translations
+  2146  6.1.471  ":jumps" output doesn't stop after pressing "q" at more-prompt
+  6433  6.1.472  an X11 IO error may cause Vim to exit unexpectedly
+  2035  6.1.473  Perl interface doesn't work with Perl 5.6
+  2331  6.1.474  get stuck when opening the commandline window in Ex mode
 
 
 Collection of patches for Vim 6.0:
