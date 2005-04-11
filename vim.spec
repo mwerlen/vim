@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -490,14 +490,14 @@ mkdir -p $RPM_BUILD_ROOT/etc/profile.d
 cat >$RPM_BUILD_ROOT/etc/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   [ -x /usr/bin/id ] || return
-  [ `/usr/bin/id -u` -le 100 ] && return
+  [ \`/usr/bin/id -u\` -le 100 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
 cat >$RPM_BUILD_ROOT/etc/profile.d/vim.csh <<EOF
 [ -x /usr/bin/id ] || exit
-[ `/usr/bin/id -u` -le 100 ] && exit
+[ \`/usr/bin/id -u\` -le 100 ] && exit
 alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
@@ -596,6 +596,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Apr 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.068-2
+- quote special characters in here documents (vim.sh/vim.csh) (#154321)
+
 * Thu Mar 31 2005 Karsten Hopp <karsten@redhat.de> 6.3-068
 - pathlevel 68 (can't write when editing symbolic link to compressed file)
 - remove -s parameter from install, this should fix debuginfo packages
