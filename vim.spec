@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 068
+%define patchlevel 071
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -119,6 +119,9 @@ Patch065: ftp://ftp.vim.org/pub/vim/patches/6.3.065
 Patch066: ftp://ftp.vim.org/pub/vim/patches/6.3.066
 Patch067: ftp://ftp.vim.org/pub/vim/patches/6.3.067
 Patch068: ftp://ftp.vim.org/pub/vim/patches/6.3.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/6.3.069
+Patch070: ftp://ftp.vim.org/pub/vim/patches/6.3.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/6.3.071
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -315,6 +318,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch066 -p0
 %patch067 -p0
 %patch068 -p0
+%patch069 -p0
+%patch070 -p0
+%patch071 -p0
 
 
 %patch3000 -p1
@@ -596,6 +602,11 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Apr 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.071-1
+- patchlevel 71, fixes crashes when converting text with illegal characters
+  and when moving the vertical separator to the far left (vertically splitted 
+  window)
+
 * Mon Apr 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.068-2
 - quote special characters in here documents (vim.sh/vim.csh) (#154321)
 
