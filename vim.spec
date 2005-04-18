@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -478,7 +478,7 @@ mkdir conv
    iconv -f CP1252 -t UTF8 tutor.no > conv/tutor.no
    iconv -f ISO-8859-2 -t UTF8 tutor.pl > conv/tutor.pl
    iconv -f ISO-8859-2 -t UTF8 tutor.sk > conv/tutor.sk
-   iconv -f CP1251 -t UTF8 tutor.ru > conv/tutor.ru
+   iconv -f KOI8R -t UTF8 tutor.ru > conv/tutor.ru
    iconv -f CP1252 -t UTF8 tutor.sv > conv/tutor.sv
    mv -f tutor.gr.cp737 tutor.ja.euc tutor.ja.sjis tutor.ko.euc tutor.pl.cp1250 tutor.zh.big5 tutor.ru.cp1251 tutor.zh.euc conv/
    rm -f tutor.ca tutor.de tutor.es tutor.fr tutor.gr tutor.it tutor.ja.utf-8 tutor.ko.utf-8 tutor.no tutor.pl tutor.sk tutor.ru tutor.sv
@@ -602,6 +602,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Apr 18 2005 Karsten Hopp <karsten@redhat.de> 6.3.071-2
+- fix wrong Russian code page for vimtutor (#155181)
+
 * Mon Apr 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.071-1
 - patchlevel 71, fixes crashes when converting text with illegal characters
   and when moving the vertical separator to the far left (vertically splitted 
