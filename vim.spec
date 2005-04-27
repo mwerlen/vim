@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -519,13 +519,13 @@ install -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
 if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  gtk-update-icon-cache %{_datadir}/icons/hicolor
+  gtk-update-icon-cache -q %{_datadir}/icons/hicolor
 fi
 
 %postun X11
 touch --no-create %{_datadir}/icons/hicolor
 if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  gtk-update-icon-cache %{_datadir}/icons/hicolor
+  gtk-update-icon-cache -q %{_datadir}/icons/hicolor
 fi
 
 %clean
@@ -602,6 +602,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Wed Apr 27 2005 Jeremy Katz <katzj@redhat.com> - 1:6.3.071-3
+- silence %%post
+
 * Mon Apr 18 2005 Karsten Hopp <karsten@redhat.de> 6.3.071-2
 - fix wrong Russian code page for vimtutor (#155181)
 
