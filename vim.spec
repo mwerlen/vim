@@ -342,7 +342,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #%patch078 -p0
 %patch079 -p0
 # Win 32
-%patch080 -p0
+#%patch080 -p0
 
 
 %patch3000 -p1
