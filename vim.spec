@@ -21,12 +21,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 071
+%define patchlevel 080
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -122,6 +122,15 @@ Patch068: ftp://ftp.vim.org/pub/vim/patches/6.3.068
 Patch069: ftp://ftp.vim.org/pub/vim/patches/6.3.069
 Patch070: ftp://ftp.vim.org/pub/vim/patches/6.3.070
 Patch071: ftp://ftp.vim.org/pub/vim/patches/6.3.071
+Patch072: ftp://ftp.vim.org/pub/vim/patches/6.3.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/6.3.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/6.3.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/6.3.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/6.3.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/6.3.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/6.3.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/6.3.079
+Patch080: ftp://ftp.vim.org/pub/vim/patches/6.3.080
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -321,6 +330,19 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch069 -p0
 %patch070 -p0
 %patch071 -p0
+%patch072 -p0
+# Win 32
+# %patch073 -p0
+%patch074 -p0
+%patch075 -p0
+%patch076 -p0
+# VMS
+%patch077 -p0
+# VMS
+%patch078 -p0
+%patch079 -p0
+# Win 32
+%patch080 -p0
 
 
 %patch3000 -p1
@@ -602,6 +624,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Jun 12 2005 Karsten Hopp <karsten@redhat.de> 6.3.080-1
+- update to patchlevel 80
+
 * Wed Apr 27 2005 Jeremy Katz <katzj@redhat.com> - 1:6.3.071-3
 - silence %%post
 
