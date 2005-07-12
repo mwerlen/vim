@@ -337,9 +337,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch075 -p0
 %patch076 -p0
 # VMS
-%patch077 -p0
+#%patch077 -p0
 # VMS
-%patch078 -p0
+#%patch078 -p0
 %patch079 -p0
 # Win 32
 %patch080 -p0
