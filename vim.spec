@@ -21,7 +21,7 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 080
+%define patchlevel 086
 
 Summary: The VIM editor.
 Name: vim
@@ -131,6 +131,12 @@ Patch077: ftp://ftp.vim.org/pub/vim/patches/6.3.077
 Patch078: ftp://ftp.vim.org/pub/vim/patches/6.3.078
 Patch079: ftp://ftp.vim.org/pub/vim/patches/6.3.079
 Patch080: ftp://ftp.vim.org/pub/vim/patches/6.3.080
+Patch081: ftp://ftp.vim.org/pub/vim/patches/6.3.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/6.3.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/6.3.083
+Patch084: ftp://ftp.vim.org/pub/vim/patches/6.3.084
+Patch085: ftp://ftp.vim.org/pub/vim/patches/6.3.085
+Patch086: ftp://ftp.vim.org/pub/vim/patches/6.3.086
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -343,6 +349,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch079 -p0
 # Win 32
 #%patch080 -p0
+%patch081 -p0
+%patch082 -p0
+# VMS
+#%patch083 -p0
+# Cygwin
+#%patch084 -p0
+%patch085 -p0
+%patch086 -p0
 
 
 %patch3000 -p1
@@ -624,6 +638,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Aug 09 2005 Karsten Hopp <karsten@redhat.de> 6.3.086-1
+- update to patchlevel 86
+
 * Mon Jun 12 2005 Karsten Hopp <karsten@redhat.de> 6.3.080-1
 - update to patchlevel 80
 

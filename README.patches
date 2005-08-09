@@ -105,3 +105,9 @@ Individual patches for Vim 6.3:
   2508  6.3.078  (extra, after 6.3.077) VMS: performance issue
   1853  6.3.079  crash after executing a command in the command-line window
   3024  6.3.080  (extra) Win32: edit fails when 'enc' is utf-8 and Chinese cp
+  1729  6.3.081  glob() may execute shell command unexpectedly
+  2102  6.3.082  (after 6.3.081) more generic solution to avoid shell commands
+  5053  6.3.083  VMS: add function keys to vt320 termcap entry
+  6773  6.3.084  (extra) Cygwin: update src makefile and add src/po makefile
+  3408  6.3.085  crash in syntax highlighting
+ 10618  6.3.086  (extra) Russian translation has a few mistakes
