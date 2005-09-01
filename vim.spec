@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -50,93 +50,93 @@ Patch2005: vim-6.3-tmpfile.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
-# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.2.%03d\n" $i $i; done
-Patch001: ftp://ftp.vim.org/pub/vim/patches/6.3.001
-Patch002: ftp://ftp.vim.org/pub/vim/patches/6.3.002
-Patch003: ftp://ftp.vim.org/pub/vim/patches/6.3.003
-Patch004: ftp://ftp.vim.org/pub/vim/patches/6.3.004
-Patch005: ftp://ftp.vim.org/pub/vim/patches/6.3.005
-Patch006: ftp://ftp.vim.org/pub/vim/patches/6.3.006
-Patch007: ftp://ftp.vim.org/pub/vim/patches/6.3.007
-Patch008: ftp://ftp.vim.org/pub/vim/patches/6.3.008
-Patch009: ftp://ftp.vim.org/pub/vim/patches/6.3.009
-Patch010: ftp://ftp.vim.org/pub/vim/patches/6.3.010
-Patch011: ftp://ftp.vim.org/pub/vim/patches/6.3.011
-Patch012: ftp://ftp.vim.org/pub/vim/patches/6.3.012
-Patch013: ftp://ftp.vim.org/pub/vim/patches/6.3.013
-Patch014: ftp://ftp.vim.org/pub/vim/patches/6.3.014
-Patch015: ftp://ftp.vim.org/pub/vim/patches/6.3.015
-Patch016: ftp://ftp.vim.org/pub/vim/patches/6.3.016
-Patch017: ftp://ftp.vim.org/pub/vim/patches/6.3.017
-Patch018: ftp://ftp.vim.org/pub/vim/patches/6.3.018
-Patch019: ftp://ftp.vim.org/pub/vim/patches/6.3.019
-Patch020: ftp://ftp.vim.org/pub/vim/patches/6.3.020
-Patch021: ftp://ftp.vim.org/pub/vim/patches/6.3.021
-Patch022: ftp://ftp.vim.org/pub/vim/patches/6.3.022
-Patch023: ftp://ftp.vim.org/pub/vim/patches/6.3.023
-Patch024: ftp://ftp.vim.org/pub/vim/patches/6.3.024
-Patch025: ftp://ftp.vim.org/pub/vim/patches/6.3.025
-Patch026: ftp://ftp.vim.org/pub/vim/patches/6.3.026
-Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3.027
-Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3.028
-Patch029: ftp://ftp.vim.org/pub/vim/patches/6.3.029
-Patch030: ftp://ftp.vim.org/pub/vim/patches/6.3.030
-Patch031: ftp://ftp.vim.org/pub/vim/patches/6.3.031
-Patch032: ftp://ftp.vim.org/pub/vim/patches/6.3.032
-Patch033: ftp://ftp.vim.org/pub/vim/patches/6.3.033
-Patch034: ftp://ftp.vim.org/pub/vim/patches/6.3.034
-Patch035: ftp://ftp.vim.org/pub/vim/patches/6.3.035
-Patch036: ftp://ftp.vim.org/pub/vim/patches/6.3.036
-Patch037: ftp://ftp.vim.org/pub/vim/patches/6.3.037
-Patch038: ftp://ftp.vim.org/pub/vim/patches/6.3.038
-Patch039: ftp://ftp.vim.org/pub/vim/patches/6.3.039
-Patch040: ftp://ftp.vim.org/pub/vim/patches/6.3.040
-Patch041: ftp://ftp.vim.org/pub/vim/patches/6.3.041
-Patch042: ftp://ftp.vim.org/pub/vim/patches/6.3.042
-Patch043: ftp://ftp.vim.org/pub/vim/patches/6.3.043
-Patch044: ftp://ftp.vim.org/pub/vim/patches/6.3.044
-Patch045: ftp://ftp.vim.org/pub/vim/patches/6.3.045
-Patch046: ftp://ftp.vim.org/pub/vim/patches/6.3.046
-Patch047: ftp://ftp.vim.org/pub/vim/patches/6.3.047
-Patch048: ftp://ftp.vim.org/pub/vim/patches/6.3.048
-Patch049: ftp://ftp.vim.org/pub/vim/patches/6.3.049
-Patch050: ftp://ftp.vim.org/pub/vim/patches/6.3.050
-Patch051: ftp://ftp.vim.org/pub/vim/patches/6.3.051
-Patch052: ftp://ftp.vim.org/pub/vim/patches/6.3.052
-Patch053: ftp://ftp.vim.org/pub/vim/patches/6.3.053
-Patch054: ftp://ftp.vim.org/pub/vim/patches/6.3.054
-Patch055: ftp://ftp.vim.org/pub/vim/patches/6.3.055
-Patch056: ftp://ftp.vim.org/pub/vim/patches/6.3.056
-Patch057: ftp://ftp.vim.org/pub/vim/patches/6.3.057
-Patch058: ftp://ftp.vim.org/pub/vim/patches/6.3.058
-Patch059: ftp://ftp.vim.org/pub/vim/patches/6.3.059
-Patch060: ftp://ftp.vim.org/pub/vim/patches/6.3.060
-Patch061: ftp://ftp.vim.org/pub/vim/patches/6.3.061
-Patch062: ftp://ftp.vim.org/pub/vim/patches/6.3.062
-Patch063: ftp://ftp.vim.org/pub/vim/patches/6.3.063
-Patch064: ftp://ftp.vim.org/pub/vim/patches/6.3.064
-Patch065: ftp://ftp.vim.org/pub/vim/patches/6.3.065
-Patch066: ftp://ftp.vim.org/pub/vim/patches/6.3.066
-Patch067: ftp://ftp.vim.org/pub/vim/patches/6.3.067
-Patch068: ftp://ftp.vim.org/pub/vim/patches/6.3.068
-Patch069: ftp://ftp.vim.org/pub/vim/patches/6.3.069
-Patch070: ftp://ftp.vim.org/pub/vim/patches/6.3.070
-Patch071: ftp://ftp.vim.org/pub/vim/patches/6.3.071
-Patch072: ftp://ftp.vim.org/pub/vim/patches/6.3.072
-Patch073: ftp://ftp.vim.org/pub/vim/patches/6.3.073
-Patch074: ftp://ftp.vim.org/pub/vim/patches/6.3.074
-Patch075: ftp://ftp.vim.org/pub/vim/patches/6.3.075
-Patch076: ftp://ftp.vim.org/pub/vim/patches/6.3.076
-Patch077: ftp://ftp.vim.org/pub/vim/patches/6.3.077
-Patch078: ftp://ftp.vim.org/pub/vim/patches/6.3.078
-Patch079: ftp://ftp.vim.org/pub/vim/patches/6.3.079
-Patch080: ftp://ftp.vim.org/pub/vim/patches/6.3.080
-Patch081: ftp://ftp.vim.org/pub/vim/patches/6.3.081
-Patch082: ftp://ftp.vim.org/pub/vim/patches/6.3.082
-Patch083: ftp://ftp.vim.org/pub/vim/patches/6.3.083
-Patch084: ftp://ftp.vim.org/pub/vim/patches/6.3.084
-Patch085: ftp://ftp.vim.org/pub/vim/patches/6.3.085
-Patch086: ftp://ftp.vim.org/pub/vim/patches/6.3.086
+# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.%03d\n" $i $i; done
+Patch001: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.001
+Patch002: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.002
+Patch003: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.003
+Patch004: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.004
+Patch005: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.005
+Patch006: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.006
+Patch007: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.007
+Patch008: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.008
+Patch009: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.009
+Patch010: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.010
+Patch011: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.011
+Patch012: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.012
+Patch013: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.013
+Patch014: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.014
+Patch015: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.015
+Patch016: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.016
+Patch017: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.017
+Patch018: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.018
+Patch019: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.019
+Patch020: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.020
+Patch021: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.021
+Patch022: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.022
+Patch023: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.023
+Patch024: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.024
+Patch025: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.025
+Patch026: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.026
+Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.027
+Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.028
+Patch029: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.029
+Patch030: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.030
+Patch031: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.031
+Patch032: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.032
+Patch033: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.033
+Patch034: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.034
+Patch035: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.035
+Patch036: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.036
+Patch037: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.037
+Patch038: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.038
+Patch039: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.039
+Patch040: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.040
+Patch041: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.041
+Patch042: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.042
+Patch043: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.043
+Patch044: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.044
+Patch045: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.045
+Patch046: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.046
+Patch047: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.047
+Patch048: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.048
+Patch049: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.049
+Patch050: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.050
+Patch051: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.051
+Patch052: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.052
+Patch053: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.053
+Patch054: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.054
+Patch055: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.055
+Patch056: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.056
+Patch057: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.057
+Patch058: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.058
+Patch059: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.059
+Patch060: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.060
+Patch061: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.061
+Patch062: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.062
+Patch063: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.064
+Patch065: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.067
+Patch068: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.069
+Patch070: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.071
+Patch072: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.079
+Patch080: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.080
+Patch081: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.083
+Patch084: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.084
+Patch085: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.085
+Patch086: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.086
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -386,7 +386,7 @@ export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
 
 %if "%{withgui}" == "1"
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
-  --disable-tclinterp --with-x=yes --exec-prefix=/usr/X11R6 \
+  --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --enable-gtk2-check --enable-gui=gtk2 \
   --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
@@ -434,7 +434,7 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
-mkdir -p $RPM_BUILD_ROOT/usr/{bin,share/vim,X11R6/bin}
+mkdir -p $RPM_BUILD_ROOT/usr/{bin,share/vim}
 cp -f %{SOURCE5} .
 
 cd src
@@ -443,7 +443,7 @@ mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin
 make installmacros DESTDIR=$RPM_BUILD_ROOT
 %if "%{withgui}" == "1"
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -m755 gvim $RPM_BUILD_ROOT/usr/X11R6/bin
+install -m755 gvim $RPM_BUILD_ROOT/usr/bin
 install -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
 install -m644 %{SOURCE8} \
@@ -473,13 +473,13 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
   ln -sf vim.1.gz .%{_mandir}/man1/rvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/vimdiff.1.gz
 %if "%{withgui}" == "1"
-  ln -sf gvim ./usr/X11R6/bin/gview
-  ln -sf gvim ./usr/X11R6/bin/gex
-  ln -sf gvim ./usr/X11R6/bin/evim
-  ln -sf gvim ./usr/X11R6/bin/gvimdiff
+  ln -sf gvim ./usr/bin/gview
+  ln -sf gvim ./usr/bin/gex
+  ln -sf gvim ./usr/bin/evim
+  ln -sf gvim ./usr/bin/gvimdiff
   ln -sf vim.1.gz .%{_mandir}/man1/gvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/gvimdiff.1.gz
-  ln -sf gvim ./usr/X11R6/bin/vimx
+  ln -sf gvim ./usr/bin/vimx
   %if "%{desktop_file}" == "1"
     mkdir -p $RPM_BUILD_ROOT/usr/share/applications
     desktop-file-install --vendor net \
@@ -626,18 +626,22 @@ rm -rf $RPM_BUILD_ROOT
 %else
 /etc/X11/applnk/*/gvim.desktop
 %endif
-/usr/X11R6/bin/gvim
-/usr/X11R6/bin/gvimdiff
-/usr/X11R6/bin/gview
-/usr/X11R6/bin/gex
-/usr/X11R6/bin/vimx
-/usr/X11R6/bin/evim
+/usr/bin/gvim
+/usr/bin/gvimdiff
+/usr/bin/gview
+/usr/bin/gex
+/usr/bin/vimx
+/usr/bin/evim
 %{_mandir}/man1/evim.*
 %{_mandir}/man1/gvim*
 %{_datadir}/icons/hicolor/*/apps/*
 %endif
 
 %changelog
+* Thu Sep 01 2005 Karsten Hopp <karsten@redhat.de> 6.3.086-3
+- move X11 stuff to /usr/bin per request of xorg.x11 maintainer
+  Matthias Saou (#167176)
+
 * Tue Aug 16 2005 Karsten Hopp <karsten@redhat.de> 6.3.086-2
 - rebuild
 
