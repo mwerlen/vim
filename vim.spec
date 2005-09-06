@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 4
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -41,6 +41,8 @@ Source8: gvim32.png
 Source9: gvim48.png
 Source10: gvim64.png
 Source11: Changelog.rpm
+# Source at http://www.vim.org/scripts/script.php?script_id=213 :
+Source12: cvim.zip
 Patch2000: vim-4.2-speed_t.patch
 Patch2001: vim-5.6a-paths.patch
 Patch2002: vim-6.0-fixkeys.patch
@@ -373,6 +375,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %endif
 
 %build
+mkdir cvim
+( cd cvim; unzip %{SOURCE12} )
+
 cd src
 autoconf
 perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimdir},g" os_unix.h
@@ -399,7 +404,7 @@ export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
 %if "%{withruby}" == "1"
   --enable-rubyinterp
 %endif
-%
+
 make
 cp vim gvim
 make clean
@@ -436,6 +441,23 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/usr/{bin,share/vim}
 cp -f %{SOURCE5} .
+
+# cvim plugin stuff:
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/codesnippets-c
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/plugin/templates
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/wordlists
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/rc
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/ftplugin
+   install -m644 cvim/codesnippets-c/*  $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/codesnippets-c/
+   install -m644 cvim/plugin/templates/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/plugin/templates/
+   install -m644 cvim/plugin/wrapper.sh  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/plugin/
+   install -m644 cvim/plugin/c.vim  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/plugin/
+   install -m644 cvim/plugin/templates/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/plugin/templates/
+   install -m644 cvim/rc/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/rc/
+   install -m644 cvim/wordlists/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/wordlists/
+   install -m644 cvim/ftplugin/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/ftplugin/
+   cp cvim/doc/* doc
+   cp cvim/README.csupport .
 
 cd src
 %makeinstall BINDIR=/bin DESTDIR=$RPM_BUILD_ROOT
