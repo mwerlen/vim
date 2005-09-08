@@ -18,6 +18,8 @@
 %define withnetbeans 0
 %endif
 
+%define withcvim 1
+
 
 %define baseversion 6.3
 %define vimdir vim63
@@ -26,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 4
+Release: 5
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -148,6 +150,7 @@ Patch3004: vim-6.2-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
 Patch3007: vim-6.3-dnssyntax.patch
+Patch3008: vim-6.3-cvim.patch
 
 Patch3100: vim-selinux.patch
 
@@ -375,8 +378,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %endif
 
 %build
+%if "%{withcvim}" == "1"
 mkdir cvim
-( cd cvim; unzip %{SOURCE12} )
+( cd cvim; unzip %{SOURCE12}; )
+patch -p1 < %{PATCH3008}
+%endif
 
 cd src
 autoconf
@@ -442,6 +448,7 @@ mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/usr/{bin,share/vim}
 cp -f %{SOURCE5} .
 
+%if "%{withcvim}" == "1"
 # cvim plugin stuff:
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/codesnippets-c
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/plugin/templates
@@ -456,8 +463,9 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/ftplugin
    install -m644 cvim/rc/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/rc/
    install -m644 cvim/wordlists/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/wordlists/
    install -m644 cvim/ftplugin/*  $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/ftplugin/
-   cp cvim/doc/* doc
+   cp cvim/doc/* runtime/doc
    cp cvim/README.csupport .
+%endif
 
 cd src
 %makeinstall BINDIR=/bin DESTDIR=$RPM_BUILD_ROOT
@@ -660,6 +668,11 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Sep 08 2005 Karsten Hopp <karsten@redhat.de> 6.3.086-5
+- fix path to csupport templates
+- point user at README.csupport so that defaults can be set
+- make vim buildable without csupport with a variable
+
 * Thu Sep 01 2005 Karsten Hopp <karsten@redhat.de> 6.3.086-3
 - move X11 stuff to /usr/bin per request of xorg.x11 maintainer
   Matthias Saou (#167176)
