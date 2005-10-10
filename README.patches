@@ -111,3 +111,7 @@ Individual patches for Vim 6.3:
   6773  6.3.084  (extra) Cygwin: update src makefile and add src/po makefile
   3408  6.3.085  crash in syntax highlighting
  10618  6.3.086  (extra) Russian translation has a few mistakes
+  1471  6.3.087  Win32: crash when expanding file name when there isn't one
+  2269  6.3.088  editing ".in" causes error E218
+  2223  6.3.089  session file can't handle current directory with spaces
+  1484  6.3.090  crash with very large value for 'columns' or 'lines'

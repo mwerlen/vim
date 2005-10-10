@@ -23,12 +23,12 @@
 
 %define baseversion 6.3
 %define vimdir vim63
-%define patchlevel 086
+%define patchlevel 090
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 5
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -141,6 +141,10 @@ Patch083: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.083
 Patch084: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.084
 Patch085: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.085
 Patch086: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.086
+Patch087: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.087
+Patch088: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.088
+Patch089: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.090
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -209,7 +213,8 @@ package is installed.
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release}
-Requires: %(perl -le 'printf("perl >= %vd\n",$^V);')
+#Requires: %(perl -le 'printf("perl >= %vd\n",$^V);')
+Requires: perl >= %(rpm -q --qf "%%{epoch}:%%{version}\n" perl)
 Obsoletes: vim-color
 
 %description enhanced
@@ -362,6 +367,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #%patch084 -p0
 %patch085 -p0
 %patch086 -p0
+# Win32:
+#%patch087 -p0
+%patch088 -p0
+%patch089 -p0
+%patch090 -p0
 
 
 %patch3000 -p1
@@ -668,6 +678,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Oct 10 2005 Karsten Hopp <karsten@redhat.de> 6.3.090-1
+- patchlevel 90
+- next attempt to fix perl requirements, add perl-epoch (#145475)
+
 * Thu Sep 08 2005 Karsten Hopp <karsten@redhat.de> 6.3.086-5
 - fix path to csupport templates
 - point user at README.csupport so that defaults can be set
