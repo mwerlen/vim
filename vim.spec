@@ -214,7 +214,8 @@ Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release}
 #Requires: %(perl -le 'printf("perl >= %vd\n",$^V);')
-Requires: perl >= %(rpm -q --qf "%%{epoch}:%%{version}\n" perl)
+#Requires: perl >= %(rpm -q --qf "%%{epoch}:%%{version}\n" perl)
+Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Obsoletes: vim-color
 
 %description enhanced
@@ -680,6 +681,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Tue Oct 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.090-2
 - don't try to run cscope if cscope binary doesn't exist (#170371)
+- another attempt to fix perl requirements (#145475)
 
 * Mon Oct 10 2005 Karsten Hopp <karsten@redhat.de> 6.3.090-1
 - patchlevel 90
