@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -678,6 +678,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Oct 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.090-2
+- don't try to run cscope if cscope binary doesn't exist (#170371)
+
 * Mon Oct 10 2005 Karsten Hopp <karsten@redhat.de> 6.3.090-1
 - patchlevel 90
 - next attempt to fix perl requirements, add perl-epoch (#145475)

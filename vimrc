@@ -22,7 +22,7 @@ if has("autocmd")
   \ endif
 endif
 
-if has("cscope")
+if has("cscope") && filereadable("/usr/bin/cscope")
    set csprg=/usr/bin/cscope
    set csto=0
    set cst
