@@ -21,14 +21,14 @@
 %define withcvim 1
 
 
-%define baseversion 6.3
-%define vimdir vim63
-%define patchlevel 090
+%define baseversion 6.4
+%define vimdir vim64
+%define patchlevel 000
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -50,101 +50,12 @@ Patch2001: vim-5.6a-paths.patch
 Patch2002: vim-6.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
 Patch2004: vim-6.0r-crv.patch
-Patch2005: vim-6.3-tmpfile.patch
+#Patch2005: vim-6.3-tmpfile.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
-# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.%03d\n" $i $i; done
-Patch001: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.001
-Patch002: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.002
-Patch003: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.003
-Patch004: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.004
-Patch005: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.005
-Patch006: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.006
-Patch007: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.007
-Patch008: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.008
-Patch009: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.009
-Patch010: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.010
-Patch011: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.011
-Patch012: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.012
-Patch013: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.013
-Patch014: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.014
-Patch015: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.015
-Patch016: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.016
-Patch017: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.017
-Patch018: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.018
-Patch019: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.019
-Patch020: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.020
-Patch021: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.021
-Patch022: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.022
-Patch023: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.023
-Patch024: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.024
-Patch025: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.025
-Patch026: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.026
-Patch027: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.027
-Patch028: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.028
-Patch029: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.029
-Patch030: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.030
-Patch031: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.031
-Patch032: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.032
-Patch033: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.033
-Patch034: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.034
-Patch035: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.035
-Patch036: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.036
-Patch037: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.037
-Patch038: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.038
-Patch039: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.039
-Patch040: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.040
-Patch041: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.041
-Patch042: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.042
-Patch043: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.043
-Patch044: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.044
-Patch045: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.045
-Patch046: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.046
-Patch047: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.047
-Patch048: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.048
-Patch049: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.049
-Patch050: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.050
-Patch051: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.051
-Patch052: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.052
-Patch053: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.053
-Patch054: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.054
-Patch055: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.055
-Patch056: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.056
-Patch057: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.057
-Patch058: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.058
-Patch059: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.059
-Patch060: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.060
-Patch061: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.061
-Patch062: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.062
-Patch063: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.063
-Patch064: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.064
-Patch065: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.065
-Patch066: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.066
-Patch067: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.067
-Patch068: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.068
-Patch069: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.069
-Patch070: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.070
-Patch071: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.071
-Patch072: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.072
-Patch073: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.073
-Patch074: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.074
-Patch075: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.075
-Patch076: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.076
-Patch077: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.077
-Patch078: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.078
-Patch079: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.079
-Patch080: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.080
-Patch081: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.081
-Patch082: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.082
-Patch083: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.083
-Patch084: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.084
-Patch085: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.085
-Patch086: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.086
-Patch087: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.087
-Patch088: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.088
-Patch089: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.089
-Patch090: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.090
+# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.%03d\n" $i $i; done
+#Patch001: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.001
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -154,7 +65,7 @@ Patch3004: vim-6.2-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
 Patch3007: vim-6.3-dnssyntax.patch
-Patch3008: vim-6.3-cvim.patch
+Patch3008: vim-6.4-cvim.patch
 
 Patch3100: vim-selinux.patch
 
@@ -263,116 +174,13 @@ chmod -x runtime/tools/mve.awk
 %patch2002 -p1
 %patch2003 -p1
 %patch2004 -p1
-%patch2005 -p1
+#%patch2005 -p1
 %patch2010 -p1
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
-%patch001 -p0
-%patch002 -p0
-%patch003 -p0
-%patch004 -p0
-%patch005 -p0
-%patch006 -p0
-%patch007 -p0
-%patch008 -p0
-%patch009 -p0
-%patch010 -p0
-%patch011 -p0
-%patch012 -p0
-%patch013 -p0
-%patch014 -p0
-%patch015 -p0
-%patch016 -p0
-%patch017 -p0
-%patch018 -p0
-%patch019 -p0
-%patch020 -p0
-%patch021 -p0
-# Win32 %patch022 -p0
-%patch023 -p0
-%patch024 -p0
-# Win32 %patch025 -p0
-%patch26 -p0
-# VMS %patch27 -p0
-%patch28 -p0
-%patch29 -p0
-%patch30 -p0
-%patch31 -p0
-%patch32 -p0
-%patch33 -p0
-%patch34 -p0
-#%patch35 -p0
-%patch36 -p0
-%patch37 -p0
-# Win32
-#%patch38 -p0
-%patch39 -p0
-%patch40 -p0
-# Win32
-#%patch41 -p0
-%patch42 -p0
-%patch043 -p0
-# Win32
-#%patch044 -p0
-%patch045 -p0
-%patch046 -p0
-# Win XP
-#%patch047 -p0
-# VMS
-#%patch048 -p0
-%patch049 -p0
-%patch050 -p0
-%patch051 -p0
-# Win 98
-#%patch052 -p0
-# Win 32
-#%patch053 -p0
-%patch054 -p0
-%patch055 -p0
-%patch056 -p0
-%patch057 -p0
-%patch058 -p0
-%patch059 -p0
-%patch060 -p0
-%patch061 -p0
-%patch062 -p0
-%patch063 -p0
-%patch064 -p0
-%patch065 -p0
-%patch066 -p0
-%patch067 -p0
-%patch068 -p0
-%patch069 -p0
-%patch070 -p0
-%patch071 -p0
-%patch072 -p0
-# Win 32
-# %patch073 -p0
-%patch074 -p0
-%patch075 -p0
-%patch076 -p0
-# VMS
-#%patch077 -p0
-# VMS
-#%patch078 -p0
-%patch079 -p0
-# Win 32
-#%patch080 -p0
-%patch081 -p0
-%patch082 -p0
-# VMS
-#%patch083 -p0
-# Cygwin
-#%patch084 -p0
-%patch085 -p0
-%patch086 -p0
-# Win32:
-#%patch087 -p0
-%patch088 -p0
-%patch089 -p0
-%patch090 -p0
+#%patch001 -p0
 
 
 %patch3000 -p1
@@ -679,6 +487,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Mon Oct 17 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-1
+- vim-6.4 patchlevel 0
+
 * Tue Oct 11 2005 Karsten Hopp <karsten@redhat.de> 6.3.090-2
 - don't try to run cscope if cscope binary doesn't exist (#170371)
 - another attempt to fix perl requirements (#145475)
