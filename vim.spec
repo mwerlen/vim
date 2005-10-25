@@ -377,8 +377,8 @@ chmod 644 $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc/vim2html.pl \
  $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/tools/vim132
 chmod 644 ../runtime/doc/vim2html.pl
 
-mkdir -p $RPM_BUILD_ROOT/etc/profile.d
-cat >$RPM_BUILD_ROOT/etc/profile.d/vim.sh <<EOF
+mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d
+cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   [ -x /usr/bin/id ] || return
   [ \`/usr/bin/id -u\` -le 100 ] && return
@@ -386,13 +386,13 @@ if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
-cat >$RPM_BUILD_ROOT/etc/profile.d/vim.csh <<EOF
+cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
 [ -x /usr/bin/id ] || exit
 [ \`/usr/bin/id -u\` -le 100 ] && exit
 alias vi vim
 EOF
-chmod 0755 $RPM_BUILD_ROOT/etc/profile.d/*
-install -m644 %{SOURCE4} $RPM_BUILD_ROOT/etc/vimrc
+chmod 0755 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
+install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
 (cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc;
  gzip -9 *.txt; gzip -d help.txt.gz
  cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags)
@@ -418,7 +418,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(-,root,root)
-%config(noreplace) /etc/vimrc
+%config(noreplace) %{_sysconfdir}/vimrc
 %doc README*
 %doc runtime/docs
 %doc $RPM_SOURCE_DIR/Changelog.rpm
@@ -448,7 +448,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files minimal
 %defattr(-,root,root)
-%config(noreplace) /etc/vimrc
+%config(noreplace) %{_sysconfdir}/vimrc
 /bin/ex
 /bin/vi
 /bin/view
@@ -462,7 +462,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/vimdiff
 /usr/bin/ex
 /usr/bin/vimtutor
-%config /etc/profile.d/vim.*
+%config %{_sysconfdir}/profile.d/vim.*
 %{_mandir}/man1/rvim.*
 %{_mandir}/man1/vimdiff.*
 %{_mandir}/man1/vimtutor.*
@@ -487,6 +487,8 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+- use %%{_sysconfdir} (#171556)
+
 * Mon Oct 17 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-1
 - vim-6.4 patchlevel 0
 
