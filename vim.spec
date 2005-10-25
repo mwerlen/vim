@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -66,6 +66,7 @@ Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
 Patch3007: vim-6.3-dnssyntax.patch
 Patch3008: vim-6.4-cvim.patch
+Patch3009: vim-6.4-checkhl.patch
 
 Patch3100: vim-selinux.patch
 
@@ -191,6 +192,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3005 -p1
 %patch3006 -p1
 %patch3007 -p1
+
+%patch3009 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -487,7 +490,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Tue Oct 25 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-2
 - use %%{_sysconfdir} (#171556)
+- add syntax highlighting rule for %%check (Ralf Ertzinger, #165277)
 
 * Mon Oct 17 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-1
 - vim-6.4 patchlevel 0
