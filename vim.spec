@@ -478,7 +478,7 @@ rm -rf $RPM_BUILD_ROOT
 %else
 /etc/X11/applnk/*/gvim.desktop
 %endif
-/usr/bin/kvim
+/usr/bin/gvim
 /usr/bin/gvimdiff
 /usr/bin/gview
 /usr/bin/gex
