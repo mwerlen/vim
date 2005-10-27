@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -478,7 +478,7 @@ rm -rf $RPM_BUILD_ROOT
 %else
 /etc/X11/applnk/*/gvim.desktop
 %endif
-/usr/bin/gvim
+/usr/bin/kvim
 /usr/bin/gvimdiff
 /usr/bin/gview
 /usr/bin/gex
@@ -490,6 +490,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Thu Oct 27 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-3
+- test build
+
 * Tue Oct 25 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-2
 - use %%{_sysconfdir} (#171556)
 - add syntax highlighting rule for %%check (Ralf Ertzinger, #165277)
