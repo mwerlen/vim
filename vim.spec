@@ -28,7 +28,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 4
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -50,7 +50,7 @@ Patch2001: vim-5.6a-paths.patch
 Patch2002: vim-6.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
 Patch2004: vim-6.0r-crv.patch
-#Patch2005: vim-6.3-tmpfile.patch
+Patch2005: vim-6.4-tmpfile.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
@@ -175,7 +175,7 @@ chmod -x runtime/tools/mve.awk
 %patch2002 -p1
 %patch2003 -p1
 %patch2004 -p1
-#%patch2005 -p1
+%patch2005 -p1
 %patch2010 -p1
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
@@ -490,6 +490,9 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %changelog
+* Fri Nov 25 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-4
+- enable tmpfile patch 
+
 * Thu Oct 27 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-3
 - test build
 
