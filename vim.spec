@@ -5,15 +5,12 @@
 %endif
 
 # Set this to 1 if you're building the enterprise version
-%define enterprise 0
+%define enterprise 1
 
 %if %{enterprise}
-# don't build gvim
-%define withgui 0
 # don't include ruby interpreter
 %define withruby 0
 %else
-%define withgui 1
 %define withruby 0
 %define withnetbeans 0
 %endif
@@ -23,12 +20,12 @@
 
 %define baseversion 6.4
 %define vimdir vim64
-%define patchlevel 000
+%define patchlevel 003
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 4
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -55,7 +52,9 @@ Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.%03d\n" $i $i; done
-#Patch001: ftp://ftp.vim.org/pub/vim/patches/6.3/6.3.001
+#Patch001: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.001
+Patch002: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.002
+Patch003: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.003
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -143,7 +142,6 @@ VIM editor which includes recently added enhancements like
 interpreters for the Python and Perl scripting languages.  You'll also
 need to install the vim-common package.
 
-%if "%{withgui}" == "1"
 %package X11
 Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
@@ -163,7 +161,6 @@ application with a full GUI interface and mouse support.
 Install the vim-X11 package if you'd like to try out a version of vi
 with graphics and mouse capabilities.  You'll also need to install the
 vim-common package.
-%endif
 
 %prep
 %setup -q -b 1 -n %{vimdir}
@@ -182,6 +179,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
 #%patch001 -p0
+%patch002 -p0
+%patch003 -p0
 
 
 %patch3000 -p1
@@ -217,7 +216,6 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
 export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
 %endif
 
-%if "%{withgui}" == "1"
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
@@ -236,7 +234,6 @@ export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
 make
 cp vim gvim
 make clean
-%endif
 
 %configure --prefix=/usr --with-features=huge --enable-pythoninterp \
  --enable-perlinterp --disable-tclinterp --with-x=no \
@@ -293,7 +290,6 @@ cd src
 %makeinstall BINDIR=/bin DESTDIR=$RPM_BUILD_ROOT
 mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin
 make installmacros DESTDIR=$RPM_BUILD_ROOT
-%if "%{withgui}" == "1"
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
 install -m755 gvim $RPM_BUILD_ROOT/usr/bin
 install -m644 %{SOURCE7} \
@@ -304,7 +300,6 @@ install -m644 %{SOURCE9} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
 install -m644 %{SOURCE10} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
-%endif
 install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
 
 ( cd $RPM_BUILD_ROOT
@@ -324,7 +319,6 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
   ln -sf vim.1.gz .%{_mandir}/man1/rvi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/vimdiff.1.gz
-%if "%{withgui}" == "1"
   ln -sf gvim ./usr/bin/gview
   ln -sf gvim ./usr/bin/gex
   ln -sf gvim ./usr/bin/evim
@@ -342,9 +336,6 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
     mkdir -p ./etc/X11/applnk/Applications
     cp %{SOURCE3} ./etc/X11/applnk/Applications/gvim.desktop
   %endif
-%else
-  rm -f $RPM_BUILD_ROOT/%{_mandir}/man?/evim*
-%endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./usr/share/vim/%{vimdir}/lang; \
     ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
@@ -470,7 +461,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/vimdiff.*
 %{_mandir}/man1/vimtutor.*
 
-%if "%{withgui}" == "1"
 %files X11
 %defattr(-,root,root)
 %if "%{desktop_file}" == "1"
@@ -487,9 +477,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/evim.*
 %{_mandir}/man1/gvim*
 %{_datadir}/icons/hicolor/*/apps/*
-%endif
 
 %changelog
+* Wed Nov 30 2005 Karsten Hopp <karsten@redhat.de> 6.4.003-1
+- patchlevel 3
+- remove withgui switch as we include vim-X11 in all our distributions now 
+  (#174271)
+
 * Fri Nov 25 2005 Karsten Hopp <karsten@redhat.de> 6.4.000-4
 - enable tmpfile patch 
 

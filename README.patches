@@ -1,4 +1,4 @@
-Patches for Vim - Vi IMproved 6.3
+Patches for Vim - Vi IMproved 6.4
 
 The files in this directory contain source code changes to fix
 problems in released versions of Vim.  Each file also contains an
@@ -14,104 +14,17 @@ Before patching, change to the top Vim directory, where the "src"
 and "runtime" directories are located.
 Depending on the version of "patch" that you use, you may have add
 an argument to make it patch the right file:
-        patch -p < 6.3.001
-        patch -p0 < 6.3.001
+        patch -p < 6.4.001
+        patch -p0 < 6.4.001
 
 After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
 Checksums for the patch files can be found in the file MD5.
 
-Individual patches for Vim 6.3:
+Individual patches for Vim 6.4:
 
   SIZE  NAME     FIXES
-  2672  6.3.001  ":browse split" gives file selection dialog twice
-  3913  6.3.002  utf-8 detection in translated help files is wrong
-  1891  6.3.003  crash when using console dialog without default choice
-  2438  6.3.004  too many hit-enter prompts when searching for long string
-  2809  6.3.005  crash when searching with character offset in closed fold
-  1566  6.3.006  the current directory is prepended to the ":breakadd" argument
-  1755  6.3.007  swap file is not deleted for a "nofile" buffer after ":cd"
-  1865  6.3.008  OS/2: can't compile, missing error message
-  3670  6.3.009  (after 6.3.006) ":breakadd file" does not match for a symlink
-  2450  6.3.010  writing to a named pipe causes an error message for fsync()
-  1896  6.3.011  crash when user command completion uses "normal :cmd"
-  2882  6.3.012  lalloc(0) error for substitute command with multi-line pattern
- 11947  6.3.013  crash when using CTRL-R = in command line uses "normal :cmd"
-  1566  6.3.014  default value of 'helplang' is wrong for Chinese and Taiwanese
-  1207  6.3.015  the string returned by winrestcmd() may end in garbage
-  1735  6.3.016  'define' default had "\s" before #, breaks "[d"
-  1364  6.3.017  "9zz" could place the cursor beyond the end of a line
-  1844  6.3.018  ":0argadd zero" added the argument after the first one
-  1992  6.3.019  crash during startup when compiled for debugging
-  1915  6.3.020  "dw" doesn't work right for UTF-8 when 'delcombine' is set
-  2822  6.3.021  can't edit file with path separator in trail byte of last char
-  2173  6.3.022  (extra) Win32: can't write file with path sep. in trail byte
-  6419  6.3.023  when <Space> is remapped abbreviations are not expanded
-  2456  6.3.024  missing NUL for strings created with ga_concat()
-  1409  6.3.025  (extra) missing NUL for list of server names
-  3070  6.3.026  setting 'bg' in syncolor.vim may cause endless loop or crash
-  7500  6.3.027  VMS: Writing a file may insert extra CR characters
-  2128  6.3.028  the BOM marker is written when appending to a file
-  2173  6.3.029  crash in syntax highlighting code when inserting a line break
-  4579  6.3.030  GTK 2: crash when 'enc' is set to "utf-8" and menus redefined
-  1483  6.3.031  pressing Tab when entering a mapping may cause a display error
-  2094  6.3.032  with Python 2.3 using threads doesn't work
-  1552  6.3.033  mapping ending in two-char command doesn't restart Insert mode
-  1618  6.3.034  VMS: crash in RTL when using :help, caused by ? wildcard
-  7883  6.3.035  (extra) RISC OS: compilation problems, better Makefile
-  1770  6.3.036  ml_get errors when fold was deleted
-  2889  6.3.037  (after 6.3.032) warning for unused variable
-  1664  6.3.038  (extra) Win32: mouse click take effect much later
-  2749  6.3.039  line numbers not updated when inserting a line above window
- 18020  6.3.040  window count for a buffer was wrong after error handling
-  1932  6.3.041  (extra) Win32: ":cd %:p:h" doesn't work when 'enc' is not ACP
-  1760  6.3.042  CTRL-X CTRL-E in Insert mode does not scroll fold correctly
-  8053  6.3.043  'hlsearch' highlighting sometimes disappears
-  2812  6.3.044  (extra) Mac: pixels left behind when 'linespace' is non-zero
- 12283  6.3.045  some option values may cause trouble in a modeline
-  2231  6.3.046  ":registers" doesn't show multi-byte characters correctly
-  2196  6.3.047  (extra) Win XP with Borland: new file is created read-only
- 18175  6.3.048  (extra) VMS: doesn't build on IA64
-  1776  6.3.049  (after 6.3.045) compiler warning for pointer type
-  2225  6.3.050  a SIGHUP while already exiting may cause a crash
-  1661  6.3.051  crash when 'wildmenu' set and completing multi-byte file name
-  3175  6.3.052  (extra) Win 98: can't enter non-ASCII characters if 'enc' set
-  1576  6.3.053  Win32: ":loadview" doesn't work for files with non-latin chars
-  1981  6.3.054  when 'im' is set redraw remains off when repeating an insert
-  8844  6.3.055  wrong text and crash using <C-R>= or <C-\>e in command line
-  2091  6.3.056  window title wrong for specific multi-byte character
-  1748  6.3.057  folds are not updated after a filter command
-  4440  6.3.058  crash when zero columns room; can't compile without :vsplit
-  2286  6.3.059  crash when editing a file with spaces and shell expansion
-  1609  6.3.060  register name isn't checked for CTRL-R CTRL-O in Insert mode
-  1984  6.3.061  display mess when multi-byte char at right edge of screen
-  2337  6.3.062  ":normal! gQ" hangs
-  1434  6.3.063  after the CursorHold event 'mousefocus' may stop working
-  1586  6.3.064  line2byte(line("$") + 1) sometimes returns the wrong number  
-  4436  6.3.065  there was no digraph for euro in Unicode
-  4728  6.3.066  permissions of backup file may be wrong
-  2200  6.3.067  (after 6.3.066) newly created file gets execute permission
-  2247  6.3.068  can't write when editing symbolic link to compressed file
-  1710  6.3.069  when converting text with illegal characters Vim may crash
-  1928  6.3.070  crash when 'number' set and with a vertical split
-  1722  6.3.071  CTRL-X message sticks after error for completion
-  2083  6.3.072  crash for substitute message when using UTF-8 and Chinese
-  2017  6.3.073  Win32 GUI: display errors when scrolling up/down
-  2365  6.3.074  with 'insertmode' CTRL-V after Select mode doesn't work
-  1745  6.3.075  syntax highlighting wrong after unloading another buffer
-  3546  6.3.076  crash when using Cscope interface with very long result
-  1934  6.3.077  (extra) VMS: character after ESC not handled correctly
-  2508  6.3.078  (extra, after 6.3.077) VMS: performance issue
-  1853  6.3.079  crash after executing a command in the command-line window
-  3024  6.3.080  (extra) Win32: edit fails when 'enc' is utf-8 and Chinese cp
-  1729  6.3.081  glob() may execute shell command unexpectedly
-  2102  6.3.082  (after 6.3.081) more generic solution to avoid shell commands
-  5053  6.3.083  VMS: add function keys to vt320 termcap entry
-  6773  6.3.084  (extra) Cygwin: update src makefile and add src/po makefile
-  3408  6.3.085  crash in syntax highlighting
- 10618  6.3.086  (extra) Russian translation has a few mistakes
-  1471  6.3.087  Win32: crash when expanding file name when there isn't one
-  2269  6.3.088  editing ".in" causes error E218
-  2223  6.3.089  session file can't handle current directory with spaces
-  1484  6.3.090  crash with very large value for 'columns' or 'lines'
+  1705  6.4.001  (extra) Win32: can't compile the global IME code
+  7802  6.4.002  Unix: may change owner of wrong file in rare cases
+  1463  6.4.003  (after 6.4.002) build problem on non-Unix system
