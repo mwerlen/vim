@@ -28,3 +28,4 @@ Individual patches for Vim 6.4:
   1705  6.4.001  (extra) Win32: can't compile the global IME code
   7802  6.4.002  Unix: may change owner of wrong file in rare cases
   1463  6.4.003  (after 6.4.002) build problem on non-Unix system
+  1581  6.4.004  "go" doesn't work correctly when 'virtualedit' is set

@@ -20,7 +20,7 @@
 
 %define baseversion 6.4
 %define vimdir vim64
-%define patchlevel 003
+%define patchlevel 004
 
 Summary: The VIM editor.
 Name: vim
@@ -55,6 +55,7 @@ Patch2010: xxd-locale.patch
 #Patch001: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.001
 Patch002: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.002
 Patch003: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.003
+Patch004: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.004
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -66,6 +67,7 @@ Patch3006: vim-6.2-rh5.patch
 Patch3007: vim-6.3-dnssyntax.patch
 Patch3008: vim-6.4-cvim.patch
 Patch3009: vim-6.4-checkhl.patch
+Patch3010: vim-6.4-fstabsyntax.patch
 
 Patch3100: vim-selinux.patch
 
@@ -181,6 +183,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #%patch001 -p0
 %patch002 -p0
 %patch003 -p0
+%patch004 -p0
 
 
 %patch3000 -p1
@@ -193,6 +196,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3007 -p1
 
 %patch3009 -p1
+%patch3010 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -479,6 +483,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Dec 08 2005 Karsten Hopp <karsten@redhat.de> 6.4.004-1
+- fix fstab syntax file (#174735)
+- patchlevel 4
+
 * Wed Nov 30 2005 Karsten Hopp <karsten@redhat.de> 6.4.003-1
 - patchlevel 3
 - remove withgui switch as we include vim-X11 in all our distributions now 
