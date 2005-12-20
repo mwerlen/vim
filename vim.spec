@@ -25,7 +25,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1.1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -202,13 +202,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3100 -p1
 %endif
 
-%build
 %if "%{withcvim}" == "1"
 mkdir cvim
 ( cd cvim; unzip %{SOURCE12}; )
 patch -p1 < %{PATCH3008}
 %endif
 
+
+%build
 cd src
 autoconf
 perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimdir},g" os_unix.h
@@ -483,6 +484,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Dec 20 2005 Karsten Hopp <karsten@redhat.de> 6.4.004-2
+- disable templates when editing new .c / .h files (#175878)
+
 * Fri Dec 09 2005 Jesse Keating <jkeating@redhat.com>
 - rebuilt
 
