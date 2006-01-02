@@ -20,12 +20,12 @@
 
 %define baseversion 6.4
 %define vimdir vim64
-%define patchlevel 004
+%define patchlevel 006
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -56,6 +56,8 @@ Patch2010: xxd-locale.patch
 Patch002: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.002
 Patch003: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.003
 Patch004: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.004
+Patch005: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.005
+Patch006: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.006
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -184,6 +186,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch002 -p0
 %patch003 -p0
 %patch004 -p0
+%patch005 -p0
+%patch006 -p0
 
 
 %patch3000 -p1
@@ -484,6 +488,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Jan 02 2006 Karsten Hopp <karsten@redhat.de> 6.4.006-1
+- patchlevel 6, fixes bz# 175048
+
 * Tue Dec 20 2005 Karsten Hopp <karsten@redhat.de> 6.4.004-2
 - disable templates when editing new .c / .h files (#175878)
 
