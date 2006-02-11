@@ -25,7 +25,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1.1
+Release: 1.2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -488,6 +488,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Feb 10 2006 Jesse Keating <jkeating@redhat.com> - 1:6.4.006-1.2
+- bump again for double-long bug on ppc(64)
+
 * Tue Feb 07 2006 Jesse Keating <jkeating@redhat.com> - 1:6.4.006-1.1
 - rebuilt for new gcc4.1 snapshot and glibc changes
 
