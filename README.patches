@@ -31,3 +31,4 @@ Individual patches for Vim 6.4:
   1581  6.4.004  "go" doesn't work correctly when 'virtualedit' is set
   1577  6.4.005  truncating message may write before buffer
   2320  6.4.006  ":argedit", "argdel" and ":argadd" used count argument
+  1717  6.4.007  Unix: crash when expanding backticks

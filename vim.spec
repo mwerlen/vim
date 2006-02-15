@@ -20,12 +20,12 @@
 
 %define baseversion 6.4
 %define vimdir vim64
-%define patchlevel 006
+%define patchlevel 007
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1.2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -58,6 +58,7 @@ Patch003: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.003
 Patch004: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.004
 Patch005: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.005
 Patch006: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.006
+Patch007: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.007
 
 Patch3000: vim-6.1-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -188,6 +189,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch004 -p0
 %patch005 -p0
 %patch006 -p0
+%patch007 -p0
 
 
 %patch3000 -p1
@@ -391,8 +393,7 @@ fi
 EOF
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
 [ -x /usr/bin/id ] || exit
-[ \`/usr/bin/id -u\` -le 100 ] && exit
-alias vi vim
+[ \`/usr/bin/id -u\` -gt 100 ] && alias vi vim
 EOF
 chmod 0755 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
@@ -488,6 +489,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Feb 15 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-1
+- fix vim.csh script (#180429)
+- patchlevel 7
+
 * Fri Feb 10 2006 Jesse Keating <jkeating@redhat.com> - 1:6.4.006-1.2
 - bump again for double-long bug on ppc(64)
 
