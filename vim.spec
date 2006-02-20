@@ -25,7 +25,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -408,13 +408,13 @@ install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
 if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  gtk-update-icon-cache -q %{_datadir}/icons/hicolor
+  gtk-update-icon-cache --ignore-theme-index -q %{_datadir}/icons/hicolor
 fi
 
 %postun X11
 touch --no-create %{_datadir}/icons/hicolor
 if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  gtk-update-icon-cache -q %{_datadir}/icons/hicolor
+  gtk-update-icon-cache --ignore-theme-index -q %{_datadir}/icons/hicolor
 fi
 
 %clean
@@ -489,6 +489,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 20 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-2
+- gtk-update-icon-cache --ignore-theme-index 
+  (avoids %%post failures when hicolor-icon-theme isn't installed)
+
 * Wed Feb 15 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-1
 - fix vim.csh script (#180429)
 - patchlevel 7
