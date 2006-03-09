@@ -25,7 +25,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 4
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -71,6 +71,7 @@ Patch3007: vim-6.3-dnssyntax.patch
 Patch3008: vim-6.4-cvim.patch
 Patch3009: vim-6.4-checkhl.patch
 Patch3010: vim-6.4-fstabsyntax.patch
+Patch3011: vim-6.4-lib64.patch
 
 Patch3100: vim-selinux.patch
 
@@ -151,7 +152,7 @@ need to install the vim-common package.
 Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr
-BuildRequires: gtk2-devel
+BuildRequires: gtk2-devel libSM-devel libXt-devel
 Prereq: gtk2 >= 2.6
 
 %description X11
@@ -203,6 +204,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %patch3009 -p1
 %patch3010 -p1
+%patch3011 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -489,6 +491,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Mar 09 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-4
+- fix configure check for python (#184478)
+
 * Thu Mar 09 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-3
 - rebuild
 
