@@ -25,7 +25,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -489,6 +489,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Mar 09 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-3
+- rebuild
+
 * Mon Feb 20 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-2
 - gtk-update-icon-cache --ignore-theme-index 
   (avoids %%post failures when hicolor-icon-theme isn't installed)
