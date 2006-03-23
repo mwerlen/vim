@@ -12,20 +12,20 @@
 %define withruby 0
 %else
 %define withruby 0
-%define withnetbeans 0
+%define withnetbeans 1
 %endif
 
-%define withcvim 1
+%define withcvim 0
 
 
-%define baseversion 6.4
-%define vimdir vim64
-%define patchlevel 007
+%define baseversion 7.0aa
+%define vimdir vim70aa
+%define patchlevel 000
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 4
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -33,7 +33,7 @@ Source1: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-lang.tar.gz
 Source2: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-extra.tar.gz
 Source3: gvim.desktop
 Source4: vimrc
-Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
+#Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source6: spec.vim
 Source7: gvim16.png
 Source8: gvim32.png
@@ -41,36 +41,26 @@ Source9: gvim48.png
 Source10: gvim64.png
 Source11: Changelog.rpm
 # Source at http://www.vim.org/scripts/script.php?script_id=213 :
-Source12: cvim.zip
-Patch2000: vim-4.2-speed_t.patch
-Patch2001: vim-5.6a-paths.patch
-Patch2002: vim-6.0-fixkeys.patch
+#Source12: cvim.zip
+Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
-Patch2004: vim-6.0r-crv.patch
-Patch2005: vim-6.4-tmpfile.patch
+Patch2004: vim-7.0-crv.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.%03d\n" $i $i; done
-#Patch001: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.001
-Patch002: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.002
-Patch003: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.003
-Patch004: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.004
-Patch005: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.005
-Patch006: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.006
-Patch007: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.007
 
-Patch3000: vim-6.1-syntax.patch
+Patch3000: vim-7.0-syntax.patch
 Patch3001: vim-6.2-rh1.patch
 Patch3002: vim-6.1-rh2.patch
 Patch3003: vim-6.1-rh3.patch
-Patch3004: vim-6.2-rclocation.patch
+Patch3004: vim-7.0-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
 Patch3007: vim-6.3-dnssyntax.patch
-Patch3008: vim-6.4-cvim.patch
+#Patch3008: vim-6.4-cvim.patch
 Patch3009: vim-6.4-checkhl.patch
-Patch3010: vim-6.4-fstabsyntax.patch
+Patch3010: vim-7.0-fstabsyntax.patch
 Patch3011: vim-6.4-lib64.patch
 
 Patch3100: vim-selinux.patch
@@ -99,6 +89,9 @@ multiple windows, multi-level undo, block highlighting and more.
 %package common
 Summary: The common files needed by any version of the VIM editor.
 Group: Applications/Editors
+Obsoletes: vim7-common
+Conflicts: man-pages-fr < 0.9.7-14
+Conflicts: man-pages-it < 0.3.0-17
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -114,7 +107,8 @@ to install the vim-common package.
 %package minimal
 Summary: A minimal version of the VIM editor.
 Group: Applications/Editors
-Obsoletes:  vim
+Obsoletes: vim
+Obsoletes: vim7-minimal
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -130,10 +124,8 @@ package is installed.
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release}
-#Requires: %(perl -le 'printf("perl >= %vd\n",$^V);')
-#Requires: perl >= %(rpm -q --qf "%%{epoch}:%%{version}\n" perl)
-Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Obsoletes: vim-color
+Obsoletes: vim7-enhanced
 
 %description enhanced
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -154,6 +146,7 @@ Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr
 BuildRequires: gtk2-devel libSM-devel libXt-devel
 Prereq: gtk2 >= 2.6
+Obsoletes: vim7-X11
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -171,26 +164,16 @@ vim-common package.
 %prep
 %setup -q -b 1 -n %{vimdir}
 cp -f %{SOURCE6} runtime/ftplugin/spec.vim
-%patch2000 -p1
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
-%patch2001 -p1
 %patch2002 -p1
 %patch2003 -p1
 %patch2004 -p1
-%patch2005 -p1
 %patch2010 -p1
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
-#%patch001 -p0
-%patch002 -p0
-%patch003 -p0
-%patch004 -p0
-%patch005 -p0
-%patch006 -p0
-%patch007 -p0
 
 
 %patch3000 -p1
@@ -278,7 +261,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/usr/{bin,share/vim}
-cp -f %{SOURCE5} .
+#cp -f %{SOURCE5} .
 
 %if "%{withcvim}" == "1"
 # cvim plugin stuff:
@@ -301,10 +284,10 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/vim/%{vimdir}/ftplugin
 
 cd src
 %makeinstall BINDIR=/bin DESTDIR=$RPM_BUILD_ROOT
-mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin
+mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin/xxd
 make installmacros DESTDIR=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -m755 gvim $RPM_BUILD_ROOT/usr/bin
+install -m755 gvim $RPM_BUILD_ROOT/usr/bin/gvim
 install -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
 install -m644 %{SOURCE8} \
@@ -316,13 +299,13 @@ install -m644 %{SOURCE10} \
 install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
 
 ( cd $RPM_BUILD_ROOT
-  mv ./bin/vimtutor ./usr/bin
+  mv ./bin/vimtutor ./usr/bin/vimtutor
   mv ./bin/vim ./bin/vi
   rm -f ./bin/rvim
-  ln -sf vi ./bin/view
   ln -sf vi ./bin/ex
   ln -sf vi ./bin/rvi
   ln -sf vi ./bin/rview
+  ln -sf vi ./bin/view
   ln -sf vim ./usr/bin/ex
   ln -sf vim ./usr/bin/rvim
   ln -sf vim ./usr/bin/vimdiff
@@ -402,10 +385,7 @@ install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
 (cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc;
  gzip -9 *.txt; gzip -d help.txt.gz
  cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags)
-(cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;
- mv -f  macros/README.txt ../README.macros;
- mv -f  tools/README.txt ../README.tools;
-)
+(cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
@@ -428,21 +408,47 @@ rm -rf $RPM_BUILD_ROOT
 %doc README*
 %doc runtime/docs
 %doc $RPM_SOURCE_DIR/Changelog.rpm
-/usr/share/vim
+%dir /usr/share/vim
+%dir /usr/share/vim/%{vimdir}
+/usr/share/vim/%{vimdir}/autoload
+/usr/share/vim/%{vimdir}/colors
+/usr/share/vim/%{vimdir}/compiler
+/usr/share/vim/%{vimdir}/doc
+/usr/share/vim/%{vimdir}/*.vim
+/usr/share/vim/%{vimdir}/ftplugin
+/usr/share/vim/%{vimdir}/indent
+/usr/share/vim/%{vimdir}/keymap
+/usr/share/vim/%{vimdir}/lang/*.vim
+/usr/share/vim/%{vimdir}/lang/*.txt
+/usr/share/vim/%{vimdir}/macros
+/usr/share/vim/%{vimdir}/plugin
+/usr/share/vim/%{vimdir}/print
+/usr/share/vim/%{vimdir}/spell
+/usr/share/vim/%{vimdir}/syntax
+/usr/share/vim/%{vimdir}/tools
+/usr/share/vim/%{vimdir}/tutor
 %lang(af) /usr/share/vim/%{vimdir}/lang/af/*
+%lang(ca) /usr/share/vim/%{vimdir}/lang/ca/*
 %lang(cs) /usr/share/vim/%{vimdir}/lang/cs/*
 %lang(de) /usr/share/vim/%{vimdir}/lang/de/*
+%lang(en_GB) /usr/share/vim/%{vimdir}/lang/en_GB/*
 %lang(es) /usr/share/vim/%{vimdir}/lang/es/*
 %lang(fr) /usr/share/vim/%{vimdir}/lang/fr/*
+%lang(ga) /usr/share/vim/%{vimdir}/lang/ga/*
 %lang(it) /usr/share/vim/%{vimdir}/lang/it/*
 %lang(ja) /usr/share/vim/%{vimdir}/lang/ja/*
 %lang(ko) /usr/share/vim/%{vimdir}/lang/ko/*
+%lang(no) /usr/share/vim/%{vimdir}/lang/no/*
 %lang(pl) /usr/share/vim/%{vimdir}/lang/pl/*
+%lang(ru) /usr/share/vim/%{vimdir}/lang/ru/*
 %lang(sk) /usr/share/vim/%{vimdir}/lang/sk/*
+%lang(sv) /usr/share/vim/%{vimdir}/lang/sv/*
 %lang(uk) /usr/share/vim/%{vimdir}/lang/uk/*
+%lang(vi) /usr/share/vim/%{vimdir}/lang/vi/*
 %lang(zh_CN) /usr/share/vim/%{vimdir}/lang/zh_CN/*
-%lang(zh_CN.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_CN.UTF-8/*
 %lang(zh_TW) /usr/share/vim/%{vimdir}/lang/zh_TW/*
+%lang(zh_CN.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_CN.UTF-8/*
+%lang(zh_TW.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_TW.UTF-8/*
 /usr/bin/xxd
 %{_mandir}/man1/vim.*
 %{_mandir}/man1/ex.*
@@ -451,6 +457,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/rvi.*
 %{_mandir}/man1/rview.*
 %{_mandir}/man1/xxd.*
+%lang(fr) %{_mandir}/fr*/*
+%lang(it) %{_mandir}/it*/*
+%lang(ru) %{_mandir}/ru*/*
 
 %files minimal
 %defattr(-,root,root)
@@ -491,6 +500,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Mar 22 2006 Karsten Hopp <karsten@redhat.de> 7.0aa.000-3
+- Rawhide build as vim, opposed to vim7 (prerelease)
+- conflict with older man-pages-{it,fr} packages
+- cleanup lang stuff
+
+* Thu Mar 16 2006 Karsten Hopp <karsten@redhat.de> 7.0aa.000-2
+- make it coexist with vim-6 (temporarily)
+- new CVS snapshot
+
+* Tue Mar 14 2006 Karsten Hopp <karsten@redhat.de> 7.0aa.000-1
+- vim7 pre Release
+
 * Thu Mar 09 2006 Karsten Hopp <karsten@redhat.de> 6.4.007-4
 - fix configure check for python (#184478)
 
