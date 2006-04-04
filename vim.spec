@@ -1,3 +1,4 @@
+%define CVSDATE -20060404
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -18,19 +19,19 @@
 %define withcvim 0
 
 
-%define baseversion 7.0aa
-%define vimdir vim70aa
+%define baseversion 7.0c
+%define vimdir vim70c
 %define patchlevel 000
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3
+Release: 1
 License: freeware
 Group: Applications/Editors
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
-Source1: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-lang.tar.gz
-Source2: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-extra.tar.gz
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{CVSDATE}.tar.bz2
+Source1: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-lang%{CVSDATE}.tar.gz
+Source2: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}-extra%{CVSDATE}.tar.gz
 Source3: gvim.desktop
 Source4: vimrc
 #Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
@@ -57,7 +58,6 @@ Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
 Patch3006: vim-6.2-rh5.patch
-Patch3007: vim-6.3-dnssyntax.patch
 #Patch3008: vim-6.4-cvim.patch
 Patch3009: vim-6.4-checkhl.patch
 Patch3010: vim-7.0-fstabsyntax.patch
@@ -183,7 +183,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3004 -p1
 %patch3005 -p1
 %patch3006 -p1
-%patch3007 -p1
 
 %patch3009 -p1
 %patch3010 -p1
@@ -460,6 +459,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_mandir}/fr*/*
 %lang(it) %{_mandir}/it*/*
 %lang(ru) %{_mandir}/ru*/*
+%lang(pl) %{_mandir}/pl*/*
 
 %files minimal
 %defattr(-,root,root)
@@ -500,6 +500,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Apr 04 2006 Karsten Hopp <karsten@redhat.de> 7.0c.000-1
+- vim-7.0c BETA
+
 * Wed Mar 22 2006 Karsten Hopp <karsten@redhat.de> 7.0aa.000-3
 - Rawhide build as vim, opposed to vim7 (prerelease)
 - conflict with older man-pages-{it,fr} packages
