@@ -62,6 +62,7 @@ Patch3006: vim-6.2-rh5.patch
 Patch3009: vim-6.4-checkhl.patch
 Patch3010: vim-7.0-fstabsyntax.patch
 Patch3011: vim-6.4-lib64.patch
+Patch3012: vim-7.0-warning.patch
 
 Patch3100: vim-selinux.patch
 
@@ -187,6 +188,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
+%patch3012 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
