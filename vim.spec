@@ -1,4 +1,4 @@
-%define CVSDATE -20060404
+%define CVSDATE -20060406
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{CVSDATE}.tar.bz2
@@ -93,6 +93,7 @@ Group: Applications/Editors
 Obsoletes: vim7-common
 Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
+Conflicts: man-pages-pl < 0.24-2
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -502,6 +503,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Apr 06 2006 Karsten Hopp <karsten@redhat.de> 7.0c.000-2
+- new snapshot
+
 * Tue Apr 04 2006 Karsten Hopp <karsten@redhat.de> 7.0c.000-1
 - vim-7.0c BETA
 
