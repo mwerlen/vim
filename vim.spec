@@ -26,7 +26,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{CVSDATE}.tar.bz2
@@ -503,6 +503,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 07 2006 Karsten Hopp <karsten@redhat.de> 7.0c.000-3
+- fix vimrc filename
+
 * Thu Apr 06 2006 Karsten Hopp <karsten@redhat.de> 7.0c.000-2
 - new snapshot
 

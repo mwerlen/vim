@@ -5,11 +5,11 @@
   */
  #ifndef SYS_VIMRC_FILE
 -# define SYS_VIMRC_FILE "$VIM/vimrc"
-+# define SYS_VIMRC_FILE "/etc/vim7rc"
++# define SYS_VIMRC_FILE "/etc/vimrc"
  #endif
  #ifndef SYS_GVIMRC_FILE
 -# define SYS_GVIMRC_FILE "$VIM/gvimrc"
-+# define SYS_GVIMRC_FILE "/etc/gvim7rc"
++# define SYS_GVIMRC_FILE "/etc/gvimrc"
  #endif
  #ifndef DFLT_HELPFILE
  # define DFLT_HELPFILE	"$VIMRUNTIME/doc/help.txt"
