@@ -1,4 +1,4 @@
-%define CVSDATE -20060410
+%define CVSDATE -20060419
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -6,13 +6,13 @@
 %endif
 
 # Set this to 1 if you're building the enterprise version
-%define enterprise 1
+%define enterprise 0
+%define withruby 0
 
 %if %{enterprise}
 # don't include ruby interpreter
-%define withruby 0
+%define withnetbeans 0
 %else
-%define withruby 0
 %define withnetbeans 1
 %endif
 
@@ -20,8 +20,8 @@
 
 
 %define baseversion 7.0
-%define beta d
-%define vimdir vim70d
+%define beta e
+%define vimdir vim70e
 %define patchlevel 001
 
 Summary: The VIM editor.
@@ -58,8 +58,8 @@ Patch3002: vim-6.1-rh2.patch
 Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3005: vim-6.2-rh4.patch
-Patch3006: vim-6.2-rh5.patch
-#Patch3008: vim-6.4-cvim.patch
+#Patch3006: vim-6.2-rh5.patch
+Patch3008: vim-6.4-cvim.patch
 Patch3009: vim-6.4-checkhl.patch
 Patch3010: vim-7.0-fstabsyntax.patch
 Patch3011: vim-6.4-lib64.patch
@@ -185,7 +185,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3003 -p1
 %patch3004 -p1
 %patch3005 -p1
-%patch3006 -p1
+#patch3006 -p1
 
 %patch3009 -p1
 %patch3010 -p1
@@ -237,7 +237,7 @@ make clean
 %configure --prefix=/usr --with-features=huge --enable-pythoninterp \
  --enable-perlinterp --disable-tclinterp --with-x=no \
  --enable-gui=no --exec-prefix=/usr --enable-multibyte \
- --disable-netbeans --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
+ --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
  --with-compiledby="<bugzilla@redhat.com>" \
 %if "%{withnetbeans}" == "1"
   --enable-netbeans \
@@ -504,6 +504,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Apr 20 2006 Karsten Hopp <karsten@redhat.de> 7.0.e001-1
+- vim-7.0e BETA
+
 * Tue Apr 11 2006 Karsten Hopp <karsten@redhat.de> 7.0.d001-1
 - vim-7.0d BETA
 
