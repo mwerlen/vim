@@ -1,4 +1,4 @@
-%define CVSDATE -20060419
+%define CVSDATE -20060427
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -20,8 +20,8 @@
 
 
 %define baseversion 7.0
-%define beta e
-%define vimdir vim70e
+%define beta f
+%define vimdir vim70f
 %define patchlevel 001
 
 Summary: The VIM editor.
@@ -184,7 +184,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3002 -p1
 %patch3003 -p1
 %patch3004 -p1
-%patch3005 -p1
+#patch3005 -p1
 #patch3006 -p1
 
 %patch3009 -p1
@@ -504,6 +504,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 28 2006 Karsten Hopp <karsten@redhat.de> 7.0.f001-1
+- vim-7.0f3 BETA
+
 * Thu Apr 20 2006 Karsten Hopp <karsten@redhat.de> 7.0.e001-1
 - vim-7.0e BETA
 
