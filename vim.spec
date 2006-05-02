@@ -1,4 +1,4 @@
-%define CVSDATE -20060427
+%define CVSDATE -20060430
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -20,8 +20,8 @@
 
 
 %define baseversion 7.0
-%define beta f
-%define vimdir vim70f
+%define beta g
+%define vimdir vim70%{?beta}
 %define patchlevel 001
 
 Summary: The VIM editor.
@@ -30,9 +30,9 @@ Version: %{baseversion}.%{beta}%{patchlevel}
 Release: 1
 License: freeware
 Group: Applications/Editors
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{CVSDATE}.tar.bz2
-Source1: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}%{?beta}-lang%{CVSDATE}.tar.gz
-Source2: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}%{?beta}-extra%{CVSDATE}.tar.gz
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
+Source1: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}%{?beta}-lang%{?CVSDATE}.tar.gz
+Source2: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}%{?beta}-extra%{?CVSDATE}.tar.gz
 Source3: gvim.desktop
 Source4: vimrc
 #Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
@@ -504,6 +504,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 02 2006 Karsten Hopp <karsten@redhat.de> 7.0.g001-1
+- vim-7.0g BETA
+
 * Fri Apr 28 2006 Karsten Hopp <karsten@redhat.de> 7.0.f001-1
 - vim-7.0f3 BETA
 
