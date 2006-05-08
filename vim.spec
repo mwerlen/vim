@@ -1,4 +1,5 @@
-%define CVSDATE -20060430
+# used for CVS snapshots:
+%define CVSDATE %{nil}
 %define WITH_SELINUX 1
 %define desktop_file 1
 %if %{desktop_file}
@@ -20,9 +21,10 @@
 
 
 %define baseversion 7.0
-%define beta g
+#used for pre-releases:
+%define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 001
+%define patchlevel 000
 
 Summary: The VIM editor.
 Name: vim
@@ -42,6 +44,7 @@ Source8: gvim32.png
 Source9: gvim48.png
 Source10: gvim64.png
 Source11: Changelog.rpm
+#Source12: vi-help.txt
 # Source at http://www.vim.org/scripts/script.php?script_id=213 :
 #Source12: cvim.zip
 Patch2002: vim-7.0-fixkeys.patch
@@ -50,7 +53,7 @@ Patch2004: vim-7.0-crv.patch
 Patch2010: xxd-locale.patch
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
-# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/6.4/6.4.%03d\n" $i $i; done
+# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.%03d\n" $i $i; done
 
 Patch3000: vim-7.0-syntax.patch
 Patch3001: vim-6.2-rh1.patch
@@ -66,6 +69,7 @@ Patch3011: vim-6.4-lib64.patch
 Patch3012: vim-7.0-warning.patch
 
 Patch3100: vim-selinux.patch
+Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl libtermcap-devel gettext
@@ -194,6 +198,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
+%patch3101 -p1
 %endif
 
 %if "%{withcvim}" == "1"
@@ -252,6 +257,8 @@ make
 cp vim enhanced-vim
 make clean
 
+#perl -pi -e "s/help.txt/vi-help.txt/"  os_unix.h ex_cmds.c
+perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 %configure --prefix='${DEST}'/usr --with-features=tiny --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
@@ -385,9 +392,13 @@ cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
 EOF
 chmod 0755 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
+install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 (cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc;
- gzip -9 *.txt; gzip -d help.txt.gz
- cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags)
+ gzip -9 *.txt
+ gzip -d help.txt.gz
+ cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags
+# cp %{SOURCE12} . 
+ )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 
 %post X11
@@ -417,12 +428,14 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/vim/%{vimdir}/colors
 /usr/share/vim/%{vimdir}/compiler
 /usr/share/vim/%{vimdir}/doc
+#exclude /usr/share/vim/%{vimdir}/doc/vi-help.txt
 /usr/share/vim/%{vimdir}/*.vim
 /usr/share/vim/%{vimdir}/ftplugin
 /usr/share/vim/%{vimdir}/indent
 /usr/share/vim/%{vimdir}/keymap
 /usr/share/vim/%{vimdir}/lang/*.vim
 /usr/share/vim/%{vimdir}/lang/*.txt
+%dir /usr/share/vim/%{vimdir}/lang
 /usr/share/vim/%{vimdir}/macros
 /usr/share/vim/%{vimdir}/plugin
 /usr/share/vim/%{vimdir}/print
@@ -467,12 +480,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files minimal
 %defattr(-,root,root)
-%config(noreplace) %{_sysconfdir}/vimrc
+%config(noreplace) %{_sysconfdir}/virc
 /bin/ex
 /bin/vi
 /bin/view
 /bin/rvi
 /bin/rview
+#/usr/share/vim/%{vimdir}/doc/vi-help.txt
 
 %files enhanced
 %defattr(-,root,root)
@@ -504,6 +518,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon May 08 2006 Karsten Hopp <karsten@redhat.de> 7.0.000-1
+- vim-7.0 
+- Spell checking support for about 50 languages
+- Intelligent completion for C, HTML, Ruby, Python, PHP, etc.
+- Tab pages, each containing multiple windows
+- Undo branches: never accidentally lose text again
+- Vim script supports Lists and Dictionaries (similar to Python)
+- Vim script profiling
+- Improved Unicode support
+- Highlighting of cursor line, cursor column and matching braces
+- Translated manual pages support.
+- Internal grep; works on all platforms, searches compressed files
+- Browsing remote directories, zip and tar archives
+- Printing multi-byte text
+- find details about the changes since vim-6.4 with :help version7
+
+- fix SE Linux context of temporary (.swp) files (#189968)
+- /bin/vi /vim-minimal is now using /etc/virc to avoid .rpmnew files
+  when updating
+
 * Tue May 02 2006 Karsten Hopp <karsten@redhat.de> 7.0.g001-1
 - vim-7.0g BETA
 
