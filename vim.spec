@@ -29,7 +29,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -518,6 +518,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 09 2006 Karsten Hopp <karsten@redhat.de> 7.0.000-2
+- bump version
+
 * Mon May 08 2006 Karsten Hopp <karsten@redhat.de> 7.0.000-1
 - vim-7.0 
 - Spell checking support for about 50 languages
