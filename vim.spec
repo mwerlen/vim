@@ -20,7 +20,7 @@
 %define withcvim 0
 
 
-%define baseversion 7
+%define baseversion 7.0
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
@@ -29,7 +29,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -84,7 +84,7 @@ Buildrequires: libselinux-devel
 Requires: /usr/bin/desktop-file-install
 BuildPrereq: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
-Epoch: 1
+Epoch: 2
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -518,11 +518,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue May 09 2006 Karsten Hopp <karsten@redhat.de> 7.000-1
-- bump version
-
 * Tue May 09 2006 Karsten Hopp <karsten@redhat.de> 7.0.000-2
-- bump version
+- bump epoch, the buildsystem thinks 7.0.000-2 is older than 7.0.g001-1
+  although rpm is quite happy with it.
 
 * Mon May 08 2006 Karsten Hopp <karsten@redhat.de> 7.0.000-1
 - vim-7.0 
