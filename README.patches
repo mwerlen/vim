@@ -1,4 +1,4 @@
-Patches for Vim - Vi IMproved 6.4
+Patches for Vim - Vi IMproved 7.0
 
 The files in this directory contain source code changes to fix
 problems in released versions of Vim.  Each file also contains an
@@ -14,21 +14,19 @@ Before patching, change to the top Vim directory, where the "src"
 and "runtime" directories are located.
 Depending on the version of "patch" that you use, you may have add
 an argument to make it patch the right file:
-        patch -p < 6.4.001
-        patch -p0 < 6.4.001
+        patch -p < 7.0.001
+        patch -p0 < 7.0.001
 
 After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
 Checksums for the patch files can be found in the file MD5.
 
-Individual patches for Vim 6.4:
+Individual patches for Vim 7.0:
 
   SIZE  NAME     FIXES
-  1705  6.4.001  (extra) Win32: can't compile the global IME code
-  7802  6.4.002  Unix: may change owner of wrong file in rare cases
-  1463  6.4.003  (after 6.4.002) build problem on non-Unix system
-  1581  6.4.004  "go" doesn't work correctly when 'virtualedit' is set
-  1577  6.4.005  truncating message may write before buffer
-  2320  6.4.006  ":argedit", "argdel" and ":argadd" used count argument
-  1717  6.4.007  Unix: crash when expanding backticks
+  1627  7.0.001  'spellsuggest' could not be added to
+  2007  7.0.002  C omni complete has problem with % and # in tags file path
+  1876  7.0.003  GUI: click in tab pages label may warp mouse pointer
+  1596  7.0.004  Compiler warning for debug_saved used before set
+  1579  7.0.005  (extra) Win32: uninstall didn't delete spell and autoload dirs
