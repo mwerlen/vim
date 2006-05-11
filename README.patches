@@ -30,3 +30,8 @@ Individual patches for Vim 7.0:
   1876  7.0.003  GUI: click in tab pages label may warp mouse pointer
   1596  7.0.004  Compiler warning for debug_saved used before set
   1579  7.0.005  (extra) Win32: uninstall didn't delete spell and autoload dirs
+  1347  7.0.006  Mac: "make shadow" didn't link infplist.xml
+  1919  7.0.007  AIX: compiling failed for message.c
+  2081  7.0.008  Can't call a function that uses both <SID> and {expr}
+  1625  7.0.009  ml_get errors when 'spell' is set
+  3705  7.0.010  spellfile plugin required typing login name and password
