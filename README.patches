@@ -35,3 +35,5 @@ Individual patches for Vim 7.0:
   2081  7.0.008  Can't call a function that uses both <SID> and {expr}
   1625  7.0.009  ml_get errors when 'spell' is set
   3705  7.0.010  spellfile plugin required typing login name and password
+  1989  7.0.011  can't compile with eval feature without folding feature
+  2532  7.0.012  matchparen plugin changed cursor column in Insert mode
