@@ -37,3 +37,7 @@ Individual patches for Vim 7.0:
   3705  7.0.010  spellfile plugin required typing login name and password
   1989  7.0.011  can't compile with eval feature without folding feature
   2532  7.0.012  matchparen plugin changed cursor column in Insert mode
+  4614  7.0.013  Insert mode completion: CTRL-L jumped back to original text
+  5712  7.0.014  Motif: doesn't compile with Motif 1.2 and earlier
+  4485  7.0.015  Athena: type casts for lvalues
+  1810  7.0.016  recognize encodings "mac-roman", "dec-mcs" and "hp-roman8"
