@@ -623,3 +623,5 @@ rm -rf $RPM_BUILD_ROOT
 * Tue Mar 14 2006 Karsten Hopp <karsten@redhat.de> 7.0aa.000-1
 - vim7 pre Release
 - older changelogs available in Changelog.rpm
+
+# vim:nrformats-=octal
