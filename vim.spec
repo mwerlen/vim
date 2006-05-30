@@ -24,7 +24,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 016
+%define patchlevel 017
 
 Summary: The VIM editor.
 Name: vim
@@ -70,6 +70,7 @@ Patch013: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.013
 Patch014: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.014
 Patch015: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.015
 Patch016: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.016
+Patch017: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.017
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -216,6 +217,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch014 -p0
 %patch015 -p0
 %patch016 -p0
+%patch017 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -477,28 +479,28 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/vim/%{vimdir}/syntax
 /usr/share/vim/%{vimdir}/tools
 /usr/share/vim/%{vimdir}/tutor
-%lang(af) /usr/share/vim/%{vimdir}/lang/af/*
-%lang(ca) /usr/share/vim/%{vimdir}/lang/ca/*
-%lang(cs) /usr/share/vim/%{vimdir}/lang/cs/*
-%lang(de) /usr/share/vim/%{vimdir}/lang/de/*
-%lang(en_GB) /usr/share/vim/%{vimdir}/lang/en_GB/*
-%lang(es) /usr/share/vim/%{vimdir}/lang/es/*
-%lang(fr) /usr/share/vim/%{vimdir}/lang/fr/*
-%lang(ga) /usr/share/vim/%{vimdir}/lang/ga/*
-%lang(it) /usr/share/vim/%{vimdir}/lang/it/*
-%lang(ja) /usr/share/vim/%{vimdir}/lang/ja/*
-%lang(ko) /usr/share/vim/%{vimdir}/lang/ko/*
-%lang(no) /usr/share/vim/%{vimdir}/lang/no/*
-%lang(pl) /usr/share/vim/%{vimdir}/lang/pl/*
-%lang(ru) /usr/share/vim/%{vimdir}/lang/ru/*
-%lang(sk) /usr/share/vim/%{vimdir}/lang/sk/*
-%lang(sv) /usr/share/vim/%{vimdir}/lang/sv/*
-%lang(uk) /usr/share/vim/%{vimdir}/lang/uk/*
-%lang(vi) /usr/share/vim/%{vimdir}/lang/vi/*
-%lang(zh_CN) /usr/share/vim/%{vimdir}/lang/zh_CN/*
-%lang(zh_TW) /usr/share/vim/%{vimdir}/lang/zh_TW/*
-%lang(zh_CN.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_CN.UTF-8/*
-%lang(zh_TW.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_TW.UTF-8/*
+%lang(af) /usr/share/vim/%{vimdir}/lang/af
+%lang(ca) /usr/share/vim/%{vimdir}/lang/ca
+%lang(cs) /usr/share/vim/%{vimdir}/lang/cs
+%lang(de) /usr/share/vim/%{vimdir}/lang/de
+%lang(en_GB) /usr/share/vim/%{vimdir}/lang/en_GB
+%lang(es) /usr/share/vim/%{vimdir}/lang/es
+%lang(fr) /usr/share/vim/%{vimdir}/lang/fr
+%lang(ga) /usr/share/vim/%{vimdir}/lang/ga
+%lang(it) /usr/share/vim/%{vimdir}/lang/it
+%lang(ja) /usr/share/vim/%{vimdir}/lang/ja
+%lang(ko) /usr/share/vim/%{vimdir}/lang/ko
+%lang(no) /usr/share/vim/%{vimdir}/lang/no
+%lang(pl) /usr/share/vim/%{vimdir}/lang/pl
+%lang(ru) /usr/share/vim/%{vimdir}/lang/ru
+%lang(sk) /usr/share/vim/%{vimdir}/lang/sk
+%lang(sv) /usr/share/vim/%{vimdir}/lang/sv
+%lang(uk) /usr/share/vim/%{vimdir}/lang/uk
+%lang(vi) /usr/share/vim/%{vimdir}/lang/vi
+%lang(zh_CN) /usr/share/vim/%{vimdir}/lang/zh_CN
+%lang(zh_TW) /usr/share/vim/%{vimdir}/lang/zh_TW
+%lang(zh_CN.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_CN.UTF-8
+%lang(zh_TW.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_TW.UTF-8
 /usr/bin/xxd
 %{_mandir}/man1/vim.*
 %{_mandir}/man1/ex.*
@@ -507,10 +509,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/rvi.*
 %{_mandir}/man1/rview.*
 %{_mandir}/man1/xxd.*
-%lang(fr) %{_mandir}/fr*/*
-%lang(it) %{_mandir}/it*/*
-%lang(ru) %{_mandir}/ru*/*
-%lang(pl) %{_mandir}/pl*/*
+%lang(fr) %{_mandir}/fr*
+%lang(it) %{_mandir}/it*
+%lang(ru) %{_mandir}/ru*
+%lang(pl) %{_mandir}/pl*
 
 %files minimal
 %defattr(-,root,root)
@@ -552,6 +554,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 30 2006 Karsten Hopp <karsten@redhat.de> 7.0.017-1
+- patchlevel 17, although it affects just the Motif version
+- own some directories (#192787)
+
 * Sat May 13 2006 Karsten Hopp <karsten@redhat.de> 7.0.016-1
 - patchlevel 016
 
