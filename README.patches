@@ -41,3 +41,4 @@ Individual patches for Vim 7.0:
   5712  7.0.014  Motif: doesn't compile with Motif 1.2 and earlier
   4485  7.0.015  Athena: type casts for lvalues
   1810  7.0.016  recognize encodings "mac-roman", "dec-mcs" and "hp-roman8"
+  2302  7.0.017  (after 7.0.014) Motif: doesn't link with Motif 1.2 and earlier
