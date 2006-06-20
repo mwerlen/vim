@@ -44,3 +44,4 @@ Individual patches for Vim 7.0:
   2302  7.0.017  (after 7.0.014) Motif: doesn't link with Motif 1.2 and earlier
   1649  7.0.018  VMS: plugins are not loaded on startup
   1425  7.0.019  crash for "VjA789" and repeating
+  1470  7.0.020  GUI: crash when using 'mousefocus'
