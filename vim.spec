@@ -93,7 +93,7 @@ Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl libtermcap-devel gettext
-Buildrequires: libacl-devel gpm-devel
+Buildrequires: libacl-devel gpm-devel autoconf
 %if "%{withruby}" == "1"
 Buildrequires: ruby ruby-devel
 %endif
@@ -561,6 +561,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Tue Jun 20 2006 Karsten Hopp <karsten@redhat.de> 7.0.019-1
 - patchlevel 19
+- buildrequire autoconf
 
 * Tue May 30 2006 Karsten Hopp <karsten@redhat.de> 7.0.017-1
 - patchlevel 17, although it affects just the Motif version
