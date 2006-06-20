@@ -24,7 +24,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 017
+%define patchlevel 019
 
 Summary: The VIM editor.
 Name: vim
@@ -71,6 +71,8 @@ Patch014: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.014
 Patch015: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.015
 Patch016: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.016
 Patch017: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.017
+Patch018: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.018
+Patch019: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.019
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -218,6 +220,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch015 -p0
 %patch016 -p0
 %patch017 -p0
+# VMS:
+#patch018 -p0
+%patch019 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -554,6 +559,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Jun 20 2006 Karsten Hopp <karsten@redhat.de> 7.0.019-1
+- patchlevel 19
+
 * Tue May 30 2006 Karsten Hopp <karsten@redhat.de> 7.0.017-1
 - patchlevel 17, although it affects just the Motif version
 - own some directories (#192787)
