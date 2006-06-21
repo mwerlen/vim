@@ -1,5 +1,14 @@
---- vim70e/runtime/syntax/fstab.vim.fstab	2006-04-20 13:30:57.000000000 +0200
-+++ vim70e/runtime/syntax/fstab.vim	2006-04-20 13:31:24.000000000 +0200
+--- vim70/runtime/syntax/fstab.vim.fstabsyntax	2006-04-16 18:01:27.000000000 +0200
++++ vim70/runtime/syntax/fstab.vim	2006-06-21 11:52:21.000000000 +0200
+@@ -36,7 +36,7 @@
+ " Type
+ syn cluster fsTypeCluster contains=fsTypeKeyword,fsTypeUnknown
+ syn match fsTypeUnknown /\s\+\zs\w\+/ contained
+-syn keyword fsTypeKeyword contained adfs affs atfs audiofs auto autofs befs bfs cd9660 cfs cifs coda cramfs devfs devpts e2compr efs ext2 ext3 fdesc hfs hpfs iso9660 jffs jffs2 jfs kernfs linprocfs mfs minix msdos ncpfs nfs none none ntfs null nwfs ovlfs portal proc procfs qnx4 reiserfs romfs shm smbfs std subfs swap sysfs sysv tcfs tmpfs udf ufs umap umsdos union usbfs userfs vfat vs3fs vxfs wrapfs wvfs xfs zisofs
++syn keyword fsTypeKeyword contained adfs affs atfs audiofs auto autofs befs binfmt_misc bfs cd9660 cfs cifs coda cramfs devfs devpts e2compr efs ext2 ext3 fdesc hfs hpfs iso9660 jffs jffs2 jfs kernfs linprocfs mfs minix msdos ncpfs nfs none ntfs null nwfs ovlfs portal proc procfs qnx4 reiserfs romfs rpc_pipefs shm smbfs std subfs swap sysfs sysv tcfs tmpfs udf ufs umap umsdos union usbfs userfs vfat vs3fs vxfs wrapfs wvfs xfs zisofs
+ 
+ " Options
+ " -------
 @@ -48,7 +48,7 @@
  syn keyword fsOptionsYesNo yes no
  syn cluster fsOptionsCheckCluster contains=fsOptionsExt2Check,fsOptionsFatCheck

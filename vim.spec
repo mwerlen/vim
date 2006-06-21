@@ -29,7 +29,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -565,6 +565,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jun 21 2006 Karsten Hopp <karsten@redhat.de> 7.0.022-2
+- add binfmt_misc rpc_pipefs to fstypes for better mtab highlighting
+
 * Tue Jun 20 2006 Karsten Hopp <karsten@redhat.de> 7.0.022-1
 - patchlevel 22
 
