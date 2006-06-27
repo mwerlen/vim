@@ -24,12 +24,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 022
+%define patchlevel 035
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -76,6 +76,19 @@ Patch019: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.019
 Patch020: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.020
 Patch021: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.021
 Patch022: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.022
+Patch023: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.023
+Patch024: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.024
+Patch025: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.025
+Patch026: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.026
+Patch027: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.027
+Patch028: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.028
+Patch029: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.029
+Patch030: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.030
+Patch031: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.031
+Patch032: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.032
+Patch033: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.033
+Patch034: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.034
+Patch035: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.035
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -229,6 +242,22 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch020 -p0
 %patch021 -p0
 %patch022 -p0
+%patch023 -p0
+%patch024 -p0
+%patch025 -p0
+%patch026 -p0
+# Win32
+#patch027 -p0
+# OS/2
+#patch028 -p0
+%patch029 -p0
+%patch030 -p0
+%patch031 -p0
+# Win32
+#patch032 -p0
+%patch033 -p0
+%patch034 -p0
+%patch035 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -565,6 +594,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Jun 27 2006 Karsten Hopp <karsten@redhat.de> 7.0.035-1
+- patchlevel 35
+
 * Wed Jun 21 2006 Karsten Hopp <karsten@redhat.de> 7.0.022-2
 - add binfmt_misc rpc_pipefs to fstypes for better mtab highlighting
 

@@ -47,3 +47,16 @@ Individual patches for Vim 7.0:
   1470  7.0.020  GUI: crash when using 'mousefocus'
   4240  7.0.021  crash when using "\\[" and "\\]" in 'errorformat
   5471  7.0.022  Ruby: buffer.append() could append to the wrong buffer
+  5351  7.0.023  crash after Insert mode completion without matches
+  1619  7.0.024  it is possible to set arbitrary v: variables
+  2606  7.0.025  crash when deleting an item from a:000
+  1800  7.0.026  Unix: when using libcall() and old error may be shown
+  1344  7.0.027  (extra) Win32: hang on exit when compiled with SNiFF+
+  3014  7.0.028  (extra) OS/2: compilation problem
+  1494  7.0.029  cursor position may be wrong when using getchar()
+  1664  7.0.030  the ":compiler" command can't be used in a FileChangedRO event
+  1808  7.0.031  after deleting a buffer its Select mode mappings remain
+  1424  7.0.032  (extra, after 7.0.027) missing semicolon
+  2431  7.0.033  pasting after autoindent removes the indent
+  2042  7.0.034  repeating completion was wrong after typing text or using BS
+  5905  7.0.035  repeating Insert mode completion doesn't work properly
