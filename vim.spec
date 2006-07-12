@@ -29,7 +29,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 1.1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -594,6 +594,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jul 12 2006 Jesse Keating <jkeating@redhat.com> - 2:7.0.035-1.1
+- rebuild
+
 * Tue Jun 27 2006 Karsten Hopp <karsten@redhat.de> 7.0.035-1
 - patchlevel 35
 
