@@ -24,12 +24,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 035
+%define patchlevel 039
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1.1
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -89,6 +89,10 @@ Patch032: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.032
 Patch033: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.033
 Patch034: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.034
 Patch035: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.035
+Patch036: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.036
+Patch037: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.037
+Patch038: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.038
+Patch039: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.039
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -258,6 +262,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch033 -p0
 %patch034 -p0
 %patch035 -p0
+%patch036 -p0
+%patch037 -p0
+%patch038 -p0
+%patch039 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -287,8 +295,8 @@ patch -p1 < %{PATCH3008}
 %build
 cd src
 autoconf
-perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimdir},g" os_unix.h
-perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimdir}/macros,g" os_unix.h
+#perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimdir},g" os_unix.h
+#perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimdir}/macros,g" os_unix.h
 
 export CFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
@@ -594,6 +602,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jul 20 2006 Karsten Hopp <karsten@redhat.de> 7.0.039-1
+- patchlevel 39
+- allow usage of $VIM variable (#199465)
+
 * Wed Jul 12 2006 Jesse Keating <jkeating@redhat.com> - 2:7.0.035-1.1
 - rebuild
 

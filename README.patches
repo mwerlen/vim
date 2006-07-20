@@ -60,3 +60,7 @@ Individual patches for Vim 7.0:
   2431  7.0.033  pasting after autoindent removes the indent
   2042  7.0.034  repeating completion was wrong after typing text or using BS
   5905  7.0.035  repeating Insert mode completion doesn't work properly
+  3990  7.0.036  can't compile with small features and syntax HL
+  1880  7.0.037  crash when resizing Vim window when a line doesn't fit
+  3236  7.0.038  complete() can be used from expr. mapping after inserting text
+  3240  7.0.039  third argument for inputdialog() doesn't work in the console
