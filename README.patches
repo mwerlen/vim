@@ -64,3 +64,6 @@ Individual patches for Vim 7.0:
   1880  7.0.037  crash when resizing Vim window when a line doesn't fit
   3236  7.0.038  complete() can be used from expr. mapping after inserting text
   3240  7.0.039  third argument for inputdialog() doesn't work in the console
+  1946  7.0.040  mouse selection with "z=" and inputlist() gets wrong entry
+  2229  7.0.041  cursor([1, 2]) failed, required third item in the list
+  1603  7.0.042  crash or hang when pasting a block in Insert mode
