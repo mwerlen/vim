@@ -6,16 +6,7 @@
 %define desktop_file_utils_version 0.2.93
 %endif
 
-# Set this to 1 if you're building the enterprise version
-%define enterprise 0
-%define withruby 0
-
-%if %{enterprise}
-# don't include ruby interpreter
 %define withnetbeans 0
-%else
-%define withnetbeans 1
-%endif
 
 %define withcvim 0
 
@@ -29,7 +20,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -103,23 +94,18 @@ Patch3001: vim-6.2-rh1.patch
 Patch3002: vim-6.1-rh2.patch
 Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-7.0-rclocation.patch
-Patch3005: vim-6.2-rh4.patch
-#Patch3006: vim-6.2-rh5.patch
-Patch3008: vim-6.4-cvim.patch
-Patch3009: vim-6.4-checkhl.patch
-Patch3010: vim-7.0-fstabsyntax.patch
-Patch3011: vim-6.4-lib64.patch
-Patch3012: vim-7.0-warning.patch
-
+Patch3005: vim-6.4-cvim.patch
+Patch3006: vim-6.4-checkhl.patch
+Patch3007: vim-7.0-fstabsyntax.patch
+Patch3008: vim-6.4-lib64.patch
+Patch3009: vim-7.0-warning.patch
+#
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-root
 Buildrequires: python-devel perl libtermcap-devel gettext
 Buildrequires: libacl-devel gpm-devel autoconf
-%if "%{withruby}" == "1"
-Buildrequires: ruby ruby-devel
-%endif
 %if %{WITH_SELINUX}
 Buildrequires: libselinux-devel
 %endif
@@ -278,13 +264,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3002 -p1
 %patch3003 -p1
 %patch3004 -p1
-#patch3005 -p1
-#patch3006 -p1
 
+%patch3006 -p1
+%patch3007 -p1
+%patch3008 -p1
 %patch3009 -p1
-%patch3010 -p1
-%patch3011 -p1
-%patch3012 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -294,21 +278,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %if "%{withcvim}" == "1"
 mkdir cvim
 ( cd cvim; unzip %{SOURCE12}; )
-patch -p1 < %{PATCH3008}
+patch -p1 < %{PATCH3005}
 %endif
 
 
 %build
 cd src
 autoconf
-#perl -pi -e "s,\\\$VIMRUNTIME,/usr/share/vim/%{vimdir},g" os_unix.h
-#perl -pi -e "s,\\\$VIM,/usr/share/vim/%{vimdir}/macros,g" os_unix.h
 
 export CFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
-%if "%{withruby}" == "1"
-export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
-%endif
 
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
@@ -320,9 +299,6 @@ export  RUBY_CFLAGS=-I$(ruby -r rbconfig -e 'p Config::CONFIG["archdir"]')
   --enable-netbeans \
 %else
   --disable-netbeans \
-%endif
-%if "%{withruby}" == "1"
-  --enable-rubyinterp
 %endif
 
 make
@@ -338,9 +314,6 @@ make clean
   --enable-netbeans \
 %else
   --disable-netbeans \
-%endif
-%if "%{withruby}" == "1"
-  --enable-rubyinterp
 %endif
 
 make
@@ -608,6 +581,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Aug 03 2006  Karsten Hopp <karsten@redhat.de> 7.0.042-2
+- clean up spec file
+
 * Mon Jul 24 2006 Karsten Hopp <karsten@redhat.de> 7.0.042-1
 - patchlevel 42
 
