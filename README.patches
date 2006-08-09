@@ -67,3 +67,11 @@ Individual patches for Vim 7.0:
   1946  7.0.040  mouse selection with "z=" and inputlist() gets wrong entry
   2229  7.0.041  cursor([1, 2]) failed, required third item in the list
   1603  7.0.042  crash or hang when pasting a block in Insert mode
+  1534  7.0.043  "%!" at start of 'statusline' didn't work
+  5277  7.0.044  Perl: changing a line in a non-current buffer may not work
+  1741  7.0.045  (extra) Win32: MSVC 2005 compiler warnings for OLE version
+  2318  7.0.046  the matchparen plugin didn't handle parens in single quotes
+  2219  7.0.047  the exit status of the configure script can be wrong
+  2173  7.0.048  the gzip plugin can't handle file names that have a paren
+  2221  7.0.049  some Tcl scripts are not recognized
+  1437  7.0.050  can't properly close a buffer through the NetBeans interface

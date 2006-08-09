@@ -15,12 +15,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 042
+%define patchlevel 050
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -87,6 +87,14 @@ Patch039: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.039
 Patch040: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.040
 Patch041: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.041
 Patch042: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.042
+Patch043: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.043
+Patch044: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.044
+Patch045: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.045
+Patch046: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.046
+Patch047: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.047
+Patch048: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.048
+Patch049: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.049
+Patch050: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.050
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -258,6 +266,15 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch040 -p0
 %patch041 -p0
 %patch042 -p0
+%patch043 -p0
+%patch044 -p0
+# Win32:
+#patch045 -p0
+%patch046 -p0
+%patch047 -p0
+%patch048 -p0
+%patch049 -p0
+%patch050 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -581,6 +598,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 09 2006 Karsten Hopp <karsten@redhat.de> 7.0.050-1
+- Patchlevel 50
+
 * Thu Aug 03 2006  Karsten Hopp <karsten@redhat.de> 7.0.042-2
 - clean up spec file
 
