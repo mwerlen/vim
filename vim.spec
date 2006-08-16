@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 050
+%define patchlevel 053
 
 Summary: The VIM editor.
 Name: vim
@@ -95,6 +95,9 @@ Patch047: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.047
 Patch048: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.048
 Patch049: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.049
 Patch050: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.050
+Patch051: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.051
+Patch052: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.052
+Patch053: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.053
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -188,7 +191,7 @@ need to install the vim-common package.
 Summary: The VIM version of the vi editor for the X Window System.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr
-BuildRequires: gtk2-devel libSM-devel libXt-devel
+BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
 Prereq: gtk2 >= 2.6
 Obsoletes: vim7-X11
 
@@ -275,6 +278,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch048 -p0
 %patch049 -p0
 %patch050 -p0
+%patch051 -p0
+%patch052 -p0
+%patch053 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -598,6 +604,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 09 2006 Karsten Hopp <karsten@redhat.de> 7.0.053-1
+- Patchlevel 53
+- Buildrequires libXpm-devel
+
 * Wed Aug 09 2006 Karsten Hopp <karsten@redhat.de> 7.0.050-1
 - Patchlevel 50
 

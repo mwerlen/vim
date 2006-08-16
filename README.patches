@@ -75,3 +75,6 @@ Individual patches for Vim 7.0:
   2173  7.0.048  the gzip plugin can't handle file names that have a paren
   2221  7.0.049  some Tcl scripts are not recognized
   1437  7.0.050  can't properly close a buffer through the NetBeans interface
+  6097  7.0.051  (after 7.0.44) compile and/or run problem with Perl interface
+  2237  7.0.052  the Vim server may expose more functionality than expected
+  1379  7.0.053  shortening multi-byte directory name may fail
