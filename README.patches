@@ -78,3 +78,13 @@ Individual patches for Vim 7.0:
   6097  7.0.051  (after 7.0.44) compile and/or run problem with Perl interface
   2237  7.0.052  the Vim server may expose more functionality than expected
   1379  7.0.053  shortening multi-byte directory name may fail
+  2464  7.0.054  using an empty menu name may cause a crash
+  2204  7.0.055  ":startins" in CmdwinEnter autocmd doesn't work immediately
+  1484  7.0.056  can't use "#!" in Vim scripts to make them executable
+  1779  7.0.057  (extra, after 7.0.45) compilation trouble with Borland C 5.5
+  1423  7.0.058  gbk and gb18030 encodings are not recognized
+  2110  7.0.059  Perl interface doesn't compile with ActiveState Perl 5.8.8
+ 18082  7.0.060  code for switching buffers is repeated in several places
+  2249  7.0.061  crash in Vim command completion when nothing to complete
+  4075  7.0.062  Mac: crash when using popup menu with spell error
+  1295  7.0.063  tiny chance for a memory leak
