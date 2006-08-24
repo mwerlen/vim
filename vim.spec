@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 063
+%define patchlevel 066
 
 Summary: The VIM editor.
 Name: vim
@@ -108,6 +108,9 @@ Patch060: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.060
 Patch061: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.061
 Patch062: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.062
 Patch063: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.064
+Patch065: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.066
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -302,6 +305,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch061 -p0
 %patch062 -p0
 %patch063 -p0
+%patch064 -p0
+# Mac:
+#patch065 -p0
+%patch066 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -625,6 +632,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Aug 24 2006 Karsten Hopp <karsten@redhat.de> 7.0.066-1
+- fix syntax patch (#203798)
+- patchlevel 66
+
 * Wed Aug 17 2006 Karsten Hopp <karsten@redhat.de> 7.0.063-1
 - Patchlevel 63
 

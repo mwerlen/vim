@@ -88,3 +88,6 @@ Individual patches for Vim 7.0:
   2249  7.0.061  crash in Vim command completion when nothing to complete
   4075  7.0.062  Mac: crash when using popup menu with spell error
   1295  7.0.063  tiny chance for a memory leak
+  1818  7.0.064  compiler warnings for unused variables
+  1750  7.0.065  (extra) Mac: horizontal scroll wheel caused vertical scroll
+  1407  7.0.066  tab pages line not redrawn after removing the popup menu
