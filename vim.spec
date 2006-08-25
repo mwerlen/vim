@@ -20,7 +20,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -123,6 +123,7 @@ Patch3006: vim-6.4-checkhl.patch
 Patch3007: vim-7.0-fstabsyntax.patch
 Patch3008: vim-6.4-lib64.patch
 Patch3009: vim-7.0-warning.patch
+Patch3010: vim-7.0-syncolor.patch
 #
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
@@ -320,6 +321,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3007 -p1
 %patch3008 -p1
 %patch3009 -p1
+%patch3010 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -632,6 +634,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Aug 25 2006 Karsten Hopp <karsten@redhat.de> 7.0.066-2
+- fix vimdiff colors (#204042)
+
 * Thu Aug 24 2006 Karsten Hopp <karsten@redhat.de> 7.0.066-1
 - fix syntax patch (#203798)
 - patchlevel 66
