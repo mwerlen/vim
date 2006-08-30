@@ -91,3 +91,13 @@ Individual patches for Vim 7.0:
   1818  7.0.064  compiler warnings for unused variables
   1750  7.0.065  (extra) Mac: horizontal scroll wheel caused vertical scroll
   1407  7.0.066  tab pages line not redrawn after removing the popup menu
+  3038  7.0.067  undo problems when using input method
+  6123  7.0.068  'ignorecase' is not used properly for Insert mode completion
+  1457  7.0.069  crash when setting 'guitablabel' to "%!expand(\%)"
+ 71560  7.0.070  compiler warnings for shadowed and uninitialized variables
+  1550  7.0.071  using empty search pattern may cause a crash
+  2791  7.0.072  can't specify anything to do when starting the GUI fails
+  1597  7.0.073  CR in Insert mode completion may select original text
+  6819  7.0.074  (extra) Win32: tooltips can be in the wrong encoding
+  1495  7.0.075  winsaveview() could store wrong desired cursor column
+  2635  7.0.076  (after 7.0.010) could not get spell files from non-ftp server
