@@ -15,12 +15,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 066
+%define patchlevel 076
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -111,6 +111,16 @@ Patch063: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.063
 Patch064: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.064
 Patch065: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.065
 Patch066: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.067
+Patch068: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.069
+Patch070: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.071
+Patch072: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.076
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -310,6 +320,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Mac:
 #patch065 -p0
 %patch066 -p0
+%patch067 -p0
+%patch068 -p0
+%patch069 -p0
+%patch070 -p0
+%patch071 -p0
+%patch072 -p0
+%patch073 -p0
+# Win32:
+#patch074 -p0
+%patch075 -p0
+%patch076 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -634,6 +655,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 30 2006 Karsten Hopp <karsten@redhat.de> 7.0.076-1
+- Patchlevel 76
+
 * Thu Aug 25 2006 Karsten Hopp <karsten@redhat.de> 7.0.066-2
 - fix vimdiff colors (#204042)
 
