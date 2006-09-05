@@ -101,3 +101,10 @@ Individual patches for Vim 7.0:
   6819  7.0.074  (extra) Win32: tooltips can be in the wrong encoding
   1495  7.0.075  winsaveview() could store wrong desired cursor column
   2635  7.0.076  (after 7.0.010) could not get spell files from non-ftp server
+  2799  7.0.077  crash when unletting a v: variable
+  1968  7.0.078  there are two error messages called E46
+ 51669  7.0.079  vimtutor doesn't work for Russian when 'encoding' is utf-8
+  1759  7.0.080  compile error when CFLAGS contains a backslash
+  2043  7.0.081  command line completion doesn't work for ":!/path"
+  2850  7.0.082  crash when using List or Dict argument and waiting for input
+  3001  7.0.083  mouse doesn't work for all entries with inputlist()

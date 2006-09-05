@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 076
+%define patchlevel 083
 
 Summary: The VIM editor.
 Name: vim
@@ -121,6 +121,13 @@ Patch073: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.073
 Patch074: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.074
 Patch075: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.075
 Patch076: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.079
+Patch080: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.080
+Patch081: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.083
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -331,6 +338,13 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #patch074 -p0
 %patch075 -p0
 %patch076 -p0
+%patch077 -p0
+%patch078 -p0
+%patch079 -p0
+%patch080 -p0
+%patch081 -p0
+%patch082 -p0
+%patch083 -p0
 
 %patch3000 -p1
 %patch3001 -p1
@@ -655,6 +669,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Sep 04 2006 Karsten Hopp <karsten@redhat.de> 7.0.083-1
+- Patchlevel 83
+
 * Wed Aug 30 2006 Karsten Hopp <karsten@redhat.de> 7.0.076-1
 - Patchlevel 76
 
