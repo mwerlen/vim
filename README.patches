@@ -108,3 +108,6 @@ Individual patches for Vim 7.0:
   2043  7.0.081  command line completion doesn't work for ":!/path"
   2850  7.0.082  crash when using List or Dict argument and waiting for input
   3001  7.0.083  mouse doesn't work for all entries with inputlist()
+  5968  7.0.084  garbage collection may free Lists and Dicts still in use
+  1512  7.0.085  running tests changes the viminfo file
+  2379  7.0.086  getqflist() uses number zero for empty pattern and text
