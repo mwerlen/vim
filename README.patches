@@ -111,3 +111,16 @@ Individual patches for Vim 7.0:
   5968  7.0.084  garbage collection may free Lists and Dicts still in use
   1512  7.0.085  running tests changes the viminfo file
   2379  7.0.086  getqflist() uses number zero for empty pattern and text
+  7382  7.0.087  'acd' doesn't work for ":file fname" and ":saveas fname"
+  3066  7.0.088  generated prototypes have "extern" when build with Perl
+  2445  7.0.089  "ga" gave wrong results for non-Unicode multi-byte encoding
+  2486  7.0.090  need to type Esc twice in console confirm() dialog
+  1698  7.0.091  winrestview() may leave cursor in the wrong position
+  2952  7.0.092  (after 7.0.082) list of internal function args is obsolete
+  2320  7.0.093  matchparen plugin can't handle some values of 'matchpairs'
+  2394  7.0.094  fileinfo message is given too often after ":buf N"
+ 52575  7.0.095  Greek tutor is not available in utf-8
+  2561  7.0.096  taglist() does not use path of tags file
+  2617  7.0.097  tab pages line was not updated for ":tabclose N"
+  2196  7.0.098  redirection didn't work inside cmdline completion
+  2189  7.0.099  GUI: scrolling causes problems for the popup menu 

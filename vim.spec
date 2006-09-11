@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 086
+%define patchlevel 099
 
 Summary: The VIM editor.
 Name: vim
@@ -38,6 +38,9 @@ Source11: Changelog.rpm
 #Source12: vi-help.txt
 # Source at http://www.vim.org/scripts/script.php?script_id=213 :
 #Source12: cvim.zip
+Source13: runtime-update-20060911.tar.bz2
+Source14: vim-spell-files.tar.bz2
+
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
 Patch2004: vim-7.0-crv.patch
@@ -131,10 +134,23 @@ Patch083: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.083
 Patch084: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.084
 Patch085: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.085
 Patch086: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.086
+Patch087: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.087
+Patch088: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.088
+Patch089: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.090
+Patch091: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.091
+Patch092: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.092
+Patch093: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.093
+Patch094: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.094
+Patch095: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.095
+Patch096: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.096
+Patch097: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.097
+Patch098: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.098
+Patch099: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.099
 
 
 Patch3000: vim-7.0-syntax.patch
-Patch3001: vim-6.2-rh1.patch
+#Patch3001: vim-6.2-rh1.patch
 Patch3002: vim-6.1-rh2.patch
 Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-7.0-rclocation.patch
@@ -184,6 +200,15 @@ order to run.
 
 If you are installing vim-enhanced or vim-X11, you'll also need
 to install the vim-common package.
+
+%package spell
+Summary: The dictionaries for spell checking. This package is optional.
+Group: Applications/Editors
+Requires: vim-common = %{epoch}:%{version}-%{release}
+
+%description spell
+This subpackage contains dictionaries for vim spell checking in
+many different languages.
 
 %package minimal
 Summary: A minimal version of the VIM editor.
@@ -244,7 +269,9 @@ vim-common package.
 
 %prep
 %setup -q -b 1 -n %{vimdir}
-cp -f %{SOURCE6} runtime/ftplugin/spec.vim
+%{__tar} xzf %{SOURCE1}
+%{__tar} xzf %{SOURCE2}
+#cp -f %{SOURCE6} runtime/ftplugin/spec.vim
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1
@@ -351,9 +378,27 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch084 -p0
 %patch085 -p0
 %patch086 -p0
+%patch087 -p0
+%patch088 -p0
+%patch089 -p0
+%patch090 -p0
+%patch091 -p0
+%patch092 -p0
+%patch093 -p0
+%patch094 -p0
+%patch095 -p0
+%patch096 -p0
+%patch097 -p0
+%patch098 -p0
+%patch099 -p0
+
+# Update all runtime files
+%{__tar} xjf %{SOURCE13}
+# install spell files
+%{__tar} xjf %{SOURCE14}
 
 %patch3000 -p1
-%patch3001 -p1
+#patch3001 -p1
 %patch3002 -p1
 %patch3003 -p1
 %patch3004 -p1
@@ -596,7 +641,6 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/vim/%{vimdir}/macros
 /usr/share/vim/%{vimdir}/plugin
 /usr/share/vim/%{vimdir}/print
-/usr/share/vim/%{vimdir}/spell
 /usr/share/vim/%{vimdir}/syntax
 /usr/share/vim/%{vimdir}/tools
 /usr/share/vim/%{vimdir}/tutor
@@ -634,6 +678,60 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_mandir}/it*
 %lang(ru) %{_mandir}/ru*
 %lang(pl) %{_mandir}/pl*
+
+%files spell
+%dir /usr/share/vim/%{vimdir}/spell
+/usr/share/vim/vim70/spell/cleanadd.vim
+%lang(af) /usr/share/vim/%{vimdir}/spell/af.*
+%lang(am) /usr/share/vim/%{vimdir}/spell/am.*
+%lang(bg) /usr/share/vim/%{vimdir}/spell/bg.*
+%lang(ca) /usr/share/vim/%{vimdir}/spell/ca.*
+%lang(cs) /usr/share/vim/%{vimdir}/spell/cs.*
+%lang(cy) /usr/share/vim/%{vimdir}/spell/cy.*
+%lang(da) /usr/share/vim/%{vimdir}/spell/da.*
+%lang(de) /usr/share/vim/%{vimdir}/spell/de.*
+%lang(el) /usr/share/vim/%{vimdir}/spell/el.*
+%lang(en) /usr/share/vim/%{vimdir}/spell/en.*
+%lang(eo) /usr/share/vim/%{vimdir}/spell/eo.*
+%lang(es) /usr/share/vim/%{vimdir}/spell/es.*
+%lang(fo) /usr/share/vim/%{vimdir}/spell/fo.*
+%lang(fr) /usr/share/vim/%{vimdir}/spell/fr.*
+%lang(ga) /usr/share/vim/%{vimdir}/spell/ga.*
+%lang(gd) /usr/share/vim/%{vimdir}/spell/gd.*
+%lang(gl) /usr/share/vim/%{vimdir}/spell/gl.*
+%lang(he) /usr/share/vim/%{vimdir}/spell/he.*
+%lang(hr) /usr/share/vim/%{vimdir}/spell/hr.*
+%lang(hu) /usr/share/vim/%{vimdir}/spell/hu.*
+%lang(id) /usr/share/vim/%{vimdir}/spell/id.*
+%lang(it) /usr/share/vim/%{vimdir}/spell/it.*
+%lang(ku) /usr/share/vim/%{vimdir}/spell/ku.*
+%lang(la) /usr/share/vim/%{vimdir}/spell/la.*
+%lang(lt) /usr/share/vim/%{vimdir}/spell/lt.*
+%lang(lv) /usr/share/vim/%{vimdir}/spell/lv.*
+%lang(mg) /usr/share/vim/%{vimdir}/spell/mg.*
+%lang(mi) /usr/share/vim/%{vimdir}/spell/mi.*
+%lang(ms) /usr/share/vim/%{vimdir}/spell/ms.*
+%lang(nb) /usr/share/vim/%{vimdir}/spell/nb.*
+%lang(nl) /usr/share/vim/%{vimdir}/spell/nl.*
+%lang(nn) /usr/share/vim/%{vimdir}/spell/nn.*
+%lang(ny) /usr/share/vim/%{vimdir}/spell/ny.*
+%lang(pl) /usr/share/vim/%{vimdir}/spell/pl.*
+%lang(pt) /usr/share/vim/%{vimdir}/spell/pt.*
+%lang(ro) /usr/share/vim/%{vimdir}/spell/ro.*
+%lang(ru) /usr/share/vim/%{vimdir}/spell/ru.*
+%lang(rw) /usr/share/vim/%{vimdir}/spell/rw.*
+%lang(sk) /usr/share/vim/%{vimdir}/spell/sk.*
+%lang(sl) /usr/share/vim/%{vimdir}/spell/sl.*
+%lang(sv) /usr/share/vim/%{vimdir}/spell/sv.*
+%lang(sw) /usr/share/vim/%{vimdir}/spell/sw.*
+%lang(tet) /usr/share/vim/%{vimdir}/spell/tet.*
+%lang(th) /usr/share/vim/%{vimdir}/spell/th.*
+%lang(tl) /usr/share/vim/%{vimdir}/spell/tl.*
+%lang(tn) /usr/share/vim/%{vimdir}/spell/tn.*
+%lang(uk) /usr/share/vim/%{vimdir}/spell/uk.*
+%lang(yi) /usr/share/vim/%{vimdir}/spell/yi.*
+%lang(yi-tr) /usr/share/vim/%{vimdir}/spell/yi-tr.*
+%lang(zu) /usr/share/vim/%{vimdir}/spell/zu.*
 
 %files minimal
 %defattr(-,root,root)
@@ -675,6 +773,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Sep 11 2006 Karsten Hopp <karsten@redhat.de> 7.0.099-1
+- Patchlevel 99
+
 * Mon Sep 05 2006 Karsten Hopp <karsten@redhat.de> 7.0.086-1
 - Patchlevel 86
 
