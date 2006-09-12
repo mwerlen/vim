@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 099
+%define patchlevel 100
 
 Summary: The VIM editor.
 Name: vim
@@ -126,7 +126,7 @@ Patch075: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.075
 Patch076: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.076
 Patch077: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.077
 Patch078: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.078
-Patch079: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.079
+Patch079: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.079_patched
 Patch080: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.080
 Patch081: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.081
 Patch082: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.082
@@ -142,11 +142,12 @@ Patch091: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.091
 Patch092: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.092
 Patch093: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.093
 Patch094: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.094
-Patch095: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.095
+Patch095: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.095_patched
 Patch096: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.096
 Patch097: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.097
 Patch098: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.098
 Patch099: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.099
+Patch100: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.100
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -280,10 +281,14 @@ chmod -x runtime/tools/mve.awk
 %patch2010 -p1
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
+# Update all runtime files
+%{__tar} xjf %{SOURCE13}
+
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
 %patch001 -p0
-%patch002 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch002 -p0
 %patch003 -p0
 %patch004 -p0
 # Win32:
@@ -293,9 +298,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch007 -p0
 %patch008 -p0
 %patch009 -p0
-%patch010 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch010 -p0
 %patch011 -p0
-%patch012 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch012 -p0
 %patch013 -p0
 %patch014 -p0
 %patch015 -p0
@@ -320,7 +327,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch031 -p0
 # Win32
 #patch032 -p0
-%patch033 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch033 -p0
 %patch034 -p0
 %patch035 -p0
 %patch036 -p0
@@ -334,10 +342,12 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch044 -p0
 # Win32:
 #patch045 -p0
-%patch046 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch046 -p0
 %patch047 -p0
-%patch048 -p0
-%patch049 -p0
+# dropped patches as this has been fixed in the updated runtime files:
+#patch048 -p0
+#patch049 -p0
 %patch050 -p0
 %patch051 -p0
 %patch052 -p0
@@ -367,7 +377,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Win32:
 #patch074 -p0
 %patch075 -p0
-%patch076 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch076 -p0
 %patch077 -p0
 %patch078 -p0
 %patch079 -p0
@@ -384,16 +395,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch090 -p0
 %patch091 -p0
 %patch092 -p0
-%patch093 -p0
+# dropped patch as this has been fixed in the updated runtime files:
+#patch093 -p0
 %patch094 -p0
 %patch095 -p0
 %patch096 -p0
 %patch097 -p0
 %patch098 -p0
 %patch099 -p0
+%patch100 -p0
 
-# Update all runtime files
-%{__tar} xjf %{SOURCE13}
 # install spell files
 %{__tar} xjf %{SOURCE14}
 
@@ -773,6 +784,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Sep 12 2006 Karsten Hopp <karsten@redhat.com> 7.0.100-1
+- Patchlevel 100
+- replace runtime files with newer ones
+
 * Mon Sep 11 2006 Karsten Hopp <karsten@redhat.de> 7.0.099-1
 - Patchlevel 99
 

@@ -1,0 +1,72 @@
+To: vim-dev@vim.org
+Subject: Patch 7.0.079
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.079
+Problem:    Russian tutor doesn't work when 'encoding' is "utf-8".
+Solution:   Use tutor.ru.utf-8 as the master, and generate the other encodings
+	    from it.  Select the right tutor depending on 'encoding'. (Alexey
+	    Froloff)
+Files:	    runtime/tutor/Makefile, runtime/tutor/tutor.vim,
+	    runtime/tutor/tutor.ru.utf-8
+
+
+*** ../vim-7.0.079/runtime/tutor/Makefile	Sun Jun 13 20:35:48 2004
+--- runtime/tutor/Makefile	Fri Sep  1 20:38:20 2006
+***************
+*** 2,9 ****
+  #
+  # The Japanese tutor exists in three encodings.  Use the UTF-8 version as the
+  # original and create the others with conversion.
+  
+! all: tutor.ja.sjis tutor.ja.euc tutor.ko.euc
+  
+  tutor.ja.sjis: tutor.ja.utf-8
+  	nkf -WXs tutor.ja.utf-8 > tutor.ja.sjis
+--- 2,13 ----
+  #
+  # The Japanese tutor exists in three encodings.  Use the UTF-8 version as the
+  # original and create the others with conversion.
++ #
++ # Similarly for Russian and Korean
+  
+! all: tutor.ja.sjis tutor.ja.euc \
+! 	tutor.ko.euc \
+! 	tutor.ru tutor.ru.cp1251
+  
+  tutor.ja.sjis: tutor.ja.utf-8
+  	nkf -WXs tutor.ja.utf-8 > tutor.ja.sjis
+***************
+*** 13,15 ****
+--- 17,25 ----
+  
+  tutor.ko.euc: tutor.ko.utf-8
+  	iconv -f UTF-8 -t EUC-KR tutor.ko.utf-8 > tutor.ko.euc
++ 
++ tutor.ru: tutor.ru.utf-8
++ 	iconv -f UTF-8 -t KOI8-R tutor.ru.utf-8 > tutor.ru
++ 
++ tutor.ru.cp1251: tutor.ru.utf-8
++ 	iconv -f UTF-8 -t cp1251 tutor.ru.utf-8 > tutor.ru.cp1251
+*** ../vim-7.0.079/src/version.c	Sat Sep  2 14:53:09 2006
+--- src/version.c	Sat Sep  2 14:20:15 2006
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     79,
+  /**/
+
+-- 
+Eight Megabytes And Continually Swapping.
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///

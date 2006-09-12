@@ -124,3 +124,4 @@ Individual patches for Vim 7.0:
   2617  7.0.097  tab pages line was not updated for ":tabclose N"
   2196  7.0.098  redirection didn't work inside cmdline completion
   2189  7.0.099  GUI: scrolling causes problems for the popup menu 
+  2086  7.0.100  "zug" may report the wrong filename

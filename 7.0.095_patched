@@ -1,0 +1,70 @@
+To: vim-dev@vim.org
+Subject: Patch 7.0.095
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.095
+Problem:    The Greek tutor is not available in utf-8.  "el" is used for the
+	    language, only "gr" for the country is recognized.
+Solution:   Add the utf-8 Greek tutor.  Use it for conversion to iso-8859-7
+	    and cp737.  (Lefteris Dimitroulakis)
+Files:	    runtime/tutor/Makefile, runtime/tutor/tutor.gr.utf-8,
+	    runtime/tutor/tutor.vim
+
+
+*** ../vim-7.0.094/runtime/tutor/Makefile	Sat Sep  2 14:54:17 2006
+--- runtime/tutor/Makefile	Sun Sep 10 11:56:54 2006
+***************
+*** 7,13 ****
+  
+  all: tutor.ja.sjis tutor.ja.euc \
+  	tutor.ko.euc \
+! 	tutor.ru tutor.ru.cp1251
+  
+  tutor.ja.sjis: tutor.ja.utf-8
+  	nkf -WXs tutor.ja.utf-8 > tutor.ja.sjis
+--- 7,14 ----
+  
+  all: tutor.ja.sjis tutor.ja.euc \
+  	tutor.ko.euc \
+! 	tutor.ru tutor.ru.cp1251 \
+! 	tutor.gr tutor.gr.cp737
+  
+  tutor.ja.sjis: tutor.ja.utf-8
+  	nkf -WXs tutor.ja.utf-8 > tutor.ja.sjis
+***************
+*** 23,25 ****
+--- 24,32 ----
+  
+  tutor.ru.cp1251: tutor.ru.utf-8
+  	iconv -f UTF-8 -t cp1251 tutor.ru.utf-8 > tutor.ru.cp1251
++ 
++ tutor.gr: tutor.gr.utf-8
++ 	iconv -f UTF-8 -t ISO-8859-7 tutor.gr.utf-8 > tutor.gr
++ 
++ tutor.gr.cp737: tutor.gr.utf-8
++ 	iconv -f UTF-8 -t cp737 tutor.gr.utf-8 > tutor.gr.cp737
+*** ../vim-7.0.094/src/version.c	Sat Sep  9 14:51:43 2006
+--- src/version.c	Sun Sep 10 13:19:23 2006
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     95,
+  /**/
+
+-- 
+FATHER:    You killed eight wedding guests in all!
+LAUNCELOT: Er, Well ... the thing is ... I thought your son was a lady.
+FATHER:    I can understand that.
+                 "Monty Python and the Holy Grail" PYTHON (MONTY) PICTURES LTD
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
