@@ -1,0 +1,88 @@
+To: vim-dev@vim.org
+Subject: Patch 7.0.108 (extra)
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.108 (extra)
+Problem:    Amiga: Compilation problem.
+Solution:   Have mch_mkdir() return a failure flag. (Willy Catteau)
+Files:	    src/os_amiga.c, src/proto/os_amiga.pro
+
+
+*** ../vim-7.0.107/src/os_amiga.c	Tue Mar  7 23:38:27 2006
+--- src/os_amiga.c	Thu Sep 14 21:29:03 2006
+***************
+*** 799,805 ****
+  /*
+   * Create directory "name".
+   */
+!     void
+  mch_mkdir(name)
+      char_u	*name;
+  {
+--- 799,805 ----
+  /*
+   * Create directory "name".
+   */
+!     int
+  mch_mkdir(name)
+      char_u	*name;
+  {
+***************
+*** 807,813 ****
+--- 807,817 ----
+  
+      lock = CreateDir(name);
+      if (lock != NULL)
++     {
+  	UnLock(lock);
++ 	return 0;
++     }
++     return -1;
+  }
+  
+  /*
+*** ../vim-7.0.107/src/proto/os_amiga.pro	Fri Mar 24 22:41:43 2006
+--- src/proto/os_amiga.pro	Thu Sep 14 21:29:32 2006
+***************
+*** 25,31 ****
+  extern int mch_setperm __ARGS((char_u *name, long perm));
+  extern void mch_hide __ARGS((char_u *name));
+  extern int mch_isdir __ARGS((char_u *name));
+! extern void mch_mkdir __ARGS((char_u *name));
+  extern int mch_can_exe __ARGS((char_u *name));
+  extern int mch_nodetype __ARGS((char_u *name));
+  extern void mch_early_init __ARGS((void));
+--- 25,31 ----
+  extern int mch_setperm __ARGS((char_u *name, long perm));
+  extern void mch_hide __ARGS((char_u *name));
+  extern int mch_isdir __ARGS((char_u *name));
+! extern int mch_mkdir __ARGS((char_u *name));
+  extern int mch_can_exe __ARGS((char_u *name));
+  extern int mch_nodetype __ARGS((char_u *name));
+  extern void mch_early_init __ARGS((void));
+*** ../vim-7.0.107/src/version.c	Thu Sep 14 21:04:09 2006
+--- src/version.c	Thu Sep 14 21:34:33 2006
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     108,
+  /**/
+
+-- 
+BEDEVERE: Look!  It's the old man from scene 24 - what's he Doing here?
+ARTHUR:   He is the keeper of the Bridge.  He asks each traveler five
+          questions ...
+GALAHAD:  Three questions.
+                 "Monty Python and the Holy Grail" PYTHON (MONTY) PICTURES LTD
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
