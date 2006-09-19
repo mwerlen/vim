@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 100
+%define patchlevel 109
 
 Summary: The VIM editor.
 Name: vim
@@ -148,6 +148,15 @@ Patch097: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.097
 Patch098: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.098
 Patch099: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.099
 Patch100: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.100
+Patch101: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.101
+Patch102: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.102
+Patch103: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.103
+Patch104: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.104
+Patch105: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.105
+Patch106: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.106_patched
+Patch107: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.107
+Patch108: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.108
+Patch109: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.109
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -404,6 +413,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch098 -p0
 %patch099 -p0
 %patch100 -p0
+%patch101 -p0
+%patch102 -p0
+%patch103 -p0
+%patch104 -p0
+%patch105 -p0
+%patch106 -p0
+%patch107 -p0
+# Amiga:
+#patch108 -p0
+%patch109 -p0
 
 # install spell files
 %{__tar} xjf %{SOURCE14}
@@ -784,6 +803,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Sep 19 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-9
+- update to patchlevel 109 to fix some redraw problems
+- fix invisible comments in diff mode
+
 * Tue Sep 12 2006 Karsten Hopp <karsten@redhat.com> 7.0.100-1
 - Patchlevel 100
 - replace runtime files with newer ones

@@ -125,3 +125,12 @@ Individual patches for Vim 7.0:
   2196  7.0.098  redirection didn't work inside cmdline completion
   2189  7.0.099  GUI: scrolling causes problems for the popup menu 
   2086  7.0.100  "zug" may report the wrong filename
+  2732  7.0.101  "zw" mostly doesn't work; "zg" may create wrong directory
+  1634  7.0.102  redraw problem in cmdline when using SCIM
+  1617  7.0.103  (after 7.0.101) compiler warning for uninitialized variable
+  2522  7.0.104  CursorHold[I] may trigger when it is not wanted
+  1513  7.0.105  during incremental search the ruler is not updated
+  5102  7.0.106  spell popup menu may have side effects
+  1805  7.0.107  tab pages line was not redrawn when using 'incsearch'
+  2583  7.0.108  (extra) Amiga: compilation error for mch_mkdir()
+  1923  7.0.109  Lisp indenting gets confused by an escaped quote in a string
