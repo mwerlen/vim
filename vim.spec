@@ -805,7 +805,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Tue Sep 19 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-9
 - update to patchlevel 109 to fix some redraw problems
-- fix invisible comments in diff mode
+- fix invisible comments in diff mode (#204042)
 
 * Tue Sep 12 2006 Karsten Hopp <karsten@redhat.com> 7.0.100-1
 - Patchlevel 100
