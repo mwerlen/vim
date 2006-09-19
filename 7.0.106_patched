@@ -1,0 +1,60 @@
+To: vim-dev@vim.org
+Subject: Patch 7.0.106
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.106
+Problem:    The spell popup menu uses ":amenu", triggering mappings.  Other
+	    PopupMenu autocommands are removed. (John Little)
+Solution:   Use ":anoremenu" and use an autocmd group.
+Files:	    runtime/menu.vim
+
+
+*** ../vim-7.0.105/runtime/menu.vim	Tue Apr 18 00:06:31 2006
+--- runtime/menu.vim	Thu Sep 14 13:14:25 2006
+***************
+*** 2,8 ****
+  " You can also use this as a start for your own set of menus.
+  "
+  " Maintainer:	Bram Moolenaar <Bram@vim.org>
+! " Last Change:	2006 Aug 16
+  
+  " Note that ":an" (short for ":anoremenu") is often used to make a menu work
+  " in all modes and avoid side effects from mappings defined by the user.
+--- 2,8 ----
+  " You can also use this as a start for your own set of menus.
+  "
+  " Maintainer:	Bram Moolenaar <Bram@vim.org>
+! " Last Change:	2006 Sep 14
+  
+  " Note that ":an" (short for ":anoremenu") is often used to make a menu work
+  " in all modes and avoid side effects from mappings defined by the user.
+*** ../vim-7.0.105/src/version.c	Thu Sep 14 11:27:12 2006
+--- src/version.c	Thu Sep 14 13:24:44 2006
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     106,
+  /**/
+
+-- 
+BROTHER MAYNARD: Armaments Chapter Two Verses Nine to Twenty One.
+ANOTHER MONK:    And St.  Attila raised his hand grenade up on high saying "O
+                 Lord bless this thy hand grenade that with it thou mayest
+                 blow thine enemies to tiny bits, in thy mercy. "and the Lord
+                 did grin and people did feast upon the lambs and sloths and
+                 carp and anchovies and orang-utans and breakfast cereals and
+                 fruit bats and...
+BROTHER MAYNARD: Skip a bit brother ...
+                 "Monty Python and the Holy Grail" PYTHON (MONTY) PICTURES LTD
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
