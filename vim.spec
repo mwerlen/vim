@@ -20,7 +20,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -805,10 +805,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Sep 28 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-8
+* Tue Sep 28 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-2
 - fix typo in vimspell.sh (#203178)
 
-* Tue Sep 19 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-9
+* Tue Sep 19 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-1
 - update to patchlevel 109 to fix some redraw problems
 - fix invisible comments in diff mode (#204042)
 
