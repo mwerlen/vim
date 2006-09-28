@@ -170,6 +170,7 @@ Patch3007: vim-7.0-fstabsyntax.patch
 Patch3008: vim-6.4-lib64.patch
 Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
+Patch3011: vim-7.0-vimspelltypo.patch
 #
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
@@ -438,6 +439,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3008 -p1
 %patch3009 -p1
 %patch3010 -p1
+%patch3011 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -803,6 +805,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Sep 28 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-8
+- fix typo in vimspell.sh (#203178)
+
 * Tue Sep 19 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-9
 - update to patchlevel 109 to fix some redraw problems
 - fix invisible comments in diff mode (#204042)
