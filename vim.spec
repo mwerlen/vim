@@ -10,6 +10,7 @@
 
 %define withcvim 0
 
+%define withvimspell 0
 
 %define baseversion 7.0
 #used for pre-releases:
@@ -20,7 +21,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -39,7 +40,9 @@ Source11: Changelog.rpm
 # Source at http://www.vim.org/scripts/script.php?script_id=213 :
 #Source12: cvim.zip
 Source13: runtime-update-20060911.tar.bz2
+%if %{withvimspell}
 Source14: vim-spell-files.tar.bz2
+%endif
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -426,7 +429,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch109 -p0
 
 # install spell files
+%if %{withvimspell}
 %{__tar} xjf %{SOURCE14}
+%endif
 
 %patch3000 -p1
 #patch3001 -p1
@@ -676,6 +681,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/vim/%{vimdir}/syntax
 /usr/share/vim/%{vimdir}/tools
 /usr/share/vim/%{vimdir}/tutor
+%if ! %{withvimspell}
+/usr/share/vim/%{vimdir}/spell
+%endif
 %lang(af) /usr/share/vim/%{vimdir}/lang/af
 %lang(ca) /usr/share/vim/%{vimdir}/lang/ca
 %lang(cs) /usr/share/vim/%{vimdir}/lang/cs
@@ -711,6 +719,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru) %{_mandir}/ru*
 %lang(pl) %{_mandir}/pl*
 
+%if %{withvimspell}
 %files spell
 %dir /usr/share/vim/%{vimdir}/spell
 /usr/share/vim/vim70/spell/cleanadd.vim
@@ -764,6 +773,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(yi) /usr/share/vim/%{vimdir}/spell/yi.*
 %lang(yi-tr) /usr/share/vim/%{vimdir}/spell/yi-tr.*
 %lang(zu) /usr/share/vim/%{vimdir}/spell/zu.*
+%endif
 
 %files minimal
 %defattr(-,root,root)
@@ -805,6 +815,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Sep 28 2006 Jeremy Katz <katzj@redhat.com> - 7.0.109-3
+- disable vim-spell subpackage as it pushes us over CD boundaries
+
 * Tue Sep 28 2006 Karsten Hopp <karsten@redhat.com> 7.0.109-2
 - fix typo in vimspell.sh (#203178)
 
