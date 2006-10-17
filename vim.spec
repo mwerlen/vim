@@ -16,12 +16,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 109
+%define patchlevel 136
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -160,6 +160,33 @@ Patch106: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.106_patched
 Patch107: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.107
 Patch108: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.108
 Patch109: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.109
+Patch110: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.110
+Patch111: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.111
+Patch112: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.112
+Patch113: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.113
+Patch114: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.114
+Patch115: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.115
+Patch116: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.116
+Patch117: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.117
+Patch118: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.118
+Patch119: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.119
+Patch120: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.120
+Patch121: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.121
+Patch122: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.122
+Patch123: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.123
+Patch124: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.124
+Patch125: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.125
+Patch126: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.126
+Patch127: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.127
+Patch128: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.128
+Patch129: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.129
+Patch130: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.130
+Patch131: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.131
+Patch132: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.132
+Patch133: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.133
+Patch134: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.134
+Patch135: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.135
+Patch136: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.136
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -227,8 +254,8 @@ many different languages.
 %package minimal
 Summary: A minimal version of the VIM editor.
 Group: Applications/Editors
-Obsoletes: vim
 Obsoletes: vim7-minimal
+Provides: vi
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -244,6 +271,7 @@ package is installed.
 Summary: A version of the VIM editor which includes recent enhancements.
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release}
+Provides: vim
 Obsoletes: vim-color
 Obsoletes: vim7-enhanced
 
@@ -427,6 +455,35 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Amiga:
 #patch108 -p0
 %patch109 -p0
+%patch110 -p0
+%patch111 -p0
+%patch112 -p0
+%patch113 -p0
+%patch114 -p0
+%patch115 -p0
+%patch116 -p0
+%patch117 -p0
+%patch118 -p0
+%patch119 -p0
+%patch120 -p0
+%patch121 -p0
+%patch122 -p0
+%patch123 -p0
+%patch124 -p0
+%patch125 -p0
+%patch126 -p0
+%patch127 -p0
+%patch128 -p0
+%patch129 -p0
+# MS-DOS:
+#patch130 -p0
+%patch131 -p0
+# MS-DOS:
+#patch132 -p0
+%patch133 -p0
+%patch134 -p0
+%patch135 -p0
+%patch136 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -815,6 +872,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Oct 17 2006 Karsten Hopp <karsten@redhat.com> 7.0.136-1
+- patchlevel 136
+- provide vim, vi (#210950)
+
 * Thu Sep 28 2006 Jeremy Katz <katzj@redhat.com> - 7.0.109-3
 - disable vim-spell subpackage as it pushes us over CD boundaries
 
