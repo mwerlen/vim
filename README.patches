@@ -134,3 +134,30 @@ Individual patches for Vim 7.0:
   1805  7.0.107  tab pages line was not redrawn when using 'incsearch'
   2583  7.0.108  (extra) Amiga: compilation error for mch_mkdir()
   1923  7.0.109  Lisp indenting gets confused by an escaped quote in a string
+  2557  7.0.110  Amiga: Compilation problems when not using libnix
+ 10411  7.0.111  gzip plugin can't handle file names with special characters
+  2687  7.0.112  Python interface doesn't compile with Python 2.5
+  1878  7.0.113  crash when using CTRL-L in Insert mode completion
+  1964  7.0.114  get extra undo point when using CTRL-C to abort Insert mode
+  2339  7.0.115  missing some matches when Insert mode completion ignores case
+  1508  7.0.116  MS-Windows: :version reported 32 bits for 64 bits systems
+  5028  7.0.117  problem when mixing keepend and extend in syntax highlighting
+  1529  7.0.118  printf() doesn't allow zero padding for strings
+  1412  7.0.119  CursorHold event is not triggered when leaving Insert mode
+  1780  7.0.120  crash when using getreg('=') in the = register
+  1549  7.0.121  GUI: dragging last status line doesn't work with text tabline
+  2865  7.0.122  only half of double-wide bold character may be drawn
+  4200  7.0.123  SCO Openserver: configure selects the wrong terminal library
+  2376  7.0.124  window-local variables from getwinvar() are for current window
+  2335  7.0.125  '< and '> marks were set before Visual mode finishes
+  2112  7.0.126  undo could be wrong when 'formatexpr' uses setline()
+  2605  7.0.127  crash when swap file has invalid timestamp
+  2246  7.0.128  GUI: display not updated when cancelling exit dialog
+  2884  7.0.129  GTK GUI: avoid GTK bug concerning directory for file dialog
+  5509  7.0.130  (extra) MS-DOS, MS-Windows: may get stuck using a device name
+  2632  7.0.131  Win32: "vim -r" does not find swap files starting with a dot
+  2163  7.0.132  (after 7.0.130) crash when reading from stdin
+  3189  7.0.133  too many messages in history when searching included files
+  2290  7.0.134  crash when trying to compare recusively looped List or Dict
+ 10022  7.0.135  crash in garbage collector with recusively looped List/Dict
+  1703  7.0.136  CursorMoved not triggered when inserting a line
