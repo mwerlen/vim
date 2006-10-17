@@ -161,3 +161,6 @@ Individual patches for Vim 7.0:
   2290  7.0.134  crash when trying to compare recusively looped List or Dict
  10022  7.0.135  crash in garbage collector with recusively looped List/Dict
   1703  7.0.136  CursorMoved not triggered when inserting a line
+  2746  7.0.137  configure check for big features is wrong
+ 12174  7.0.138  (extra) Mac: modifiers keys don't work with function keys
+  2044  7.0.139  undo info missing when using CTRL-PageUp in Insert mode

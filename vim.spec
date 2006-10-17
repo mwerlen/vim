@@ -16,7 +16,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 136
+%define patchlevel 139
 
 Summary: The VIM editor.
 Name: vim
@@ -187,6 +187,9 @@ Patch133: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.133
 Patch134: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.134
 Patch135: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.135
 Patch136: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.136
+Patch137: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.137
+Patch138: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.138
+Patch139: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.139
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -484,6 +487,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch134 -p0
 %patch135 -p0
 %patch136 -p0
+%patch137 -p0
+# Mac:
+#patch138 -p0
+%patch139 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -872,8 +879,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Oct 17 2006 Karsten Hopp <karsten@redhat.com> 7.0.136-1
-- patchlevel 136
+* Tue Oct 17 2006 Karsten Hopp <karsten@redhat.com> 7.0.139-1
+- patchlevel 139
 - provide vim, vi (#210950)
 
 * Thu Sep 28 2006 Jeremy Katz <katzj@redhat.com> - 7.0.109-3
