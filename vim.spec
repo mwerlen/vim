@@ -16,7 +16,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 139
+%define patchlevel 158
 
 Summary: The VIM editor.
 Name: vim
@@ -190,6 +190,25 @@ Patch136: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.136
 Patch137: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.137
 Patch138: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.138
 Patch139: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.139
+Patch140: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.140
+Patch141: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.141
+Patch142: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.142
+Patch143: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.143
+Patch144: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.144
+Patch145: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.145
+Patch146: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.146
+Patch147: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.147
+Patch148: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.148
+Patch149: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.149
+Patch150: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.150
+Patch151: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.151
+Patch152: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.152
+Patch153: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.153
+Patch154: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.154
+Patch155: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.155
+Patch156: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.156
+Patch157: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.157
+Patch158: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.158
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -491,6 +510,26 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Mac:
 #patch138 -p0
 %patch139 -p0
+%patch140 -p0
+%patch141 -p0
+%patch142 -p0
+%patch143 -p0
+%patch144 -p0
+%patch145 -p0
+%patch146 -p0
+%patch147 -p0
+%patch148 -p0
+%patch149 -p0
+%patch150 -p0
+%patch151 -p0
+%patch152 -p0
+%patch153 -p0
+%patch154 -p0
+%patch155 -p0
+# Amiga:
+#patch156 -p0
+%patch157 -p0
+%patch158 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -879,6 +918,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Nov 06 2006 Karsten Hopp <karsten@redhat.com> 7.0.158-1
+- patchlevel 158
+
 * Tue Oct 17 2006 Karsten Hopp <karsten@redhat.com> 7.0.139-1
 - patchlevel 139
 - provide vim, vi (#210950)

@@ -22,6 +22,11 @@ patches for binaries.
 
 Checksums for the patch files can be found in the file MD5.
 
+Collection of patches for Vim 7.0:
+  SIZE  NAME                  INCLUDES
+ 98331  7.0.001-100.gz	      patches 7.0.001 to 7.0.100, gzip'ed
+
+
 Individual patches for Vim 7.0:
 
   SIZE  NAME     FIXES
@@ -164,3 +169,22 @@ Individual patches for Vim 7.0:
   2746  7.0.137  configure check for big features is wrong
  12174  7.0.138  (extra) Mac: modifiers keys don't work with function keys
   2044  7.0.139  undo info missing when using CTRL-PageUp in Insert mode
+  2235  7.0.140  (after 7.0.134) comparing list/dict with itself is inefficient
+  6513  7.0.141  extra CR when pasting with the mouse on the command line
+  2075  7.0.142  middle mouse button didn't work right in Select mode
+  1531  7.0.143  setting 'scroll' to its default value didn't work correctly
+  5584  7.0.144  pattern matching may do wrong pointer computations
+  1463  7.0.145  (after 7.0.142) compiler warning
+  4308  7.0.146  opening file for quickfix may ignore windows already open
+  8181  7.0.147  session file can be wrong when there are multiple tab pages
+  1710  7.0.148  no error message for ":call d.foo()" when "foo" doesn't exist
+  5277  7.0.149  when resizing windows scrolling is not done in the best way
+  2416  7.0.150  when resizing the Vim window scrollbinding doesn't work
+  1932  7.0.151  button order in GTK file dialog is different from Gnome rules
+  2279  7.0.152  crash when using lesstif 2
+  4356  7.0.153  crash with cscope when temp file can't be opened
+  1727  7.0.154  when 'foldnextmax' is negative Vim could hang
+  5872  7.0.155  when getchar() returns a mouse button the position is unknown
+ 21499  7.0.156  (extra) Vim doesn't compile on Amiga OS4
+  3594  7.0.157  profiling info was bogus for a recursively called function
+  1485  7.0.158  cursor in closed fold after adding new line
