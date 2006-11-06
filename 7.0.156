@@ -1,0 +1,883 @@
+To: vim-dev@vim.org
+Subject: Patch 7.0.156
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.156 (extra)
+Problem:    Vim doesn't compile for Amiga OS 4.
+Solution:   Various changes for Amiga OS4. (Peter Bengtsson)
+Files:	    src/feature.h, src/mbyte.c, src/memfile.c, src/memline.c,
+	    src/os_amiga.c, src/os_amiga.h, src/pty.c
+
+
+*** ../vim-7.0.155/src/feature.h	Thu Apr 27 01:54:09 2006
+--- src/feature.h	Wed Nov  1 17:52:54 2006
+***************
+*** 1133,1139 ****
+  /*
+   * +ARP			Amiga only. Use arp.library, DOS 2.0 is not required.
+   */
+! #ifndef NO_ARP
+  # define FEAT_ARP
+  #endif
+  
+--- 1133,1139 ----
+  /*
+   * +ARP			Amiga only. Use arp.library, DOS 2.0 is not required.
+   */
+! #if !defined(NO_ARP) && !defined(__amigaos4__)
+  # define FEAT_ARP
+  #endif
+  
+*** ../vim-7.0.155/src/mbyte.c	Tue Aug 29 17:28:56 2006
+--- src/mbyte.c	Wed Nov  1 17:52:54 2006
+***************
+*** 667,673 ****
+  	     * API */
+  	    n = IsDBCSLeadByteEx(enc_dbcs, (BYTE)i) ? 2 : 1;
+  #else
+! # ifdef MACOS
+  	    /*
+  	     * if mblen() is not available, character which MSB is turned on
+  	     * are treated as leading byte character. (note : This assumption
+--- 667,673 ----
+  	     * API */
+  	    n = IsDBCSLeadByteEx(enc_dbcs, (BYTE)i) ? 2 : 1;
+  #else
+! # if defined(MACOS) || defined(__amigaos4__)
+  	    /*
+  	     * if mblen() is not available, character which MSB is turned on
+  	     * are treated as leading byte character. (note : This assumption
+*** ../vim-7.0.155/src/memfile.c	Tue Sep 26 13:49:41 2006
+--- src/memfile.c	Wed Nov  1 17:52:54 2006
+***************
+*** 655,661 ****
+  # endif
+  #endif
+  #ifdef AMIGA
+! # ifdef __AROS__
+  	if (fsync(mfp->mf_fd) != 0)
+  	    status = FAIL;
+  # else
+--- 655,661 ----
+  # endif
+  #endif
+  #ifdef AMIGA
+! # if defined(__AROS__) || defined(__amigaos4__)
+  	if (fsync(mfp->mf_fd) != 0)
+  	    status = FAIL;
+  # else
+*** ../vim-7.0.155/src/memline.c	Tue Oct 10 21:56:37 2006
+--- src/memline.c	Wed Nov  1 17:52:54 2006
+***************
+*** 55,64 ****
+  # include <time.h>
+  #endif
+  
+! #ifdef SASC
+  # include <proto/dos.h>	    /* for Open() and Close() */
+  #endif
+  
+  typedef struct block0		ZERO_BL;    /* contents of the first block */
+  typedef struct pointer_block	PTR_BL;	    /* contents of a pointer block */
+  typedef struct data_block	DATA_BL;    /* contents of a data block */
+--- 55,68 ----
+  # include <time.h>
+  #endif
+  
+! #if defined(SASC) || defined(__amigaos4__)
+  # include <proto/dos.h>	    /* for Open() and Close() */
+  #endif
+  
++ #ifdef HAVE_ERRNO_H
++ # include <errno.h>
++ #endif
++ 
+  typedef struct block0		ZERO_BL;    /* contents of the first block */
+  typedef struct pointer_block	PTR_BL;	    /* contents of a pointer block */
+  typedef struct data_block	DATA_BL;    /* contents of a data block */
+***************
+*** 4481,4487 ****
+      curchnk = buf->b_ml.ml_chunksize + curix;
+  
+      if (updtype == ML_CHNK_DELLINE)
+! 	len *= -1;
+      curchnk->mlcs_totalsize += len;
+      if (updtype == ML_CHNK_ADDLINE)
+      {
+--- 4485,4491 ----
+      curchnk = buf->b_ml.ml_chunksize + curix;
+  
+      if (updtype == ML_CHNK_DELLINE)
+! 	len = -len;
+      curchnk->mlcs_totalsize += len;
+      if (updtype == ML_CHNK_ADDLINE)
+      {
+*** ../vim-7.0.155/src/os_amiga.c	Thu Sep 14 21:36:35 2006
+--- src/os_amiga.c	Wed Nov  1 18:09:46 2006
+***************
+*** 30,49 ****
+  # include <exec/types.h>
+  # include <exec/exec.h>
+  # include <libraries/dos.h>
+- # include <libraries/dosextens.h>
+  # include <intuition/intuition.h>
+- #else
+- # include <proto/dos.h>
+- # include <libraries/dosextens.h>
+- # include <proto/intuition.h>
+- # include <proto/exec.h>
+  #endif
+  
+  #include <exec/memory.h>
+  
+  #include <dos/dostags.h>	    /* for 2.0 functions */
+  #include <dos/dosasl.h>
+  
+  #if defined(LATTICE) && !defined(SASC) && defined(FEAT_ARP)
+  # include <libraries/arp_pragmas.h>
+  #endif
+--- 30,60 ----
+  # include <exec/types.h>
+  # include <exec/exec.h>
+  # include <libraries/dos.h>
+  # include <intuition/intuition.h>
+  #endif
+  
++ /* XXX These are included from os_amiga.h
++ #include <proto/exec.h>
++ #include <proto/dos.h>
++ #include <proto/intuition.h>
++ */
++ 
+  #include <exec/memory.h>
++ #include <libraries/dosextens.h>
+  
+  #include <dos/dostags.h>	    /* for 2.0 functions */
+  #include <dos/dosasl.h>
+  
++ /* From version 4 of AmigaOS, several system structures must be allocated
++  * and freed using system functions. "struct AnchorPath" is one.
++  */
++ #ifdef __amigaos4__
++ # include <dos/anchorpath.h>
++ # define	free_fib(x) FreeDosObject(DOS_FIB, x)
++ #else
++ # define	free_fib(x) vim_free(fib)
++ #endif
++ 
+  #if defined(LATTICE) && !defined(SASC) && defined(FEAT_ARP)
+  # include <libraries/arp_pragmas.h>
+  #endif
+***************
+*** 56,62 ****
+  #undef	FALSE
+  #define FALSE (0)
+  
+! #if !defined(AZTEC_C) && !defined(__AROS__)
+  static long dos_packet __ARGS((struct MsgPort *, long, long));
+  #endif
+  static int lock2name __ARGS((BPTR lock, char_u *buf, long   len));
+--- 67,75 ----
+  #undef	FALSE
+  #define FALSE (0)
+  
+! #ifdef __amigaos4__
+! # define	dos_packet(a, b, c)   DoPkt(a, b, c, 0, 0, 0, 0)
+! #elif !defined(AZTEC_C) && !defined(__AROS__)
+  static long dos_packet __ARGS((struct MsgPort *, long, long));
+  #endif
+  static int lock2name __ARGS((BPTR lock, char_u *buf, long   len));
+***************
+*** 68,74 ****
+--- 81,89 ----
+  static BPTR		raw_out = (BPTR)NULL;
+  static int		close_win = FALSE;  /* set if Vim opened the window */
+  
++ #ifndef __amigaos4__	/* Use autoopen for AmigaOS4 */
+  struct IntuitionBase	*IntuitionBase = NULL;
++ #endif
+  #ifdef FEAT_ARP
+  struct ArpBase		*ArpBase = NULL;
+  #endif
+***************
+*** 186,194 ****
+--- 201,217 ----
+  mch_avail_mem(special)
+      int	    special;
+  {
++ #ifdef __amigaos4__
++     return (long_u)AvailMem(MEMF_ANY);
++ #else
+      return (long_u)AvailMem(special ? (long)MEMF_CHIP : (long)MEMF_ANY);
++ #endif
+  }
+  
++ /*
++  * Waits a specified amount of time, or until input arrives if
++  * ignoreinput is FALSE.
++  */
+      void
+  mch_delay(msec, ignoreinput)
+      long    msec;
+***************
+*** 252,257 ****
+--- 275,281 ----
+      out_flush();
+  
+      wb_window = NULL;
++ #ifndef __amigaos4__
+      if ((IntuitionBase = (struct IntuitionBase *)
+  				OpenLibrary((UBYTE *)intlibname, 0L)) == NULL)
+      {
+***************
+*** 260,265 ****
+--- 284,290 ----
+  	mch_errmsg("!?\n");
+  	mch_exit(3);
+      }
++ #endif
+  }
+  
+  #include <workbench/startup.h>
+***************
+*** 284,290 ****
+  {
+      int		    i;
+      BPTR	    nilfh, fh;
+!     char_u	    buf1[20];
+      char_u	    buf2[BUF2SIZE];
+      static char_u   *(constrings[3]) = {(char_u *)"con:0/0/662/210/",
+  					(char_u *)"con:0/0/640/200/",
+--- 309,315 ----
+  {
+      int		    i;
+      BPTR	    nilfh, fh;
+!     char_u	    buf1[24];
+      char_u	    buf2[BUF2SIZE];
+      static char_u   *(constrings[3]) = {(char_u *)"con:0/0/662/210/",
+  					(char_u *)"con:0/0/640/200/",
+***************
+*** 295,329 ****
+      char	    *av;
+      char_u	    *device = NULL;
+      int		    exitval = 4;
+      struct Library  *DosBase;
+      int		    usewin = FALSE;
+  
+  /*
+   * check if we are running under DOS 2.0x or higher
+   */
+      DosBase = OpenLibrary(DOS_LIBRARY, 37L);
+      if (DosBase != NULL)
+      /* if (((struct Library *)DOSBase)->lib_Version >= 37) */
+      {
+  	CloseLibrary(DosBase);
+! #ifdef FEAT_ARP
+  	dos2 = TRUE;
+! #endif
+      }
+      else	    /* without arp functions we NEED 2.0 */
+      {
+! #ifndef FEAT_ARP
+  	mch_errmsg(_("Need Amigados version 2.04 or later\n"));
+  	exit(3);
+! #else
+  		    /* need arp functions for dos 1.x */
+  	if (!(ArpBase = (struct ArpBase *) OpenLibrary((UBYTE *)ArpName, ArpVersion)))
+  	{
+  	    fprintf(stderr, _("Need %s version %ld\n"), ArpName, ArpVersion);
+  	    exit(3);
+  	}
+! #endif
+      }
+  
+      /*
+       * scan argv[] for the "-f" and "-d" arguments
+--- 320,358 ----
+      char	    *av;
+      char_u	    *device = NULL;
+      int		    exitval = 4;
++ #ifndef __amigaos4__
+      struct Library  *DosBase;
++ #endif
+      int		    usewin = FALSE;
+  
+  /*
+   * check if we are running under DOS 2.0x or higher
+   */
++ #ifndef __amigaos4__
+      DosBase = OpenLibrary(DOS_LIBRARY, 37L);
+      if (DosBase != NULL)
+      /* if (((struct Library *)DOSBase)->lib_Version >= 37) */
+      {
+  	CloseLibrary(DosBase);
+! # ifdef FEAT_ARP
+  	dos2 = TRUE;
+! # endif
+      }
+      else	    /* without arp functions we NEED 2.0 */
+      {
+! # ifndef FEAT_ARP
+  	mch_errmsg(_("Need Amigados version 2.04 or later\n"));
+  	exit(3);
+! # else
+  		    /* need arp functions for dos 1.x */
+  	if (!(ArpBase = (struct ArpBase *) OpenLibrary((UBYTE *)ArpName, ArpVersion)))
+  	{
+  	    fprintf(stderr, _("Need %s version %ld\n"), ArpName, ArpVersion);
+  	    exit(3);
+  	}
+! # endif
+      }
++ #endif	/* __amigaos4__ */
+  
+      /*
+       * scan argv[] for the "-f" and "-d" arguments
+***************
+*** 398,405 ****
+--- 427,441 ----
+      /*
+       * Make a unique name for the temp file (which we will not delete!).
+       * Use a pointer on the stack (nobody else will be using it).
++      * Under AmigaOS4, this assumption might change in the future, so
++      * we use a pointer to the current task instead. This should be a
++      * shared structure and thus globally unique.
+       */
++ #ifdef __amigaos4__
++     sprintf((char *)buf1, "t:nc%p", FindTask(0));
++ #else
+      sprintf((char *)buf1, "t:nc%ld", (long)buf1);
++ #endif
+      if ((fh = Open((UBYTE *)buf1, (long)MODE_NEWFILE)) == (BPTR)NULL)
+      {
+  	mch_errmsg(_("Cannot create "));
+***************
+*** 513,519 ****
+  
+  /*
+   * fname_case(): Set the case of the file name, if it already exists.
+!  *		 This will cause the file name to remain exactly the same.
+   */
+  /*ARGSUSED*/
+      void
+--- 549,556 ----
+  
+  /*
+   * fname_case(): Set the case of the file name, if it already exists.
+!  *		 This will cause the file name to remain exactly the same
+!  *		 if the file system ignores, but preserves case.
+   */
+  /*ARGSUSED*/
+      void
+***************
+*** 528,536 ****
+      if (fib != NULL)
+      {
+  	flen = STRLEN(name);
+  	if (flen == strlen(fib->fib_FileName))	/* safety check */
+  	    mch_memmove(name, fib->fib_FileName, flen);
+! 	vim_free(fib);
+      }
+  }
+  
+--- 565,578 ----
+      if (fib != NULL)
+      {
+  	flen = STRLEN(name);
++ 	/* TODO: Check if this fix applies to AmigaOS < 4 too.*/
++ #ifdef __amigaos4__
++ 	if (fib->fib_DirEntryType == ST_ROOT)
++ 	    strcat(fib->fib_FileName, ":");
++ #endif
+  	if (flen == strlen(fib->fib_FileName))	/* safety check */
+  	    mch_memmove(name, fib->fib_FileName, flen);
+! 	free_fib(fib);
+      }
+  }
+  
+***************
+*** 548,560 ****
+  
+      if (fname == NULL)	    /* safety check */
+  	return NULL;
+!     fib = (struct FileInfoBlock *)malloc(sizeof(struct FileInfoBlock));
+      if (fib != NULL)
+      {
+  	flock = Lock((UBYTE *)fname, (long)ACCESS_READ);
+  	if (flock == (BPTR)NULL || !Examine(flock, fib))
+  	{
+! 	    vim_free(fib);  /* in case of an error the memory is freed here */
+  	    fib = NULL;
+  	}
+  	if (flock)
+--- 590,606 ----
+  
+      if (fname == NULL)	    /* safety check */
+  	return NULL;
+! #ifdef __amigaos4__
+!     fib = AllocDosObject(DOS_FIB,0);
+! #else
+!     fib = (struct FileInfoBlock *)alloc(sizeof(struct FileInfoBlock));
+! #endif
+      if (fib != NULL)
+      {
+  	flock = Lock((UBYTE *)fname, (long)ACCESS_READ);
+  	if (flock == (BPTR)NULL || !Examine(flock, fib))
+  	{
+! 	    free_fib(fib);  /* in case of an error the memory is freed here */
+  	    fib = NULL;
+  	}
+  	if (flock)
+***************
+*** 613,618 ****
+--- 659,665 ----
+      char_u  *s;
+      int	    len;
+  {
++     /* TODO: Implement this. */
+      *s = NUL;
+      return FAIL;
+  }
+***************
+*** 625,631 ****
+--- 672,682 ----
+      char_u  *s;
+      int	    len;
+  {
++ #if defined(__amigaos4__) && defined(__CLIB2__)
++     gethostname(s, len);
++ #else
+      vim_strncpy(s, "Amiga", len - 1);
++ #endif
+  }
+  
+  /*
+***************
+*** 634,640 ****
+--- 685,698 ----
+      long
+  mch_get_pid()
+  {
++ #ifdef __amigaos4__
++     /* This is as close to a pid as we can come. We could use CLI numbers also,
++      * but then we would have two different types of process identifiers.
++      */
++     return((long)FindTask(0));
++ #else
+      return (long)0;
++ #endif
+  }
+  
+  /*
+***************
+*** 746,752 ****
+      if (fib != NULL)
+      {
+  	retval = fib->fib_Protection;
+! 	vim_free(fib);
+      }
+      return retval;
+  }
+--- 804,810 ----
+      if (fib != NULL)
+      {
+  	retval = fib->fib_Protection;
+! 	free_fib(fib);
+      }
+      return retval;
+  }
+***************
+*** 790,797 ****
+      fib = get_fib(name);
+      if (fib != NULL)
+      {
+  	retval = ((fib->fib_DirEntryType >= 0) ? TRUE : FALSE);
+! 	vim_free(fib);
+      }
+      return retval;
+  }
+--- 848,859 ----
+      fib = get_fib(name);
+      if (fib != NULL)
+      {
++ #ifdef __amigaos4__
++ 	retval = (FIB_IS_DRAWER(fib)) ? TRUE : FALSE;
++ #else
+  	retval = ((fib->fib_DirEntryType >= 0) ? TRUE : FALSE);
+! #endif
+! 	free_fib(fib);
+      }
+      return retval;
+  }
+***************
+*** 912,918 ****
+  mch_settmode(tmode)
+      int		tmode;
+  {
+! #ifdef __AROS__
+      if (!SetMode(raw_in, tmode == TMODE_RAW ? 1 : 0))
+  #else
+      if (dos_packet(MP(raw_in), (long)ACTION_SCREEN_MODE,
+--- 974,980 ----
+  mch_settmode(tmode)
+      int		tmode;
+  {
+! #if defined(__AROS__) || defined(__amigaos4__)
+      if (!SetMode(raw_in, tmode == TMODE_RAW ? 1 : 0))
+  #else
+      if (dos_packet(MP(raw_in), (long)ACTION_SCREEN_MODE,
+***************
+*** 954,967 ****
+  mch_get_shellsize()
+  {
+      struct ConUnit  *conUnit;
+      char	    id_a[sizeof(struct InfoData) + 3];
+!     struct InfoData *id;
+  
+      if (!term_console)	/* not an amiga window */
+! 	return FAIL;
+  
+      /* insure longword alignment */
+      id = (struct InfoData *)(((long)id_a + 3L) & ~3L);
+  
+      /*
+       * Should make console aware of real window size, not the one we set.
+--- 1016,1036 ----
+  mch_get_shellsize()
+  {
+      struct ConUnit  *conUnit;
++ #ifndef __amigaos4__
+      char	    id_a[sizeof(struct InfoData) + 3];
+! #endif
+!     struct InfoData *id=0;
+  
+      if (!term_console)	/* not an amiga window */
+! 	goto out;
+  
+      /* insure longword alignment */
++ #ifdef __amigaos4__
++     if(!(id = AllocDosObject(DOS_INFODATA, 0)))
++ 	goto out;
++ #else
+      id = (struct InfoData *)(((long)id_a + 3L) & ~3L);
++ #endif
+  
+      /*
+       * Should make console aware of real window size, not the one we set.
+***************
+*** 983,989 ****
+  	/* it's not an amiga window, maybe aux device */
+  	/* terminal type should be set */
+  	term_console = FALSE;
+! 	return FAIL;
+      }
+      if (oldwindowtitle == NULL)
+  	oldwindowtitle = (char_u *)wb_window->Title;
+--- 1052,1058 ----
+  	/* it's not an amiga window, maybe aux device */
+  	/* terminal type should be set */
+  	term_console = FALSE;
+! 	goto out;
+      }
+      if (oldwindowtitle == NULL)
+  	oldwindowtitle = (char_u *)wb_window->Title;
+***************
+*** 1006,1011 ****
+--- 1075,1086 ----
+      }
+  
+      return OK;
++ out:
++ #ifdef __amigaos4__
++     FreeDosObject(DOS_INFODATA, id); /* Safe to pass NULL */
++ #endif
++ 
++     return FAIL;
+  }
+  
+  /*
+***************
+*** 1046,1052 ****
+      OUT_STR_NF(tltoa((unsigned long)n));
+  }
+  
+! #if !defined(AZTEC_C) && !defined(__AROS__)
+  /*
+   * Sendpacket.c
+   *
+--- 1121,1127 ----
+      OUT_STR_NF(tltoa((unsigned long)n));
+  }
+  
+! #if !defined(AZTEC_C) && !defined(__AROS__) && !defined(__amigaos4__)
+  /*
+   * Sendpacket.c
+   *
+***************
+*** 1371,1378 ****
+   *	Use and abuse as you please.
+   */
+  
+! #define ANCHOR_BUF_SIZE (512)
+! #define ANCHOR_SIZE (sizeof(struct AnchorPath) + ANCHOR_BUF_SIZE)
+  
+      int
+  mch_expandpath(gap, pat, flags)
+--- 1446,1457 ----
+   *	Use and abuse as you please.
+   */
+  
+! #ifdef __amigaos4__
+! # define	ANCHOR_BUF_SIZE	1024
+! #else
+! # define ANCHOR_BUF_SIZE (512)
+! # define ANCHOR_SIZE (sizeof(struct AnchorPath) + ANCHOR_BUF_SIZE)
+! #endif
+  
+      int
+  mch_expandpath(gap, pat, flags)
+***************
+*** 1385,1403 ****
+      char_u		*starbuf, *sp, *dp;
+      int			start_len;
+      int			matches;
+  
+      start_len = gap->ga_len;
+  
+      /* Get our AnchorBase */
+      Anchor = (struct AnchorPath *)alloc_clear((unsigned)ANCHOR_SIZE);
+      if (Anchor == NULL)
+  	return 0;
+  
+      Anchor->ap_Strlen = ANCHOR_BUF_SIZE;  /* ap_Length not supported anymore */
+! #ifdef APF_DODOT
+      Anchor->ap_Flags = APF_DODOT | APF_DOWILD;	/* allow '.' for current dir */
+! #else
+      Anchor->ap_Flags = APF_DoDot | APF_DoWild;	/* allow '.' for current dir */
+  #endif
+  
+  #ifdef FEAT_ARP
+--- 1464,1495 ----
+      char_u		*starbuf, *sp, *dp;
+      int			start_len;
+      int			matches;
++ #ifdef __amigaos4__
++     struct TagItem	AnchorTags[] = {
++ 	{ADO_Strlen, ANCHOR_BUF_SIZE},
++ 	{ADO_Flags, APF_DODOT|APF_DOWILD|APF_MultiAssigns},
++ 	{TAG_DONE, 0L}
++     };
++ #endif
+  
+      start_len = gap->ga_len;
+  
+      /* Get our AnchorBase */
++ #ifdef __amigaos4__
++     Anchor = AllocDosObject(DOS_ANCHORPATH, AnchorTags);
++ #else
+      Anchor = (struct AnchorPath *)alloc_clear((unsigned)ANCHOR_SIZE);
++ #endif
+      if (Anchor == NULL)
+  	return 0;
+  
++ #ifndef __amigaos4__
+      Anchor->ap_Strlen = ANCHOR_BUF_SIZE;  /* ap_Length not supported anymore */
+! # ifdef APF_DODOT
+      Anchor->ap_Flags = APF_DODOT | APF_DOWILD;	/* allow '.' for current dir */
+! # else
+      Anchor->ap_Flags = APF_DoDot | APF_DoWild;	/* allow '.' for current dir */
++ # endif
+  #endif
+  
+  #ifdef FEAT_ARP
+***************
+*** 1432,1438 ****
+--- 1524,1534 ----
+       */
+      while (Result == 0)
+      {
++ #ifdef __amigaos4__
++ 	addfile(gap, (char_u *)Anchor->ap_Buffer, flags);
++ #else
+  	addfile(gap, (char_u *)Anchor->ap_Buf, flags);
++ #endif
+  #ifdef FEAT_ARP
+  	if (dos2)
+  #endif
+***************
+*** 1469,1475 ****
+--- 1565,1575 ----
+  #endif
+  
+  Return:
++ #ifdef __amigaos4__
++     FreeDosObject(DOS_ANCHORPATH, Anchor);
++ #else
+      vim_free(Anchor);
++ #endif
+  
+      return matches;
+  }
+*** ../vim-7.0.155/src/os_amiga.h	Sun Jun 13 22:09:36 2004
+--- src/os_amiga.h	Wed Nov  1 18:03:32 2006
+***************
+*** 17,25 ****
+  #define HAVE_AVAIL_MEM
+  
+  #ifndef HAVE_CONFIG_H
+! # ifdef AZTEC_C
+  #  define HAVE_STAT_H
+  # endif
+  # define HAVE_STDLIB_H
+  # define HAVE_STRING_H
+  # define HAVE_FCNTL_H
+--- 17,28 ----
+  #define HAVE_AVAIL_MEM
+  
+  #ifndef HAVE_CONFIG_H
+! # if defined(AZTEC_C) || defined(__amigaos4__)
+  #  define HAVE_STAT_H
+  # endif
++ # ifdef __amigaos4__
++ #  define HAVE_STDARG_H
++ # endif
+  # define HAVE_STDLIB_H
+  # define HAVE_STRING_H
+  # define HAVE_FCNTL_H
+***************
+*** 34,48 ****
+  #  define HAVE_DATE_TIME
+  # endif
+  
+! #define DFLT_ERRORFILE		"AztecC.Err"
+! #define DFLT_RUNTIMEPATH "home:vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,home:vimfiles/after"
+  
+! #define BASENAMELEN	26	/* Amiga */
+  
+! #define TEMPNAME	"t:v?XXXXXX"
+! #define TEMPNAMELEN	12
+  
+! #endif /* HAVE_CONFIG_H */
+  
+  #include <exec/types.h>
+  #include <libraries/dos.h>
+--- 37,60 ----
+  #  define HAVE_DATE_TIME
+  # endif
+  
+! #endif /* HAVE_CONFIG_H */
+  
+! #ifndef	DFLT_ERRORFILE
+! # define DFLT_ERRORFILE		"AztecC.Err"	/* Should this change? */
+! #endif
+  
+! #ifndef	DFLT_RUNTIMEPATH
+! # define DFLT_RUNTIMEPATH "home:vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,home:vimfiles/after"
+! #endif
+  
+! #ifndef	BASENAMELEN
+! # define BASENAMELEN	26	/* Amiga */
+! #endif
+! 
+! #ifndef	TEMPNAME
+! # define TEMPNAME	"t:v?XXXXXX"
+! # define TEMPNAMELEN	12
+! #endif
+  
+  #include <exec/types.h>
+  #include <libraries/dos.h>
+***************
+*** 155,163 ****
+  #endif
+  
+  #ifdef FEAT_VIMINFO
+! #ifndef VIMINFO_FILE
+! # define VIMINFO_FILE	"s:.viminfo"
+! #endif
+  #endif /* FEAT_VIMINFO */
+  
+  #ifndef EXRC_FILE
+--- 167,175 ----
+  #endif
+  
+  #ifdef FEAT_VIMINFO
+! # ifndef VIMINFO_FILE
+! #  define VIMINFO_FILE	"s:.viminfo"
+! # endif
+  #endif /* FEAT_VIMINFO */
+  
+  #ifndef EXRC_FILE
+*** ../vim-7.0.155/src/pty.c	Sun Jun 13 22:04:27 2004
+--- src/pty.c	Wed Nov  1 17:53:01 2006
+***************
+*** 51,57 ****
+  # include <sys/termios.h>
+  #endif
+  
+! #if HAVE_SYS_IOCTL_H
+  # include <sys/ioctl.h>
+  #endif
+  
+--- 51,57 ----
+  # include <sys/termios.h>
+  #endif
+  
+! #ifdef HAVE_SYS_IOCTL_H
+  # include <sys/ioctl.h>
+  #endif
+  
+***************
+*** 69,82 ****
+  # endif
+  #endif
+  
+! #if HAVE_UNISTD_H
+  # include <unistd.h>
+  #endif
+  
+  #if HAVE_TERMIO_H
+  # include <termio.h>
+  #else
+! # if HAVE_TERMIOS_H
+  #  include <termios.h>
+  # endif
+  #endif
+--- 69,82 ----
+  # endif
+  #endif
+  
+! #ifdef HAVE_UNISTD_H
+  # include <unistd.h>
+  #endif
+  
+  #if HAVE_TERMIO_H
+  # include <termio.h>
+  #else
+! # ifdef HAVE_TERMIOS_H
+  #  include <termios.h>
+  # endif
+  #endif
+*** ../vim-7.0.155/src/version.c	Wed Nov  1 15:31:02 2006
+--- src/version.c	Wed Nov  1 18:04:17 2006
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     156,
+  /**/
+
+-- 
+hundred-and-one symptoms of being an internet addict:
+139. You down your lunch in five minutes, at your desk, so you can
+     spend the rest of the hour surfing the Net.
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
