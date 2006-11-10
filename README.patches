@@ -188,3 +188,7 @@ Individual patches for Vim 7.0:
  21499  7.0.156  (extra) Vim doesn't compile on Amiga OS4
   3594  7.0.157  profiling info was bogus for a recursively called function
   1485  7.0.158  cursor in closed fold after adding new line
+  2455  7.0.159  not enough information for an I/O error in the swap file
+  9446  7.0.160  ":@a" echoes the command
+  6639  7.0.161  (extra) Win32: window and tabline menu may use wrong encoding
+  5819  7.0.162  doesn't exit with "vim -o a b" and abort at ATTENTION prompt

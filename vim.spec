@@ -16,7 +16,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 158
+%define patchlevel 162
 
 Summary: The VIM editor.
 Name: vim
@@ -209,6 +209,10 @@ Patch155: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.155
 Patch156: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.156
 Patch157: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.157
 Patch158: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.158
+Patch159: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.159
+Patch160: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.160
+Patch161: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.161
+Patch162: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.162
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -530,6 +534,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #patch156 -p0
 %patch157 -p0
 %patch158 -p0
+%patch159 -p0
+%patch160 -p0
+# Win32:
+#patch161 -p0
+%patch162 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -918,6 +927,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Nov 10 2006 Karsten Hopp <karsten@redhat.com> 7.0.162-1
+- patchlevel 162
+
 * Mon Nov 06 2006 Karsten Hopp <karsten@redhat.com> 7.0.158-1
 - patchlevel 158
 
