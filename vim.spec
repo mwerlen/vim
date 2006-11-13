@@ -21,7 +21,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -227,6 +227,7 @@ Patch3008: vim-6.4-lib64.patch
 Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
 Patch3011: vim-7.0-vimspelltypo.patch
+Patch3012: vim-7.0-specedit.patch
 #
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
@@ -557,6 +558,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
+%patch3012 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -927,6 +929,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Nov 13 2006 Karsten Hopp <karsten@redhat.com> 7.0.%{nil}162-2
+- fix lang problem in spec file mode
+- use old g:packager variable when set
+
 * Fri Nov 10 2006 Karsten Hopp <karsten@redhat.com> 7.0.162-1
 - patchlevel 162
 
