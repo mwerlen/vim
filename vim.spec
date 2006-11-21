@@ -16,7 +16,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 162
+%define patchlevel 164
 
 Summary: The VIM editor.
 Name: vim
@@ -213,6 +213,8 @@ Patch159: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.159
 Patch160: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.160
 Patch161: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.161
 Patch162: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.162
+Patch163: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.163
+Patch164: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.164
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -540,6 +542,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Win32:
 #patch161 -p0
 %patch162 -p0
+%patch163 -p0
+%patch164 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -929,7 +933,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Mon Nov 13 2006 Karsten Hopp <karsten@redhat.com> 7.0.%{nil}162-2
+* Tue Nov 21 2006 Karsten Hopp <karsten@redhat.com> 7.0.164-2
+- patchlevel 164
+
+* Mon Nov 13 2006 Karsten Hopp <karsten@redhat.com> 7.0.162-2
 - fix lang problem in spec file mode
 - use old g:packager variable when set
 

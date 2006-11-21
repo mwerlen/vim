@@ -192,3 +192,5 @@ Individual patches for Vim 7.0:
   9446  7.0.160  ":@a" echoes the command
   6639  7.0.161  (extra) Win32: window and tabline menu may use wrong encoding
   5819  7.0.162  doesn't exit with "vim -o a b" and abort at ATTENTION prompt
+  4306  7.0.163  can't get the position of a sign over the netbeans interface
+  1518  7.0.164  ":redir @+" doesn't work
