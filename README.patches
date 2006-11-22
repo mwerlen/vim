@@ -194,3 +194,7 @@ Individual patches for Vim 7.0:
   5819  7.0.162  doesn't exit with "vim -o a b" and abort at ATTENTION prompt
   4306  7.0.163  can't get the position of a sign over the netbeans interface
   1518  7.0.164  ":redir @+" doesn't work
+  2284  7.0.165  using CTRL-L to add to a search pattern fails for some chars
+  1865  7.0.166  crash with cscope when a file descriptor is NULL
+  1942  7.0.167  can't redefine a function in a dictionary
+  2224  7.0.168  reading uninitialized memory and a memory leak in recovery
