@@ -16,12 +16,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 164
+%define patchlevel 168
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -215,6 +215,10 @@ Patch161: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.161
 Patch162: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.162
 Patch163: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.163
 Patch164: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.164
+Patch165: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.165
+Patch166: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.166
+Patch167: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.167
+Patch168: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.168
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -235,7 +239,7 @@ Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-root
-Buildrequires: python-devel perl libtermcap-devel gettext
+Buildrequires: python-devel perl ncurses-devel gettext
 Buildrequires: libacl-devel gpm-devel autoconf
 %if %{WITH_SELINUX}
 Buildrequires: libselinux-devel
@@ -544,6 +548,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch162 -p0
 %patch163 -p0
 %patch164 -p0
+%patch165 -p0
+%patch166 -p0
+%patch167 -p0
+%patch168 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -586,6 +594,7 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
+  --with-tlib=ncurses \
   --enable-gtk2-check --enable-gui=gtk2 \
   --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
   --with-modified-by="<bugzilla@redhat.com>" \
@@ -603,6 +612,7 @@ make clean
  --enable-perlinterp --disable-tclinterp --with-x=no \
  --enable-gui=no --exec-prefix=/usr --enable-multibyte \
  --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
+  --with-tlib=ncurses \
  --with-compiledby="<bugzilla@redhat.com>" \
 %if "%{withnetbeans}" == "1"
   --enable-netbeans \
@@ -620,7 +630,9 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
   --enable-multibyte \
   --disable-netbeans \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
-  --with-tlib=termcap --enable-gui=no --disable-gpm --exec-prefix=/ --with-compiledby="<bugzilla@redhat.com>"
+  --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
+  --with-compiledby="<bugzilla@redhat.com>" \
+  --with-modified-by="<bugzilla@redhat.com>"
 
 make
 
@@ -933,6 +945,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Nov 22 2006 Karsten Hopp <karsten@redhat.com> 7.0.168-1
+- patchlevel 168
+- link with ncurses
+
 * Tue Nov 21 2006 Karsten Hopp <karsten@redhat.com> 7.0.164-2
 - patchlevel 164
 
