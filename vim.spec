@@ -21,7 +21,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -945,6 +945,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Dec  7 2006 Jeremy Katz <katzj@redhat.com>
+- rebuild for python 2.5
+
 * Wed Nov 22 2006 Karsten Hopp <karsten@redhat.com> 7.0.168-1
 - patchlevel 168
 - link with ncurses
