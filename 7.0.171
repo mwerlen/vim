@@ -1,0 +1,509 @@
+To: vim-dev@vim.org
+Subject: Patch 7.0.171 (extra)
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.171 (extra)
+Problem:    VMS: A file name with multiple paths is written in the wrong file.
+Solution:   Get the actually used file name. (Zoltan Arpadffy)
+	    Also add info to the :version command about compilation.
+Files:	    src/Make_vms.mms, src/buffer.c, src/os_unix.c, src/version.c
+
+
+*** ../vim-7.0.170/src/Make_vms.mms	Sun Apr 30 20:46:53 2006
+--- src/Make_vms.mms	Mon Sep  4 20:54:51 2006
+***************
+*** 2,8 ****
+  # Makefile for Vim on OpenVMS
+  #
+  # Maintainer:   Zoltan Arpadffy <arpadffy@polarhome.com>
+! # Last change:  2006 Apr 30
+  #
+  # This has script been tested on VMS 6.2 to 8.2 on DEC Alpha, VAX and IA64
+  # with MMS and MMK
+--- 2,8 ----
+  # Makefile for Vim on OpenVMS
+  #
+  # Maintainer:   Zoltan Arpadffy <arpadffy@polarhome.com>
+! # Last change:  2006 Sep 04
+  #
+  # This has script been tested on VMS 6.2 to 8.2 on DEC Alpha, VAX and IA64
+  # with MMS and MMK
+***************
+*** 13,19 ****
+  #
+  # Edit the lines in the Configuration section below for fine tuning.
+  #
+! # To build:    mms/descrip=Make_vms.mms
+  # To clean up: mms/descrip=Make_vms.mms clean
+  #
+  # Hints and detailed description could be found in INSTALLVMS.TXT file.
+--- 13,19 ----
+  #
+  # Edit the lines in the Configuration section below for fine tuning.
+  #
+! # To build:    mms/descrip=Make_vms.mms /ignore=warning
+  # To clean up: mms/descrip=Make_vms.mms clean
+  #
+  # Hints and detailed description could be found in INSTALLVMS.TXT file.
+***************
+*** 21,30 ****
+  ######################################################################
+  # Configuration section.
+  ######################################################################
+- # Platform selection
+- # Define this if you will use the VAX platform to build.
+- # VAX = YES
+- 
+  # VMS version
+  # Uncomment if you use VMS version 6.2 or older
+  # OLD_VMS = YES
+--- 21,26 ----
+***************
+*** 49,54 ****
+--- 45,51 ----
+  
+  # GUI with GTK
+  # If you have GTK installed you might want to enable this option.
++ # NOTE: you will need to properly define GTK_DIR below
+  # GTK = YES
+  
+  # GUI/Motif with XPM
+***************
+*** 97,103 ****
+  
+  # Compiler setup
+  
+! .IFDEF VAX
+  .IFDEF DECC	     # VAX with DECC
+  CC_DEF  = cc # /decc # some system requires this switch
+  		     # but when it is not required /ver might fail
+--- 94,100 ----
+  
+  # Compiler setup
+  
+! .IFDEF MMSVAX
+  .IFDEF DECC	     # VAX with DECC
+  CC_DEF  = cc # /decc # some system requires this switch
+  		     # but when it is not required /ver might fail
+***************
+*** 165,172 ****
+  # NOTE: you need to set up your GTK_DIR (GTK root directory), because it is
+  # unique on every system - logicals are not accepted
+  # please note: directory should end with . in order to /trans=conc work
+! # Example: GTK_DIR  = $1$DGA104:[USERS.ZAY.WORK.GTK1210.]
+! GTK_DIR  = DKA0:[GTK1210.]
+  DEFS     = "HAVE_CONFIG_H","FEAT_GUI_GTK"
+  LIBS     = ,OS_VMS_GTK.OPT/OPT
+  GUI_FLAG = /name=(as_is,short)/float=ieee/ieee=denorm
+--- 162,169 ----
+  # NOTE: you need to set up your GTK_DIR (GTK root directory), because it is
+  # unique on every system - logicals are not accepted
+  # please note: directory should end with . in order to /trans=conc work
+! # This value for GTK_DIR is an example.
+! GTK_DIR  = $1$DGA104:[USERS.ZAY.WORK.GTK1210.]
+  DEFS     = "HAVE_CONFIG_H","FEAT_GUI_GTK"
+  LIBS     = ,OS_VMS_GTK.OPT/OPT
+  GUI_FLAG = /name=(as_is,short)/float=ieee/ieee=denorm
+***************
+*** 274,280 ****
+  # Please, do not change anything below without programming experience.
+  ######################################################################
+  
+- 
+  MODEL_DEF = "FEAT_$(MODEL)",
+  
+  # These go into pathdef.c
+--- 271,276 ----
+***************
+*** 360,366 ****
+  	-@ write pd "char_u *all_lflags = (char_u *)""$(LD_DEF)$(LDFLAGS) /exe=$(TARGET) *.OBJ $(ALL_LIBS)"";"
+  	-@ write pd "char_u *compiler_version = (char_u *) ""''CC_VER'"";"
+  	-@ write pd "char_u *compiled_user = (char_u *) "$(VIMUSER)";"
+! 	-@ write pd "char_u *compiled_sys = (char_u *) "$(VIMHOST)";"
+  	-@ close pd
+  
+  if_perl.c : if_perl.xs
+--- 356,363 ----
+  	-@ write pd "char_u *all_lflags = (char_u *)""$(LD_DEF)$(LDFLAGS) /exe=$(TARGET) *.OBJ $(ALL_LIBS)"";"
+  	-@ write pd "char_u *compiler_version = (char_u *) ""''CC_VER'"";"
+  	-@ write pd "char_u *compiled_user = (char_u *) "$(VIMUSER)";"
+! 	-@ write pd "char_u *compiled_sys  = (char_u *) "$(VIMHOST)";"
+! 	-@ write pd "char_u *compiled_arch = (char_u *) ""$(MMSARCH_NAME)"";"
+  	-@ close pd
+  
+  if_perl.c : if_perl.xs
+*** ../vim-7.0.170/src/buffer.c	Tue Nov  7 22:41:37 2006
+--- src/buffer.c	Tue Nov  7 21:08:02 2006
+***************
+*** 4145,4155 ****
+      /*
+       * Force expanding the path always for Unix, because symbolic links may
+       * mess up the full path name, even though it starts with a '/'.
+       * Also expand when there is ".." in the file name, try to remove it,
+       * because "c:/src/../README" is equal to "c:/README".
+       * For MS-Windows also expand names like "longna~1" to "longname".
+       */
+! #ifdef UNIX
+      return FullName_save(fname, TRUE);
+  #else
+      if (!vim_isAbsName(fname) || strstr((char *)fname, "..") != NULL
+--- 4145,4157 ----
+      /*
+       * Force expanding the path always for Unix, because symbolic links may
+       * mess up the full path name, even though it starts with a '/'.
++      * Also expand always for VMS, it may have alternate paths that need to be
++      * resolved.
+       * Also expand when there is ".." in the file name, try to remove it,
+       * because "c:/src/../README" is equal to "c:/README".
+       * For MS-Windows also expand names like "longna~1" to "longname".
+       */
+! #if defined(UNIX) || defined(VMS)
+      return FullName_save(fname, TRUE);
+  #else
+      if (!vim_isAbsName(fname) || strstr((char *)fname, "..") != NULL
+*** ../vim-7.0.170/src/os_unix.c	Tue Aug 29 17:28:56 2006
+--- src/os_unix.c	Tue Nov 28 17:38:54 2006
+***************
+*** 2202,2208 ****
+  #endif
+  
+  /*
+!  * Get absolute file name into buffer 'buf' of length 'len' bytes.
+   *
+   * return FAIL for failure, OK for success
+   */
+--- 2202,2208 ----
+  #endif
+  
+  /*
+!  * Get absolute file name into "buf[len]".
+   *
+   * return FAIL for failure, OK for success
+   */
+***************
+*** 2212,2233 ****
+      int		len;
+      int		force;		/* also expand when already absolute path */
+  {
+      int		l;
+! #ifdef OS2
+      int		only_drive;	/* file name is only a drive letter */
+! #endif
+! #ifdef HAVE_FCHDIR
+      int		fd = -1;
+      static int	dont_fchdir = FALSE;	/* TRUE when fchdir() doesn't work */
+! #endif
+      char_u	olddir[MAXPATHL];
+      char_u	*p;
+      int		retval = OK;
+  
+- #ifdef VMS
+-     fname = vms_fixfilename(fname);
+- #endif
+- 
+      /* expand it if forced or not an absolute path */
+      if (force || !mch_isFullName(fname))
+      {
+--- 2212,2261 ----
+      int		len;
+      int		force;		/* also expand when already absolute path */
+  {
++ #ifdef VMS
++     /*
++      * VMS does this in a completely different way.
++      *
++      * By default a file found in a complex path is written to the first
++      * directory in the path and not to the original directory.  This
++      * behaviour should be avoided for the existing files and we need to find
++      * the exact path of the edited file.
++      */
++     if (force || !mch_isFullName(fname))
++     {
++ 	char_u	*fixed_fname = vms_fixfilename(fname);
++ 	int	fd = mch_open((char *)fixed_fname, O_RDONLY | O_EXTRA, 0);
++ 
++ 	if (fd > 0)
++ 	{
++ 	    char nbuf[MAXNAMLEN];
++ 
++ 	    /* File exists, use getname() to get the real name. */
++ 	    if (getname(fd, nbuf))
++ 		vim_strncpy(fixed_fname, (char_u *)nbuf, (size_t)(len - 1));
++ 	    close(fd);
++ 	}
++ 
++ 	if (STRLEN(fixed_fname) >= len)
++ 	    return FAIL;
++ 
++ 	STRCPY(buf, fixed_fname);
++     }
++ 
++ #else /* not VMS */
++ 
+      int		l;
+! # ifdef OS2
+      int		only_drive;	/* file name is only a drive letter */
+! # endif
+! # ifdef HAVE_FCHDIR
+      int		fd = -1;
+      static int	dont_fchdir = FALSE;	/* TRUE when fchdir() doesn't work */
+! # endif
+      char_u	olddir[MAXPATHL];
+      char_u	*p;
+      int		retval = OK;
+  
+      /* expand it if forced or not an absolute path */
+      if (force || !mch_isFullName(fname))
+      {
+***************
+*** 2236,2251 ****
+  	 * and then do the getwd() (and get back to where we were).
+  	 * This will get the correct path name with "../" things.
+  	 */
+! #ifdef OS2
+  	only_drive = 0;
+  	if (((p = vim_strrchr(fname, '/')) != NULL)
+  		|| ((p = vim_strrchr(fname, '\\')) != NULL)
+  		|| (((p = vim_strchr(fname,  ':')) != NULL) && ++only_drive))
+! #else
+  	if ((p = vim_strrchr(fname, '/')) != NULL)
+! #endif
+  	{
+! #ifdef HAVE_FCHDIR
+  	    /*
+  	     * Use fchdir() if possible, it's said to be faster and more
+  	     * reliable.  But on SunOS 4 it might not work.  Check this by
+--- 2264,2279 ----
+  	 * and then do the getwd() (and get back to where we were).
+  	 * This will get the correct path name with "../" things.
+  	 */
+! # ifdef OS2
+  	only_drive = 0;
+  	if (((p = vim_strrchr(fname, '/')) != NULL)
+  		|| ((p = vim_strrchr(fname, '\\')) != NULL)
+  		|| (((p = vim_strchr(fname,  ':')) != NULL) && ++only_drive))
+! # else
+  	if ((p = vim_strrchr(fname, '/')) != NULL)
+! # endif
+  	{
+! # ifdef HAVE_FCHDIR
+  	    /*
+  	     * Use fchdir() if possible, it's said to be faster and more
+  	     * reliable.  But on SunOS 4 it might not work.  Check this by
+***************
+*** 2261,2274 ****
+  		    dont_fchdir = TRUE;	    /* don't try again */
+  		}
+  	    }
+! #endif
+  
+  	    /* Only change directory when we are sure we can return to where
+  	     * we are now.  After doing "su" chdir(".") might not work. */
+  	    if (
+! #ifdef HAVE_FCHDIR
+  		fd < 0 &&
+! #endif
+  			(mch_dirname(olddir, MAXPATHL) == FAIL
+  					   || mch_chdir((char *)olddir) != 0))
+  	    {
+--- 2289,2302 ----
+  		    dont_fchdir = TRUE;	    /* don't try again */
+  		}
+  	    }
+! # endif
+  
+  	    /* Only change directory when we are sure we can return to where
+  	     * we are now.  After doing "su" chdir(".") might not work. */
+  	    if (
+! # ifdef HAVE_FCHDIR
+  		fd < 0 &&
+! # endif
+  			(mch_dirname(olddir, MAXPATHL) == FAIL
+  					   || mch_chdir((char *)olddir) != 0))
+  	    {
+***************
+*** 2277,2283 ****
+  	    }
+  	    else
+  	    {
+! #ifdef OS2
+  		/*
+  		 * compensate for case where ':' from "D:" was the only
+  		 * path separator detected in the file name; the _next_
+--- 2305,2311 ----
+  	    }
+  	    else
+  	    {
+! # ifdef OS2
+  		/*
+  		 * compensate for case where ':' from "D:" was the only
+  		 * path separator detected in the file name; the _next_
+***************
+*** 2285,2291 ****
+  		 */
+  		if (only_drive)
+  		    p++;
+! #endif
+  		/* The directory is copied into buf[], to be able to remove
+  		 * the file name without changing it (could be a string in
+  		 * read-only memory) */
+--- 2313,2319 ----
+  		 */
+  		if (only_drive)
+  		    p++;
+! # endif
+  		/* The directory is copied into buf[], to be able to remove
+  		 * the file name without changing it (could be a string in
+  		 * read-only memory) */
+***************
+*** 2300,2313 ****
+  			fname = p + 1;
+  		    *buf = NUL;
+  		}
+! #ifdef OS2
+  		if (only_drive)
+  		{
+  		    p--;
+  		    if (retval != FAIL)
+  			fname--;
+  		}
+! #endif
+  	    }
+  	}
+  	if (mch_dirname(buf, len) == FAIL)
+--- 2328,2341 ----
+  			fname = p + 1;
+  		    *buf = NUL;
+  		}
+! # ifdef OS2
+  		if (only_drive)
+  		{
+  		    p--;
+  		    if (retval != FAIL)
+  			fname--;
+  		}
+! # endif
+  	    }
+  	}
+  	if (mch_dirname(buf, len) == FAIL)
+***************
+*** 2317,2330 ****
+  	}
+  	if (p != NULL)
+  	{
+! #ifdef HAVE_FCHDIR
+  	    if (fd >= 0)
+  	    {
+  		l = fchdir(fd);
+  		close(fd);
+  	    }
+  	    else
+! #endif
+  		l = mch_chdir((char *)olddir);
+  	    if (l != 0)
+  		EMSG(_(e_prev_dir));
+--- 2345,2358 ----
+  	}
+  	if (p != NULL)
+  	{
+! # ifdef HAVE_FCHDIR
+  	    if (fd >= 0)
+  	    {
+  		l = fchdir(fd);
+  		close(fd);
+  	    }
+  	    else
+! # endif
+  		l = mch_chdir((char *)olddir);
+  	    if (l != 0)
+  		EMSG(_(e_prev_dir));
+***************
+*** 2333,2347 ****
+  	l = STRLEN(buf);
+  	if (l >= len)
+  	    retval = FAIL;
+- #ifndef VMS
+  	else
+  	{
+  	    if (l > 0 && buf[l - 1] != '/' && *fname != NUL
+  						   && STRCMP(fname, ".") != 0)
+  		STRCAT(buf, "/");
+  	}
+- #endif
+      }
+      /* Catch file names which are too long. */
+      if (retval == FAIL || STRLEN(buf) + STRLEN(fname) >= len)
+  	return FAIL;
+--- 2361,2374 ----
+  	l = STRLEN(buf);
+  	if (l >= len)
+  	    retval = FAIL;
+  	else
+  	{
+  	    if (l > 0 && buf[l - 1] != '/' && *fname != NUL
+  						   && STRCMP(fname, ".") != 0)
+  		STRCAT(buf, "/");
+  	}
+      }
++ 
+      /* Catch file names which are too long. */
+      if (retval == FAIL || STRLEN(buf) + STRLEN(fname) >= len)
+  	return FAIL;
+***************
+*** 2349,2354 ****
+--- 2376,2383 ----
+      /* Do not append ".", "/dir/." is equal to "/dir". */
+      if (STRCMP(fname, ".") != 0)
+  	STRCAT(buf, fname);
++ 
++ #endif /* VMS */
+  
+      return OK;
+  }
+*** ../vim-7.0.170/src/version.c	Tue Nov 28 17:18:03 2006
+--- src/version.c	Tue Nov 28 17:35:05 2006
+***************
+*** 1113,1118 ****
+--- 1115,1128 ----
+  #endif
+  #ifdef VMS
+      MSG_PUTS("\nOpenVMS version");
++ # ifdef HAVE_PATHDEF
++     if (*compiled_arch != NUL)
++     {
++ 	MSG_PUTS(" - ");
++ 	MSG_PUTS(compiled_arch);
++     }
++ # endif
++ 
+  #endif
+  
+      /* Print the list of patch numbers if there is at least one. */
+*** ../vim-7.0.170/src/version.c	Tue Nov 28 17:18:03 2006
+--- src/version.c	Tue Nov 28 17:35:05 2006
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     171,
+  /**/
+
+-- 
+GUARD #1:  What, ridden on a horse?
+ARTHUR:    Yes!
+GUARD #1:  You're using coconuts!
+ARTHUR:    What?
+GUARD #1:  You've got two empty halves of coconut and you're bangin' 'em
+           together.
+                                  The Quest for the Holy Grail (Monty Python)
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
