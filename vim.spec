@@ -16,12 +16,12 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 168
+%define patchlevel 178
 
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 1
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -219,6 +219,16 @@ Patch165: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.165
 Patch166: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.166
 Patch167: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.167
 Patch168: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.168
+Patch169: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.169
+Patch170: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.170
+Patch171: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.171
+Patch172: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.172
+Patch173: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.173
+Patch174: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.174
+Patch175: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.175
+Patch176: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.176
+Patch177: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.177
+Patch178: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.178
 
 
 Patch3000: vim-7.0-syntax.patch
@@ -552,6 +562,18 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch166 -p0
 %patch167 -p0
 %patch168 -p0
+%patch169 -p0
+# Win32:
+#patch170 -p0
+# VMS:
+#patch171 -p0
+%patch172 -p0
+%patch173 -p0
+%patch174 -p0
+%patch175 -p0
+%patch176 -p0
+%patch177 -p0
+%patch178 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -594,7 +616,7 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
-  --with-tlib=ncurses \
+  --with-tlib=ncursesw \
   --enable-gtk2-check --enable-gui=gtk2 \
   --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
   --with-modified-by="<bugzilla@redhat.com>" \
@@ -612,7 +634,7 @@ make clean
  --enable-perlinterp --disable-tclinterp --with-x=no \
  --enable-gui=no --exec-prefix=/usr --enable-multibyte \
  --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
-  --with-tlib=ncurses \
+  --with-tlib=ncursesw \
  --with-compiledby="<bugzilla@redhat.com>" \
 %if "%{withnetbeans}" == "1"
   --enable-netbeans \
@@ -630,7 +652,7 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
   --enable-multibyte \
   --disable-netbeans \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
-  --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
+  --with-tlib=ncursesw --enable-gui=no --disable-gpm --exec-prefix=/ \
   --with-compiledby="<bugzilla@redhat.com>" \
   --with-modified-by="<bugzilla@redhat.com>"
 
@@ -639,7 +661,8 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
-mkdir -p $RPM_BUILD_ROOT/usr/{bin,share/vim}
+mkdir -p $RPM_BUILD_ROOT/usr/bin
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles
 #cp -f %{SOURCE5} .
 
 %if "%{withcvim}" == "1"
@@ -702,9 +725,9 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
   ln -sf vim.1.gz .%{_mandir}/man1/gvimdiff.1.gz
   ln -sf gvim ./usr/bin/vimx
   %if "%{desktop_file}" == "1"
-    mkdir -p $RPM_BUILD_ROOT/usr/share/applications
+    mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
     desktop-file-install --vendor net \
-        --dir $RPM_BUILD_ROOT/usr/share/applications \
+        --dir $RPM_BUILD_ROOT/%{_datadir}/applications \
         --add-category "Application;Development;X-Red-Hat-Base" \
         %{SOURCE3}
   %else
@@ -712,11 +735,11 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
     cp %{SOURCE3} ./etc/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
-  ( cd ./usr/share/vim/%{vimdir}/lang; \
+  ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
     ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
 )
 
-pushd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/tutor
+pushd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/tutor
 mkdir conv
    iconv -f CP1252 -t UTF8 tutor.ca > conv/tutor.ca
    iconv -f CP1252 -t UTF8 tutor.it > conv/tutor.it
@@ -741,9 +764,9 @@ rmdir conv
 popd
 
 # Dependency cleanups
-chmod 644 $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc/vim2html.pl \
- $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/tools/*.pl \
- $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/tools/vim132
+chmod 644 $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc/vim2html.pl \
+ $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/tools/*.pl \
+ $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/tools/vim132
 chmod 644 ../runtime/doc/vim2html.pl
 
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d
@@ -762,7 +785,7 @@ EOF
 chmod 0755 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
 install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
-(cd $RPM_BUILD_ROOT/usr/share/vim/%{vimdir}/doc;
+(cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
  gzip -d help.txt.gz
  cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags
@@ -791,51 +814,52 @@ rm -rf $RPM_BUILD_ROOT
 %doc README*
 %doc runtime/docs
 %doc $RPM_SOURCE_DIR/Changelog.rpm
-%dir /usr/share/vim
-%dir /usr/share/vim/%{vimdir}
-/usr/share/vim/%{vimdir}/autoload
-/usr/share/vim/%{vimdir}/colors
-/usr/share/vim/%{vimdir}/compiler
-/usr/share/vim/%{vimdir}/doc
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/%{vimdir}
+%{_datadir}/%{name}/vimfiles
+%{_datadir}/%{name}/%{vimdir}/autoload
+%{_datadir}/%{name}/%{vimdir}/colors
+%{_datadir}/%{name}/%{vimdir}/compiler
+%{_datadir}/%{name}/%{vimdir}/doc
 #exclude /usr/share/vim/%{vimdir}/doc/vi-help.txt
-/usr/share/vim/%{vimdir}/*.vim
-/usr/share/vim/%{vimdir}/ftplugin
-/usr/share/vim/%{vimdir}/indent
-/usr/share/vim/%{vimdir}/keymap
-/usr/share/vim/%{vimdir}/lang/*.vim
-/usr/share/vim/%{vimdir}/lang/*.txt
-%dir /usr/share/vim/%{vimdir}/lang
-/usr/share/vim/%{vimdir}/macros
-/usr/share/vim/%{vimdir}/plugin
-/usr/share/vim/%{vimdir}/print
-/usr/share/vim/%{vimdir}/syntax
-/usr/share/vim/%{vimdir}/tools
-/usr/share/vim/%{vimdir}/tutor
+%{_datadir}/%{name}/%{vimdir}/*.vim
+%{_datadir}/%{name}/%{vimdir}/ftplugin
+%{_datadir}/%{name}/%{vimdir}/indent
+%{_datadir}/%{name}/%{vimdir}/keymap
+%{_datadir}/%{name}/%{vimdir}/lang/*.vim
+%{_datadir}/%{name}/%{vimdir}/lang/*.txt
+%dir %{_datadir}/%{name}/%{vimdir}/lang
+%{_datadir}/%{name}/%{vimdir}/macros
+%{_datadir}/%{name}/%{vimdir}/plugin
+%{_datadir}/%{name}/%{vimdir}/print
+%{_datadir}/%{name}/%{vimdir}/syntax
+%{_datadir}/%{name}/%{vimdir}/tools
+%{_datadir}/%{name}/%{vimdir}/tutor
 %if ! %{withvimspell}
-/usr/share/vim/%{vimdir}/spell
+%{_datadir}/%{name}/%{vimdir}/spell
 %endif
-%lang(af) /usr/share/vim/%{vimdir}/lang/af
-%lang(ca) /usr/share/vim/%{vimdir}/lang/ca
-%lang(cs) /usr/share/vim/%{vimdir}/lang/cs
-%lang(de) /usr/share/vim/%{vimdir}/lang/de
-%lang(en_GB) /usr/share/vim/%{vimdir}/lang/en_GB
-%lang(es) /usr/share/vim/%{vimdir}/lang/es
-%lang(fr) /usr/share/vim/%{vimdir}/lang/fr
-%lang(ga) /usr/share/vim/%{vimdir}/lang/ga
-%lang(it) /usr/share/vim/%{vimdir}/lang/it
-%lang(ja) /usr/share/vim/%{vimdir}/lang/ja
-%lang(ko) /usr/share/vim/%{vimdir}/lang/ko
-%lang(no) /usr/share/vim/%{vimdir}/lang/no
-%lang(pl) /usr/share/vim/%{vimdir}/lang/pl
-%lang(ru) /usr/share/vim/%{vimdir}/lang/ru
-%lang(sk) /usr/share/vim/%{vimdir}/lang/sk
-%lang(sv) /usr/share/vim/%{vimdir}/lang/sv
-%lang(uk) /usr/share/vim/%{vimdir}/lang/uk
-%lang(vi) /usr/share/vim/%{vimdir}/lang/vi
-%lang(zh_CN) /usr/share/vim/%{vimdir}/lang/zh_CN
-%lang(zh_TW) /usr/share/vim/%{vimdir}/lang/zh_TW
-%lang(zh_CN.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_CN.UTF-8
-%lang(zh_TW.UTF-8) /usr/share/vim/%{vimdir}/lang/zh_TW.UTF-8
+%lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
+%lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
+%lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
+%lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
+%lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
+%lang(es) %{_datadir}/%{name}/%{vimdir}/lang/es
+%lang(fr) %{_datadir}/%{name}/%{vimdir}/lang/fr
+%lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
+%lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
+%lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
+%lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
+%lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
+%lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
+%lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
+%lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
+%lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
+%lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
+%lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
+%lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
+%lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
+%lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
+%lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
 /usr/bin/xxd
 %{_mandir}/man1/vim.*
 %{_mandir}/man1/ex.*
@@ -851,58 +875,58 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %{withvimspell}
 %files spell
-%dir /usr/share/vim/%{vimdir}/spell
-/usr/share/vim/vim70/spell/cleanadd.vim
-%lang(af) /usr/share/vim/%{vimdir}/spell/af.*
-%lang(am) /usr/share/vim/%{vimdir}/spell/am.*
-%lang(bg) /usr/share/vim/%{vimdir}/spell/bg.*
-%lang(ca) /usr/share/vim/%{vimdir}/spell/ca.*
-%lang(cs) /usr/share/vim/%{vimdir}/spell/cs.*
-%lang(cy) /usr/share/vim/%{vimdir}/spell/cy.*
-%lang(da) /usr/share/vim/%{vimdir}/spell/da.*
-%lang(de) /usr/share/vim/%{vimdir}/spell/de.*
-%lang(el) /usr/share/vim/%{vimdir}/spell/el.*
-%lang(en) /usr/share/vim/%{vimdir}/spell/en.*
-%lang(eo) /usr/share/vim/%{vimdir}/spell/eo.*
-%lang(es) /usr/share/vim/%{vimdir}/spell/es.*
-%lang(fo) /usr/share/vim/%{vimdir}/spell/fo.*
-%lang(fr) /usr/share/vim/%{vimdir}/spell/fr.*
-%lang(ga) /usr/share/vim/%{vimdir}/spell/ga.*
-%lang(gd) /usr/share/vim/%{vimdir}/spell/gd.*
-%lang(gl) /usr/share/vim/%{vimdir}/spell/gl.*
-%lang(he) /usr/share/vim/%{vimdir}/spell/he.*
-%lang(hr) /usr/share/vim/%{vimdir}/spell/hr.*
-%lang(hu) /usr/share/vim/%{vimdir}/spell/hu.*
-%lang(id) /usr/share/vim/%{vimdir}/spell/id.*
-%lang(it) /usr/share/vim/%{vimdir}/spell/it.*
-%lang(ku) /usr/share/vim/%{vimdir}/spell/ku.*
-%lang(la) /usr/share/vim/%{vimdir}/spell/la.*
-%lang(lt) /usr/share/vim/%{vimdir}/spell/lt.*
-%lang(lv) /usr/share/vim/%{vimdir}/spell/lv.*
-%lang(mg) /usr/share/vim/%{vimdir}/spell/mg.*
-%lang(mi) /usr/share/vim/%{vimdir}/spell/mi.*
-%lang(ms) /usr/share/vim/%{vimdir}/spell/ms.*
-%lang(nb) /usr/share/vim/%{vimdir}/spell/nb.*
-%lang(nl) /usr/share/vim/%{vimdir}/spell/nl.*
-%lang(nn) /usr/share/vim/%{vimdir}/spell/nn.*
-%lang(ny) /usr/share/vim/%{vimdir}/spell/ny.*
-%lang(pl) /usr/share/vim/%{vimdir}/spell/pl.*
-%lang(pt) /usr/share/vim/%{vimdir}/spell/pt.*
-%lang(ro) /usr/share/vim/%{vimdir}/spell/ro.*
-%lang(ru) /usr/share/vim/%{vimdir}/spell/ru.*
-%lang(rw) /usr/share/vim/%{vimdir}/spell/rw.*
-%lang(sk) /usr/share/vim/%{vimdir}/spell/sk.*
-%lang(sl) /usr/share/vim/%{vimdir}/spell/sl.*
-%lang(sv) /usr/share/vim/%{vimdir}/spell/sv.*
-%lang(sw) /usr/share/vim/%{vimdir}/spell/sw.*
-%lang(tet) /usr/share/vim/%{vimdir}/spell/tet.*
-%lang(th) /usr/share/vim/%{vimdir}/spell/th.*
-%lang(tl) /usr/share/vim/%{vimdir}/spell/tl.*
-%lang(tn) /usr/share/vim/%{vimdir}/spell/tn.*
-%lang(uk) /usr/share/vim/%{vimdir}/spell/uk.*
-%lang(yi) /usr/share/vim/%{vimdir}/spell/yi.*
-%lang(yi-tr) /usr/share/vim/%{vimdir}/spell/yi-tr.*
-%lang(zu) /usr/share/vim/%{vimdir}/spell/zu.*
+%dir %{_datadir}/%{name}/%{vimdir}/spell
+%{_datadir}/%{name}/vim70/spell/cleanadd.vim
+%lang(af) %{_datadir}/%{name}/%{vimdir}/spell/af.*
+%lang(am) %{_datadir}/%{name}/%{vimdir}/spell/am.*
+%lang(bg) %{_datadir}/%{name}/%{vimdir}/spell/bg.*
+%lang(ca) %{_datadir}/%{name}/%{vimdir}/spell/ca.*
+%lang(cs) %{_datadir}/%{name}/%{vimdir}/spell/cs.*
+%lang(cy) %{_datadir}/%{name}/%{vimdir}/spell/cy.*
+%lang(da) %{_datadir}/%{name}/%{vimdir}/spell/da.*
+%lang(de) %{_datadir}/%{name}/%{vimdir}/spell/de.*
+%lang(el) %{_datadir}/%{name}/%{vimdir}/spell/el.*
+%lang(en) %{_datadir}/%{name}/%{vimdir}/spell/en.*
+%lang(eo) %{_datadir}/%{name}/%{vimdir}/spell/eo.*
+%lang(es) %{_datadir}/%{name}/%{vimdir}/spell/es.*
+%lang(fo) %{_datadir}/%{name}/%{vimdir}/spell/fo.*
+%lang(fr) %{_datadir}/%{name}/%{vimdir}/spell/fr.*
+%lang(ga) %{_datadir}/%{name}/%{vimdir}/spell/ga.*
+%lang(gd) %{_datadir}/%{name}/%{vimdir}/spell/gd.*
+%lang(gl) %{_datadir}/%{name}/%{vimdir}/spell/gl.*
+%lang(he) %{_datadir}/%{name}/%{vimdir}/spell/he.*
+%lang(hr) %{_datadir}/%{name}/%{vimdir}/spell/hr.*
+%lang(hu) %{_datadir}/%{name}/%{vimdir}/spell/hu.*
+%lang(id) %{_datadir}/%{name}/%{vimdir}/spell/id.*
+%lang(it) %{_datadir}/%{name}/%{vimdir}/spell/it.*
+%lang(ku) %{_datadir}/%{name}/%{vimdir}/spell/ku.*
+%lang(la) %{_datadir}/%{name}/%{vimdir}/spell/la.*
+%lang(lt) %{_datadir}/%{name}/%{vimdir}/spell/lt.*
+%lang(lv) %{_datadir}/%{name}/%{vimdir}/spell/lv.*
+%lang(mg) %{_datadir}/%{name}/%{vimdir}/spell/mg.*
+%lang(mi) %{_datadir}/%{name}/%{vimdir}/spell/mi.*
+%lang(ms) %{_datadir}/%{name}/%{vimdir}/spell/ms.*
+%lang(nb) %{_datadir}/%{name}/%{vimdir}/spell/nb.*
+%lang(nl) %{_datadir}/%{name}/%{vimdir}/spell/nl.*
+%lang(nn) %{_datadir}/%{name}/%{vimdir}/spell/nn.*
+%lang(ny) %{_datadir}/%{name}/%{vimdir}/spell/ny.*
+%lang(pl) %{_datadir}/%{name}/%{vimdir}/spell/pl.*
+%lang(pt) %{_datadir}/%{name}/%{vimdir}/spell/pt.*
+%lang(ro) %{_datadir}/%{name}/%{vimdir}/spell/ro.*
+%lang(ru) %{_datadir}/%{name}/%{vimdir}/spell/ru.*
+%lang(rw) %{_datadir}/%{name}/%{vimdir}/spell/rw.*
+%lang(sk) %{_datadir}/%{name}/%{vimdir}/spell/sk.*
+%lang(sl) %{_datadir}/%{name}/%{vimdir}/spell/sl.*
+%lang(sv) %{_datadir}/%{name}/%{vimdir}/spell/sv.*
+%lang(sw) %{_datadir}/%{name}/%{vimdir}/spell/sw.*
+%lang(tet) %{_datadir}/%{name}/%{vimdir}/spell/tet.*
+%lang(th) %{_datadir}/%{name}/%{vimdir}/spell/th.*
+%lang(tl) %{_datadir}/%{name}/%{vimdir}/spell/tl.*
+%lang(tn) %{_datadir}/%{name}/%{vimdir}/spell/tn.*
+%lang(uk) %{_datadir}/%{name}/%{vimdir}/spell/uk.*
+%lang(yi) %{_datadir}/%{name}/%{vimdir}/spell/yi.*
+%lang(yi-tr) %{_datadir}/%{name}/%{vimdir}/spell/yi-tr.*
+%lang(zu) %{_datadir}/%{name}/%{vimdir}/spell/zu.*
 %endif
 
 %files minimal
@@ -913,7 +937,7 @@ rm -rf $RPM_BUILD_ROOT
 /bin/view
 /bin/rvi
 /bin/rview
-#/usr/share/vim/%{vimdir}/doc/vi-help.txt
+#%{_datadir}/%{name}/%{vimdir}/doc/vi-help.txt
 
 %files enhanced
 %defattr(-,root,root)
@@ -945,6 +969,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Dec 12 2006 Karsten Hopp <karsten@redhat.com> 7.0.178-1
+- patchlevel 178
+- use macros 
+- Resolves: #219154
+  add directory /usr/share/vim/vimfiles for plugins
+
 * Thu Dec  7 2006 Jeremy Katz <katzj@redhat.com>
 - rebuild for python 2.5
 
