@@ -198,3 +198,13 @@ Individual patches for Vim 7.0:
   1865  7.0.166  crash with cscope when a file descriptor is NULL
   1942  7.0.167  can't redefine a function in a dictionary
   2224  7.0.168  reading uninitialized memory and a memory leak in recovery
+  1812  7.0.169  Visual block highlighting not removed for "I" and "A"
+  2545  7.0.170  (extra) Win32: un-maximizing and tab pages line problem
+ 14457  7.0.171  (extra) VMS: problem with file names with multiple paths
+  2389  7.0.172  crash when recovering a file and quitting hit-enter prompt
+  1703  7.0.173  ":call f().TT()" doesn't work
+  2838  7.0.174  ":mksession" doesn't restore tab page window layout properly
+  1498  7.0.175  tr() didn't add a final NUL
+  1781  7.0.176  ":emenu" isn't executed directly, breaks the crypt key prompt
+  4292  7.0.177  key from mapping at press-enter prompt would be remapped
+  1565  7.0.178  comparing utf-8 strings with 'ic' may look past NUL bytes
