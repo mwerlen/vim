@@ -21,7 +21,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1
+Release: 2
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -648,7 +648,7 @@ make clean
 
 #perl -pi -e "s/help.txt/vi-help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
-%configure --prefix='${DEST}'/usr --with-features=tiny --with-x=no \
+%configure --prefix='${DEST}'/usr --with-features=small --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
@@ -662,7 +662,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/usr/bin
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after
 #cp -f %{SOURCE5} .
 
 %if "%{withcvim}" == "1"
@@ -816,7 +816,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc $RPM_SOURCE_DIR/Changelog.rpm
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/%{vimdir}
-%{_datadir}/%{name}/vimfiles
+%dir %{_datadir}/%{name}/vimfiles
+%dir %{_datadir}/%{name}/vimfiles/after
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
@@ -969,6 +970,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Dec 14 2006 Karsten Hopp <karsten@redhat.com> 7.0.178-2
+- build vim-minimal with features=small instead of tiny (#219605)
+
+* Tue Dec 12 2006 Karsten Hopp <karsten@redhat.com> 7.0.178-1
+- add vimfiles/after to list of owned directories
+
 * Tue Dec 12 2006 Karsten Hopp <karsten@redhat.com> 7.0.178-1
 - patchlevel 178
 - use macros 
