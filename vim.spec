@@ -21,7 +21,7 @@
 Summary: The VIM editor.
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2
+Release: 3
 License: freeware
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -970,6 +970,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Jan 08 2007 Karsten Hopp <karsten@redhat.com> 7.0.178-3
+- enable filetype plugin
+
 * Thu Dec 14 2006 Karsten Hopp <karsten@redhat.com> 7.0.178-2
 - build vim-minimal with features=small instead of tiny (#219605)
 

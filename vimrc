@@ -44,6 +44,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+filetype plugin on
+
 if &term=="xterm"
      set t_Co=8
      set t_Sb=[4%dm
