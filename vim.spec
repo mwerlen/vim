@@ -16,7 +16,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 178
+%define patchlevel 188
 
 Summary: The VIM editor.
 Name: vim
@@ -229,7 +229,16 @@ Patch175: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.175
 Patch176: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.176
 Patch177: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.177
 Patch178: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.178
-
+Patch179: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.179
+Patch180: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.188
 
 Patch3000: vim-7.0-syntax.patch
 #Patch3001: vim-6.2-rh1.patch
@@ -574,6 +583,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch176 -p0
 %patch177 -p0
 %patch178 -p0
+%patch179 -p0
+# VMS:
+#patch180 -p0
+%patch181 -p0
+%patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+%patch188 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -970,6 +990,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Jan 23 2007 Karsten Hopp <karsten@redhat.com> 7.0.188-3
+- patchlevel 188
+
 * Mon Jan 08 2007 Karsten Hopp <karsten@redhat.com> 7.0.178-3
 - enable filetype plugin
 

@@ -208,3 +208,13 @@ Individual patches for Vim 7.0:
   1781  7.0.176  ":emenu" isn't executed directly, breaks the crypt key prompt
   4292  7.0.177  key from mapping at press-enter prompt would be remapped
   1565  7.0.178  comparing utf-8 strings with 'ic' may look past NUL bytes
+  1744  7.0.179  crash when recovering without a swap file name
+  3061  7.0.180  (extra) VMS: build problem and problem with swap files
+  1790  7.0.181  when reloading a buffer an extra empty line may appear
+  2768  7.0.182  cannot reach every point in the undo tree after using "g-"
+  4142  7.0.183  accessing memory already freed after ":redir => var" ":let"
+  2400  7.0.184  cscope interface doesn't work with mlcscope
+  2927  7.0.185  multi-byte chars in message get attributes from previous char
+  1731  7.0.186  ml_get error when doing "/\_s*/e" with utf-8 'encoding'
+  7601  7.0.187  can't properly source a remote script
+  1602  7.0.188  (after 7.0.186) warning for wrong pointer type
