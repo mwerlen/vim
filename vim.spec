@@ -20,7 +20,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -626,7 +626,7 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
 %configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
-  --with-tlib=ncursesw \
+  --with-tlib=ncurses \
   --enable-gtk2-check --enable-gui=gtk2 \
   --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
   --with-modified-by="<bugzilla@redhat.com>" \
@@ -644,7 +644,7 @@ make clean
  --enable-perlinterp --disable-tclinterp --with-x=no \
  --enable-gui=no --exec-prefix=/usr --enable-multibyte \
  --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
-  --with-tlib=ncursesw \
+ --with-tlib=ncurses \
  --with-compiledby="<bugzilla@redhat.com>" \
 %if "%{withnetbeans}" == "1"
   --enable-netbeans \
@@ -662,7 +662,7 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
   --enable-multibyte \
   --disable-netbeans \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
-  --with-tlib=ncursesw --enable-gui=no --disable-gpm --exec-prefix=/ \
+  --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
   --with-compiledby="<bugzilla@redhat.com>" \
   --with-modified-by="<bugzilla@redhat.com>"
 
@@ -962,6 +962,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Feb 06 2007 Karsten Hopp <karsten@redhat.com> 7.0.191-2
+- uses ncurses instead of ncursesw
+
 * Tue Feb 06 2007 Karsten Hopp <karsten@redhat.com> 7.0.191-1
 - patchlevel 191
 - clean up spec file for rpmlint
