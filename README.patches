@@ -221,3 +221,4 @@ Individual patches for Vim 7.0:
   2290  7.0.189  translated message about finding matches is truncated
   1778  7.0.190  "syntax spell default" results in an error message
  10918  7.0.191  the items used by getqflist() and setqflist() don't match
+  5114  7.0.192  ml_get errors when resetting 'swapfile' in empty file

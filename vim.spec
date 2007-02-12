@@ -14,13 +14,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 191
+%define patchlevel 192
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -239,6 +239,7 @@ Patch188: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.188
 Patch189: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.189
 Patch190: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.190
 Patch191: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.192
 
 Patch3000: vim-7.0-syntax.patch
 #Patch3001: vim-6.2-rh1.patch
@@ -252,6 +253,7 @@ Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
 Patch3011: vim-7.0-vimspelltypo.patch
 Patch3012: vim-7.0-specedit.patch
+Patch3013: vim-7.0-bracket-203577.patch
 #
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
@@ -589,7 +591,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch188 -p0
 %patch189 -p0
 %patch190 -p0
-%patch191 -p0 -b .191
+%patch191 -p0
+%patch192 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -609,6 +612,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
+%patch3013 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -962,6 +966,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 12 2007 Karsten Hopp <karsten@redhat.com> 7.0.192-1
+- patchlevel 192
+- test fix for highlighting problems with curly brackets in #define (#203577)
+
 * Tue Feb 06 2007 Karsten Hopp <karsten@redhat.com> 7.0.191-2
 - uses ncurses instead of ncursesw
 
