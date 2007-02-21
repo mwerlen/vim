@@ -222,3 +222,6 @@ Individual patches for Vim 7.0:
   1778  7.0.190  "syntax spell default" results in an error message
  10918  7.0.191  the items used by getqflist() and setqflist() don't match
   5114  7.0.192  ml_get errors when resetting 'swapfile' in empty file
+  1599  7.0.193  crash when using --remote with arg matching 'wildignore'
+  2701  7.0.194  ml_get errors may be given in a recursive loop
+  2677  7.0.195  endless loop for conversion error when auto-writing

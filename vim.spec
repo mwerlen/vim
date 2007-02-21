@@ -9,18 +9,19 @@
 %define withnetbeans 0
 
 %define withvimspell 0
+%define withhunspell 0
 
 %define baseversion 7.0
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 192
+%define patchlevel 195
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -45,6 +46,10 @@ Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
 Patch2004: vim-7.0-crv.patch
 Patch2010: xxd-locale.patch
+%if %{withhunspell}
+Patch2011: vim-7.0-hunspell.patch
+BuildRequires: hunspell-devel
+%endif
 # Patches 001 < 999 are patches from the base maintainer.
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.%03d\n" $i $i; done
@@ -240,6 +245,9 @@ Patch189: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.189
 Patch190: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.190
 Patch191: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.191
 Patch192: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.192
+Patch193: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.193
+Patch194: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.194
+Patch195: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.195
 
 Patch3000: vim-7.0-syntax.patch
 #Patch3001: vim-6.2-rh1.patch
@@ -367,6 +375,9 @@ chmod -x runtime/tools/mve.awk
 %patch2003 -p1
 %patch2004 -p1
 %patch2010 -p1
+%if %{withhunspell}
+%patch2011 -p1
+%endif
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Update all runtime files
@@ -593,6 +604,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch190 -p0
 %patch191 -p0
 %patch192 -p0
+%patch193 -p0
+%patch194 -p0
+%patch195 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -778,7 +792,7 @@ cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
 [ -x /usr/bin/id ] || exit
 [ \`/usr/bin/id -u\` -gt 100 ] && alias vi vim
 EOF
-chmod 0755 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
+chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
 install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 (cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
@@ -943,7 +957,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/vimdiff
 /usr/bin/ex
 /usr/bin/vimtutor
-%config %{_sysconfdir}/profile.d/vim.*
+%config(noreplace) %{_sysconfdir}/profile.d/vim.*
 %{_mandir}/man1/rvim.*
 %{_mandir}/man1/vimdiff.*
 %{_mandir}/man1/vimtutor.*
@@ -966,6 +980,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Feb 21 2007 Karsten Hopp <karsten@redhat.com> 7.0.195-2
+- rpmlint fixes (#226526)
+
+* Tue Feb 13 2007 Karsten Hopp <karsten@redhat.com> 7.0.195-1
+- patchlevel 195
+
 * Mon Feb 12 2007 Karsten Hopp <karsten@redhat.com> 7.0.192-1
 - patchlevel 192
 - test fix for highlighting problems with curly brackets in #define (#203577)
