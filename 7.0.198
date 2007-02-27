@@ -1,0 +1,232 @@
+To: vim-dev@vim.org
+Subject: patch 7.0.198 (extra)
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.198 (extra)
+Problem:    Win32: Compiler warnings.  No need to generate gvim.exe.mnf.
+Solution:   Add type casts.  Use "*" for processorArchitecture. (George Reilly)
+Files:      src/Make_mvc.mak, src/eval.c, src/gvim.exe.mnf, src/misc2.c
+
+
+*** ../vim-7.0.197/src/Make_mvc.mak	Thu Apr 27 01:50:26 2006
+--- src/Make_mvc.mak	Wed Feb  7 05:04:15 2007
+***************
+*** 683,689 ****
+  # on a crash (doesn't add overhead to the executable).
+  #
+  CFLAGS = $(CFLAGS) /Zi /Fd$(OUTDIR)/
+! LINK_PDB = /PDB:$(OUTDIR)/$(VIM).pdb -debug # -debug:full -debugtype:cv,fixup
+  
+  #
+  # End extra feature include
+--- 683,689 ----
+  # on a crash (doesn't add overhead to the executable).
+  #
+  CFLAGS = $(CFLAGS) /Zi /Fd$(OUTDIR)/
+! LINK_PDB = /PDB:$(VIM).pdb -debug # -debug:full -debugtype:cv,fixup
+  
+  #
+  # End extra feature include
+***************
+*** 761,767 ****
+  	- if exist $(VIM).pdb del $(VIM).pdb
+  	- if exist $(VIM).map del $(VIM).map
+  	- if exist $(VIM).ncb del $(VIM).ncb
+- 	- if exist gvim.exe.mnf del gvim.exe.mnf
+  	- if exist vimrun.exe del vimrun.exe
+  	- if exist install.exe del install.exe
+  	- if exist uninstal.exe del uninstal.exe
+--- 761,766 ----
+***************
+*** 943,949 ****
+  $(OUTDIR)/xpm_w32.obj: $(OUTDIR) xpm_w32.c
+  	$(CC) $(CFLAGS) $(XPM_INC) xpm_w32.c
+  
+! $(OUTDIR)/vim.res:	$(OUTDIR) gvim.exe.mnf vim.rc version.h tools.bmp tearoff.bmp \
+  		vim.ico vim_error.ico vim_alert.ico vim_info.ico vim_quest.ico
+  	$(RC) /l 0x409 /Fo$(OUTDIR)/vim.res $(RCFLAGS) vim.rc
+  
+--- 942,948 ----
+  $(OUTDIR)/xpm_w32.obj: $(OUTDIR) xpm_w32.c
+  	$(CC) $(CFLAGS) $(XPM_INC) xpm_w32.c
+  
+! $(OUTDIR)/vim.res:	$(OUTDIR) vim.rc version.h tools.bmp tearoff.bmp \
+  		vim.ico vim_error.ico vim_alert.ico vim_info.ico vim_quest.ico
+  	$(RC) /l 0x409 /Fo$(OUTDIR)/vim.res $(RCFLAGS) vim.rc
+  
+***************
+*** 961,966 ****
+--- 960,966 ----
+  # $CFLAGS may contain backslashes and double quotes, escape them both.
+  E0_CFLAGS = $(CFLAGS:\=\\)
+  E_CFLAGS = $(E0_CFLAGS:"=\")
++ # ") stop the string
+  
+  $(PATHDEF_SRC): auto
+  	@echo creating $(PATHDEF_SRC)
+***************
+*** 972,1001 ****
+  	@echo char_u *all_lflags = (char_u *)"$(link:\=\\) $(LINKARGS1:\=\\) $(LINKARGS2:\=\\)"; >> $(PATHDEF_SRC)
+  	@echo char_u *compiled_user = (char_u *)"$(USERNAME)"; >> $(PATHDEF_SRC)
+  	@echo char_u *compiled_sys = (char_u *)"$(USERDOMAIN)"; >> $(PATHDEF_SRC)
+- 
+- gvim.exe.mnf: auto
+- 	@echo ^<?xml version="1.0" encoding="UTF-8" standalone="yes"?^> >$@
+- 	@echo ^<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"^> >>$@
+- 	@echo   ^<assemblyIdentity >>$@
+- 	@echo     processorArchitecture="$(ASSEMBLY_ARCHITECTURE)" >>$@
+- 	@echo     version="7.0.0.0" >>$@
+- 	@echo     type="win32" >>$@
+- 	@echo     name="Vim" >>$@
+- 	@echo   /^> >>$@
+- 	@echo   ^<description^>Vi Improved - A Text Editor^</description^> >>$@
+- 	@echo   ^<dependency^> >>$@
+- 	@echo     ^<dependentAssembly^> >>$@
+- 	@echo       ^<assemblyIdentity >>$@
+- 	@echo         type="win32" >>$@
+- 	@echo         name="Microsoft.Windows.Common-Controls" >>$@
+- 	@echo         version="6.0.0.0" >>$@
+- 	@echo         publicKeyToken="6595b64144ccf1df" >>$@
+- 	@echo         language="*" >>$@
+- 	@echo         processorArchitecture="$(ASSEMBLY_ARCHITECTURE)" >>$@
+- 	@echo       /^> >>$@
+- 	@echo     ^</dependentAssembly^> >>$@
+- 	@echo   ^</dependency^> >>$@
+- 	@echo ^</assembly^> >>$@
+  
+  auto:
+  	if not exist auto/nul mkdir auto
+--- 972,977 ----
+*** ../vim-7.0.197/src/eval.c	Sun Jan 14 15:27:05 2007
+--- src/eval.c	Wed Feb  7 05:01:29 2007
+***************
+*** 1004,1010 ****
+      if (ga_grow(&redir_ga, (int)len) == OK)
+      {
+  	mch_memmove((char *)redir_ga.ga_data + redir_ga.ga_len, value, len);
+! 	redir_ga.ga_len += len;
+      }
+      else
+  	var_redir_stop();
+--- 1004,1010 ----
+      if (ga_grow(&redir_ga, (int)len) == OK)
+      {
+  	mch_memmove((char *)redir_ga.ga_data + redir_ga.ga_len, value, len);
+! 	redir_ga.ga_len += (int)len;
+      }
+      else
+  	var_redir_stop();
+***************
+*** 10307,10313 ****
+      win_T	*wp;
+  #endif
+  
+!     rettv->vval.v_number = FALSE;
+  #ifdef FEAT_QUICKFIX
+      if (rettv_list_alloc(rettv) == OK)
+      {
+--- 10307,10313 ----
+      win_T	*wp;
+  #endif
+  
+!     rettv->vval.v_number = 0;
+  #ifdef FEAT_QUICKFIX
+      if (rettv_list_alloc(rettv) == OK)
+      {
+*** ../vim-7.0.197/src/gvim.exe.mnf	Sun Jun 13 17:13:20 2004
+--- src/gvim.exe.mnf	Wed Feb  7 05:06:52 2007
+***************
+*** 1,8 ****
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+    <assemblyIdentity
+!     processorArchitecture="X86"
+!     version="6.2.0.0"
+      type="win32"
+      name="Vim"
+    />
+--- 1,8 ----
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+    <assemblyIdentity
+!     processorArchitecture="*"
+!     version="7.0.0.0"
+      type="win32"
+      name="Vim"
+    />
+***************
+*** 15,21 ****
+          version="6.0.0.0"
+          publicKeyToken="6595b64144ccf1df"
+          language="*"
+!         processorArchitecture="X86"
+        />
+      </dependentAssembly>
+    </dependency>
+--- 15,21 ----
+          version="6.0.0.0"
+          publicKeyToken="6595b64144ccf1df"
+          language="*"
+!         processorArchitecture="*"
+        />
+      </dependentAssembly>
+    </dependency>
+*** ../vim-7.0.197/src/misc2.c	Tue Feb 20 03:01:33 2007
+--- src/misc2.c	Wed Feb  7 05:00:13 2007
+***************
+*** 1246,1252 ****
+      char_u	*escaped_string;
+  
+      /* First count the number of extra bytes required. */
+!     length = STRLEN(string) + 3;	/* two quotes and the trailing NUL */
+      for (p = string; *p != NUL; mb_ptr_adv(p))
+      {
+  # if defined(WIN32) || defined(WIN16) || defined(DOS)
+--- 1246,1252 ----
+      char_u	*escaped_string;
+  
+      /* First count the number of extra bytes required. */
+!     length = (unsigned)STRLEN(string) + 3;  /* two quotes and a trailing NUL */
+      for (p = string; *p != NUL; mb_ptr_adv(p))
+      {
+  # if defined(WIN32) || defined(WIN16) || defined(DOS)
+***************
+*** 3718,3724 ****
+   *
+   * ATTENTION:
+   * ==========
+!  *	Also we use an allocated search context here, this functions ARE NOT
+   *	thread-safe!!!!!
+   *
+   *	To minimize parameter passing (or because I'm to lazy), only the
+--- 3718,3724 ----
+   *
+   * ATTENTION:
+   * ==========
+!  *	Also we use an allocated search context here, this functions are NOT
+   *	thread-safe!!!!!
+   *
+   *	To minimize parameter passing (or because I'm to lazy), only the
+*** ../vim-7.0.197/src/version.c	Tue Feb 20 03:01:33 2007
+--- src/version.c	Tue Feb 20 03:14:39 2007
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     198,
+  /**/
+
+-- 
+hundred-and-one symptoms of being an internet addict:
+155. You forget to eat because you're too busy surfing the net.
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
