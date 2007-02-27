@@ -25,6 +25,7 @@ Checksums for the patch files can be found in the file MD5.
 Collection of patches for Vim 7.0:
   SIZE  NAME                  INCLUDES
  98331  7.0.001-100.gz	      patches 7.0.001 to 7.0.100, gzip'ed
+ 79463  7.0.101-200.gz        patches 7.0.101 to 7.0.200, gzip'ed
 
 
 Individual patches for Vim 7.0:
@@ -225,3 +226,9 @@ Individual patches for Vim 7.0:
   1599  7.0.193  crash when using --remote with arg matching 'wildignore'
   2701  7.0.194  ml_get errors may be given in a recursive loop
   2677  7.0.195  endless loop for conversion error when auto-writing
+  2751  7.0.196  mouse pointer position wrong after ":vert ball"
+  1717  7.0.197  (extra) Win32: can't compile with EXITFREE
+  7454  7.0.198  (extra) Win32: compiler warnings, don't generate gvim.exe.mnf
+  1969  7.0.199  cursor in wrong col when completing+formatting multi-byte
+  2792  7.0.200  memory leaks when out of memory
+  2511  7.0.201  error message from ":diffput" may be wrong

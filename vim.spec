@@ -15,13 +15,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 195
+%define patchlevel 201
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -248,6 +248,12 @@ Patch192: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.192
 Patch193: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.193
 Patch194: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.194
 Patch195: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.195
+Patch196: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.196
+#Patch197: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.197
+#Patch198: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.198
+Patch199: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.199
+Patch200: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.200
+Patch201: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.201
 
 Patch3000: vim-7.0-syntax.patch
 #Patch3001: vim-6.2-rh1.patch
@@ -607,6 +613,13 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch193 -p0
 %patch194 -p0
 %patch195 -p0
+%patch196 -p0
+# Win32:
+#patch197 -p0
+#patch198 -p0
+%patch199 -p0
+%patch200 -p0
+%patch201 -p0
 
 # install spell files
 %if %{withvimspell}
