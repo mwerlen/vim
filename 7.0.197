@@ -1,0 +1,68 @@
+To: vim-dev@vim.org
+Subject: patch 7.0.197 (extra)
+Fcc: outbox
+From: Bram Moolenaar <Bram@moolenaar.net>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+------------
+
+Patch 7.0.197 (extra)
+Problem:    Win32: Compiling with EXITFREE doesn't work.
+Solution:   Adjust a few #ifdefs. (Alexei Alexandrof)
+Files:      src/misc2.c, src/os_mswin.c
+    
+
+*** ../vim-7.0.196/src/misc2.c	Tue Oct  3 14:43:31 2006
+--- src/misc2.c	Wed Feb  7 05:00:13 2007
+***************
+*** 1075,1081 ****
+      ResetRedobuff();
+      ResetRedobuff();
+  
+! #ifdef FEAT_CLIENTSERVER
+      vim_free(serverDelayedStartName);
+  #endif
+  
+--- 1075,1081 ----
+      ResetRedobuff();
+      ResetRedobuff();
+  
+! #if defined(FEAT_CLIENTSERVER) && defined(FEAT_X11)
+      vim_free(serverDelayedStartName);
+  #endif
+  
+*** ../vim-7.0.196/src/os_mswin.c	Thu Apr 27 01:53:04 2006
+--- src/os_mswin.c	Mon Feb  5 04:46:08 2007
+***************
+*** 239,244 ****
+--- 239,249 ----
+  
+      if (gui.in_use)
+  	gui_exit(r);
++ 
++ #ifdef EXITFREE
++     free_all_mem();
++ #endif
++ 
+      exit(r);
+  }
+  
+*** ../vim-7.0.196/src/version.c	Tue Feb 20 00:17:01 2007
+--- src/version.c	Tue Feb 20 02:59:44 2007
+***************
+*** 668,669 ****
+--- 668,671 ----
+  {   /* Add new patch number below this line */
++ /**/
++     197,
+  /**/
+
+-- 
+hundred-and-one symptoms of being an internet addict:
+154. You fondle your mouse.
+
+ /// Bram Moolenaar -- Bram@Moolenaar.net -- http://www.Moolenaar.net   \\\
+///        sponsor Vim, vote for features -- http://www.Vim.org/sponsor/ \\\
+\\\        download, build and distribute -- http://www.A-A-P.org        ///
+ \\\            help me help AIDS victims -- http://ICCF-Holland.org    ///
