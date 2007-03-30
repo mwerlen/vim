@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 201
+%define patchlevel 224
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -254,6 +254,29 @@ Patch196: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.196
 Patch199: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.199
 Patch200: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.200
 Patch201: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.201
+Patch202: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.202
+Patch203: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.203
+Patch204: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.204
+Patch205: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.205
+Patch206: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.206
+Patch207: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.207
+#Patch208: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.208
+Patch209: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.209
+Patch210: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.210
+Patch211: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.211
+Patch212: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.212
+Patch213: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.213
+Patch214: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.214
+#Patch215: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.215
+Patch216: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.216
+Patch217: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.217
+Patch218: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.218
+Patch219: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.219
+Patch220: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.220
+Patch221: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.221
+Patch222: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.222
+Patch223: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.223
+Patch224: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.224
 
 Patch3000: vim-7.0-syntax.patch
 #Patch3001: vim-6.2-rh1.patch
@@ -620,6 +643,32 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch199 -p0
 %patch200 -p0
 %patch201 -p0
+%patch202 -p0
+%patch203 -p0
+%patch204 -p0
+%patch205 -p0
+%patch206 -p0
+%patch207 -p0
+# VMS:
+#patch208 -p0
+%patch209 -p0
+%patch210 -p0
+%patch211 -p0
+%patch212 -p0
+%patch213 -p0
+%patch214 -p0
+# MAC:
+#patch215 -p0
+%patch216 -p0
+%patch217 -p0
+%patch218 -p0
+%patch219 -p0
+%patch220 -p0
+%patch221 -p0
+%patch222 -p0
+%patch223 -p0
+%patch224 -p0
+
 
 # install spell files
 %if %{withvimspell}
@@ -993,6 +1042,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Mar 30 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-3
+- patchlevel 224
+
 * Wed Feb 21 2007 Karsten Hopp <karsten@redhat.com> 7.0.195-2
 - rpmlint fixes (#226526)
 

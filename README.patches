@@ -232,3 +232,26 @@ Individual patches for Vim 7.0:
   1969  7.0.199  cursor in wrong col when completing+formatting multi-byte
   2792  7.0.200  memory leaks when out of memory
   2511  7.0.201  error message from ":diffput" may be wrong
+  9403  7.0.202  compiler and runtime problems on Tandem systems
+  5579  7.0.203  0x80 and CSI need to be escaped when executing a register
+  1892  7.0.204  cscope: parsing of lines for listing doesn't work properly
+  1573  7.0.205  (after 7.0.203) can't compile tiny version
+  2099  7.0.206  (after 7.0.058) can't edit all gb18030 files properly
+  3000  7.0.207  (after 7.0.203) 0x80 and CSI escaped too often when recording
+  9414  7.0.208  (after 7.0.171 and 7.0.180) VMS: path changes cause trouble
+  1706  7.0.209  Python: cursor may end up beyond end of changed line
+  3863  7.0.210  ":cbuffer" and ":lbuffer" don't take a !
+  1674  7.0.211  CTRL-U in Insert mode deletes autoindent when 'bs' is zero
+  2636  7.0.212  GUI doesn't terminate on SIGTERM
+  1463  7.0.213  "z=" crashes when regions in 'spellfile' share soundfolding
+  4870  7.0.214  can't get "\ " argument  for <f-args> in a user command
+  2807  7.0.215  (extra) Mac: Context menu has disabled useless Help entry
+  3460  7.0.216  ":tab wincmd ]" does not open a new tab page
+  2007  7.0.217  hang when pressing "n" for ":%s/\n/,\r/gc"
+  1479  7.0.218  "%B" in 'statusline' doesn't work in Insert mode
+  4108  7.0.219  editexisting.vim doesn't see buffer in other tab page
+  1448  7.0.220  crash when using winnr('#') in a new tab page
+  3029  7.0.221  finddir() did not work properly for "." in path
+  4147  7.0.222  'cindent' works for Perl, except for recognizing comments
+  2604  7.0.223  popup menu could not handle unprintable characters
+  6467  7.0.224  when expanding "##" spaces are escaped twice
