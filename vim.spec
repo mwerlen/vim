@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -296,10 +296,10 @@ Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Buildrequires: python-devel perl ncurses-devel gettext
-Buildrequires: libacl-devel gpm-devel autoconf
+BuildRequires: python-devel ncurses-devel gettext
+BuildRequires: libacl-devel gpm-devel autoconf
 %if %{WITH_SELINUX}
-Buildrequires: libselinux-devel
+BuildRequires: libselinux-devel
 %endif
 %if %{desktop_file}
 Requires: /usr/bin/desktop-file-install
@@ -314,7 +314,7 @@ still very popular.  VIM improves on vi by adding new features:
 multiple windows, multi-level undo, block highlighting and more.
 
 %package common
-Summary: The common files needed by any version of the VIM editor.
+Summary: The common files needed by any version of the VIM editor
 Group: Applications/Editors
 Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
@@ -332,7 +332,7 @@ If you are installing vim-enhanced or vim-X11, you'll also need
 to install the vim-common package.
 
 %package spell
-Summary: The dictionaries for spell checking. This package is optional.
+Summary: The dictionaries for spell checking. This package is optional
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release}
 
@@ -341,7 +341,7 @@ This subpackage contains dictionaries for vim spell checking in
 many different languages.
 
 %package minimal
-Summary: A minimal version of the VIM editor.
+Summary: A minimal version of the VIM editor
 Group: Applications/Editors
 Provides: vi = %{version}-%{release}
 
@@ -356,7 +356,7 @@ present. NOTE: The online help is only available when the vim-common
 package is installed.
 
 %package enhanced
-Summary: A version of the VIM editor which includes recent enhancements.
+Summary: A version of the VIM editor which includes recent enhancements
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release}
 Provides: vim = %{version}-%{release}
@@ -375,9 +375,10 @@ interpreters for the Python and Perl scripting languages.  You'll also
 need to install the vim-common package.
 
 %package X11
-Summary: The VIM version of the vi editor for the X Window System.
+Summary: The VIM version of the vi editor for the X Window System
 Group: Applications/Editors
-Requires: vim-common = %{epoch}:%{version}-%{release} libattr gtk2 >= 2.6
+Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2,4 gtk2 >= 2.6
+Provides: gvim = %{version}-%{release}
 BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
 
 %description X11
@@ -720,9 +721,9 @@ make %{?_smp_mflags}
 cp vim gvim
 make clean
 
-%configure --prefix=/usr --with-features=huge --enable-pythoninterp \
+%configure --prefix=%{_prefix} --with-features=huge --enable-pythoninterp \
  --enable-perlinterp --disable-tclinterp --with-x=no \
- --enable-gui=no --exec-prefix=/usr --enable-multibyte \
+ --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
  --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
  --with-tlib=ncurses \
  --with-compiledby="<bugzilla@redhat.com>" \
@@ -738,7 +739,7 @@ make clean
 
 #perl -pi -e "s/help.txt/vi-help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
-%configure --prefix='${DEST}'/usr --with-features=small --with-x=no \
+%configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
@@ -751,60 +752,61 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
-mkdir -p $RPM_BUILD_ROOT/usr/bin
+mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after
 cp -f %{SOURCE11} .
+cp runtime/doc/uganda.txt LICENSE
 
 
 cd src
 make install DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin
-mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/usr/bin/xxd
+mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
 make installmacros DESTDIR=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -m755 gvim $RPM_BUILD_ROOT/usr/bin/gvim
-install -m644 %{SOURCE7} \
+install -m755 gvim $RPM_BUILD_ROOT/%{_bindir}/gvim
+install -p -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
-install -m644 %{SOURCE8} \
+install -p -m644 %{SOURCE8} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/gvim.png
-install -m644 %{SOURCE9} \
+install -p -m644 %{SOURCE9} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
-install -m644 %{SOURCE10} \
+install -p -m644 %{SOURCE10} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
-install -m755 enhanced-vim $RPM_BUILD_ROOT/usr/bin/vim
+install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
 
 ( cd $RPM_BUILD_ROOT
-  mv ./bin/vimtutor ./usr/bin/vimtutor
+  mv ./bin/vimtutor ./%{_bindir}/vimtutor
   mv ./bin/vim ./bin/vi
   rm -f ./bin/rvim
   ln -sf vi ./bin/ex
   ln -sf vi ./bin/rvi
   ln -sf vi ./bin/rview
   ln -sf vi ./bin/view
-  ln -sf vim ./usr/bin/ex
-  ln -sf vim ./usr/bin/rvim
-  ln -sf vim ./usr/bin/vimdiff
+  ln -sf vim ./%{_bindir}/ex
+  ln -sf vim ./%{_bindir}/rvim
+  ln -sf vim ./%{_bindir}/vimdiff
   perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
   rm -f .%{_mandir}/man1/rvim.1
   ln -sf vim.1.gz .%{_mandir}/man1/vi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/vimdiff.1.gz
-  ln -sf gvim ./usr/bin/gview
-  ln -sf gvim ./usr/bin/gex
-  ln -sf gvim ./usr/bin/evim
-  ln -sf gvim ./usr/bin/gvimdiff
+  ln -sf gvim ./%{_bindir}/gview
+  ln -sf gvim ./%{_bindir}/gex
+  ln -sf gvim ./%{_bindir}/evim
+  ln -sf gvim ./%{_bindir}/gvimdiff
   ln -sf vim.1.gz .%{_mandir}/man1/gvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/gvimdiff.1.gz
-  ln -sf gvim ./usr/bin/vimx
+  ln -sf gvim ./%{_bindir}/vimx
   %if "%{desktop_file}" == "1"
     mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
-    desktop-file-install --vendor net \
+    desktop-file-install --vendor fedora \
         --dir $RPM_BUILD_ROOT/%{_datadir}/applications \
         --add-category "Application;Development;X-Red-Hat-Base" \
         %{SOURCE3}
   %else
-    mkdir -p ./etc/X11/applnk/Applications
-    cp %{SOURCE3} ./etc/X11/applnk/Applications/gvim.desktop
+    mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
+    cp %{SOURCE3} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
@@ -844,19 +846,19 @@ chmod 644 ../runtime/doc/vim2html.pl
 mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
-  [ -x /usr/bin/id ] || return
-  [ \`/usr/bin/id -u\` -le 100 ] && return
+  [ -x /%{_bindir}/id ] || return
+  [ \`/%{_bindir}/id -u\` -le 100 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
-[ -x /usr/bin/id ] || exit
-[ \`/usr/bin/id -u\` -gt 100 ] && alias vi vim
+[ -x /%{_bindir}/id ] || exit
+[ \`/%{_bindir}/id -u\` -gt 100 ] && alias vi vim
 EOF
 chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
-install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
-install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
+install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
+install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 (cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
  gzip -d help.txt.gz
@@ -864,18 +866,31 @@ install -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 # cp %{SOURCE12} . 
  )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
+rm -f $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
+rm -rf $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/tools
+rm -rf $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/doc/vim2html.pl
+rm -f $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/tutor/tutor.gr.utf-8~
+( cd $RPM_BUILD_ROOT/%{_mandir}
+  for i in `find ??/ -type f`; do
+    bi=`basename $i`
+    iconv -f latin1 -t UTF8 $i > $RPM_BUILD_ROOT/$bi
+    mv -f $RPM_BUILD_ROOT/$bi $i
+  done
+)
 
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
+if [ -x /%{_bindir}/gtk-update-icon-cache ]; then
   gtk-update-icon-cache --ignore-theme-index -q %{_datadir}/icons/hicolor
 fi
+update-desktop-database &> /dev/null ||:
 
 %postun X11
 touch --no-create %{_datadir}/icons/hicolor
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
+if [ -x /%{_bindir}/gtk-update-icon-cache ]; then
   gtk-update-icon-cache --ignore-theme-index -q %{_datadir}/icons/hicolor
 fi
+update-desktop-database &> /dev/null ||:
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -883,7 +898,7 @@ rm -rf $RPM_BUILD_ROOT
 %files common
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/vimrc
-%doc README*
+%doc README* LICENSE
 %doc runtime/docs
 %doc Changelog.rpm
 %dir %{_datadir}/%{name}
@@ -894,7 +909,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
 %{_datadir}/%{name}/%{vimdir}/doc
-#exclude /usr/share/vim/%{vimdir}/doc/vi-help.txt
+#exclude /%{_bindir}/vim/%{vimdir}/doc/vi-help.txt
 %{_datadir}/%{name}/%{vimdir}/*.vim
 %{_datadir}/%{name}/%{vimdir}/ftplugin
 %{_datadir}/%{name}/%{vimdir}/indent
@@ -906,7 +921,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/%{vimdir}/plugin
 %{_datadir}/%{name}/%{vimdir}/print
 %{_datadir}/%{name}/%{vimdir}/syntax
-%{_datadir}/%{name}/%{vimdir}/tools
 %{_datadir}/%{name}/%{vimdir}/tutor
 %if ! %{withvimspell}
 %{_datadir}/%{name}/%{vimdir}/spell
@@ -933,7 +947,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
 %lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
 %lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
-/usr/bin/xxd
+/%{_bindir}/xxd
 %{_mandir}/man1/vim.*
 %{_mandir}/man1/ex.*
 %{_mandir}/man1/vi.*
@@ -941,13 +955,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/rvi.*
 %{_mandir}/man1/rview.*
 %{_mandir}/man1/xxd.*
-%lang(fr) %{_mandir}/fr*
-%lang(it) %{_mandir}/it*
-%lang(ru) %{_mandir}/ru*
-%lang(pl) %{_mandir}/pl*
+%lang(fr) %{_mandir}/fr*/*/*
+%lang(it) %{_mandir}/it*/*/*
+%lang(ru) %{_mandir}/ru*/*/*
+%lang(pl) %{_mandir}/pl*/*/*
 
 %if %{withvimspell}
 %files spell
+%defattr(-,root,root)
 %dir %{_datadir}/%{name}/%{vimdir}/spell
 %{_datadir}/%{name}/vim70/spell/cleanadd.vim
 %lang(af) %{_datadir}/%{name}/%{vimdir}/spell/af.*
@@ -1014,11 +1029,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files enhanced
 %defattr(-,root,root)
-/usr/bin/vim
-/usr/bin/rvim
-/usr/bin/vimdiff
-/usr/bin/ex
-/usr/bin/vimtutor
+%{_bindir}/vim
+%{_bindir}/rvim
+%{_bindir}/vimdiff
+%{_bindir}/ex
+%{_bindir}/vimtutor
 %config(noreplace) %{_sysconfdir}/profile.d/vim.*
 %{_mandir}/man1/rvim.*
 %{_mandir}/man1/vimdiff.*
@@ -1027,22 +1042,34 @@ rm -rf $RPM_BUILD_ROOT
 %files X11
 %defattr(-,root,root)
 %if "%{desktop_file}" == "1"
-/usr/share/applications/*
+/%{_datadir}/applications/*
 %else
-/etc/X11/applnk/*/gvim.desktop
+/%{_sysconfdir}/X11/applnk/*/gvim.desktop
 %endif
-/usr/bin/gvim
-/usr/bin/gvimdiff
-/usr/bin/gview
-/usr/bin/gex
-/usr/bin/vimx
-/usr/bin/evim
+%{_bindir}/gvim
+%{_bindir}/gvimdiff
+%{_bindir}/gview
+%{_bindir}/gex
+%{_bindir}/vimx
+%{_bindir}/evim
 %{_mandir}/man1/evim.*
 %{_mandir}/man1/gvim*
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Fri Mar 30 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-3
+* Mon Apr 16 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-2
+- use more macros
+- drop BR perl
+- move license to main doc directory
+- set vendor to 'fedora' (desktop-file)
+- don't own man directories
+- preserve timestamps of non-generated files
+- run update-desktop-database
+
+* Thu Apr 05 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-1
+- vim-X11 provides gvim
+
+* Fri Mar 30 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-1
 - patchlevel 224
 
 * Wed Feb 21 2007 Karsten Hopp <karsten@redhat.com> 7.0.195-2
