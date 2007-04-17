@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -377,7 +377,7 @@ need to install the vim-common package.
 %package X11
 Summary: The VIM version of the vi editor for the X Window System
 Group: Applications/Editors
-Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2,4 gtk2 >= 2.6
+Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk2 >= 2.6
 Provides: gvim = %{version}-%{release}
 BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
 
@@ -1057,6 +1057,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Apr 17 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-3
+- fix typo in require line (vim-X11 - 2:7.0.224-2.fc7.i386 requires 4)
+
 * Mon Apr 16 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-2
 - use more macros
 - drop BR perl
