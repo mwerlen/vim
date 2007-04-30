@@ -15,13 +15,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim70%{?beta}
-%define patchlevel 224
+%define patchlevel 235
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: GPL
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -277,6 +277,19 @@ Patch221: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.221
 Patch222: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.222
 Patch223: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.223
 Patch224: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.224
+Patch225: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.225
+Patch226: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.226
+Patch227: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.227
+Patch228: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.228
+Patch229: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.229
+Patch230: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.230
+Patch231: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.231
+# Mac:
+#Patch232: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.232
+# Mac:
+#Patch233: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.233
+Patch234: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.234
+Patch235: ftp://ftp.vim.org/pub/vim/patches/7.0/7.0.235
 
 Patch3000: vim-7.0-syntax.patch
 #Patch3001: vim-6.2-rh1.patch
@@ -669,7 +682,18 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch222 -p0
 %patch223 -p0
 %patch224 -p0
-
+%patch225 -p0
+%patch226 -p0
+%patch227 -p0
+%patch228 -p0
+%patch229 -p0
+%patch230 -p0
+%patch231 -p0
+# Mac:
+#patch232 -p0
+#patch233 -p0
+%patch234 -p0
+%patch235 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1057,6 +1081,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Apr 30 2007 Karsten Hopp <karsten@redhat.com> 7.0.235-1
+- update to patchlevel 235, fixes modeline issues 
+
 * Tue Apr 17 2007 Karsten Hopp <karsten@redhat.com> 7.0.224-3
 - fix typo in require line (vim-X11 - 2:7.0.224-2.fc7.i386 requires 4)
 

@@ -255,3 +255,14 @@ Individual patches for Vim 7.0:
   4147  7.0.222  'cindent' works for Perl, except for recognizing comments
   2604  7.0.223  popup menu could not handle unprintable characters
   6467  7.0.224  when expanding "##" spaces are escaped twice
+  2203  7.0.225  after setline() cursor may be on wrong byte of mulit-byte char
+  1578  7.0.226  display flicker when setting sign through netbeans interface
+  1720  7.0.227  crash when closing a window in the GUI
+  1779  7.0.228  Cygwin: problem with symlink to DOS style path
+  1806  7.0.229  if 'pt' starts with Esc then Insert mode Esc doesn't time out
+  4586  7.0.230  a script doesn't know if the current dir is a local dir
+  2628  7.0.231  recovery from a swap file may crash
+ 18671  7.0.232  (extra) Mac: GUI tab labels are not supported
+  9738  7.0.233  (extra) Mac: code badly formatted
+  1723  7.0.234  feedkeys() may be invoked from a modeline
+  2299  7.0.235  writefile() may be invoked from a modeline
