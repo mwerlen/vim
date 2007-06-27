@@ -27,3 +27,13 @@ Individual patches for Vim 7.1:
   SIZE  NAME     FIXES
   2404  7.1.001  can't build with Gnome GUI
   2011  7.1.002  Oracle Pro*C/C++ files are not detected
+  1529  7.1.003  (extra) Win32: menu entries end up in message history
+  2481  7.1.004  crash when editing a directory
+  3841  7.1.005  "cit" used on <foo></foo> deletes <foo>
+  2941  7.1.006  when reading from stdin 'modified' can't be reset in autocmd
+  6458  7.1.007  (extra) Mac: context menu does not work, scrollbars not dimmed
+  2631  7.1.008  getfsize() returns an invalid number for very big files
+  1881  7.1.009  diff mode: tab to spaces change not highlighted correctly
+  2796  7.1.010  Gnome: tab pages are not included in the saved session
+  1934  7.1.011  buffer overflow when $VIMRUNTIME is very long
+  1904  7.1.012  ":let &tw = 'asdf'" does not give an error message

@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 2
+%define patchlevel 12
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -53,6 +53,16 @@ BuildRequires: hunspell-devel
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.%03d\n" $i $i; done
 Patch001: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.001
 Patch002: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.002
+# Win32: Patch003: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.003
+Patch004: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.004
+Patch005: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.005
+Patch006: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.006
+#Mac: Patch007: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.007
+Patch008: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.008
+Patch009: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.009
+Patch010: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.010
+Patch011: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.011
+Patch012: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.012
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -187,6 +197,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
 %patch001 -p0
 %patch002 -p0
+#Win 32: patch003 -p0
+%patch004 -p0
+%patch005 -p0
+%patch006 -p0
+#Mac: patch007 -p0
+%patch008 -p0
+%patch009 -p0
+%patch010 -p0
+%patch011 -p0
+%patch012 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -572,7 +592,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Mon Jun 04 2007 Karsten Hopp <karsten@redhat.com> 7.1.%{nil}2-1
+* Wed Jun 27 2007 Karsten Hopp <karsten@redhat.com> 7.1.12-1
+- Patchlevel 12
+
+* Mon Jun 04 2007 Karsten Hopp <karsten@redhat.com> 7.1.2-1
 - vim 7.1
 - drop 240 patches
 
