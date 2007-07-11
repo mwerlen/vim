@@ -37,3 +37,19 @@ Individual patches for Vim 7.1:
   2796  7.1.010  Gnome: tab pages are not included in the saved session
   1934  7.1.011  buffer overflow when $VIMRUNTIME is very long
   1904  7.1.012  ":let &tw = 'asdf'" does not give an error message
+  2139  7.1.013  ":syn include" only loads the first file
+  1479  7.1.014  crash in C-indenting
+  3743  7.1.015  MzScheme interface doesn't build on Mac; init problem
+  2368  7.1.016  (after 7.1.012) error message when using ":cwindow"
+  6729  7.1.017  ":confirm w" does not give a prompt when file is read-only
+  1771  7.1.018  "p" at end of line doesn't work right when 've' is set
+  1650  7.1.019  ":python" doesn't mention the command is not implemented
+  3229  7.1.020  reading uninitialized memory when using a dialog
+  2875  7.1.021  (after 7.1.015) MzScheme interface doesn't build on Win32
+  1842  7.1.022  when setting 'keymap' twice b:keymap_name variable isn't set
+  1718  7.1.023  "dw" in a line with one character deletes the line
+  1335  7.1.024  using a pointer that may have become invalid
+  2292  7.1.025  search('pat', 'bc) doesn't find word under cursor at BOL
+  1710  7.1.026  "[p" doesn't work in Visual mode
+  3345  7.1.027  on Sun OS reading from a process substitutions doesn't work
+  2239  7.1.028  ":sort" does nothing special with empty search pattern

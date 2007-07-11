@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 12
+%define patchlevel 28
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -63,6 +63,22 @@ Patch009: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.009
 Patch010: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.010
 Patch011: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.011
 Patch012: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.012
+Patch013: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.013
+Patch014: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.014
+Patch015: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.015
+Patch016: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.016
+Patch017: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.017
+Patch018: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.018
+Patch019: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.019
+Patch020: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.020
+Patch021: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.021
+Patch022: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.022
+Patch023: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.023
+Patch024: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.024
+Patch025: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.025
+Patch026: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.026
+Patch027: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.027
+Patch028: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.028
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -207,6 +223,22 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch010 -p0
 %patch011 -p0
 %patch012 -p0
+%patch013 -p0 
+%patch014 -p0 
+%patch015 -p0 
+%patch016 -p0 
+%patch017 -p0 
+%patch018 -p0 
+%patch019 -p0 
+%patch020 -p0 
+%patch021 -p0 
+%patch022 -p0 
+%patch023 -p0 
+%patch024 -p0 
+%patch025 -p0 
+%patch026 -p0 
+%patch027 -p0 
+%patch028 -p0 
 
 # install spell files
 %if %{withvimspell}
@@ -592,6 +624,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jul 11 2007 Karsten Hopp <karsten@redhat.com> 7.1.28-1
+- patchlevel 28
+
 * Wed Jun 27 2007 Karsten Hopp <karsten@redhat.com> 7.1.12-1
 - Patchlevel 12
 
