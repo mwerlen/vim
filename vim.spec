@@ -15,14 +15,14 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 28
+%define patchlevel 68
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
 Release: 1%{?dist}
-License: GPL
+License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
 Source1: ftp://ftp.vim.org/pub/vim/extra/vim-%{baseversion}%{?beta}-lang%{?CVSDATE}.tar.gz
@@ -79,6 +79,47 @@ Patch025: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.025
 Patch026: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.026
 Patch027: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.027
 Patch028: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.028
+Patch029: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.029
+Patch030: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.030
+Patch031: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.031
+Patch032: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.032
+Patch033: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.033
+# Win64
+#Patch034: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.034
+Patch035: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.035
+Patch036: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.036
+Patch037: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.037
+Patch038: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.038
+Patch039: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.039
+Patch040: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.040
+#Patch041: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.041
+Patch042: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.042
+Patch043: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.043
+Patch044: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.044
+Patch045: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.045
+Patch046: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.046
+Patch047: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.047
+Patch048: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.048
+Patch049: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.049
+Patch050: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.050
+Patch051: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.051
+Patch052: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.052
+Patch053: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.053
+Patch054: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.054
+Patch055: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.055
+Patch056: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.056
+Patch057: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.057
+Patch058: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.058
+Patch059: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.059
+Patch060: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.060
+Patch061: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.061
+Patch062: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.062
+Patch063: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.064
+#Patch065: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.067
+Patch068: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.068
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -239,6 +280,49 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch026 -p0 
 %patch027 -p0 
 %patch028 -p0 
+%patch029 -p0
+%patch030 -p0
+%patch031 -p0
+%patch032 -p0
+%patch033 -p0
+# Win64:
+#patch034 -p0
+%patch035 -p0
+%patch036 -p0
+%patch037 -p0
+%patch038 -p0
+%patch039 -p0
+%patch040 -p0
+# DOS, Amiga, OS2, VMS:
+#patch041 -p0
+%patch042 -p0
+%patch043 -p0
+%patch044 -p0
+%patch045 -p0
+%patch046 -p0
+%patch047 -p0
+%patch048 -p0
+%patch049 -p0
+%patch050 -p0
+%patch051 -p0
+%patch052 -p0
+%patch053 -p0
+%patch054 -p0
+%patch055 -p0
+%patch056 -p0
+%patch057 -p0
+%patch058 -p0
+%patch059 -p0
+%patch060 -p0
+%patch061 -p0
+%patch062 -p0
+%patch063 -p0
+%patch064 -p0
+# Win32:
+#patch065 -p0
+%patch066 -p0
+%patch067 -p0
+%patch068 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -624,6 +708,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 13 2007 Karsten Hopp <karsten@redhat.com> 7.1.68-1
+- patchlevel 68
+
+* Thu Aug 02 2007 Karsten Hopp <karsten@redhat.com> 7.1.47-1
+- patchlevel 47
+
 * Wed Jul 11 2007 Karsten Hopp <karsten@redhat.com> 7.1.28-1
 - patchlevel 28
 

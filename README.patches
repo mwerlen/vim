@@ -53,3 +53,43 @@ Individual patches for Vim 7.1:
   1710  7.1.026  "[p" doesn't work in Visual mode
   3345  7.1.027  on Sun OS reading from a process substitutions doesn't work
   2239  7.1.028  ":sort" does nothing special with empty search pattern
+  2692  7.1.029  (after 7.1.019) can't compile when all interfaces are used
+  2364  7.1.030  vimtutor shell script checks for "vim6" but not for "vim7"
+  6533  7.1.031  virtcol([123, '$']) doesn't work
+  3006  7.1.032  possible crash when doing completion on the command line
+  1530  7.1.033  buffer marked modified after ":bdel" and ":next"
+  2956  7.1.034  Win64: compiler warnings for typecast, optimizer problem
+  1797  7.1.035  after ":s/./&/#" all listed lines have a line number
+ 12171  7.1.036  add "none" to completion of ":echohl" and ":match"
+  1817  7.1.037  using strcpy() for an overlapping string
+  5704  7.1.038  'preseveindent' doesn't always work when 'et' is set
+  1750  7.1.039  weird help-tags tag in docs file may make cause a crash
+ 53412  7.1.040  ":match" only supports three matches
+  4614  7.1.041  (extra, after 7.1.040) update test makefiles for new test
+  2366  7.1.042  (after 7.1.040) internal error when using matchadd()
+  2820  7.1.043  in Ex mode using CTRL-D twice may cause a crash
+  1632  7.1.044  in Insert mode 0 CTRL-T deletes all indent
+  3101  7.1.045  double screen redraw in some situations
+  1637  7.1.046  ":s/.*/&/" deletes composing characters
+  1552  7.1.047  wrong argument for vim_regcomp()
+  5010  7.1.048  paren highlighting is not updated after scrolling
+  1722  7.1.049  can't compile with GTK2 when using hangul input feature
+  4800  7.1.050  possible crash in C++ indenting
+  2295  7.1.051  accessing uninitialized memory when finding spell suggestions
+  2435  7.1.052  when creating a new match not all fields are initialized
+  1473  7.1.053  reading uninitialized memory when updating command line
+  4451  7.1.054  accessing uninitialized memory when displaying the fold column
+  5414  7.1.055  using strcpy() with arguments that overlap
+  3151  7.1.056  scrolling back at more prompt doesn't work properly
+  2514  7.1.057  CursorHold causes problems for Normal and Visual mode commands
+ 10612  7.1.058  completion menu doesn't work properly when 'righleft' is set
+  3350  7.1.059  in Ex mode "g/^/vi" and pressing CTRL-C: Vim hangs and beeps
+  5066  7.1.060  splitting quickfix window messes up window layout
+  6320  7.1.061  with latin1 'ignorecase' doesn't work for umlauts
+  1550  7.1.062  (after 7.0.038) C comment indent can be wrong
+  1391  7.1.063  compiler warning for uninitialized variable
+  1405  7.1.064  on interix some files appear not to exist
+  2983  7.1.065  Win32: MingW Compilation problem for newer version of w32api
+  4553  7.1.066  when 'bomb' is changed the file should be considered modified
+  7701  7.1.067  'infercase' doesn't work for thesaurus completion
+  6709  7.1.068  'equalalways' equalizes windows too often
