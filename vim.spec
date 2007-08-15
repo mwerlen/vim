@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 68
+%define patchlevel 77
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -120,6 +120,15 @@ Patch064: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.064
 Patch066: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.066
 Patch067: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.067
 Patch068: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.069
+#Patch070: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.071
+#Patch072: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.077
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -323,6 +332,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch066 -p0
 %patch067 -p0
 %patch068 -p0
+%patch069 -p0 
+# Win32:
+#patch070 -p0 
+%patch071 -p0 
+# DOS, Amiga, OS2, VMS:
+#patch072 -p0 
+%patch073 -p0 
+%patch074 -p0 
+%patch075 -p0 
+%patch076 -p0 
+%patch077 -p0 
 
 # install spell files
 %if %{withvimspell}
@@ -708,6 +728,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 15 2007 Karsten Hopp <karsten@redhat.com> 7.1.77-1
+- patchlevel 77
+
 * Mon Aug 13 2007 Karsten Hopp <karsten@redhat.com> 7.1.68-1
 - patchlevel 68
 

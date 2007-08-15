@@ -93,3 +93,12 @@ Individual patches for Vim 7.1:
   4553  7.1.066  when 'bomb' is changed the file should be considered modified
   7701  7.1.067  'infercase' doesn't work for thesaurus completion
   6709  7.1.068  'equalalways' equalizes windows too often
+  2757  7.1.069  GTK GUI: confirm() dialog has a default button when not wanted
+  1560  7.1.070  (extra) Win32 GUI: same confirm() default button problem
+  5534  7.1.071  (after 7.1.040) add a basic test for regexp patterns
+  5705  7.1.072  (extra, after 7.1.041 and 7.1.071) extra part of 7.1.071
+  3595  7.1.073  (after 7.1.062) crash when 'preserveindent' is set
+  5259  7.1.074  crash when using string() on a recursively nested List
+  1686  7.1.075  ":let v:statusmsg" reads memory already freed
+  2376  7.1.076  a couple more strcpy() with overlapping arguments
+  1551  7.1.077  flag indicating spell checking is to be done isn't always set
