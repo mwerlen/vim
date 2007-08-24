@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 77
+%define patchlevel 87
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -92,7 +92,7 @@ Patch037: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.037
 Patch038: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.038
 Patch039: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.039
 Patch040: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.040
-#Patch041: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.041
+Patch041: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.041
 Patch042: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.042
 Patch043: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.043
 Patch044: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.044
@@ -129,6 +129,16 @@ Patch074: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.074
 Patch075: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.075
 Patch076: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.076
 Patch077: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.079
+Patch080: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.080
+Patch081: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.083
+Patch084: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.084
+Patch085: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.085
+Patch086: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.086
+Patch087: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.087
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -245,9 +255,9 @@ with graphics and mouse capabilities.  You'll also need to install the
 vim-common package.
 
 %prep
+%setup -q -b 0 -n %{vimdir}
 %setup -q -b 1 -n %{vimdir}
-%{__tar} xzf %{SOURCE1}
-%{__tar} xzf %{SOURCE2}
+%setup -q -b 2 -n %{vimdir}
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1
@@ -303,7 +313,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch039 -p0
 %patch040 -p0
 # DOS, Amiga, OS2, VMS:
-#patch041 -p0
+%patch041 -p0
 %patch042 -p0
 %patch043 -p0
 %patch044 -p0
@@ -343,6 +353,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch075 -p0 
 %patch076 -p0 
 %patch077 -p0 
+%patch078 -p0 
+%patch079 -p0 
+%patch080 -p0 
+%patch081 -p0 
+%patch082 -p0 
+%patch083 -p0 
+%patch084 -p0 
+%patch085 -p0 
+%patch086 -p0 
+%patch087 -p0 
 
 # install spell files
 %if %{withvimspell}
@@ -728,6 +748,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Aug 24 2007 Karsten Hopp <karsten@redhat.com> 7.1.87-1
+- patchlevel 87
+
 * Wed Aug 15 2007 Karsten Hopp <karsten@redhat.com> 7.1.77-1
 - patchlevel 77
 

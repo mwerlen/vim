@@ -101,4 +101,13 @@ Individual patches for Vim 7.1:
   5259  7.1.074  crash when using string() on a recursively nested List
   1686  7.1.075  ":let v:statusmsg" reads memory already freed
   2376  7.1.076  a couple more strcpy() with overlapping arguments
-  1551  7.1.077  flag indicating spell checking is to be done isn't always set
+  2678  7.1.078  dropping file name on gvim containing CSI byte doesn't work
+  2922  7.1.079  "@" character in 'isfname' doesn't pick up umlauts for latin1
+  2960  7.1.080  (extra) Compiler warnings for gvimex.cpp
+  3253  7.1.081  completion doesn't work after ":!cat <foo"
+  3464  7.1.082  matchparen plugin doesn't update after window split
+  3448  7.1.083  (after 7.1.081) completion doesn't work with wildcards
+  1671  7.1.084  netbeans doesn't get fileOpened events when using -nb twice
+  2496  7.1.085  after ":split fold.c" folds in one window disappear
+  3561  7.1.086  crash when using specific Python syntax highlighting
+  4165  7.1.087  cscope: reading past command end; writing past buffer end
