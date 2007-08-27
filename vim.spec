@@ -158,7 +158,7 @@ Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires: python-devel ncurses-devel gettext
+BuildRequires: python-devel ncurses-devel gettext perl-devel
 BuildRequires: libacl-devel gpm-devel autoconf
 %if %{WITH_SELINUX}
 BuildRequires: libselinux-devel
@@ -258,8 +258,8 @@ vim-common package.
 
 %prep
 %setup -q -b 0 -n %{vimdir}
-%{__tar} xzf %{SOURCE1}
-%{__tar} xzf %{SOURCE2}
+%setup -q -D -b 1 -n %{vimdir}
+%setup -q -D -b 2 -n %{vimdir}
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1
@@ -752,6 +752,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Fri Aug 24 2007 Karsten Hopp <karsten@redhat.com> 7.1.87-1
+- add build requirement perl-devel
+- fix tarball unpacking
 - patchlevel 87
 
 * Wed Aug 15 2007 Karsten Hopp <karsten@redhat.com> 7.1.77-1
