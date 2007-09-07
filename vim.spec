@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 87
+%define patchlevel 100
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -141,6 +141,23 @@ Patch084: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.084
 Patch085: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.085
 Patch086: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.086
 Patch087: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.087
+# Mac:
+#Patch088: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.088
+Patch089: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.090
+# Win32:
+#Patch091: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.091
+# Mac:
+#Patch092: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.092
+Patch093: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.093
+Patch094: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.094
+Patch095: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.095
+Patch096: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.096
+Patch097: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.097
+Patch098: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.098
+Patch099: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.099
+# Win32:
+#Patch100: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.100
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -366,6 +383,23 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch085 -p0 
 %patch086 -p0 
 %patch087 -p0 
+# Mac:
+#patch088 -p0 
+%patch089 -p0 
+%patch090 -p0 
+# Win32:
+#patch091 -p0 
+# Mac:
+#patch092 -p0 
+%patch093 -p0 
+%patch094 -p0 
+%patch095 -p0 
+%patch096 -p0 
+%patch097 -p0 
+%patch098 -p0 
+%patch099 -p0 
+# Win32:
+#patch100 -p0 
 
 # install spell files
 %if %{withvimspell}
@@ -751,6 +785,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Sep 07 2007 Karsten Hopp <karsten@redhat.com> 7.1.100-1
+- patchlevel 100
+
 * Fri Aug 24 2007 Karsten Hopp <karsten@redhat.com> 7.1.87-1
 - add build requirement perl-devel
 - fix tarball unpacking

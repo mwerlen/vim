@@ -111,3 +111,16 @@ Individual patches for Vim 7.1:
   2496  7.1.085  after ":split fold.c" folds in one window disappear
   3561  7.1.086  crash when using specific Python syntax highlighting
   4165  7.1.087  cscope: reading past command end; writing past buffer end
+  2276  7.1.088  (extra) window position wrong when using ":winpos"
+ 13841  7.1.089  when listing variables text of command is not cleared
+  2372  7.1.090  compiler warning on Mac OS X 10.5 for sigaltstack()
+ 10488  7.1.091  (extra) Win32: add --windowid argument
+  2901  7.1.092  (extra, after 7.1.088) wrong args for MoveWindowStructure()
+ 15955  7.1.093  read past end of screen line when checking for double width
+  1901  7.1.094  using wrong buffer to check if syntax HL is present
+  5809  7.1.095  autocmmand for focus events may cause problems
+  2287  7.1.096  reading past end of a string when resizing Vim
+  1620  7.1.097  "setlocal stl=%!expr" doesn't work
+  1780  7.1.098  ":call s:var()" doesn't work if "s:var" is a Funcref
+  4552  7.1.099  ":mkvimrc" doesn't work properly when 'paste' or 'keymap' set
+ 14551  7.1.100  Win32: Executing cscope doesn't always work properly
