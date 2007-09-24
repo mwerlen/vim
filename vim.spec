@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 100
+%define patchlevel 116
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -158,6 +158,24 @@ Patch098: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.098
 Patch099: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.099
 # Win32:
 #Patch100: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.100
+Patch101: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.101
+Patch102: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.102
+Patch103: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.103
+Patch104: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.104
+Patch105: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.105
+Patch106: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.106
+Patch107: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.107
+# Win32:
+#Patch108: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.108
+Patch109: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.109
+# Win32:
+#Patch110: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.110
+Patch111: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.111
+Patch112: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.112
+Patch113: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.113
+Patch114: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.114
+Patch115: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.115
+Patch116: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.116
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -400,6 +418,24 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch099 -p0 
 # Win32:
 #patch100 -p0 
+%patch101 -p0 
+%patch102 -p0 
+%patch103 -p0 
+%patch104 -p0 
+%patch105 -p0 
+%patch106 -p0 
+%patch107 -p0 
+# Win32:
+#patch108 -p0 
+%patch109 -p0 
+# Win32:
+#patch110 -p0 
+%patch111 -p0 
+%patch112 -p0 
+%patch113 -p0 
+%patch114 -p0 
+%patch115 -p0 
+%patch116 -p0 
 
 # install spell files
 %if %{withvimspell}
@@ -785,6 +821,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Sep 24 2007 Karsten Hopp <karsten@redhat.com> 7.1.%{nil}116-1
+- patchlevel 116
+
 * Fri Sep 07 2007 Karsten Hopp <karsten@redhat.com> 7.1.100-1
 - patchlevel 100
 
