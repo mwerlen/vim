@@ -145,3 +145,6 @@ Individual patches for Vim 7.1:
   1386  7.1.114  memory leak in getmatches()
   1472  7.1.115  (after 7.1.105) compiler warning for uninitialized variable
   3137  7.1.116  can't display characters above 0x10000
+  1414  7.1.117  can't check wether Vim was compiled with Gnome
+  1805  7.1.118  (after 7.1.107) compiler warning for Visual C compiler
+  1761  7.1.119  crash after setting 'cmdheight' to huge value

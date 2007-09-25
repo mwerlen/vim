@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 116
+%define patchlevel 119
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -176,6 +176,9 @@ Patch113: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.113
 Patch114: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.114
 Patch115: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.115
 Patch116: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.116
+Patch117: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.117
+Patch118: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.118
+Patch119: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.119
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -436,6 +439,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch114 -p0 
 %patch115 -p0 
 %patch116 -p0 
+%patch117 -p0 
+%patch118 -p0 
+%patch119 -p0 
 
 # install spell files
 %if %{withvimspell}
@@ -821,7 +827,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Mon Sep 24 2007 Karsten Hopp <karsten@redhat.com> 7.1.%{nil}116-1
+* Tue Sep 25 2007 Karsten Hopp <karsten@redhat.com> 7.1.119-1
+- patchlevel 119
+
+* Mon Sep 24 2007 Karsten Hopp <karsten@redhat.com> 7.1.116-1
 - patchlevel 116
 
 * Fri Sep 07 2007 Karsten Hopp <karsten@redhat.com> 7.1.100-1
