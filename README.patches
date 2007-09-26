@@ -148,3 +148,6 @@ Individual patches for Vim 7.1:
   1414  7.1.117  can't check wether Vim was compiled with Gnome
   1805  7.1.118  (after 7.1.107) compiler warning for Visual C compiler
   1761  7.1.119  crash after setting 'cmdheight' to huge value
+ 17416  7.1.120  can't use valgrind with "make test" to test for memory leaks
+  2350  7.1.121  ":cd %:h" fails when editing file in current directory
+  3732  7.1.122  Mac: building with Aap doesn't work properly
