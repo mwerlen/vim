@@ -151,3 +151,16 @@ Individual patches for Vim 7.1:
  17416  7.1.120  can't use valgrind with "make test" to test for memory leaks
   2350  7.1.121  ":cd %:h" fails when editing file in current directory
   3732  7.1.122  Mac: building with Aap doesn't work properly
+  8051  7.1.123  Win32: ":edit foo ~ foo" expands "~"
+  2599  7.1.124  (extra) Mac: may get empty buffer if dropping file on Vim.app
+ 12060  7.1.125  the TermResponse autocommand event is not always triggered
+ 13372  7.1.126  (extra) ":vimgrep */*" doesn't work if autocmd changes dir
+  2319  7.1.127  memory leak when doing completing
+  2079  7.1.128  (extra) build problem with Cygwin
+  1740  7.1.129  (extra) Win32: Can't get long user name
+  9494  7.1.130  crash with some combination of undo and redo
+  1535  7.1.131  ":mksession" always adds ":setlocal autoread"
+  1781  7.1.132  getpos("'>") may return < 0 for a Linewise selection
+  1515  7.1.133  shorten_fname1() linked when it's not needed
+ 10379  7.1.134  (extra) Win32: Can't build with VC8
+  3337  7.1.135  Win32: ":e c:/tmp/foo" and ":e c:/tmp//foo" create two buffers
