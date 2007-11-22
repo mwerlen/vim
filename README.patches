@@ -164,3 +164,27 @@ Individual patches for Vim 7.1:
   1515  7.1.133  shorten_fname1() linked when it's not needed
  10379  7.1.134  (extra) Win32: Can't build with VC8
   3337  7.1.135  Win32: ":e c:/tmp/foo" and ":e c:/tmp//foo" create two buffers
+  1522  7.1.136  memory leak when using Ruby syntax highlighting
+  1553  7.1.137  build failure when using EXITFREE
+  1836  7.1.138  Perl: Msg() doesn't stop when "q" is typed at the more prompt
+  1557  7.1.139  fold truncated when ending Insert mode with CTRL-C
+  1664  7.1.140  v:count can't be used in an expression mapping
+  2806  7.1.141  GTK: can't use negative offset with -geom argument
+  2161  7.1.142  ":redir @A>" doesn't work
+  1723  7.1.143  uninitialized memory read when diffing three files
+  1250  7.1.144  after ":diffup" cursor can be in the wrong position
+  6160  7.1.145  stay in Insert completion mode depending on the char typed
+  2838  7.1.146  VMS: writing fails for rare record organisation
+  2079  7.1.147  (after 7.1.127) freeing memory twice completing user name
+  2557  7.1.148  QNX and some other systems require testing for sys/types.h
+  4823  7.1.149  completion menu messed up when using the scroll bar
+  1759  7.1.150  Visual mode "p" doesn't work when 'clipboard' has "unnamed"
+  2108  7.1.151  lalloc(0) error for line completion with 'ic' and 'inf' set
+  3183  7.1.152  display problem when 'hls' and 'cursorcolumn' are set
+  4610  7.1.153  compiler warnings on SGI
+  1547  7.1.154  (after 7.1.152) compiler warning for signed/unsigned compare
+  1594  7.1.155  crash when 'undolevels' is 0 and repeating "udd"
+  4174  7.1.156  overlapping arguments for strcpy() during cmdline completion
+  1541  7.1.157  :" in Ex mode at end of file results in an error message
+  4629  7.1.158  (extra) Win32: with utf-8 and cp1250 Alt-y is the wrong char
+  1646  7.1.159  overlapping arguments for a strcpy()
