@@ -188,3 +188,19 @@ Individual patches for Vim 7.1:
   1541  7.1.157  :" in Ex mode at end of file results in an error message
   4629  7.1.158  (extra) Win32: with utf-8 and cp1250 Alt-y is the wrong char
   1646  7.1.159  overlapping arguments for a strcpy()
+  1661  7.1.160  getting/losing focus may cause hit-enter prompt to be redrawn
+  4347  7.1.161  compilation errors with tiny features and EXITFREE
+  4691  7.1.162  crash when using a modifier before "while" or "for"
+  2367  7.1.163  warning for the unknown option 'bufsecret'
+  1576  7.1.164  reading past end of regexp pattern
+  5538  7.1.165  crash related to getting X window ID
+  2134  7.1.166  memory leak when using "gp" in Visual mode
+  2528  7.1.167  xxd crashes when using "xxd -b -c 110"
+  2989  7.1.168  (extra) Win32 GUI: when no focus click doesn't position cursor
+  1926  7.1.169  using uninitialized memory when system() fails
+  1722  7.1.170  overlapping arguments to strcpy()
+  2324  7.1.171  reading one byte before allocated memory.
+  1536  7.1.172  if 'buftype' is "acwrite" Vim still does overwrite check
+  1928  7.1.173  accessing freed memory when using "\%^" pattern
+  2197  7.1.174  writing NUL past end of a buffer
+  4722  7.1.175  <BS> doesn't work with some combination of option settings

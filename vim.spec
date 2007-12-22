@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 159
+%define patchlevel 175
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -210,6 +210,22 @@ Patch156: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.156
 Patch157: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.157
 Patch158: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.158
 Patch159: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.159
+Patch160: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.160
+Patch161: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.161
+Patch162: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.162
+Patch163: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.163
+Patch164: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.164
+Patch165: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.165
+Patch166: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.166
+Patch167: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.167
+Patch168: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.168
+Patch169: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.169
+Patch170: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.170
+Patch171: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.171
+Patch172: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.172
+Patch173: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.173
+Patch174: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.174
+Patch175: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.175
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -501,6 +517,22 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch157 -p0
 %patch158 -p0
 %patch159 -p0
+%patch160 -p0
+%patch161 -p0
+%patch162 -p0
+%patch163 -p0
+%patch164 -p0
+%patch165 -p0
+%patch166 -p0
+%patch167 -p0
+%patch168 -p0
+%patch169 -p0
+%patch170 -p0
+%patch171 -p0
+%patch172 -p0
+%patch173 -p0
+%patch174 -p0
+%patch175 -p0
 
 
 # install spell files
@@ -887,6 +919,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Dec 22 2007 Karsten Hopp <karsten@redhat.com> 7.1.%{nil}175-1
+- patchlevel 175
+
 * Thu Nov 22 2007 Karsten Hopp <karsten@redhat.com> 7.1.159-1
 - patchlevel 159
 - vim-enhanced requires which for vimtutor (#395371)
