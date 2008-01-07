@@ -25,6 +25,7 @@ Checksums for the patch files can be found in the file MD5.
 Collection of patches for Vim 7.1:
   SIZE  NAME                  INCLUDES
  91424  7.1.001-100.gz	      patches 7.1.001 to 7.1.100, gzip'ed
+ 75402  7.1.101-200.gz	      patches 7.1.101 to 7.1.200, gzip'ed
 
 
 Individual patches for Vim 7.1:
@@ -155,6 +156,7 @@ Individual patches for Vim 7.1:
   2599  7.1.124  (extra) Mac: may get empty buffer if dropping file on Vim.app
  12060  7.1.125  the TermResponse autocommand event is not always triggered
  13372  7.1.126  (extra) ":vimgrep */*" doesn't work if autocmd changes dir
+        12461  7.1.126ne  replacement for 7.1.126 without the (extra)
   2319  7.1.127  memory leak when doing completing
   2079  7.1.128  (extra) build problem with Cygwin
   1740  7.1.129  (extra) Win32: Can't get long user name
@@ -204,3 +206,39 @@ Individual patches for Vim 7.1:
   1928  7.1.173  accessing freed memory when using "\%^" pattern
   2197  7.1.174  writing NUL past end of a buffer
   4722  7.1.175  <BS> doesn't work with some combination of option settings
+  2943  7.1.176  compiling with Aap fails if "compiledby" contains '<' or '>'
+  5450  7.1.177  freeing memory twice when in debug mode while reading a script
+  1567  7.1.178  "%" doesn't work on "/* comment *//* comment */"
+  6581  7.1.179  configure doesn't find TCL 8.5
+  7099  7.1.180  regexp patterns are not sufficiently tested
+  1878  7.1.181  accessing uninitialized memory in Farsi mode with ":s"
+  5457  7.1.182  with tab pages and an argument list session file may be wrong
+  2489  7.1.183  Internal error for ":echo matchstr('a', 'a\%[\&]')"
+  2132  7.1.184  crash when deleting backwards over a line break in Insert mode
+  3744  7.1.185  "gR" and then BS doesn't work properly with multi-byte chars
+  3294  7.1.186  "expand('<afile>')" returns a bogus value after ":cd dir"
+  2341  7.1.187  Win32 GUI: custom completion using system() doesn't work
+  1688  7.1.188  "W10" message could be displayed in the second column
+  1950  7.1.189  (after 7.1.104) need to call plain_vgetc() in ask_yesno()
+  1685  7.1.190  cursor after end-of-line: "iA sentence.<Esc>)"
+  2007  7.1.191  Win32 GUI: when not in focus click in scrollbar doesn't work 
+  2605  7.1.192  CTRL-C doesn't stop duplicating text for "s" in Visual block
+  2962  7.1.193  some of the Vim 5.x digraphs could be supported
+  1650  7.1.194  Unix: ":echo glob('~/{}')" results in "/home/user//"
+  2273  7.1.195  '0 mark doesn't work for "~/foo ~ foo"
+  2642  7.1.196  (extra) Win32 GUI: "\n" in a tooltip doesn't cause line break
+  2308  7.1.197  Mac: "make install" doesn't work when $prefix is set
+  1460  7.1.198  hang when using ":s/\n//gn"
+  3572  7.1.199  can't do command line completion for a file name extension
+  2310  7.1.200  (after 7.1.177 and 7.1.182) compiler warnings
+  2705  7.1.201  when reading stdin 'fenc' and 'ff' are not set
+  2383  7.1.202  incomplete utf-8 byte sequence is not checked for validity
+  2261  7.1.203  if 'virtualedit' is "onemore" then ":normal 99|" is not right
+  2891  7.1.204  (extra) Win32: 'balloonexpr' tooltip disappears after 4 sec
+  5481  7.1.205  can't get the operator in an ":omap"
+  1690  7.1.206  compiler warnings when using MODIFIED_BY
+  7708  7.1.207  netbeans: "remove" cannot delete one line
+  2051  7.1.208  on Alpha get an unaligned access error
+  2249  7.1.209  GTK GUI: when using the netrw plugin ":gui" causes a hang
+  1923  7.1.210  listing mapping for 0xdb fails when 'encoding' is utf-8
+ 25525  7.1.211  matchparen plugin may take so long it looks like Vim hangs

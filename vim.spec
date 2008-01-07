@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 175
+%define patchlevel 211
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -226,6 +226,42 @@ Patch172: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.172
 Patch173: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.173
 Patch174: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.174
 Patch175: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.175
+Patch176: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.176
+Patch177: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.177
+Patch178: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.178
+Patch179: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.179
+Patch180: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.192
+Patch193: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.193
+Patch194: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.194
+Patch195: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.195
+Patch196: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.196
+Patch197: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.197
+Patch198: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.198
+Patch199: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.199
+Patch200: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.200
+Patch201: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.201
+Patch202: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.202
+Patch203: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.203
+Patch204: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.204
+Patch205: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.205
+Patch206: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.206
+Patch207: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.207
+Patch208: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.208
+Patch209: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.209
+Patch210: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.210
+Patch211: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.211
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -533,6 +569,42 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch173 -p0
 %patch174 -p0
 %patch175 -p0
+%patch176 -p0 
+%patch177 -p0 
+%patch178 -p0 
+%patch179 -p0 
+%patch180 -p0 
+%patch181 -p0 
+%patch182 -p0 
+%patch183 -p0 
+%patch184 -p0 
+%patch185 -p0 
+%patch186 -p0 
+%patch187 -p0 
+%patch188 -p0 
+%patch189 -p0 
+%patch190 -p0 
+%patch191 -p0 
+%patch192 -p0 
+%patch193 -p0 
+%patch194 -p0 
+%patch195 -p0 
+%patch196 -p0 
+%patch197 -p0 
+%patch198 -p0 
+%patch199 -p0 
+%patch200 -p0 
+%patch201 -p0 
+%patch202 -p0 
+%patch203 -p0 
+%patch204 -p0 
+%patch205 -p0 
+%patch206 -p0 
+%patch207 -p0 
+%patch208 -p0 
+%patch209 -p0 
+%patch210 -p0 
+%patch211 -p0 
 
 
 # install spell files
@@ -919,7 +991,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Sat Dec 22 2007 Karsten Hopp <karsten@redhat.com> 7.1.%{nil}175-1
+* Mon Jan 07 2008 Karsten Hopp <karsten@redhat.com> 7.1.211-1
+- patchlevel 211
+
+* Sat Dec 22 2007 Karsten Hopp <karsten@redhat.com> 7.1.175-1
 - patchlevel 175
 
 * Thu Nov 22 2007 Karsten Hopp <karsten@redhat.com> 7.1.159-1
