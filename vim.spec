@@ -15,7 +15,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 211
+%define patchlevel 214
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -262,6 +262,9 @@ Patch208: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.208
 Patch209: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.209
 Patch210: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.210
 Patch211: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.211
+Patch212: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.212
+Patch213: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.213
+Patch214: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.214
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -605,6 +608,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch209 -p0 
 %patch210 -p0 
 %patch211 -p0 
+%patch212 -p0 
+%patch213 -p0 
+%patch214 -p0 
 
 
 # install spell files
@@ -991,6 +997,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Jan 10 2008 Karsten Hopp <karsten@redhat.com> 7.1.214-1
+- patchlevel 214
+
 * Mon Jan 07 2008 Karsten Hopp <karsten@redhat.com> 7.1.211-1
 - patchlevel 211
 

@@ -242,3 +242,6 @@ Individual patches for Vim 7.1:
   2249  7.1.209  GTK GUI: when using the netrw plugin ":gui" causes a hang
   1923  7.1.210  listing mapping for 0xdb fails when 'encoding' is utf-8
  25525  7.1.211  matchparen plugin may take so long it looks like Vim hangs
+  1491  7.1.212  accessing a byte before a line
+  1750  7.1.213  aborting ":tabedit" from the ATTENTION dialog leaves tab open
+  8399  7.1.214  ":1s/g\n\zs1//" deletes characters from the first line
