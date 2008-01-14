@@ -245,3 +245,17 @@ Individual patches for Vim 7.1:
   1491  7.1.212  accessing a byte before a line
   1750  7.1.213  aborting ":tabedit" from the ATTENTION dialog leaves tab open
   8399  7.1.214  ":1s/g\n\zs1//" deletes characters from the first line
+  6476  7.1.215  it's difficult to figure out the nesting of syntax items
+  2360  7.1.216  variants of --remote-tab are not mentioned for "vim --help"
+  7103  7.1.217  the "help-tags" tag may be missing from runtime/doc/tags
+  1864  7.1.218  syntax region without "keepend" could be truncated
+ 12134  7.1.219  (after 7.1.215) synstack() doesn't work for one char region
+  3928  7.1.220  cursor may end up on trail byte after ")"
+  1978  7.1.221  when inserting a "(" the following highlighting may be wrong
+  3531  7.1.222  (after 7.1.217) wildcards of ":helptags" are not expanded
+  8138  7.1.223  glob() doesn't handle "'" when 'shell' is "sh" or "bash"
+  2131  7.1.224  "vim -F -o one two" sets 'rightleft' in one window only
+  1767  7.1.225  using unitialized value when XGetWMNormalHints() fails
+  1957  7.1.226  command line completion fails for a file name with a '&' char
+  5595  7.1.227  hang in syntax HL when moving over a ")"
+  1678  7.1.228  with 'foldmethod' "indent" fold can't be closed after "3>>"

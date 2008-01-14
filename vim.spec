@@ -1,6 +1,8 @@
 # used for CVS snapshots:
 %define CVSDATE %{nil}
+%if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
+%endif
 %define desktop_file 1
 %if %{desktop_file}
 %define desktop_file_utils_version 0.2.93
@@ -15,7 +17,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 214
+%define patchlevel 228
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -265,6 +267,20 @@ Patch211: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.211
 Patch212: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.212
 Patch213: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.213
 Patch214: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.214
+Patch215: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.215
+Patch216: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.216
+Patch217: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.217
+Patch218: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.218
+Patch219: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.219
+Patch220: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.220
+Patch221: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.221
+Patch222: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.222
+Patch223: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.223
+Patch224: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.224
+Patch225: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.225
+Patch226: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.226
+Patch227: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.227
+Patch228: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.228
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -608,9 +624,23 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch209 -p0 
 %patch210 -p0 
 %patch211 -p0 
-%patch212 -p0 
-%patch213 -p0 
-%patch214 -p0 
+%patch212 -p0
+%patch213 -p0
+%patch214 -p0
+%patch215 -p0
+%patch216 -p0
+%patch217 -p0
+%patch218 -p0
+%patch219 -p0
+%patch220 -p0
+%patch221 -p0
+%patch222 -p0
+%patch223 -p0
+%patch224 -p0
+%patch225 -p0
+%patch226 -p0
+%patch227 -p0
+%patch228 -p0
 
 
 # install spell files
@@ -997,6 +1027,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Jan 14 2008 Karsten Hopp <karsten@redhat.com> 7.1.228-1
+- patchlevel 228
+- allow overwriting WITH_SELING at build time (#427710)
+
 * Thu Jan 10 2008 Karsten Hopp <karsten@redhat.com> 7.1.214-1
 - patchlevel 214
 
