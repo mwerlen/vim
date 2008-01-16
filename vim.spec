@@ -17,7 +17,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 228
+%define patchlevel 230
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -281,6 +281,8 @@ Patch225: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.225
 Patch226: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.226
 Patch227: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.227
 Patch228: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.228
+Patch229: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.229
+Patch230: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.230
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -641,6 +643,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch226 -p0
 %patch227 -p0
 %patch228 -p0
+%patch229 -p0
+%patch230 -p0
 
 
 # install spell files
@@ -1027,6 +1031,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jan 16 2008 Karsten Hopp <karsten@redhat.com> 7.1.230-1
+- patchlevel 230, fixes memory leak
+
 * Mon Jan 14 2008 Karsten Hopp <karsten@redhat.com> 7.1.228-1
 - patchlevel 228
 - allow overwriting WITH_SELING at build time (#427710)

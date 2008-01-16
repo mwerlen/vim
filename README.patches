@@ -259,3 +259,5 @@ Individual patches for Vim 7.1:
   1957  7.1.226  command line completion fails for a file name with a '&' char
   5595  7.1.227  hang in syntax HL when moving over a ")"
   1678  7.1.228  with 'foldmethod' "indent" fold can't be closed after "3>>"
+  1758  7.1.229  a fold is closed when backspacing in Insert mode
+  2052  7.1.230  memory leak when executing SourceCmd autocommands
