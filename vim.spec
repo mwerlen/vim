@@ -23,7 +23,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -295,6 +295,8 @@ Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
 Patch3011: vim-7.0-vimspelltypo.patch
 Patch3012: vim-7.0-specedit.patch
+# Remove this one when the runtime files get updated (#246378):
+Patch3013: vim-7.1-ada.patch
 #
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
@@ -664,6 +666,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
+%patch3013 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -1031,6 +1034,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jan 16 2008 Karsten Hopp <karsten@redhat.com> 7.1.230-2
+- add newer ada runtime files to fix bugzilla #246378
+
 * Wed Jan 16 2008 Karsten Hopp <karsten@redhat.com> 7.1.230-1
 - patchlevel 230, fixes memory leak
 
