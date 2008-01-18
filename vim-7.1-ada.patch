@@ -2229,8 +2229,8 @@ diff -urN vim71/runtime/plugin/taglist.vim vim71_ada/runtime/plugin/taglist.vim
 +        elseif executable('tags')
 +            let Tlist_Ctags_Cmd = 'tags'
 +        else
-+            echomsg 'Taglist: Exuberant ctags (http://ctags.sf.net) ' .
-+                        \ 'not found in PATH. Plugin is not loaded.'
++        "    echomsg 'Taglist: Exuberant ctags (http://ctags.sf.net) ' .
++        "                \ 'not found in PATH. Plugin is not loaded.'
 +            " Skip loading the plugin
 +            let loaded_taglist = 'no'
 +            let &cpo = s:cpo_save

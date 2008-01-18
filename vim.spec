@@ -23,7 +23,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1040,6 +1040,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Jan 18 2008 Karsten Hopp <karsten@redhat.com> 7.1.233-2
+- silence taglist plugin (#429200)
+
 * Fri Jan 18 2008 Karsten Hopp <karsten@redhat.com> 7.1.233-1
 - patchlevel 233
 - fix ada patch
