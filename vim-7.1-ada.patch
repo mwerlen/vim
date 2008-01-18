@@ -5,18 +5,18 @@ diff -urN vim71/runtime/autoload/adacomplete.vim vim71_ada/runtime/autoload/adac
  "------------------------------------------------------------------------------
  "  Description: Vim Ada omnicompletion file
  "     Language:	Ada (2005)
--"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "   Maintainer:	Martin Krischik
 -"      $Author: karsten $
--"	 $Date: 2008/01/18 13:52:03 $
+-"	 $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/adacomplete.vim $
 +"      $Author: karsten $
-+"	 $Date: 2008/01/18 13:52:03 $
++"	 $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/adacomplete.vim $
  "      History: 24.05.2006 MK Unified Headers
  "		26.05.2006 MK improved search for begin of word.
@@ -28,22 +28,22 @@ diff -urN vim71/runtime/autoload/ada.vim vim71_ada/runtime/autoload/ada.vim
  "------------------------------------------------------------------------------
  "  Description: Perform Ada specific completion & tagging.
  "     Language: Ada (2005)
--"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 -"   Maintainer: Martin Krischik
-+"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
++"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 +"   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
 +"		Taylor Venable <taylor@metasyntax.net>
  "		Neil Bird <neil@fnxweb.com>
 -"      $Author: karsten $
--"	 $Date: 2008/01/18 13:52:03 $
+-"	 $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/ada.vim $
 +"		Ned Okie <nokie@radford.edu>
 +"      $Author: karsten $
-+"	 $Date: 2008/01/18 13:52:03 $
++"	 $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/ada.vim $
  "      History: 24.05.2006 MK Unified Headers
  "		26.05.2006 MK ' should not be in iskeyword.
@@ -155,20 +155,20 @@ diff -urN vim71/runtime/autoload/decada.vim vim71_ada/runtime/autoload/decada.vi
  "------------------------------------------------------------------------------
  "  Description: Vim Ada/Dec Ada compiler file
  "     Language: Ada (Dec Ada)
--"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "    Copyright: Copyright (C) 2006 Martin Krischik
 -"   Maintainer:	Martin Krischik
 -"      $Author: karsten $
--"        $Date: 2008/01/18 13:52:03 $
+-"        $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/decada.vim $
 +"   Maintainer:	Martin Krischik <krischik@users.sourceforge.net>
 +"      $Author: karsten $
-+"        $Date: 2008/01/18 13:52:03 $
++"        $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/decada.vim $
  "      History: 21.07.2006 MK New Dec Ada
  "               15.10.2006 MK Bram's suggestion for runtime integration
@@ -189,21 +189,21 @@ diff -urN vim71/runtime/autoload/gnat.vim vim71_ada/runtime/autoload/gnat.vim
  "------------------------------------------------------------------------------
  "  Description: Vim Ada/GNAT compiler file
  "     Language: Ada (GNAT)
--"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "    Copyright: Copyright (C) 2006 Martin Krischik
 -"   Maintainer:	Martin Krischik
 -"      $Author: karsten $
--"        $Date: 2008/01/18 13:52:03 $
+-"        $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/gnat.vim $
 +"   Maintainer:	Martin Krischi <krischik@users.sourceforge.net>k
 +"		Ned Okie <nokie@radford.edu>
 +"      $Author: karsten $
-+"        $Date: 2008/01/18 13:52:03 $
++"        $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/autoload/gnat.vim $
  "      History: 24.05.2006 MK Unified Headers
  "		16.07.2006 MK Ada-Mode as vim-ball
@@ -250,20 +250,20 @@ diff -urN vim71/runtime/compiler/decada.vim vim71_ada/runtime/compiler/decada.vi
  "------------------------------------------------------------------------------
  "  Description: Vim Ada/Dec Ada compiler file
  "     Language: Ada (Dec Ada)
--"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "    Copyright: Copyright (C) 2006 Martin Krischik
 -"   Maintainer:	Martin Krischik
 -"      $Author: karsten $
--"        $Date: 2008/01/18 13:52:03 $
+-"        $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/compiler/decada.vim $
 +"   Maintainer:	Martin Krischik <krischik@users.sourceforge.net>
 +"      $Author: karsten $
-+"        $Date: 2008/01/18 13:52:03 $
++"        $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/compiler/decada.vim $
  "      History: 21.07.2006 MK New Dec Ada
  "               15.10.2006 MK Bram's suggestion for runtime integration
@@ -309,21 +309,21 @@ diff -urN vim71/runtime/compiler/gnat.vim vim71_ada/runtime/compiler/gnat.vim
  "------------------------------------------------------------------------------
  "  Description: Vim Ada/GNAT compiler file
  "     Language: Ada (GNAT)
--"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "    Copyright: Copyright (C) 2006 Martin Krischik
 -"   Maintainer:	Martin Krischik
 -"      $Author: karsten $
--"        $Date: 2008/01/18 13:52:03 $
+-"        $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/compiler/gnat.vim $
 +"   Maintainer:	Martin Krischi <krischik@users.sourceforge.net>k
 +"		Ned Okie <nokie@radford.edu>
 +"      $Author: karsten $
-+"        $Date: 2008/01/18 13:52:03 $
++"        $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/compiler/gnat.vim $
  "      History: 24.05.2006 MK Unified Headers
  "		16.07.2006 MK Ada-Mode as vim-ball
@@ -877,21 +877,21 @@ diff -urN vim71/runtime/ftplugin/ada.vim vim71_ada/runtime/ftplugin/ada.vim
  "------------------------------------------------------------------------------
  "  Description: Perform Ada specific completion & tagging.
  "     Language: Ada (2005)
--"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 -"   Maintainer: Martin Krischik
-+"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
++"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 +"   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
 +"		Taylor Venable <taylor@metasyntax.net>
  "		Neil Bird <neil@fnxweb.com>
 -"      $Author: karsten $
--"	 $Date: 2008/01/18 13:52:03 $
+-"	 $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/ftplugin/ada.vim $
 +"      $Author: karsten $
-+"	 $Date: 2008/01/18 13:52:03 $
++"	 $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/ftplugin/ada.vim $
  "      History: 24.05.2006 MK Unified Headers
  "		26.05.2006 MK ' should not be in iskeyword.
@@ -938,22 +938,22 @@ diff -urN vim71/runtime/indent/ada.vim vim71_ada/runtime/indent/ada.vim
  "------------------------------------------------------------------------------
  "  Description: Vim Ada indent file
  "     Language: Ada (2005)
--"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "    Copyright: Copyright (C) 2006 Martin Krischik
 -"   Maintainer: Martin Krischik
 +"   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
  "		Neil Bird <neil@fnxweb.com>
 -"      $Author: karsten $
--"	 $Date: 2008/01/18 13:52:03 $
+-"	 $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/indent/ada.vim $
 +"		Ned Okie <nokie@radford.edu>
 +"      $Author: karsten $
-+"	 $Date: 2008/01/18 13:52:03 $
++"	 $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/indent/ada.vim $
  "      History: 24.05.2006 MK Unified Headers
  "		16.07.2006 MK Ada-Mode as vim-ball
@@ -1038,13 +1038,13 @@ diff -urN vim71/runtime/macros/svnignore.btm vim71_ada/runtime/macros/svnignore.
 +::!C:\Bin\4Portable\App\4\4nt.EXE
 +::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 +::  Description: Works like "tail -f" .
-+::          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
++::          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 +::   Maintainer: Martin Krischik
 +::               Jason Heddings (vim at heddway dot com)
 +::      $Author: karsten $
-+::        $Date: 2008/01/18 13:52:03 $
++::        $Date: 2008/01/18 15:30:13 $
 +::      Version: 3.0
-+::    $Revision: 1.2 $
++::    $Revision: 1.3 $
 +::     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/macros/svnignore.btm $
 +::      History: 17.11.2007 Edit svn:ignore data
 +::    Help Page: tail.txt
@@ -1069,13 +1069,13 @@ diff -urN vim71/runtime/macros/svnignore.zsh vim71_ada/runtime/macros/svnignore.
 +#!/bin/zsh
 +#------------------------------------------------------------------------------
 +#  Description: Works like "tail -f" .
-+#          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
++#          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 +#   Maintainer: Martin Krischik
 +#               Jason Heddings (vim at heddway dot com)
 +#      $Author: karsten $
-+#        $Date: 2008/01/18 13:52:03 $
++#        $Date: 2008/01/18 15:30:13 $
 +#      Version: 3.0
-+#    $Revision: 1.2 $
++#    $Revision: 1.3 $
 +#     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/macros/svnignore.zsh $
 +#      History: 17.11.2007 Edit svn:ignore data
 +#    Help Page: tail.txt
@@ -1103,12 +1103,12 @@ diff -urN vim71/runtime/macros/vim.bash vim71_ada/runtime/macros/vim.bash
 +########################################################### {{{1 ###########
 +#  Description: Set alias names for a custom installed vim/ctags.
 +#     Language: Bash Shell Script
-+#          $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
++#          $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
 +#   Maintainer: Martin Krischik
 +#      $Author: karsten $
-+#        $Date: 2008/01/18 13:52:03 $
++#        $Date: 2008/01/18 15:30:13 $
 +#      Version: 3.6
-+#    $Revision: 1.2 $
++#    $Revision: 1.3 $
 +#     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/macros/vim.bash $
 +#      History: 26.07.2006 MK pretty new
 +#        Usage: copy to /etc/profile.d and make world executable
@@ -2229,8 +2229,8 @@ diff -urN vim71/runtime/plugin/taglist.vim vim71_ada/runtime/plugin/taglist.vim
 +        elseif executable('tags')
 +            let Tlist_Ctags_Cmd = 'tags'
 +        else
-+            echomsg 'Taglist: Exuberant ctags (http://ctags.sf.net) ' .
-+                        \ 'not found in PATH. Plugin is not loaded.'
++        "    echomsg 'Taglist: Exuberant ctags (http://ctags.sf.net) ' .
++        "                \ 'not found in PATH. Plugin is not loaded.'
 +            " Skip loading the plugin
 +            let loaded_taglist = 'no'
 +            let &cpo = s:cpo_save
@@ -6664,22 +6664,22 @@ diff -urN vim71/runtime/syntax/ada.vim vim71_ada/runtime/syntax/ada.vim
  "----------------------------------------------------------------------------
  "  Description: Vim Ada syntax file
  "     Language: Ada (2005)
--"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
-+"	   $Id: vim-7.1-ada.patch,v 1.2 2008/01/18 13:52:03 karsten Exp $
+-"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
++"	   $Id: vim-7.1-ada.patch,v 1.3 2008/01/18 15:30:13 karsten Exp $
  "    Copyright: Copyright (C) 2006 Martin Krischik
  "   Maintainer: Martin Krischik
  "		David A. Wheeler <dwheeler@dwheeler.com>
  "		Simon Bradley <simon.bradley@pitechnology.com>
  " Contributors: Preben Randhol.
 -"      $Author: karsten $
--"	 $Date: 2008/01/18 13:52:03 $
+-"	 $Date: 2008/01/18 15:30:13 $
 -"      Version: 4.2
--"    $Revision: 1.2 $
+-"    $Revision: 1.3 $
 -"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/syntax/ada.vim $
 +"      $Author: karsten $
-+"	 $Date: 2008/01/18 13:52:03 $
++"	 $Date: 2008/01/18 15:30:13 $
 +"      Version: 4.5
-+"    $Revision: 1.2 $
++"    $Revision: 1.3 $
 +"     $HeadURL: https://gnuada.svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/syntax/ada.vim $
  "		http://www.dwheeler.com/vim
  "      History: 24.05.2006 MK Unified Headers
