@@ -261,3 +261,6 @@ Individual patches for Vim 7.1:
   1678  7.1.228  with 'foldmethod' "indent" fold can't be closed after "3>>"
   1758  7.1.229  a fold is closed when backspacing in Insert mode
   2052  7.1.230  memory leak when executing SourceCmd autocommands
+  8648  7.1.231  when shifting lines the change is acted upon multiple times
+  2002  7.1.232  (after 7.1.207 and 7.1.211) compiler warnings with MSVC
+  3249  7.1.233  crash with Insert mode completion for a user defined command
