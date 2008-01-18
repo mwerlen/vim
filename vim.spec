@@ -17,13 +17,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 230
+%define patchlevel 233
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -283,6 +283,9 @@ Patch227: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.227
 Patch228: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.228
 Patch229: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.229
 Patch230: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.230
+Patch231: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.231
+Patch232: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.232
+Patch233: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.233
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -647,6 +650,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch228 -p0
 %patch229 -p0
 %patch230 -p0
+%patch231 -p0
+%patch232 -p0
+%patch233 -p0
 
 
 # install spell files
@@ -1034,6 +1040,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Jan 18 2008 Karsten Hopp <karsten@redhat.com> 7.1.233-1
+- patchlevel 233
+- fix ada patch
+
 * Wed Jan 16 2008 Karsten Hopp <karsten@redhat.com> 7.1.230-2
 - add newer ada runtime files to fix bugzilla #246378
 
