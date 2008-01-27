@@ -264,3 +264,12 @@ Individual patches for Vim 7.1:
   8648  7.1.231  when shifting lines the change is acted upon multiple times
   2002  7.1.232  (after 7.1.207 and 7.1.211) compiler warnings with MSVC
   3249  7.1.233  crash with Insert mode completion for a user defined command
+  6865  7.1.234  display problems when diff'ing three files
+  5925  7.1.235  pattern matching is slow when using a lot of simple patterns
+ 28992  7.1.236  hang when using complicated pattern and 'hlsearch' or ":match"
+  1704  7.1.237  compiler warning on an Alpha processor in Motif code
+  1801  7.1.238  searchpair() may fail when using 'c' or 'r' flag
+  1639  7.1.239  (after 7.1.233) compiler warning for sprintf() argument
+  5157  7.1.240  "gUe" may stop before the end of the word
+  3093  7.1.241  focus change events not always ignored
+  2262  7.1.242  "cib" doesn't work properly on "(x)"

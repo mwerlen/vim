@@ -17,13 +17,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 233
+%define patchlevel 242
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -286,6 +286,15 @@ Patch230: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.230
 Patch231: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.231
 Patch232: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.232
 Patch233: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.233
+Patch234: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.234
+Patch235: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.235
+Patch236: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.236
+Patch237: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.237
+Patch238: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.238
+Patch239: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.239
+Patch240: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.240
+Patch241: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.241
+Patch242: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.242
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -653,6 +662,15 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch231 -p0
 %patch232 -p0
 %patch233 -p0
+%patch234 -p0
+%patch235 -p0
+%patch236 -p0
+%patch237 -p0
+%patch238 -p0
+%patch239 -p0
+%patch240 -p0
+%patch241 -p0
+%patch242 -p0
 
 
 # install spell files
@@ -1040,6 +1058,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sun Jan 27 2008 Karsten Hopp <karsten@redhat.com> 7.1.242-1
+- patchlevel 242
+
 * Fri Jan 18 2008 Karsten Hopp <karsten@redhat.com> 7.1.233-2
 - silence taglist plugin (#429200)
 
