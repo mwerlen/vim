@@ -107,6 +107,7 @@ Individual patches for Vim 7.1:
   5259  7.1.074  crash when using string() on a recursively nested List
   1686  7.1.075  ":let v:statusmsg" reads memory already freed
   2376  7.1.076  a couple more strcpy() with overlapping arguments
+  1551  7.1.077  "can_spell" is used without initializing it
   2678  7.1.078  dropping file name on gvim containing CSI byte doesn't work
   2922  7.1.079  "@" character in 'isfname' doesn't pick up umlauts for latin1
   2960  7.1.080  (extra) Compiler warnings for gvimex.cpp
@@ -273,3 +274,6 @@ Individual patches for Vim 7.1:
   5157  7.1.240  "gUe" may stop before the end of the word
   3093  7.1.241  focus change events not always ignored
   2262  7.1.242  "cib" doesn't work properly on "(x)"
+  4475  7.1.243  (after 7.1.240) "U" doesn't work on all text in Visual mode
+  1847  7.1.244  GUI may have part of the command line cut off
+  2767  7.1.245  pressing CTRL-\ three times causes Vim to quit
