@@ -107,6 +107,7 @@ Individual patches for Vim 7.1:
   5259  7.1.074  crash when using string() on a recursively nested List
   1686  7.1.075  ":let v:statusmsg" reads memory already freed
   2376  7.1.076  a couple more strcpy() with overlapping arguments
+  1551  7.1.077  "can_spell" is used without initializing it
   2678  7.1.078  dropping file name on gvim containing CSI byte doesn't work
   2922  7.1.079  "@" character in 'isfname' doesn't pick up umlauts for latin1
   2960  7.1.080  (extra) Compiler warnings for gvimex.cpp
@@ -242,3 +243,37 @@ Individual patches for Vim 7.1:
   2249  7.1.209  GTK GUI: when using the netrw plugin ":gui" causes a hang
   1923  7.1.210  listing mapping for 0xdb fails when 'encoding' is utf-8
  25525  7.1.211  matchparen plugin may take so long it looks like Vim hangs
+  1491  7.1.212  accessing a byte before a line
+  1750  7.1.213  aborting ":tabedit" from the ATTENTION dialog leaves tab open
+  8399  7.1.214  ":1s/g\n\zs1//" deletes characters from the first line
+  6476  7.1.215  it's difficult to figure out the nesting of syntax items
+  2360  7.1.216  variants of --remote-tab are not mentioned for "vim --help"
+  7103  7.1.217  the "help-tags" tag may be missing from runtime/doc/tags
+  1864  7.1.218  syntax region without "keepend" could be truncated
+ 12134  7.1.219  (after 7.1.215) synstack() doesn't work for one char region
+  3928  7.1.220  cursor may end up on trail byte after ")"
+  1978  7.1.221  when inserting a "(" the following highlighting may be wrong
+  3531  7.1.222  (after 7.1.217) wildcards of ":helptags" are not expanded
+  8138  7.1.223  glob() doesn't handle "'" when 'shell' is "sh" or "bash"
+  2131  7.1.224  "vim -F -o one two" sets 'rightleft' in one window only
+  1767  7.1.225  using unitialized value when XGetWMNormalHints() fails
+  1957  7.1.226  command line completion fails for a file name with a '&' char
+  5595  7.1.227  hang in syntax HL when moving over a ")"
+  1678  7.1.228  with 'foldmethod' "indent" fold can't be closed after "3>>"
+  1758  7.1.229  a fold is closed when backspacing in Insert mode
+  2052  7.1.230  memory leak when executing SourceCmd autocommands
+  8648  7.1.231  when shifting lines the change is acted upon multiple times
+  2002  7.1.232  (after 7.1.207 and 7.1.211) compiler warnings with MSVC
+  3249  7.1.233  crash with Insert mode completion for a user defined command
+  6865  7.1.234  display problems when diff'ing three files
+  5925  7.1.235  pattern matching is slow when using a lot of simple patterns
+ 28992  7.1.236  hang when using complicated pattern and 'hlsearch' or ":match"
+  1704  7.1.237  compiler warning on an Alpha processor in Motif code
+  1801  7.1.238  searchpair() may fail when using 'c' or 'r' flag
+  1639  7.1.239  (after 7.1.233) compiler warning for sprintf() argument
+  5157  7.1.240  "gUe" may stop before the end of the word
+  3093  7.1.241  focus change events not always ignored
+  2262  7.1.242  "cib" doesn't work properly on "(x)"
+  4475  7.1.243  (after 7.1.240) "U" doesn't work on all text in Visual mode
+  1847  7.1.244  GUI may have part of the command line cut off
+  2767  7.1.245  pressing CTRL-\ three times causes Vim to quit
