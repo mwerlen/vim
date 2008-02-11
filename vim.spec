@@ -1,6 +1,8 @@
 # used for CVS snapshots:
 %define CVSDATE %{nil}
+%if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
+%endif
 %define desktop_file 1
 %if %{desktop_file}
 %define desktop_file_utils_version 0.2.93
@@ -15,7 +17,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 211
+%define patchlevel 245
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -262,6 +264,37 @@ Patch208: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.208
 Patch209: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.209
 Patch210: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.210
 Patch211: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.211
+Patch212: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.212
+Patch213: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.213
+Patch214: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.214
+Patch215: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.215
+Patch216: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.216
+Patch217: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.217
+Patch218: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.218
+Patch219: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.219
+Patch220: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.220
+Patch221: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.221
+Patch222: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.222
+Patch223: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.223
+Patch224: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.224
+Patch225: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.225
+Patch226: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.226
+Patch227: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.227
+Patch228: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.228
+Patch229: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.229
+Patch230: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.230
+Patch231: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.231
+Patch232: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.232
+Patch233: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.233
+Patch234: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.234
+Patch235: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.235
+Patch236: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.236
+Patch237: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.237
+Patch238: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.238
+Patch239: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.239
+Patch240: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.240
+Patch241: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.241
+Patch242: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.242
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -274,6 +307,8 @@ Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
 Patch3011: vim-7.0-vimspelltypo.patch
 Patch3012: vim-7.0-specedit.patch
+# Remove this one when the runtime files get updated (#246378):
+Patch3013: vim-7.1-ada.patch
 #
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
@@ -605,6 +640,37 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch209 -p0 
 %patch210 -p0 
 %patch211 -p0 
+%patch212 -p0
+%patch213 -p0
+%patch214 -p0
+%patch215 -p0
+%patch216 -p0
+%patch217 -p0
+%patch218 -p0
+%patch219 -p0
+%patch220 -p0
+%patch221 -p0
+%patch222 -p0
+%patch223 -p0
+%patch224 -p0
+%patch225 -p0
+%patch226 -p0
+%patch227 -p0
+%patch228 -p0
+%patch229 -p0
+%patch230 -p0
+%patch231 -p0
+%patch232 -p0
+%patch233 -p0
+%patch234 -p0
+%patch235 -p0
+%patch236 -p0
+%patch237 -p0
+%patch238 -p0
+%patch239 -p0
+%patch240 -p0
+%patch241 -p0
+%patch242 -p0
 
 
 # install spell files
@@ -624,6 +690,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
+%patch3013 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -991,8 +1058,31 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Wed Jan 09 2008 Karsten Hopp <karsten@redhat.com> 7.1.211-1
-- rebuild for FC-7
+* Mon Feb 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.245-1
+- patchlevel 245
+
+* Sun Jan 27 2008 Karsten Hopp <karsten@redhat.com> 7.1.242-1
+- patchlevel 242
+
+* Fri Jan 18 2008 Karsten Hopp <karsten@redhat.com> 7.1.233-2
+- silence taglist plugin (#429200)
+
+* Fri Jan 18 2008 Karsten Hopp <karsten@redhat.com> 7.1.233-1
+- patchlevel 233
+- fix ada patch
+
+* Wed Jan 16 2008 Karsten Hopp <karsten@redhat.com> 7.1.230-2
+- add newer ada runtime files to fix bugzilla #246378
+
+* Wed Jan 16 2008 Karsten Hopp <karsten@redhat.com> 7.1.230-1
+- patchlevel 230, fixes memory leak
+
+* Mon Jan 14 2008 Karsten Hopp <karsten@redhat.com> 7.1.228-1
+- patchlevel 228
+- allow overwriting WITH_SELING at build time (#427710)
+
+* Thu Jan 10 2008 Karsten Hopp <karsten@redhat.com> 7.1.214-1
+- patchlevel 214
 
 * Mon Jan 07 2008 Karsten Hopp <karsten@redhat.com> 7.1.211-1
 - patchlevel 211
