@@ -17,7 +17,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 242
+%define patchlevel 245
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -1058,6 +1058,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.245-1
+- patchlevel 245
+
 * Sun Jan 27 2008 Karsten Hopp <karsten@redhat.com> 7.1.242-1
 - patchlevel 242
 
