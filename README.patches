@@ -277,3 +277,20 @@ Individual patches for Vim 7.1:
   4475  7.1.243  (after 7.1.240) "U" doesn't work on all text in Visual mode
   1847  7.1.244  GUI may have part of the command line cut off
   2767  7.1.245  pressing CTRL-\ three times causes Vim to quit
+  2739  7.1.246  configure hangs when the man pager is something strange
+  6028  7.1.247  Netbeans: backspacing in Insert mode may skip a character
+  3691  7.1.248  can't set the '" mark; can't know if setpos() was successful
+  2144  7.1.249  after "U" the cursor can be past end of line
+  1684  7.1.250  error for ":setglobal fenc=anything" when 'modifiable' is off
+  3134  7.1.251  accessing freed memory when spell checking enabled
+  1399  7.1.252  (after 7.1.243) test 39 fails when locale uses utf-8 encoding
+  1751  7.1.253  ":sort" doesn't work in a one line file
+  1894  7.1.254  Tests 49 and 55 fail when the locale is French
+  1514  7.1.255  Vim doesn't support utf-32
+ 50921  7.1.256  findfile() also returns directories
+  3326  7.1.257  configure can't always find the Tcl header files
+  3360  7.1.258  crash when doing "d/\n/e" and 'virtualedit' is "all"
+  1944  7.1.259  cursor in wrong place with 'rl', "utf-8" and illegal byte
+  1805  7.1.260  cursor position wrong after ^@ wrapping halfway if using utf-8
+  2255  7.1.261  for a 2 byte BOM UCS-2 is used, which doesn't work for UTF-16
+  3438  7.1.262  can't get the process ID of Vim
