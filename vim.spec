@@ -12,6 +12,7 @@
 
 %define withvimspell 0
 %define withhunspell 0
+%define withruby 1
 
 %define baseversion 7.1
 #used for pre-releases:
@@ -758,6 +759,11 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
 %else
   --disable-netbeans \
 %endif
+%if "%{withruby}" == "1"
+  --enable-rubyinterp \
+%else
+  --disable-rubyinterp \
+%endif
 
 make %{?_smp_mflags}
 cp vim gvim
@@ -773,6 +779,11 @@ make clean
   --enable-netbeans \
 %else
   --disable-netbeans \
+%endif
+%if "%{withruby}" == "1"
+  --enable-rubyinterp \
+%else
+  --disable-rubyinterp \
 %endif
 
 make %{?_smp_mflags}
@@ -1102,6 +1113,7 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Feb 25 2008 Karsten Hopp <karsten@redhat.com> 7.1.262-1
 - patchlevel 262
 - add fix for #231124, BOM was ignored
+- enable ruby interpreter (#215207)
 
 * Mon Feb 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.245-1
 - patchlevel 245
