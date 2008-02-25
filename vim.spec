@@ -17,7 +17,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 245
+%define patchlevel 262
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -295,6 +295,27 @@ Patch239: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.239
 Patch240: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.240
 Patch241: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.241
 Patch242: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.242
+Patch243: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.241
+Patch244: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.243
+Patch244: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.244
+Patch245: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.245
+Patch246: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.246
+Patch247: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.247
+Patch248: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.248
+Patch249: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.249
+Patch250: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.250
+Patch251: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.251
+Patch252: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.252
+Patch253: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.253
+Patch254: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.254
+Patch255: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.255
+Patch256: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.256
+Patch257: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.257
+Patch258: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.258
+Patch259: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.259
+Patch260: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.260
+Patch261: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.261
+Patch262: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.262
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -671,6 +692,26 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch240 -p0
 %patch241 -p0
 %patch242 -p0
+%patch243 -p0
+%patch244 -p0
+%patch245 -p0
+%patch246 -p0
+%patch247 -p0
+%patch248 -p0
+%patch249 -p0
+%patch250 -p0
+%patch251 -p0
+%patch252 -p0
+%patch253 -p0
+%patch254 -p0
+%patch255 -p0
+%patch256 -p0
+%patch257 -p0
+%patch258 -p0
+%patch259 -p0
+%patch260 -p0
+%patch261 -p0
+%patch262 -p0
 
 
 # install spell files
@@ -1058,6 +1099,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 25 2008 Karsten Hopp <karsten@redhat.com> 7.1.262-1
+- patchlevel 262
+- add fix for #231124, BOM was ignored
+
 * Mon Feb 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.245-1
 - patchlevel 245
 
