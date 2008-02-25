@@ -296,8 +296,7 @@ Patch239: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.239
 Patch240: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.240
 Patch241: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.241
 Patch242: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.242
-Patch243: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.241
-Patch244: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.243
+Patch243: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.243
 Patch244: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.244
 Patch245: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.245
 Patch246: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.246
@@ -332,6 +331,7 @@ Patch3012: vim-7.0-specedit.patch
 # Remove this one when the runtime files get updated (#246378):
 Patch3013: vim-7.1-ada.patch
 #
+Patch3014: vim-7.1-erlang.patch
 Patch3100: vim-selinux.patch
 Patch3101: vim-selinux2.patch
 
@@ -733,6 +733,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
+%patch3014 -p1
 
 %if %{WITH_SELINUX}
 %patch3100 -p1
@@ -1114,6 +1115,7 @@ rm -rf $RPM_BUILD_ROOT
 - patchlevel 262
 - add fix for #231124, BOM was ignored
 - enable ruby interpreter (#215207)
+- add filetype for Erlang header files (#417371)
 
 * Mon Feb 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.245-1
 - patchlevel 245
