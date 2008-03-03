@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 262
+%define patchlevel 266
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -38,7 +38,7 @@ Source8: gvim32.png
 Source9: gvim48.png
 Source10: gvim64.png
 Source11: Changelog.rpm
-#Source12: vi-help.txt
+Source12: vi_help.txt
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
@@ -316,6 +316,10 @@ Patch259: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.259
 Patch260: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.260
 Patch261: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.261
 Patch262: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.262
+Patch263: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.263
+Patch264: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.264
+Patch265: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.265
+Patch266: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.266
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -713,6 +717,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch260 -p0
 %patch261 -p0
 %patch262 -p0
+%patch263 -p0
+%patch264 -p0
+%patch265 -p0
+%patch266 -p0
 
 
 # install spell files
@@ -791,7 +799,7 @@ make %{?_smp_mflags}
 cp vim enhanced-vim
 make clean
 
-#perl -pi -e "s/help.txt/vi-help.txt/"  os_unix.h ex_cmds.c
+perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
@@ -815,7 +823,6 @@ cp runtime/doc/uganda.txt LICENSE
 cd src
 make install DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin
 mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
-make installmacros DESTDIR=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
 install -m755 gvim $RPM_BUILD_ROOT/%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
@@ -915,9 +922,16 @@ install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 (cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
- gzip -d help.txt.gz
- cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/' > tags.new; mv -f tags.new tags
-# cp %{SOURCE12} . 
+ gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
+ cp %{SOURCE12} .
+ cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
+cat >> tags << EOF
+vi_help.txt	vi_help.txt	/*vi_help.txt*
+vi-author.txt	vi_help.txt	/*vi-author*
+vi-Bram.txt	vi_help.txt	/*vi-Bram*
+vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
+vi-credits.txt	vi_help.txt	/*vi-credits*
+EOF
  )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
@@ -963,7 +977,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
 %{_datadir}/%{name}/%{vimdir}/doc
-#exclude /%{_bindir}/vim/%{vimdir}/doc/vi-help.txt
 %{_datadir}/%{name}/%{vimdir}/*.vim
 %{_datadir}/%{name}/%{vimdir}/ftplugin
 %{_datadir}/%{name}/%{vimdir}/indent
@@ -1079,7 +1092,6 @@ rm -rf $RPM_BUILD_ROOT
 /bin/view
 /bin/rvi
 /bin/rview
-#%{_datadir}/%{name}/%{vimdir}/doc/vi-help.txt
 
 %files enhanced
 %defattr(-,root,root)
@@ -1111,6 +1123,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 03 2008 Karsten Hopp <karsten@redhat.com> 7.1.266-1
+- patchlevel 266
+- add minimal help page for /bin/vi (#173974)
+
 * Mon Feb 25 2008 Karsten Hopp <karsten@redhat.com> 7.1.262-1
 - patchlevel 262
 - add fix for #231124, BOM was ignored
