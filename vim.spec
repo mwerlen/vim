@@ -1123,7 +1123,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Mon Feb 03 2008 Karsten Hopp <karsten@redhat.com> 7.1.266-1
+* Mon Mar 03 2008 Karsten Hopp <karsten@redhat.com> 7.1.266-1
 - patchlevel 266
 - add minimal help page for /bin/vi (#173974)
 
