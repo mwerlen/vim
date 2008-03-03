@@ -294,3 +294,7 @@ Individual patches for Vim 7.1:
   1805  7.1.260  cursor position wrong after ^@ wrapping halfway if using utf-8
   2255  7.1.261  for a 2 byte BOM UCS-2 is used, which doesn't work for UTF-16
   3438  7.1.262  can't get the process ID of Vim
+  2442  7.1.263  filetype with dot doesn't work for indent plugins
+  6295  7.1.264  crash when C-indenting
+  1310  7.1.265  hang when completing file name and space in 'isfname'
+  2510  7.1.266  version string returned by terminal may be used as typed input
