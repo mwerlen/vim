@@ -298,3 +298,6 @@ Individual patches for Vim 7.1:
   6295  7.1.264  crash when C-indenting
   1310  7.1.265  hang when completing file name and space in 'isfname'
   2510  7.1.266  version string returned by terminal may be used as typed input
+  1957  7.1.267  when changing folds cursor may be positioned in a wrong place
+  1576  7.1.268  always shows "+" at end of screen line with 'cursurline'
+  6183  7.1.269  matchparen plugin has an arbitrary line number limit
