@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -344,6 +344,7 @@ Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
+BuildRequires: perl(ExtUtils::Embed)
 BuildRequires: libacl-devel gpm-devel autoconf
 %if %{WITH_SELINUX}
 BuildRequires: libselinux-devel
@@ -1129,6 +1130,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Mar 10 2008 Tom "spot" Callaway <tcallawa@redhat.com> 7.1.269-2
+- BR: ExtUtils::Embed to find perl headers
+
 * Mon Mar 10 2008 Karsten Hopp <karsten@redhat.com> 7.1.269-1
 - patchlevel 269
 - rebuild with new perl (#436731)
