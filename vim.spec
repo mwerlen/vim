@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 266
+%define patchlevel 269
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -320,6 +320,9 @@ Patch263: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.263
 Patch264: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.264
 Patch265: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.265
 Patch266: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.266
+Patch267: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.267
+Patch268: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.268
+Patch269: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.269
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -721,6 +724,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch264 -p0
 %patch265 -p0
 %patch266 -p0
+%patch267 -p0
+%patch268 -p0
+%patch269 -p0
 
 
 # install spell files
@@ -1123,6 +1129,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Mar 10 2008 Karsten Hopp <karsten@redhat.com> 7.1.269-1
+- patchlevel 269
+- rebuild with new perl (#436731)
+
 * Mon Mar 03 2008 Karsten Hopp <karsten@redhat.com> 7.1.266-1
 - patchlevel 266
 - add minimal help page for /bin/vi (#173974)
