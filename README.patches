@@ -301,3 +301,4 @@ Individual patches for Vim 7.1:
   1957  7.1.267  when changing folds cursor may be positioned in a wrong place
   1576  7.1.268  always shows "+" at end of screen line with 'cursurline'
   6183  7.1.269  matchparen plugin has an arbitrary line number limit
+  2861  7.1.270  ":?foo?" matches in current line since patch 7.1.025
