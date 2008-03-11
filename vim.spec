@@ -42,7 +42,7 @@ Source12: vi_help.txt
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
-Source14: template.spec
+Source14: spec-template
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
