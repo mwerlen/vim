@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 269
+%define patchlevel 270
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -323,6 +323,7 @@ Patch266: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.266
 Patch267: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.267
 Patch268: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.268
 Patch269: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.269
+Patch270: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.270
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -728,6 +729,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch267 -p0
 %patch268 -p0
 %patch269 -p0
+%patch270 -p0
 
 
 # install spell files
@@ -1130,6 +1132,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Mar 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.270-1
+- patchlevel 270
+- don't write swapfile on most common locations for USB-sticks (#436752)
+
 * Mon Mar 10 2008 Tom "spot" Callaway <tcallawa@redhat.com> 7.1.269-2
 - BR: ExtUtils::Embed to find perl headers
 
