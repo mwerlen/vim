@@ -42,6 +42,7 @@ Source12: vi_help.txt
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
+Source14: template.spec
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -826,6 +827,7 @@ mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after
 cp -f %{SOURCE11} .
+cp -f %{SOURCE14} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/
 cp runtime/doc/uganda.txt LICENSE
 
 
@@ -982,6 +984,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/%{vimdir}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
+%{_datadir}/%{name}/vimfiles/template.spec
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
@@ -1135,6 +1138,7 @@ rm -rf $RPM_BUILD_ROOT
 * Tue Mar 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.270-1
 - patchlevel 270
 - don't write swapfile on most common locations for USB-sticks (#436752)
+- add spec file template
 
 * Mon Mar 10 2008 Tom "spot" Callaway <tcallawa@redhat.com> 7.1.269-2
 - BR: ExtUtils::Embed to find perl headers

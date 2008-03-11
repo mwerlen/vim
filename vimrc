@@ -22,6 +22,8 @@ if has("autocmd")
   \ endif
   " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
   autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
+  " start with spec file template
+  autocmd BufNewFile *.spec 0r /usr/share/vim/vimfiles/template.spec
 endif
 
 if has("cscope") && filereadable("/usr/bin/cscope")
