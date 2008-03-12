@@ -302,3 +302,6 @@ Individual patches for Vim 7.1:
   1576  7.1.268  always shows "+" at end of screen line with 'cursurline'
   6183  7.1.269  matchparen plugin has an arbitrary line number limit
   2861  7.1.270  ":?foo?" matches in current line since patch 7.1.025
+  1582  7.1.271  in tiny version ":!touch %" causes curbuf to be wrong
+  2334  7.1.272  buffer name [Location List] not used for buffer in other tab
+  2504  7.1.273  when profiling on Linux Vim exits early

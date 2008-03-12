@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 270
+%define patchlevel 273
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -325,6 +325,9 @@ Patch267: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.267
 Patch268: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.268
 Patch269: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.269
 Patch270: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.270
+Patch271: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.271
+Patch272: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.272
+Patch273: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.273
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -731,6 +734,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch268 -p0
 %patch269 -p0
 %patch270 -p0
+%patch271 -p0
+%patch272 -p0
+%patch273 -p0
 
 
 # install spell files
@@ -1135,6 +1141,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Mar 12 2008 Karsten Hopp <karsten@redhat.com> 7.1.273-1
+- update to patchlevel 273, this fixes #436902
+
 * Tue Mar 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.270-1
 - patchlevel 270
 - don't write swapfile on most common locations for USB-sticks (#436752)
