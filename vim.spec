@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 273
+%define patchlevel 283
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -328,6 +328,16 @@ Patch270: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.270
 Patch271: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.271
 Patch272: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.272
 Patch273: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.273
+Patch274: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.274
+Patch275: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.275
+Patch276: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.276
+Patch277: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.277
+Patch278: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.278
+Patch279: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.279
+Patch280: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.280
+Patch281: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.281
+Patch282: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.282
+Patch283: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.283
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -737,6 +747,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch271 -p0
 %patch272 -p0
 %patch273 -p0
+%patch274 -p0
+%patch275 -p0
+%patch276 -p0
+%patch277 -p0
+%patch278 -p0
+%patch279 -p0
+%patch280 -p0
+%patch281 -p0
+%patch282 -p0
+%patch283 -p0
 
 
 # install spell files
@@ -1141,6 +1161,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Mar 17 2008 Karsten Hopp <karsten@redhat.com> 7.1.283-1
+- patchlevel 283, fixes leftover cscope files in /tmp
+
 * Wed Mar 12 2008 Karsten Hopp <karsten@redhat.com> 7.1.273-1
 - update to patchlevel 273, this fixes #436902
 

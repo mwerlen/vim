@@ -305,3 +305,13 @@ Individual patches for Vim 7.1:
   1582  7.1.271  in tiny version ":!touch %" causes curbuf to be wrong
   2334  7.1.272  buffer name [Location List] not used for buffer in other tab
   2504  7.1.273  when profiling on Linux Vim exits early
+  1549  7.1.274  (after 7.1.272) compiler warning with optimized build
+ 40835  7.1.275  (extra) Mac: ATSUI and 'antialias' don't work together
+  4946  7.1.276  "gw" uses 'formatexpr', even though the docs say it doesn't
+  2802  7.1.277  default for 'paragraphs' misses some items
+  1989  7.1.278  (extra, after 7.1.275) build problem
+  3848  7.1.279  when using cscope temporary files are left behind
+  1556  7.1.280  (after 7.1.275) Mac: build problems without multibyte feature
+  2094  7.1.281  (after 7.1.279) Vim hangs when cscope doesn't exit
+ 16302  7.1.282  (extra) Win64: Installing context menu, compiler warnings
+  7633  7.1.283  non-extra part of 7.1.282
