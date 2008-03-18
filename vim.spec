@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -365,7 +365,8 @@ BuildRequires: libacl-devel gpm-devel autoconf
 BuildRequires: libselinux-devel
 %endif
 %if %{desktop_file}
-Requires: /usr/bin/desktop-file-install
+# for /usr/bin/desktop-file-install
+Requires: desktop-file-utils
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 2
@@ -423,6 +424,7 @@ Summary: A version of the VIM editor which includes recent enhancements
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} which
 Provides: vim = %{version}-%{release}
+Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
 %description enhanced
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -443,6 +445,7 @@ Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk2 >= 2.6
 Provides: gvim = %{version}-%{release}
 BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
+Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -1161,6 +1164,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Mar 18 2008 Tom "spot" Callaway <tcallawa@redhat.com> 7.1.283-2
+- add Requires for versioned perl (libperl.so)
+
 * Mon Mar 17 2008 Karsten Hopp <karsten@redhat.com> 7.1.283-1
 - patchlevel 283, fixes leftover cscope files in /tmp
 
