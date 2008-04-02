@@ -315,3 +315,11 @@ Individual patches for Vim 7.1:
   2094  7.1.281  (after 7.1.279) Vim hangs when cscope doesn't exit
  16302  7.1.282  (extra) Win64: Installing context menu, compiler warnings
   7633  7.1.283  non-extra part of 7.1.282
+  2258  7.1.284  compiler warnings for functions without prototype
+  5787  7.1.285  (extra) Mac: dialog hotkeys don't work
+  2045  7.1.286  (after 7.1.103) "w" at end of buffer moves cursor too far
+  1859  7.1.287  crash when reversing a list after using it
+  3182  7.1.288  (after 7.1.281) cscope leaves behind temp files with gvim
+  1979  7.1.289  when EXITFREE is defined and 'acd' is set freed memory is used
+  2146  7.1.290  reading unwritten bytes when spell checking with large indent
+  1940  7.1.291  compiler warning for int-long conversion
