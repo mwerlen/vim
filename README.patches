@@ -323,3 +323,5 @@ Individual patches for Vim 7.1:
   1979  7.1.289  when EXITFREE is defined and 'acd' is set freed memory is used
   2146  7.1.290  reading unwritten bytes when spell checking with large indent
   1940  7.1.291  compiler warning for int-long conversion
+  6698  7.1.292  when using a pattern with "\@<=" the submatches can be wrong
+  3087  7.1.293  spell checking considers super/subscript chars as word chars
