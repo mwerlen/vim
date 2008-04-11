@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 291
+%define patchlevel 293
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -43,6 +43,7 @@ Source12: vi_help.txt
 Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
+Source15: http://www.cvjb.de/comp/vim/forth.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -346,6 +347,8 @@ Patch288: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.288
 Patch289: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.289
 Patch290: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.290
 Patch291: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.291
+Patch292: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.292
+Patch293: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.293
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -776,6 +779,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch289 -p0
 %patch290 -p0
 %patch291 -p0
+%patch292 -p0
+%patch293 -p0
 
 
 # install spell files
@@ -802,6 +807,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3100 -p1
 %patch3101 -p1
 %endif
+cp -f %{SOURCE15} runtime/syntax/forth.vim
 
 
 %build
@@ -1180,6 +1186,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.293-1
+- patchlevel 293
+- update forth syntax file (Benjamin Krill)
+
 * Wed Apr 02 2008 Karsten Hopp <karsten@redhat.com> 7.1.291-1
 - patchlevel 291, more fixes for leftover /tmp/cscope* files 
 
