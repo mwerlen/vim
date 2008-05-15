@@ -904,6 +904,7 @@ cp runtime/doc/uganda.txt LICENSE
 cd src
 make install DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin
 mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
+mv $RPM_BUILD_ROOT/bin/gvimtutor $RPM_BUILD_ROOT/%{_bindir}/gvimtutor
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
 install -m755 gvim $RPM_BUILD_ROOT/%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
@@ -1194,6 +1195,7 @@ rm -rf $RPM_BUILD_ROOT
 %else
 /%{_sysconfdir}/X11/applnk/*/gvim.desktop
 %endif
+%{_bindir}/gvimtutor
 %{_bindir}/gvim
 %{_bindir}/gvimdiff
 %{_bindir}/gview
