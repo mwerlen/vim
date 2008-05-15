@@ -325,3 +325,8 @@ Individual patches for Vim 7.1:
   1940  7.1.291  compiler warning for int-long conversion
   6698  7.1.292  when using a pattern with "\@<=" the submatches can be wrong
   3087  7.1.293  spell checking considers super/subscript chars as word chars
+  2336  7.1.294  leaking memory when executing a shell command
+  6102  7.1.295  vimtutor only works with vim, not gvim
+  9374  7.1.296  SELinux is not supported
+  1855  7.1.297  wrong parenmatch highlighting after search/replace dialog
+  1558  7.1.298  src/gvimtutor is not distributed

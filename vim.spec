@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 293
+%define patchlevel 298
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -349,6 +349,11 @@ Patch290: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.290
 Patch291: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.291
 Patch292: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.292
 Patch293: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.293
+Patch294: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.294
+Patch295: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.295
+Patch296: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.296
+Patch297: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.297
+Patch298: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.298
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -365,8 +370,6 @@ Patch3012: vim-7.0-specedit.patch
 Patch3013: vim-7.1-ada.patch
 #
 Patch3014: vim-7.1-erlang.patch
-Patch3100: vim-selinux.patch
-Patch3101: vim-selinux2.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -781,6 +784,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch291 -p0
 %patch292 -p0
 %patch293 -p0
+%patch294 -p0
+%patch295 -p0
+%patch296 -p0
+%patch297 -p0
+%patch298 -p0
 
 
 # install spell files
@@ -803,10 +811,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3013 -p1
 %patch3014 -p1
 
-%if %{WITH_SELINUX}
-%patch3100 -p1
-%patch3101 -p1
-%endif
 cp -f %{SOURCE15} runtime/syntax/forth.vim
 
 
@@ -829,6 +833,11 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
 %else
   --disable-netbeans \
 %endif
+%if %{WITH_SELINUX}
+  --enable-selinux \
+%else
+  --disable-selinux \
+%endif
 %if "%{withruby}" == "1"
   --enable-rubyinterp \
 %else
@@ -850,6 +859,11 @@ make clean
 %else
   --disable-netbeans \
 %endif
+%if %{WITH_SELINUX}
+  --enable-selinux \
+%else
+  --disable-selinux \
+%endif
 %if "%{withruby}" == "1"
   --enable-rubyinterp \
 %else
@@ -865,6 +879,11 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
+%if %{WITH_SELINUX}
+  --enable-selinux \
+%else
+  --disable-selinux \
+%endif
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
   --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
   --with-compiledby="<bugzilla@redhat.com>" \
@@ -1186,6 +1205,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu May 15 2008 Karsten Hopp <karsten@redhat.com> 7.1.298-1
+- patchlevel 298
+
 * Fri Apr 11 2008 Karsten Hopp <karsten@redhat.com> 7.1.293-1
 - patchlevel 293
 - update forth syntax file (Benjamin Krill)
