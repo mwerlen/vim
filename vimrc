@@ -13,6 +13,8 @@ set ruler		" show the cursor position all the time
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
+  augroup fedora
+  autocmd!
   " In text files, always limit the width of text to 78 characters
   autocmd BufRead *.txt set tw=78
   " When editing a file, always jump to the last cursor position
@@ -24,6 +26,7 @@ if has("autocmd")
   autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
   " start with spec file template
   autocmd BufNewFile *.spec 0r /usr/share/vim/vimfiles/template.spec
+  augroup END
 endif
 
 if has("cscope") && filereadable("/usr/bin/cscope")
