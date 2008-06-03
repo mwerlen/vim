@@ -1223,6 +1223,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Tue Jun 03 2008 Karsten Hopp <karsten@redhat.com> 7.1.305-1
 - patchlevel 305
+- put /etc/vimrc autocmd's into fedora augroup (similar to #241308)
 
 * Thu May 15 2008 Karsten Hopp <karsten@redhat.com> 7.1.298-1
 - patchlevel 298
