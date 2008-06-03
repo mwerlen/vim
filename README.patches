@@ -24,8 +24,9 @@ Checksums for the patch files can be found in the file MD5.
 
 Collection of patches for Vim 7.1:
   SIZE  NAME                  INCLUDES
- 91424  7.1.001-100.gz	      patches 7.1.001 to 7.1.100, gzip'ed
- 75402  7.1.101-200.gz	      patches 7.1.101 to 7.1.200, gzip'ed
+ 91424  7.1.001-100.gz        patches 7.1.001 to 7.1.100, gzip'ed
+ 75402  7.1.101-200.gz        patches 7.1.101 to 7.1.200, gzip'ed
+109686  7.1.201-300.gz        patches 7.1.201 to 7.1.300, gzip'ed
 
 
 Individual patches for Vim 7.1:
@@ -330,3 +331,10 @@ Individual patches for Vim 7.1:
   9374  7.1.296  SELinux is not supported
   1855  7.1.297  wrong parenmatch highlighting after search/replace dialog
   1558  7.1.298  src/gvimtutor is not distributed
+  9490  7.1.299  filetype detection fails for file name with special characters
+  1959  7.1.300  value of asmsyntax argument isn't checked for valid characters
+  1673  7.1.301  "File/Save" menu in Insert mode doesn't update tab page label
+  1485  7.1.302  (after 7.1.299) compilation error on MS-Windows
+  1409  7.1.303  (after 7.1.302) compilation error on MS-Windows, again
+ 12135  7.1.304  shortpath_for_invalid_fname() is too complex and wrong
+  4735  7.1.305  can't edit compressed file with special characters in the name
