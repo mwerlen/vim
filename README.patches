@@ -338,3 +338,4 @@ Individual patches for Vim 7.1:
   1409  7.1.303  (after 7.1.302) compilation error on MS-Windows, again
  12135  7.1.304  shortpath_for_invalid_fname() is too complex and wrong
   4735  7.1.305  can't edit compressed file with special characters in the name
+  2153  7.1.306  some Unicode symbol chars are handled like word chars
