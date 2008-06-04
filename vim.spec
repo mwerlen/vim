@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 306
+%define patchlevel 309
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -362,6 +362,9 @@ Patch303: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.303
 Patch304: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.304
 Patch305: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.305
 Patch306: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.306
+Patch307: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.307
+Patch308: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.308
+Patch309: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.309
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -805,6 +808,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch304 -p0
 %patch305 -p0
 %patch306 -p0
+%patch307 -p0
+%patch308 -p0
+%patch309 -p0
 
 
 # install spell files
@@ -1223,6 +1229,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jun 04 2008 Karsten Hopp <karsten@redhat.com> 7.1.309-1
+- Patchlevel 309
+
 * Wed Jun 04 2008 Karsten Hopp <karsten@redhat.com> 7.1.306-1
 - patchlevel 306, fixes some unicode characters
 

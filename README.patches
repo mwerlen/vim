@@ -339,3 +339,6 @@ Individual patches for Vim 7.1:
  12135  7.1.304  shortpath_for_invalid_fname() is too complex and wrong
   4735  7.1.305  can't edit compressed file with special characters in the name
   2153  7.1.306  some Unicode symbol chars are handled like word chars
+ 23714  7.1.307  many warnings when compiling with Python 2.5
+  2673  7.1.308  when in readonly mode ":options" produces an error
+  3989  7.1.309  installing and testing with a shadow directory doesn't work
