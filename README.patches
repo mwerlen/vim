@@ -342,3 +342,24 @@ Individual patches for Vim 7.1:
  23714  7.1.307  many warnings when compiling with Python 2.5
   2673  7.1.308  when in readonly mode ":options" produces an error
   3989  7.1.309  installing and testing with a shadow directory doesn't work
+  8024  7.1.310  incomplete utf-8 byte sequence at end of the file not detected
+  2547  7.1.311  compiler warning for missing sentinel in X code
+  2346  7.1.312  there is no check for error number mistakes in .po files
+  3425  7.1.313  status and tile not updated when using netbeans setModified
+  1915  7.1.314  'pastetoggle' is written to the session file without escaping
+  3287  7.1.315  crash with specific search pattern using look-behind match
+  1480  7.1.316  when 'cscopetag' is set ":tag" gives an error message
+  5203  7.1.317  compiler warnings in Motif calls
+  5428  7.1.318  mem leak when closing xsmp conn.; crash on exit with Lesstif
+  1514  7.1.319  illegal memory access when pasting illegal utf-8 on cmd line
+ 28763  7.1.320  Win64: Warnings while compiling Python interface
+  2603  7.1.321  (extra) Win32 / Win64: Install file is outdated
+  2677  7.1.322  can't get start of Visual area in an <expr> mapping
+  1734  7.1.323  test 19 and 38 fail with some termcaps
+  1847  7.1.324  file name path length on Unix is limited to 1024
+  3559  7.1.325  editing a command line that doesn't fit reverses char order
+  1641  7.1.326  ":smagic!from!to!" doesn't work, it sees the "!" as a flag
+  5454  7.1.327  gvimtutor is also installed when not building a GUI version
+  1859  7.1.328  crash when using Cygwin and non-posix path name in tags file
+  2172  7.1.329  right halve of double-wide char under popup menu not redrawn
+  1905  7.1.330  reading uninitialized memory when using Del in replace mode

@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim71%{?beta}
-%define patchlevel 309
+%define patchlevel 330
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -365,6 +365,27 @@ Patch306: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.306
 Patch307: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.307
 Patch308: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.308
 Patch309: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.309
+Patch310: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.310
+Patch311: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.311
+Patch312: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.312
+Patch313: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.313
+Patch314: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.314
+Patch315: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.315
+Patch316: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.316
+Patch317: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.317
+Patch318: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.318
+Patch319: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.319
+Patch320: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.320
+Patch321: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.321
+Patch322: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.322
+Patch323: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.323
+Patch324: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.324
+Patch325: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.325
+Patch326: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.326
+Patch327: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.327
+Patch328: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.328
+Patch329: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.329
+Patch330: ftp://ftp.vim.org/pub/vim/patches/7.1/7.1.330
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -811,6 +832,27 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch307 -p0
 %patch308 -p0
 %patch309 -p0
+%patch310 -p0                                          
+%patch311 -p0                                          
+%patch312 -p0                                          
+%patch313 -p0
+%patch314 -p0
+%patch315 -p0
+%patch316 -p0
+%patch317 -p0
+%patch318 -p0
+%patch319 -p0
+%patch320 -p0
+%patch321 -p0
+%patch322 -p0
+%patch323 -p0
+%patch324 -p0
+%patch325 -p0
+%patch326 -p0
+%patch327 -p0
+%patch328 -p0
+%patch329 -p0
+%patch330 -p0
 
 
 # install spell files
@@ -925,6 +967,7 @@ cp runtime/doc/uganda.txt LICENSE
 
 cd src
 make install DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin
+make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin
 mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
 mv $RPM_BUILD_ROOT/bin/gvimtutor $RPM_BUILD_ROOT/%{_bindir}/gvimtutor
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
@@ -1229,6 +1272,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Jul 04 2008 Karsten Hopp <karsten@redhat.com> 7.1.330-1
+- patchlevel 330
+
 * Wed Jun 04 2008 Karsten Hopp <karsten@redhat.com> 7.1.309-1
 - Patchlevel 309
 
