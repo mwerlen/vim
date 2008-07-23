@@ -393,7 +393,7 @@ Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-6.4-checkhl.patch
 Patch3007: vim-7.0-fstabsyntax.patch
-Patch3008: vim-6.4-lib64.patch
+Patch3008: vim-7.1-lib64.patch
 Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
 Patch3011: vim-7.0-vimspelltypo.patch
