@@ -29,5 +29,12 @@ Individual patches for Vim 7.2:
   1462  7.2.002  leaking memory when displaying menus
   3663  7.2.003  typo in translated message, message not translated
   3413  7.2.004  Cscope help message is not translated
-  4638  7.2.005  profiling: Using pointer instead of value, allocating zero bytes, memory not freed
+  4638  7.2.005  a few problems when profiling
   1552  7.2.006  HTML files are not recognized by contents
+ 16735  7.2.007  (extra) minor issues for VMS
+  1947  7.2.008  wrong window count when using :bunload in a BufHidden autocmd
+  2245  7.2.009  can't compile with Perl 5.10 on MS-aindows
+  5415  7.2.010  "K" in Visual mode does not properly escape all characters
+  2873  7.2.011  error when inserting a float value from expression register
+  1444  7.2.012  compiler warnings when building with startup timing
+  4157  7.2.013  hang when waiting for X selection, consuming lots of CPU time
