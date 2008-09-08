@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 012
+%define patchlevel 013
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -68,6 +68,7 @@ Patch009: 7.2.009
 Patch010: 7.2.010
 Patch011: 7.2.011
 Patch012: 7.2.012
+Patch013: 7.2.013
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -212,6 +213,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch010 -p0
 %patch011 -p0
 %patch012 -p0
+%patch013 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -630,8 +632,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Mon Sep 08 2008 Karsten Hopp <karsten@redhat.com> 7.2.012-1
-- patchlevel 12
+* Mon Sep 08 2008 Karsten Hopp <karsten@redhat.com> 7.2.013-1
+- patchlevel 13
 
 * Mon Aug 25 2008 Karsten Hopp <karsten@redhat.com> 7.2.006-1
 - patchlevel 6
