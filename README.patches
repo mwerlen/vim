@@ -38,3 +38,12 @@ Individual patches for Vim 7.2:
   2873  7.2.011  error when inserting a float value from expression register
   1444  7.2.012  compiler warnings when building with startup timing
   4157  7.2.013  hang when waiting for X selection, consuming lots of CPU time
+  1769  7.2.014  synstack() doesn't work in an emptly line
+  1943  7.2.015  "make all test install" doesn't stop when the test fails
+  4536  7.2.016  cmdline completion pattern can be in freed memory
+  5319  7.2.017  X11: strlen() used wrongly, pasting very big selection fails
+  1390  7.2.018  memory leak when substitute is aborted
+  2269  7.2.019  completion and exists() don't work for ":noautocmd"
+  1521  7.2.020  "kvim" starts the GUI even though KDE is no longer supported
+  4806  7.2.021  getting full file name when executing autocmds may be slow
+  3823  7.2.022  (extra) cannot run tests with the MingW compiler
