@@ -47,3 +47,6 @@ Individual patches for Vim 7.2:
   1521  7.2.020  "kvim" starts the GUI even though KDE is no longer supported
   4806  7.2.021  getting full file name when executing autocmds may be slow
   3823  7.2.022  (extra) cannot run tests with the MingW compiler
+  2062  7.2.023  'cursorcolumn' wrong in a closed fold when display is shifted
+  1452  7.2.024  'history' can be made negative, causes out-of-memory error
+  1470  7.2.025  a CursorHold event that invokes system() is retriggered
