@@ -391,7 +391,7 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
     mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
     desktop-file-install --vendor fedora \
         --dir $RPM_BUILD_ROOT/%{_datadir}/applications \
-        --add-category "Application;Development;X-Red-Hat-Base" \
+        --add-category "Development;TextEditor;X-Red-Hat-Base" \
         %{SOURCE3}
   %else
     mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
@@ -679,6 +679,7 @@ update-desktop-database &> /dev/null ||:
 - add requirement on hicolor-icon-theme to vim-X11 (#226526)
 - drop Amiga info files (#226526)
 - remove non-utf8 man pages (#226526)
+- drop Application from categories (#226526)
 
 * Tue Sep 30 2008 Karsten Hopp <karsten@redhat.com> 7.2.022-1
 - patchlevel 22
