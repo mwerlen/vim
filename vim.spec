@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 022
+%define patchlevel 025
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -78,6 +78,9 @@ Patch019: 7.2.019
 Patch020: 7.2.020
 Patch021: 7.2.021
 Patch022: 7.2.022
+Patch023: 7.2.023
+Patch024: 7.2.024
+Patch025: 7.2.025
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -179,6 +182,7 @@ Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk2 >= 2.6
 Provides: gvim = %{version}-%{release}
 BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Requires: hicolor-icon-theme
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -232,6 +236,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch020 -p0
 %patch021 -p0
 %patch022 -p0
+%patch023 -p0
+%patch024 -p0
+%patch025 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -338,6 +345,8 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after
 cp -f %{SOURCE11} .
 cp -f %{SOURCE14} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
 cp runtime/doc/uganda.txt LICENSE
+# Those aren't Linux info files but some binary files for Amiga:
+rm -f README*.info
 
 
 cd src
@@ -372,14 +381,11 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
   rm -f .%{_mandir}/man1/rvim.1
   ln -sf vim.1.gz .%{_mandir}/man1/vi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvi.1.gz
-  ln -sf vim.1.gz .%{_mandir}/man1/rvim.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/vimdiff.1.gz
   ln -sf gvim ./%{_bindir}/gview
   ln -sf gvim ./%{_bindir}/gex
   ln -sf gvim ./%{_bindir}/evim
   ln -sf gvim ./%{_bindir}/gvimdiff
-  ln -sf vim.1.gz .%{_mandir}/man1/gvim.1.gz
-  ln -sf vim.1.gz .%{_mandir}/man1/gvimdiff.1.gz
   ln -sf gvim ./%{_bindir}/vimx
   %if "%{desktop_file}" == "1"
     mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
@@ -468,6 +474,23 @@ rm -f $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/tutor/tutor.gr.utf-8~
   done
 )
 
+# Remove not UTF-8 manpages
+for i in pl.ISO8859-2 it.ISO8859-1 ru.KOI8-R fr.ISO8859-1; do
+  rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
+done
+
+# use common man1/ru directory
+mv $RPM_BUILD_ROOT/%{_mandir}/ru.UTF-8 $RPM_BUILD_ROOT/%{_mandir}/ru
+
+# Remove duplicate man pages
+for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
+  rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
+done
+
+for i in rvim gvim.1 gvimdiff.1; do 
+  echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
+done
+
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
 if [ -x /%{_bindir}/gtk-update-icon-cache ]; then
@@ -483,7 +506,7 @@ fi
 update-desktop-database &> /dev/null ||:
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+#rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(-,root,root)
@@ -548,10 +571,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/rvi.*
 %{_mandir}/man1/rview.*
 %{_mandir}/man1/xxd.*
-%lang(fr) %{_mandir}/fr*/*/*
-%lang(it) %{_mandir}/it*/*/*
-%lang(ru) %{_mandir}/ru*/*/*
-%lang(pl) %{_mandir}/pl*/*/*
+%lang(fr) %{_mandir}/fr/man1/*
+%lang(it) %{_mandir}/it/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
+%lang(ru) %{_mandir}/ru/man1/*
 
 %if %{withvimspell}
 %files spell
@@ -650,6 +673,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Oct 20 2008 Karsten Hopp <karsten@redhat.com> 7.2.025-1
+- patchlevel 25
+- add Categories tag to desktop file (#226526)
+- add requirement on hicolor-icon-theme to vim-X11 (#226526)
+- drop Amiga info files (#226526)
+- remove non-utf8 man pages (#226526)
+
 * Tue Sep 30 2008 Karsten Hopp <karsten@redhat.com> 7.2.022-1
 - patchlevel 22
 

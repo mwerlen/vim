@@ -61,3 +61,4 @@ Type=Application
 Terminal=0
 X-XClassHintResName=VIM
 MapNotify=false
+Categories=Utility;TextEditor;
