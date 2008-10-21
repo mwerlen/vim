@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -506,7 +506,7 @@ fi
 update-desktop-database &> /dev/null ||:
 
 %clean
-#rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(-,root,root)
@@ -673,6 +673,9 @@ update-desktop-database &> /dev/null ||:
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Oct 21 2008 Karsten Hopp <karsten@redhat.com> 7.2.025-2
+- re-enable clean
+
 * Mon Oct 20 2008 Karsten Hopp <karsten@redhat.com> 7.2.025-1
 - patchlevel 25
 - add Categories tag to desktop file (#226526)
