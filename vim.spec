@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 025
+%define patchlevel 026
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -81,6 +81,7 @@ Patch022: 7.2.022
 Patch023: 7.2.023
 Patch024: 7.2.024
 Patch025: 7.2.025
+Patch026: 7.2.026
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -239,6 +240,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch023 -p0
 %patch024 -p0
 %patch025 -p0
+%patch026 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -341,7 +343,7 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after/syntax,colors,doc,ftdetect,ftplugin,indent,plugin,syntax}
 cp -f %{SOURCE11} .
 cp -f %{SOURCE14} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
 cp runtime/doc/uganda.txt LICENSE
@@ -518,6 +520,14 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/%{vimdir}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
+%dir %{_datadir}/%{name}/vimfiles/after/syntax
+%dir %{_datadir}/%{name}/vimfiles/colors
+%dir %{_datadir}/%{name}/vimfiles/doc
+%dir %{_datadir}/%{name}/vimfiles/ftdetect
+%dir %{_datadir}/%{name}/vimfiles/ftplugin
+%dir %{_datadir}/%{name}/vimfiles/indent
+%dir %{_datadir}/%{name}/vimfiles/plugin
+%dir %{_datadir}/%{name}/vimfiles/syntax
 %{_datadir}/%{name}/vimfiles/template.spec
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
@@ -673,6 +683,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Nov 03 2008 Karsten Hopp <karsten@redhat.com> 7.2.026-1
+- patchlevel 26
+- own some directories in /usr/share/vim/vimfiles (#469491)
+
 * Tue Oct 21 2008 Karsten Hopp <karsten@redhat.com> 7.2.025-2
 - re-enable clean
 

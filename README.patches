@@ -50,3 +50,4 @@ Individual patches for Vim 7.2:
   2062  7.2.023  'cursorcolumn' wrong in a closed fold when display is shifted
   1452  7.2.024  'history' can be made negative, causes out-of-memory error
   1470  7.2.025  a CursorHold event that invokes system() is retriggered
+  2969  7.2.026  (after 7.2.010) 'K' uses the rest of the line
