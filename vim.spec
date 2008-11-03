@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -343,7 +343,8 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after/syntax,colors,doc,ftdetect,ftplugin,indent,plugin,syntax}
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 cp -f %{SOURCE11} .
 cp -f %{SOURCE14} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
 cp runtime/doc/uganda.txt LICENSE
@@ -520,14 +521,21 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/%{vimdir}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
-%dir %{_datadir}/%{name}/vimfiles/after/syntax
+%dir %{_datadir}/%{name}/vimfiles/after/*
+%dir %{_datadir}/%{name}/vimfiles/autoload
 %dir %{_datadir}/%{name}/vimfiles/colors
+%dir %{_datadir}/%{name}/vimfiles/compiler
 %dir %{_datadir}/%{name}/vimfiles/doc
 %dir %{_datadir}/%{name}/vimfiles/ftdetect
 %dir %{_datadir}/%{name}/vimfiles/ftplugin
 %dir %{_datadir}/%{name}/vimfiles/indent
+%dir %{_datadir}/%{name}/vimfiles/keymap
+%dir %{_datadir}/%{name}/vimfiles/lang
 %dir %{_datadir}/%{name}/vimfiles/plugin
+%dir %{_datadir}/%{name}/vimfiles/print
+%dir %{_datadir}/%{name}/vimfiles/spell
 %dir %{_datadir}/%{name}/vimfiles/syntax
+%dir %{_datadir}/%{name}/vimfiles/tutor
 %{_datadir}/%{name}/vimfiles/template.spec
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
@@ -683,6 +691,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Nov 03 2008 Karsten Hopp <karsten@redhat.com> 7.2.026-2
+- add more /usr/share/vim/vimfiles directories (#444387)
+
 * Mon Nov 03 2008 Karsten Hopp <karsten@redhat.com> 7.2.026-1
 - patchlevel 26
 - own some directories in /usr/share/vim/vimfiles (#469491)
