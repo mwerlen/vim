@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 060
+%define patchlevel 079
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -126,6 +126,25 @@ Patch057: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.057
 Patch058: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.058
 Patch059: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.059
 Patch060: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.060
+Patch061: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.061
+Patch062: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.062
+Patch063: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.064
+Patch065: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.067
+Patch068: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.069
+Patch070: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.071
+Patch072: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.079
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -319,6 +338,25 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch058 -p0
 %patch059 -p0
 %patch060 -p0
+%patch061 -p0                                          
+%patch062 -p0
+%patch063 -p0
+%patch064 -p0
+%patch065 -p0
+%patch066 -p0
+%patch067 -p0
+%patch068 -p0
+%patch069 -p0
+%patch070 -p0
+%patch071 -p0
+%patch072 -p0
+%patch073 -p0
+%patch074 -p0
+%patch075 -p0
+%patch076 -p0
+%patch077 -p0
+%patch078 -p0
+%patch079 -p0
 
 
 # install spell files
@@ -778,6 +816,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Jan 08 2009 Karsten Hopp <karsten@redhat.com> 7.2.079-2
+- patchlevel 79
+
 * Thu Dec 04 2008 Jesse Keating <jkeating@redhat.com> - 7.2.060-2
 - Rebuild for new python.
 

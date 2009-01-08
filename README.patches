@@ -65,7 +65,7 @@ Individual patches for Vim 7.2:
   2438  7.2.038  overlapping arguments to memcpy()
   1378  7.2.039  accessing freed memory on exit when EXITFREE is defined
   1836  7.2.040  ":e ++ff=dos foo" gets "unix" 'ff' when CR before NL missing
- 22993  7.2.041  diff messed up when editing a diff buffer in another tab page
+ 22993  7.2.041  (extra) diff wrong when edit diff buffer in another tab page
   4987  7.2.042  restoring view in autocmd sometimes doesn't work completely
   2550  7.2.043  VMS: Too many chars escaped in filename and shell commands
   5639  7.2.044  crash because of gcc 4 being over protective for strcpy()
@@ -85,3 +85,22 @@ Individual patches for Vim 7.2:
   2338  7.2.058  can't add a feature name in the :version output
   1847  7.2.059  diff is not always displayed properly
  34772  7.2.060  spell checking doesn't work well for compound words
+  1886  7.2.061  creating funcref requires loading the autoload script first
+  1657  7.2.062  "[Scratch]" is not translated
+  3558  7.2.063  warning for NULL argument of Perl_sys_init3()
+  1942  7.2.064  repeating "~" on a Visual block doesn't always update screen
+  5149  7.2.065  GTK GUI: cursor disappears doing ":vsp" when maximized
+  2759  7.2.066  not easy to check if 'encoding' is a multi-byte encoding
+  1683  7.2.067  can't load sesison extra file when it contains special chars
+  2598  7.2.068  error when Emacs tags file line is too long
+  1726  7.2.069  (after 7.2.060) compiler warning for putting size_t in int
+ 17606  7.2.070  crash when a function returns a:000
+  2353  7.2.071  (extra) Win32: Handling netbeans events may cause a crash
+  1615  7.2.072  (extra, fixed patch) compiler warning in Sniff code
+  4121  7.2.073  ":set <xHome>" has the same output as ":set <Home>"
+  1832  7.2.074  (extra, after 7.2.073) extra part of 7.2.073
+  2218  7.2.075  (after 7.2.058) unclear comment about making a diff
+  2666  7.2.076  rename(from, to) deletes file if names refer to the same file
+  4745  7.2.077  (after 7.2.076) rename() fails if names differ only in case
+  3298  7.2.078  problems with deleting folds
+  6947  7.2.079  "killed" netbeans events are not handled correctly
