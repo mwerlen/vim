@@ -104,3 +104,12 @@ Individual patches for Vim 7.2:
   4745  7.2.077  (after 7.2.076) rename() fails if names differ only in case
   3298  7.2.078  problems with deleting folds
   6947  7.2.079  "killed" netbeans events are not handled correctly
+  9942  7.2.080  accessing wrong memory with completion and composing char
+  1728  7.2.081  compiler warning for float overflow on VAX
+  2134  7.2.082  if 'ff' is "mac" then "ga" on a ^J shows 0x0d instead of 0x0a
+  1733  7.2.083  ":tag" doesn't return to the right tag entry in the tag stack
+  4331  7.2.084  Python: vim.eval() is wrong for recursive structures 
+  1862  7.2.085  ":set <M-b>=<Esc>b" does not work when 'encoding' is utf-8
+  3045  7.2.086  using ":diffget 1" in buffer 1 corrupts the text
+  1570  7.2.087  adding URL to 'path' doesn't work to edit a file
+  2895  7.2.088  (extra) Win32: Using the clipboard sometimes fails
