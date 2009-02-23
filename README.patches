@@ -7,7 +7,7 @@ was sent to the vim-dev maillist.
 
 The best is to apply the patches in sequence.  This avoids problems
 when a patch depends on a previous patch.  If you did not unpack the
-extra archive, you may want to skip patches marked with "extra:".
+extra archive, you may want to skip patches marked with "(extra)".
 Similarly for the "lang" archive.  Or ignore errors for missing files.
 
 Before patching, change to the top Vim directory, where the "src"
@@ -21,6 +21,10 @@ After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
 Checksums for the patch files can be found in the file MD5.
+
+Collection of patches for Vim 7.2:
+  SIZE  NAME                  INCLUDES
+108889  7.2.001-100.gz        patches 7.2.001 to 7.2.100, gzip'ed
 
 Individual patches for Vim 7.2:
 
@@ -113,3 +117,39 @@ Individual patches for Vim 7.2:
   3045  7.2.086  using ":diffget 1" in buffer 1 corrupts the text
   1570  7.2.087  adding URL to 'path' doesn't work to edit a file
   2895  7.2.088  (extra) Win32: Using the clipboard sometimes fails
+  2473  7.2.089  (extra) Win32: crash when using Ultramon buttons
+  3286  7.2.090  user command containing 0x80 does not work properly
+  2113  7.2.091  ":cs help" output is not aligned for some languages
+  4538  7.2.092  some error messages are not translated
+  7287  7.2.093  (extra) dialogs can't always handle multi-byte text
+  3430  7.2.094  compiler warning for signed/unsigned compare, typos
+  1902  7.2.095  using "r" and then CTRL-C Visual highlighting is not removed
+  1464  7.2.096  after ":number" "Press Enter" msg may be on the wrong screen
+  1692  7.2.097  "!xterm&" doesn't work when 'shell' is "bash"
+  1864  7.2.098  warning for signed/unsigned pointer
+  3498  7.2.099  unnecessary redraw when changing GUI options in terminal
+  3846  7.2.100  missing first three bytes on sourced FIFO
+  1362  7.2.101  (extra) MSVC version not recognized
+  1496  7.2.102  (after 7.2.100) BOM at start of Vim script not removed
+  5153  7.2.103  tab page line isn't always updated, e.g. when 'bomb' is set
+  1523  7.2.104  after ":saveas foo" the tab label isn't updated right away
+  2159  7.2.105  modeline setting for 'foldmethod' overrules diff options
+  3422  7.2.106  endless loop for "]s" in HTML when there are no misspellings
+  1825  7.2.107  After a GUI dialog ":echo" messages are deleted
+  1622  7.2.108  (after 7.2.105) can't compile without the diff feature
+ 11901  7.2.109  'langmap' does not work for multi-byte characters
+  1407  7.2.110  compiler warning for unused variable
+  2724  7.2.111  selection unclear for Visual block mode with 'cursorcolumn'
+  1509  7.2.112  cursor invisible in first col in Visual mode if 'number' set
+  2700  7.2.113  crash when using submatch() in substitute()
+  2531  7.2.114  using wrong printf format: %d instead of %ld
+  2716  7.2.115  some debugging code is never used
+  1619  7.2.116  not all memory is freed when EXITFREE is defined
+  2592  7.2.117  location list incorrectly labelled "Quickfix List"
+  2068  7.2.118  <PageUp> at the more prompt only does half a page
+  1550  7.2.119  status line is redrawn too often
+  8305  7.2.120  location list is copied and then deleted when opening window
+  4993  7.2.121  can't stop output of "!grep a *.c" in gvim with CTRL-C
+  2472  7.2.122  invalid mem access if VimResized autocmd changes screen size
+  1568  7.2.123  ":map" output continues after typing 'q' at more prompt
+  3127  7.2.124  ":tselect" output continues after typing 'q' at more prompt
