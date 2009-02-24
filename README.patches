@@ -153,3 +153,6 @@ Individual patches for Vim 7.2:
   2472  7.2.122  invalid mem access if VimResized autocmd changes screen size
   1568  7.2.123  ":map" output continues after typing 'q' at more prompt
   3127  7.2.124  ":tselect" output continues after typing 'q' at more prompt
+  3936  7.2.125  leaking memory when reading XPM bitmap for a sign
+  4326  7.2.126  when EXITFREE is defined signs and keymaps are not freed
+  1708  7.2.127  get another more prompt after typing 'q'
