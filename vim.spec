@@ -919,8 +919,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Feb 24 2009 Karsten Hopp <karsten@redhat.com> 7.2.127-1
+* Wed Mar 04 2009 Karsten Hopp <karsten@redhat.com> 7.2.131-1
 - patchlevel 131
+
+* Tue Feb 24 2009 Karsten Hopp <karsten@redhat.com> 7.2.127-1
+- patchlevel 127
 
 * Mon Feb 23 2009 Karsten Hopp <karsten@redhat.com> 7.2.124-1
 - patchlevel 124
