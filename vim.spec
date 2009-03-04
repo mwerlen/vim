@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 127
+%define patchlevel 131
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -154,45 +154,49 @@ Patch085: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.085
 Patch086: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.086
 Patch087: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.087
 Patch088: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.088
-Patch089: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.089                                                                
-Patch090: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.090                                                                
-Patch091: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.091                                                                
-Patch092: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.092                                                                
-Patch093: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.093                                                                
-Patch094: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.094                                                                
-Patch095: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.095                                                                
-Patch096: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.096                                                                
-Patch097: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.097                                                                
-Patch098: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.098                                                                
-Patch099: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.099                                                                
-Patch100: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.100                                                                
-Patch101: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.101                                                                
-Patch102: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.102                                                                
-Patch103: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.103                                                                
-Patch104: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.104                                                                
-Patch105: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.105                                                                
-Patch106: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.106                                                                
-Patch107: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.107                                                                
-Patch108: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.108                                                                
-Patch109: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.109                                                                
-Patch110: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.110                                                                
-Patch111: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.111                                                                
-Patch112: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.112                                                                
-Patch113: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.113                                                                
-Patch114: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.114                                                                
-Patch115: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.115                                                                
-Patch116: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.116                                                                
-Patch117: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.117                                                                
-Patch118: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.118                                                                
-Patch119: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.119                                                                
-Patch120: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.120                                                                
-Patch121: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.121                                                                
-Patch122: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.122                                                                
-Patch123: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.123                                                                
-Patch124: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.124                                                                
+Patch089: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.090
+Patch091: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.091
+Patch092: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.092
+Patch093: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.093
+Patch094: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.094
+Patch095: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.095
+Patch096: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.096
+Patch097: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.097
+Patch098: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.098
+Patch099: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.099
+Patch100: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.100
+Patch101: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.101
+Patch102: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.102
+Patch103: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.103
+Patch104: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.104
+Patch105: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.105
+Patch106: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.106
+Patch107: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.107
+Patch108: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.108
+Patch109: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.109
+Patch110: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.110
+Patch111: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.111
+Patch112: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.112
+Patch113: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.113
+Patch114: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.114
+Patch115: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.115
+Patch116: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.116
+Patch117: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.117
+Patch118: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.118
+Patch119: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.119
+Patch120: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.120
+Patch121: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.121
+Patch122: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.122
+Patch123: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.123
+Patch124: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.124
 Patch125: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.125
 Patch126: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.126
 Patch127: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.127
+Patch128: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.128
+Patch129: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.129
+Patch130: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.130
+Patch131: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.131
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -453,6 +457,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch125 -p0
 %patch126 -p0
 %patch127 -p0
+%patch128 -p0
+%patch129 -p0
+%patch130 -p0
+%patch131 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -912,7 +920,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Tue Feb 24 2009 Karsten Hopp <karsten@redhat.com> 7.2.127-1
-- patchlevel 127
+- patchlevel 131
 
 * Mon Feb 23 2009 Karsten Hopp <karsten@redhat.com> 7.2.124-1
 - patchlevel 124
