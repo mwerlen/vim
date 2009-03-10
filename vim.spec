@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 131
+%define patchlevel 132
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -197,6 +197,7 @@ Patch128: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.128
 Patch129: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.129
 Patch130: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.130
 Patch131: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.131
+Patch132: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.132
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -461,6 +462,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch129 -p0
 %patch130 -p0
 %patch131 -p0
+%patch132 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -919,6 +921,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Mar 10 2009 Karsten Hopp <karsten@redhat.com> 7.2.132-1
+- patchlevel 132, fixes accesses to freed memory
+
 * Wed Mar 04 2009 Karsten Hopp <karsten@redhat.com> 7.2.131-1
 - patchlevel 131
 
