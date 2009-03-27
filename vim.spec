@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 132
+%define patchlevel 148
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -198,6 +198,22 @@ Patch129: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.129
 Patch130: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.130
 Patch131: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.131
 Patch132: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.132
+Patch133: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.133
+Patch134: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.134
+Patch135: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.135
+Patch136: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.136
+Patch137: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.137
+Patch138: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.138
+Patch139: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.139
+Patch140: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.140
+Patch141: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.141
+Patch142: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.142
+Patch143: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.143
+Patch144: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.144
+Patch145: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.145
+Patch146: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.146
+Patch147: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.147
+Patch148: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.148
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -419,7 +435,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch086 -p0
 %patch087 -p0
 %patch088 -p0
-%patch089 -p0                                                                                                          
+%patch089 -p0
 %patch090 -p0
 %patch091 -p0
 %patch092 -p0
@@ -463,6 +479,23 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch130 -p0
 %patch131 -p0
 %patch132 -p0
+%patch133 -p0                                          
+%patch134 -p0                                          
+%patch135 -p0                                          
+%patch136 -p0                                          
+%patch137 -p0                                          
+%patch138 -p0                                          
+%patch139 -p0                                          
+%patch140 -p0                                          
+%patch141 -p0
+%patch142 -p0
+%patch143 -p0
+%patch144 -p0
+%patch145 -p0
+%patch146 -p0
+%patch147 -p0
+%patch148 -p0
+
 
 # install spell files
 %if %{withvimspell}
@@ -921,6 +954,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Mar 27 2009 Karsten Hopp <karsten@redhat.com> 7.2.148-1
+- patchlevel 148, fixes #461417
+
 * Tue Mar 10 2009 Karsten Hopp <karsten@redhat.com> 7.2.132-1
 - patchlevel 132, fixes accesses to freed memory
 

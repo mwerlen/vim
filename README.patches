@@ -160,4 +160,20 @@ Individual patches for Vim 7.2:
   2229  7.2.129  opening command window from input() uses the search history
  12852  7.2.130  Vim may haing until CTRL-C is typed when using CTRL-Z
   2612  7.2.131  using wrong cursor highlighting after clearing 'keymap'
-  7823  7.2.132  may access freed memory when changing dir in SwapExists autocmd
+  7823  7.2.132  accessing freed memory when changing dir in SwapExists autocmd
+  1665  7.2.133  ":diffoff!" changes settings in windows not in diff mode
+  2314  7.2.134  compiler warnings for discarding "const" from pointer
+  1991  7.2.135  memory leak when redefining user command with complete arg
+  1326  7.2.136  (after 7.2.132) ":cd" still possible in SwapExists autocmd
+ 11328  7.2.137  wrong left shift of blockwise selection in tab when 've' set
+  5428  7.2.138  extra part of 7.2.137
+  2229  7.2.139  crash when 'virtualedit' is "all"
+  1974  7.2.140  diff highlighting missing if Visual area starts at cursor pos
+  6622  7.2.141  fixing bold spill redraws too many characters
+  1753  7.2.142  Motif and Athena balloons don't use tooltip colors
+  6830  7.2.143  no command line completion for ":cscope" command
+  2304  7.2.144  colorscheme is reloaded when 't_Co' is set to the same value
+  3379  7.2.145  white space in ":cscope find" is not ignored
+  3394  7.2.146  v:warningmsg isn't used for all warnings
+  1548  7.2.147  cursor in wrong position after Tab for small version
+  4275  7.2.148  highlighting a character after the line doesn't always work
