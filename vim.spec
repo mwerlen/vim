@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 060
+%define patchlevel 148
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -126,6 +126,94 @@ Patch057: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.057
 Patch058: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.058
 Patch059: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.059
 Patch060: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.060
+Patch061: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.061
+Patch062: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.062
+Patch063: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.064
+Patch065: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.067
+Patch068: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.069
+Patch070: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.071
+Patch072: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.079
+Patch080: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.080
+Patch081: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.083
+Patch084: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.084
+Patch085: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.085
+Patch086: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.086
+Patch087: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.087
+Patch088: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.088
+Patch089: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.090
+Patch091: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.091
+Patch092: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.092
+Patch093: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.093
+Patch094: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.094
+Patch095: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.095
+Patch096: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.096
+Patch097: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.097
+Patch098: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.098
+Patch099: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.099
+Patch100: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.100
+Patch101: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.101
+Patch102: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.102
+Patch103: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.103
+Patch104: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.104
+Patch105: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.105
+Patch106: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.106
+Patch107: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.107
+Patch108: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.108
+Patch109: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.109
+Patch110: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.110
+Patch111: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.111
+Patch112: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.112
+Patch113: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.113
+Patch114: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.114
+Patch115: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.115
+Patch116: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.116
+Patch117: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.117
+Patch118: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.118
+Patch119: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.119
+Patch120: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.120
+Patch121: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.121
+Patch122: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.122
+Patch123: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.123
+Patch124: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.124
+Patch125: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.125
+Patch126: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.126
+Patch127: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.127
+Patch128: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.128
+Patch129: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.129
+Patch130: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.130
+Patch131: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.131
+Patch132: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.132
+Patch133: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.133
+Patch134: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.134
+Patch135: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.135
+Patch136: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.136
+Patch137: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.137
+Patch138: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.138
+Patch139: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.139
+Patch140: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.140
+Patch141: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.141
+Patch142: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.142
+Patch143: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.143
+Patch144: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.144
+Patch145: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.145
+Patch146: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.146
+Patch147: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.147
+Patch148: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.148
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -319,6 +407,94 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch058 -p0
 %patch059 -p0
 %patch060 -p0
+%patch061 -p0                                          
+%patch062 -p0
+%patch063 -p0
+%patch064 -p0
+%patch065 -p0
+%patch066 -p0
+%patch067 -p0
+%patch068 -p0
+%patch069 -p0
+%patch070 -p0
+%patch071 -p0
+%patch072 -p0
+%patch073 -p0
+%patch074 -p0
+%patch075 -p0
+%patch076 -p0
+%patch077 -p0
+%patch078 -p0
+%patch079 -p0
+%patch080 -p0
+%patch081 -p0
+%patch082 -p0
+%patch083 -p0
+%patch084 -p0
+%patch085 -p0
+%patch086 -p0
+%patch087 -p0
+%patch088 -p0
+%patch089 -p0
+%patch090 -p0
+%patch091 -p0
+%patch092 -p0
+%patch093 -p0
+%patch094 -p0
+%patch095 -p0
+%patch096 -p0
+%patch097 -p0
+%patch098 -p0
+%patch099 -p0
+%patch100 -p0
+%patch101 -p0
+%patch102 -p0
+%patch103 -p0
+%patch104 -p0
+%patch105 -p0
+%patch106 -p0
+%patch107 -p0
+%patch108 -p0
+%patch109 -p0
+%patch110 -p0
+%patch111 -p0
+%patch112 -p0
+%patch113 -p0
+%patch114 -p0
+%patch115 -p0
+%patch116 -p0
+%patch117 -p0
+%patch118 -p0
+%patch119 -p0
+%patch120 -p0
+%patch121 -p0
+%patch122 -p0
+%patch123 -p0
+%patch124 -p0
+%patch125 -p0
+%patch126 -p0
+%patch127 -p0
+%patch128 -p0
+%patch129 -p0
+%patch130 -p0
+%patch131 -p0
+%patch132 -p0
+%patch133 -p0                                          
+%patch134 -p0                                          
+%patch135 -p0                                          
+%patch136 -p0                                          
+%patch137 -p0                                          
+%patch138 -p0                                          
+%patch139 -p0                                          
+%patch140 -p0                                          
+%patch141 -p0
+%patch142 -p0
+%patch143 -p0
+%patch144 -p0
+%patch145 -p0
+%patch146 -p0
+%patch147 -p0
+%patch148 -p0
 
 
 # install spell files
@@ -778,6 +954,30 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Mar 27 2009 Karsten Hopp <karsten@redhat.com> 7.2.148-1
+- patchlevel 148, fixes #461417
+
+* Tue Mar 10 2009 Karsten Hopp <karsten@redhat.com> 7.2.132-1
+- patchlevel 132, fixes accesses to freed memory
+
+* Wed Mar 04 2009 Karsten Hopp <karsten@redhat.com> 7.2.131-1
+- patchlevel 131
+
+* Tue Feb 24 2009 Karsten Hopp <karsten@redhat.com> 7.2.127-1
+- patchlevel 127
+
+* Mon Feb 23 2009 Karsten Hopp <karsten@redhat.com> 7.2.124-1
+- patchlevel 124
+
+* Mon Jan 26 2009 Karsten Hopp <karsten@redhat.com> 7.2.088-1
+- patchlevel 88
+
+* Thu Jan 08 2009 Karsten Hopp <karsten@redhat.com> 7.2.079-2
+- patchlevel 79
+
+* Thu Dec 04 2008 Jesse Keating <jkeating@redhat.com> - 7.2.060-2
+- Rebuild for new python.
+
 * Mon Dec 01 2008 Karsten Hopp <karsten@redhat.com> 7.2.060-1
 - patchlevel 60
 

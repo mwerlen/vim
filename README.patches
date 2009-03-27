@@ -7,7 +7,7 @@ was sent to the vim-dev maillist.
 
 The best is to apply the patches in sequence.  This avoids problems
 when a patch depends on a previous patch.  If you did not unpack the
-extra archive, you may want to skip patches marked with "extra:".
+extra archive, you may want to skip patches marked with "(extra)".
 Similarly for the "lang" archive.  Or ignore errors for missing files.
 
 Before patching, change to the top Vim directory, where the "src"
@@ -21,6 +21,10 @@ After applying a patch, you need to compile Vim.  There are no
 patches for binaries.
 
 Checksums for the patch files can be found in the file MD5.
+
+Collection of patches for Vim 7.2:
+  SIZE  NAME                  INCLUDES
+108889  7.2.001-100.gz        patches 7.2.001 to 7.2.100, gzip'ed
 
 Individual patches for Vim 7.2:
 
@@ -65,7 +69,7 @@ Individual patches for Vim 7.2:
   2438  7.2.038  overlapping arguments to memcpy()
   1378  7.2.039  accessing freed memory on exit when EXITFREE is defined
   1836  7.2.040  ":e ++ff=dos foo" gets "unix" 'ff' when CR before NL missing
- 22993  7.2.041  diff messed up when editing a diff buffer in another tab page
+ 22993  7.2.041  (extra) diff wrong when edit diff buffer in another tab page
   4987  7.2.042  restoring view in autocmd sometimes doesn't work completely
   2550  7.2.043  VMS: Too many chars escaped in filename and shell commands
   5639  7.2.044  crash because of gcc 4 being over protective for strcpy()
@@ -85,3 +89,91 @@ Individual patches for Vim 7.2:
   2338  7.2.058  can't add a feature name in the :version output
   1847  7.2.059  diff is not always displayed properly
  34772  7.2.060  spell checking doesn't work well for compound words
+  1886  7.2.061  creating funcref requires loading the autoload script first
+  1657  7.2.062  "[Scratch]" is not translated
+  3558  7.2.063  warning for NULL argument of Perl_sys_init3()
+  1942  7.2.064  repeating "~" on a Visual block doesn't always update screen
+  5149  7.2.065  GTK GUI: cursor disappears doing ":vsp" when maximized
+  2759  7.2.066  not easy to check if 'encoding' is a multi-byte encoding
+  1683  7.2.067  can't load sesison extra file when it contains special chars
+  2598  7.2.068  error when Emacs tags file line is too long
+  1726  7.2.069  (after 7.2.060) compiler warning for putting size_t in int
+ 17606  7.2.070  crash when a function returns a:000
+  2353  7.2.071  (extra) Win32: Handling netbeans events may cause a crash
+  1615  7.2.072  (extra, fixed patch) compiler warning in Sniff code
+  4121  7.2.073  ":set <xHome>" has the same output as ":set <Home>"
+  1832  7.2.074  (extra, after 7.2.073) extra part of 7.2.073
+  2218  7.2.075  (after 7.2.058) unclear comment about making a diff
+  2666  7.2.076  rename(from, to) deletes file if names refer to the same file
+  4745  7.2.077  (after 7.2.076) rename() fails if names differ only in case
+  3298  7.2.078  problems with deleting folds
+  6947  7.2.079  "killed" netbeans events are not handled correctly
+  9942  7.2.080  accessing wrong memory with completion and composing char
+  1728  7.2.081  compiler warning for float overflow on VAX
+  2134  7.2.082  if 'ff' is "mac" then "ga" on a ^J shows 0x0d instead of 0x0a
+  1733  7.2.083  ":tag" doesn't return to the right tag entry in the tag stack
+  4331  7.2.084  Python: vim.eval() is wrong for recursive structures 
+  1862  7.2.085  ":set <M-b>=<Esc>b" does not work when 'encoding' is utf-8
+  3045  7.2.086  using ":diffget 1" in buffer 1 corrupts the text
+  1570  7.2.087  adding URL to 'path' doesn't work to edit a file
+  2895  7.2.088  (extra) Win32: Using the clipboard sometimes fails
+  2473  7.2.089  (extra) Win32: crash when using Ultramon buttons
+  3286  7.2.090  user command containing 0x80 does not work properly
+  2113  7.2.091  ":cs help" output is not aligned for some languages
+  4538  7.2.092  some error messages are not translated
+  7287  7.2.093  (extra) dialogs can't always handle multi-byte text
+  3430  7.2.094  compiler warning for signed/unsigned compare, typos
+  1902  7.2.095  using "r" and then CTRL-C Visual highlighting is not removed
+  1464  7.2.096  after ":number" "Press Enter" msg may be on the wrong screen
+  1692  7.2.097  "!xterm&" doesn't work when 'shell' is "bash"
+  1864  7.2.098  warning for signed/unsigned pointer
+  3498  7.2.099  unnecessary redraw when changing GUI options in terminal
+  3846  7.2.100  missing first three bytes on sourced FIFO
+  1362  7.2.101  (extra) MSVC version not recognized
+  1496  7.2.102  (after 7.2.100) BOM at start of Vim script not removed
+  5153  7.2.103  tab page line isn't always updated, e.g. when 'bomb' is set
+  1523  7.2.104  after ":saveas foo" the tab label isn't updated right away
+  2159  7.2.105  modeline setting for 'foldmethod' overrules diff options
+  3422  7.2.106  endless loop for "]s" in HTML when there are no misspellings
+  1825  7.2.107  After a GUI dialog ":echo" messages are deleted
+  1622  7.2.108  (after 7.2.105) can't compile without the diff feature
+ 11901  7.2.109  'langmap' does not work for multi-byte characters
+  1407  7.2.110  compiler warning for unused variable
+  2724  7.2.111  selection unclear for Visual block mode with 'cursorcolumn'
+  1509  7.2.112  cursor invisible in first col in Visual mode if 'number' set
+  2700  7.2.113  crash when using submatch() in substitute()
+  2531  7.2.114  using wrong printf format: %d instead of %ld
+  2716  7.2.115  some debugging code is never used
+  1619  7.2.116  not all memory is freed when EXITFREE is defined
+  2592  7.2.117  location list incorrectly labelled "Quickfix List"
+  2068  7.2.118  <PageUp> at the more prompt only does half a page
+  1550  7.2.119  status line is redrawn too often
+  8305  7.2.120  location list is copied and then deleted when opening window
+  4993  7.2.121  can't stop output of "!grep a *.c" in gvim with CTRL-C
+  2472  7.2.122  invalid mem access if VimResized autocmd changes screen size
+  1568  7.2.123  ":map" output continues after typing 'q' at more prompt
+  3127  7.2.124  ":tselect" output continues after typing 'q' at more prompt
+  3936  7.2.125  leaking memory when reading XPM bitmap for a sign
+  4326  7.2.126  when EXITFREE is defined signs and keymaps are not freed
+  1708  7.2.127  get another more prompt after typing 'q'
+  1537  7.2.128  (after 7.2.055) ":lcd" causes invalid session file
+  2229  7.2.129  opening command window from input() uses the search history
+ 12852  7.2.130  Vim may haing until CTRL-C is typed when using CTRL-Z
+  2612  7.2.131  using wrong cursor highlighting after clearing 'keymap'
+  7823  7.2.132  accessing freed memory when changing dir in SwapExists autocmd
+  1665  7.2.133  ":diffoff!" changes settings in windows not in diff mode
+  2314  7.2.134  compiler warnings for discarding "const" from pointer
+  1991  7.2.135  memory leak when redefining user command with complete arg
+  1326  7.2.136  (after 7.2.132) ":cd" still possible in SwapExists autocmd
+ 11328  7.2.137  wrong left shift of blockwise selection in tab when 've' set
+  5428  7.2.138  extra part of 7.2.137
+  2229  7.2.139  crash when 'virtualedit' is "all"
+  1974  7.2.140  diff highlighting missing if Visual area starts at cursor pos
+  6622  7.2.141  fixing bold spill redraws too many characters
+  1753  7.2.142  Motif and Athena balloons don't use tooltip colors
+  6830  7.2.143  no command line completion for ":cscope" command
+  2304  7.2.144  colorscheme is reloaded when 't_Co' is set to the same value
+  3379  7.2.145  white space in ":cscope find" is not ignored
+  3394  7.2.146  v:warningmsg isn't used for all warnings
+  1548  7.2.147  cursor in wrong position after Tab for small version
+  4275  7.2.148  highlighting a character after the line doesn't always work
