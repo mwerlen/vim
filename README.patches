@@ -25,6 +25,7 @@ Checksums for the patch files can be found in the file MD5.
 Collection of patches for Vim 7.2:
   SIZE  NAME                  INCLUDES
 108889  7.2.001-100.gz        patches 7.2.001 to 7.2.100, gzip'ed
+208102  7.2.101-200.gz        patches 7.2.101 to 7.2.200, gzip'ed
 
 Individual patches for Vim 7.2:
 
@@ -177,3 +178,100 @@ Individual patches for Vim 7.2:
   3394  7.2.146  v:warningmsg isn't used for all warnings
   1548  7.2.147  cursor in wrong position after Tab for small version
   4275  7.2.148  highlighting a character after the line doesn't always work
+ 15646  7.2.149  read uninit memory when using return value that wasn't set
+ 35686  7.2.150  (extra) VisVim doesn't support tabs
+  1533  7.2.151  ":hist a" doesn't work like ":hist all" as the docs suggest
+  2963  7.2.152  "silent echo x" inside ":redir" leaves cursor halfway the line
+  2908  7.2.153  memory leak for ":recover empty_dir/"
+  2390  7.2.154  (after 7.2.132) can still do ":cd" in SwapExists autocmd
+  1249  7.2.155  memory leak in ":function /pat"
+  5543  7.2.156  no completion for :scscope and :lcscope commands
+  4299  7.2.157  illegal memory access when searching in path
+  2177  7.2.158  warnings from VisualC compiler
+  2478  7.2.159  when $x_includes ends up being "NONE" configure fails
+  1353  7.2.160  search pattern not freed on exit when 'rightleft' set
+  5400  7.2.161  folds messed up in other tab page
+  2363  7.2.162  the quickfix window may get the wrong filetype
+  1754  7.2.163  the command line window may get folding
+  4089  7.2.164  when 'showbreak' is set wrong Visual block size reported
+  1794  7.2.165  FuncUndefined autocmd event argument is expanded like filename
+ 10538  7.2.166  no completion for ":sign" command
+ 54715  7.2.167  splint doesn't work well for checking the code (part 1)
+  2936  7.2.168  if no ctags program found, "make tags" executes first C file
+ 35841  7.2.169  fix more splint warnings, define colnr_T to be int
+  4481  7.2.170  using b_dev while it was not set
+  2261  7.2.171  (after 7.2.169) compiler warnings
+  1883  7.2.172  (extra) compiler warning
+ 17875  7.2.173  use gcc instead of lint to check for unused function arguments
+ 42277  7.2.174  too many warnings from gcc -Wextra
+  1455  7.2.175  compiler warning in OpenBSD
+  5956  7.2.176  exceptions for splint are not useful
+ 57904  7.2.177  more warnings from gcc -Wextra
+  3898  7.2.178  using negative value for device number might not always work
+  2944  7.2.179  using negative value for device number might not always work
+198701  7.2.180  some more compiler warnings when using gcc -Wextra
+ 49635  7.2.181  some more compiler warnings when using gcc -Wextra
+  2128  7.2.182  compilation fails for Motif, gvim with GTK crashes on startup
+ 52709  7.2.183  configure problem for sys/sysctl.h on OpenBSD
+ 84846  7.2.184  some more compiler warnings when using gcc -Wextra
+  8242  7.2.185  some more compiler warnings when using gcc -Wextra
+  7260  7.2.186  some more compiler warnings when using gcc -Wextra
+  3334  7.2.187  (after 7.2.186) doesn't compile with older tcl versions
+  8531  7.2.188  crash with specific use of function calls
+  2889  7.2.189  possible hang for deleting auto-indent
+  4827  7.2.190  the register executed by @@ isn't stored in viminfo
+106448  7.2.191  Mzscheme interface doesn't work on Ubuntu
+  4206  7.2.192  (after 7.2.188) still a crash in the garbage collector
+  1545  7.2.193  warning for uninitialized values in struct
+  1345  7.2.194  (extra) MSVC: rem commands are echoed
+  2229  7.2.195  leaking memory for the command Vim was started with
+  3466  7.2.196  remove support for splint, it doesn't work well
+  1530  7.2.197  warning for uninitialized values of typebuf
+  2006  7.2.198  buffer used for termcap entry may be too small
+  1894  7.2.199  strange character in comment
+ 10318  7.2.200  reading past string end when using menu bar or resizing window
+ 14460  7.2.201  cannot copy/paste HTML to/from Firefox via the clipboard
+  1846  7.2.202  BufWipeout autocmd that edits another buffer causes problems
+ 40481  7.2.203  using current window to work on hidden buffer has side effects
+  4407  7.2.204  (extra) Win32: Can't build with Visual Studio 2010 beta 1
+  2852  7.2.205  (extra) Win32: No support for High DPI awarenes
+  1485  7.2.206  Win32: Can't build netbeans interface with Visual Studio 2010
+  2237  7.2.207  using freed memory when ":redrawstatus" works recursively
+  2569  7.2.208  "set novice" gives an error message, it should be ignored
+  2532  7.2.209  for xxd setmode() is undefined on Cygwin
+  1896  7.2.210  warning for file changed outside of vim even after :checktime
+  1639  7.2.211  memory leak when expanding a series of file names
+  1727  7.2.212  (extra) warnings for redefining SIG macros
+  1521  7.2.213  warning for using vsprintf()
+  1983  7.2.214  crash with complete function for user command
+  8298  7.2.215  ml_get error when using ":vimgrep"
+  4822  7.2.216  two error messages have the same number E812
+  2020  7.2.217  running tests with valgrind doesn't work as advertised
+  1448  7.2.218  cannot build GTK with hangul_input feature
+  2052  7.2.219  (extra) Photon GUI is outdated
+  2958  7.2.220  (after 7.2.215) BufEnter "cd" autocommand causes problems
+  7103  7.2.221  X cut_buffer0 text may be used in the wrong encoding
+  1816  7.2.222  ":mksession" doesn't work properly with 'acd' set
+  5132  7.2.223  a script run with ":silent" cannot give any messages
+  2542  7.2.224  crash when using 'completefunc'
+  2874  7.2.225  when using ":normal" a saved character may be executed
+  7470  7.2.226  ml_get error after deleting the last line
+  1574  7.2.227  when using ":cd" in a script there is no way to track this
+ 14946  7.2.228  cscope is limited to 8 connections
+  1595  7.2.229  warning for shadowed variable
+  2442  7.2.230  a few old lint-style ARGUSED comments
+  1473  7.2.231  warning for unreacheable code in Perl interface
+  2704  7.2.232  cannot debug problems with being in a wrong directory
+  2901  7.2.233  extra part of 7.2.232
+  3831  7.2.234  it is not possible to ignore file names without a suffix
+  2696  7.2.235  Using CTRL-O z= in Insert mode has a delay before redrawing
+  2809  7.2.236  Mac: Compiling with Ruby doesn't always work
+  1965  7.2.237  crash on exit when window icon not set
+  3941  7.2.238  leaking memory when setting term to "builtin_dumb"
+  4151  7.2.239  using :diffpatch twice may cause a crash
+  2078  7.2.240  crash when using GUI find/replace dialog repeatedly
+  5174  7.2.241  problems with using ":bufdo" and "doautoall" or ":vimgrep"
+  2505  7.2.242  setting 'lazyredraw' causes the cursor column to be recomputed
+  1918  7.2.243  memory leak when using :vimgrep and resizing
+  4757  7.2.244  insufficient info for a conversion error from utf-8 to latin1
+  5093  7.2.245  wrong conversion when writing Unicode encoded files

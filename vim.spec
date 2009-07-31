@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 148
+%define patchlevel 245
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -214,6 +214,103 @@ Patch145: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.145
 Patch146: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.146
 Patch147: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.147
 Patch148: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.148
+Patch149: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.149
+Patch150: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.150
+Patch151: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.151
+Patch152: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.152
+Patch153: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.153
+Patch154: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.154
+Patch155: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.155
+Patch156: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.156
+Patch157: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.157
+Patch158: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.158
+Patch159: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.159
+Patch160: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.160
+Patch161: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.161
+Patch162: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.162
+Patch163: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.163
+Patch164: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.164
+Patch165: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.165
+Patch166: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.166
+Patch167: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.167
+Patch168: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.168
+Patch169: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.169
+Patch170: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.170
+Patch171: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.171
+Patch172: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.172
+Patch173: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.173
+Patch174: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.174
+Patch175: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.175
+Patch176: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.176
+Patch177: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.177
+Patch178: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.178
+Patch179: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.179
+Patch180: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.192
+Patch193: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.193
+Patch194: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.194
+Patch195: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.195
+Patch196: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.196
+Patch197: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.197
+Patch198: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.198
+Patch199: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.199
+Patch200: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.200
+Patch201: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.201
+Patch202: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.202
+Patch203: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.203
+Patch204: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.204
+Patch205: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.205
+Patch206: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.206
+Patch207: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.207
+Patch208: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.208
+Patch209: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.209
+Patch210: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.210
+Patch211: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.211
+Patch212: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.212
+Patch213: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.213
+Patch214: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.214
+Patch215: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.215
+Patch216: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.216
+Patch217: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.217
+Patch218: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.218
+Patch219: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.219
+Patch220: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.220
+Patch221: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.221
+Patch222: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.222
+Patch223: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.223
+Patch224: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.224
+Patch225: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.225
+Patch226: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.226
+Patch227: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.227
+Patch228: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.228
+Patch229: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.229
+Patch230: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.230
+Patch231: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.231
+Patch232: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.232
+Patch233: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.233
+Patch234: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.234
+Patch235: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.235
+Patch236: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.236
+Patch237: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.237
+Patch238: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.238
+Patch239: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.239
+Patch240: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.240
+Patch241: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.241
+Patch242: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.242
+Patch243: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.243
+Patch244: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.244
+Patch245: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.245
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -495,6 +592,103 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch146 -p0
 %patch147 -p0
 %patch148 -p0
+%patch149 -p0 
+%patch150 -p0 
+%patch151 -p0 
+%patch152 -p0 
+%patch153 -p0 
+%patch154 -p0 
+%patch155 -p0 
+%patch156 -p0 
+%patch157 -p0 
+%patch158 -p0 
+%patch159 -p0 
+%patch160 -p0 
+%patch161 -p0 
+%patch162 -p0 
+%patch163 -p0 
+%patch164 -p0 
+%patch165 -p0 
+%patch166 -p0 
+%patch167 -p0 
+%patch168 -p0 
+%patch169 -p0 
+%patch170 -p0 
+%patch171 -p0 
+%patch172 -p0 
+%patch173 -p0 
+%patch174 -p0 
+%patch175 -p0 
+%patch176 -p0 
+%patch177 -p0 
+%patch178 -p0 
+%patch179 -p0 
+%patch180 -p0 
+%patch181 -p0 
+%patch182 -p0 
+%patch183 -p0 
+%patch184 -p0 
+%patch185 -p0 
+%patch186 -p0 
+%patch187 -p0 
+%patch188 -p0 
+%patch189 -p0 
+%patch190 -p0 
+%patch191 -p0 
+%patch192 -p0 
+%patch193 -p0 
+%patch194 -p0 
+%patch195 -p0 
+%patch196 -p0 
+%patch197 -p0 
+%patch198 -p0 
+%patch199 -p0 
+%patch200 -p0 
+%patch201 -p0 
+%patch202 -p0 
+%patch203 -p0 
+%patch204 -p0 
+%patch205 -p0 
+%patch206 -p0 
+%patch207 -p0 
+%patch208 -p0 
+%patch209 -p0 
+%patch210 -p0 
+%patch211 -p0 
+%patch212 -p0 
+%patch213 -p0 
+%patch214 -p0 
+%patch215 -p0 
+%patch216 -p0 
+%patch217 -p0 
+%patch218 -p0 
+%patch219 -p0 
+%patch220 -p0 
+%patch221 -p0 
+%patch222 -p0 
+%patch223 -p0 
+%patch224 -p0 
+%patch225 -p0 
+%patch226 -p0 
+%patch227 -p0 
+%patch228 -p0 
+%patch229 -p0 
+%patch230 -p0 
+%patch231 -p0 
+%patch232 -p0 
+%patch233 -p0 
+%patch234 -p0 
+%patch235 -p0 
+%patch236 -p0 
+%patch237 -p0 
+%patch238 -p0 
+%patch239 -p0 
+%patch240 -p0 
+%patch241 -p0 
+%patch242 -p0 
+%patch243 -p0 
+%patch244 -p0 
+%patch245 -p0 
 
 
 # install spell files
@@ -954,6 +1148,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Aug 01 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-1
+- add 97 upstream patches to get to patchlevel 245
+
 * Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.2.148-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
