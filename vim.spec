@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -322,6 +322,7 @@ Patch3008: vim-7.1-lib64.patch
 Patch3009: vim-7.0-warning.patch
 Patch3010: vim-7.0-syncolor.patch
 Patch3011: vim-7.0-specedit.patch
+Patch3012: vim72-rh514717.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -707,6 +708,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
+%patch3012 -p1
 
 cp -f %{SOURCE15} runtime/syntax/forth.vim
 cp -f %{SOURCE16} runtime/plugin/netrwPlugin.vim
@@ -1148,6 +1150,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 03 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-2
+- add fix for glibc fortify segfault (#514717, Adam Tkac)
+
 * Sat Aug 01 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-1
 - add 97 upstream patches to get to patchlevel 245
 
