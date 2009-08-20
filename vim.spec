@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -898,14 +898,14 @@ mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   [ -x /%{_bindir}/id ] || return
-  [ \`/%{_bindir}/id -u\` -le 100 ] && return
+  [ \`/%{_bindir}/id -u\` -le 200 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
 [ -x /%{_bindir}/id ] || exit
-[ \`/%{_bindir}/id -u\` -gt 100 ] && alias vi vim
+[ \`/%{_bindir}/id -u\` -gt 200 ] && alias vi vim
 EOF
 chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
@@ -1150,6 +1150,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Aug 20 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-3
+- change range of system ids in /etc/profile.d/vim/* (#518555)
+
 * Mon Aug 03 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-2
 - add fix for glibc fortify segfault (#514717, Adam Tkac)
 
