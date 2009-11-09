@@ -275,3 +275,42 @@ Individual patches for Vim 7.2:
   1918  7.2.243  memory leak when using :vimgrep and resizing
   4757  7.2.244  insufficient info for a conversion error from utf-8 to latin1
   5093  7.2.245  wrong conversion when writing Unicode encoded files
+  1848  7.2.246  Cscope home page link is wrong
+  2561  7.2.247  Mzscheme interface minor problem
+  4408  7.2.248  (extra) Win32: Mzscheme interface building minor problems
+  1555  7.2.249  script that checks .po files can't handle '%' in plural forms
+  1693  7.2.250  (extra) possible buffer overflow in GvimExt
+  2802  7.2.251  compiler adds invalid memory bounds check
+  1495  7.2.252  when 'enc' is multi-byte 'iskeyword' can't contain chars > 128
+  4223  7.2.253  netbeans interface: getLength always uses current buffer
+  1654  7.2.254  compiler warning for assigning size_t to int
+  1870  7.2.255  (after 7.2.242) cursor column may be wrong after :set
+  1783  7.2.256  GTK font dialog doesn't have a default when 'guifont' not set
+  2092  7.2.257  GTK 2.17: lots of assertion error messages
+  1989  7.2.258  v:beval_col and b:beval_text are wrong in UTF-8 text
+  5393  7.2.259  exists() doesn't work properly for an empty aucmd group
+  5431  7.2.260  (extra part of 7.2.259)
+  2515  7.2.261  E38 may appear when deleting folded lines
+  5652  7.2.262  string passed to user cmd custom completion can be too long
+  2634  7.2.263  GTK2: Vim window in wrong position using the -geom argument
+  5161  7.2.264  GTK2: When Vim window maximized, set 'columns' doesn't work
+  1892  7.2.265  with ":silent broken" inside try/catch silency may persist
+  6560  7.2.266  in an expression abbreviation the typed character is unknown
+  1461  7.2.267  crash for narrow window and double-width character
+  2274  7.2.268  crash when using Python to set cursor beyond end of line
+  7128  7.2.269  add --startuptime so that slow startup can be analysed
+  2281  7.2.270  ":@c" does not execute everything if the c register has a CR
+  2649  7.2.271  Motif GUI: Using freed memory when making a choice
+  2582  7.2.272  "_.svz" is not recognized as a swap file
+  3404  7.2.273  crash when redirirecting to unknown array
+  3749  7.2.274  syntax folding doesn't work properly when adding a comment
+  2717  7.2.275  warning for unused argument and comparing signed and unsigned
+  1875  7.2.276  crash when setting 'isprint' to a small bullet
+  1937  7.2.277  CTRL-Y in a diff'ed window may move cursor outside of window
+  2312  7.2.278  using magic number in the folding code
+  3413  7.2.279  invalid memory read with visual mode "r"
+  6656  7.2.280  a redraw in a custom statusline with %! may cause a crash
+  2241  7.2.281  'cursorcolumn' highlighting is wrong in diff mode
+  1584  7.2.282  a fold can't be closed
+  2030  7.2.283  GTK: changing font doesn't keep the window maximized
+  1572  7.2.284  two windows on a buffer + folding: display error after change
