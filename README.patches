@@ -26,6 +26,7 @@ Collection of patches for Vim 7.2:
   SIZE  NAME                  INCLUDES
 108889  7.2.001-100.gz        patches 7.2.001 to 7.2.100, gzip'ed
 208102  7.2.101-200.gz        patches 7.2.101 to 7.2.200, gzip'ed
+ 82163  7.2.201-300.gz        patches 7.2.201 to 7.2.300, gzip'ed
 
 Individual patches for Vim 7.2:
 
@@ -314,3 +315,33 @@ Individual patches for Vim 7.2:
   1584  7.2.282  a fold can't be closed
   2030  7.2.283  GTK: changing font doesn't keep the window maximized
   1572  7.2.284  two windows on a buffer + folding: display error after change
+  1931  7.2.285  (after 7.2.169) CTRL-U in Insert mode also deletes indent
+  7058  7.2.286  (after 7.2.269) --startuptime argument is not consistent
+  1733  7.2.287  warning from gcc 3.4 about uninitialized variable
+  1680  7.2.288  Python 2.6 pyconfig.h redefines macros
+  3979  7.2.289  checking wrong struct member
+  5344  7.2.290  not freeing memory from ":lmap", ":xmap" and ":menutranslate"
+  1498  7.2.291  reading uninitialised memory in arabic mode
+  1518  7.2.292  block right-shift wrong with multibyte encoding and 'list' set
+  1954  7.2.293  when setting 'comments' option it may be used in a wrong way
+  8992  7.2.294  when using TEMPDIRS dir name could get too long
+  4053  7.2.295  in map() on a List the index is not known, set v:key to index
+  1809  7.2.296  (after 7.2.286) help message about startuptime is wrong
+  1846  7.2.297  reading freed memory when writing ":reg" output to a register
+  1608  7.2.298  ":vimgrep" crashes with an autocommand that sets w: variable
+  1733  7.2.299  crash when comment middle is longer than start
+  5886  7.2.300  file descriptors not closed when executing external command
+ 14601  7.2.301  formatting is wrong when 'tw' is set to a small value
+  4941  7.2.302  (extra, after 7.2.301) extra part of the 7.2.301 tests
+  2073  7.2.303  (after 7.2.294) can't build on MS-Windows
+  1831  7.2.304  compiler warning for bad pointer cast
+  2727  7.2.305  recursively redrawing causes a memory leak
+  1541  7.2.306  shellescape("10%%", 1) only escapes first %
+  4869  7.2.307  crash with a very long syntax match statement
+  5504  7.2.308  submatch() in "\=" of ":s" command returns empty string
+  1533  7.2.309  (after 7.2.308) warning for missing function prototype
+  1874  7.2.310  ftdetect plugin using ":setf" doesn't work with # comment
+  1408  7.2.311  can't compile with FreeMiNT
+  9769  7.2.312  iconv() returns invalid char sequence when conversion fails
+  3744  7.2.313  command line completion doesn't work after "%:h" and similar
+  1620  7.2.314  small build broken after 7.2.313
