@@ -345,3 +345,4 @@ Individual patches for Vim 7.2:
   9769  7.2.312  iconv() returns invalid char sequence when conversion fails
   3744  7.2.313  command line completion doesn't work after "%:h" and similar
   1620  7.2.314  small build broken after 7.2.313
+  4605  7.2.315  Python libs can't be found on 64 bit system
