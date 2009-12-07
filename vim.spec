@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1298,6 +1298,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Dec  7 2009 Stepan Kasal <skasal@redhat.com> - 2:7.2.315-2
+- rebuild against perl 5.10.1
+
 * Wed Dec 03 2009 Karsten Hopp <karsten@redhat.com> 7.2.315-1
 - patchlevel 315
 - fix vimrc location in man page (#456992)
