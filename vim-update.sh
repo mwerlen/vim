@@ -10,6 +10,8 @@ ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3`
 #ORIGPL=350
 PL=$ORIGPL
 
+cvs up -dAP
+
 while true; do
     PL=$((PL+1))
     PNAME="$MAJORVERSION.$PL"
@@ -31,6 +33,7 @@ while true; do
         sed -i -e "/patch$((PL-1)) -p0/a%patch$PL -p0" $SPEC
     fi
 done
+sed -i -e "/Release: /cRelease: 1%{dist}" $SPEC
 sed -i -e "s/define patchlevel $ORIGPL/define patchlevel $PL/" $SPEC
 sed -i -e "/\%changelog/a$CHLOG.$PL-1\n- patchlevel $PL\n" $SPEC
 wget ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/README -O README.patches
