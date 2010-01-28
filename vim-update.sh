@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd $HOME/src/fedora/rpms/vim/devel/
 LANG=C
 SPEC=vim.spec
 
@@ -33,10 +34,10 @@ while true; do
         sed -i -e "/patch$((PL-1)) -p0/a%patch$PL -p0" $SPEC
     fi
 done
-sed -i -e "/Release: /cRelease: 1%{dist}" $SPEC
+sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
 sed -i -e "s/define patchlevel $ORIGPL/define patchlevel $PL/" $SPEC
 sed -i -e "/\%changelog/a$CHLOG.$PL-1\n- patchlevel $PL\n" $SPEC
 wget ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/README -O README.patches
 cvs ci -m "- patchlevel $PL" 
 make tag
-make build
+make SECONDARY_CONFIG="-c /etc/koji.conf" build

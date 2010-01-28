@@ -381,3 +381,4 @@ Individual patches for Vim 7.2:
   7230  7.2.348  (after 7.2.330) Unicode double width table is outdated
   1714  7.2.349  CTRL-W gf puts the new tab in the wrong place
   2766  7.2.350  Win32: When changing font window may jump to another screen
+  2195  7.2.351  (after 7.2.347) compilation fails with some compilers
