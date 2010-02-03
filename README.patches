@@ -382,3 +382,6 @@ Individual patches for Vim 7.2:
   1714  7.2.349  CTRL-W gf puts the new tab in the wrong place
   2766  7.2.350  Win32: When changing font window may jump to another screen
   2195  7.2.351  (after 7.2.347) compilation fails with some compilers
+  1825  7.2.352  Win64: Vim doesn't work when cross-compiled with MingW libs
+  4764  7.2.353  no command line completion for ":profile"
+  2270  7.2.354  Japanese single-width double-byte chars not handled correctly
