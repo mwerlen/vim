@@ -385,3 +385,5 @@ Individual patches for Vim 7.2:
   1825  7.2.352  Win64: Vim doesn't work when cross-compiled with MingW libs
   4764  7.2.353  no command line completion for ":profile"
   2270  7.2.354  Japanese single-width double-byte chars not handled correctly
+  2663  7.2.355  popup menu in wrong position when 'number' is set
+  2166  7.2.356  not all folds are closed when 'foldmethod' is changed
