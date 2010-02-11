@@ -388,3 +388,5 @@ Individual patches for Vim 7.2:
   2663  7.2.355  popup menu in wrong position when 'number' is set
   2166  7.2.356  not all folds are closed when 'foldmethod' is changed
   1565  7.2.357  CR displayed wrong when changing 'fileformat' from/to "mac"
+  2384  7.2.358  compiler warnings on VMS
+  1805  7.2.359  crash when using the Netbeans join command
