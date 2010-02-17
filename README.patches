@@ -396,3 +396,5 @@ Individual patches for Vim 7.2:
   2521  7.2.363  Perl 5.10 dynamic loading doesn't work
   2958  7.2.364  (extra) can't build gvimext.dll on Win 7 x64 using MinGW
   2390  7.2.365  (extra) MS-Windows with MingW: "File->Save As" does not work
+  3802  7.2.366  CTRL-B doesn't go back to the first line of the buffer
+  3236  7.2.367  "xxd -r -p" doesn't work as documented
