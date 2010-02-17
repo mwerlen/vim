@@ -390,3 +390,9 @@ Individual patches for Vim 7.2:
   1565  7.2.357  CR displayed wrong when changing 'fileformat' from/to "mac"
   2384  7.2.358  compiler warnings on VMS
   1805  7.2.359  crash when using the Netbeans join command
+  2839  7.2.360  Ruby on MS-Windows: can't use sockets
+ 23442  7.2.361  Ruby 1.9 is not supported
+  2964  7.2.362  (extra, after 7.2.352) Win64 cross-compile problems
+  2521  7.2.363  Perl 5.10 dynamic loading doesn't work
+  2958  7.2.364  (extra) can't build gvimext.dll on Win 7 x64 using MinGW
+  2390  7.2.365  (extra) MS-Windows with MingW: "File->Save As" does not work
