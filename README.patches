@@ -398,3 +398,4 @@ Individual patches for Vim 7.2:
   2390  7.2.365  (extra) MS-Windows with MingW: "File->Save As" does not work
   3802  7.2.366  CTRL-B doesn't go back to the first line of the buffer
   3236  7.2.367  "xxd -r -p" doesn't work as documented
+  1623  7.2.368  (after 7.2.361) append line with Ruby interface doesn't work
