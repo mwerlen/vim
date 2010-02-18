@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $HOME/src/fedora/rpms/vim/devel/
+cd $HOME/src/fedora/rpms/vim/F-13/
 LANG=C
 SPEC=vim.spec
 
