@@ -399,3 +399,11 @@ Individual patches for Vim 7.2:
   3802  7.2.366  CTRL-B doesn't go back to the first line of the buffer
   3236  7.2.367  "xxd -r -p" doesn't work as documented
   1623  7.2.368  (after 7.2.361) append line with Ruby interface doesn't work
+  1872  7.2.369  error message for :profile is not easy to understand
+  4352  7.2.370  (after 7.2.356) a redraw may cause folds to be closed
+ 10029  7.2.371  build problems on Tandem NonStop
+  9674  7.2.372  (extra) cross-compiling GvimExt and xxd doesn't work.
+  2901  7.2.373  new messages from gcc 4.5 are not in 'errorformat'
+  4434  7.2.374  Ruby eval() doesn't understand Vim types
+  1794  7.2.375  ml_get errors when using ":bprevious" in a BufEnter autocmd
+  1577  7.2.376  ml_get error when using SiSU syntax

@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 368
+%define patchlevel 376
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -434,6 +434,14 @@ Patch365: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.365
 Patch366: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.366
 Patch367: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.367
 Patch368: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.368
+Patch369: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.369
+Patch370: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.370
+Patch371: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.371
+Patch372: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.372
+Patch373: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.373
+Patch374: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.374
+Patch375: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.375
+Patch376: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.376
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -940,6 +948,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch366 -p0
 %patch367 -p0
 %patch368 -p0
+%patch369 -p0
+%patch370 -p0
+%patch371 -p0
+%patch372 -p0
+%patch373 -p0
+%patch374 -p0
+%patch375 -p0
+%patch376 -p0
 
 
 # install spell files
@@ -1404,6 +1420,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Feb 24 2010 Karsten Hopp <karsten@redhat.com> 7.2.376-1
+- patchlevel 376
+
 * Thu Feb 18 2010 Karsten Hopp <karsten@redhat.com> 7.2.368-1
 - patchlevel 368
 
