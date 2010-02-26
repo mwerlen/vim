@@ -407,3 +407,4 @@ Individual patches for Vim 7.2:
   4434  7.2.374  Ruby eval() doesn't understand Vim types
   1794  7.2.375  ml_get errors when using ":bprevious" in a BufEnter autocmd
   1577  7.2.376  ml_get error when using SiSU syntax
+  1983  7.2.377  (extra, after 7.2.372) small mistakes in Ming build file

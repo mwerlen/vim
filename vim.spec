@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 376
+%define patchlevel 377
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -442,6 +442,7 @@ Patch373: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.373
 Patch374: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.374
 Patch375: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.375
 Patch376: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.376
+Patch377: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.377
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -956,6 +957,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch374 -p0
 %patch375 -p0
 %patch376 -p0
+%patch377 -p0
 
 
 # install spell files
@@ -1420,6 +1422,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Feb 27 2010 Karsten Hopp <karsten@redhat.com> 7.2.377-1
+- patchlevel 377
+
 * Wed Feb 24 2010 Karsten Hopp <karsten@redhat.com> 7.2.376-1
 - patchlevel 376
 
