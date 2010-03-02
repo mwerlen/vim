@@ -415,3 +415,4 @@ Individual patches for Vim 7.2:
   1766  7.2.382  close cmdline window when 'bufhide' is "wipe" uses freed mem
   3021  7.2.383  Vim doesn't build cleanly with MSVC 2010
   1849  7.2.384  (extra) Vim doesn't build properly with MSVC 2010
+  2147  7.2.385  can't drag status line when in the command line window
