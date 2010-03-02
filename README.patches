@@ -412,3 +412,6 @@ Individual patches for Vim 7.2:
   1758  7.2.379  'eventignore' is set to an invalid value inside ":doau"
   3699  7.2.380  (after 7.2.363) Perl builds with 5.10.1 but not with 5.10.0
   6835  7.2.381  no completion for :behave
+  1766  7.2.382  close cmdline window when 'bufhide' is "wipe" uses freed mem
+  3021  7.2.383  Vim doesn't build cleanly with MSVC 2010
+  1849  7.2.384  (extra) Vim doesn't build properly with MSVC 2010
