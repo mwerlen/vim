@@ -408,3 +408,7 @@ Individual patches for Vim 7.2:
   1794  7.2.375  ml_get errors when using ":bprevious" in a BufEnter autocmd
   1577  7.2.376  ml_get error when using SiSU syntax
   1983  7.2.377  (extra, after 7.2.372) small mistakes in Ming build file
+  2832  7.2.378  C function declaration indented too much
+  1758  7.2.379  'eventignore' is set to an invalid value inside ":doau"
+  3699  7.2.380  (after 7.2.363) Perl builds with 5.10.1 but not with 5.10.0
+  6835  7.2.381  no completion for :behave
