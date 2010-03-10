@@ -416,3 +416,12 @@ Individual patches for Vim 7.2:
   3021  7.2.383  Vim doesn't build cleanly with MSVC 2010
   1849  7.2.384  (extra) Vim doesn't build properly with MSVC 2010
   2147  7.2.385  can't drag status line when in the command line window
+  2051  7.2.386  KDE 3.1 focus hack causes problems for other window managers
+  8233  7.2.387  Ruby with MingW still doesn't build all versions
+  2486  7.2.388  (extra part of 7.2.387) Ruby with MingW
+  4805  7.2.389  synIDattr() cannot return the font
+  2302  7.2.390  in some situations the popup menu can be displayed wrong
+  3426  7.2.391  internal alloc(0) error when doing "CTRL-V $ c"
+  4898  7.2.392  netbeans hangs reading from a socket at the maximum block size
+  9605  7.2.393  Mac: Can't build with different Xcode developer tools dir
+  4298  7.2.394  .lzma and .xz files are not supported
