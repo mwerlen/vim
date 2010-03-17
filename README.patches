@@ -27,6 +27,7 @@ Collection of patches for Vim 7.2:
 108889  7.2.001-100.gz        patches 7.2.001 to 7.2.100, gzip'ed
 208102  7.2.101-200.gz        patches 7.2.101 to 7.2.200, gzip'ed
  82163  7.2.201-300.gz        patches 7.2.201 to 7.2.300, gzip'ed
+ 94475  7.2.301-400.gz        patches 7.2.301 to 7.2.400, gzip'ed
 
 Individual patches for Vim 7.2:
 
@@ -430,3 +431,6 @@ Individual patches for Vim 7.2:
   1722  7.2.397  redundant check for w_lines_valid
   4127  7.2.398  when moving windows the cursor ends up in the wrong line
   1784  7.2.399  (extra, after 7.2.388) cannot compile on MingW
+ 12865  7.2.400  (after 7.2.387) Ruby problems with init and empty string
+  1982  7.2.401  wildmode list doesn't highlight directory names with a space
+  2649  7.2.402  error 705 when re-using funcref variable
