@@ -425,3 +425,8 @@ Individual patches for Vim 7.2:
   4898  7.2.392  netbeans hangs reading from a socket at the maximum block size
   9605  7.2.393  Mac: Can't build with different Xcode developer tools dir
   4298  7.2.394  .lzma and .xz files are not supported
+  1554  7.2.395  in help CTRL=] on g?g? escapes the ?, causing it to fail
+  1554  7.2.396  get E38 errors
+  1722  7.2.397  redundant check for w_lines_valid
+  4127  7.2.398  when moving windows the cursor ends up in the wrong line
+  1784  7.2.399  (extra, after 7.2.388) cannot compile on MingW

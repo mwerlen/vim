@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 394
+%define patchlevel 399
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -460,6 +460,11 @@ Patch391: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.391
 Patch392: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.392
 Patch393: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.393
 Patch394: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.394
+Patch395: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.395
+Patch396: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.396
+Patch397: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.397
+Patch398: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.398
+Patch399: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.399
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -992,6 +997,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch392 -p0
 %patch393 -p0
 %patch394 -p0
+%patch395 -p0
+%patch396 -p0
+%patch397 -p0
+%patch398 -p0
+%patch399 -p0
 
 
 # install spell files
@@ -1456,6 +1466,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Mar 17 2010 Karsten Hopp <karsten@redhat.com> 7.2.399-1
+- patchlevel 399
+
 * Wed Mar 10 2010 Karsten Hopp <karsten@redhat.com> 7.2.394-1
 - patchlevel 394
 
