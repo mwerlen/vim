@@ -434,3 +434,4 @@ Individual patches for Vim 7.2:
  12865  7.2.400  (after 7.2.387) Ruby problems with init and empty string
   1982  7.2.401  wildmode list doesn't highlight directory names with a space
   2649  7.2.402  error 705 when re-using funcref variable
+  1548  7.2.403  (after 7.2.400) compiler warning for pointer type
