@@ -442,3 +442,4 @@ Individual patches for Vim 7.2:
   2152  7.2.408  ":g/the/s/a/b/" can set '[ and '] marks to an unchanged line
   1814  7.2.409  summary of number of substitutes is incorrect for ":folddo"
   2526  7.2.410  highlighting directories for completion doesn't work properly
+  1462  7.2.411  when parsing 'cino' a comma isn't skipped properly
