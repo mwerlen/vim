@@ -435,3 +435,10 @@ Individual patches for Vim 7.2:
   1982  7.2.401  wildmode list doesn't highlight directory names with a space
   2649  7.2.402  error 705 when re-using funcref variable
   1548  7.2.403  (after 7.2.400) compiler warning for pointer type
+  1880  7.2.404  pointers for composing characters are not properly initialized
+  1636  7.2.405  with small features match is not highlighted for ":s/p/r/c"
+  4701  7.2.406  (after 7.2.119) uninit memory read
+  1916  7.2.407  when using :s with an expression backslashes are dropped
+  2152  7.2.408  ":g/the/s/a/b/" can set '[ and '] marks to an unchanged line
+  1814  7.2.409  summary of number of substitutes is incorrect for ":folddo"
+  2526  7.2.410  highlighting directories for completion doesn't work properly
