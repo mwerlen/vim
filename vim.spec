@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 368
+%define patchlevel 411
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -434,6 +434,49 @@ Patch365: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.365
 Patch366: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.366
 Patch367: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.367
 Patch368: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.368
+Patch369: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.369
+Patch370: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.370
+Patch371: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.371
+Patch372: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.372
+Patch373: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.373
+Patch374: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.374
+Patch375: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.375
+Patch376: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.376
+Patch377: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.377
+Patch378: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.378
+Patch379: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.379
+Patch380: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.380
+Patch381: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.381
+Patch382: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.382
+Patch383: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.383
+Patch384: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.384
+Patch385: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.385
+Patch386: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.386
+Patch387: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.387
+Patch388: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.388
+Patch389: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.389
+Patch390: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.390
+Patch391: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.391
+Patch392: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.392
+Patch393: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.393
+Patch394: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.394
+Patch395: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.395
+Patch396: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.396
+Patch397: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.397
+Patch398: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.398
+Patch399: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.399
+Patch400: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.400
+Patch401: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.401
+Patch402: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.402
+Patch403: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.403
+Patch404: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.404
+Patch405: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.405
+Patch406: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.406
+Patch407: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.407
+Patch408: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.408
+Patch409: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.409
+Patch410: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.410
+Patch411: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.411
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -940,6 +983,49 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch366 -p0
 %patch367 -p0
 %patch368 -p0
+%patch369 -p0
+%patch370 -p0
+%patch371 -p0
+%patch372 -p0
+%patch373 -p0
+%patch374 -p0
+%patch375 -p0
+%patch376 -p0
+%patch377 -p0
+%patch378 -p0
+%patch379 -p0
+%patch380 -p0
+%patch381 -p0
+%patch382 -p0
+%patch383 -p0
+%patch384 -p0
+%patch385 -p0
+%patch386 -p0
+%patch387 -p0
+%patch388 -p0
+%patch389 -p0
+%patch390 -p0
+%patch391 -p0
+%patch392 -p0
+%patch393 -p0
+%patch394 -p0
+%patch395 -p0
+%patch396 -p0
+%patch397 -p0
+%patch398 -p0
+%patch399 -p0
+%patch400 -p0
+%patch401 -p0
+%patch402 -p0
+%patch403 -p0
+%patch404 -p0
+%patch405 -p0
+%patch406 -p0
+%patch407 -p0
+%patch408 -p0
+%patch409 -p0
+%patch410 -p0
+%patch411 -p0
 
 
 # install spell files
@@ -1404,6 +1490,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Mar 26 2010 Karsten Hopp <karsten@redhat.com> 7.2.411-1
+- patchlevel 411
+
 * Thu Feb 18 2010 Karsten Hopp <karsten@redhat.com> 7.2.368-1
 - patchlevel 368
 

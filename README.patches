@@ -27,6 +27,7 @@ Collection of patches for Vim 7.2:
 108889  7.2.001-100.gz        patches 7.2.001 to 7.2.100, gzip'ed
 208102  7.2.101-200.gz        patches 7.2.101 to 7.2.200, gzip'ed
  82163  7.2.201-300.gz        patches 7.2.201 to 7.2.300, gzip'ed
+ 94475  7.2.301-400.gz        patches 7.2.301 to 7.2.400, gzip'ed
 
 Individual patches for Vim 7.2:
 
@@ -399,3 +400,46 @@ Individual patches for Vim 7.2:
   3802  7.2.366  CTRL-B doesn't go back to the first line of the buffer
   3236  7.2.367  "xxd -r -p" doesn't work as documented
   1623  7.2.368  (after 7.2.361) append line with Ruby interface doesn't work
+  1872  7.2.369  error message for :profile is not easy to understand
+  4352  7.2.370  (after 7.2.356) a redraw may cause folds to be closed
+ 10029  7.2.371  build problems on Tandem NonStop
+  9674  7.2.372  (extra) cross-compiling GvimExt and xxd doesn't work.
+  2901  7.2.373  new messages from gcc 4.5 are not in 'errorformat'
+  4434  7.2.374  Ruby eval() doesn't understand Vim types
+  1794  7.2.375  ml_get errors when using ":bprevious" in a BufEnter autocmd
+  1577  7.2.376  ml_get error when using SiSU syntax
+  1983  7.2.377  (extra, after 7.2.372) small mistakes in Ming build file
+  2832  7.2.378  C function declaration indented too much
+  1758  7.2.379  'eventignore' is set to an invalid value inside ":doau"
+  3699  7.2.380  (after 7.2.363) Perl builds with 5.10.1 but not with 5.10.0
+  6835  7.2.381  no completion for :behave
+  1766  7.2.382  close cmdline window when 'bufhide' is "wipe" uses freed mem
+  3021  7.2.383  Vim doesn't build cleanly with MSVC 2010
+  1849  7.2.384  (extra) Vim doesn't build properly with MSVC 2010
+  2147  7.2.385  can't drag status line when in the command line window
+  2051  7.2.386  KDE 3.1 focus hack causes problems for other window managers
+  8233  7.2.387  Ruby with MingW still doesn't build all versions
+  2486  7.2.388  (extra part of 7.2.387) Ruby with MingW
+  4805  7.2.389  synIDattr() cannot return the font
+  2302  7.2.390  in some situations the popup menu can be displayed wrong
+  3426  7.2.391  internal alloc(0) error when doing "CTRL-V $ c"
+  4898  7.2.392  netbeans hangs reading from a socket at the maximum block size
+  9605  7.2.393  Mac: Can't build with different Xcode developer tools dir
+  4298  7.2.394  .lzma and .xz files are not supported
+  1554  7.2.395  in help CTRL=] on g?g? escapes the ?, causing it to fail
+  1554  7.2.396  get E38 errors
+  1722  7.2.397  redundant check for w_lines_valid
+  4127  7.2.398  when moving windows the cursor ends up in the wrong line
+  1784  7.2.399  (extra, after 7.2.388) cannot compile on MingW
+ 12865  7.2.400  (after 7.2.387) Ruby problems with init and empty string
+  1982  7.2.401  wildmode list doesn't highlight directory names with a space
+  2649  7.2.402  error 705 when re-using funcref variable
+  1548  7.2.403  (after 7.2.400) compiler warning for pointer type
+  1880  7.2.404  pointers for composing characters are not properly initialized
+  1636  7.2.405  with small features match is not highlighted for ":s/p/r/c"
+  4701  7.2.406  (after 7.2.119) uninit memory read
+  1916  7.2.407  when using :s with an expression backslashes are dropped
+  2152  7.2.408  ":g/the/s/a/b/" can set '[ and '] marks to an unchanged line
+  1814  7.2.409  summary of number of substitutes is incorrect for ":folddo"
+  2526  7.2.410  highlighting directories for completion doesn't work properly
+  1462  7.2.411  when parsing 'cino' a comma isn't skipped properly
