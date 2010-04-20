@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1289,7 +1289,7 @@ for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
   rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
 done
 
-for i in rvim gvim.1 gvimdiff.1; do 
+for i in rvim.1 gvim.1 gvimdiff.1; do 
   echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
 done
 
@@ -1490,6 +1490,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Apr 20 2010 Karsten Hopp <karsten@redhat.com> 7.2.411-2
+- fix rvim manpage (#583180)
+
 * Wed Mar 24 2010 Karsten Hopp <karsten@redhat.com> 7.2.411-1
 - patchlevel 411
 
