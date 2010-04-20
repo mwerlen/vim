@@ -1289,7 +1289,7 @@ for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
   rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
 done
 
-for i in rvim gvim.1 gvimdiff.1; do 
+for i in rvim.1 gvim.1 gvimdiff.1; do 
   echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
 done
 
@@ -1490,6 +1490,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Apr 20 2010 Karsten Hopp <karsten@redhat.com> 7.2.%{nil}411-1
+- fix rvim manpage (#583180)
+
 * Fri Mar 26 2010 Karsten Hopp <karsten@redhat.com> 7.2.411-1
 - patchlevel 411
 
