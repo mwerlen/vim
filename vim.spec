@@ -1097,7 +1097,7 @@ for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
   rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
 done
 
-for i in rvim gvim.1 gvimdiff.1; do 
+for i in rvim.1 gvim.1 gvimdiff.1; do 
   echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
 done
 
@@ -1298,6 +1298,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Apr 20 2010 Karsten Hopp <karsten@redhat.com> 7.2.%{nil}315-1
+- fix rvim manpage (#583180)
+
 * Wed Dec 03 2009 Karsten Hopp <karsten@redhat.com> 7.2.315-1
 - patchlevel 315
 - fix vimrc location in man page (#456992)
