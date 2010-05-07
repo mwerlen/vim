@@ -443,3 +443,8 @@ Individual patches for Vim 7.2:
   1814  7.2.409  summary of number of substitutes is incorrect for ":folddo"
   2526  7.2.410  highlighting directories for completion doesn't work properly
   1462  7.2.411  when parsing 'cino' a comma isn't skipped properly
+  3000  7.2.412  [ or ] followed by mouse click doesn't work
+ 13552  7.2.413  large file support is incorrect
+  2558  7.2.414  CTRK-K <space> <space> does not produce 0xa0 as expected
+  2122  7.2.415  Win32: Can't open a remote file when starting Vim
+  2757  7.2.416  logtalk.dict is not installed
