@@ -459,3 +459,9 @@ Individual patches for Vim 7.2:
   1541  7.2.425  some compilers complain about fourth EX() argument
   2771  7.2.426  commas in 'langmap' are not always handled correctly
   5351  7.2.427  recovery doesn't follow symlinks to find swap file
+  1758  7.2.428  setqflist([]) doesn't properly clear the error list
+  1900  7.2.429  may get "New file" for file that is not accessible
+  4275  7.2.430  ++bad arg is handled wrong, may cause invalid memory access
+  2599  7.2.431  ":amenu" moves the cursor when in Insert mode
+ 12967  7.2.432  translated menus make :emenu difficult to use
+  5410  7.2.433  can't use cscope with QuickFixCmdPre and QuickFixCmdPost
