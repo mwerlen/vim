@@ -454,3 +454,8 @@ Individual patches for Vim 7.2:
   2792  7.2.420  ":argedit" does not accept "++enc=utf8" as documented
   2108  7.2.421  when folds are not updated there is no way to force an update
   2174  7.2.422  may get E763 when using spell dictionaries
+  4478  7.2.423  crash after assigning s: to variable
+  5462  7.2.424  ":colorscheme" without an argument doesn't do anything
+  1541  7.2.425  some compilers complain about fourth EX() argument
+  2771  7.2.426  commas in 'langmap' are not always handled correctly
+  5351  7.2.427  recovery doesn't follow symlinks to find swap file
