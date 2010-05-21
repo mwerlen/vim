@@ -468,3 +468,4 @@ Individual patches for Vim 7.2:
   2106  7.2.434  (after 7.2.432) compilation fails without multi-lang feature
   4590  7.2.435  (after 7.2.430) crash when using bad_char_idx uninitialized
   4058  7.2.436  reproducible crash in syntax HL
+  1605  7.2.437  (after 7.2.407) no line break for "\\\n" in expression of :s
