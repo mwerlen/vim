@@ -470,3 +470,5 @@ Individual patches for Vim 7.2:
   4058  7.2.436  reproducible crash in syntax HL
   1605  7.2.437  (after 7.2.407) no line break for "\\\n" in expression of :s
   2045  7.2.438  (after 7.2.427) "vim -r" crashes
+  3110  7.2.439  invalid memory access for thesaurus completion and 'infercase'
+  5861  7.2.440  crash when deleting a funcref in the function it refers to
