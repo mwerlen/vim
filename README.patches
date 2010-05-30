@@ -472,3 +472,4 @@ Individual patches for Vim 7.2:
   2045  7.2.438  (after 7.2.427) "vim -r" crashes
   3110  7.2.439  invalid memory access for thesaurus completion and 'infercase'
   5861  7.2.440  crash when deleting a funcref in the function it refers to
+  3446  7.2.441  when using ":earlier" undo information may be wrong
