@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim72%{?beta}
-%define patchlevel 441
+%define patchlevel 442
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -507,6 +507,7 @@ Patch438: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.438
 Patch439: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.439
 Patch440: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.440
 Patch441: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.441
+Patch442: ftp://ftp.vim.org/pub/vim/patches/7.2/7.2.442
 
 Patch3000: vim-7.0-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1086,6 +1087,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch439 -p0
 %patch440 -p0
 %patch441 -p0
+%patch442 -p0
 
 
 # install spell files
@@ -1550,6 +1552,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Jun 05 2010 Karsten Hopp <karsten@redhat.com> 7.2.442-1
+- patchlevel 442
+
 * Wed Jun 02 2010 Marcela Maslanova <mmaslano@redhat.com> - 2:7.2.441-2
 - Mass rebuild with perl-5.12.0
 
