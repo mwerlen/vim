@@ -474,3 +474,4 @@ Individual patches for Vim 7.2:
   5861  7.2.440  crash when deleting a funcref in the function it refers to
   3446  7.2.441  when using ":earlier" undo information may be wrong
   7872  7.2.442  (after 7.2.201) copy/paste with OpenOffice doesn't work
+  3953  7.2.443  taglist() on tag file with duplicate fields causes int. error
