@@ -477,3 +477,4 @@ Individual patches for Vim 7.2:
   3953  7.2.443  taglist() on tag file with duplicate fields causes int. error
   2904  7.2.444  (after 7.2.442) can't build with GTK 1
   6993  7.2.445  crash when using undo/redo and FileChangedRO autocmd
+  2372  7.2.446  crash in GUI when closing the last window in a tabpage
