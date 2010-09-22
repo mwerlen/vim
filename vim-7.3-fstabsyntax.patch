@@ -1,16 +1,16 @@
-diff -up vim72/runtime/syntax/fstab.vim.fstabsyntax vim72/runtime/syntax/fstab.vim
---- vim72/runtime/syntax/fstab.vim.fstabsyntax	2008-01-16 21:52:16.000000000 +0100
-+++ vim72/runtime/syntax/fstab.vim	2008-08-14 17:02:08.000000000 +0200
-@@ -46,7 +46,7 @@ syn keyword fsMountPointKeyword containe
+diff -up vim73/runtime/syntax/fstab.vim.fstabsyntax vim73/runtime/syntax/fstab.vim
+--- vim73/runtime/syntax/fstab.vim.fstabsyntax	2010-05-15 13:03:56.000000000 +0200
++++ vim73/runtime/syntax/fstab.vim	2010-09-22 17:04:58.000000000 +0200
+@@ -47,7 +47,7 @@ syn keyword fsMountPointKeyword containe
  " Type
  syn cluster fsTypeCluster contains=fsTypeKeyword,fsTypeUnknown
  syn match fsTypeUnknown /\s\+\zs\w\+/ contained
--syn keyword fsTypeKeyword contained adfs ados affs atfs audiofs auto autofs befs bfs cd9660 cfs cifs coda cramfs devfs devpts e2compr efs ext2 ext2fs ext3 fdesc ffs filecore fuse hfs hpfs iso9660 jffs jffs2 jfs kernfs lfs linprocfs mfs minix msdos ncpfs nfs none ntfs null nwfs overlay ovlfs portal proc procfs ptyfs qnx4 reiserfs romfs shm smbfs sshfs std subfs swap sysfs sysv tcfs tmpfs udf ufs umap umsdos union usbfs userfs vfat vs3fs vxfs wrapfs wvfs xfs zisofs
+-syn keyword fsTypeKeyword contained adfs ados affs atfs audiofs auto autofs befs bfs cd9660 cfs cifs coda cramfs devfs devpts e2compr efs ext2 ext2fs ext3 ext4 fdesc ffs filecore fuse hfs hpfs iso9660 jffs jffs2 jfs kernfs lfs linprocfs mfs minix msdos ncpfs nfs none ntfs null nwfs overlay ovlfs portal proc procfs ptyfs qnx4 reiserfs romfs shm smbfs sshfs std subfs swap sysfs sysv tcfs tmpfs udf ufs umap umsdos union usbfs userfs vfat vs3fs vxfs wrapfs wvfs xfs zisofs
 +syn keyword fsTypeKeyword contained adfs ados affs atfs audiofs auto autofs befs bfs binfmt_misc cd9660 cfs cifs coda cramfs devfs devpts e2compr efs ext2 ext2fs ext3 ext4 fdesc ffs filecore fuse hfs hpfs iso9660 jffs jffs2 jfs kernfs lfs linprocfs mfs minix msdos ncpfs nfs none ntfs null nwfs overlay ovlfs portal proc procfs ptyfs qnx4 reiserfs romfs rpc_pipefs shm smbfs sshfs std subfs swap sysfs sysv tcfs tmpfs udf ufs umap umsdos union usbfs userfs vfat vs3fs vxfs wrapfs wvfs xfs zisofs
  
  " Options
  " -------
-@@ -58,7 +58,7 @@ syn match fsOptionsString /[a-zA-Z0-9_-]
+@@ -59,7 +59,7 @@ syn match fsOptionsString /[a-zA-Z0-9_-]
  syn keyword fsOptionsYesNo yes no
  syn cluster fsOptionsCheckCluster contains=fsOptionsExt2Check,fsOptionsFatCheck
  syn keyword fsOptionsSize 512 1024 2048

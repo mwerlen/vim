@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $HOME/src/fedora/rpms/vim/devel/
+cd $HOME/src/fedora/rpms/vim/master/
 LANG=C
 SPEC=vim.spec
 
@@ -11,16 +11,22 @@ ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3`
 #ORIGPL=350
 PL=$ORIGPL
 
-cvs up -dAP
+git pull
 
 while true; do
+    LASTPL=$PL
+    LASTPLFILLED=`printf "%03d" $LASTPL`
     PL=$((PL+1))
-    PNAME="$MAJORVERSION.$PL"
+    PLFILLED=`printf "%03d" $PL`
+    PNAME="$MAJORVERSION.$PLFILLED"
     URL="ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/$PNAME"
     wget -nc $URL 2>/dev/null
     if [ "$?" -ne "0" ]; then
         # Patchlevel not yet available, back down
-        PL=$((PL-1))
+        PL=$LASTPL
+        PLFILLED=$LASTPLFILLED
+        LASTPL=$((LASTPL-1))
+        LASTPLFILLED=`printf "%03d" $LASTPL`
         if [ "$PL" == "$ORIGPL" ]; then
             echo "No new patchlevel available"
             exit
@@ -28,16 +34,17 @@ while true; do
         break
     else
         # echo "Got patchlevel $MAJORVERSION.$PL, current CVS is at $MAJORVERSION.$ORIGPL"
-        cvs add $PNAME
-        cvs ci -m "- patchlevel $PL" $PNAME
-        sed -i -e "/Patch$((PL-1)): ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$((PL-1))/aPatch$PL: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$PL" $SPEC
-        sed -i -e "/patch$((PL-1)) -p0/a%patch$PL -p0" $SPEC
+        git add $PNAME
+        git commit -m "- patchlevel $PLFILLED" $PNAME
+        sed -i -e "/Patch$LASTPLFILLED=: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$LASTPLFILLED=/aPatch$PLFILLED=: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$PLFILLED=" $SPEC
+        sed -i -e "/patch$LASTPLFILLED= -p0/a%patch$PLFILLED= -p0" $SPEC
     fi
 done
 sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
-sed -i -e "s/define patchlevel $ORIGPL/define patchlevel $PL/" $SPEC
-sed -i -e "/\%changelog/a$CHLOG.$PL-1\n- patchlevel $PL\n" $SPEC
+sed -i -e "s/define patchlevel $ORIGPL/define patchlevel $PLFILLED/" $SPEC
+sed -i -e "/\%changelog/a$CHLOG.$PL-1\n- patchlevel $PLFILLED\n" $SPEC
 wget ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/README -O README.patches
-cvs ci -m "- patchlevel $PL" 
-make tag
-make SECONDARY_CONFIG="-c /etc/koji.conf" build
+git commit -m "- patchlevel $PL" 
+rm -f $HOME/.koji/config
+fedpkg build
+ln -sf $HOME/.koji/s390-config config
