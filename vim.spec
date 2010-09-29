@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -686,6 +686,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 29 2010 jkeating - 2:7.3.011-2
+- Rebuilt for gcc bug 634757
+
 * Wed Sep 22 2010 Karsten Hopp <karsten@redhat.com> 7.3.011-1
 - update to VIM 7.3 patchlevel 011
 
