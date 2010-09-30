@@ -1,4 +1,6 @@
 #!/bin/bash
+debug=""
+#debug="echo"
 
 cd $HOME/src/fedora/rpms/vim/master/
 LANG=C
@@ -7,8 +9,8 @@ SPEC=vim.spec
 DATE=`date +"%a %b %d %Y"`
 MAJORVERSION=`grep "define baseversion" vim.spec | cut -d ' ' -f 3`
 CHLOG="* $DATE Karsten Hopp <karsten@redhat.com> $MAJORVERSION"
-ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3`
-#ORIGPL=350
+ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3 | sed -e "s/^0*//g"`
+ORIGPLFILLED=`printf "%03d" $ORIGPL`
 PL=$ORIGPL
 
 git pull
@@ -34,17 +36,17 @@ while true; do
         break
     else
         # echo "Got patchlevel $MAJORVERSION.$PL, current CVS is at $MAJORVERSION.$ORIGPL"
-        git add $PNAME
-        git commit -m "- patchlevel $PLFILLED" $PNAME
-        sed -i -e "/Patch$LASTPLFILLED=: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$LASTPLFILLED=/aPatch$PLFILLED=: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$PLFILLED=" $SPEC
-        sed -i -e "/patch$LASTPLFILLED= -p0/a%patch$PLFILLED= -p0" $SPEC
+        $debug git add $PNAME
+        $debug git commit -m "- patchlevel $PLFILLED" $PNAME
+        sed -i -e "/Patch$LASTPLFILLED: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$LASTPLFILLED/aPatch$PLFILLED: ftp:\/\/ftp.vim.org\/pub\/vim\/patches\/$MAJORVERSION\/$MAJORVERSION.$PLFILLED" $SPEC
+        sed -i -e "/patch$LASTPLFILLED -p0/a%patch$PLFILLED -p0" $SPEC
     fi
 done
 sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
-sed -i -e "s/define patchlevel $ORIGPL/define patchlevel $PLFILLED/" $SPEC
-sed -i -e "/\%changelog/a$CHLOG.$PL-1\n- patchlevel $PLFILLED\n" $SPEC
+sed -i -e "s/define patchlevel $ORIGPLFILLED/define patchlevel $PLFILLED/" $SPEC
+sed -i -e "/\%changelog/a$CHLOG.$PLFILLED-1\n- patchlevel $PLFILLED\n" $SPEC
 wget ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/README -O README.patches
-git commit -m "- patchlevel $PL" 
-rm -f $HOME/.koji/config
-fedpkg build
-ln -sf $HOME/.koji/s390-config config
+$debug git commit -m "- patchlevel $PL" 
+$debug rm -f $HOME/.koji/config
+$debug fedpkg build
+$debug ln -sf $HOME/.koji/s390-config config
