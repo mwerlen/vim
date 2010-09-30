@@ -46,6 +46,7 @@ sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
 sed -i -e "s/define patchlevel $ORIGPLFILLED/define patchlevel $PLFILLED/" $SPEC
 sed -i -e "/\%changelog/a$CHLOG.$PLFILLED-1\n- patchlevel $PLFILLED\n" $SPEC
 wget ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/README -O README.patches
+$debug git add vim.spec README.patches
 $debug git commit -m "- patchlevel $PL" 
 $debug rm -f $HOME/.koji/config
 $debug fedpkg build
