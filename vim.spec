@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -117,6 +117,7 @@ Group: Applications/Editors
 Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
+Requires: %{name}-filesystem
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -172,6 +173,14 @@ Install the vim-enhanced package if you'd like to use a version of the
 VIM editor which includes recently added enhancements like
 interpreters for the Python and Perl scripting languages.  You'll also
 need to install the vim-common package.
+
+%package filesystem
+Summary: VIM filesystem layout
+Group: Applications/Editors
+
+%Description filesystem
+This package provides some directories which are required by other
+packages that add vim files, p.e.  additional syntax files or filetypes.
 
 %package X11
 Summary: The VIM version of the vi editor for the X Window System
@@ -511,24 +520,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc runtime/docs
 %doc Changelog.rpm
 %dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/%{vimdir}
-%dir %{_datadir}/%{name}/vimfiles
-%dir %{_datadir}/%{name}/vimfiles/after
-%dir %{_datadir}/%{name}/vimfiles/after/*
-%dir %{_datadir}/%{name}/vimfiles/autoload
-%dir %{_datadir}/%{name}/vimfiles/colors
-%dir %{_datadir}/%{name}/vimfiles/compiler
-%dir %{_datadir}/%{name}/vimfiles/doc
-%dir %{_datadir}/%{name}/vimfiles/ftdetect
-%dir %{_datadir}/%{name}/vimfiles/ftplugin
-%dir %{_datadir}/%{name}/vimfiles/indent
-%dir %{_datadir}/%{name}/vimfiles/keymap
-%dir %{_datadir}/%{name}/vimfiles/lang
-%dir %{_datadir}/%{name}/vimfiles/plugin
-%dir %{_datadir}/%{name}/vimfiles/print
-%dir %{_datadir}/%{name}/vimfiles/spell
-%dir %{_datadir}/%{name}/vimfiles/syntax
-%dir %{_datadir}/%{name}/vimfiles/tutor
 %{_datadir}/%{name}/vimfiles/template.spec
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
@@ -667,6 +658,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/vimdiff.*
 %{_mandir}/man1/vimtutor.*
 
+%files filesystem
+%defattr(-,root,root)
+%dir %{_datadir}/%{name}/vimfiles
+%dir %{_datadir}/%{name}/vimfiles/after
+%dir %{_datadir}/%{name}/vimfiles/after/*
+%dir %{_datadir}/%{name}/vimfiles/autoload
+%dir %{_datadir}/%{name}/vimfiles/colors
+%dir %{_datadir}/%{name}/vimfiles/compiler
+%dir %{_datadir}/%{name}/vimfiles/doc
+%dir %{_datadir}/%{name}/vimfiles/ftdetect
+%dir %{_datadir}/%{name}/vimfiles/ftplugin
+%dir %{_datadir}/%{name}/vimfiles/indent
+%dir %{_datadir}/%{name}/vimfiles/keymap
+%dir %{_datadir}/%{name}/vimfiles/lang
+%dir %{_datadir}/%{name}/vimfiles/plugin
+%dir %{_datadir}/%{name}/vimfiles/print
+%dir %{_datadir}/%{name}/vimfiles/spell
+%dir %{_datadir}/%{name}/vimfiles/syntax
+%dir %{_datadir}/%{name}/vimfiles/tutor
+
 %files X11
 %defattr(-,root,root)
 %if "%{desktop_file}" == "1"
@@ -686,6 +697,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Sep 30 2010 Karsten Hopp <karsten@redhat.com> 7.3.011-3
+- add filesystem subpackage (#628293)
+
 * Wed Sep 29 2010 jkeating - 2:7.3.011-2
 - Rebuilt for gcc bug 634757
 
