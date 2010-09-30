@@ -37,3 +37,10 @@ Individual patches for Vim 7.3:
   3197  7.3.009  Win32: Crash when using a bad argument for strftime()
   5466  7.3.010  Mac GUI: Missing break statements
   8811  7.3.011  X11 clipboard doesn't work in GUI, after :sh selection fails
+  2127  7.3.012  problems building with MingW
+  5979  7.3.013  dynamic loading with Ruby doesn't work for 1.9.2
+  2497  7.3.014  "a" in Ex mode with backslash at end of line doesn't work
+  2223  7.3.015  a test is using an error message that no longer exists
+  7448  7.3.016  netbeans interface doesn't work under Athena
+  4314  7.3.017  errors reported by smatch
+  2488  7.3.018  (after 7.3.012) missing argument to windres in MingW makefiles

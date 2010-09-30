@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 011
+%define patchlevel 018
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -75,6 +75,13 @@ Patch008: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.008
 Patch009: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.009
 Patch010: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.010
 Patch011: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.011
+Patch012: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.012
+Patch013: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.013
+Patch014: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.014
+Patch015: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.015
+Patch016: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.016
+Patch017: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.017
+Patch018: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.018
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -230,6 +237,13 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch009 -p0
 %patch010 -p0
 %patch011 -p0
+%patch012 -p0
+%patch013 -p0
+%patch014 -p0
+%patch015 -p0
+%patch016 -p0
+%patch017 -p0
+%patch018 -p0
 
 
 # install spell files
@@ -697,6 +711,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Sep 30 2010 Karsten Hopp <karsten@redhat.com> 7.3.018-1
+- patchlevel 018
+
 * Thu Sep 30 2010 Karsten Hopp <karsten@redhat.com> 7.3.011-3
 - add filesystem subpackage (#628293)
 
