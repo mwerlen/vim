@@ -48,6 +48,11 @@ sed -i -e "/\%changelog/a$CHLOG.$PLFILLED-1\n- patchlevel $PLFILLED\n" $SPEC
 wget ftp://ftp.vim.org/pub/vim/patches/$MAJORVERSION/README -O README.patches
 $debug git add vim.spec README.patches
 $debug git commit -m "- patchlevel $PL" 
-$debug rm -f $HOME/.koji/config
-$debug fedpkg build
-$debug ln -sf $HOME/.koji/s390-config config
+$debug git push
+if [ $? -eq 0 ]; then
+    $debug rm -f $HOME/.koji/config
+    $debug fedpkg build
+    $debug ln -sf $HOME/.koji/s390-config config
+else
+    echo "GIT push failed"
+fi
