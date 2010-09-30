@@ -44,3 +44,4 @@ Individual patches for Vim 7.3:
   7448  7.3.016  netbeans interface doesn't work under Athena
   4314  7.3.017  errors reported by smatch
   2488  7.3.018  (after 7.3.012) missing argument to windres in MingW makefiles
+  1577  7.3.019  ":nbstart" can fail silently
