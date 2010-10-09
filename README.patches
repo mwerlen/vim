@@ -45,3 +45,4 @@ Individual patches for Vim 7.3:
   4314  7.3.017  errors reported by smatch
   2488  7.3.018  (after 7.3.012) missing argument to windres in MingW makefiles
   1577  7.3.019  ":nbstart" can fail silently
+  3696  7.3.020  cursor position wrong when joining lines and 'fo' contains "a"
