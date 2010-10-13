@@ -52,3 +52,4 @@ Individual patches for Vim 7.3:
   3222  7.3.024  named signs do not use a negative number as intended
   3412  7.3.025  ":mksession" does not escape file name properly
   1848  7.3.026  CTRL-] in a help file doesn't always work
+  2668  7.3.027  MS-Windows: Opening a file on a network share is very slow
