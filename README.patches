@@ -54,3 +54,4 @@ Individual patches for Vim 7.3:
   1848  7.3.026  CTRL-] in a help file doesn't always work
   2668  7.3.027  MS-Windows: Opening a file on a network share is very slow
   5065  7.3.028  (after 7.3.024) signs don't show up
+  4623  7.3.029  ":sort n" sorts lines without a number as number zero
