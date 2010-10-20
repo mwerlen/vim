@@ -55,3 +55,5 @@ Individual patches for Vim 7.3:
   2668  7.3.027  MS-Windows: Opening a file on a network share is very slow
   5065  7.3.028  (after 7.3.024) signs don't show up
   4623  7.3.029  ":sort n" sorts lines without a number as number zero
+ 12512  7.3.030  cannot store Dict and List in viminfo file
+  3620  7.3.031  can't pass the X window ID to another application
