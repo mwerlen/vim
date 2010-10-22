@@ -58,3 +58,4 @@ Individual patches for Vim 7.3:
  12512  7.3.030  cannot store Dict and List in viminfo file
   3620  7.3.031  can't pass the X window ID to another application
  21839  7.3.032  maparg() doesn't return the flags, e.g., <buffer>, <script>
+  1395  7.3.033  (after 7.3.032) can't build without FEAT_LOCALMAP
