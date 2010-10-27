@@ -65,3 +65,10 @@ Individual patches for Vim 7.3:
   4147  7.3.037  compiler warnings for loss of data
   2638  7.3.038  v:windowid isn't set for MS-Windows
   2567  7.3.039  crash when using skk.vim plugin
+  1627  7.3.040  go past end of string when comparing while ignoring case
+  1857  7.3.041  compiler warning for mediumVersion
+  1915  7.3.042  no spell highlighting when re-using an empty buffer
+ 14836  7.3.043  can't load Ruby dynamically on Unix
+  1857  7.3.044  preview window too high when opened by the popup menu
+  1739  7.3.045  compiler warning for uninitialized variable
+  2126  7.3.046  can't build Ruby on MS-Windows
