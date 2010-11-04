@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 048
+%define patchlevel 050
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -112,6 +112,8 @@ Patch045: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.045
 Patch046: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.046
 Patch047: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.047
 Patch048: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.048
+Patch049: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.049
+Patch050: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.050
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -304,6 +306,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch046 -p0
 %patch047 -p0
 %patch048 -p0
+%patch049 -p0
+%patch050 -p0
 
 
 # install spell files
@@ -771,6 +775,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Nov 04 2010 Karsten Hopp <karsten@redhat.com> 7.3.050-1
+- patchlevel 050
+
 * Thu Nov 04 2010 Karsten Hopp <karsten@redhat.com> 7.3.048-1
 - patchlevel 048
 

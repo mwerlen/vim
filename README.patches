@@ -74,3 +74,4 @@ Individual patches for Vim 7.3:
   2126  7.3.046  can't build Ruby on MS-Windows
   6058  7.3.047  (after 7.3.032) missing makefile updates for test 75
   3410  7.3.048  ":earlier 1f" doesn't work after loading undo file
+ 19335  7.3.049  PLT has rebranded their Scheme to Racket
