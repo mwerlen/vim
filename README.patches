@@ -77,3 +77,7 @@ Individual patches for Vim 7.3:
  19335  7.3.049  PLT has rebranded their Scheme to Racket
   6138  7.3.050  the link script is clumsy, should use --as-needed
   3305  7.3.051  crash when $PATH is empty
+ 10719  7.3.052  various errors when 'completefunc' opens a new window
+  2948  7.3.053  complete() function doesn't reset complete direction
+  3354  7.3.054  can define a user command for :Print, but it doesn't work
+ 10470  7.3.055  endless loop when recursively comparing lists and dicts
