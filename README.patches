@@ -81,3 +81,4 @@ Individual patches for Vim 7.3:
   2948  7.3.053  complete() function doesn't reset complete direction
   3354  7.3.054  can define a user command for :Print, but it doesn't work
  10470  7.3.055  endless loop when recursively comparing lists and dicts
+ 17935  7.3.056  "getline" argument in do_cmdline() shadows global
