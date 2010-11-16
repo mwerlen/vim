@@ -87,3 +87,4 @@ Individual patches for Vim 7.3:
   3226  7.3.059  Netbeans: Problem with recursive messages for Athena/Motif
   5326  7.3.060  Netbeans: crash when socket is disconnected unexpectedly
   3307  7.3.061  remote ":drop" does not respect 'autochdir'
+ 23639  7.3.062  Python has problems when installed in an unusual directory
