@@ -82,3 +82,8 @@ Individual patches for Vim 7.3:
   3354  7.3.054  can define a user command for :Print, but it doesn't work
  10470  7.3.055  endless loop when recursively comparing lists and dicts
  17935  7.3.056  "getline" argument in do_cmdline() shadows global
+  1980  7.3.057  segfault with command line abbreviation
+  4735  7.3.058  error "code converter not found" when loading Ruby script
+  3226  7.3.059  Netbeans: Problem with recursive messages for Athena/Motif
+  5326  7.3.060  Netbeans: crash when socket is disconnected unexpectedly
+  3307  7.3.061  remote ":drop" does not respect 'autochdir'
