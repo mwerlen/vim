@@ -89,3 +89,8 @@ Individual patches for Vim 7.3:
   3307  7.3.061  remote ":drop" does not respect 'autochdir'
  23639  7.3.062  Python has problems when installed in an unusual directory
   2250  7.3.063  Win32: Running a filter command makes Vim lose focus
+  2493  7.3.064  Win32: ":dis +" shows nothing, but "+p does insert text
+  3389  7.3.065  can't get current line number in a source file
+  2852  7.3.066  crash when changing to another window during :vimgrep command
+  2315  7.3.067  Ruby: Init_prelude is not always available
+  1550  7.3.068  using freed memory on ":saveas" if autocommand sets 'acd'
