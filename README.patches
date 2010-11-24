@@ -94,3 +94,4 @@ Individual patches for Vim 7.3:
   2852  7.3.066  crash when changing to another window during :vimgrep command
   2315  7.3.067  Ruby: Init_prelude is not always available
   1550  7.3.068  using freed memory on ":saveas" if autocommand sets 'acd'
+  1618  7.3.069  GTK: pressing Enter in inputdialog() doesn't work like OK
