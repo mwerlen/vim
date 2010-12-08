@@ -106,3 +106,4 @@ Individual patches for Vim 7.3:
   1565  7.3.078  warning for unused variable
   1377  7.3.079  duplicate lines in MSVC makefile
   6011  7.3.080  spelling doesn't work on VMS
+  2257  7.3.081  non-printable characters in 'statusline' cause trouble
