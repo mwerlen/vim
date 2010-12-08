@@ -101,3 +101,8 @@ Individual patches for Vim 7.3:
   2466  7.3.073  double free memory when netbeans command follows DETACH
   7659  7.3.074  can't use the "+ register like "* for yank and put
   3872  7.3.075  (after 7.3.072) also use 'wildignorecase' in expand()
+  5538  7.3.076  Clang warnings for dead code
+  3099  7.3.077  when updating swapfile crypt fails there is no error message
+  1565  7.3.078  warning for unused variable
+  1377  7.3.079  duplicate lines in MSVC makefile
+  6011  7.3.080  spelling doesn't work on VMS
