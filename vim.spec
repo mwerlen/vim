@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 081
+%define patchlevel 094
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -145,6 +145,19 @@ Patch078: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.078
 Patch079: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.079
 Patch080: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.080
 Patch081: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.083
+Patch084: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.084
+Patch085: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.085
+Patch086: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.086
+Patch087: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.087
+Patch088: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.088
+Patch089: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.090
+Patch091: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.091
+Patch092: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.092
+Patch093: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.093
+Patch094: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.094
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -370,6 +383,19 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch079 -p0
 %patch080 -p0
 %patch081 -p0
+%patch082 -p0
+%patch083 -p0
+%patch084 -p0
+%patch085 -p0
+%patch086 -p0
+%patch087 -p0
+%patch088 -p0
+%patch089 -p0
+%patch090 -p0
+%patch091 -p0
+%patch092 -p0
+%patch093 -p0
+%patch094 -p0
 
 
 # install spell files
@@ -837,6 +863,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Jan 03 2011 Karsten Hopp <karsten@redhat.com> 7.3.094-1
+- patchlevel 094
+
 * Thu Dec 09 2010 Karsten Hopp <karsten@redhat.com> 7.3.081-1
 - patchlevel 081
 
