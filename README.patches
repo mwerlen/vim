@@ -120,3 +120,8 @@ Individual patches for Vim 7.3:
   1678  7.3.092  resizing the window when exiting
   5483  7.3.093  new DLL dependencies in MingW with gcc 4.5.0
   2167  7.3.094  using abs() requires type cast to int
+  1999  7.3.095  Win32: In Chinese tear-off menu doesn't work
+  2767  7.3.096  can't interrupt "gvim -nb", leak file descriptor on errro
+  1760  7.3.097  ":call" inside "if 0" gives error for dict function
+  1712  7.3.098  ignored error may still cause status line to be disabled
+  1628  7.3.099  crash when splitting a window with zero height
