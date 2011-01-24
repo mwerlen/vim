@@ -125,3 +125,11 @@ Individual patches for Vim 7.3:
   1760  7.3.097  ":call" inside "if 0" gives error for dict function
   1712  7.3.098  ignored error may still cause status line to be disabled
   1628  7.3.099  crash when splitting a window with zero height
+  1497  7.3.100  when using ":normal" v:count isn't set
+  2449  7.3.101  ino_t defined with wrong size in Ruby and Lua interfaces
+ 23045  7.3.102  Ex command typed at reload prompt is ignored
+  4500  7.3.103  changing 'ff', then using ":w" in empty file sets 'mod'
+  1428  7.3.104  conceal: using Tab for cchar causes problems
+  1539  7.3.105  can't get the value of "b:changedtick" with getbufvar()
+  1650  7.3.106  other window scrolls if both 'scrollbind' and 'cursorbind' set
+  1986  7.3.107  year in :undolist can be confusing
