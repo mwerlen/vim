@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 107
+%define patchlevel 138
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -171,6 +171,37 @@ Patch104: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.104
 Patch105: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.105
 Patch106: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.106
 Patch107: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.107
+Patch108: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.108
+Patch109: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.109
+Patch110: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.110
+Patch111: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.111
+Patch112: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.112
+Patch113: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.113
+Patch114: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.114
+Patch115: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.115
+Patch116: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.116
+Patch117: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.117
+Patch118: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.118
+Patch119: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.119
+Patch120: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.120
+Patch121: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.121
+Patch122: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.122
+Patch123: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.123
+Patch124: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.124
+Patch125: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.125
+Patch126: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.126
+Patch127: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.127
+Patch128: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.128
+Patch129: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.129
+Patch130: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.130
+Patch131: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.131
+Patch132: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.132
+Patch133: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.133
+Patch134: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.134
+Patch135: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.135
+Patch136: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.136
+Patch137: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.137
+Patch138: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.138
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -422,6 +453,37 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch105 -p0
 %patch106 -p0
 %patch107 -p0
+%patch108 -p0
+%patch109 -p0
+%patch110 -p0
+%patch111 -p0
+%patch112 -p0
+%patch113 -p0
+%patch114 -p0
+%patch115 -p0
+%patch116 -p0
+%patch117 -p0
+%patch118 -p0
+%patch119 -p0
+%patch120 -p0
+%patch121 -p0
+%patch122 -p0
+%patch123 -p0
+%patch124 -p0
+%patch125 -p0
+%patch126 -p0
+%patch127 -p0
+%patch128 -p0
+%patch129 -p0
+%patch130 -p0
+%patch131 -p0
+%patch132 -p0
+%patch133 -p0
+%patch134 -p0
+%patch135 -p0
+%patch136 -p0
+%patch137 -p0
+%patch138 -p0
 
 
 # install spell files
@@ -889,6 +951,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Mar 16 2011 Karsten Hopp <karsten@redhat.com> 7.3.138-1
+- patchlevel 138
+
 * Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.3.107-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
