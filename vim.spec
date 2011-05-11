@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 138
+%define patchlevel 189
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -202,6 +202,57 @@ Patch135: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.135
 Patch136: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.136
 Patch137: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.137
 Patch138: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.138
+Patch139: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.139
+Patch140: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.140
+Patch141: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.141
+Patch142: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.142
+Patch143: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.143
+Patch144: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.144
+Patch145: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.145
+Patch146: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.146
+Patch147: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.147
+Patch148: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.148
+Patch149: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.149
+Patch150: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.150
+Patch151: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.151
+Patch152: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.152
+Patch153: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.153
+Patch154: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.154
+Patch155: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.155
+Patch156: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.156
+Patch157: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.157
+Patch158: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.158
+Patch159: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.159
+Patch160: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.160
+Patch161: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.161
+Patch162: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.162
+Patch163: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.163
+Patch164: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.164
+Patch165: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.165
+Patch166: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.166
+Patch167: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.167
+Patch168: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.168
+Patch169: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.169
+Patch170: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.170
+Patch171: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.171
+Patch172: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.172
+Patch173: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.173
+Patch174: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.174
+Patch175: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.175
+Patch176: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.176
+Patch177: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.177
+Patch178: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.178
+Patch179: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.179
+Patch180: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.189
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -484,6 +535,57 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch136 -p0
 %patch137 -p0
 %patch138 -p0
+%patch139 -p0
+%patch140 -p0
+%patch141 -p0
+%patch142 -p0
+%patch143 -p0
+%patch144 -p0
+%patch145 -p0
+%patch146 -p0
+%patch147 -p0
+%patch148 -p0
+%patch149 -p0
+%patch150 -p0
+%patch151 -p0
+%patch152 -p0
+%patch153 -p0
+%patch154 -p0
+%patch155 -p0
+%patch156 -p0
+%patch157 -p0
+%patch158 -p0
+%patch159 -p0
+%patch160 -p0
+%patch161 -p0
+%patch162 -p0
+%patch163 -p0
+%patch164 -p0
+%patch165 -p0
+%patch166 -p0
+%patch167 -p0
+%patch168 -p0
+%patch169 -p0
+%patch170 -p0
+%patch171 -p0
+%patch172 -p0
+%patch173 -p0
+%patch174 -p0
+%patch175 -p0
+%patch176 -p0
+%patch177 -p0
+%patch178 -p0
+%patch179 -p0
+%patch180 -p0
+%patch181 -p0
+%patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+%patch188 -p0
+%patch189 -p0
 
 
 # install spell files
@@ -951,6 +1053,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed May 11 2011 Karsten Hopp <karsten@redhat.com> 7.3.189-1
+- patchlevel 189
+
 * Wed Mar 16 2011 Karsten Hopp <karsten@redhat.com> 7.3.138-1
 - patchlevel 138
 
