@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 189
+%define patchlevel 206
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -253,6 +253,23 @@ Patch186: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.186
 Patch187: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.187
 Patch188: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.188
 Patch189: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.192
+Patch193: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.193
+Patch194: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.194
+Patch195: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.195
+Patch196: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.196
+Patch197: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.197
+Patch198: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.198
+Patch199: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.199
+Patch200: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.200
+Patch201: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.201
+Patch202: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.202
+Patch203: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.203
+Patch204: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.204
+Patch205: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.205
+Patch206: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.206
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -586,6 +603,23 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch187 -p0
 %patch188 -p0
 %patch189 -p0
+%patch190 -p0
+%patch191 -p0
+%patch192 -p0
+%patch193 -p0
+%patch194 -p0
+%patch195 -p0
+%patch196 -p0
+%patch197 -p0
+%patch198 -p0
+%patch199 -p0
+%patch200 -p0
+%patch201 -p0
+%patch202 -p0
+%patch203 -p0
+%patch204 -p0
+%patch205 -p0
+%patch206 -p0
 
 
 # install spell files
@@ -1053,6 +1087,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon May 30 2011 Karsten Hopp <karsten@redhat.com> 7.3.206-1
+- patchlevel 206
+
 * Wed May 11 2011 Karsten Hopp <karsten@redhat.com> 7.3.189-1
 - patchlevel 189
 

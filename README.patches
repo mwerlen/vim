@@ -215,3 +215,20 @@ Individual patches for Vim 7.3:
 173872  7.3.187  the RISC OS port is not being maintained, remove it
   7901  7.3.188  some more RISC OS files to be removed
   1476  7.3.189  (after 7.3.186) build fails without +clipboard
+  1462  7.3.190  "containedin" syntax argument may make highlighting be wrong
+ 13294  7.3.191  still some RISC OS stuff to remove
+  1701  7.3.192  command ":s/ \?/ /g" splits multi-byte characters into bytes
+  1998  7.3.193  in the command line window ":close" doesn't work properly
+  1397  7.3.194  "!mkdir a | ln -s a b", resolve("b/") doesn't result in "a/"
+  4951  7.3.195  "} else" causes following lines to be indented too much
+  7478  7.3.196  can't intercept a character that is going to be inserted
+  2367  7.3.197  get E42 error when a QuickfixCmdPost event removes all errors
+ 12240  7.3.198  there is no completion for ":lang"
+  1857  7.3.199  MS-Windows: Compilation problem of OLE with MingW compiler
+  2213  7.3.200  (after 7.3.198) CTRL-D doesn't complete :lang
+  3303  7.3.201  (after 7.3.195) still bad indenting after "} else"
+ 22565  7.3.202  cannot influence the indent inside a namespace
+  5725  7.3.203  MS-Windows: Can't run external command without console window
+  1588  7.3.204  (after 7.3.201) compiler warning
+  2430  7.3.205  syntax "extend" doesn't work correctly
+  1617  7.3.206  64bit MS-Windows compiler warning
