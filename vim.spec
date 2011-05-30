@@ -56,7 +56,6 @@ Source23: ftp://ftp.vim.org/vol/2/vim/runtime/autoload/netrwSettings.vim
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
 Patch2004: vim-7.0-crv.patch
-Patch2010: xxd-locale.patch
 %if %{withhunspell}
 Patch2011: vim-7.0-hunspell.patch
 BuildRequires: hunspell-devel
@@ -265,7 +264,9 @@ Patch198: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.198
 Patch199: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.199
 Patch200: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.200
 Patch201: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.201
+# Patched:
 Patch202: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.202
+# Patched:
 Patch203: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.203
 Patch204: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.204
 Patch205: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.205
@@ -406,7 +407,6 @@ chmod -x runtime/tools/mve.awk
 %patch2002 -p1
 %patch2003 -p1
 %patch2004 -p1
-%patch2010 -p1
 %if %{withhunspell}
 %patch2011 -p1
 %endif
@@ -1088,7 +1088,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Mon May 30 2011 Karsten Hopp <karsten@redhat.com> 7.3.206-1
-- patchlevel 206
+- drop xxd-locale patch
+- update to patchlevel 206
 
 * Wed May 11 2011 Karsten Hopp <karsten@redhat.com> 7.3.189-1
 - patchlevel 189
