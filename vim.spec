@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -911,6 +911,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changelog.rpm
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/vimfiles/template.spec
+%dir %{_datadir}/%{name}/%{vimdir}
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
@@ -1087,6 +1088,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 31 2011 Ville Skyttä <ville.skytta@iki.fi> - 2:7.3.206-2
+- Own the /usr/share/vim/vim73 dir.
+
 * Mon May 30 2011 Karsten Hopp <karsten@redhat.com> 7.3.206-1
 - drop xxd-locale patch
 - update to patchlevel 206
