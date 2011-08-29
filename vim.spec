@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 244
+%define patchlevel 289
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -298,6 +298,51 @@ Patch241: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.241
 Patch242: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.242
 Patch243: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.243
 Patch244: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.244
+Patch245: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.245
+Patch246: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.246
+Patch247: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.247
+Patch248: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.248
+Patch249: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.249
+Patch250: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.250
+Patch251: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.251
+Patch252: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.252
+Patch253: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.253
+Patch254: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.254
+Patch255: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.255
+Patch256: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.256
+Patch257: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.257
+Patch258: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.258
+Patch259: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.259
+Patch260: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.260
+Patch261: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.261
+Patch262: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.262
+Patch263: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.263
+Patch264: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.264
+Patch265: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.265
+Patch266: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.266
+Patch267: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.267
+Patch268: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.268
+Patch269: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.269
+Patch270: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.270
+Patch271: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.271
+Patch272: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.272
+Patch273: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.273
+Patch274: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.274
+Patch275: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.275
+Patch276: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.276
+Patch277: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.277
+Patch278: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.278
+Patch279: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.279
+Patch280: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.280
+Patch281: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.281
+Patch282: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.282
+Patch283: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.283
+Patch284: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.284
+Patch285: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.285
+Patch286: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.286
+Patch287: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.287
+Patch288: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.288
+Patch289: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.289
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -684,6 +729,51 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch242 -p0
 %patch243 -p0
 %patch244 -p0
+%patch245 -p0
+%patch246 -p0
+%patch247 -p0
+%patch248 -p0
+%patch249 -p0
+%patch250 -p0
+%patch251 -p0
+%patch252 -p0
+%patch253 -p0
+%patch254 -p0
+%patch255 -p0
+%patch256 -p0
+%patch257 -p0
+%patch258 -p0
+%patch259 -p0
+%patch260 -p0
+%patch261 -p0
+%patch262 -p0
+%patch263 -p0
+%patch264 -p0
+%patch265 -p0
+%patch266 -p0
+%patch267 -p0
+%patch268 -p0
+%patch269 -p0
+%patch270 -p0
+%patch271 -p0
+%patch272 -p0
+%patch273 -p0
+%patch274 -p0
+%patch275 -p0
+%patch276 -p0
+%patch277 -p0
+%patch278 -p0
+%patch279 -p0
+%patch280 -p0
+%patch281 -p0
+%patch282 -p0
+%patch283 -p0
+%patch284 -p0
+%patch285 -p0
+%patch286 -p0
+%patch287 -p0
+%patch288 -p0
+%patch289 -p0
 
 
 # install spell files
@@ -1141,6 +1231,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 29 2011 Karsten Hopp <karsten@redhat.com> 7.3.289-1
+- patchlevel 289
+
 * Mon Aug 29 2011 Karsten Hopp <karsten@redhat.com> 7.3.244-4
 - Remove old patched files. (Ricky Zhou <ricky@fedoraproject.org>)
   (bugzilla #709456)
