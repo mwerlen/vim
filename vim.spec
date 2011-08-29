@@ -41,17 +41,6 @@ Source12: vi_help.txt
 Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
-Source15: http://www.cvjb.de/comp/vim/forth.vim
-
-# remove this for the next major version, CVE fixes:
-Source16: ftp://ftp.vim.org/vol/2/vim/runtime/plugin/netrwPlugin.vim
-Source17: ftp://ftp.vim.org/vol/2/vim/runtime/plugin/gzip.vim
-Source18: ftp://ftp.vim.org/vol/2/vim/runtime/filetype.vim
-Source19: ftp://ftp.vim.org/vol/2/vim/runtime/autoload/zip.vim
-Source20: ftp://ftp.vim.org/vol/2/vim/runtime/autoload/tar.vim
-Source21: ftp://ftp.vim.org/vol/2/vim/runtime/autoload/netrwFileHandlers.vim
-Source22: ftp://ftp.vim.org/vol/2/vim/runtime/autoload/netrw.vim
-Source23: ftp://ftp.vim.org/vol/2/vim/runtime/autoload/netrwSettings.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -320,7 +309,6 @@ Patch3008: vim-7.0-warning.patch
 Patch3009: vim-7.0-syncolor.patch
 Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
-Patch3012: vim-7.2-elinks-parameter-518791.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -714,17 +702,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
-
-cp -f %{SOURCE15} runtime/syntax/forth.vim
-cp -f %{SOURCE16} runtime/plugin/netrwPlugin.vim
-cp -f %{SOURCE17} runtime/plugin/gzip.vim
-cp -f %{SOURCE18} runtime/plugin/filetype.vim
-cp -f %{SOURCE19} runtime/autoload/zip.vim
-cp -f %{SOURCE20} runtime/autoload/tar.vim
-cp -f %{SOURCE21} runtime/autoload/netrwFileHandlers.vim
-cp -f %{SOURCE22} runtime/autoload/netrw.vim
-cp -f %{SOURCE23} runtime/autoload/netrwSettings.vim
-%patch3012 -p1
 
 %build
 cd src
@@ -1164,6 +1141,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 29 2011 Karsten Hopp <karsten@redhat.com> 7.3.244-1
+- Remove old patched files. (Ricky Zhou <ricky@fedoraproject.org>)
+  (bugzilla #709456)
+
 * Mon Jul 11 2011 Karsten Hopp <karsten@redhat.com> 7.3.244-1
 - patchlevel 244
 
