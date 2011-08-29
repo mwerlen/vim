@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1141,9 +1141,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Mon Aug 29 2011 Karsten Hopp <karsten@redhat.com> 7.3.244-1
+* Mon Aug 29 2011 Karsten Hopp <karsten@redhat.com> 7.3.244-4
 - Remove old patched files. (Ricky Zhou <ricky@fedoraproject.org>)
   (bugzilla #709456)
+
+* Thu Jul 21 2011 Petr Sabata <contyk@redhat.com> - 2:7.3.244-3
+- Perl mass rebuild
+
+* Thu Jul 21 2011 Petr Sabata <contyk@redhat.com> - 2:7.3.244-2
+- Perl mass rebuild
 
 * Mon Jul 11 2011 Karsten Hopp <karsten@redhat.com> 7.3.244-1
 - patchlevel 244
