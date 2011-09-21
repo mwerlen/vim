@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 289
+%define patchlevel 315
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -343,6 +343,32 @@ Patch286: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.286
 Patch287: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.287
 Patch288: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.288
 Patch289: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.289
+Patch290: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.290
+Patch291: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.291
+Patch292: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.292
+Patch293: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.293
+Patch294: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.294
+Patch295: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.295
+Patch296: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.296
+Patch297: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.297
+Patch298: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.298
+Patch299: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.299
+Patch300: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.300
+Patch301: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.301
+Patch302: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.302
+Patch303: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.303
+Patch304: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.304
+Patch305: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.305
+Patch306: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.306
+Patch307: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.307
+Patch308: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.308
+Patch309: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.309
+Patch310: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.310
+Patch311: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.311
+Patch312: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.312
+Patch313: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.313
+Patch314: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.314
+Patch315: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.315
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -774,6 +800,32 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch287 -p0
 %patch288 -p0
 %patch289 -p0
+%patch290 -p0
+%patch291 -p0
+%patch292 -p0
+%patch293 -p0
+%patch294 -p0
+%patch295 -p0
+%patch296 -p0
+%patch297 -p0
+%patch298 -p0
+%patch299 -p0
+%patch300 -p0
+%patch301 -p0
+%patch302 -p0
+%patch303 -p0
+%patch304 -p0
+%patch305 -p0
+%patch306 -p0
+%patch307 -p0
+%patch308 -p0
+%patch309 -p0
+%patch310 -p0
+%patch311 -p0
+%patch312 -p0
+%patch313 -p0
+%patch314 -p0
+%patch315 -p0
 
 
 # install spell files
@@ -1231,6 +1283,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 21 2011 Karsten Hopp <karsten@redhat.com> 7.3.315-1
+- patchlevel 315
+
 * Mon Aug 29 2011 Karsten Hopp <karsten@redhat.com> 7.3.289-1
 - patchlevel 289
 
