@@ -346,3 +346,10 @@ Individual patches for Vim 7.3:
   2141  7.3.313  (after 7.3.307) warning compiling with dynamic Python 3
   1740  7.3.314  (after 7.3.304) missing parenthesis
  13684  7.3.315  opening a window before forking causes problems for GTK
+  1499  7.3.316  (after 7.3.306) crash if 'colorcolumn' set and closing buffer
+  3918  7.3.317  Lua: debug.debug() may hang
+  2662  7.3.318  "C" on the last line deletes that line if it's blank
+  4573  7.3.319  redobuff doesn't always include completion leader changes
+  3363  7.3.320  0xa0 character in sourced file is hard to spot
+  7855  7.3.321  code not following Vim style
+  1585  7.3.322  #ifdef for PDP_RETVAL doesn't work, INT_PTR can be a typedef

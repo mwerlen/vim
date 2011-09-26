@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 315
+%define patchlevel 322
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -369,6 +369,13 @@ Patch312: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.312
 Patch313: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.313
 Patch314: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.314
 Patch315: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.315
+Patch316: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.316
+Patch317: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.317
+Patch318: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.318
+Patch319: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.319
+Patch320: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.320
+Patch321: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.321
+Patch322: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.322
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -826,6 +833,13 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch313 -p0
 %patch314 -p0
 %patch315 -p0
+%patch316 -p0
+%patch317 -p0
+%patch318 -p0
+%patch319 -p0
+%patch320 -p0
+%patch321 -p0
+%patch322 -p0
 
 
 # install spell files
@@ -1283,6 +1297,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Sep 26 2011 Karsten Hopp <karsten@redhat.com> 7.3.322-1
+- patchlevel 322
+
 * Wed Sep 21 2011 Karsten Hopp <karsten@redhat.com> 7.3.315-1
 - patchlevel 315
 
