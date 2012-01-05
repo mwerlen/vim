@@ -417,3 +417,10 @@ Individual patches for Vim 7.3:
   1869  7.3.384  mapping CTRL-K breaks CTRL-X CTRL-K for dictionary completion
   2220  7.3.385  with expression mapping cursor may end up in the wrong place
   1577  7.3.386  test 83 fails when iconv does not support cp932
+  1708  7.3.387  (after 7.3.386) test 83 may fail for some encodings
+  1378  7.3.388  crash on exit when EXITFREE is defined and using tiny features
+  2117  7.3.389  after typing at a prompt the "MORE" message appears too soon
+  4295  7.3.390  using NULL buffer pointer in a window
+  1520  7.3.391  can't check if the XPM_W32 feature is enabled
+  3505  7.3.392  setting 'undofile' does not trigger reading the undo file
+  4803  7.3.393  Win32: When resizing Vim it may be moved to another monitor
