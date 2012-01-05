@@ -1441,6 +1441,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Jan 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.393-1
 - patchlevel 393
+- fix boolean key 'Terminal' in gvim.desktop
 
 * Fri Dec 23 2011 Karsten Hopp <karsten@redhat.com> 7.3.386-1
 - patchlevel 386
