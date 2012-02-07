@@ -424,3 +424,44 @@ Individual patches for Vim 7.3:
   1520  7.3.391  can't check if the XPM_W32 feature is enabled
   3505  7.3.392  setting 'undofile' does not trigger reading the undo file
   4803  7.3.393  Win32: When resizing Vim it may be moved to another monitor
+  1866  7.3.394  screen messed up when placing a mark while starting up
+  3012  7.3.395  (after 7.3.251) "dv?bar" deletes too much and breaks undo
+  1598  7.3.396  operator can become linewise after forcing it characterwise
+  6186  7.3.397  ":helpgrep" does not work when 'encoding' is not utf-8
+  1928  7.3.398  jumping to wrong location after creating 10 location lists
+  4052  7.3.399  ":cd" doesn't work when the path contains wildcards
+ 44950  7.3.400  compiler warnings for shadowed variables
+  5138  7.3.401  couple more compiler warning for shadowed variables
+  2006  7.3.402  line of text redrawn while at the more prompt
+  2976  7.3.403  ":helpgrep" does not trigger QuickFixCmd* autocommands
+  2638  7.3.404  using refresh "always" in a complete function breaks redo
+  3074  7.3.405  xterm may delete the urxvt mouse termcap code
+  2830  7.3.406  Win32: multi-byte characters in b:browsefilter broken
+  7268  7.3.407  ":12verbose call F()" duplicates text while trying to truncate
+  1446  7.3.408  (after 7.3.406) missing declaration breaks compilation
+  1565  7.3.409  the license in pty.c is unclear
+  1396  7.3.410  compiler error for // comment
+  1775  7.3.411  pasting in Visual mode using the "" register does not work
+  1502  7.3.412  storing a float in a session file has an additional '&'
+  2770  7.3.413  compiler warnings on MS-Windows
+  2304  7.3.414  using CTRL-A on "000" drops the leading zero
+  1727  7.3.415  (after 7.3.359) function completion stops after a dictionary
+  1687  7.3.416  (after 7.3.415) compiler warning for pointer type
+  1460  7.3.417  (after 7.3.395) test 43 fails with a tiny build
+  1705  7.3.418  get an error message when a user complete function returns -1
+  2376  7.3.419  DBCS encoding in a user command does not always work
+  2202  7.3.420  "it" and "at" don't work properly with a dash in the tag name
+  2161  7.3.421  get E832 when setting 'undofile' in vimrc
+  3076  7.3.422  Python 3 does not have __members__
+  4733  7.3.423  small mistakes in comments, proto and indent
+  2210  7.3.424  Win16 version missing some functions
+  2572  7.3.425  (after 7.3.265) search history lines are duplicated
+  8345  7.3.426  with '$' in 'cpoptions' $ is not displayed in the first column
+ 10744  7.3.427  readfile() can be slow with long lines
+  2881  7.3.428  Win32: an xpm file without a mask crashes Vim
+  5441  7.3.429  with 'E' in 'cpoptions' redo wrong after "c0" in first column
+  2949  7.3.430  conf filetype detection may end up in the wrong augroup
+  8810  7.3.431  fetching a key at a prompt may be confused by escape sequences
+  6926  7.3.432  ACLs are not supported for ZFS or NFSv4 on Solaris
+  2538  7.3.433  using continued lines in a Vim script can be slow
+  6194  7.3.434  using join() can be slow

@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 393
+%define patchlevel 434
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -448,6 +448,47 @@ Patch390: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.390
 Patch391: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.391
 Patch392: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.392
 Patch393: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.393
+Patch394: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.394
+Patch395: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.395
+Patch396: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.396
+Patch397: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.397
+Patch398: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.398
+Patch399: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.399
+Patch400: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.400
+Patch401: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.401
+Patch402: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.402
+Patch403: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.403
+Patch404: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.404
+Patch405: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.405
+Patch406: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.406
+Patch407: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.407
+Patch408: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.408
+Patch409: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.409
+Patch410: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.410
+Patch411: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.411
+Patch412: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.412
+Patch413: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.413
+Patch414: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.414
+Patch415: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.415
+Patch416: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.416
+Patch417: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.417
+Patch418: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.418
+Patch419: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.419
+Patch420: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.420
+Patch421: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.421
+Patch422: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.422
+Patch423: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.423
+Patch424: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.424
+Patch425: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.425
+Patch426: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.426
+Patch427: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.427
+Patch428: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.428
+Patch429: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.429
+Patch430: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.430
+Patch431: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.431
+Patch432: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.432
+Patch433: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.433
+Patch434: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.434
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -985,6 +1026,47 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch391 -p0
 %patch392 -p0
 %patch393 -p0
+%patch394 -p0
+%patch395 -p0
+%patch396 -p0
+%patch397 -p0
+%patch398 -p0
+%patch399 -p0
+%patch400 -p0
+%patch401 -p0
+%patch402 -p0
+%patch403 -p0
+%patch404 -p0
+%patch405 -p0
+%patch406 -p0
+%patch407 -p0
+%patch408 -p0
+%patch409 -p0
+%patch410 -p0
+%patch411 -p0
+%patch412 -p0
+%patch413 -p0
+%patch414 -p0
+%patch415 -p0
+%patch416 -p0
+%patch417 -p0
+%patch418 -p0
+%patch419 -p0
+%patch420 -p0
+%patch421 -p0
+%patch422 -p0
+%patch423 -p0
+%patch424 -p0
+%patch425 -p0
+%patch426 -p0
+%patch427 -p0
+%patch428 -p0
+%patch429 -p0
+%patch430 -p0
+%patch431 -p0
+%patch432 -p0
+%patch433 -p0
+%patch434 -p0
 
 
 # install spell files
@@ -1439,6 +1521,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Feb 07 2012 Karsten Hopp <karsten@redhat.com> 7.3.434-1
+- patchlevel 434
+
 * Tue Feb 07 2012 Karsten Hopp <karsten@redhat.com> 7.3.393-3
 - update spec file template, bugzilla 736774
 
