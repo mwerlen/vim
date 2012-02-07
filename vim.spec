@@ -1439,6 +1439,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Feb 07 2012 Karsten Hopp <karsten@redhat.com> 7.3.393-3
+- update spec file template, bugzilla 736774
+
 * Thu Jan 26 2012 Harald Hoyer <harald@redhat.com> 7.3.393-3
 - rebuild against the new ruby library
 
