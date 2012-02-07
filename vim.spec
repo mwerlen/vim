@@ -470,7 +470,8 @@ Patch412: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.412
 Patch413: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.413
 Patch414: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.414
 Patch415: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.415
-Patch416: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.416
+# Duplicate patch in 427:
+#Patch416: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.416
 Patch417: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.417
 Patch418: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.418
 Patch419: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.419
@@ -1048,7 +1049,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch413 -p0
 %patch414 -p0
 %patch415 -p0
-%patch416 -p0
+# Duplicate patch in 427:
+#patch416 -p0
 %patch417 -p0
 %patch418 -p0
 %patch419 -p0
