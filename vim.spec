@@ -41,6 +41,7 @@ Source12: vi_help.txt
 Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
+Source15: spec-template.new
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -1089,7 +1090,11 @@ mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 cp -f %{SOURCE11} .
+%if %{?fedora}%{!?fedora:0} >= 16 || %{?rhel}%{!?rhel:0} >= 6
+cp -f %{SOURCE15} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
+%else
 cp -f %{SOURCE14} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
+%endif
 cp runtime/doc/uganda.txt LICENSE
 # Those aren't Linux info files but some binary files for Amiga:
 rm -f README*.info
