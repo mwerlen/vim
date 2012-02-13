@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 434
+%define patchlevel 444
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -490,6 +490,16 @@ Patch431: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.431
 Patch432: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.432
 Patch433: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.433
 Patch434: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.434
+Patch435: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.435
+Patch436: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.436
+Patch437: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.437
+Patch438: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.438
+Patch439: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.439
+Patch440: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.440
+Patch441: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.441
+Patch442: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.442
+Patch443: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.443
+Patch444: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.444
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1069,6 +1079,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch432 -p0
 %patch433 -p0
 %patch434 -p0
+%patch435 -p0
+%patch436 -p0
+%patch437 -p0
+%patch438 -p0
+%patch439 -p0
+%patch440 -p0
+%patch441 -p0
+%patch442 -p0
+%patch443 -p0
+%patch444 -p0
 
 
 # install spell files
@@ -1523,6 +1543,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 13 2012 Karsten Hopp <karsten@redhat.com> 7.3.444-1
+- patchlevel 444
+
 * Tue Feb 07 2012 Karsten Hopp <karsten@redhat.com> 7.3.434-1
 - patchlevel 434
 

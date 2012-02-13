@@ -457,7 +457,7 @@ Individual patches for Vim 7.3:
   2210  7.3.424  Win16 version missing some functions
   2572  7.3.425  (after 7.3.265) search history lines are duplicated
   8345  7.3.426  with '$' in 'cpoptions' $ is not displayed in the first column
- 10744  7.3.427  readfile() can be slow with long lines
+ 10278  7.3.427  readfile() can be slow with long lines
   2881  7.3.428  Win32: an xpm file without a mask crashes Vim
   5441  7.3.429  with 'E' in 'cpoptions' redo wrong after "c0" in first column
   2949  7.3.430  conf filetype detection may end up in the wrong augroup
@@ -465,3 +465,13 @@ Individual patches for Vim 7.3:
   6926  7.3.432  ACLs are not supported for ZFS or NFSv4 on Solaris
   2538  7.3.433  using continued lines in a Vim script can be slow
   6194  7.3.434  using join() can be slow
+  1864  7.3.435  compiler warning for unused variable
+  3128  7.3.436  compiler warnings for types on Windows
+  2282  7.3.437  looping inside FOR_ALL_TAB_WINDOWS even when already done
+  4305  7.3.438  there is no way to avoid ":doautoall" reading modelines
+  2487  7.3.439  compiler warnings to size casts in Perl interface
+  5664  7.3.440  Vim does not support UTF8_STRING for the X selection
+  9578  7.3.441  newer versions of MzScheme require earlier initialisation
+  5445  7.3.442  (after 7.3.438) still read modelines for ":doautocmd"
+  8329  7.3.443  MS-Windows: 'shcf' and 'sxq' defaults are not very good
+  3159  7.3.444  ":all!" and ":sall!" give error E477
