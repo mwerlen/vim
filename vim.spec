@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 444
+%define patchlevel 471
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -500,6 +500,33 @@ Patch441: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.441
 Patch442: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.442
 Patch443: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.443
 Patch444: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.444
+Patch445: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.445
+Patch446: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.446
+Patch447: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.447
+Patch448: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.448
+Patch449: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.449
+Patch450: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.450
+Patch451: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.451
+Patch452: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.452
+Patch453: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.453
+Patch454: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.454
+Patch455: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.455
+Patch456: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.456
+Patch457: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.457
+Patch458: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.458
+Patch459: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.459
+Patch460: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.460
+Patch461: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.461
+Patch462: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.462
+Patch463: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.463
+Patch464: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.464
+Patch465: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.465
+Patch466: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.466
+Patch467: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.467
+Patch468: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.468
+Patch469: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.469
+Patch470: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.470
+Patch471: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.471
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1089,6 +1116,33 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch442 -p0
 %patch443 -p0
 %patch444 -p0
+%patch445 -p0
+%patch446 -p0
+%patch447 -p0
+%patch448 -p0
+%patch449 -p0
+%patch450 -p0
+%patch451 -p0
+%patch452 -p0
+%patch453 -p0
+%patch454 -p0
+%patch455 -p0
+%patch456 -p0
+%patch457 -p0
+%patch458 -p0
+%patch459 -p0
+%patch460 -p0
+%patch461 -p0
+%patch462 -p0
+%patch463 -p0
+%patch464 -p0
+%patch465 -p0
+%patch466 -p0
+%patch467 -p0
+%patch468 -p0
+%patch469 -p0
+%patch470 -p0
+%patch471 -p0
 
 
 # install spell files
@@ -1543,6 +1597,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Mar 16 2012 Karsten Hopp <karsten@redhat.com> 7.3.471-1
+- patchlevel 471
+
 * Mon Feb 13 2012 Karsten Hopp <karsten@redhat.com> 7.3.444-1
 - patchlevel 444
 

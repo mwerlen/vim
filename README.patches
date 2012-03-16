@@ -475,3 +475,30 @@ Individual patches for Vim 7.3:
   5445  7.3.442  (after 7.3.438) still read modelines for ":doautocmd"
   8329  7.3.443  MS-Windows: 'shcf' and 'sxq' defaults are not very good
   3159  7.3.444  ":all!" and ":sall!" give error E477
+  6224  7.3.445  (after 7.3.443) can't properly escape commands for cmd.exe
+  5338  7.3.446  (after 7.3.445) external command with special char doesnt work
+ 10262  7.3.447  (after 7.3.446) External commands with "start" do not work
+  5192  7.3.448  (after 7.3.447) Win32: Still a problem with "!start /b"
+ 15177  7.3.449  crash when a BufWinLeave autocmd closes the only other window
+  2359  7.3.450  (after 7.3.448) Win32: Still a problem with "!start /b"
+ 10656  7.3.451  Tcl doesn't work on 64 bit MS-Windows
+  2329  7.3.452  undo broken when pasting close to the last line
+  1718  7.3.453  pasting in the command line is slow
+  2299  7.3.454  re-allocating memory slows Vim down
+  1891  7.3.455  using many continuation lines can be slow
+ 10445  7.3.456  ":tab drop file" handling doesn't work well
+  2123  7.3.457  message translation dir not set when setting $VIMRUNTIME later
+  1532  7.3.458  crash when calling smsg() during startup
+  2196  7.3.459  compiler warnings for types on Windows
+  2785  7.3.460  Win32: UPX does not compress 64 bit binaries
+  6734  7.3.461  InsertCharPre event not always triggered
+  5129  7.3.462  when using ":loadview" folds may be closed unexpectedly
+  1774  7.3.463  cursor moved after using ":s///c"
+  1969  7.3.464  compiler warning for sprintf
+ 14135  7.3.465  cannot get file name with newline from glob()
+  1606  7.3.466  ml_get error when replacing several selected lines
+  1526  7.3.467  cursor position wrong at command line when using input method
+  4775  7.3.468  for some compilers the error file is not easily readable
+  1557  7.3.469  compiler warning for unused argument
+  1892  7.3.470  test 62 fails when compiled without GUI and X11
+  2817  7.3.471  can't abort listing placed signs
