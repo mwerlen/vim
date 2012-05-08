@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 471
+%define patchlevel 515
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -527,6 +527,50 @@ Patch468: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.468
 Patch469: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.469
 Patch470: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.470
 Patch471: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.471
+Patch472: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.472
+Patch473: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.473
+Patch474: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.474
+Patch475: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.475
+Patch476: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.476
+Patch477: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.477
+Patch478: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.478
+Patch479: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.479
+Patch480: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.480
+Patch481: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.481
+Patch482: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.482
+Patch483: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.483
+Patch484: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.484
+Patch485: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.485
+Patch486: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.486
+Patch487: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.487
+Patch488: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.488
+Patch489: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.489
+Patch490: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.490
+Patch491: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.491
+Patch492: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.492
+Patch493: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.493
+Patch494: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.494
+Patch495: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.495
+Patch496: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.496
+Patch497: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.497
+Patch498: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.498
+Patch499: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.499
+Patch500: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.500
+Patch501: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.501
+Patch502: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.502
+Patch503: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.503
+Patch504: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.504
+Patch505: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.505
+Patch506: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.506
+Patch507: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.507
+Patch508: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.508
+Patch509: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.509
+Patch510: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.510
+Patch511: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.511
+Patch512: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.512
+Patch513: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.513
+Patch514: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.514
+Patch515: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.515
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1143,6 +1187,50 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch469 -p0
 %patch470 -p0
 %patch471 -p0
+%patch472 -p0
+%patch473 -p0
+%patch474 -p0
+%patch475 -p0
+%patch476 -p0
+%patch477 -p0
+%patch478 -p0
+%patch479 -p0
+%patch480 -p0
+%patch481 -p0
+%patch482 -p0
+%patch483 -p0
+%patch484 -p0
+%patch485 -p0
+%patch486 -p0
+%patch487 -p0
+%patch488 -p0
+%patch489 -p0
+%patch490 -p0
+%patch491 -p0
+%patch492 -p0
+%patch493 -p0
+%patch494 -p0
+%patch495 -p0
+%patch496 -p0
+%patch497 -p0
+%patch498 -p0
+%patch499 -p0
+%patch500 -p0
+%patch501 -p0
+%patch502 -p0
+%patch503 -p0
+%patch504 -p0
+%patch505 -p0
+%patch506 -p0
+%patch507 -p0
+%patch508 -p0
+%patch509 -p0
+%patch510 -p0
+%patch511 -p0
+%patch512 -p0
+%patch513 -p0
+%patch514 -p0
+%patch515 -p0
 
 
 # install spell files
@@ -1597,6 +1685,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 08 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
+- patchlevel 515
+
 * Fri Mar 16 2012 Karsten Hopp <karsten@redhat.com> 7.3.471-1
 - patchlevel 471
 

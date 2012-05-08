@@ -366,7 +366,7 @@ Individual patches for Vim 7.3:
   7688  7.3.333  "." repeats a Visual delete by byte size instead of characters
   1710  7.3.334  latest MingW complains about XSUBPP referencing itself
   1532  7.3.335  changing 'imdisable' in Insert mode takes effect only later
- 30504  7.3.336  encoding in tags file causes trouble
+ 30156  7.3.336  encoding in tags file causes trouble (NOW IN LATIN1)
   1876  7.3.337  no screen update after resizing xterm until character typed
   2851  7.3.338  using getchar() in an expression mapping doesn't work well
   1762  7.3.339  "make shadow" doesn't link all test files
@@ -502,3 +502,47 @@ Individual patches for Vim 7.3:
   1557  7.3.469  compiler warning for unused argument
   1892  7.3.470  test 62 fails when compiled without GUI and X11
   2817  7.3.471  can't abort listing placed signs
+  2792  7.3.472  crash when using ":redraw" in a BufEnter autocmd
+  2119  7.3.473  'cursorbind' does not work correctly with 'virtualedit' "all"
+  1682  7.3.474  gcc 4 build with Perl fails
+  3670  7.3.475  in terminal with few colors omnicomplete menu is hard to see
+  1874  7.3.476  backspacing in a Visual block selection causes problems.
+  1725  7.3.477  scrolling back at the more prompt shows the wrong text
+  1354  7.3.478  memory leak when the ':rv!' command reads a dict or list
+  6622  7.3.479  'cursorline' line number highlighting can't be set separately
+  6208  7.3.480  when using ":qa" priority of changed buffers could be better
+  1945  7.3.481  changing 'virtualedit' in an operator function does not work
+  1827  7.3.482  with 'cursorbind' set moving up/down does not keep the column
+  3003  7.3.483  (after 7.3.477) more prompt shows up too ofte.
+  2206  7.3.484  "vim --help" does not mention -E and --echo-wid
+  1677  7.3.485  LDFLAGS isn't passed on to building xxd
+  1803  7.3.486  build error with mingw64 on Windows 7
+ 19665  7.3.487  column position is reset unnecessarily when setting an option
+  1458  7.3.488  ":help!" in a help file does not work as documented
+  2783  7.3.489  Insert mode CTRL-] does not expand abbr. from a mapping
+ 74085  7.3.490  Lua interface: Member confusion, missing luaeval()
+  7738  7.3.491  no tests for Lua
+ 14093  7.3.492  can't indent conditions separately from function arguments
+  1565  7.3.493  (after 7.3.492) two unused variables
+  6811  7.3.494  (after 7.3.491) can't build with Lua 9.1 or dynamic Lua
+  3559  7.3.495  (after 7.3.492) compiler warnings
+  2262  7.3.496  MS-DOS: tests fail when "diff" trips over line separators
+  1606  7.3.497  crash when doing ":python print", compiled with gcc -O2
+  2021  7.3.498  the behavior of "- register changes depending on 'clipboard'
+  2561  7.3.499  may wait for the wrong child process to terminate
+  1414  7.3.500  Ming makefile unconditionally sets WINVER
+  1761  7.3.501  error for "flush" not being defined when using Ruby command
+  2010  7.3.502  Netbeans insert halfway a line actually appends to the line
+  1288  7.3.503  (after 7.3.501) warning for unused argument
+  2602  7.3.504  commands in help files are not highlighted
+  3376  7.3.505  test 11 fails on MS-Windows in some versions
+  3040  7.3.506  GTK gives an error when selecting a non-existent file
+  5241  7.3.507  overwriting existing file without question from file dialog
+  2838  7.3.508  default for v:register is not set
+  8621  7.3.509  'autochdir' causes :vimgrep to fail
+  1462  7.3.510  test 77 fails on Solaris 7
+  1563  7.3.511  crash when using FileReadCmd autocmd that does :e {file}
+  2049  7.3.512  undofile() returns a useless name when passed an empty string
+  3925  7.3.513  cannot use CTRL-E and CTRL-Y with "r"
+  7792  7.3.514  no completion for :history command
+  2073  7.3.515  'wildignorecase' only applies to the last part of the path
