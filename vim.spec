@@ -30,7 +30,7 @@ Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
 Source3: gvim.desktop
 Source4: vimrc
-#Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
+Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
 Source8: gvim32.png
 Source9: gvim48.png
@@ -1251,6 +1251,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 
 %build
+cp -f %{SOURCE5} .
 cd src
 autoconf
 
@@ -1504,7 +1505,7 @@ rm -rf $RPM_BUILD_ROOT
 %files common
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/vimrc
-%doc README* LICENSE
+%doc README* LICENSE 
 %doc runtime/docs
 %doc Changelog.rpm
 %dir %{_datadir}/%{name}
