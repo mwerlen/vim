@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 471
+%define patchlevel 515
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -30,7 +30,7 @@ Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
 Source3: gvim.desktop
 Source4: vimrc
-#Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
+Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
 Source8: gvim32.png
 Source9: gvim48.png
@@ -527,6 +527,50 @@ Patch468: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.468
 Patch469: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.469
 Patch470: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.470
 Patch471: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.471
+Patch472: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.472
+Patch473: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.473
+Patch474: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.474
+Patch475: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.475
+Patch476: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.476
+Patch477: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.477
+Patch478: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.478
+Patch479: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.479
+Patch480: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.480
+Patch481: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.481
+Patch482: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.482
+Patch483: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.483
+Patch484: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.484
+Patch485: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.485
+Patch486: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.486
+Patch487: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.487
+Patch488: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.488
+Patch489: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.489
+Patch490: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.490
+Patch491: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.491
+Patch492: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.492
+Patch493: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.493
+Patch494: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.494
+Patch495: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.495
+Patch496: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.496
+Patch497: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.497
+Patch498: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.498
+Patch499: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.499
+Patch500: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.500
+Patch501: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.501
+Patch502: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.502
+Patch503: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.503
+Patch504: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.504
+Patch505: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.505
+Patch506: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.506
+Patch507: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.507
+Patch508: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.508
+Patch509: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.509
+Patch510: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.510
+Patch511: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.511
+Patch512: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.512
+Patch513: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.513
+Patch514: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.514
+Patch515: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.515
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1143,6 +1187,50 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch469 -p0
 %patch470 -p0
 %patch471 -p0
+%patch472 -p0
+%patch473 -p0
+%patch474 -p0
+%patch475 -p0
+%patch476 -p0
+%patch477 -p0
+%patch478 -p0
+%patch479 -p0
+%patch480 -p0
+%patch481 -p0
+%patch482 -p0
+%patch483 -p0
+%patch484 -p0
+%patch485 -p0
+%patch486 -p0
+%patch487 -p0
+%patch488 -p0
+%patch489 -p0
+%patch490 -p0
+%patch491 -p0
+%patch492 -p0
+%patch493 -p0
+%patch494 -p0
+%patch495 -p0
+%patch496 -p0
+%patch497 -p0
+%patch498 -p0
+%patch499 -p0
+%patch500 -p0
+%patch501 -p0
+%patch502 -p0
+%patch503 -p0
+%patch504 -p0
+%patch505 -p0
+%patch506 -p0
+%patch507 -p0
+%patch508 -p0
+%patch509 -p0
+%patch510 -p0
+%patch511 -p0
+%patch512 -p0
+%patch513 -p0
+%patch514 -p0
+%patch515 -p0
 
 
 # install spell files
@@ -1163,6 +1251,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 
 %build
+cp -f %{SOURCE5} .
 cd src
 autoconf
 
@@ -1416,7 +1505,7 @@ rm -rf $RPM_BUILD_ROOT
 %files common
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/vimrc
-%doc README* LICENSE
+%doc README* LICENSE 
 %doc runtime/docs
 %doc Changelog.rpm
 %dir %{_datadir}/%{name}
@@ -1597,8 +1686,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Wed Apr 11 2012 Daniel Mach <dmach@redhat.com> - 2:7.3.471-1.1
-- Rebuild for ruby
+* Tue May 08 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
+- patchlevel 515
 
 * Fri Mar 16 2012 Karsten Hopp <karsten@redhat.com> 7.3.471-1
 - patchlevel 471
@@ -1774,214 +1863,5 @@ rm -rf $RPM_BUILD_ROOT
 
 * Wed Sep 22 2010 Karsten Hopp <karsten@redhat.com> 7.3.011-1
 - update to VIM 7.3 patchlevel 011
-
-* Tue Jul 27 2010 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> 7.2.446-2
-- Rebuild against python 2.7
-
-* Tue Jul 13 2010 Karsten Hopp <karsten@redhat.com> 7.2.446-1
-- patchlevel 446
-
-* Thu Jul 08 2010 Karsten Hopp <karsten@redhat.com> 7.2.445-1
-- patchlevel 445
-
-* Wed Jun 23 2010 Karsten Hopp <karsten@redhat.com> 7.2.444-2
-- rebuild with perl-5.12
-
-* Sun Jun 13 2010 Karsten Hopp <karsten@redhat.com> 7.2.444-1
-- patchlevel 444
-
-* Sun Jun 13 2010 Karsten Hopp <karsten@redhat.com> 7.2.443-1
-- patchlevel 443
-
-* Sat Jun 05 2010 Karsten Hopp <karsten@redhat.com> 7.2.442-1
-- patchlevel 442
-
-* Wed Jun 02 2010 Marcela Maslanova <mmaslano@redhat.com> - 2:7.2.441-2
-- Mass rebuild with perl-5.12.0
-
-* Sun May 30 2010 Karsten Hopp <karsten@redhat.com> 7.2.441-1
-- patchlevel 441
-
-* Sat May 29 2010 Karsten Hopp <karsten@redhat.com> 7.2.440-1
-- patchlevel 440
-
-* Wed May 26 2010 Karsten Hopp <karsten@redhat.com> 7.2.438-1
-- patchlevel 438
-
-* Sat May 22 2010 Karsten Hopp <karsten@redhat.com> 7.2.437-1
-- patchlevel 437
-
-* Sun May 16 2010 Karsten Hopp <karsten@redhat.com> 7.2.436-1
-- patchlevel 436
-
-* Sat May 15 2010 Karsten Hopp <karsten@redhat.com> 7.2.433-1
-- patchlevel 433
-
-* Fri May 14 2010 Karsten Hopp <karsten@redhat.com> 7.2.427-1
-- patchlevel 427
-
-* Thu May 13 2010 Karsten Hopp <karsten@redhat.com> 7.2.422-1
-- patchlevel 422
-
-* Fri May 07 2010 Karsten Hopp <karsten@redhat.com> 7.2.416-1
-- patchlevel 416
-
-* Tue Apr 20 2010 Karsten Hopp <karsten@redhat.com> 7.2.411-2
-- fix rvim manpage (#583180)
-
-* Wed Mar 24 2010 Karsten Hopp <karsten@redhat.com> 7.2.411-1
-- patchlevel 411
-
-* Tue Mar 23 2010 Karsten Hopp <karsten@redhat.com> 7.2.410-1
-- patchlevel 410
-
-* Sat Mar 20 2010 Karsten Hopp <karsten@redhat.com> 7.2.403-1
-- patchlevel 403
-
-* Thu Mar 18 2010 Karsten Hopp <karsten@redhat.com> 7.2.402-1
-- patchlevel 402
-
-* Wed Mar 17 2010 Karsten Hopp <karsten@redhat.com> 7.2.399-1
-- patchlevel 399
-
-* Wed Mar 10 2010 Karsten Hopp <karsten@redhat.com> 7.2.394-1
-- patchlevel 394
-
-* Wed Mar 03 2010 Karsten Hopp <karsten@redhat.com> 7.2.385-1
-- patchlevel 385
-
-* Tue Mar 02 2010 Karsten Hopp <karsten@redhat.com> 7.2.384-1
-- patchlevel 384
-
-* Tue Mar 02 2010 Karsten Hopp <karsten@redhat.com> 7.2.381-1
-- patchlevel 381
-
-* Sat Feb 27 2010 Karsten Hopp <karsten@redhat.com> 7.2.377-1
-- patchlevel 377
-
-* Wed Feb 24 2010 Karsten Hopp <karsten@redhat.com> 7.2.376-1
-- patchlevel 376
-
-* Thu Feb 18 2010 Karsten Hopp <karsten@redhat.com> 7.2.368-1
-- patchlevel 368
-
-* Thu Feb 18 2010 Karsten Hopp <karsten@redhat.com> 7.2.367-1
-- patchlevel 367
-
-* Wed Feb 17 2010 Karsten Hopp <karsten@redhat.com> 7.2.365-1
-- patchlevel 365
-
-* Fri Feb 12 2010 Karsten Hopp <karsten@redhat.com> 7.2.359-1
-- patchlevel 359
-
-* Thu Feb 11 2010 Karsten Hopp <karsten@redhat.com> 7.2.357-1
-- patchlevel 357
-
-* Thu Feb 04 2010 Karsten Hopp <karsten@redhat.com> 7.2.356-1
-- patchlevel 356
-
-* Wed Feb 03 2010 Karsten Hopp <karsten@redhat.com> 7.2.354-1
-- patchlevel 354
-
-* Fri Jan 29 2010 Karsten Hopp <karsten@redhat.com> 7.2.351-1
-- patchlevel 351
-
-* Thu Jan 28 2010 Karsten Hopp <karsten@redhat.com> 7.2.350-1
-- patchlevel 350
-
-* Mon Dec  7 2009 Stepan Kasal <skasal@redhat.com> - 2:7.2.315-2
-- rebuild against perl 5.10.1
-
-* Wed Dec 03 2009 Karsten Hopp <karsten@redhat.com> 7.2.315-1
-- patchlevel 315
-- fix vimrc location in man page (#456992)
-- correct syntax highlighting of httpd config files in /etc/httpd (#499123)
-- Buildrequire ruby, ruby-devel (#503872)
-- Remove check for static gravity (#510307)
-- sort tags file (#517725)
-- use one gvim to open multiple file selections from nautilus (#519265)
-- use elinks -source instead of elinks -dump (#518791)
-- add ext4 keyword to /etc/fstab syntax highlighting (#498290)
-
-* Mon Nov 09 2009 Karsten Hopp <karsten@redhat.com> 7.2.284-1
-- patchlevel 284
-
-* Thu Aug 20 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-3
-- change range of system ids in /etc/profile.d/vim/* (#518555)
-
-* Mon Aug 03 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-2
-- add fix for glibc fortify segfault (#514717, Adam Tkac)
-
-* Sat Aug 01 2009 Karsten Hopp <karsten@redhat.com> 7.2.245-1
-- add 97 upstream patches to get to patchlevel 245
-
-* Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.2.148-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
-
-* Fri Mar 27 2009 Karsten Hopp <karsten@redhat.com> 7.2.148-1
-- patchlevel 148, fixes #461417
-
-* Tue Mar 10 2009 Karsten Hopp <karsten@redhat.com> 7.2.132-1
-- patchlevel 132, fixes accesses to freed memory
-
-* Wed Mar 04 2009 Karsten Hopp <karsten@redhat.com> 7.2.131-1
-- patchlevel 131
-
-* Tue Feb 24 2009 Karsten Hopp <karsten@redhat.com> 7.2.127-1
-- patchlevel 127
-
-* Mon Feb 23 2009 Karsten Hopp <karsten@redhat.com> 7.2.124-1
-- patchlevel 124
-
-* Mon Jan 26 2009 Karsten Hopp <karsten@redhat.com> 7.2.088-1
-- patchlevel 88
-
-* Thu Jan 08 2009 Karsten Hopp <karsten@redhat.com> 7.2.079-2
-- patchlevel 79
-
-* Thu Dec 04 2008 Jesse Keating <jkeating@redhat.com> - 7.2.060-2
-- Rebuild for new python.
-
-* Mon Dec 01 2008 Karsten Hopp <karsten@redhat.com> 7.2.060-1
-- patchlevel 60
-
-* Mon Nov 10 2008 Karsten Hopp <karsten@redhat.com> 7.2.032-1
-- patchlevel 32
-
-* Mon Nov 03 2008 Karsten Hopp <karsten@redhat.com> 7.2.026-2
-- add more /usr/share/vim/vimfiles directories (#444387)
-
-* Mon Nov 03 2008 Karsten Hopp <karsten@redhat.com> 7.2.026-1
-- patchlevel 26
-- own some directories in /usr/share/vim/vimfiles (#469491)
-
-* Tue Oct 21 2008 Karsten Hopp <karsten@redhat.com> 7.2.025-2
-- re-enable clean
-
-* Mon Oct 20 2008 Karsten Hopp <karsten@redhat.com> 7.2.025-1
-- patchlevel 25
-- add Categories tag to desktop file (#226526)
-- add requirement on hicolor-icon-theme to vim-X11 (#226526)
-- drop Amiga info files (#226526)
-- remove non-utf8 man pages (#226526)
-- drop Application from categories (#226526)
-
-* Tue Sep 30 2008 Karsten Hopp <karsten@redhat.com> 7.2.022-1
-- patchlevel 22
-
-* Mon Sep 08 2008 Karsten Hopp <karsten@redhat.com> 7.2.013-1
-- patchlevel 13
-
-* Mon Aug 25 2008 Karsten Hopp <karsten@redhat.com> 7.2.006-1
-- patchlevel 6
-
-* Mon Aug 18 2008 Karsten Hopp <karsten@redhat.com> 7.2.002-1
-- patchlevel 2
-- fix specfile template (#446070)
-- old specfile changelog moved to Changelog.rpm
-
-* Fri Aug 14 2008 Karsten Hopp <karsten@redhat.com> 7.2.000-1
-- vim 7.2
-- drop 330 patches
 
 # vim:nrformats-=octal
