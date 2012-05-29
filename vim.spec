@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1688,6 +1688,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 29 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-2
+- fix spec template
+
 * Mon May 21 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
 - enable highlighting for older log files (#816848)
 
