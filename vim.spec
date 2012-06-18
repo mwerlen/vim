@@ -582,6 +582,7 @@ Patch3008: vim-7.0-warning.patch
 Patch3009: vim-7.0-syncolor.patch
 Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
+Patch3012: vim-7.3-bug816848.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1249,6 +1250,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
+%patch3012 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1686,6 +1688,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon May 21 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
+- enable highlighting for older log files (#816848)
+
 * Tue May 08 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
 - patchlevel 515
 
