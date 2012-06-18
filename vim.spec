@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 515
+%define patchlevel 556
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -571,6 +571,47 @@ Patch512: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.512
 Patch513: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.513
 Patch514: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.514
 Patch515: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.515
+Patch516: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.516
+Patch517: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.517
+Patch518: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.518
+Patch519: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.519
+Patch520: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.520
+Patch521: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.521
+Patch522: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.522
+Patch523: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.523
+Patch524: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.524
+Patch525: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.525
+Patch526: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.526
+Patch527: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.527
+Patch528: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.528
+Patch529: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.529
+Patch530: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.530
+Patch531: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.531
+Patch532: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.532
+Patch533: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.533
+Patch534: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.534
+Patch535: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.535
+Patch536: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.536
+Patch537: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.537
+Patch538: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.538
+Patch539: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.539
+Patch540: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.540
+Patch541: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.541
+Patch542: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.542
+Patch543: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.543
+Patch544: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.544
+Patch545: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.545
+Patch546: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.546
+Patch547: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.547
+Patch548: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.548
+Patch549: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.549
+Patch550: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.550
+Patch551: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.551
+Patch552: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.552
+Patch553: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.553
+Patch554: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.554
+Patch555: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.555
+Patch556: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.556
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1232,6 +1273,47 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch513 -p0
 %patch514 -p0
 %patch515 -p0
+%patch516 -p0
+%patch517 -p0
+%patch518 -p0
+%patch519 -p0
+%patch520 -p0
+%patch521 -p0
+%patch522 -p0
+%patch523 -p0
+%patch524 -p0
+%patch525 -p0
+%patch526 -p0
+%patch527 -p0
+%patch528 -p0
+%patch529 -p0
+%patch530 -p0
+%patch531 -p0
+%patch532 -p0
+%patch533 -p0
+%patch534 -p0
+%patch535 -p0
+%patch536 -p0
+%patch537 -p0
+%patch538 -p0
+%patch539 -p0
+%patch540 -p0
+%patch541 -p0
+%patch542 -p0
+%patch543 -p0
+%patch544 -p0
+%patch545 -p0
+%patch546 -p0
+%patch547 -p0
+%patch548 -p0
+%patch549 -p0
+%patch550 -p0
+%patch551 -p0
+%patch552 -p0
+%patch553 -p0
+%patch554 -p0
+%patch555 -p0
+%patch556 -p0
 
 
 # install spell files
@@ -1688,6 +1770,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Jun 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.556-1
+- patchlevel 556
+
 * Mon Jun 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.515-2
 - Perl 5.16 rebuild
 
