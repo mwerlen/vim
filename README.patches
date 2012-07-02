@@ -587,3 +587,31 @@ Individual patches for Vim 7.3:
   1660  7.3.554  compiler warning for unused argument
   7968  7.3.555  building on IBM z/OS fails
   2194  7.3.556  compiler warnings on 64 bit Windows
+  2958  7.3.557  crash when an autocommand wipes out a buffer when it is hidden
+  2956  7.3.558  (after 7.3.552) memory access error
+  3483  7.3.559  home_replace() does not work with 8.3 filename
+  1551  7.3.560  get an error for a locked argument in extend()
+  1511  7.3.561  refresh: always in a complete function breaks the "." command
+  1659  7.3.562  ":profdel" works when the +profile feature is disabled
+  2742  7.3.563  (after 7.3.557) can't build with tiny features
+  1785  7.3.564  (after 7.3.559) warning for pointer conversion
+  1806  7.3.565  can't generate proto file for Python 3
+  2363  7.3.566  (after 7.3.561) redo works incorrectly without refresh:always
+  1739  7.3.567  missing copyright notice
+  3890  7.3.568  bad indents for #ifdefs
+133265  7.3.569  evaluating Vim expression in Python is insufficient
+  4659  7.3.570  ":vimgrep" does not obey 'wildignore'
+  3915  7.3.571  duplicated condition
+  1915  7.3.572  duplicate statement in if and else
+  1419  7.3.573  using array index before bounds checking
+  2491  7.3.574  a CTRL-L character is not pasted on the search command line
+  1586  7.3.575  "ygt" tries to yank instead of giving an error
+  7301  7.3.576  formatting of lists inside comments is not right yet
+  6542  7.3.577  size of memory does not fit in 32 bit unsigned
+  2025  7.3.578  misplaced declaration.
+  7644  7.3.579  (after 7.3.569) can't compile with Python 2.5
+  1517  7.3.580  warning on 64 bit MS-Windows
+  4236  7.3.581  problems compiling with Python
+  1342  7.3.582  missing pieces in test OK file
+  3125  7.3.583  PyObject_NextNotImplemented is not defined before Python 2.7
+  4088  7.3.584  PyCObject is not always defined
