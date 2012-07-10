@@ -623,3 +623,5 @@ Individual patches for Vim 7.3:
   1804  7.3.590  the '< and '> marks cannot be set directly
   5247  7.3.591  can only move to a tab by absolute number
   3343  7.3.592  Vim on GTK does not support g:browsefilter
+  2237  7.3.593  no easy way to decide if b:browsefilter will work
+  4873  7.3.594  the X command server sends an empty reply for as-keys requests
