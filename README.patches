@@ -615,3 +615,11 @@ Individual patches for Vim 7.3:
   1342  7.3.582  missing pieces in test OK file
   3125  7.3.583  PyObject_NextNotImplemented is not defined before Python 2.7
   4088  7.3.584  PyCObject is not always defined
+  1696  7.3.585  calling changed_bytes() too often
+  3055  7.3.586  MEMORYSTATUSEX not defined when compiling with Cygwin or MingW
+  2248  7.3.587  compiler warning for local var shadowing global var
+  2464  7.3.588  crash on NULL pointer
+  1974  7.3.589  crash when $HOME is not set
+  1804  7.3.590  the '< and '> marks cannot be set directly
+  5247  7.3.591  can only move to a tab by absolute number
+  3343  7.3.592  Vim on GTK does not support g:browsefilter
