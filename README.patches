@@ -625,3 +625,13 @@ Individual patches for Vim 7.3:
   3343  7.3.592  Vim on GTK does not support g:browsefilter
   2237  7.3.593  no easy way to decide if b:browsefilter will work
   4873  7.3.594  the X command server sends an empty reply for as-keys requests
+  3921  7.3.595  the X command server responds slowly
+  4967  7.3.596  can't remove all signs for a file or buffer
+ 21669  7.3.597  'clipboard' "autoselect" only applies to the * register
+  2635  7.3.598  cannot act upon end of insert mode completion
+  3042  7.3.599  (after 7.3.597) missing change in one file
+  1572  7.3.600  <f-args> is not expanded properly with DBCS encoding
+  1492  7.3.601  bad code style
+  1532  7.3.602  missing files in distribution
+ 11248  7.3.603  it is possible to add or replace builtin functions
+  1861  7.3.604  inputdialog() doesn't use the cancel argument in the console
