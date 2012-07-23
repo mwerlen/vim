@@ -546,3 +546,92 @@ Individual patches for Vim 7.3:
   3925  7.3.513  cannot use CTRL-E and CTRL-Y with "r"
   7792  7.3.514  no completion for :history command
   2073  7.3.515  'wildignorecase' only applies to the last part of the path
+  2784  7.3.516  extend(o, o) may crash Vim
+  1718  7.3.517  crash when using "vipvv"
+  1976  7.3.518  ":helptags" cannot find tag when 'encoding' is double-byte
+  1894  7.3.519  completefunction cannot indicate end of completion mode
+  4238  7.3.520  Gvim starts up slow on Unbuntu 12.04
+  3388  7.3.521  spell checking may crash when using multi-byte characters
+  1885  7.3.522  crash in vim_realloc() when using MEM_PROFILE
+  3493  7.3.523  ":diffupdate" doesn't check for files changed elsewhere
+  1271  7.3.524  missing comma in version.c
+  1884  7.3.525  compiler warning on 64 bit MS-Windows
+  1950  7.3.526  confusing indenting for #ifdef
+  4408  7.3.527  clang complains about non-ASCII characters in a string
+  5919  7.3.528  crash when closing last window in a tab
+  2439  7.3.529  using a count before "v" and "V" does not work
+  1559  7.3.530  (after 7.3.520) gvim does not work when 'guioptions' has "f"
+  1546  7.3.531  (after 7.3.530) GUI does not work on MS-Windows
+  1685  7.3.532  compiler warning from Clang
+  1323  7.3.533  memory leak when writing undo file
+  2944  7.3.534  (after 7.3.461) autoindent fails with InsertCharPre autocmd
+  8436  7.3.535  many #ifdefs for MB_MAXBYTES
+  2014  7.3.536  German sharp s is not seen as a word character
+  1352  7.3.537  unecessary call to init_spell_chartab()
+  9735  7.3.538  'efm' does not handle Tabs in pointer lines
+  1625  7.3.539  redraw multi-byte char on command line does not work properly
+  1658  7.3.540  cursor is left on the text instead of the command line
+ 31063  7.3.541  when joining lines comment leaders need to be removed manually
+  2240  7.3.542  (after 7.3.506) function is sometimes unused
+  1632  7.3.543  the cursor is in the wrong line after using ":copen"
+  3088  7.3.544  no autocommand for :quit before deciding to exit
+ 10435  7.3.545  autocommands may close a window that is already being closed
+  1628  7.3.546  weird line break
+  1661  7.3.547  (after 7.3.541) compiler warning for uninitialized variable
+  1552  7.3.548  compiler warning on 64 bit Windows
+  2957  7.3.549  in 'cinoptions' "0s" is interpreted as one shiftwidth
+  4392  7.3.550  (after 7.3.541) with "j" in 'fo' a list leader is not removed
+ 13725  7.3.551  on :tablose a TabEnter autocommand is triggered too early
+ 17001  7.3.552  inside comments formatting does not use the "2" flag in 'fo'
+  2515  7.3.553  text displayed one cell off if 'listchars' contains "precedes"
+  1660  7.3.554  compiler warning for unused argument
+  7968  7.3.555  building on IBM z/OS fails
+  2194  7.3.556  compiler warnings on 64 bit Windows
+  2958  7.3.557  crash when an autocommand wipes out a buffer when it is hidden
+  2956  7.3.558  (after 7.3.552) memory access error
+  3483  7.3.559  home_replace() does not work with 8.3 filename
+  1551  7.3.560  get an error for a locked argument in extend()
+  1511  7.3.561  refresh: always in a complete function breaks the "." command
+  1659  7.3.562  ":profdel" works when the +profile feature is disabled
+  2742  7.3.563  (after 7.3.557) can't build with tiny features
+  1785  7.3.564  (after 7.3.559) warning for pointer conversion
+  1806  7.3.565  can't generate proto file for Python 3
+  2363  7.3.566  (after 7.3.561) redo works incorrectly without refresh:always
+  1739  7.3.567  missing copyright notice
+  3890  7.3.568  bad indents for #ifdefs
+133265  7.3.569  evaluating Vim expression in Python is insufficient
+  4659  7.3.570  ":vimgrep" does not obey 'wildignore'
+  3915  7.3.571  duplicated condition
+  1915  7.3.572  duplicate statement in if and else
+  1419  7.3.573  using array index before bounds checking
+  2491  7.3.574  a CTRL-L character is not pasted on the search command line
+  1586  7.3.575  "ygt" tries to yank instead of giving an error
+  7301  7.3.576  formatting of lists inside comments is not right yet
+  6542  7.3.577  size of memory does not fit in 32 bit unsigned
+  2025  7.3.578  misplaced declaration.
+  7644  7.3.579  (after 7.3.569) can't compile with Python 2.5
+  1517  7.3.580  warning on 64 bit MS-Windows
+  4236  7.3.581  problems compiling with Python
+  1342  7.3.582  missing pieces in test OK file
+  3125  7.3.583  PyObject_NextNotImplemented is not defined before Python 2.7
+  4088  7.3.584  PyCObject is not always defined
+  1696  7.3.585  calling changed_bytes() too often
+  3055  7.3.586  MEMORYSTATUSEX not defined when compiling with Cygwin or MingW
+  2248  7.3.587  compiler warning for local var shadowing global var
+  2464  7.3.588  crash on NULL pointer
+  1974  7.3.589  crash when $HOME is not set
+  1804  7.3.590  the '< and '> marks cannot be set directly
+  5247  7.3.591  can only move to a tab by absolute number
+  3343  7.3.592  Vim on GTK does not support g:browsefilter
+  2237  7.3.593  no easy way to decide if b:browsefilter will work
+  4873  7.3.594  the X command server sends an empty reply for as-keys requests
+  3921  7.3.595  the X command server responds slowly
+  4967  7.3.596  can't remove all signs for a file or buffer
+ 21669  7.3.597  'clipboard' "autoselect" only applies to the * register
+  2635  7.3.598  cannot act upon end of insert mode completion
+  3042  7.3.599  (after 7.3.597) missing change in one file
+  1572  7.3.600  <f-args> is not expanded properly with DBCS encoding
+  1492  7.3.601  bad code style
+  1532  7.3.602  missing files in distribution
+ 11248  7.3.603  it is possible to add or replace builtin functions
+  1861  7.3.604  inputdialog() doesn't use the cancel argument in the console

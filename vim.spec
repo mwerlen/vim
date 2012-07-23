@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 515
+%define patchlevel 604
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -571,6 +571,95 @@ Patch512: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.512
 Patch513: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.513
 Patch514: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.514
 Patch515: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.515
+Patch516: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.516
+Patch517: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.517
+Patch518: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.518
+Patch519: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.519
+Patch520: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.520
+Patch521: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.521
+Patch522: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.522
+Patch523: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.523
+Patch524: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.524
+Patch525: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.525
+Patch526: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.526
+Patch527: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.527
+Patch528: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.528
+Patch529: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.529
+Patch530: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.530
+Patch531: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.531
+Patch532: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.532
+Patch533: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.533
+Patch534: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.534
+Patch535: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.535
+Patch536: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.536
+Patch537: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.537
+Patch538: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.538
+Patch539: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.539
+Patch540: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.540
+Patch541: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.541
+Patch542: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.542
+Patch543: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.543
+Patch544: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.544
+Patch545: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.545
+Patch546: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.546
+Patch547: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.547
+Patch548: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.548
+Patch549: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.549
+Patch550: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.550
+Patch551: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.551
+Patch552: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.552
+Patch553: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.553
+Patch554: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.554
+Patch555: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.555
+Patch556: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.556
+Patch557: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.557
+Patch558: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.558
+Patch559: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.559
+Patch560: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.560
+Patch561: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.561
+Patch562: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.562
+Patch563: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.563
+Patch564: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.564
+Patch565: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.565
+Patch566: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.566
+Patch567: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.567
+Patch568: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.568
+Patch569: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.569
+Patch570: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.570
+Patch571: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.571
+Patch572: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.572
+Patch573: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.573
+Patch574: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.574
+Patch575: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.575
+Patch576: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.576
+Patch577: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.577
+Patch578: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.578
+Patch579: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.579
+Patch580: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.580
+Patch581: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.581
+Patch582: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.582
+Patch583: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.583
+Patch584: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.584
+Patch585: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.585
+Patch586: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.586
+Patch587: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.587
+Patch588: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.588
+Patch589: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.589
+Patch590: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.590
+Patch591: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.591
+Patch592: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.592
+Patch593: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.593
+Patch594: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.594
+Patch595: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.595
+Patch596: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.596
+Patch597: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.597
+Patch598: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.598
+Patch599: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.599
+Patch600: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.600
+Patch601: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.601
+Patch602: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.602
+Patch603: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.603
+Patch604: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.604
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1232,6 +1321,95 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch513 -p0
 %patch514 -p0
 %patch515 -p0
+%patch516 -p0
+%patch517 -p0
+%patch518 -p0
+%patch519 -p0
+%patch520 -p0
+%patch521 -p0
+%patch522 -p0
+%patch523 -p0
+%patch524 -p0
+%patch525 -p0
+%patch526 -p0
+%patch527 -p0
+%patch528 -p0
+%patch529 -p0
+%patch530 -p0
+%patch531 -p0
+%patch532 -p0
+%patch533 -p0
+%patch534 -p0
+%patch535 -p0
+%patch536 -p0
+%patch537 -p0
+%patch538 -p0
+%patch539 -p0
+%patch540 -p0
+%patch541 -p0
+%patch542 -p0
+%patch543 -p0
+%patch544 -p0
+%patch545 -p0
+%patch546 -p0
+%patch547 -p0
+%patch548 -p0
+%patch549 -p0
+%patch550 -p0
+%patch551 -p0
+%patch552 -p0
+%patch553 -p0
+%patch554 -p0
+%patch555 -p0
+%patch556 -p0
+%patch557 -p0
+%patch558 -p0
+%patch559 -p0
+%patch560 -p0
+%patch561 -p0
+%patch562 -p0
+%patch563 -p0
+%patch564 -p0
+%patch565 -p0
+%patch566 -p0
+%patch567 -p0
+%patch568 -p0
+%patch569 -p0
+%patch570 -p0
+%patch571 -p0
+%patch572 -p0
+%patch573 -p0
+%patch574 -p0
+%patch575 -p0
+%patch576 -p0
+%patch577 -p0
+%patch578 -p0
+%patch579 -p0
+%patch580 -p0
+%patch581 -p0
+%patch582 -p0
+%patch583 -p0
+%patch584 -p0
+%patch585 -p0
+%patch586 -p0
+%patch587 -p0
+%patch588 -p0
+%patch589 -p0
+%patch590 -p0
+%patch591 -p0
+%patch592 -p0
+%patch593 -p0
+%patch594 -p0
+%patch595 -p0
+%patch596 -p0
+%patch597 -p0
+%patch598 -p0
+%patch599 -p0
+%patch600 -p0
+%patch601 -p0
+%patch602 -p0
+%patch603 -p0
+%patch604 -p0
 
 
 # install spell files
@@ -1688,8 +1866,32 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue May 29 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-2
-- fix spec template
+* Wed Jul 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
+- patchlevel 604
+
+* Wed Jul 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.594-2
+- Perl 5.16 rebuild
+
+* Tue Jul 10 2012 Karsten Hopp <karsten@redhat.com> 7.3.594-1
+- patchlevel 594
+
+* Tue Jul 10 2012 Karsten Hopp <karsten@redhat.com> 7.3.592-1
+- patchlevel 592
+
+* Mon Jul 09 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.584-2
+- Perl 5.16 rebuild
+
+* Mon Jul 02 2012 Karsten Hopp <karsten@redhat.com> 7.3.584-1
+- patchlevel 584
+
+* Thu Jun 28 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.556-2
+- Perl 5.16 rebuild
+
+* Mon Jun 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.556-1
+- patchlevel 556
+
+* Mon Jun 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.515-2
+- Perl 5.16 rebuild
 
 * Mon May 21 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
 - enable highlighting for older log files (#816848)
