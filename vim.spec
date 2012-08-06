@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 604
+%define patchlevel 622
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -660,6 +660,24 @@ Patch601: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.601
 Patch602: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.602
 Patch603: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.603
 Patch604: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.604
+Patch605: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.605
+Patch606: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.606
+Patch607: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.607
+Patch608: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.608
+Patch609: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.609
+Patch610: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.610
+Patch611: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.611
+Patch612: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.612
+Patch613: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.613
+Patch614: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.614
+Patch615: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.615
+Patch616: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.616
+Patch617: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.617
+Patch618: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.618
+Patch619: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.619
+Patch620: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.620
+Patch621: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.621
+Patch622: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.622
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1409,6 +1427,24 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch602 -p0
 %patch603 -p0
 %patch604 -p0
+%patch605 -p0
+%patch606 -p0
+%patch607 -p0
+%patch608 -p0
+%patch609 -p0
+%patch610 -p0
+%patch611 -p0
+%patch612 -p0
+%patch613 -p0
+%patch614 -p0
+%patch615 -p0
+%patch616 -p0
+%patch617 -p0
+%patch618 -p0
+%patch619 -p0
+%patch620 -p0
+%patch621 -p0
+%patch622 -p0
 
 
 # install spell files
@@ -1863,6 +1899,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.622-1
+- patchlevel 622
+
 * Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
 - drop vim-6.1-rh3.patch, (bz #754801)
 

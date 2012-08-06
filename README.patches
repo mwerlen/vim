@@ -635,3 +635,21 @@ Individual patches for Vim 7.3:
   1532  7.3.602  missing files in distribution
  11248  7.3.603  it is possible to add or replace builtin functions
   1861  7.3.604  inputdialog() doesn't use the cancel argument in the console
+  2334  7.3.605  MS-Windows: Can't compile with older compilers
+  2522  7.3.606  CTRL-P completion has a problem with multi-byte characters
+  2139  7.3.607  with 8 color terminal selected menu item is black on black
+  3847  7.3.608  winrestview() does not always restore the view correctly
+  5843  7.3.609  file names in :checkpath! output are garbled
+ 12106  7.3.610  cannot operate on the text that a search pattern matches
+  1895  7.3.611  can't use Vim dictionary as self argument in Python
+  2081  7.3.612  auto formatting messes up text when 'fo' contains "2"
+  6886  7.3.613  including Python's config.c in the build causes trouble
+  5747  7.3.614  number arg gets turned into number while it should be string
+  2915  7.3.615  completion does not recognized escaped spaces
+  1289  7.3.616  (after 7.3.610) can't compile without +visual
+  1781  7.3.617  (after 7.3.615) hang on completion
+ 10033  7.3.618  (after 7.3.616) still doesn't compile with small features
+  1583  7.3.619  when executing a shell command Vim may become slow to respond
+  4897  7.3.620  building with recent Ruby on Win32 doesn't work
+  2259  7.3.621  compiler warnings on 64 bit windows
+  1867  7.3.622  XPM library for Win32 can't be found
