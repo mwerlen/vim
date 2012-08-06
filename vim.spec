@@ -663,15 +663,14 @@ Patch604: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.604
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
-Patch3003: vim-6.1-rh3.patch
-Patch3004: vim-7.0-rclocation.patch
-Patch3006: vim-6.4-checkhl.patch
-Patch3007: vim-7.3-fstabsyntax.patch
-Patch3008: vim-7.0-warning.patch
-Patch3009: vim-7.0-syncolor.patch
-Patch3010: vim-7.0-specedit.patch
-Patch3011: vim72-rh514717.patch
-Patch3012: vim-7.3-bug816848.patch
+Patch3003: vim-7.0-rclocation.patch
+Patch3004: vim-6.4-checkhl.patch
+Patch3005: vim-7.3-fstabsyntax.patch
+Patch3006: vim-7.0-warning.patch
+Patch3007: vim-7.0-syncolor.patch
+Patch3008: vim-7.0-specedit.patch
+Patch3009: vim72-rh514717.patch
+Patch3010: vim-7.3-bug816848.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1421,14 +1420,12 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3002 -p1
 %patch3003 -p1
 %patch3004 -p1
-
+%patch3005 -p1
 %patch3006 -p1
 %patch3007 -p1
 %patch3008 -p1
 %patch3009 -p1
 %patch3010 -p1
-%patch3011 -p1
-%patch3012 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1866,6 +1863,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
+- drop vim-6.1-rh3.patch, (bz #754801)
+
 * Wed Jul 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
 - patchlevel 604
 
