@@ -1,0 +1,18 @@
+42a43
+> 		let epoch = ""
+46a48
+> 		let epochline = -1
+53a56,58
+> 			elseif (epoch == "" && linestr =~? '^Epoch:')
+> 				let epochline = line
+> 				let epoch = substitute(strpart(linestr,6), '^[	 ]*\([^ 	]\+\)[		]*$','\1','')
+69a75
+> 			let epoch = s:ParseRpmVars(epoch, epochline)
+92c98,102
+< 			let release_info = ver."-".rel
+---
+> 			if (epoch == "")
+> 				let release_info = ver."-".rel
+> 			else
+> 				let release_info = epoch.":".ver."-".rel
+> 			endif

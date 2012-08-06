@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -689,6 +689,7 @@ Patch3007: vim-7.0-syncolor.patch
 Patch3008: vim-7.0-specedit.patch
 Patch3009: vim72-rh514717.patch
 Patch3010: vim-7.3-bug816848.patch
+Patch3011: vim-7.3-spec-epoch.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1462,6 +1463,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3008 -p1
 %patch3009 -p1
 %patch3010 -p1
+%patch3011 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1899,6 +1901,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 2:7.3.622-2
+- add epoch to spec.vim and automatic changelog entries
+
 * Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.622-1
 - patchlevel 622
 
