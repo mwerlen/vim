@@ -1490,7 +1490,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3002 -p1
 %patch3003 -p1
 %patch3004 -p1
-%patch3005 -p1
 %patch3006 -p1
 %patch3007 -p1
 %patch3008 -p1
