@@ -653,3 +653,22 @@ Individual patches for Vim 7.3:
   4897  7.3.620  building with recent Ruby on Win32 doesn't work
   2259  7.3.621  compiler warnings on 64 bit windows
   1867  7.3.622  XPM library for Win32 can't be found
+<<<<<<< HEAD
+=======
+  2426  7.3.623  Perl 5.14 commands crash Vim on MS-Windows
+  1800  7.3.624  when cancelling input() it returns the third argument
+  4327  7.3.625  "gn" does not handle zero-width matches correctly
+  1500  7.3.626  Python interface doesn't build with Python 2.4 or older
+  2803  7.3.627  expression not evaluated when using "n" flag with ":s"
+  1802  7.3.628  ":open!" results in a confusing error message
+ 12019  7.3.629  there is no way to make 'shiftwidth' follow 'tabstop'
+  1487  7.3.630  "|" does not behave correctly when 'virtualedit' is set
+ 10100  7.3.631  cannot complete user names
+ 14770  7.3.632  cannot select beyond 222 columns with the mouse in xterm
+  2238  7.3.633  selection remains highlighted after selecting another text
+  1884  7.3.634  Month/Day format for undo is confusing
+  1586  7.3.635  system call during startup sets 'lines' to a wrong value
+  4539  7.3.636  (after 7.3.625) "gn" fails for some zero-width matches
+  3117  7.3.637  cannot catch error caused by a foldopen when there is no fold
+  1783  7.3.638  unecessary redraw of the previous character
+>>>>>>> c8d55a4ffc9503371b9738188e056eba33134f47

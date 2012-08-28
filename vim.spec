@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 622
+%define patchlevel 638
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -678,18 +678,35 @@ Patch619: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.619
 Patch620: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.620
 Patch621: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.621
 Patch622: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.622
+Patch623: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.623
+Patch624: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.624
+Patch625: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.625
+Patch626: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.626
+Patch627: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.627
+Patch628: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.628
+Patch629: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.629
+Patch630: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.630
+Patch631: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.631
+Patch632: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.632
+Patch633: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.633
+Patch634: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.634
+Patch635: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.635
+Patch636: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.636
+Patch637: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.637
+Patch638: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.638
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
-Patch3003: vim-7.0-rclocation.patch
-Patch3004: vim-6.4-checkhl.patch
-Patch3005: vim-7.3-fstabsyntax.patch
-Patch3006: vim-7.0-warning.patch
-Patch3007: vim-7.0-syncolor.patch
-Patch3008: vim-7.0-specedit.patch
-Patch3009: vim72-rh514717.patch
-Patch3010: vim-7.3-bug816848.patch
-Patch3011: vim-7.3-spec-epoch.patch
+Patch3003: vim-6.1-rh3.patch
+Patch3004: vim-7.0-rclocation.patch
+Patch3006: vim-6.4-checkhl.patch
+Patch3007: vim-7.3-fstabsyntax.patch
+Patch3008: vim-7.0-warning.patch
+Patch3009: vim-7.0-syncolor.patch
+Patch3010: vim-7.0-specedit.patch
+Patch3011: vim72-rh514717.patch
+Patch3012: vim-7.3-bug816848.patch
+Patch3013: vim-7.3-manpage-typo-668894-675480.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1446,6 +1463,22 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch620 -p0
 %patch621 -p0
 %patch622 -p0
+%patch623 -p0
+%patch624 -p0
+%patch625 -p0
+%patch626 -p0
+%patch627 -p0
+%patch628 -p0
+%patch629 -p0
+%patch630 -p0
+%patch631 -p0
+%patch632 -p0
+%patch633 -p0
+%patch634 -p0
+%patch635 -p0
+%patch636 -p0
+%patch637 -p0
+%patch638 -p0
 
 
 # install spell files
@@ -1464,6 +1497,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
+%patch3012 -p1
+%patch3013 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1699,6 +1734,7 @@ done
 for i in rvim.1 gvim.1 gvimdiff.1; do 
   echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
 done
+touch $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
@@ -1871,6 +1907,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/vimfiles/colors
 %dir %{_datadir}/%{name}/vimfiles/compiler
 %dir %{_datadir}/%{name}/vimfiles/doc
+%ghost %{_datadir}/%{name}/vimfiles/doc/tags
 %dir %{_datadir}/%{name}/vimfiles/ftdetect
 %dir %{_datadir}/%{name}/vimfiles/ftplugin
 %dir %{_datadir}/%{name}/vimfiles/indent
@@ -1901,6 +1938,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
+- fix some man page typos (#668894, #675480)
+- own usr/share/vim/vimfiles/doc/tags (#845564)
+- add path to csope database (#844843)
+
+* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-1
+- patchlevel 638
+
 * Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 2:7.3.622-2
 - add epoch to spec.vim and automatic changelog entries
 
