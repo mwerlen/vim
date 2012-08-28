@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -706,6 +706,7 @@ Patch3009: vim-7.0-syncolor.patch
 Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-bug816848.patch
+Patch3013: vim-7.3-manpage-typo-668894-675480.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1497,6 +1498,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
+%patch3013 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1732,6 +1734,7 @@ done
 for i in rvim.1 gvim.1 gvimdiff.1; do 
   echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
 done
+touch $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
@@ -1904,6 +1907,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/vimfiles/colors
 %dir %{_datadir}/%{name}/vimfiles/compiler
 %dir %{_datadir}/%{name}/vimfiles/doc
+%ghost %{_datadir}/%{name}/vimfiles/doc/tags
 %dir %{_datadir}/%{name}/vimfiles/ftdetect
 %dir %{_datadir}/%{name}/vimfiles/ftplugin
 %dir %{_datadir}/%{name}/vimfiles/indent
@@ -1934,6 +1938,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
+- fix some man page typos (#668894, #675480)
+- own usr/share/vim/vimfiles/doc/tags (#845564)
+- add path to csope database (#844843)
+
 * Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-1
 - patchlevel 638
 
