@@ -653,8 +653,6 @@ Individual patches for Vim 7.3:
   4897  7.3.620  building with recent Ruby on Win32 doesn't work
   2259  7.3.621  compiler warnings on 64 bit windows
   1867  7.3.622  XPM library for Win32 can't be found
-<<<<<<< HEAD
-=======
   2426  7.3.623  Perl 5.14 commands crash Vim on MS-Windows
   1800  7.3.624  when cancelling input() it returns the third argument
   4327  7.3.625  "gn" does not handle zero-width matches correctly
@@ -671,4 +669,3 @@ Individual patches for Vim 7.3:
   4539  7.3.636  (after 7.3.625) "gn" fails for some zero-width matches
   3117  7.3.637  cannot catch error caused by a foldopen when there is no fold
   1783  7.3.638  unecessary redraw of the previous character
->>>>>>> c8d55a4ffc9503371b9738188e056eba33134f47
