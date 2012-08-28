@@ -697,7 +697,6 @@ Patch638: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.638
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
-Patch3003: vim-6.1-rh3.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-6.4-checkhl.patch
 Patch3007: vim-7.3-fstabsyntax.patch
@@ -1488,7 +1487,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %patch3000 -p1
 %patch3002 -p1
-%patch3003 -p1
 %patch3004 -p1
 %patch3006 -p1
 %patch3007 -p1
