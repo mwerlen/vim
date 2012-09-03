@@ -36,7 +36,7 @@ if has("cscope") && filereadable("/usr/bin/cscope")
    set nocsverb
    " add any database in current directory
    if filereadable("cscope.out")
-      cs add cscope.out
+      cs add $PWD/cscope.out
    " else add database pointed to by environment
    elseif $CSCOPE_DB != ""
       cs add $CSCOPE_DB
