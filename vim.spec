@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 638
+%define patchlevel 646
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -694,6 +694,14 @@ Patch635: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.635
 Patch636: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.636
 Patch637: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.637
 Patch638: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.638
+Patch639: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.639
+Patch640: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.640
+Patch641: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.641
+Patch642: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.642
+Patch643: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.643
+Patch644: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.644
+Patch645: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.645
+Patch646: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.646
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1478,6 +1486,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch636 -p0
 %patch637 -p0
 %patch638 -p0
+%patch639 -p0
+%patch640 -p0
+%patch641 -p0
+%patch642 -p0
+%patch643 -p0
+%patch644 -p0
+%patch645 -p0
+%patch646 -p0
 
 
 # install spell files
@@ -1935,6 +1951,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Sep 03 2012 Karsten Hopp <karsten@redhat.com> 7.3.646-1
+- patchlevel 646
+
 * Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
 - fix some man page typos (#668894, #675480)
 - own usr/share/vim/vimfiles/doc/tags (#845564)

@@ -669,3 +669,11 @@ Individual patches for Vim 7.3:
   4539  7.3.636  (after 7.3.625) "gn" fails for some zero-width matches
   3117  7.3.637  cannot catch error caused by a foldopen when there is no fold
   1783  7.3.638  unecessary redraw of the previous character
+ 31440  7.3.639  it's not easy to build Vim on Windows with XPM support
+455297  7.3.640  binary files for 7.3.639
+  2219  7.3.641  ":mkview" uses ":normal" instead of ":normal!" for folds
+  1810  7.3.642  segfault with specific autocommands
+  2060  7.3.643  MS-Windows: 'lines' is wrong when starting up maximized
+  1925  7.3.644  dead code for BeOS GUI
+  2910  7.3.645  no tests for patch 7.3.625 and 7.3.637
+  2353  7.3.646  undo file unusable after reloading a buffer
