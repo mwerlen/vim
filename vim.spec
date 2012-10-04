@@ -1596,7 +1596,9 @@ mv -f Makefile.tmp Makefile
 export CFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
-%configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
+%configure --with-features=huge \
+  --enable-pythoninterp=dynamic \
+  --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
@@ -1614,7 +1616,7 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
   --disable-selinux \
 %endif
 %if "%{withruby}" == "1"
-  --enable-rubyinterp \
+  --enable-rubyinterp=dynamic \
 %else
   --disable-rubyinterp \
 %endif
@@ -1623,8 +1625,11 @@ make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim gvim
 make clean
 
-%configure --prefix=%{_prefix} --with-features=huge --enable-pythoninterp \
- --enable-perlinterp --disable-tclinterp --with-x=no \
+%configure --prefix=%{_prefix} --with-features=huge \
+ --enable-pythoninterp=dynamic \
+ --enable-perlinterp \
+ --disable-tclinterp \
+ --with-x=no \
  --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
  --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
  --with-tlib=ncurses \
@@ -1640,7 +1645,7 @@ make clean
   --disable-selinux \
 %endif
 %if "%{withruby}" == "1"
-  --enable-rubyinterp \
+  --enable-rubyinterp=dynamic \
 %else
   --disable-rubyinterp \
 %endif
@@ -2025,6 +2030,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
 - patchlevel 682
+- use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic
 
 * Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
 - fix some man page typos (#668894, #675480)
