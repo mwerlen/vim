@@ -669,3 +669,47 @@ Individual patches for Vim 7.3:
   4539  7.3.636  (after 7.3.625) "gn" fails for some zero-width matches
   3117  7.3.637  cannot catch error caused by a foldopen when there is no fold
   1783  7.3.638  unecessary redraw of the previous character
+ 31440  7.3.639  it's not easy to build Vim on Windows with XPM support
+455297  7.3.640  binary files for 7.3.639
+  2219  7.3.641  ":mkview" uses ":normal" instead of ":normal!" for folds
+  1810  7.3.642  segfault with specific autocommands
+  2060  7.3.643  MS-Windows: 'lines' is wrong when starting up maximized
+  1925  7.3.644  dead code for BeOS GUI
+  2910  7.3.645  no tests for patch 7.3.625 and 7.3.637
+  2353  7.3.646  undo file unusable after reloading a buffer
+  5213  7.3.647  "gnd" doesn't work correctly in Visual mode
+  3831  7.3.648  crash when using a very long file name
+  2256  7.3.649  with 'clipboard' set to "unnamed" small deletes go to "1
+  1679  7.3.650  Completing ":help \{-" gives error and messes up command line
+  3120  7.3.651  Completing ":help \{-" gives error message
+  2304  7.3.652  workaround for Python crash isn't perfect
+  7986  7.3.653  lacking XPM support for MingW, 32 and 64 objects mixed up
+  3301  7.3.654  creating Vim dictionary from Python an empty key might be used
+ 88812  7.3.655  64 bit MingW xpm .a file is missing
+  3106  7.3.656  internal error in :pyeval
+  6680  7.3.657  Python bindings silently truncate string values containing NUL
+  4244  7.3.658  NUL bytes truncate strings when converted from Python
+  6242  7.3.659  recent Python changes are not tested
+  1448  7.3.660  ":help !" jumps to help for ":!"
+  5339  7.3.661  (after 7.3.652) SEGV in Python code
+  3126  7.3.662  can't build Ruby interface with Ruby 1.9.3
+  1498  7.3.663  end of color scheme name not clear in E185
+  2171  7.3.664  buffer overflow in unescaping multi-byte characters
+  2414  7.3.665  MSVC 11 is not supported
+  3195  7.3.666  Win32.mak can't be found
+  3213  7.3.667  unused variables in Perl interface
+  2763  7.3.668  loading Perl dynamically still uses static library
+  4757  7.3.669  when building with Cygwin loading Python dynamically fails
+  2318  7.3.670  tiny memory leak when throwing exception in Python
+  8213  7.3.671  more Python code can be shared between Python 2 and 3
+ 22436  7.3.672  not possible to lock/unlock lists in Python interface
+  1967  7.3.673  "gN" while 'selection' is "exclusive" misses one character
+ 10873  7.3.674  can't compile with Lua/dyn on Cygwin
+  1597  7.3.675  accessing uninitialized memory with a very long file name
+  2721  7.3.676  Ruby compilation on Windows 32 bit doesn't work
+  8428  7.3.677  buf_spname() is used inconsistently
+  2887  7.3.678  Ruby .so name may not be correct
+ 11455  7.3.679  Ruby detection uses Config, newer Ruby versions use RbConfig
+  2190  7.3.680  some files missing in the list of distributed files
+  2014  7.3.681  list of distributed files picks up backup files
+  1791  7.3.682  (after 7.3.677) compiler complains about incompatible types
