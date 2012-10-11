@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 638
+%define patchlevel 682
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -694,6 +694,50 @@ Patch635: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.635
 Patch636: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.636
 Patch637: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.637
 Patch638: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.638
+Patch639: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.639
+Patch640: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.640
+Patch641: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.641
+Patch642: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.642
+Patch643: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.643
+Patch644: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.644
+Patch645: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.645
+Patch646: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.646
+Patch647: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.647
+Patch648: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.648
+Patch649: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.649
+Patch650: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.650
+Patch651: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.651
+Patch652: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.652
+Patch653: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.653
+Patch654: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.654
+Patch655: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.655
+Patch656: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.656
+Patch657: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.657
+Patch658: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.658
+Patch659: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.659
+Patch660: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.660
+Patch661: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.661
+Patch662: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.662
+Patch663: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.663
+Patch664: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.664
+Patch665: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.665
+Patch666: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.666
+Patch667: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.667
+Patch668: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.668
+Patch669: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.669
+Patch670: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.670
+Patch671: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.671
+Patch672: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.672
+Patch673: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.673
+Patch674: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.674
+Patch675: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.675
+Patch676: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.676
+Patch677: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.677
+Patch678: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.678
+Patch679: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.679
+Patch680: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.680
+Patch681: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.681
+Patch682: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.682
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1478,6 +1522,50 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch636 -p0
 %patch637 -p0
 %patch638 -p0
+%patch639 -p0
+%patch640 -p0
+%patch641 -p0
+%patch642 -p0
+%patch643 -p0
+%patch644 -p0
+%patch645 -p0
+%patch646 -p0
+%patch647 -p0
+%patch648 -p0
+%patch649 -p0
+%patch650 -p0
+%patch651 -p0
+%patch652 -p0
+%patch653 -p0
+%patch654 -p0
+%patch655 -p0
+%patch656 -p0
+%patch657 -p0
+%patch658 -p0
+%patch659 -p0
+%patch660 -p0
+%patch661 -p0
+%patch662 -p0
+%patch663 -p0
+%patch664 -p0
+%patch665 -p0
+%patch666 -p0
+%patch667 -p0
+%patch668 -p0
+%patch669 -p0
+%patch670 -p0
+%patch671 -p0
+%patch672 -p0
+%patch673 -p0
+%patch674 -p0
+%patch675 -p0
+%patch676 -p0
+%patch677 -p0
+%patch678 -p0
+%patch679 -p0
+%patch680 -p0
+%patch681 -p0
+%patch682 -p0
 
 
 # install spell files
@@ -1508,7 +1596,9 @@ mv -f Makefile.tmp Makefile
 export CFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
-%configure --with-features=huge --enable-pythoninterp --enable-perlinterp \
+%configure --with-features=huge \
+  --enable-pythoninterp=dynamic \
+  --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
@@ -1526,7 +1616,7 @@ export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_
   --disable-selinux \
 %endif
 %if "%{withruby}" == "1"
-  --enable-rubyinterp \
+  --enable-rubyinterp=dynamic \
 %else
   --disable-rubyinterp \
 %endif
@@ -1535,8 +1625,11 @@ make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim gvim
 make clean
 
-%configure --prefix=%{_prefix} --with-features=huge --enable-pythoninterp \
- --enable-perlinterp --disable-tclinterp --with-x=no \
+%configure --prefix=%{_prefix} --with-features=huge \
+ --enable-pythoninterp=dynamic \
+ --enable-perlinterp \
+ --disable-tclinterp \
+ --with-x=no \
  --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
  --enable-cscope --with-modified-by="<bugzilla@redhat.com>" \
  --with-tlib=ncurses \
@@ -1552,7 +1645,7 @@ make clean
   --disable-selinux \
 %endif
 %if "%{withruby}" == "1"
-  --enable-rubyinterp \
+  --enable-rubyinterp=dynamic \
 %else
   --disable-rubyinterp \
 %endif
@@ -1935,6 +2028,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
+- patchlevel 682
+- use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic
+
 * Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
 - fix some man page typos (#668894, #675480)
 - own usr/share/vim/vimfiles/doc/tags (#845564)
