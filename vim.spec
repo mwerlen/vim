@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 682
+%define patchlevel 691
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -738,6 +738,15 @@ Patch679: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.679
 Patch680: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.680
 Patch681: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.681
 Patch682: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.682
+Patch683: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.683
+Patch684: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.684
+Patch685: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.685
+Patch686: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.686
+Patch687: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.687
+Patch688: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.688
+Patch689: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.689
+Patch690: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.690
+Patch691: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.691
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1566,6 +1575,15 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch680 -p0
 %patch681 -p0
 %patch682 -p0
+%patch683 -p0
+%patch684 -p0
+%patch685 -p0
+%patch686 -p0
+%patch687 -p0
+%patch688 -p0
+%patch689 -p0
+%patch690 -p0
+%patch691 -p0
 
 
 # install spell files
@@ -2028,6 +2046,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Oct 15 2012 Karsten Hopp <karsten@redhat.com> 7.3.691-1
+- patchlevel 691
+
 * Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
 - patchlevel 682
 - use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic

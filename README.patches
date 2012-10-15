@@ -713,3 +713,12 @@ Individual patches for Vim 7.3:
   2190  7.3.680  some files missing in the list of distributed files
   2014  7.3.681  list of distributed files picks up backup files
   1791  7.3.682  (after 7.3.677) compiler complains about incompatible types
+  2578  7.3.683  ":python" may crash when vimbindeval() returns None
+  4714  7.3.684  "make test" does not delete lua.vim
+  1827  7.3.685  no test for what patch 7.3.673 fixes
+  2226  7.3.686  cannot use CTRL-\ e mapping when entering an expression
+  1386  7.3.687  test 16 fails when $DISPLAY is not set
+  5283  7.3.688  Python 3.3 is not supported
+  2266  7.3.689  MzScheme and Lua may use a NULL string
+  1806  7.3.690  crash with directory name equal to maximum path length
+  1910  7.3.691  state specific to the Python thread is discarded
