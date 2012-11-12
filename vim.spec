@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 682
+%define patchlevel 712
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -738,6 +738,36 @@ Patch679: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.679
 Patch680: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.680
 Patch681: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.681
 Patch682: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.682
+Patch683: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.683
+Patch684: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.684
+Patch685: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.685
+Patch686: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.686
+Patch687: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.687
+Patch688: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.688
+Patch689: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.689
+Patch690: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.690
+Patch691: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.691
+Patch692: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.692
+Patch693: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.693
+Patch694: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.694
+Patch695: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.695
+Patch696: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.696
+Patch697: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.697
+Patch698: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.698
+Patch699: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.699
+Patch700: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.700
+Patch701: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.701
+Patch702: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.702
+Patch703: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.703
+Patch704: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.704
+Patch705: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.705
+Patch706: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.706
+Patch707: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.707
+Patch708: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.708
+Patch709: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.709
+Patch710: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.710
+Patch711: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.711
+Patch712: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.712
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1564,6 +1594,36 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch680 -p0
 %patch681 -p0
 %patch682 -p0
+%patch683 -p0
+%patch684 -p0
+%patch685 -p0
+%patch686 -p0
+%patch687 -p0
+%patch688 -p0
+%patch689 -p0
+%patch690 -p0
+%patch691 -p0
+%patch692 -p0
+%patch693 -p0
+%patch694 -p0
+%patch695 -p0
+%patch696 -p0
+%patch697 -p0
+%patch698 -p0
+%patch699 -p0
+%patch700 -p0
+%patch701 -p0
+%patch702 -p0
+%patch703 -p0
+%patch704 -p0
+%patch705 -p0
+%patch706 -p0
+%patch707 -p0
+%patch708 -p0
+%patch709 -p0
+%patch710 -p0
+%patch711 -p0
+%patch712 -p0
 
 
 # install spell files
@@ -1779,8 +1839,11 @@ if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
 fi
 EOF
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
-[ -x /%{_bindir}/id ] || exit
-[ \`/%{_bindir}/id -u\` -gt 200 ] && alias vi vim
+if ( -x /usr/bin/id ) then
+    if ( "\`/usr/bin/id -u\`" > 100 ) then
+        alias vi vim
+    endif
+endif
 EOF
 chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
@@ -2033,8 +2096,62 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Wed May 23 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-2
-- add back /bin/vi (bz #822314, #823090, #823021)
+* Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-1
+- patchlevel 712
+
+* Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-2
+- fix vim.csh syntax
+
+* Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
+- patchlevel 682
+- use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic
+
+* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
+- fix some man page typos (#668894, #675480)
+- own usr/share/vim/vimfiles/doc/tags (#845564)
+- add path to csope database (#844843)
+
+* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-1
+- patchlevel 638
+
+* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 2:7.3.622-2
+- add epoch to spec.vim and automatic changelog entries
+
+* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.622-1
+- patchlevel 622
+
+* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
+- drop vim-6.1-rh3.patch, (bz #754801)
+
+* Wed Jul 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
+- patchlevel 604
+
+* Wed Jul 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.594-2
+- Perl 5.16 rebuild
+
+* Tue Jul 10 2012 Karsten Hopp <karsten@redhat.com> 7.3.594-1
+- patchlevel 594
+
+* Tue Jul 10 2012 Karsten Hopp <karsten@redhat.com> 7.3.592-1
+- patchlevel 592
+
+* Mon Jul 09 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.584-2
+- Perl 5.16 rebuild
+
+* Mon Jul 02 2012 Karsten Hopp <karsten@redhat.com> 7.3.584-1
+- patchlevel 584
+
+* Thu Jun 28 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.556-2
+- Perl 5.16 rebuild
+
+* Mon Jun 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.556-1
+- patchlevel 556
+
+* Mon Jun 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.515-2
+- Perl 5.16 rebuild
+
+* Mon May 21 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
+- enable highlighting for older log files (#816848)
 
 * Tue May 08 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
 - patchlevel 515

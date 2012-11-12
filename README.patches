@@ -713,3 +713,33 @@ Individual patches for Vim 7.3:
   2190  7.3.680  some files missing in the list of distributed files
   2014  7.3.681  list of distributed files picks up backup files
   1791  7.3.682  (after 7.3.677) compiler complains about incompatible types
+  2578  7.3.683  ":python" may crash when vimbindeval() returns None
+  4714  7.3.684  "make test" does not delete lua.vim
+  1827  7.3.685  no test for what patch 7.3.673 fixes
+  2226  7.3.686  cannot use CTRL-\ e mapping when entering an expression
+  1386  7.3.687  test 16 fails when $DISPLAY is not set
+  5283  7.3.688  Python 3.3 is not supported
+  2266  7.3.689  MzScheme and Lua may use a NULL string
+  1806  7.3.690  crash with directory name equal to maximum path length
+  1910  7.3.691  state specific to the Python thread is discarded
+  1598  7.3.692  can't build GTK version with GTK 2.0
+  5071  7.3.693  can't make 'softtabstop' follow 'shiftwidth'
+  4631  7.3.694  'shiftwidth' is not so easy to use in indent files
+  3710  7.3.695  balloon cannot show multi-byte text
+  2994  7.3.696  message about added spell language can be wrong
+  6108  7.3.697  leaking resources when setting GUI font
+  2742  7.3.698  Python 3 does not preserve state beween commands
+  2522  7.3.699  manually set 'ttymouse' is overruled by automatic detection
+  2214  7.3.700  cannot detect URXVT and SGR mouse support
+  2616  7.3.701  MS-Windows: Crash with stack overflow when setting 'encoding'
+  1352  7.3.702  nmake from VS6 service pack 6 is not recognized
+  3326  7.3.703  when 'undofile' is reset the hash is computed unnecessarily
+  2906  7.3.704  repeating "cgn" does not always work correctly
+  2581  7.3.705  mouse features are not in alphabetical order
+  1638  7.3.706  (after 7.3.697) can't build Motif version
+  4088  7.3.707  (after 7.3.701) library name with non-latin characters fails
+  3001  7.3.708  filler lines above the first line may be hidden
+  1513  7.3.709  compiler warning for unused argument
+  1685  7.3.710  (after 7.3.704) "fn" is broken
+  7579  7.3.711  (after 7.3.688) vim.current.buffer is not available
+  1474  7.3.712  nmake from VS2010 SP1 is not recognized

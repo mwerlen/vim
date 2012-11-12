@@ -2,7 +2,7 @@
 debug=""
 #debug="echo"
 
-cd $HOME/src/fedora/rpms/vim/master/
+cd `dirname $0`
 LANG=C
 SPEC=vim.spec
 
