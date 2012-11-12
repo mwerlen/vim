@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -767,7 +767,6 @@ Requires: desktop-file-utils
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 2
-Conflicts: filesystem < 3
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -807,7 +806,6 @@ many different languages.
 Summary: A minimal version of the VIM editor
 Group: Applications/Editors
 Provides: vi = %{version}-%{release}
-Provides: /bin/vi
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -1673,6 +1671,7 @@ make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
@@ -1688,12 +1687,12 @@ rm -f README*.info
 
 
 cd src
-make install DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
-make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+make install DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
+mv $RPM_BUILD_ROOT/bin/gvimtutor $RPM_BUILD_ROOT/%{_bindir}/gvimtutor
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -m755 vim $RPM_BUILD_ROOT%{_bindir}/vi
-install -m755 enhanced-vim $RPM_BUILD_ROOT%{_bindir}/vim
-install -m755 gvim $RPM_BUILD_ROOT%{_bindir}/gvim
+install -m755 gvim $RPM_BUILD_ROOT/%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
 install -p -m644 %{SOURCE8} \
@@ -1702,12 +1701,17 @@ install -p -m644 %{SOURCE9} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
 install -p -m644 %{SOURCE10} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
+install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
 
 ( cd $RPM_BUILD_ROOT
-  ln -sf vi ./%{_bindir}/rvi
-  ln -sf vi ./%{_bindir}/rview
-  ln -sf vi ./%{_bindir}/view
-  ln -sf vi ./%{_bindir}/ex
+  mv ./bin/vimtutor ./%{_bindir}/vimtutor
+  mv ./bin/vim ./bin/vi
+  rm -f ./bin/rvim
+  ln -sf vi ./bin/ex
+  ln -sf vi ./bin/rvi
+  ln -sf vi ./bin/rview
+  ln -sf vi ./bin/view
+  ln -sf vim ./%{_bindir}/ex
   ln -sf vim ./%{_bindir}/rvim
   ln -sf vim ./%{_bindir}/vimdiff
   perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
@@ -1971,17 +1975,18 @@ rm -rf $RPM_BUILD_ROOT
 %files minimal
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/virc
-%{_bindir}/ex
-%{_bindir}/vi
-%{_bindir}/view
-%{_bindir}/rvi
-%{_bindir}/rview
+/bin/ex
+/bin/vi
+/bin/view
+/bin/rvi
+/bin/rview
 
 %files enhanced
 %defattr(-,root,root)
 %{_bindir}/vim
 %{_bindir}/rvim
 %{_bindir}/vimdiff
+%{_bindir}/ex
 %{_bindir}/vimtutor
 %config(noreplace) %{_sysconfdir}/profile.d/vim.*
 %{_mandir}/man1/rvim.*
@@ -2028,56 +2033,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
-- patchlevel 682
-- use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic
-
-* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
-- fix some man page typos (#668894, #675480)
-- own usr/share/vim/vimfiles/doc/tags (#845564)
-- add path to csope database (#844843)
-
-* Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-1
-- patchlevel 638
-
-* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 2:7.3.622-2
-- add epoch to spec.vim and automatic changelog entries
-
-* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.622-1
-- patchlevel 622
-
-* Mon Aug 06 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
-- drop vim-6.1-rh3.patch, (bz #754801)
-
-* Wed Jul 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.604-1
-- patchlevel 604
-
-* Wed Jul 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.594-2
-- Perl 5.16 rebuild
-
-* Tue Jul 10 2012 Karsten Hopp <karsten@redhat.com> 7.3.594-1
-- patchlevel 594
-
-* Tue Jul 10 2012 Karsten Hopp <karsten@redhat.com> 7.3.592-1
-- patchlevel 592
-
-* Mon Jul 09 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.584-2
-- Perl 5.16 rebuild
-
-* Mon Jul 02 2012 Karsten Hopp <karsten@redhat.com> 7.3.584-1
-- patchlevel 584
-
-* Thu Jun 28 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.556-2
-- Perl 5.16 rebuild
-
-* Mon Jun 18 2012 Karsten Hopp <karsten@redhat.com> 7.3.556-1
-- patchlevel 556
-
-* Mon Jun 11 2012 Petr Pisar <ppisar@redhat.com> - 2:7.3.515-2
-- Perl 5.16 rebuild
-
-* Mon May 21 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
-- enable highlighting for older log files (#816848)
+* Wed May 23 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-2
+- add back /bin/vi (bz #822314, #823090, #823021)
 
 * Tue May 08 2012 Karsten Hopp <karsten@redhat.com> 7.3.515-1
 - patchlevel 515
