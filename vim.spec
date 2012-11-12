@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1775,8 +1775,11 @@ if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
 fi
 EOF
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
-[ -x /%{_bindir}/id ] || exit
-[ \`/%{_bindir}/id -u\` -gt 200 ] && alias vi vim
+if ( -x /usr/bin/id ) then
+    if ( "\`/usr/bin/id -u\`" > 100 ) then
+        alias vi vim
+    endif
+endif
 EOF
 chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
@@ -2028,6 +2031,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-2
+- fix vim.csh syntax
+
 * Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
 - patchlevel 682
 - use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic
