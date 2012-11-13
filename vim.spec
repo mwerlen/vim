@@ -780,6 +780,7 @@ Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-bug816848.patch
 Patch3013: vim-7.3-manpage-typo-668894-675480.patch
+Patch3014: vim-7.3-test83.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -797,6 +798,7 @@ Requires: desktop-file-utils
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 2
+Conflicts: filesystem < 3
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -836,6 +838,7 @@ many different languages.
 Summary: A minimal version of the VIM editor
 Group: Applications/Editors
 Provides: vi = %{version}-%{release}
+Provides: /bin/vi
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -1642,6 +1645,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
+%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1730,8 +1734,6 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/bin
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
@@ -1747,11 +1749,13 @@ rm -f README*.info
 
 
 cd src
-make install DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
-make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=/bin VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
-mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
-mv $RPM_BUILD_ROOT/bin/gvimtutor $RPM_BUILD_ROOT/%{_bindir}/gvimtutor
+make install DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+#mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
+#mv $RPM_BUILD_ROOT/bin/gvimtutor $RPM_BUILD_ROOT/%{_bindir}/gvimtutor
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
+install -m755 vim $RPM_BUILD_ROOT%{_bindir}/vi
+install -m755 enhanced-vim $RPM_BUILD_ROOT%{_bindir}/vim
 install -m755 gvim $RPM_BUILD_ROOT/%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
@@ -1764,14 +1768,10 @@ install -p -m644 %{SOURCE10} \
 install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
 
 ( cd $RPM_BUILD_ROOT
-  mv ./bin/vimtutor ./%{_bindir}/vimtutor
-  mv ./bin/vim ./bin/vi
-  rm -f ./bin/rvim
-  ln -sf vi ./bin/ex
-  ln -sf vi ./bin/rvi
-  ln -sf vi ./bin/rview
-  ln -sf vi ./bin/view
-  ln -sf vim ./%{_bindir}/ex
+  ln -sf vi .%{_bindir}/ex
+  ln -sf vi .%{_bindir}/rvi
+  ln -sf vi .%{_bindir}/rview
+  ln -sf vi .%{_bindir}/view
   ln -sf vim ./%{_bindir}/rvim
   ln -sf vim ./%{_bindir}/vimdiff
   perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
@@ -1847,6 +1847,10 @@ endif
 EOF
 chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
+%if %{?rhel}%{!?rhel:0} >= 6
+perl -pi -e "s,augroup fedora,augroup redhat,g" $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
+%endif
+
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 (cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
@@ -2038,18 +2042,17 @@ rm -rf $RPM_BUILD_ROOT
 %files minimal
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/virc
-/bin/ex
-/bin/vi
-/bin/view
-/bin/rvi
-/bin/rview
+%{_bindir}/ex
+%{_bindir}/vi
+%{_bindir}/view
+%{_bindir}/rvi
+%{_bindir}/rview
 
 %files enhanced
 %defattr(-,root,root)
 %{_bindir}/vim
 %{_bindir}/rvim
 %{_bindir}/vimdiff
-%{_bindir}/ex
 %{_bindir}/vimtutor
 %config(noreplace) %{_sysconfdir}/profile.d/vim.*
 %{_mandir}/man1/rvim.*
@@ -2096,6 +2099,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Nov 13 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-2
+- disable erroneous test83
+
 * Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-1
 - patchlevel 712
 
