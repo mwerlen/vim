@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -2099,7 +2099,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Nov 13 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-2
+* Tue Nov 13 2012  7.3.%{nil}712-3
+* Tue Nov 13 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-3
 - disable erroneous test83
 
 * Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-1
