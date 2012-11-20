@@ -743,3 +743,6 @@ Individual patches for Vim 7.3:
   1685  7.3.710  (after 7.3.704) "fn" is broken
   7579  7.3.711  (after 7.3.688) vim.current.buffer is not available
   1474  7.3.712  nmake from VS2010 SP1 is not recognized
+  3513  7.3.713  printf() can only align to bytes, not characters
+  2296  7.3.714  :setlocal and :setglobal do not work in the sandbox
+  8244  7.3.715  crash when calling setloclist() in BufUnload autocmd
