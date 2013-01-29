@@ -42,6 +42,7 @@ Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
 Source15: spec-template.new
+Source16: nl.po
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -1793,6 +1794,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %build
 cp -f %{SOURCE5} .
+cp -f %{SOURCE16} src/po/
 cd src
 autoconf
 
@@ -2080,6 +2082,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
 %lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
 %lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
+%lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
 %lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
 %lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
 %lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
@@ -2089,18 +2092,26 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
 %lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
 %lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
+%lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
 %lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
 %lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
 %lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
+%lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
 %lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
 %lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
+%lang(pl.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/pl.UTF-8
+%lang(pl.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/pl.cp1250
 %lang(pt_BR) %{_datadir}/%{name}/%{vimdir}/lang/pt_BR
 %lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
+%lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
 %lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
+%lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
 %lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
 %lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
+%lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
 %lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
 %lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
+%lang(zh_CN.cp936) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.cp936
 %lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
 %lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
 %lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
