@@ -816,3 +816,15 @@ Individual patches for Vim 7.3:
   1329  7.3.783  crash when mark is not set
   1914  7.3.784  (after 7.3.781) error when 'guifontwide' has a comma
   3145  7.3.785  (after 7.3.776) crash with specific use of search pattern
+  2928  7.3.786  Python threads don't run in the background (issue 103)
+  4304  7.3.787  with 'relativenumber' can't see the absolute line number
+  1481  7.3.788  when only using patches build fails on missing nl.po
+  5078  7.3.789  (after 7.3.776) "\k" in regexp does not work in other window
+  1727  7.3.790  after reloading a buffer the modelines are not processed
+ 61514  7.3.791  MzScheme interface doesn't work propely
+  4000  7.3.792  ":substitute" works differently without confirmation
+  1768  7.3.793  (after 7.3.792) new :substutite behavior is not tested
+  1999  7.3.794  tiny build fails
+  5967  7.3.795  MzScheme does not build with tiny features
+  3027  7.3.796  "/[^\n]" does match at a line break
+  2040  7.3.797  (after 7.3.792) compiler warning for size_t to int conversion
