@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1954,7 +1954,10 @@ install -p -m644 %{SOURCE10} \
   ln -sf gvim ./%{_bindir}/vimx
   %if "%{desktop_file}" == "1"
     mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
-    desktop-file-install --vendor fedora \
+    desktop-file-install \
+    %if 0%{?fedora} && 0%{?fedora} < 19
+        --vendor fedora \
+    %endif
         --dir $RPM_BUILD_ROOT/%{_datadir}/applications \
         %{SOURCE3}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
@@ -2269,6 +2272,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Feb 15 2013 Toshio Kuratomi <toshio@fedoraproject.org> - 7.3.797-2
+- Only use --vendor for desktop-file-install on F18 or less
+
 * Thu Jan 31 2013 Karsten Hopp <karsten@redhat.com> 7.3.797-1
 - patchlevel 797
 
