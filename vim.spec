@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 797
+%define patchlevel 822
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -854,6 +854,31 @@ Patch794: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.794
 Patch795: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.795
 Patch796: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.796
 Patch797: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.797
+Patch798: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.798
+Patch799: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.799
+Patch800: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.800
+Patch801: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.801
+Patch802: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.802
+Patch803: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.803
+Patch804: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.804
+Patch805: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.805
+Patch806: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.806
+Patch807: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.807
+Patch808: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.808
+Patch809: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.809
+Patch810: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.810
+Patch811: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.811
+Patch812: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.812
+Patch813: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.813
+Patch814: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.814
+Patch815: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.815
+Patch816: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.816
+Patch817: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.817
+Patch818: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.818
+Patch819: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.819
+Patch820: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.820
+Patch821: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.821
+Patch822: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.822
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1797,6 +1822,31 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch795 -p0
 %patch796 -p0
 %patch797 -p0
+%patch798 -p0
+%patch799 -p0
+%patch800 -p0
+%patch801 -p0
+%patch802 -p0
+%patch803 -p0
+%patch804 -p0
+%patch805 -p0
+%patch806 -p0
+%patch807 -p0
+%patch808 -p0
+%patch809 -p0
+%patch810 -p0
+%patch811 -p0
+%patch812 -p0
+%patch813 -p0
+%patch814 -p0
+%patch815 -p0
+%patch816 -p0
+%patch817 -p0
+%patch818 -p0
+%patch819 -p0
+%patch820 -p0
+%patch821 -p0
+%patch822 -p0
 
 
 # install spell files
@@ -2272,6 +2322,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 18 2013 Karsten Hopp <karsten@redhat.com> 7.3.822-1
+- patchlevel 822
+
 * Fri Feb 15 2013 Toshio Kuratomi <toshio@fedoraproject.org> - 7.3.797-2
 - Only use --vendor for desktop-file-install on F18 or less
 

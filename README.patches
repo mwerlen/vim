@@ -299,6 +299,7 @@ Individual patches for Vim 7.3:
   4017  7.3.265  storing search pattern in history without separator check
   1677  7.3.266  in Gvim with iBus typing space in Insert mode doesn't work
   1784  7.3.267  Ruby on Mac OS X 10.7 may crash
+  2093  7.3.268  Vim freezes when executing an external command with zsh
   2871  7.3.269  'shellcmdflag' only works with one flag
   1514  7.3.270  illegal memory access
  12980  7.3.271  code not following Vim coding style
@@ -828,3 +829,28 @@ Individual patches for Vim 7.3:
   5967  7.3.795  MzScheme does not build with tiny features
   3027  7.3.796  "/[^\n]" does match at a line break
   2040  7.3.797  (after 7.3.792) compiler warning for size_t to int conversion
+  3208  7.3.798  (after 7.3.791) MzScheme: circular list works wrong
+  1666  7.3.799  the color column is not correct when entering a buffer
+  2085  7.3.800  the " mark is not adjusted when inserting lines
+  2053  7.3.801  ":window set nu?" displays the cursor line
+  1426  7.3.802  no error when setting 'isk' to a value ending in a comma
+  2523  7.3.803  (after 7.3.792) ":s/a/b/gc" is a no-op when typing 'q'
+  1373  7.3.804  (after 7.3.799) compiler warning for tiny build
+  3434  7.3.805  Lua version 5.2 is not detected properly on Arch Linux
+  4287  7.3.806  compiler warnings in Perl code when using Visual studio 2012
+  1620  7.3.807  popup menu does not work properly in some situations
+  8219  7.3.808  Python threads still do not work properly
+  1609  7.3.809  the dosinst.c program has a buffer overflow
+  8532  7.3.810  'relativenumber is reset unexpectedly
+  1867  7.3.811  useless termresponse parsing for SGR mouse
+  2481  7.3.812  when 'indentexpr' moves the cursor "curswant" not restored
+  2028  7.3.813  the CompleteDone event is not always triggered
+  4425  7.3.814  Win32 console: problem if 'enc' differs from current codepage
+  4694  7.3.815  building with Cygwin and Ruby doesn't work
+ 12480  7.3.816  can't compute a hash
+  1567  7.3.817  test 89 fails with tiny and small features
+  4236  7.3.818  when test 40 fails it may leave files behind
+ 16345  7.3.819  (CORRECTED) compiling without +eval and Python isn't working
+  3295  7.3.820  errors when building with small features and Lua, Perl or Ruby
+  2199  7.3.821  build with OLE and Cygwin is broken
+  4013  7.3.822  (after 7.3.799) crash when accessing freed buffer
