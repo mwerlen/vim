@@ -299,6 +299,7 @@ Individual patches for Vim 7.3:
   4017  7.3.265  storing search pattern in history without separator check
   1677  7.3.266  in Gvim with iBus typing space in Insert mode doesn't work
   1784  7.3.267  Ruby on Mac OS X 10.7 may crash
+  2093  7.3.268  Vim freezes when executing an external command with zsh
   2871  7.3.269  'shellcmdflag' only works with one flag
   1514  7.3.270  illegal memory access
  12980  7.3.271  code not following Vim coding style
@@ -743,3 +744,113 @@ Individual patches for Vim 7.3:
   1685  7.3.710  (after 7.3.704) "fn" is broken
   7579  7.3.711  (after 7.3.688) vim.current.buffer is not available
   1474  7.3.712  nmake from VS2010 SP1 is not recognized
+  3513  7.3.713  printf() can only align to bytes, not characters
+  2296  7.3.714  :setlocal and :setglobal do not work in the sandbox
+  8244  7.3.715  crash when calling setloclist() in BufUnload autocmd
+  1857  7.3.716  error on exit when using Python 3
+  1581  7.3.717  when changing font size only MS-Windows limits window size
+  1559  7.3.718  when re-using the current buffer the buffer-local options stay
+ 18500  7.3.719  cannot run new version of cproto
+ 11303  7.3.720  proto files are outdated
+  1624  7.3.721  Ruby interface defines local functions globally
+  2244  7.3.722  Perl flags may contain "-g", which breaks "make proto"
+  7337  7.3.723  various tiny problem.
+  2294  7.3.724  building with Ruby and Tcl on MS-Windows 64 bit does not work
+  2064  7.3.725  :aboveleft and :belowright have no effect on :copen
+  1900  7.3.726  typos and duplicate info in README
+  1405  7.3.727  can't always find Win32.mak when building GvimExt
+  7176  7.3.728  cannot compile with MzScheme interface on Ubuntu 12.10
+  1763  7.3.729  building with Ruby fails on some systems
+  2575  7.3.730  crash in PHP file when using syntastic
+  2188  7.3.731  Py3Init_vim() is exported uneccessarily
+  3772  7.3.732  compiler warnings for function arguments
+  2735  7.3.733  tests fail when including MzScheme
+  3680  7.3.734  cannot put help files in a sub-directory
+  3694  7.3.735  cannot build Ruby 1.9 with MingW or Cygwin
+  7558  7.3.736  file name completion in input() escapes white space
+  1380  7.3.737  when using do_cmdline() recursively did_endif is not reset
+  5106  7.3.738  (after 7.3.730) unused function argument
+  2326  7.3.739  computing number of lines may have an integer overflow
+  4818  7.3.740  IOC tool complains about undefined behavior for int
+  1576  7.3.741  (after 7.3.737) tiny build fails
+  1302  7.3.742  leaking memory when :vimgrep restores the directory
+  1773  7.3.743  (after 7.3.741) tiny build still fails
+  1467  7.3.744  64 bit compiler warning
+  2697  7.3.745  automatically setting 'ttymouse' doesn't work
+  2902  7.3.746  memory leaks when using location lists
+  2285  7.3.747  tab alignment does not work when characters are concealed
+ 14505  7.3.748  no tests for conceal mode
+  1675  7.3.749  cannot build Python interface without multi-byte feature
+  3050  7.3.750  the justify macro does not always work correctly
+  3267  7.3.751  test 61 is flaky, it fails once in a while
+  2410  7.3.752  test 49 script file doesn't fold properly
+  3777  7.3.753  ":q" twice does not work when there is a QuitPre autocommand
+  1488  7.3.754  latest nmake is not recognized
+  5332  7.3.755  autoconf doesn't find Python 3 if it's called "python"
+  2957  7.3.756  a location list can get a wrong count in :lvimgrep
+  1549  7.3.757  issue 96: access freed memory if put command triggers autocmd
+  3173  7.3.758  matchit plugin does not handle space in #ifdef
+  3080  7.3.759  MS-Windows: Updating tabline is slow when there are many tabs
+  3055  7.3.760  dv_ deletes the white space before the line
+  2828  7.3.761  in Visual mode a "-p does not work
+  1798  7.3.762  (after 7.3.759) on some systems the tabline is not redraw.
+  2044  7.3.763  jumping to a mark does not open fold if it is in the same line
+  4060  7.3.764  not all message translation files are installed
+  3254  7.3.765  segfault when doing "cclose" on BufUnload in a python function
+  2865  7.3.766  ":help cpo-*" jumps to the wrong place
+  4437  7.3.767  (Win32) The _errno used for iconv may be the wrong one
+  1979  7.3.768  settabvar() and setwinvar() may move the cursor
+  9748  7.3.769  'matchpairs' does not work with multi-byte characters
+  3912  7.3.770  vim.h indentation is inconsistent
+  2074  7.3.771  (after 7.3.769) uninitialized variable
+  1539  7.3.772  cursor at wrong location after doing %s/x/y/c
+  1496  7.3.773  (after 7.3.767) crash when OriginalFirstThunk is zero
+  2567  7.3.774  tiny GUI version misses console dialog feature
+  2761  7.3.775  Cygwin and Mingw builds miss dependency on gui_w48.c
+ 12411  7.3.776  ml_get error when searching, caused by curwin/curbuf mismatch
+  2035  7.3.777  when building with Gnome locale gets reset
+  1664  7.3.778  compiler error for adding up two pointers
+  4570  7.3.779  backwards search lands in wrong place when on a multibyte char
+  6443  7.3.780  char2nr() and nr2char() always use 'encoding'
+  5262  7.3.781  drawing with 'guifontwide' can be slow
+  4964  7.3.782  Windows: IME composition may use a wrong font
+  1329  7.3.783  crash when mark is not set
+  1914  7.3.784  (after 7.3.781) error when 'guifontwide' has a comma
+  3145  7.3.785  (after 7.3.776) crash with specific use of search pattern
+  2928  7.3.786  Python threads don't run in the background (issue 103)
+  4304  7.3.787  with 'relativenumber' can't see the absolute line number
+  1481  7.3.788  when only using patches build fails on missing nl.po
+  5078  7.3.789  (after 7.3.776) "\k" in regexp does not work in other window
+  1727  7.3.790  after reloading a buffer the modelines are not processed
+ 61514  7.3.791  MzScheme interface doesn't work propely
+  4000  7.3.792  ":substitute" works differently without confirmation
+  1768  7.3.793  (after 7.3.792) new :substutite behavior is not tested
+  1999  7.3.794  tiny build fails
+  5967  7.3.795  MzScheme does not build with tiny features
+  3027  7.3.796  "/[^\n]" does match at a line break
+  2040  7.3.797  (after 7.3.792) compiler warning for size_t to int conversion
+  3208  7.3.798  (after 7.3.791) MzScheme: circular list works wrong
+  1666  7.3.799  the color column is not correct when entering a buffer
+  2085  7.3.800  the " mark is not adjusted when inserting lines
+  2053  7.3.801  ":window set nu?" displays the cursor line
+  1426  7.3.802  no error when setting 'isk' to a value ending in a comma
+  2523  7.3.803  (after 7.3.792) ":s/a/b/gc" is a no-op when typing 'q'
+  1373  7.3.804  (after 7.3.799) compiler warning for tiny build
+  3434  7.3.805  Lua version 5.2 is not detected properly on Arch Linux
+  4287  7.3.806  compiler warnings in Perl code when using Visual studio 2012
+  1620  7.3.807  popup menu does not work properly in some situations
+  8219  7.3.808  Python threads still do not work properly
+  1609  7.3.809  the dosinst.c program has a buffer overflow
+  8532  7.3.810  'relativenumber is reset unexpectedly
+  1867  7.3.811  useless termresponse parsing for SGR mouse
+  2481  7.3.812  when 'indentexpr' moves the cursor "curswant" not restored
+  2028  7.3.813  the CompleteDone event is not always triggered
+  4425  7.3.814  Win32 console: problem if 'enc' differs from current codepage
+  4694  7.3.815  building with Cygwin and Ruby doesn't work
+ 12480  7.3.816  can't compute a hash
+  1567  7.3.817  test 89 fails with tiny and small features
+  4236  7.3.818  when test 40 fails it may leave files behind
+ 16345  7.3.819  (CORRECTED) compiling without +eval and Python isn't working
+  3295  7.3.820  errors when building with small features and Lua, Perl or Ruby
+  2199  7.3.821  build with OLE and Cygwin is broken
+  4013  7.3.822  (after 7.3.799) crash when accessing freed buffer

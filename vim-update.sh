@@ -2,7 +2,6 @@
 debug=""
 #debug="echo"
 
-cd `dirname $0`
 LANG=C
 SPEC=vim.spec
 

@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 712
+%define patchlevel 822
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -42,6 +42,7 @@ Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
 Source15: spec-template.new
+Source16: nl.po
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -768,6 +769,116 @@ Patch709: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.709
 Patch710: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.710
 Patch711: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.711
 Patch712: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.712
+Patch713: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.713
+Patch714: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.714
+Patch715: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.715
+Patch716: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.716
+Patch717: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.717
+Patch718: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.718
+Patch719: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.719
+Patch720: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.720
+Patch721: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.721
+Patch722: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.722
+Patch723: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.723
+Patch724: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.724
+Patch725: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.725
+Patch726: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.726
+Patch727: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.727
+Patch728: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.728
+Patch729: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.729
+Patch730: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.730
+Patch731: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.731
+Patch732: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.732
+Patch733: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.733
+Patch734: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.734
+Patch735: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.735
+Patch736: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.736
+Patch737: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.737
+Patch738: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.738
+Patch739: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.739
+Patch740: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.740
+Patch741: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.741
+Patch742: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.742
+Patch743: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.743
+Patch744: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.744
+Patch745: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.745
+Patch746: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.746
+Patch747: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.747
+Patch748: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.748
+Patch749: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.749
+Patch750: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.750
+Patch751: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.751
+Patch752: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.752
+Patch753: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.753
+Patch754: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.754
+Patch755: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.755
+Patch756: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.756
+Patch757: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.757
+Patch758: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.758
+Patch759: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.759
+Patch760: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.760
+Patch761: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.761
+Patch762: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.762
+Patch763: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.763
+Patch764: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.764
+Patch765: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.765
+Patch766: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.766
+Patch767: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.767
+Patch768: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.768
+Patch769: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.769
+Patch770: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.770
+Patch771: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.771
+Patch772: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.772
+Patch773: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.773
+Patch774: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.774
+Patch775: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.775
+Patch776: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.776
+Patch777: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.777
+Patch778: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.778
+Patch779: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.779
+Patch780: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.780
+Patch781: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.781
+Patch782: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.782
+Patch783: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.783
+Patch784: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.784
+Patch785: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.785
+Patch786: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.786
+Patch787: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.787
+Patch788: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.788
+Patch789: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.789
+Patch790: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.790
+Patch791: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.791
+Patch792: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.792
+Patch793: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.793
+Patch794: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.794
+Patch795: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.795
+Patch796: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.796
+Patch797: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.797
+Patch798: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.798
+Patch799: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.799
+Patch800: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.800
+Patch801: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.801
+Patch802: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.802
+Patch803: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.803
+Patch804: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.804
+Patch805: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.805
+Patch806: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.806
+Patch807: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.807
+Patch808: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.808
+Patch809: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.809
+Patch810: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.810
+Patch811: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.811
+Patch812: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.812
+Patch813: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.813
+Patch814: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.814
+Patch815: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.815
+Patch816: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.816
+Patch817: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.817
+Patch818: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.818
+Patch819: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.819
+Patch820: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.820
+Patch821: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.821
+Patch822: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.822
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1627,6 +1738,116 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch710 -p0
 %patch711 -p0
 %patch712 -p0
+%patch713 -p0
+%patch714 -p0
+%patch715 -p0
+%patch716 -p0
+%patch717 -p0
+%patch718 -p0
+%patch719 -p0
+%patch720 -p0
+%patch721 -p0
+%patch722 -p0
+%patch723 -p0
+%patch724 -p0
+%patch725 -p0
+%patch726 -p0
+%patch727 -p0
+%patch728 -p0
+%patch729 -p0
+%patch730 -p0
+%patch731 -p0
+%patch732 -p0
+%patch733 -p0
+%patch734 -p0
+%patch735 -p0
+%patch736 -p0
+%patch737 -p0
+%patch738 -p0
+%patch739 -p0
+%patch740 -p0
+%patch741 -p0
+%patch742 -p0
+%patch743 -p0
+%patch744 -p0
+%patch745 -p0
+%patch746 -p0
+%patch747 -p0
+%patch748 -p0
+%patch749 -p0
+%patch750 -p0
+%patch751 -p0
+%patch752 -p0
+%patch753 -p0
+%patch754 -p0
+%patch755 -p0
+%patch756 -p0
+%patch757 -p0
+%patch758 -p0
+%patch759 -p0
+%patch760 -p0
+%patch761 -p0
+%patch762 -p0
+%patch763 -p0
+%patch764 -p0
+%patch765 -p0
+%patch766 -p0
+%patch767 -p0
+%patch768 -p0
+%patch769 -p0
+%patch770 -p0
+%patch771 -p0
+%patch772 -p0
+%patch773 -p0
+%patch774 -p0
+%patch775 -p0
+%patch776 -p0
+%patch777 -p0
+%patch778 -p0
+%patch779 -p0
+%patch780 -p0
+%patch781 -p0
+%patch782 -p0
+%patch783 -p0
+%patch784 -p0
+%patch785 -p0
+%patch786 -p0
+%patch787 -p0
+%patch788 -p0
+%patch789 -p0
+%patch790 -p0
+%patch791 -p0
+%patch792 -p0
+%patch793 -p0
+%patch794 -p0
+%patch795 -p0
+%patch796 -p0
+%patch797 -p0
+%patch798 -p0
+%patch799 -p0
+%patch800 -p0
+%patch801 -p0
+%patch802 -p0
+%patch803 -p0
+%patch804 -p0
+%patch805 -p0
+%patch806 -p0
+%patch807 -p0
+%patch808 -p0
+%patch809 -p0
+%patch810 -p0
+%patch811 -p0
+%patch812 -p0
+%patch813 -p0
+%patch814 -p0
+%patch815 -p0
+%patch816 -p0
+%patch817 -p0
+%patch818 -p0
+%patch819 -p0
+%patch820 -p0
+%patch821 -p0
+%patch822 -p0
 
 
 # install spell files
@@ -1649,6 +1870,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %build
 cp -f %{SOURCE5} .
+cp -f %{SOURCE16} src/po/
 cd src
 autoconf
 
@@ -1786,7 +2008,10 @@ install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
   ln -sf gvim ./%{_bindir}/vimx
   %if "%{desktop_file}" == "1"
     mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
-    desktop-file-install --vendor fedora \
+    desktop-file-install \
+    %if 0%{?fedora} && 0%{?fedora} < 19
+        --vendor fedora \
+    %endif
         --dir $RPM_BUILD_ROOT/%{_datadir}/applications \
         %{SOURCE3}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
@@ -1945,6 +2170,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
 %lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
 %lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
+%lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
 %lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
 %lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
 %lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
@@ -1954,18 +2180,26 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
 %lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
 %lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
+%lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
 %lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
 %lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
 %lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
+%lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
 %lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
 %lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
+%lang(pl.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/pl.UTF-8
+%lang(pl.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/pl.cp1250
 %lang(pt_BR) %{_datadir}/%{name}/%{vimdir}/lang/pt_BR
 %lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
+%lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
 %lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
+%lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
 %lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
 %lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
+%lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
 %lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
 %lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
+%lang(zh_CN.cp936) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.cp936
 %lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
 %lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
 %lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
@@ -2099,19 +2333,33 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Nov 13 2012  7.3.%{nil}712-3
-* Tue Nov 13 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-3
-- disable erroneous test83
+* Mon Feb 18 2013 Karsten Hopp <karsten@redhat.com> 7.3.822-1
+- patchlevel 822
 
-* Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-1
+* Fri Feb 15 2013 Toshio Kuratomi <toshio@fedoraproject.org> - 7.3.797-2
+- Only use --vendor for desktop-file-install on F18 or less
+
+* Thu Jan 31 2013 Karsten Hopp <karsten@redhat.com> 7.3.797-1
+- patchlevel 797
+
+* Mon Jan 28 2013 Karsten Hopp <karsten@redhat.com> 7.3.785-1
+- patchlevel 785
+
+* Tue Nov 20 2012 Karsten Hopp <karsten@redhat.com> 7.3.715-1
+- patchlevel 715
+
+* Tue Oct 23 2012 Karsten Hopp <karsten@redhat.com> 7.3.712-1
 - patchlevel 712
 
-* Mon Nov 12 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-2
-- fix vim.csh syntax
+* Mon Oct 15 2012 Karsten Hopp <karsten@redhat.com> 7.3.691-1
+- patchlevel 691
 
 * Fri Oct 05 2012 Karsten Hopp <karsten@redhat.com> 7.3.682-1
 - patchlevel 682
 - use --enable-rubyinterp=dynamic and --enable-pythoninterp=dynamic
+
+* Mon Sep 03 2012 Karsten Hopp <karsten@redhat.com> 7.3.646-1
+- patchlevel 646
 
 * Tue Aug 28 2012 Karsten Hopp <karsten@redhat.com> 7.3.638-2
 - fix some man page typos (#668894, #675480)
