@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -891,7 +891,6 @@ Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-bug816848.patch
 Patch3013: vim-7.3-manpage-typo-668894-675480.patch
-Patch3014: vim-7.3-test83.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1866,7 +1865,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
-%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1956,6 +1954,7 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 
 %install
+rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
@@ -1973,12 +1972,10 @@ rm -f README*.info
 cd src
 make install DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
 make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
-#mv $RPM_BUILD_ROOT/bin/xxd $RPM_BUILD_ROOT/%{_bindir}/xxd
-#mv $RPM_BUILD_ROOT/bin/gvimtutor $RPM_BUILD_ROOT/%{_bindir}/gvimtutor
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
 install -m755 vim $RPM_BUILD_ROOT%{_bindir}/vi
 install -m755 enhanced-vim $RPM_BUILD_ROOT%{_bindir}/vim
-install -m755 gvim $RPM_BUILD_ROOT/%{_bindir}/gvim
+install -m755 gvim $RPM_BUILD_ROOT%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
 install -p -m644 %{SOURCE8} \
@@ -1987,13 +1984,12 @@ install -p -m644 %{SOURCE9} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
 install -p -m644 %{SOURCE10} \
    $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
-install -m755 enhanced-vim $RPM_BUILD_ROOT/%{_bindir}/vim
 
 ( cd $RPM_BUILD_ROOT
-  ln -sf vi .%{_bindir}/ex
-  ln -sf vi .%{_bindir}/rvi
-  ln -sf vi .%{_bindir}/rview
-  ln -sf vi .%{_bindir}/view
+  ln -sf vi ./%{_bindir}/rvi
+  ln -sf vi ./%{_bindir}/rview
+  ln -sf vi ./%{_bindir}/view
+  ln -sf vi ./%{_bindir}/ex
   ln -sf vim ./%{_bindir}/rvim
   ln -sf vim ./%{_bindir}/vimdiff
   perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
@@ -2064,18 +2060,11 @@ if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
 fi
 EOF
 cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
-if ( -x /usr/bin/id ) then
-    if ( "\`/usr/bin/id -u\`" > 100 ) then
-        alias vi vim
-    endif
-endif
+[ -x /%{_bindir}/id ] || exit
+[ \`/%{_bindir}/id -u\` -gt 200 ] && alias vi vim
 EOF
 chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
-%if %{?rhel}%{!?rhel:0} >= 6
-perl -pi -e "s,augroup fedora,augroup redhat,g" $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
-%endif
-
 install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
 (cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
