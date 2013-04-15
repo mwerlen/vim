@@ -854,3 +854,84 @@ Individual patches for Vim 7.3:
   3295  7.3.820  errors when building with small features and Lua, Perl or Ruby
   2199  7.3.821  build with OLE and Cygwin is broken
   4013  7.3.822  (after 7.3.799) crash when accessing freed buffer
+  2051  7.3.823  (after 7.3.821) building with Cygwin: '-lsupc++' is not needed
+  1566  7.3.824  can redefine builtin functions
+  4540  7.3.825  with Python errors are not always clear
+  3807  7.3.826  list of features in :version output is hard to read
+  3112  7.3.827  (after 7.3.825) Python tests fail
+  4780  7.3.828  mappings are not aware of wildmenu mode
+  2664  7.3.829  'showmatch' shows wrong match and may scroll the screen
+  2841  7.3.830  :mksession confuses bytes and characters when placing cursor
+ 20653  7.3.831  clumsy to handle the situation that a variable does not exist
+  1830  7.3.832  compiler warning
+  2985  7.3.833  In the terminal scroll wheel always scrolls the active window
+  2556  7.3.834  Ruby 2.0 has a few API changes
+  1755  7.3.835  "xxd -i" fails on an empty file
+ 59985  7.3.836  clipboard does not work on Win32 when compiled with Cygwin
+  2221  7.3.837  empty lines in :version output when 'columns' is 320
+ 11082  7.3.838  (after 7.3.830) insufficient testing for mksession
+  2012  7.3.839  some files missing in the list of distributed files
+  1652  7.3.840 "\@<!" in regexp does not work correctly with cp932
+  2073  7.3.841  parse error in "cond ? one : two" expression with a subscript
+  1724  7.3.842  compiler warning
+  3883  7.3.843  (after 7.3.841) missing test file changes
+  5894  7.3.844  enum is not indented correctly with "public" etc
+  2057  7.3.845  (after 7.3.844) enum indenting is not tested
+  1442  7.3.846  missing proto file, listing a non-existing proto file
+  1546  7.3.847  test 55 fails when messages are translated
+  4475  7.3.848  can't build with Ruby 2.0 when using MinGW x64 or MSVC10
+  1773  7.3.849  ":g//" gives "Pattern not found error" with E486
+  2719  7.3.850  ":vimgrep //" matches everywhere
+  2264  7.3.851  empty pattern with :sort incorrect without previous pattern
+  3376  7.3.852  system() breaks clipboard text
+  2711  7.3.853  "ra" does not replace all chars on multi-byte chars > 1 line
+  1630  7.3.854  after BS in insert mode completion current entry is wrong
+  1831  7.3.855  compiler warnings
+  8587  7.3.856  system() garbles multi-byte clipboard contents
+  2763  7.3.857  QuitPre autocommand event does not trigger for :qa and :wq
+  4120  7.3.858  "gv" selects the wrong area after some operators
+  9955  7.3.859  'ambiwidth' must be set by the user
+  2602  7.3.860  in --remote-expr try/catch does not work
+  4494  7.3.861  ":setlocal number" clears global value of 'relativenumber'
+  5831  7.3.862  dragging the status line can be slow
+  3025  7.3.863  (after 7.3.859) 'ambiwidth' detection for ANSI terminal
+  1516  7.3.864  (after 7.3.862) can't build without the mouse feature
+  2015  7.3.865  (after 7.3.862) mouse position can be wrong
+  4745  7.3.866  not serving the X selection during system() isn't nice
+  9641  7.3.867  matchparen does not update match when using auto-indenting
+  2567  7.3.868  empty line at hit-return prompt with few lines of text
+ 11112  7.3.869  bufwinnr() matches buffers in other tabs
+  6562  7.3.870  compiler warnings when using MingW 4.5.3
+  2741  7.3.871  search('^$', 'c') does not use empty match under the cursor
+ 14914  7.3.872  on some systems file name case is always ignored
+  5967  7.3.873  cannot easily use :s to make title case
+  3480  7.3.874  comparing file names does not handle multi-byte chars properly
+  1865  7.3.875  (after 7.3.866) build problem with a combination of features
+  2182  7.3.876  #if indents are off
+  3069  7.3.877  (after 7.3.871) forward searching with search() is broken
+  3124  7.3.878  'fileignorecase' is missing in options window and quickref
+  2792  7.3.879  aborting an ex command does not abort a pending operator
+  7907  7.3.880  new viminfo history lines may be replacd with old lines
+  2849  7.3.881  Python list does not work correctly
+  1714  7.3.882  CursorHold may trigger after receiving the termresponse
+  2350  7.3.883  (after 7.3.880) can't build with some combination of features
+  2150  7.3.884  compiler warning for variable shadowing another
+  2408  7.3.885  double free for list and dict in Lua
+  2567  7.3.886  can't build with multi-byte on Solaris 10
+  9601  7.3.887  no tests for Visual mode operators, what 7.3.879 fixes
+  3933  7.3.888  filename completion with 'fic' does not work for multi-byte
+  2040  7.3.889  can't build with Ruby 2.0 on a 64 bit system
+  1563  7.3.890  test 79 fails on Windows
+  3761  7.3.891  merging viminfo history doesn't work well
+  7984  7.3.892  (after 7.3.891) still merging problems for viminfo history
+ 19606  7.3.893  crash when using b:, w: or t: after closing the buffer etc.
+  2219  7.3.894  using wrong RUBY_VER causing Ruby build to break
+  5927  7.3.895  valgrind error in test 91
+  5208  7.3.896  memory leaks in Lua interface
+  4487  7.3.897  configure doesn't always find the shared library
+  7367  7.3.898  memory leak reported by valgrind in test 91
+  2116  7.3.899  #if indents are off
+  1639  7.3.900  not obvious that some mouse features are mutual-exclusive
+  2748  7.3.901  outdated comment, ugly condition
+  1345  7.3.902  tabline not updated when deleting last buffer in other tab
+  1827  7.3.903  (after 7.3.892) crash on exit writing viminfo
