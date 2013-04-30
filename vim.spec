@@ -46,7 +46,6 @@ Source16: nl.po
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
-Patch2004: vim-7.0-crv.patch
 %if %{withhunspell}
 Patch2011: vim-7.0-hunspell.patch
 BuildRequires: hunspell-devel
@@ -1097,7 +1096,6 @@ vim-common package.
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1
 %patch2003 -p1
-%patch2004 -p1
 %if %{withhunspell}
 %patch2011 -p1
 %endif
@@ -2484,6 +2482,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 19 2013 Karsten Hopp <karsten@redhat.com> 7.3.903-1
+- drop crv patch
+- update 7.3.838 patch, it was broken upstream
+
 * Mon Apr 15 2013 Karsten Hopp <karsten@redhat.com> 7.3.903-1
 - patchlevel 903
 
