@@ -1,0 +1,15 @@
+diff -up vim73/src/configure.in.rubyversion vim73/src/configure.in
+--- vim73/src/configure.in.rubyversion	2013-05-08 16:21:11.067927960 +0200
++++ vim73/src/configure.in	2013-05-08 16:31:05.854534820 +0200
+@@ -1490,7 +1490,10 @@ if test "$enable_rubyinterp" = "yes" -o
+         if test -d "$rubyhdrdir/$rubyarch"; then
+           RUBY_CFLAGS="$RUBY_CFLAGS -I$rubyhdrdir/$rubyarch"
+         fi
+-        rubyversion=`$vi_cv_path_ruby -r rbconfig -e "print $ruby_rbconfig::CONFIG[['ruby_version']].gsub(/\./, '')[[0,2]]"`
++        rubymajor=`$vi_cv_path_ruby -r rbconfig -e "print $ruby_rbconfig::CONFIG[['MAJOR']]"`
++        rubyminor=`$vi_cv_path_ruby -r rbconfig -e "print $ruby_rbconfig::CONFIG[['MINOR']]"`
++        rubyversion="$rubymajor$rubyminor"
++        # rubyversion=`$vi_cv_path_ruby -r rbconfig -e "print $ruby_rbconfig::CONFIG[['ruby_version']].gsub(/\./, '')[[0,2]]"`
+         RUBY_CFLAGS="$RUBY_CFLAGS -DRUBY_VERSION=$rubyversion"
+ 	rubylibs=`$vi_cv_path_ruby -r rbconfig -e "print $ruby_rbconfig::CONFIG[['LIBS']]"`
+ 	if test "X$rubylibs" != "X"; then

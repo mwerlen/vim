@@ -971,6 +971,7 @@ Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-bug816848.patch
 Patch3013: vim-7.3-manpage-typo-668894-675480.patch
+Patch3014: vim-7.3-rubyversion.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -2025,6 +2026,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
+%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -2482,6 +2484,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed May 08 2013 Karsten Hopp <karsten@redhat.com> 7.3.903-1
+- fix ruby version check
+
 * Fri Apr 19 2013 Karsten Hopp <karsten@redhat.com> 7.3.903-1
 - drop crv patch
 - update 7.3.838 patch, it was broken upstream
