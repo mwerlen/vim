@@ -869,7 +869,7 @@ Individual patches for Vim 7.3:
   1755  7.3.835  "xxd -i" fails on an empty file
  59985  7.3.836  clipboard does not work on Win32 when compiled with Cygwin
   2221  7.3.837  empty lines in :version output when 'columns' is 320
- 11082  7.3.838  (after 7.3.830) insufficient testing for mksession
+ 11057  7.3.838  (after 7.3.830) insufficient testing for mksession
   2012  7.3.839  some files missing in the list of distributed files
   1652  7.3.840 "\@<!" in regexp does not work correctly with cp932
   2073  7.3.841  parse error in "cond ? one : two" expression with a subscript
@@ -935,3 +935,43 @@ Individual patches for Vim 7.3:
   2748  7.3.901  outdated comment, ugly condition
   1345  7.3.902  tabline not updated when deleting last buffer in other tab
   1827  7.3.903  (after 7.3.892) crash on exit writing viminfo
+  1465  7.3.904  (after 7.3.893) using memory freed by the garbage collector
+  1394  7.3.905  (after 7.3.903) crash when writing viminfo
+  1796  7.3.906  the "sleep .2" for running tests does not work on Solaris
+  5559  7.3.907  Python uses IndexError when a dict key is not found
+  1307  7.3.908  possible crash when using a list in Python
+ 57917  7.3.909  duplicate Python code
+  2955  7.3.910  Python code in #ifdef branches with only minor differences
+ 11651  7.3.911  Python: Access to Vim variables is not so easy
+  1673  7.3.912  typing ":" at hit-enter dialog fails if the a file changed
+  2166  7.3.913  (after 7.3.905) still a crash when writing viminfo
+  1966  7.3.914  ~/.viminfo is messed up when running tests
+  1461  7.3.915  next encoding in 'fencs' is not used if error at the end
+  3213  7.3.916  using freed memory when pasting with the mouse (Issue 130)
+  2504  7.3.917  when a path ends in backslash appending a comma fails
+  2634  7.3.918  repeating Ex command after using Visual motion does not work
+  1777  7.3.919  (after 7.3.788) empty nl.po file does not work with old msgfmt
+  1578  7.3.920  compiler warning for size_t to int
+  1840  7.3.921  trying to create a fontset handle when 'guifontset' is not set
+  2073  7.3.922  no test for what 7.3.918 fixes
+  3123  7.3.923  configure check for X11 header files fails on Solaris
+ 44449  7.3.924  Python interface can't easily access options
+ 99193  7.3.925  typos in source code and build files
+ 26424  7.3.926  triggering autocommands is wrong for :tabclose et al.
+  4329  7.3.927  missing combining characters when putting text in a register
+  2141  7.3.928  (after 7.3.924) can't build with strict C compiler
+  4270  7.3.929  (after 7.3.924) unused variable, not freeing unused string
+  1375  7.3.930  MSVC 2012 update is not recognized
+  1915  7.3.931  no completion for :xmap and :smap
+  1388  7.3.932  compiler warning for uninitialized variable
+  4739  7.3.933  Ruby on Mac crashes due to GC failure
+  2023  7.3.934  E381 and E380 make the user think nothing happened
+  3655  7.3.935  (after 7.3.933) Ruby init stack differs on 64 bit systems
+ 23271  7.3.936  (after 7.3.935) Ruby missing piece for static 64 bit linking
+ 16512  7.3.937  more can be shared between Python 2 and 3
+  4418  7.3.938  Python: not so easy to get the window number
+  2053  7.3.939  Using Py_BuildValue is inefficient sometimes
+  3030  7.3.940  Python: Can't get position of window
+ 32095  7.3.941  Python: Stuff in if_py_both.h is ordered badly
+  5470  7.3.942  Python: SEGV in Buffer functions
+  6867  7.3.943  Python: Negative indices were failing
