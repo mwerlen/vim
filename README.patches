@@ -963,3 +963,15 @@ Individual patches for Vim 7.3:
   4270  7.3.929  (after 7.3.924) unused variable, not freeing unused string
   1375  7.3.930  MSVC 2012 update is not recognized
   1915  7.3.931  no completion for :xmap and :smap
+  1388  7.3.932  compiler warning for uninitialized variable
+  4739  7.3.933  Ruby on Mac crashes due to GC failure
+  2023  7.3.934  E381 and E380 make the user think nothing happened
+  3655  7.3.935  (after 7.3.933) Ruby init stack differs on 64 bit systems
+ 23271  7.3.936  (after 7.3.935) Ruby missing piece for static 64 bit linking
+ 16512  7.3.937  more can be shared between Python 2 and 3
+  4418  7.3.938  Python: not so easy to get the window number
+  2053  7.3.939  Using Py_BuildValue is inefficient sometimes
+  3030  7.3.940  Python: Can't get position of window
+ 32095  7.3.941  Python: Stuff in if_py_both.h is ordered badly
+  5470  7.3.942  Python: SEGV in Buffer functions
+  6867  7.3.943  Python: Negative indices were failing

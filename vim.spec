@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 931
+%define patchlevel 943
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -987,6 +987,18 @@ Patch928: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.928
 Patch929: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.929
 Patch930: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.930
 Patch931: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.931
+Patch932: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.932
+Patch933: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.933
+Patch934: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.934
+Patch935: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.935
+Patch936: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.936
+Patch937: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.937
+Patch938: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.938
+Patch939: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.939
+Patch940: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.940
+Patch941: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.941
+Patch942: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.942
+Patch943: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.943
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -2064,6 +2076,18 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch929 -p0
 %patch930 -p0
 %patch931 -p0
+%patch932 -p0
+%patch933 -p0
+%patch934 -p0
+%patch935 -p0
+%patch936 -p0
+%patch937 -p0
+%patch938 -p0
+%patch939 -p0
+%patch940 -p0
+%patch941 -p0
+%patch942 -p0
+%patch943 -p0
 
 
 # install spell files
@@ -2540,6 +2564,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon May 13 2013 Karsten Hopp <karsten@redhat.com> 7.3.943-1
+- patchlevel 943
+
 * Wed May 08 2013 Karsten Hopp <karsten@redhat.com> 7.3.931-1
 - patchlevel 931
 
