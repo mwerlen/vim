@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1015,7 +1015,7 @@ Patch3014: vim-7.3-rubyversion.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
-BuildRequires: perl(ExtUtils::Embed)
+BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
 BuildRequires: libacl-devel gpm-devel autoconf
 %if %{WITH_SELINUX}
 BuildRequires: libselinux-devel
@@ -2564,6 +2564,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon May 13 2013 Karsten Hopp <karsten@redhat.com> 7.3.943-2
+- add BR perl(ExtUtils::ParseXS)
+
 * Mon May 13 2013 Karsten Hopp <karsten@redhat.com> 7.3.943-1
 - patchlevel 943
 
