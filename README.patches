@@ -975,3 +975,4 @@ Individual patches for Vim 7.3:
  32095  7.3.941  Python: Stuff in if_py_both.h is ordered badly
   5470  7.3.942  Python: SEGV in Buffer functions
   6867  7.3.943  Python: Negative indices were failing
+  2283  7.3.944  external program receives the termrespone
