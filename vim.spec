@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 943
+%define patchlevel 944
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -999,6 +999,7 @@ Patch940: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.940
 Patch941: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.941
 Patch942: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.942
 Patch943: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.943
+Patch944: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.944
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -2089,6 +2090,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch941 -p0
 %patch942 -p0
 %patch943 -p0
+%patch944 -p0
 
 
 # install spell files
@@ -2566,6 +2568,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 14 2013 Karsten Hopp <karsten@redhat.com> 7.3.944-1
+- patchlevel 944
+
 * Mon May 13 2013 Karsten Hopp <karsten@redhat.com> 7.3.943-2
 - add BR perl(ExtUtils::ParseXS)
 - fix path to xsubpp script
