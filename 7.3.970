@@ -20,7 +20,7 @@ Files:	    src/Make_cyg.mak, src/Make_ming.mak, src/Make_mvc.mak,
 	    src/testdir/test95.in, src/testdir/test95.ok,
 	    src/testdir/Make_amiga.mak, src/testdir/Make_dos.mak,
 	    src/testdir/Make_ming.mak, src/testdir/Make_os2.mak,
-	    src/testdir/Make_vms.mms, src/testdir/Makefile
+	    src/testdir/Make_vms.mms
 
 
 *** ../vim-7.3.969/src/Make_cyg.mak	2013-05-06 04:21:35.000000000 +0200
@@ -6701,57 +6701,6 @@ Files:	    src/Make_cyg.mak, src/Make_ming.mak, src/Make_mvc.mak,
   
   # Known problems:
   # Test 30: a problem around mac format - unknown reason
-*** ../vim-7.3.969/src/testdir/Makefile	2013-04-24 12:56:13.000000000 +0200
---- src/testdir/Makefile	2013-05-18 14:22:50.000000000 +0200
-***************
-*** 29,35 ****
-  		test79.out test80.out test81.out test82.out test83.out \
-  		test84.out test85.out test86.out test87.out test88.out \
-  		test89.out test90.out test91.out test92.out test93.out \
-! 		test94.out
-  
-  SCRIPTS_GUI = test16.out
-  
---- 29,35 ----
-  		test79.out test80.out test81.out test82.out test83.out \
-  		test84.out test85.out test86.out test87.out test88.out \
-  		test89.out test90.out test91.out test92.out test93.out \
-! 		test94.out test95.out
-  
-  SCRIPTS_GUI = test16.out
-  
-***************
-*** 85,97 ****
-  		fi"
-  
-  	# Check if the test.out file matches test.ok.
-! 	@/bin/sh -c "if test -f test.out; then\
-  		  if diff test.out $*.ok; \
-  		  then mv -f test.out $*.out; \
-  		  else echo $* FAILED >>test.log; mv -f test.out $*.failed; \
-  		  fi \
-  		else echo $* NO OUTPUT >>test.log; \
-  		fi"
-  	-rm -rf X* test.ok viminfo
-  
-  test49.out: test49.vim
---- 85,100 ----
-  		fi"
-  
-  	# Check if the test.out file matches test.ok.
-! 	@/bin/sh -c "if test -f test.out; then \
-  		  if diff test.out $*.ok; \
-  		  then mv -f test.out $*.out; \
-  		  else echo $* FAILED >>test.log; mv -f test.out $*.failed; \
-  		  fi \
-  		else echo $* NO OUTPUT >>test.log; \
-  		fi"
-+ 	@/bin/sh -c "if test -f valgrind; then\
-+ 		  mv -f valgrind valgrind.$*; \
-+ 		fi"
-  	-rm -rf X* test.ok viminfo
-  
-  test49.out: test49.vim
 *** ../vim-7.3.969/src/version.c	2013-05-18 20:55:31.000000000 +0200
 --- src/version.c	2013-05-19 19:10:25.000000000 +0200
 ***************
