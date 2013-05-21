@@ -976,3 +976,46 @@ Individual patches for Vim 7.3:
   5470  7.3.942  Python: SEGV in Buffer functions
   6867  7.3.943  Python: Negative indices were failing
   2283  7.3.944  external program receives the termrespone
+ 16738  7.3.945  Python: List of buffers is not very useful
+  3029  7.3.946  sometimes keys starting with <Esc>[ ar not working
+ 17613  7.3.947  Python: No iterator for vim.list and vim.bufferlist
+ 11841  7.3.948  cannot build with Python 2.2
+ 25668  7.3.949  Python: no easy access to tabpages
+  5750  7.3.950  Python: Stack trace printer can't handle messages
+ 15906  7.3.951  Python exceptions have problems
+  5245  7.3.952  Python: It's not easy to change window/buffer/tabpage
+  3924  7.3.953  Python: string exceptions are deprecated
+  2374  7.3.954  No check if PyObject_IsTrue fails
+ 12291  7.3.955  Python: Not enough tests
+  5261  7.3.956  Python vim.bindeval() causes SIGABRT
+  9959  7.3.957  Python does not have a "do" command like Perl or Lua
+  1772  7.3.958  Python: Iteration destructor not set
+  2058  7.3.959  (after 7.3.957) missing error number
+  1366  7.3.960  compiler warning for unused variable
+  3054  7.3.961  tests 86 and 87 fail when using another language than English
+  8389  7.3.962  Python tests are not portable
+ 18867  7.3.963  setting curbuf without curwin causes trouble
+ 13179  7.3.964  Python: not so easy to access tab pages
+  8088  7.3.965  Python garbage collection not working properly
+ 10038  7.3.966  there is ":py3do" but no ":pydo"
+  3304  7.3.967  (after 7.3.965) build fails on Mac OSX
+  2100  7.3.968  multi-byte support is only available with "big" features
+  1603  7.3.969  can't built with Python 3 and without Python 2
+184170  7.3.970  pattern matching is slow, include the NFA engine
+  4337  7.3.971  no support for VS2012 static code analysis
+  3720  7.3.972  cursor not restored properly after InsertEnter autocommand
+  3881  7.3.973  (after 7.3.970) compiler warnings, crash on startup
+  4775  7.3.974  can't build with ruby 1.8.5
+  2301  7.3.975  (after 7.3.970) crash in regexp parsing
+  2254  7.3.976  (after 7.3.970) can't build with HP-UX
+  7028  7.3.977  compiler warnings, white space, uncommented for testing
+  4535  7.3.978  regexp debug logs don't have a good name
+  2268  7.3.979  complex NFA regexp doesn't work
+  3597  7.3.980  regexp logs contain garbage; character classes don't work
+  3105  7.3.981  old regexp engine fails on \i, \I, \f and \F with mbyte chars
+  2800  7.3.982  \p does not work on multi-byte chars in new regexp engine
+  2675  7.3.983  uneccessary temp variable
+  1706  7.3.984  Visual mapping using CTRL-G works differently from Insert mode
+  1691  7.3.985  GTK vim not started as gvim has WM_CLASS property wrong
+  2113  7.3.986  test 95 doesn't pass when 'encoding' isn't utf-8
+  6338  7.3.987  no easy to run an individual test; test 64 may fail

@@ -18,13 +18,13 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 944
+%define patchlevel 987
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -1000,6 +1000,49 @@ Patch941: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.941
 Patch942: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.942
 Patch943: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.943
 Patch944: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.944
+Patch945: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.945
+Patch946: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.946
+Patch947: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.947
+Patch948: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.948
+Patch949: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.949
+Patch950: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.950
+Patch951: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.951
+Patch952: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.952
+Patch953: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.953
+Patch954: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.954
+Patch955: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.955
+Patch956: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.956
+Patch957: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.957
+Patch958: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.958
+Patch959: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.959
+Patch960: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.960
+Patch961: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.961
+Patch962: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.962
+Patch963: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.963
+Patch964: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.964
+Patch965: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.965
+Patch966: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.966
+Patch967: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.967
+Patch968: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.968
+Patch969: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.969
+Patch970: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.970
+Patch971: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.971
+Patch972: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.972
+Patch973: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.973
+Patch974: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.974
+Patch975: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.975
+Patch976: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.976
+Patch977: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.977
+Patch978: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.978
+Patch979: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.979
+Patch980: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.980
+Patch981: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.981
+Patch982: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.982
+Patch983: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.983
+Patch984: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.984
+Patch985: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.985
+Patch986: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.986
+Patch987: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.987
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -2090,6 +2133,49 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch942 -p0
 %patch943 -p0
 %patch944 -p0
+%patch945 -p0
+%patch946 -p0
+%patch947 -p0
+%patch948 -p0
+%patch949 -p0
+%patch950 -p0
+%patch951 -p0
+%patch952 -p0
+%patch953 -p0
+%patch954 -p0
+%patch955 -p0
+%patch956 -p0
+%patch957 -p0
+%patch958 -p0
+%patch959 -p0
+%patch960 -p0
+%patch961 -p0
+%patch962 -p0
+%patch963 -p0
+%patch964 -p0
+%patch965 -p0
+%patch966 -p0
+%patch967 -p0
+%patch968 -p0
+%patch969 -p0
+%patch970 -p0
+%patch971 -p0
+%patch972 -p0
+%patch973 -p0
+%patch974 -p0
+%patch975 -p0
+%patch976 -p0
+%patch977 -p0
+%patch978 -p0
+%patch979 -p0
+%patch980 -p0
+%patch981 -p0
+%patch982 -p0
+%patch983 -p0
+%patch984 -p0
+%patch985 -p0
+%patch986 -p0
+%patch987 -p0
 
 
 # install spell files
@@ -2584,6 +2670,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 21 2013 Karsten Hopp <karsten@redhat.com> 7.3.987-1
+- patchlevel 987
+
 * Tue May 21 2013 Karsten Hopp <karsten@redhat.com> 7.3.944-2
 - consistent use of macros in spec file
 - add some links to man pages
