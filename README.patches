@@ -1001,7 +1001,7 @@ Individual patches for Vim 7.3:
   3304  7.3.967  (after 7.3.965) build fails on Mac OSX
   2100  7.3.968  multi-byte support is only available with "big" features
   1603  7.3.969  can't built with Python 3 and without Python 2
-184170  7.3.970  pattern matching is slow, include the NFA engine
+182647  7.3.970  (fixed) pattern matching is slow, include the NFA engine
   4337  7.3.971  no support for VS2012 static code analysis
   3720  7.3.972  cursor not restored properly after InsertEnter autocommand
   3881  7.3.973  (after 7.3.970) compiler warnings, crash on startup
@@ -1019,3 +1019,16 @@ Individual patches for Vim 7.3:
   1691  7.3.985  GTK vim not started as gvim has WM_CLASS property wrong
   2113  7.3.986  test 95 doesn't pass when 'encoding' isn't utf-8
   6338  7.3.987  no easy to run an individual test; test 64 may fail
+  1552  7.3.988  new regexp engine is slow
+  1944  7.3.989  new regexp engine compares negative numbers to character
+  7487  7.3.990  memory leak in new regexp engine
+ 18482  7.3.991  more can be shared between python 2 and 3
+ 70337  7.3.992  Python: Too many type casts
+  7832  7.3.993  (after 7.3.992) later patch does things slightly differently
+  7845  7.3.994  Python: using magic constants
+ 13902  7.3.995  Python: Module initialization is duplicated
+ 14039  7.3.996  Python: Can't check types of what is returned by bindeval()
+ 23712  7.3.997  Vim and Python exceptions are different
+ 11177  7.3.998  Python: garbage collection issues
+  4683  7.3.999  new regexp engine sets curbuf temporarily
+  1637  7.3.1000  (whoa!) typo in char value causes out of bounds access
