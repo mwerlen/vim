@@ -1032,3 +1032,7 @@ Individual patches for Vim 7.3:
  11177  7.3.998  Python: garbage collection issues
   4683  7.3.999  new regexp engine sets curbuf temporarily
   1637  7.3.1000  (whoa!) typo in char value causes out of bounds access
+  1651  7.3.1001  duplicate condition in if
+  4012  7.3.1002  valgrind errors for Python interface
+ 11873  7.3.1003  Python interface does not compile with Python 2.2
+ 10551  7.3.1004  Python: no error when option could not be set

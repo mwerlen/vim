@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 1000
+%define patchlevel 1004
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -1056,6 +1056,10 @@ Patch997: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.997
 Patch998: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.998
 Patch999: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.999
 Patch1000: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1000
+Patch1001: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1001
+Patch1002: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1002
+Patch1003: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1003
+Patch1004: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1004
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -2203,6 +2207,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch998 -p0
 %patch999 -p0
 %patch1000 -p0
+%patch1001 -p0
+%patch1002 -p0
+%patch1003 -p0
+%patch1004 -p0
 
 
 # install spell files
@@ -2698,6 +2706,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed May 22 2013 Karsten Hopp <karsten@redhat.com> 7.3.1004-1
+- patchlevel 1004
+
 * Wed May 22 2013 Karsten Hopp <karsten@redhat.com> 7.3.1000-1
 - patchlevel 1000 !
 
