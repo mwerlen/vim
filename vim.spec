@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 944
+%define patchlevel 987
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -1000,6 +1000,49 @@ Patch941: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.941
 Patch942: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.942
 Patch943: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.943
 Patch944: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.944
+Patch945: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.945
+Patch946: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.946
+Patch947: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.947
+Patch948: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.948
+Patch949: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.949
+Patch950: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.950
+Patch951: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.951
+Patch952: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.952
+Patch953: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.953
+Patch954: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.954
+Patch955: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.955
+Patch956: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.956
+Patch957: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.957
+Patch958: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.958
+Patch959: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.959
+Patch960: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.960
+Patch961: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.961
+Patch962: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.962
+Patch963: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.963
+Patch964: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.964
+Patch965: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.965
+Patch966: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.966
+Patch967: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.967
+Patch968: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.968
+Patch969: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.969
+Patch970: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.970
+Patch971: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.971
+Patch972: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.972
+Patch973: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.973
+Patch974: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.974
+Patch975: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.975
+Patch976: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.976
+Patch977: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.977
+Patch978: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.978
+Patch979: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.979
+Patch980: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.980
+Patch981: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.981
+Patch982: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.982
+Patch983: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.983
+Patch984: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.984
+Patch985: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.985
+Patch986: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.986
+Patch987: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.987
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -2090,6 +2133,49 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch942 -p0
 %patch943 -p0
 %patch944 -p0
+%patch945 -p0
+%patch946 -p0
+%patch947 -p0
+%patch948 -p0
+%patch949 -p0
+%patch950 -p0
+%patch951 -p0
+%patch952 -p0
+%patch953 -p0
+%patch954 -p0
+%patch955 -p0
+%patch956 -p0
+%patch957 -p0
+%patch958 -p0
+%patch959 -p0
+%patch960 -p0
+%patch961 -p0
+%patch962 -p0
+%patch963 -p0
+%patch964 -p0
+%patch965 -p0
+%patch966 -p0
+%patch967 -p0
+%patch968 -p0
+%patch969 -p0
+%patch970 -p0
+%patch971 -p0
+%patch972 -p0
+%patch973 -p0
+%patch974 -p0
+%patch975 -p0
+%patch976 -p0
+%patch977 -p0
+%patch978 -p0
+%patch979 -p0
+%patch980 -p0
+%patch981 -p0
+%patch982 -p0
+%patch983 -p0
+%patch984 -p0
+%patch985 -p0
+%patch986 -p0
+%patch987 -p0
 
 
 # install spell files
@@ -2119,8 +2205,8 @@ autoconf
 sed -e "s+VIMRCLOC	= \$(VIMLOC)+VIMRCLOC	= /etc+" Makefile > Makefile.tmp
 mv -f Makefile.tmp Makefile
 
-export CFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
-export CXXFLAGS="$RPM_OPT_FLAGS -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
+export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
+export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
@@ -2198,15 +2284,15 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/%{_bindir}
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
+mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 cp -f %{SOURCE11} .
 %if %{?fedora}%{!?fedora:0} >= 16 || %{?rhel}%{!?rhel:0} >= 6
-cp -f %{SOURCE15} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
+cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %else
-cp -f %{SOURCE14} $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/template.spec
+cp -f %{SOURCE14} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %endif
 cp runtime/doc/uganda.txt LICENSE
 # Those aren't Linux info files but some binary files for Amiga:
@@ -2214,29 +2300,29 @@ rm -f README*.info
 
 
 cd src
-make install DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
-make installgtutorbin  DESTDIR=$RPM_BUILD_ROOT BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -m755 vim $RPM_BUILD_ROOT%{_bindir}/vi
-install -m755 enhanced-vim $RPM_BUILD_ROOT%{_bindir}/vim
-install -m755 gvim $RPM_BUILD_ROOT%{_bindir}/gvim
+make install DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+make installgtutorbin  DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+mkdir -p %{buildroot}%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
+install -m755 vim %{buildroot}%{_bindir}/vi
+install -m755 enhanced-vim %{buildroot}%{_bindir}/vim
+install -m755 gvim %{buildroot}%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
-   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/gvim.png
+   %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/gvim.png
 install -p -m644 %{SOURCE8} \
-   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/gvim.png
+   %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/gvim.png
 install -p -m644 %{SOURCE9} \
-   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/gvim.png
+   %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gvim.png
 install -p -m644 %{SOURCE10} \
-   $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/64x64/apps/gvim.png
+   %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/gvim.png
 
-( cd $RPM_BUILD_ROOT
+( cd %{buildroot}
   ln -sf vi ./%{_bindir}/rvi
   ln -sf vi ./%{_bindir}/rview
   ln -sf vi ./%{_bindir}/view
   ln -sf vi ./%{_bindir}/ex
   ln -sf vim ./%{_bindir}/rvim
   ln -sf vim ./%{_bindir}/vimdiff
-  perl -pi -e "s,$RPM_BUILD_ROOT,," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
+  perl -pi -e "s,%{buildroot},," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
   rm -f .%{_mandir}/man1/rvim.1
   ln -sf vim.1.gz .%{_mandir}/man1/vi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/rvi.1.gz
@@ -2247,12 +2333,12 @@ install -p -m644 %{SOURCE10} \
   ln -sf gvim ./%{_bindir}/gvimdiff
   ln -sf gvim ./%{_bindir}/vimx
   %if "%{desktop_file}" == "1"
-    mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
+    mkdir -p %{buildroot}/%{_datadir}/applications
     desktop-file-install \
     %if 0%{?fedora} && 0%{?fedora} < 19
         --vendor fedora \
     %endif
-        --dir $RPM_BUILD_ROOT/%{_datadir}/applications \
+        --dir %{buildroot}/%{_datadir}/applications \
         %{SOURCE3}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
   %else
@@ -2264,7 +2350,7 @@ install -p -m644 %{SOURCE10} \
     ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
 )
 
-pushd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/tutor
+pushd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/tutor
 mkdir conv
    iconv -f CP1252 -t UTF8 tutor.ca > conv/tutor.ca
    iconv -f CP1252 -t UTF8 tutor.it > conv/tutor.it
@@ -2289,13 +2375,13 @@ rmdir conv
 popd
 
 # Dependency cleanups
-chmod 644 $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc/vim2html.pl \
- $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/tools/*.pl \
- $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/tools/vim132
+chmod 644 %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc/vim2html.pl \
+ %{buildroot}/%{_datadir}/%{name}/%{vimdir}/tools/*.pl \
+ %{buildroot}/%{_datadir}/%{name}/%{vimdir}/tools/vim132
 chmod 644 ../runtime/doc/vim2html.pl
 
-mkdir -p $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d
-cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.sh <<EOF
+mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
+cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   [ -x /%{_bindir}/id ] || return
   [ \`/%{_bindir}/id -u\` -le 200 ] && return
@@ -2303,17 +2389,17 @@ if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
-cat >$RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/vim.csh <<EOF
+cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.csh <<EOF
 if ( -x /usr/bin/id ) then
     if ( "\`/usr/bin/id -u\`" > 100 ) then
         alias vi vim
     endif
 endif
 EOF
-chmod 0644 $RPM_BUILD_ROOT/%{_sysconfdir}/profile.d/*
-install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/vimrc
-install -p -m644 %{SOURCE4} $RPM_BUILD_ROOT/%{_sysconfdir}/virc
-(cd $RPM_BUILD_ROOT/%{_datadir}/%{name}/%{vimdir}/doc;
+chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/*
+install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/vimrc
+install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
+(cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
  gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
  cp %{SOURCE12} .
@@ -2328,35 +2414,39 @@ EOF
 LANG=C sort tags > tags.tmp; mv tags.tmp tags
  )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
-rm -f $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
-rm -rf $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/tools
-rm -rf $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/doc/vim2html.pl
-rm -f $RPM_BUILD_ROOT/%{_datadir}/vim/%{vimdir}/tutor/tutor.gr.utf-8~
-( cd $RPM_BUILD_ROOT/%{_mandir}
+rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
+rm -rf %{buildroot}/%{_datadir}/vim/%{vimdir}/tools
+rm -rf %{buildroot}/%{_datadir}/vim/%{vimdir}/doc/vim2html.pl
+rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/tutor/tutor.gr.utf-8~
+( cd %{buildroot}/%{_mandir}
   for i in `find ??/ -type f`; do
     bi=`basename $i`
-    iconv -f latin1 -t UTF8 $i > $RPM_BUILD_ROOT/$bi
-    mv -f $RPM_BUILD_ROOT/$bi $i
+    iconv -f latin1 -t UTF8 $i > %{buildroot}/$bi
+    mv -f %{buildroot}/$bi $i
   done
 )
 
 # Remove not UTF-8 manpages
 for i in pl.ISO8859-2 it.ISO8859-1 ru.KOI8-R fr.ISO8859-1; do
-  rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
+  rm -rf %{buildroot}/%{_mandir}/$i
 done
 
 # use common man1/ru directory
-mv $RPM_BUILD_ROOT/%{_mandir}/ru.UTF-8 $RPM_BUILD_ROOT/%{_mandir}/ru
+mv %{buildroot}/%{_mandir}/ru.UTF-8 %{buildroot}/%{_mandir}/ru
 
 # Remove duplicate man pages
 for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
-  rm -rf $RPM_BUILD_ROOT/%{_mandir}/$i
+  rm -rf %{buildroot}/%{_mandir}/$i
 done
 
-for i in rvim.1 gvim.1 gvimdiff.1; do 
-  echo ".so man1/vim.1" > $RPM_BUILD_ROOT/%{_mandir}/man1/$i
+for i in rvim.1 gvim.1 gvimdiff.1 gex.1 gview.1 gvimtutor.1 vimx.1; do 
+  echo ".so man1/vim.1" > %{buildroot}/%{_mandir}/man1/$i
 done
-touch $RPM_BUILD_ROOT/%{_datadir}/%{name}/vimfiles/doc/tags
+mkdir -p %{buildroot}/%{_mandir}/man5
+for i in virc.5 vimrc.5; do 
+  echo ".so man1/vim.1" > %{buildroot}/%{_mandir}/man5/$i
+done
+touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %post X11
 touch --no-create %{_datadir}/icons/hicolor
@@ -2373,7 +2463,7 @@ fi
 update-desktop-database &> /dev/null ||:
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files common
 %defattr(-,root,root)
@@ -2440,13 +2530,21 @@ rm -rf $RPM_BUILD_ROOT
 %lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
 %lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
 /%{_bindir}/xxd
-%{_mandir}/man1/vim.*
 %{_mandir}/man1/ex.*
-%{_mandir}/man1/vi.*
-%{_mandir}/man1/view.*
+%{_mandir}/man1/gex.*
+%{_mandir}/man1/gview.*
+%{_mandir}/man1/gvim*
 %{_mandir}/man1/rvi.*
 %{_mandir}/man1/rview.*
+%{_mandir}/man1/rvim.*
+%{_mandir}/man1/vi.*
+%{_mandir}/man1/view.*
+%{_mandir}/man1/vim.*
+%{_mandir}/man1/vimdiff.*
+%{_mandir}/man1/vimtutor.*
+%{_mandir}/man1/vimx.*
 %{_mandir}/man1/xxd.*
+%{_mandir}/man5/vimrc.*
 %lang(fr) %{_mandir}/fr/man1/*
 %lang(it) %{_mandir}/it/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
@@ -2517,6 +2615,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/view
 %{_bindir}/rvi
 %{_bindir}/rview
+%{_mandir}/man1/vim.*
+%{_mandir}/man1/vi.*
+%{_mandir}/man1/ex.*
+%{_mandir}/man1/rvi.*
+%{_mandir}/man1/rview.*
+%{_mandir}/man1/view.*
+%{_mandir}/man5/virc.*
 
 %files enhanced
 %defattr(-,root,root)
@@ -2525,9 +2630,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/vimdiff
 %{_bindir}/vimtutor
 %config(noreplace) %{_sysconfdir}/profile.d/vim.*
-%{_mandir}/man1/rvim.*
-%{_mandir}/man1/vimdiff.*
-%{_mandir}/man1/vimtutor.*
 
 %files filesystem
 %defattr(-,root,root)
@@ -2565,10 +2667,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/vimx
 %{_bindir}/evim
 %{_mandir}/man1/evim.*
-%{_mandir}/man1/gvim*
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 21 2013 Karsten Hopp <karsten@redhat.com> 7.3.987-1
+- patchlevel 987
+
+* Tue May 21 2013 Karsten Hopp <karsten@redhat.com> 7.3.944-2
+- consistent use of macros in spec file
+- add some links to man pages
+
 * Tue May 14 2013 Karsten Hopp <karsten@redhat.com> 7.3.944-1
 - patchlevel 944
 
