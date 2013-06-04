@@ -871,7 +871,7 @@ Individual patches for Vim 7.3:
   2221  7.3.837  empty lines in :version output when 'columns' is 320
  11057  7.3.838  (after 7.3.830) insufficient testing for mksession
   2012  7.3.839  some files missing in the list of distributed files
-  1652  7.3.840 "\@<!" in regexp does not work correctly with cp932
+  1652  7.3.840  "\@<!" in regexp does not work correctly with cp932
   2073  7.3.841  parse error in "cond ? one : two" expression with a subscript
   1724  7.3.842  compiler warning
   3883  7.3.843  (after 7.3.841) missing test file changes
@@ -1036,3 +1036,106 @@ Individual patches for Vim 7.3:
   4012  7.3.1002  valgrind errors for Python interface
  11873  7.3.1003  Python interface does not compile with Python 2.2
  10551  7.3.1004  Python: no error when option could not be set
+  6658  7.3.1005  get stuck on regexp "\n*" and on "%s/^\n\+/\r"
+  2012  7.3.1006  NFA engine not used for "\_[0-9]"
+  1745  7.3.1007  can't build on Minix 3.2.1
+  2577  7.3.1008  test 95 fails on MS-Windows
+  1517  7.3.1009  Python: compiler warning for ambiguous else
+  4767  7.3.1010  new regexp: adding \Z makes every character match
+ 12440  7.3.1011  new regexp engine is inefficient with multi-byte characters
+  5335  7.3.1012  \Z does not work properly with the new regexp engine
+  8601  7.3.1013  new regexp logging is a bit messy
+  5064  7.3.1014  new regexp state dump is hard to read
+  5630  7.3.1015  new regexp engine: Matching composing characters is wrong
+  4452  7.3.1016  unused field in nfa_state
+ 11523  7.3.1017  zero width match changes length of match
+  2979  7.3.1018  new regexp engine wastes memory
+  4149  7.3.1019  not working with the new regexp engine: \%[oxduU]123
+ 60056  7.3.1020  not all patterns are tested with auto / old / new engine
+  6612  7.3.1021  new regexp engine does not ignore order of composing chars
+ 21993  7.3.1022  compiler warning for shadowed variable
+  3777  7.3.1023  mixed results for pattern with composing char only and \Z
+ 16114  7.3.1024  new regexp: End of matching pattern not set correctly
+  6270  7.3.1025  new regexp: not matching newline in string
+  3384  7.3.1026  new regexp: pattern that includs a new-line matches too early
+  2380  7.3.1027  new regexp performance: Calling no_Magic() very often
+ 22962  7.3.1028  new regexp performance: Copying a lot of position state
+  2536  7.3.1030  (after 7.3.1028) can't build for debugging
+  2224  7.3.1031  compiler warnings for shadowed variable
+ 13629  7.3.1032  "\ze" is not supported by the new regexp engine
+ 35107  7.3.1033  "\1" .. "\9" are not supported in the new regexp engine
+  5753  7.3.1034  new regexp code using strange multi-byte code
+  1624  7.3.1035  compiler warning on 64 bit windows
+ 13539  7.3.1036  can't build on HP-UX
+ 10869  7.3.1037  look-behind matching is very slow on long lines
+  4527  7.3.1038  crash when using Cscope
+ 10088  7.3.1039  new regexp engine does not support \%23c, \%<23c and the like
+ 11134  7.3.1040  Python: Problems with debugging dynamic build
+  4010  7.3.1041  Python: valgrind invalid read errors.
+ 25871  7.3.1042  Python: can't assign to vim.Buffer.name
+  9319  7.3.1043  Python: Dynamic compilation with 2.3 fails
+ 11091  7.3.1044  Python: No {Buffer,TabPage,Window}.valid attributes
+  4247  7.3.1045  Python: No error handling for VimToPython function
+  3272  7.3.1046  Python: Using Py_BuildValue for building strings
+ 20246  7.3.1047  Python: dir() does not work properly
+ 14215  7.3.1048  Python: no consistent naming
+  4082  7.3.1049  Python: no consistent naming
+  1447  7.3.1050  Python: Typo in pyiter_to_tv
+  6973  7.3.1051  Python: possible memory leaks
+  1536  7.3.1052  Python: possible SEGV and negative refcount
+  4324  7.3.1053  Python: no flag for types with tp_traverse+tp_clear
+  4802  7.3.1054  (after 7.3.1042) can't build without the +autocmd feature
+  3228  7.3.1055  negated collection does not match newline
+ 14318  7.3.1056  Python: possible memory leaks
+  5348  7.3.1057  Python: not enough compatibilty
+  5291  7.3.1058  call of funcref does not succeed in other script
+  9667  7.3.1059  Python: Using fixed size buffers
+  1959  7.3.1060  Python: can't repr() a function
+ 57340  7.3.1061  Python: Dictionary is not standard
+ 14819  7.3.1062  Python: List is not standard
+ 17732  7.3.1063  Python: Function is not standard
+  4594  7.3.1064  Python: insufficient error checking
+ 11849  7.3.1065  Python: key mapping is not standard
+117512  7.3.1066  Python: Insufficient exception and error testing
+  6571  7.3.1067  Python: documentation lags behind
+  6483  7.3.1068  Python: Script is auto-loaded on function creation
+  4576  7.3.1069  Python: memory leaks
+  3020  7.3.1070  crash in Python tests; compiler warning for unused function
+ 12592  7.3.1071  new regexp engine: backreferences don't work correctly
+  1428  7.3.1072  compiler warning for uninitialized variable
+ 10492  7.3.1073  new regexp engine may run out of states
+  1955  7.3.1074  compiler warning for printf format
+  1394  7.3.1075  compiler warning for storing a long_u in an int
+ 12338  7.3.1076  new regexp engine: \@= and \& don't work
+ 10048  7.3.1077  Python: Allocating dict the wrong way, causing a crash
+  6808  7.3.1078  new regexp engine: \@! doesn't work
+ 50300  7.3.1079  test 87 fails
+ 11448  7.3.1080  test 86 fails
+  2133  7.3.1081  compiler warnings on 64-bit Windows
+  5220  7.3.1082  new regexp engine: Problem with \@= matching
+  4273  7.3.1083  new regexp engine: Does not support \%^ and \%$
+  8656  7.3.1084  new regexp engine: only accepts up to \{,10}
+  8679  7.3.1085  new regexp engine: Non-greedy multi doesn't work
+  3841  7.3.1086  old regexp engine accepts illegal range, new one doesn't
+  7441  7.3.1087  a leading star is not seen as a normal char when \{} follows
+  4864  7.3.1089  tests 86 and 87 fail on MS-Windows
+ 49092  7.3.1090  new regexp engine does not support \z1 .. \z9 and \z(
+  3296  7.3.1091  new regexp engine: no error for \z1 or \z( when not working
+  5478  7.3.1092  regexp debugging: can't build, debug output has wrong pattern
+  3094  7.3.1093  new regexp engine: empty \1 skips a character
+  8453  7.3.1094  new regexp engine: Attempts to match "^" at every character
+  8835  7.3.1095  compiler warnings for shadowed variables
+ 10518  7.3.1096  Python: popitem() was not defined in a standard way
+  2779  7.3.1097  Python: a few recently added items are not documented
+  2298  7.3.1098  Python: Possible memory leaks
+ 15612  7.3.1099  Python: changing directory causes problems
+ 34271  7.3.1100  Python: a few more memory problems
+  9379  7.3.1101  configure doesn't find Python 3 on Ubuntu 13.04
+  1450  7.3.1102  completion of ":py3do" and ":py3file" fails after ":py3"
+ 11276  7.3.1103  new regexp engine: overhead in saving and restoring
+  2663  7.3.1104  new regexp engine does not handle "~"
+ 12905  7.3.1105  new regexp engine: too much code in one function; dead code
+ 10519  7.3.1106  new regexp engine: save/restore lastlist takes a lot of time
+  2325  7.3.1107  compiler warnings for unused variables
+  1327  7.3.1108  error message for os.fchdir()
+  4969  7.3.1109  building on MS-Windows doesn't see changes in if_py_both.h
