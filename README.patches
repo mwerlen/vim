@@ -1139,3 +1139,83 @@ Individual patches for Vim 7.3:
   2325  7.3.1107  compiler warnings for unused variables
   1327  7.3.1108  error message for os.fchdir()
   4969  7.3.1109  building on MS-Windows doesn't see changes in if_py_both.h
+ 23743  7.3.1110  new regexp matching: Using \@= and the like can be slow
+ 16934  7.3.1111  nfa_recognize_char_class() implementation is inefficient
+  7450  7.3.1112  new regexp engine: \%V not supported
+  8095  7.3.1113  new regexp engine: \%'m not supported
+  1807  7.3.1114  (after 7.3.1110) can't build without the syntax feature
+  8246  7.3.1115  users don't like cursor line number with 'relativenumber' set
+  2461  7.3.1116  can't build without Visual mode
+  8737  7.3.1117  new regexp engine: \%[abc] not supported
+  4590  7.3.1118  match failure rate is not very specific
+  6657  7.3.1119  flags in 'cpo' are searched for several times
+  2736  7.3.1120  crash when regexp logging is enabled
+  3151  7.3.1121  new regexp engine: adding states that are not used
+ 13428  7.3.1122  new regexp engine: \@> not supported
+  1613  7.3.1123  can't build tiny Vim on MS-Windows
+  1336  7.3.1124  Python: Crash on MS-Windows when os.fchdir() is not available
+  3014  7.3.1125  error for using \%V in a pattern in tiny Vim
+  1392  7.3.1126  compiler warning for uninitialized variable
+  2533  7.3.1127  no error for using empty \%[]
+  7328  7.3.1128  every failure in the NFA engine is a syntax error
+ 21365  7.3.1129  can't see what pattern in syntax highlighting is slow
+  6016  7.3.1130  (after 7.3.1129) can't build with anything but huge features
+  5173  7.3.1131  new regexp engine is a bit slow
+  2704  7.3.1132  crash when debugging regexp
+  8763  7.3.1133  new regexp engine is a bit slow
+  2048  7.3.1134  running test 49 takes a long time
+  2020  7.3.1135  compiler warning for unused argument
+  1465  7.3.1136  ":func Foo" does not show attributes
+ 26955  7.3.1137  new regexp engine: collections are slow
+ 16357  7.3.1138  new regexp engine: neglist no longer used
+ 14897  7.3.1139  new regexp engine: negated flag is hardly used
+  5298  7.3.1140  new regexp engine: can skip expensive match
+  2548  7.3.1141  Win32: Check for available memory is not reliable
+  1347  7.3.1142  memory leak in ":syntime report"
+  1646  7.3.1143  when mapping NUL it is displayed as an X
+  2557  7.3.1144  "RO" is not translated everywhere
+  4036  7.3.1145  new regexp engine: addstate() is called very often
+ 10156  7.3.1146  new regexp engine: look-behind followed by zero-width fails
+  4905  7.3.1147  new regexp engine: regstart is only used to find first match
+  5345  7.3.1148  no command line completion for ":syntime"
+ 41306  7.3.1149  new regexp engine: Matching plain text could be faster
+ 10878  7.3.1150  new regexpengine: Slow for look-behind match without a width
+  5073  7.3.1151  new regexp engine: Slow for look-behind plus zero-width match
+  1795  7.3.1152  In tiny build ireg_icombine is undefined
+ 25686  7.3.1153  new regexp engine: look-behind matches can be very expensive
+  2966  7.3.1154  new regexp_nfa engine: Uneccessary code
+  1446  7.3.1155  MS-DOS: "make test" uses external rmdir command
+  2852  7.3.1156  compiler warnings
+  5289  7.3.1157  new regexp engine fails on "\(\<command\)\@<=.*"
+  3303  7.3.1158  crash when running test 86
+  4965  7.3.1159  the round() function is not always available
+  1649  7.3.1160  mixing long and pointer doesn't always work
+  4992  7.3.1161  Python: PyList_SetItem() is inefficient
+  5274  7.3.1162  Python: Memory leaks
+ 41871  7.3.1163  not easy to load Python modules
+  4881  7.3.1164  can't test what is actually displayed on screen
+  2261  7.3.1165  HP-UX compiler can't handle zero size array
+  5466  7.3.1166  loading Python modules is not tested
+ 33215  7.3.1167  no good Python 3 configure check; may need -pthreads
+  6704  7.3.1168  Python "sane" configure checks give a warning message
+ 13917  7.3.1169  new regexp engine: doing work while executing a pattern
+  3128  7.3.1170  (after 7.3.1058) can'tuse a function reference as a string
+  2400  7.3.1171  check for digits and ascii letters can be faster
+ 22201  7.3.1172  Python 2: loading modules doesn't work well
+ 93253  7.3.1173  Python 2 tests don't have the same output everywhere
+ 22984  7.3.1174  Python 2 and 3 use different ways to load modules
+  3393  7.3.1175  using isalpha() and isalnum() can be slow
+  2785  7.3.1176  compiler warnings on 64 bit system
+  3624  7.3.1177  wasting memory on padding
+ 12533  7.3.1178  can't put all Vim config files together in one directory
+  4300  7.3.1179  waiting for character after buffer-local map match
+  2122  7.3.1180  path from cscope may not be valid after changing directory
+  2575  7.3.1181  wrong error message for 1.0[0]
+ 13491  7.3.1182  'backupcopy' default on MS-Windows does not work for links
+  1601  7.3.1183  Python tests 86 and 87 fail
+  2023  7.3.1184  highlighting is sometimes wrong
+  2734  7.3.1185  new regexp engine: no match with ^ after \n
+  2903  7.3.1186  Python 3: test 87 may crash
+  2647  7.3.1187  (after 7.3.1170) "s:" is recognized but "<SID>" is not
+  2131  7.3.1188  newline characters messing up error message
+  2305  7.3.1189  (after 7.3.1185) highlighting is still wrong sometimes
