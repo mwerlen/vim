@@ -811,7 +811,7 @@ Individual patches for Vim 7.3:
   2035  7.3.777  when building with Gnome locale gets reset
   1664  7.3.778  compiler error for adding up two pointers
   4570  7.3.779  backwards search lands in wrong place when on a multibyte char
-  6443  7.3.780  char2nr() and nr2char() always use 'encoding'
+  6439  7.3.780  char2nr() and nr2char() always use 'encoding'
   5262  7.3.781  drawing with 'guifontwide' can be slow
   4964  7.3.782  Windows: IME composition may use a wrong font
   1329  7.3.783  crash when mark is not set
@@ -1140,7 +1140,7 @@ Individual patches for Vim 7.3:
   1327  7.3.1108  error message for os.fchdir()
   4969  7.3.1109  building on MS-Windows doesn't see changes in if_py_both.h
  23743  7.3.1110  new regexp matching: Using \@= and the like can be slow
- 16934  7.3.1111  nfa_recognize_char_class() implementation is inefficient
+ 16284  7.3.1111  nfa_recognize_char_class() implementation is inefficient
   7450  7.3.1112  new regexp engine: \%V not supported
   8095  7.3.1113  new regexp engine: \%'m not supported
   1807  7.3.1114  (after 7.3.1110) can't build without the syntax feature
@@ -1219,3 +1219,107 @@ Individual patches for Vim 7.3:
   2647  7.3.1187  (after 7.3.1170) "s:" is recognized but "<SID>" is not
   2131  7.3.1188  newline characters messing up error message
   2305  7.3.1189  (after 7.3.1185) highlighting is still wrong sometimes
+  1818  7.3.1190  compiler warning for parentheses
+  8174  7.3.1191  Backreference to previous line doesn't work
+  4439  7.3.1192  valgrind reports errors when using backreferences
+  1765  7.3.1193  fail_if_missing not used for Python 3
+  2192  7.3.1194  Yaml highlighting is slow
+  1535  7.3.1195  compiler warning for unitialized variable
+  7934  7.3.1196  old regexp engine does not match pattern with backref right
+  6096  7.3.1197  ":wviminfo!" does not write history read from a viminfo file
+  2960  7.3.1198  build error when using Perl 5.18.0 and dynamic loading
+  3597  7.3.1199  error from evaluating 'foldexpr' is silently ignored
+  2718  7.3.1200  calling setline() from Insert mode messes up undo
+  1980  7.3.1201  on startup preview window may be used as the current window
+  1875  7.3.1202  tags are not found in case-folded tags file
+  1575  7.3.1203  matches from matchadd() might be highlighted incorrectly
+  8835  7.3.1204  calling gettabwinvar() in 'tabline' cancels Visual mode
+  2008  7.3.1205  logtalk.dict is not removed on uninstall
+  2965  7.3.1206  inconsistent function argument declarations
+  2745  7.3.1207  new regexp engine: no match found on "#if FOO"
+  2369  7.3.1208  compiler warnings on MS-Windows
+  1363  7.3.1209  no completion for ":tabdo"
+  1937  7.3.1210  (after 7.3.1182) 'backupcopy' default on MS-Windows is wrong
+  6882  7.3.1211  MS-Windows: ":hardcopy" does not work properly
+  3225  7.3.1212  "make test" on MS-Windows does not report like Unix does
+  6963  7.3.1213  can't build with Python and small features. 
+  2511  7.3.1214  missing declaration for init_users() and realloc_post_list()
+  1553  7.3.1215  compiler warning for function not defined
+  4902  7.3.1216  configure can't find Motif on Ubuntu
+  2775  7.3.1217  new regexp engine: Can't handle \%[[ao]]
+  2655  7.3.1218  "make test" on MS-Windows does not clean all temporary files
+  1826  7.3.1219  no test for using []] inside \%[]
+  5738  7.3.1220  MS-Windows: When using wide font italic/bold are not included
+  8519  7.3.1221  when build flags change "make distclean" causes an error
+  2948  7.3.1222  cannot execute some tests from the src directly
+  7033  7.3.1223  tests fail on MS-Windows
+  2640  7.3.1224  Clang gives warnings on xxd
+  1765  7.3.1225  compiler warnings when building with Motif
+  7157  7.3.1226  Python: duplicate code
+ 18950  7.3.1227  Python: inconsistent string conversion
+  9788  7.3.1228  Python: various inconsistencies and problems
+ 34007  7.3.1229  Python: not so easy to delete/restore translating
+185712  7.3.1230  Python: Exception messages are not clear
+ 22564  7.3.1231  Python: use of numbers not consistent
+ 54051  7.3.1232  Python: inconsistencies in variable names
+185882  7.3.1233  various Python problems
+ 30099  7.3.1234  (after 7.3.1229) Python: Strings are not marked for translate
+  1928  7.3.1235  inserting CTRL-] differs between insert and command-line mode
+150895  7.3.1236  Python: WindowSetattr() missing support for NUMBER_UNSIGNED
+  3493  7.3.1237  Python: non-import errors not handled correctly
+  3329  7.3.1238  crash in Python interface on 64 bit machines
+  2921  7.3.1239  can't build with Python and MSVC10
+  1755  7.3.1240  memory leak in findfile()
+  1774  7.3.1241  (after 7.3.1236) some test files missing from distribution
+  2224  7.3.1242  no failure when trying to use a number as a string
+  5926  7.3.1243  back references in look-behind match don't work
+  1811  7.3.1244  MS-Windows: confirm() dialog text may not fit
+  2739  7.3.1245  MS-Windows: confirm() dialog text may still not fit
+  4263  7.3.1246  wrong window layout when resizing with 'winfixheight' set
+  4263  7.3.1247  pattern '[ ]\@!\p\%([ ]\@!\p\)*:' does not always match
+  8725  7.3.1248  still have old hacking code for Input Method
+  1802  7.3.1249  modeline not recognized when using "Vim" instead of "vim"
+  4165  7.3.1250  Python tests fail on MS-Windows
+  1410  7.3.1251  test 61 messes up viminf.
+  1774  7.3.1252  Win32: Gvim does not always find the toolbar bitmap file
+  2265  7.3.1253  still undo problem after using CTRL-R = setline()
+  1849  7.3.1254  (after 7.3.1252) can't build without the multi-lang feature
+  2359  7.3.1255  Clang warnings when building with Athena
+  4034  7.3.1256  can't build without eval or autocmd feature
+  1820  7.3.1257  GNU gettext() ignores :lang language setting
+  1881  7.3.1258  using submatch() may crash Vim
+  2626  7.3.1259  no test for patch 7.3.1258
+  3774  7.3.1260  completion gets incomplete command line in cmdline window
+ 10176  7.3.1261  (after 7.3.1179) keymap causes global mapping to stop working
+  5601  7.3.1262  crash and compilation warnings with Cygwin
+  1690  7.3.1263  typo in short option name
+  2349  7.3.1264  (after 7.3.1261) missing m_nowait
+  1521  7.3.1265  (after 7.3.1249) errors for allowing "Vim:" in a modeline
+  1857  7.3.1266  QNX: GUI fails to start
+ 12040  7.3.1267  MS-Windows ACL support doesn't work well
+  3846  7.3.1268  ACL support doesn't work when when compiled with MingW
+  1668  7.3.1269  insert completion keeps wrong entry selected
+  1825  7.3.1270  using "Vp" in an empty buffer can't be undone
+  1891  7.3.1271  (after 7.3.1260) command line completion does not work
+  2962  7.3.1272  crash when editing Ruby file
+  1652  7.3.1273  when copying a location list the index might be wrong
+  3332  7.3.1274  using wrong window when using entry from location list
+  5535  7.3.1275  "gn" does not work when the match is a single character
+  1657  7.3.1276  resizing the window may send SIGWINCH to cscope and it quits
+  3286  7.3.1277  in diff mode 'cursorline' also draws in the non-active window
+  4461  7.3.1278  limit the screen size set by "stty"
+  1814  7.3.1279  compiler warning for variable uninitialized
+  6899  7.3.1280  (after 7.3.1247) reading memory already freed
+  2145  7.3.1281  When 'ttymouse' is "xterm2" click in column 123 moves to 96
+  3251  7.3.1282  'cursorline' not drawn in any other window
+  2408  7.3.1283  test 71 fails on MS-Windows
+  3800  7.3.1284  compiler warnings in MS-Windows clipboard handling
+ 10725  7.3.1285  no tests for picking window when using entry in location list
+  1487  7.3.1286  check for screen size missing for Athena and Motif
+ 13995  7.3.1287  Python SystemExit exception is not handled properly
+ 14385  7.3.1288  the first ":echo 'hello'" command output doesn't show
+  2406  7.3.1289  get GLIB warning when removing a menu item
+  1385  7.3.1290  (after 7.3.1253) CTRL-R = in Insert mode starts new insert
+  2028  7.3.1291  (after 7.3.1288) compiler warnings for uninitialized variable
+  1635  7.3.1292  possibly using invalid pointer when searcing for window
+  1811  7.3.1293  put in empty buffer cannot be undone
