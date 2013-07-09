@@ -1323,3 +1323,24 @@ Individual patches for Vim 7.3:
   2028  7.3.1291  (after 7.3.1288) compiler warnings for uninitialized variable
   1635  7.3.1292  possibly using invalid pointer when searcing for window
   1811  7.3.1293  put in empty buffer cannot be undone
+  9214  7.3.1294  ":diffoff" resets options
+ 10783  7.3.1295  glob()/globpath() do not handle escaped special chars well
+  1626  7.3.1296  only MS-Windows limits GUI window size to fit on the monitor
+  4409  7.3.1297  findfile() directory matching fails with a star after text
+  2116  7.3.1298  (after 7.3.1297) crash
+ 14986  7.3.1299  errors when doing "make proto"; dependencies outdated
+  3033  7.3.1300  Mac: tiny and small build fails
+  6786  7.3.1301  some tests fail on MS-Windows
+  3717  7.3.1302  test 17 fails on MS-Windows, includes line break in file name
+  4568  7.3.1303  (after 7.3.1290) undo is synced whenever CTRL-R = is called
+  1416  7.3.1304  test 89 still fails on MS-Windows
+  2929  7.3.1305  warnings from 64 bit compiler
+  3533  7.3.1306  when redrawing screen during startup intro message is cleared
+ 10325  7.3.1307  MS-Windows build instructions are outdated
+  2576  7.3.1308  minor typos in MS-Windows files
+  2407  7.3.1309  no wait to hit enter when a script defines a function
+  3097  7.3.1310  typos in nsis script. Can use better compression
+  2115  7.3.1311  compiler warnings on Cygwin
+  2161  7.3.1312  Python: not giving correct error messages for SystemExit()
+  2076  7.3.1313  :py and :py3 don't work with Cygwin or MingW and 64 bit
+  2640  7.3.1314  test 87 fails with Python 3.3

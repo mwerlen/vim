@@ -18,7 +18,7 @@
 #used for pre-releases:
 %define beta %{nil}
 %define vimdir vim73%{?beta}
-%define patchlevel 1293
+%define patchlevel 1314
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -1349,6 +1349,27 @@ Patch1290: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1290
 Patch1291: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1291
 Patch1292: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1292
 Patch1293: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1293
+Patch1294: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1294
+Patch1295: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1295
+Patch1296: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1296
+Patch1297: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1297
+Patch1298: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1298
+Patch1299: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1299
+Patch1300: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1300
+Patch1301: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1301
+Patch1302: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1302
+Patch1303: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1303
+Patch1304: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1304
+Patch1305: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1305
+Patch1306: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1306
+Patch1307: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1307
+Patch1308: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1308
+Patch1309: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1309
+Patch1310: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1310
+Patch1311: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1311
+Patch1312: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1312
+Patch1313: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1313
+Patch1314: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1314
 
 Patch3000: vim-7.3-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -2789,6 +2810,27 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch1291 -p0
 %patch1292 -p0
 %patch1293 -p0
+%patch1294 -p0
+%patch1295 -p0
+%patch1296 -p0
+%patch1297 -p0
+%patch1298 -p0
+%patch1299 -p0
+%patch1300 -p0
+%patch1301 -p0
+%patch1302 -p0
+%patch1303 -p0
+%patch1304 -p0
+%patch1305 -p0
+%patch1306 -p0
+%patch1307 -p0
+%patch1308 -p0
+%patch1309 -p0
+%patch1310 -p0
+%patch1311 -p0
+%patch1312 -p0
+%patch1313 -p0
+%patch1314 -p0
 
 
 # install spell files
@@ -3284,6 +3326,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Jul 09 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-1
+- patchlevel 1314
+
 * Thu Jul 04 2013 Karsten Hopp <karsten@redhat.com> 7.3.1293-1
 - patchlevel 1293
 
