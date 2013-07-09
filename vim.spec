@@ -1166,7 +1166,7 @@ Patch1107: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1107
 Patch1108: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1108
 Patch1109: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1109
 Patch1110: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1110
-Patch1111: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1111
+Patch1111: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1111.patched
 Patch1112: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1112
 Patch1113: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1113
 Patch1114: ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.1114
@@ -2627,7 +2627,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch1108 -p0
 %patch1109 -p0
 %patch1110 -p0
-%patch1111 -p0
+%patch1111 -p1
 %patch1112 -p0
 %patch1113 -p0
 %patch1114 -p0
