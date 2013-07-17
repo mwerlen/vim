@@ -811,7 +811,7 @@ Individual patches for Vim 7.3:
   2035  7.3.777  when building with Gnome locale gets reset
   1664  7.3.778  compiler error for adding up two pointers
   4570  7.3.779  backwards search lands in wrong place when on a multibyte char
-  6443  7.3.780  char2nr() and nr2char() always use 'encoding'
+  6439  7.3.780  char2nr() and nr2char() always use 'encoding'
   5262  7.3.781  drawing with 'guifontwide' can be slow
   4964  7.3.782  Windows: IME composition may use a wrong font
   1329  7.3.783  crash when mark is not set
@@ -871,7 +871,7 @@ Individual patches for Vim 7.3:
   2221  7.3.837  empty lines in :version output when 'columns' is 320
  11057  7.3.838  (after 7.3.830) insufficient testing for mksession
   2012  7.3.839  some files missing in the list of distributed files
-  1652  7.3.840 "\@<!" in regexp does not work correctly with cp932
+  1652  7.3.840  "\@<!" in regexp does not work correctly with cp932
   2073  7.3.841  parse error in "cond ? one : two" expression with a subscript
   1724  7.3.842  compiler warning
   3883  7.3.843  (after 7.3.841) missing test file changes
@@ -1001,7 +1001,7 @@ Individual patches for Vim 7.3:
   3304  7.3.967  (after 7.3.965) build fails on Mac OSX
   2100  7.3.968  multi-byte support is only available with "big" features
   1603  7.3.969  can't built with Python 3 and without Python 2
-184170  7.3.970  pattern matching is slow, include the NFA engine
+182647  7.3.970  (fixed) pattern matching is slow, include the NFA engine
   4337  7.3.971  no support for VS2012 static code analysis
   3720  7.3.972  cursor not restored properly after InsertEnter autocommand
   3881  7.3.973  (after 7.3.970) compiler warnings, crash on startup
@@ -1019,3 +1019,328 @@ Individual patches for Vim 7.3:
   1691  7.3.985  GTK vim not started as gvim has WM_CLASS property wrong
   2113  7.3.986  test 95 doesn't pass when 'encoding' isn't utf-8
   6338  7.3.987  no easy to run an individual test; test 64 may fail
+  1552  7.3.988  new regexp engine is slow
+  1944  7.3.989  new regexp engine compares negative numbers to character
+  7487  7.3.990  memory leak in new regexp engine
+ 18482  7.3.991  more can be shared between python 2 and 3
+ 70337  7.3.992  Python: Too many type casts
+  7832  7.3.993  (after 7.3.992) later patch does things slightly differently
+  7845  7.3.994  Python: using magic constants
+ 13902  7.3.995  Python: Module initialization is duplicated
+ 14039  7.3.996  Python: Can't check types of what is returned by bindeval()
+ 23712  7.3.997  Vim and Python exceptions are different
+ 11177  7.3.998  Python: garbage collection issues
+  4683  7.3.999  new regexp engine sets curbuf temporarily
+  1637  7.3.1000  (whoa!) typo in char value causes out of bounds access
+  1651  7.3.1001  duplicate condition in if
+  4012  7.3.1002  valgrind errors for Python interface
+ 11873  7.3.1003  Python interface does not compile with Python 2.2
+ 10551  7.3.1004  Python: no error when option could not be set
+  6658  7.3.1005  get stuck on regexp "\n*" and on "%s/^\n\+/\r"
+  2012  7.3.1006  NFA engine not used for "\_[0-9]"
+  1745  7.3.1007  can't build on Minix 3.2.1
+  2577  7.3.1008  test 95 fails on MS-Windows
+  1517  7.3.1009  Python: compiler warning for ambiguous else
+  4767  7.3.1010  new regexp: adding \Z makes every character match
+ 12440  7.3.1011  new regexp engine is inefficient with multi-byte characters
+  5335  7.3.1012  \Z does not work properly with the new regexp engine
+  8601  7.3.1013  new regexp logging is a bit messy
+  5064  7.3.1014  new regexp state dump is hard to read
+  5630  7.3.1015  new regexp engine: Matching composing characters is wrong
+  4452  7.3.1016  unused field in nfa_state
+ 11523  7.3.1017  zero width match changes length of match
+  2979  7.3.1018  new regexp engine wastes memory
+  4149  7.3.1019  not working with the new regexp engine: \%[oxduU]123
+ 60056  7.3.1020  not all patterns are tested with auto / old / new engine
+  6612  7.3.1021  new regexp engine does not ignore order of composing chars
+ 21993  7.3.1022  compiler warning for shadowed variable
+  3777  7.3.1023  mixed results for pattern with composing char only and \Z
+ 16114  7.3.1024  new regexp: End of matching pattern not set correctly
+  6270  7.3.1025  new regexp: not matching newline in string
+  3384  7.3.1026  new regexp: pattern that includs a new-line matches too early
+  2380  7.3.1027  new regexp performance: Calling no_Magic() very often
+ 22962  7.3.1028  new regexp performance: Copying a lot of position state
+  2536  7.3.1030  (after 7.3.1028) can't build for debugging
+  2224  7.3.1031  compiler warnings for shadowed variable
+ 13629  7.3.1032  "\ze" is not supported by the new regexp engine
+ 35107  7.3.1033  "\1" .. "\9" are not supported in the new regexp engine
+  5753  7.3.1034  new regexp code using strange multi-byte code
+  1624  7.3.1035  compiler warning on 64 bit windows
+ 13539  7.3.1036  can't build on HP-UX
+ 10869  7.3.1037  look-behind matching is very slow on long lines
+  4527  7.3.1038  crash when using Cscope
+ 10088  7.3.1039  new regexp engine does not support \%23c, \%<23c and the like
+ 11134  7.3.1040  Python: Problems with debugging dynamic build
+  4010  7.3.1041  Python: valgrind invalid read errors.
+ 25871  7.3.1042  Python: can't assign to vim.Buffer.name
+  9319  7.3.1043  Python: Dynamic compilation with 2.3 fails
+ 11091  7.3.1044  Python: No {Buffer,TabPage,Window}.valid attributes
+  4247  7.3.1045  Python: No error handling for VimToPython function
+  3272  7.3.1046  Python: Using Py_BuildValue for building strings
+ 20246  7.3.1047  Python: dir() does not work properly
+ 14215  7.3.1048  Python: no consistent naming
+  4082  7.3.1049  Python: no consistent naming
+  1447  7.3.1050  Python: Typo in pyiter_to_tv
+  6973  7.3.1051  Python: possible memory leaks
+  1536  7.3.1052  Python: possible SEGV and negative refcount
+  4324  7.3.1053  Python: no flag for types with tp_traverse+tp_clear
+  4802  7.3.1054  (after 7.3.1042) can't build without the +autocmd feature
+  3228  7.3.1055  negated collection does not match newline
+ 14318  7.3.1056  Python: possible memory leaks
+  5348  7.3.1057  Python: not enough compatibilty
+  5291  7.3.1058  call of funcref does not succeed in other script
+  9667  7.3.1059  Python: Using fixed size buffers
+  1959  7.3.1060  Python: can't repr() a function
+ 57340  7.3.1061  Python: Dictionary is not standard
+ 14819  7.3.1062  Python: List is not standard
+ 17732  7.3.1063  Python: Function is not standard
+  4594  7.3.1064  Python: insufficient error checking
+ 11849  7.3.1065  Python: key mapping is not standard
+117512  7.3.1066  Python: Insufficient exception and error testing
+  6571  7.3.1067  Python: documentation lags behind
+  6483  7.3.1068  Python: Script is auto-loaded on function creation
+  4576  7.3.1069  Python: memory leaks
+  3020  7.3.1070  crash in Python tests; compiler warning for unused function
+ 12592  7.3.1071  new regexp engine: backreferences don't work correctly
+  1428  7.3.1072  compiler warning for uninitialized variable
+ 10492  7.3.1073  new regexp engine may run out of states
+  1955  7.3.1074  compiler warning for printf format
+  1394  7.3.1075  compiler warning for storing a long_u in an int
+ 12338  7.3.1076  new regexp engine: \@= and \& don't work
+ 10048  7.3.1077  Python: Allocating dict the wrong way, causing a crash
+  6808  7.3.1078  new regexp engine: \@! doesn't work
+ 50300  7.3.1079  test 87 fails
+ 11448  7.3.1080  test 86 fails
+  2133  7.3.1081  compiler warnings on 64-bit Windows
+  5220  7.3.1082  new regexp engine: Problem with \@= matching
+  4273  7.3.1083  new regexp engine: Does not support \%^ and \%$
+  8656  7.3.1084  new regexp engine: only accepts up to \{,10}
+  8679  7.3.1085  new regexp engine: Non-greedy multi doesn't work
+  3841  7.3.1086  old regexp engine accepts illegal range, new one doesn't
+  7441  7.3.1087  a leading star is not seen as a normal char when \{} follows
+  4864  7.3.1089  tests 86 and 87 fail on MS-Windows
+ 49092  7.3.1090  new regexp engine does not support \z1 .. \z9 and \z(
+  3296  7.3.1091  new regexp engine: no error for \z1 or \z( when not working
+  5478  7.3.1092  regexp debugging: can't build, debug output has wrong pattern
+  3094  7.3.1093  new regexp engine: empty \1 skips a character
+  8453  7.3.1094  new regexp engine: Attempts to match "^" at every character
+  8835  7.3.1095  compiler warnings for shadowed variables
+ 10518  7.3.1096  Python: popitem() was not defined in a standard way
+  2779  7.3.1097  Python: a few recently added items are not documented
+  2298  7.3.1098  Python: Possible memory leaks
+ 15612  7.3.1099  Python: changing directory causes problems
+ 34271  7.3.1100  Python: a few more memory problems
+  9379  7.3.1101  configure doesn't find Python 3 on Ubuntu 13.04
+  1450  7.3.1102  completion of ":py3do" and ":py3file" fails after ":py3"
+ 11276  7.3.1103  new regexp engine: overhead in saving and restoring
+  2663  7.3.1104  new regexp engine does not handle "~"
+ 12905  7.3.1105  new regexp engine: too much code in one function; dead code
+ 10519  7.3.1106  new regexp engine: save/restore lastlist takes a lot of time
+  2325  7.3.1107  compiler warnings for unused variables
+  1327  7.3.1108  error message for os.fchdir()
+  4969  7.3.1109  building on MS-Windows doesn't see changes in if_py_both.h
+ 23743  7.3.1110  new regexp matching: Using \@= and the like can be slow
+ 16284  7.3.1111  nfa_recognize_char_class() implementation is inefficient
+  7450  7.3.1112  new regexp engine: \%V not supported
+  8095  7.3.1113  new regexp engine: \%'m not supported
+  1807  7.3.1114  (after 7.3.1110) can't build without the syntax feature
+  8246  7.3.1115  users don't like cursor line number with 'relativenumber' set
+  2461  7.3.1116  can't build without Visual mode
+  8737  7.3.1117  new regexp engine: \%[abc] not supported
+  4590  7.3.1118  match failure rate is not very specific
+  6657  7.3.1119  flags in 'cpo' are searched for several times
+  2736  7.3.1120  crash when regexp logging is enabled
+  3151  7.3.1121  new regexp engine: adding states that are not used
+ 13428  7.3.1122  new regexp engine: \@> not supported
+  1613  7.3.1123  can't build tiny Vim on MS-Windows
+  1336  7.3.1124  Python: Crash on MS-Windows when os.fchdir() is not available
+  3014  7.3.1125  error for using \%V in a pattern in tiny Vim
+  1392  7.3.1126  compiler warning for uninitialized variable
+  2533  7.3.1127  no error for using empty \%[]
+  7328  7.3.1128  every failure in the NFA engine is a syntax error
+ 21365  7.3.1129  can't see what pattern in syntax highlighting is slow
+  6016  7.3.1130  (after 7.3.1129) can't build with anything but huge features
+  5173  7.3.1131  new regexp engine is a bit slow
+  2704  7.3.1132  crash when debugging regexp
+  8763  7.3.1133  new regexp engine is a bit slow
+  2048  7.3.1134  running test 49 takes a long time
+  2020  7.3.1135  compiler warning for unused argument
+  1465  7.3.1136  ":func Foo" does not show attributes
+ 26955  7.3.1137  new regexp engine: collections are slow
+ 16357  7.3.1138  new regexp engine: neglist no longer used
+ 14897  7.3.1139  new regexp engine: negated flag is hardly used
+  5298  7.3.1140  new regexp engine: can skip expensive match
+  2548  7.3.1141  Win32: Check for available memory is not reliable
+  1347  7.3.1142  memory leak in ":syntime report"
+  1646  7.3.1143  when mapping NUL it is displayed as an X
+  2557  7.3.1144  "RO" is not translated everywhere
+  4036  7.3.1145  new regexp engine: addstate() is called very often
+ 10156  7.3.1146  new regexp engine: look-behind followed by zero-width fails
+  4905  7.3.1147  new regexp engine: regstart is only used to find first match
+  5345  7.3.1148  no command line completion for ":syntime"
+ 41306  7.3.1149  new regexp engine: Matching plain text could be faster
+ 10878  7.3.1150  new regexpengine: Slow for look-behind match without a width
+  5073  7.3.1151  new regexp engine: Slow for look-behind plus zero-width match
+  1795  7.3.1152  In tiny build ireg_icombine is undefined
+ 25686  7.3.1153  new regexp engine: look-behind matches can be very expensive
+  2966  7.3.1154  new regexp_nfa engine: Uneccessary code
+  1446  7.3.1155  MS-DOS: "make test" uses external rmdir command
+  2852  7.3.1156  compiler warnings
+  5289  7.3.1157  new regexp engine fails on "\(\<command\)\@<=.*"
+  3303  7.3.1158  crash when running test 86
+  4965  7.3.1159  the round() function is not always available
+  1649  7.3.1160  mixing long and pointer doesn't always work
+  4992  7.3.1161  Python: PyList_SetItem() is inefficient
+  5274  7.3.1162  Python: Memory leaks
+ 41871  7.3.1163  not easy to load Python modules
+  4881  7.3.1164  can't test what is actually displayed on screen
+  2261  7.3.1165  HP-UX compiler can't handle zero size array
+  5466  7.3.1166  loading Python modules is not tested
+ 33215  7.3.1167  no good Python 3 configure check; may need -pthreads
+  6704  7.3.1168  Python "sane" configure checks give a warning message
+ 13917  7.3.1169  new regexp engine: doing work while executing a pattern
+  3128  7.3.1170  (after 7.3.1058) can'tuse a function reference as a string
+  2400  7.3.1171  check for digits and ascii letters can be faster
+ 22201  7.3.1172  Python 2: loading modules doesn't work well
+ 93253  7.3.1173  Python 2 tests don't have the same output everywhere
+ 22984  7.3.1174  Python 2 and 3 use different ways to load modules
+  3393  7.3.1175  using isalpha() and isalnum() can be slow
+  2785  7.3.1176  compiler warnings on 64 bit system
+  3624  7.3.1177  wasting memory on padding
+ 12533  7.3.1178  can't put all Vim config files together in one directory
+  4300  7.3.1179  waiting for character after buffer-local map match
+  2122  7.3.1180  path from cscope may not be valid after changing directory
+  2575  7.3.1181  wrong error message for 1.0[0]
+ 13491  7.3.1182  'backupcopy' default on MS-Windows does not work for links
+  1601  7.3.1183  Python tests 86 and 87 fail
+  2023  7.3.1184  highlighting is sometimes wrong
+  2734  7.3.1185  new regexp engine: no match with ^ after \n
+  2903  7.3.1186  Python 3: test 87 may crash
+  2647  7.3.1187  (after 7.3.1170) "s:" is recognized but "<SID>" is not
+  2131  7.3.1188  newline characters messing up error message
+  2305  7.3.1189  (after 7.3.1185) highlighting is still wrong sometimes
+  1818  7.3.1190  compiler warning for parentheses
+  8174  7.3.1191  Backreference to previous line doesn't work
+  4439  7.3.1192  valgrind reports errors when using backreferences
+  1765  7.3.1193  fail_if_missing not used for Python 3
+  2192  7.3.1194  Yaml highlighting is slow
+  1535  7.3.1195  compiler warning for unitialized variable
+  7934  7.3.1196  old regexp engine does not match pattern with backref right
+  6096  7.3.1197  ":wviminfo!" does not write history read from a viminfo file
+  2960  7.3.1198  build error when using Perl 5.18.0 and dynamic loading
+  3597  7.3.1199  error from evaluating 'foldexpr' is silently ignored
+  2718  7.3.1200  calling setline() from Insert mode messes up undo
+  1980  7.3.1201  on startup preview window may be used as the current window
+  1875  7.3.1202  tags are not found in case-folded tags file
+  1575  7.3.1203  matches from matchadd() might be highlighted incorrectly
+  8835  7.3.1204  calling gettabwinvar() in 'tabline' cancels Visual mode
+  2008  7.3.1205  logtalk.dict is not removed on uninstall
+  2965  7.3.1206  inconsistent function argument declarations
+  2745  7.3.1207  new regexp engine: no match found on "#if FOO"
+  2369  7.3.1208  compiler warnings on MS-Windows
+  1363  7.3.1209  no completion for ":tabdo"
+  1937  7.3.1210  (after 7.3.1182) 'backupcopy' default on MS-Windows is wrong
+  6882  7.3.1211  MS-Windows: ":hardcopy" does not work properly
+  3225  7.3.1212  "make test" on MS-Windows does not report like Unix does
+  6963  7.3.1213  can't build with Python and small features. 
+  2511  7.3.1214  missing declaration for init_users() and realloc_post_list()
+  1553  7.3.1215  compiler warning for function not defined
+  4902  7.3.1216  configure can't find Motif on Ubuntu
+  2775  7.3.1217  new regexp engine: Can't handle \%[[ao]]
+  2655  7.3.1218  "make test" on MS-Windows does not clean all temporary files
+  1826  7.3.1219  no test for using []] inside \%[]
+  5738  7.3.1220  MS-Windows: When using wide font italic/bold are not included
+  8519  7.3.1221  when build flags change "make distclean" causes an error
+  2948  7.3.1222  cannot execute some tests from the src directly
+  7033  7.3.1223  tests fail on MS-Windows
+  2640  7.3.1224  Clang gives warnings on xxd
+  1765  7.3.1225  compiler warnings when building with Motif
+  7157  7.3.1226  Python: duplicate code
+ 18950  7.3.1227  Python: inconsistent string conversion
+  9788  7.3.1228  Python: various inconsistencies and problems
+ 34007  7.3.1229  Python: not so easy to delete/restore translating
+185712  7.3.1230  Python: Exception messages are not clear
+ 22564  7.3.1231  Python: use of numbers not consistent
+ 54051  7.3.1232  Python: inconsistencies in variable names
+185882  7.3.1233  various Python problems
+ 30099  7.3.1234  (after 7.3.1229) Python: Strings are not marked for translate
+  1928  7.3.1235  inserting CTRL-] differs between insert and command-line mode
+150895  7.3.1236  Python: WindowSetattr() missing support for NUMBER_UNSIGNED
+  3493  7.3.1237  Python: non-import errors not handled correctly
+  3329  7.3.1238  crash in Python interface on 64 bit machines
+  2921  7.3.1239  can't build with Python and MSVC10
+  1755  7.3.1240  memory leak in findfile()
+  1774  7.3.1241  (after 7.3.1236) some test files missing from distribution
+  2224  7.3.1242  no failure when trying to use a number as a string
+  5926  7.3.1243  back references in look-behind match don't work
+  1811  7.3.1244  MS-Windows: confirm() dialog text may not fit
+  2739  7.3.1245  MS-Windows: confirm() dialog text may still not fit
+  4263  7.3.1246  wrong window layout when resizing with 'winfixheight' set
+  4263  7.3.1247  pattern '[ ]\@!\p\%([ ]\@!\p\)*:' does not always match
+  8725  7.3.1248  still have old hacking code for Input Method
+  1802  7.3.1249  modeline not recognized when using "Vim" instead of "vim"
+  4165  7.3.1250  Python tests fail on MS-Windows
+  1410  7.3.1251  test 61 messes up viminf.
+  1774  7.3.1252  Win32: Gvim does not always find the toolbar bitmap file
+  2265  7.3.1253  still undo problem after using CTRL-R = setline()
+  1849  7.3.1254  (after 7.3.1252) can't build without the multi-lang feature
+  2359  7.3.1255  Clang warnings when building with Athena
+  4034  7.3.1256  can't build without eval or autocmd feature
+  1820  7.3.1257  GNU gettext() ignores :lang language setting
+  1881  7.3.1258  using submatch() may crash Vim
+  2626  7.3.1259  no test for patch 7.3.1258
+  3774  7.3.1260  completion gets incomplete command line in cmdline window
+ 10176  7.3.1261  (after 7.3.1179) keymap causes global mapping to stop working
+  5601  7.3.1262  crash and compilation warnings with Cygwin
+  1690  7.3.1263  typo in short option name
+  2349  7.3.1264  (after 7.3.1261) missing m_nowait
+  1521  7.3.1265  (after 7.3.1249) errors for allowing "Vim:" in a modeline
+  1857  7.3.1266  QNX: GUI fails to start
+ 12040  7.3.1267  MS-Windows ACL support doesn't work well
+  3846  7.3.1268  ACL support doesn't work when when compiled with MingW
+  1668  7.3.1269  insert completion keeps wrong entry selected
+  1825  7.3.1270  using "Vp" in an empty buffer can't be undone
+  1891  7.3.1271  (after 7.3.1260) command line completion does not work
+  2962  7.3.1272  crash when editing Ruby file
+  1652  7.3.1273  when copying a location list the index might be wrong
+  3332  7.3.1274  using wrong window when using entry from location list
+  5535  7.3.1275  "gn" does not work when the match is a single character
+  1657  7.3.1276  resizing the window may send SIGWINCH to cscope and it quits
+  3286  7.3.1277  in diff mode 'cursorline' also draws in the non-active window
+  4461  7.3.1278  limit the screen size set by "stty"
+  1814  7.3.1279  compiler warning for variable uninitialized
+  6899  7.3.1280  (after 7.3.1247) reading memory already freed
+  2145  7.3.1281  When 'ttymouse' is "xterm2" click in column 123 moves to 96
+  3251  7.3.1282  'cursorline' not drawn in any other window
+  2408  7.3.1283  test 71 fails on MS-Windows
+  3800  7.3.1284  compiler warnings in MS-Windows clipboard handling
+ 10725  7.3.1285  no tests for picking window when using entry in location list
+  1487  7.3.1286  check for screen size missing for Athena and Motif
+ 13995  7.3.1287  Python SystemExit exception is not handled properly
+ 14385  7.3.1288  the first ":echo 'hello'" command output doesn't show
+  2406  7.3.1289  get GLIB warning when removing a menu item
+  1385  7.3.1290  (after 7.3.1253) CTRL-R = in Insert mode starts new insert
+  2028  7.3.1291  (after 7.3.1288) compiler warnings for uninitialized variable
+  1635  7.3.1292  possibly using invalid pointer when searcing for window
+  1811  7.3.1293  put in empty buffer cannot be undone
+  9214  7.3.1294  ":diffoff" resets options
+ 10783  7.3.1295  glob()/globpath() do not handle escaped special chars well
+  1626  7.3.1296  only MS-Windows limits GUI window size to fit on the monitor
+  4409  7.3.1297  findfile() directory matching fails with a star after text
+  2116  7.3.1298  (after 7.3.1297) crash
+ 14986  7.3.1299  errors when doing "make proto"; dependencies outdated
+  3033  7.3.1300  Mac: tiny and small build fails
+  6786  7.3.1301  some tests fail on MS-Windows
+  3717  7.3.1302  test 17 fails on MS-Windows, includes line break in file name
+  4568  7.3.1303  (after 7.3.1290) undo is synced whenever CTRL-R = is called
+  1416  7.3.1304  test 89 still fails on MS-Windows
+  2929  7.3.1305  warnings from 64 bit compiler
+  3533  7.3.1306  when redrawing screen during startup intro message is cleared
+ 10325  7.3.1307  MS-Windows build instructions are outdated
+  2576  7.3.1308  minor typos in MS-Windows files
+  2407  7.3.1309  no wait to hit enter when a script defines a function
+  3097  7.3.1310  typos in nsis script. Can use better compression
+  2115  7.3.1311  compiler warnings on Cygwin
+  2161  7.3.1312  Python: not giving correct error messages for SystemExit()
+  2076  7.3.1313  :py and :py3 don't work with Cygwin or MingW and 64 bit
+  2640  7.3.1314  test 87 fails with Python 3.3
