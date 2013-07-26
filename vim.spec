@@ -2854,7 +2854,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
 %patch3015 -p1
 %endif
-%patch3015 -p1
 
 %build
 cp -f %{SOURCE5} .
