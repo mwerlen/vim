@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -2854,6 +2854,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
 %patch3015 -p1
 %endif
+%patch3016 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -3042,8 +3043,8 @@ chmod 644 ../runtime/doc/vim2html.pl
 mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
-  [ -x /%{_bindir}/id ] || return
-  [ \`/%{_bindir}/id -u\` -le 200 ] && return
+  [ -x %{_bindir}/id ] || return
+  [ \`%{_bindir}/id -u\` -le 200 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
@@ -3331,6 +3332,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jul 31 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-3
+- more man page fixes
+
 * Fri Jul 26 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-2
 - document gex and vimx in man page
 - fix gvimdiff and gvimtutor man page redirects
