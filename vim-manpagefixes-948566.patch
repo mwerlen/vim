@@ -60,6 +60,19 @@ diff -urN vim73/runtime/doc/vim.1 vim73_new/runtime/doc/vim.1
  .TP
  evim eview
  The GUI version in easy mode.
+@@ -458,6 +458,12 @@
+ \-\-remote\-wait\-silent
+ As \-\-remote\-wait, but without the warning when no server is found.
+ .TP
++\-\-remote\-tab[\-wait][\-silent]
++As \-\-remote but use tab page per file
++.TP
++\-\-role
++Set a unique role to identify the main window
++.TP
+ \-\-serverlist
+ List the names of all Vim servers that can be found.
+ .TP
 diff -urN vim73/runtime/doc/vim-fr.1 vim73_new/runtime/doc/vim-fr.1
 --- vim73/runtime/doc/vim-fr.1	2010-05-15 13:04:00.000000000 +0200
 +++ vim73_new/runtime/doc/vim-fr.1	2013-07-31 13:59:10.587467916 +0200

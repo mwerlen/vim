@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -2851,9 +2851,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3012 -p1
 %patch3013 -p1
 %patch3014 -p1
-%if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
-%patch3015 -p1
-%endif
+#if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
+#patch3015 -p1
+#endif
 %patch3016 -p1
 
 %build
@@ -3332,7 +3332,7 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Wed Jul 31 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-3
+* Wed Jul 31 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-4
 - more man page fixes
 
 * Fri Jul 26 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-2
