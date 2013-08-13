@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -63,6 +63,7 @@ Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-manpage-typo-668894-675480.patch
 Patch3013: vim-7.3-xsubpp-path.patch
+Patch3014: vim-manpagefixes-948566.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -217,6 +218,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
 %patch3013 -p1
 %endif
+%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -460,9 +462,11 @@ for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
   rm -rf %{buildroot}/%{_mandir}/$i
 done
 
-for i in rvim.1 gvim.1 gvimdiff.1 gex.1 gview.1 gvimtutor.1 vimx.1; do 
+for i in rvim.1 gvim.1 gex.1 gview.1 vimx.1; do 
   echo ".so man1/vim.1" > %{buildroot}/%{_mandir}/man1/$i
 done
+echo ".so man1/vimdiff.1" > %{buildroot}/%{_mandir}/man1/gvimdiff.1
+echo ".so man1/vimtutor.1" > %{buildroot}/%{_mandir}/man1/gvimtutor.1
 mkdir -p %{buildroot}/%{_mandir}/man5
 for i in virc.5 vimrc.5; do 
   echo ".so man1/vim.1" > %{buildroot}/%{_mandir}/man5/$i
@@ -698,6 +702,10 @@ rm -rf %{buildroot}
 
 * Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.3.1314-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
+* Fri Jul 26 2013 Karsten Hopp <karsten@redhat.com> 7.3.1314-2
+- document gex and vimx in man page
+- fix gvimdiff and gvimtutor man page redirects
 
 * Wed Jul 17 2013 Petr Pisar <ppisar@redhat.com> - 2:7.3.1314-2
 - Perl 5.18 rebuild
