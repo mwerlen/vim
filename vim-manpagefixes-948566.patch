@@ -241,30 +241,6 @@ diff -urN vim73/runtime/doc/vimtutor.1 vim73_new/runtime/doc/vimtutor.1
  .SH DESCRIPTION
  .B Vimtutor
  starts the
-diff -urN vim73/runtime/doc/vimtutor-fr.1 vim73_new/runtime/doc/vimtutor-fr.1
---- vim73/runtime/doc/vimtutor-fr.1	2010-05-15 13:04:00.000000000 +0200
-+++ vim73_new/runtime/doc/vimtutor-fr.1	2013-07-31 14:10:21.316284233 +0200
-@@ -4,6 +4,8 @@
- .SH SYNOPSIS
- .br
- .B vimtutor [-g] [langue]
-+.br
-+.B gvimtutor
- .SH DESCRIPTION
- .B Vimtutor
- lance le tutoriel
-diff -urN vim73/runtime/doc/vimtutor-fr.UTF-8.1 vim73_new/runtime/doc/vimtutor-fr.UTF-8.1
---- vim73/runtime/doc/vimtutor-fr.UTF-8.1	2010-05-15 13:04:00.000000000 +0200
-+++ vim73_new/runtime/doc/vimtutor-fr.UTF-8.1	2013-07-31 14:10:28.149048167 +0200
-@@ -4,6 +4,8 @@
- .SH SYNOPSIS
- .br
- .B vimtutor [-g] [langue]
-+.br
-+.B gvimtutor
- .SH DESCRIPTION
- .B Vimtutor
- lance le tutoriel
 diff -urN vim73/runtime/doc/vimtutor-it.1 vim73_new/runtime/doc/vimtutor-it.1
 --- vim73/runtime/doc/vimtutor-it.1	2010-07-27 22:35:32.000000000 +0200
 +++ vim73_new/runtime/doc/vimtutor-it.1	2013-07-31 14:10:33.564861055 +0200
