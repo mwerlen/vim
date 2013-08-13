@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 4%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
@@ -406,8 +406,8 @@ chmod 644 ../runtime/doc/vim2html.pl
 mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
-  [ -x %{_bindir}/id ] || return
-  [ \`%{_bindir}/id -u\` -le 200 ] && return
+  [ -x /%{_bindir}/id ] || return
+  [ \`/%{_bindir}/id -u\` -le 200 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
