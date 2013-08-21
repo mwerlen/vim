@@ -27,3 +27,5 @@ Individual patches for Vim 7.4:
  13179  7.4.001  'ic' doesn't work for patterns such as [a-z]
   2522  7.4.002  pattern with two alternative look-behind matches doesn't match
   2680  7.4.003  memory access error in Ruby syntax highlighting
+  7145  7.4.004  when closing a window fails ":bwipe" may hang
+  1391  7.4.005  "vaB" while 'virtualedit' is set selects the wrong area

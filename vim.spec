@@ -1,4 +1,4 @@
-%define patchlevel 3
+%define patchlevel 5
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -50,6 +50,8 @@ BuildRequires: hunspell-devel
 Patch0001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
 Patch0002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
 Patch0003: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.003
+Patch0004: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.004
+Patch0005: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.005
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -198,6 +200,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch001 -p0
 %patch002 -p0
 %patch003 -p0
+%patch004 -p0
+%patch005 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -697,6 +701,11 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.5-1
+- patchlevel 5
+- when closing a window fails ":bwipe" may hang
+- "vaB" while 'virtualedit' is set selects the wrong area
+
 * Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.3-1
 - patchlevel 3, memory access error in Ruby syntax highlighting
 
