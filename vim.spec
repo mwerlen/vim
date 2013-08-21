@@ -1,5 +1,3 @@
-# used for CVS snapshots:
-%define CVSDATE %{nil}
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -15,19 +13,17 @@
 %define withruby 1
 
 %define baseversion 7.4
-#used for pre-releases:
-%define beta %{nil}
-%define vimdir vim74%{?beta}
-%define patchlevel 0
+%define vimdir vim74
+%define patchlevel 1
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
-Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Version: %{baseversion}.%{patchlevel}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
 Source3: gvim.desktop
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
@@ -51,6 +47,7 @@ BuildRequires: hunspell-devel
 %endif
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.%03d\n" $i $i; done
+Patch0001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -196,7 +193,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
-#patch001 -p0
+%patch001 -p0
 
 
 # install spell files
@@ -697,6 +694,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.1-1
+- patchlevel 1, 'ic' doesn't work for patterns such as [a-z]
+
 * Mon Aug 12 2013 Karsten Hopp <karsten@redhat.com> 7.4.0-1
 - update to vim-7.4
 
