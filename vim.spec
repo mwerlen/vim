@@ -14,7 +14,7 @@
 
 %define baseversion 7.4
 %define vimdir vim74
-%define patchlevel 1
+%define patchlevel 2
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -48,6 +48,7 @@ BuildRequires: hunspell-devel
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.%03d\n" $i $i; done
 Patch0001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
+Patch0002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -194,6 +195,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
 %patch001 -p0
+%patch002 -p0
 
 
 # install spell files
@@ -694,6 +696,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.2-1
+- patchlevel 2, pattern with two alternative look-behind matches doesn't match
+
 * Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.1-1
 - patchlevel 1, 'ic' doesn't work for patterns such as [a-z]
 

@@ -25,3 +25,4 @@ Individual patches for Vim 7.4:
 
   SIZE  NAME     FIXES
  13179  7.4.001  'ic' doesn't work for patterns such as [a-z]
+  2522  7.4.002  pattern with two alternative look-behind matches doesn't match
