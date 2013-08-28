@@ -1,5 +1,4 @@
-# used for CVS snapshots:
-%define CVSDATE %{nil}
+%define patchlevel 9
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -15,19 +14,16 @@
 %define withruby 1
 
 %define baseversion 7.4
-#used for pre-releases:
-%define beta %{nil}
-%define vimdir vim74%{?beta}
-%define patchlevel 0
+%define vimdir vim74
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
-Version: %{baseversion}.%{beta}%{patchlevel}
-Release: 2%{?dist}
+Version: %{baseversion}.%{patchlevel}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}%{?beta}%{?CVSDATE}.tar.bz2
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
 Source3: gvim.desktop
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
@@ -51,6 +47,15 @@ BuildRequires: hunspell-devel
 %endif
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.%03d\n" $i $i; done
+Patch001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
+Patch002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
+Patch003: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.003
+Patch004: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.004
+Patch005: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.005
+Patch006: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.006
+Patch007: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.007
+Patch008: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.008
+Patch009: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.009
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -196,8 +201,15 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
 # for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
-#patch001 -p0
-
+%patch001 -p0
+%patch002 -p0
+%patch003 -p0
+%patch004 -p0
+%patch005 -p0
+%patch006 -p0
+%patch007 -p0
+%patch008 -p0
+%patch009 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -697,6 +709,27 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 28 2013 Karsten Hopp <karsten@redhat.com> 7.4.009-1
+- patchlevel 009
+  mkdir("foo/bar/", "p") gives an error message
+  creating a preview window on startup messes up the screen
+  new regexp engine can't be interrupted
+  too easy to write a file was not decrypted (yet)
+
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.5-1
+- patchlevel 5
+- when closing a window fails ":bwipe" may hang
+- "vaB" while 'virtualedit' is set selects the wrong area
+
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.3-1
+- patchlevel 3, memory access error in Ruby syntax highlighting
+
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.2-1
+- patchlevel 2, pattern with two alternative look-behind matches doesn't match
+
+* Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.1-1
+- patchlevel 1, 'ic' doesn't work for patterns such as [a-z]
+
 * Mon Aug 12 2013 Karsten Hopp <karsten@redhat.com> 7.4.0-1
 - update to vim-7.4
 
