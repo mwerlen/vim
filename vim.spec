@@ -1,4 +1,4 @@
-%define patchlevel 5
+%define patchlevel 9
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -47,11 +47,15 @@ BuildRequires: hunspell-devel
 %endif
 # If you're as lazy as me, generate the list using
 # for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.%03d\n" $i $i; done
-Patch0001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
-Patch0002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
-Patch0003: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.003
-Patch0004: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.004
-Patch0005: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.005
+Patch001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
+Patch002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
+Patch003: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.003
+Patch004: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.004
+Patch005: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.005
+Patch006: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.006
+Patch007: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.007
+Patch008: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.008
+Patch009: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.009
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -707,6 +711,10 @@ rm -rf %{buildroot}
 %changelog
 * Wed Aug 28 2013 Karsten Hopp <karsten@redhat.com> 7.4.009-1
 - patchlevel 009
+  mkdir("foo/bar/", "p") gives an error message
+  creating a preview window on startup messes up the screen
+  new regexp engine can't be interrupted
+  too easy to write a file was not decrypted (yet)
 
 * Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.5-1
 - patchlevel 5
