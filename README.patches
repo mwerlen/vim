@@ -12,8 +12,8 @@ Before patching, change to the top Vim directory, where the "src" and
 "runtime" directories are located.
 Depending on the version of "patch" that you use, you may have add an
 argument to make it patch the right file:
-        patch -p < 7.3.001
-        patch -p0 < 7.3.001
+        patch -p < 7.4.001
+        patch -p0 < 7.4.001
 
 After applying a patch, you need to compile Vim.  There are no patches
 for binaries.
@@ -29,3 +29,7 @@ Individual patches for Vim 7.4:
   2680  7.4.003  memory access error in Ruby syntax highlighting
   7145  7.4.004  when closing a window fails ":bwipe" may hang
   1391  7.4.005  "vaB" while 'virtualedit' is set selects the wrong area
+  1952  7.4.006  mkdir("foo/bar/", "p") gives an error message
+  2538  7.4.007  creating a preview window on startup messes up the screen
+  2176  7.4.008  new regexp engine can't be interrupted
+  2051  7.4.009  too easy to write a file was not decrypted (yet)

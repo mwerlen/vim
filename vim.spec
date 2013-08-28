@@ -202,6 +202,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch003 -p0
 %patch004 -p0
 %patch005 -p0
+%patch006 -p0
+%patch007 -p0
+%patch008 -p0
+%patch009 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -701,6 +705,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 28 2013 Karsten Hopp <karsten@redhat.com> 7.4.009-1
+- patchlevel 009
+
 * Wed Aug 21 2013 Karsten Hopp <karsten@redhat.com> 7.4.5-1
 - patchlevel 5
 - when closing a window fails ":bwipe" may hang
