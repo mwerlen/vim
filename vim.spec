@@ -56,6 +56,13 @@ Patch006: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.006
 Patch007: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.007
 Patch008: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.008
 Patch009: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.009
+Patch010: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.010
+Patch011: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.011
+Patch012: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.012
+Patch013: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.013
+Patch014: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.014
+Patch015: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.015
+Patch016: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.016
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -210,6 +217,13 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch007 -p0
 %patch008 -p0
 %patch009 -p0
+%patch010 -p0
+%patch011 -p0
+%patch012 -p0
+%patch013 -p0
+%patch014 -p0
+%patch015 -p0
+%patch016 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -709,6 +723,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 04 2013 Karsten Hopp <karsten@redhat.com> 7.4.016-1
+- patchlevel 016
+
 * Wed Aug 28 2013 Karsten Hopp <karsten@redhat.com> 7.4.009-1
 - patchlevel 009
   mkdir("foo/bar/", "p") gives an error message

@@ -33,3 +33,10 @@ Individual patches for Vim 7.4:
   2538  7.4.007  creating a preview window on startup messes up the screen
   2176  7.4.008  new regexp engine can't be interrupted
   2051  7.4.009  too easy to write a file was not decrypted (yet)
+  2307  7.4.010  (after 7.4.006) crash with invalid argument to mkdir()
+  2270  7.4.011  cannot find out if "acl" and "xpm" features are supported
+  6180  7.4.012  MS-Windows: resolving multi-bye shortcut does not work
+  2986  7.4.013  MS-Windows: File name buffer too small for utf-8
+  2671  7.4.014  MS-Windows: check for writing to device does not work
+  3135  7.4.015  MS-Windows: Detecting node type fails for multi-byte chars
+  5999  7.4.016  MS-Windows: File name completion has problem with Chinese
