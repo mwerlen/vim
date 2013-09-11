@@ -1,4 +1,4 @@
-%define patchlevel 016
+%define patchlevel 027
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -63,6 +63,17 @@ Patch013: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.013
 Patch014: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.014
 Patch015: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.015
 Patch016: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.016
+Patch017: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.017
+Patch018: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.018
+Patch019: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.019
+Patch020: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.020
+Patch021: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.021
+Patch022: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.022
+Patch023: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.023
+Patch024: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.024
+Patch025: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.025
+Patch026: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.026
+Patch027: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.027
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -224,6 +235,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch014 -p0
 %patch015 -p0
 %patch016 -p0
+%patch017 -p0
+%patch018 -p0
+%patch019 -p0
+%patch020 -p0
+%patch021 -p0
+%patch022 -p0
+%patch023 -p0
+%patch024 -p0
+%patch025 -p0
+%patch026 -p0
+%patch027 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -723,6 +745,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 11 2013 Karsten Hopp <karsten@redhat.com> 7.4.027-1
+- patchlevel 027
+
 * Wed Sep 04 2013 Karsten Hopp <karsten@redhat.com> 7.4.016-1
 - patchlevel 016
 

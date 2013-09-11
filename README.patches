@@ -40,3 +40,14 @@ Individual patches for Vim 7.4:
   2671  7.4.014  MS-Windows: check for writing to device does not work
   3135  7.4.015  MS-Windows: Detecting node type fails for multi-byte chars
   5999  7.4.016  MS-Windows: File name completion has problem with Chinese
+  2319  7.4.017  ":help !!" does not find the "!!" tag in the help file
+  1400  7.4.018  when completing item becomes unselected
+  1948  7.4.019  file name completion fails with Chinese characters
+  2586  7.4.020  NFA engine matches too much with \@>
+  2806  7.4.021  NFA regexp: Using \ze may result in wrong end
+  4209  7.4.022  deadlock while exiting, because of allocating memory
+  1704  7.4.023  MS-Windows: warning for 64 bit type
+  1992  7.4.024  current user cannot always use the undo file he created
+  2074  7.4.025  reading before start of a string
+  1710  7.4.026  clang warning for int shift overflow
+  2815  7.4.027  valgrind error when using CTRL-X CTRL-F at start of the line
