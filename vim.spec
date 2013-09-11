@@ -20,7 +20,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -455,14 +455,15 @@ mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
   [ -x %{_bindir}/id ] || return
-  [ \`%{_bindir}/id -u\` -le 200 ] && return
+  ID=\`/usr/bin/id -u\`
+  [ -n "\$ID" -a "\$ID" -le 200 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
 EOF
 cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.csh <<EOF
 if ( -x /usr/bin/id ) then
-    if ( "\`/usr/bin/id -u\`" > 100 ) then
+    if ( "\`/usr/bin/id -u\`" > 200 ) then
         alias vi vim
     endif
 endif
@@ -745,6 +746,10 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 11 2013 Karsten Hopp <karsten@redhat.com> 7.4.027-2
+- update vim icons (#1004788)
+- check if 'id -u' returns empty string (vim.sh)
+
 * Wed Sep 11 2013 Karsten Hopp <karsten@redhat.com> 7.4.027-1
 - patchlevel 027
 
