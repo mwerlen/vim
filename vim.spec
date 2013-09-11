@@ -263,7 +263,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 
-%if %{?fedora}%{!?fedora:0} == 20 || %{?rhel}%{!?rhel:0} >= 7
+%if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
 %patch3013 -p1
 %endif
 %patch3014 -p1
