@@ -454,8 +454,8 @@ chmod 644 ../runtime/doc/vim2html.pl
 mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.sh <<EOF
 if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
-  [ -x /%{_bindir}/id ] || return
-  [ \`/%{_bindir}/id -u\` -le 200 ] && return
+  [ -x %{_bindir}/id ] || return
+  [ \`%{_bindir}/id -u\` -le 200 ] && return
   # for bash and zsh, only if no alias is already set
   alias vi >/dev/null 2>&1 || alias vi=vim
 fi
