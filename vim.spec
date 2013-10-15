@@ -1,4 +1,4 @@
-%define patchlevel 027
+%define patchlevel 052
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -20,7 +20,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -74,6 +74,31 @@ Patch024: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.024
 Patch025: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.025
 Patch026: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.026
 Patch027: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.027
+Patch028: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.028
+Patch029: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.029
+Patch030: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.030
+Patch031: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.031
+Patch032: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.032
+Patch033: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.033
+Patch034: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.034
+Patch035: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.035
+Patch036: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.036
+Patch037: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.037
+Patch038: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.038
+Patch039: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.039
+Patch040: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.040
+Patch041: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.041
+Patch042: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.042
+Patch043: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.043
+Patch044: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.044
+Patch045: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.045
+Patch046: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.046
+Patch047: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.047
+Patch048: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.048
+Patch049: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.049
+Patch050: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.050
+Patch051: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.051
+Patch052: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.052
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -246,6 +271,31 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch025 -p0
 %patch026 -p0
 %patch027 -p0
+%patch028 -p0
+%patch029 -p0
+%patch030 -p0
+%patch031 -p0
+%patch032 -p0
+%patch033 -p0
+%patch034 -p0
+%patch035 -p0
+%patch036 -p0
+%patch037 -p0
+%patch038 -p0
+%patch039 -p0
+%patch040 -p0
+%patch041 -p0
+%patch042 -p0
+%patch043 -p0
+%patch044 -p0
+%patch045 -p0
+%patch046 -p0
+%patch047 -p0
+%patch048 -p0
+%patch049 -p0
+%patch050 -p0
+%patch051 -p0
+%patch052 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -746,6 +796,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Oct 15 2013 Karsten Hopp <karsten@redhat.com> 7.4.052-1
+- patchlevel 052
+
 * Wed Sep 11 2013 Karsten Hopp <karsten@redhat.com> 7.4.027-2
 - update vim icons (#1004788)
 - check if 'id -u' returns empty string (vim.sh)
