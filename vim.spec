@@ -1,4 +1,4 @@
-%define patchlevel 052
+%define patchlevel 094
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -99,6 +99,48 @@ Patch049: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.049
 Patch050: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.050
 Patch051: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.051
 Patch052: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.052
+Patch053: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.053
+Patch054: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.054
+Patch055: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.055
+Patch056: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.056
+Patch057: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.057
+Patch058: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.058
+Patch059: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.059
+Patch060: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.060
+Patch061: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.061
+Patch062: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.062
+Patch063: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.063
+Patch064: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.064
+Patch065: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.065
+Patch066: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.066
+Patch067: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.067
+Patch068: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.068
+Patch069: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.069
+Patch070: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.070
+Patch071: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.071
+Patch072: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.072
+Patch073: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.073
+Patch074: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.074
+Patch075: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.075
+Patch076: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.076
+Patch077: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.077
+Patch078: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.078
+Patch079: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.079
+Patch080: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.080
+Patch081: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.081
+Patch082: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.082
+Patch083: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.083
+Patch084: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.084
+Patch085: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.085
+Patch086: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.086
+Patch087: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.087
+Patch088: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.088
+Patch089: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.089
+Patch090: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.090
+Patch091: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.091
+Patch092: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.092
+Patch093: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.093
+Patch094: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.094
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -296,6 +338,48 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch050 -p0
 %patch051 -p0
 %patch052 -p0
+%patch053 -p0
+%patch054 -p0
+%patch055 -p0
+%patch056 -p0
+%patch057 -p0
+%patch058 -p0
+%patch059 -p0
+%patch060 -p0
+%patch061 -p0
+%patch062 -p0
+%patch063 -p0
+%patch064 -p0
+%patch065 -p0
+%patch066 -p0
+%patch067 -p0
+%patch068 -p0
+%patch069 -p0
+%patch070 -p0
+%patch071 -p0
+%patch072 -p0
+%patch073 -p0
+%patch074 -p0
+%patch075 -p0
+%patch076 -p0
+%patch077 -p0
+%patch078 -p0
+%patch079 -p0
+%patch080 -p0
+%patch081 -p0
+%patch082 -p0
+%patch083 -p0
+%patch084 -p0
+%patch085 -p0
+%patch086 -p0
+%patch087 -p0
+%patch088 -p0
+%patch089 -p0
+%patch090 -p0
+%patch091 -p0
+%patch092 -p0
+%patch093 -p0
+%patch094 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -796,6 +880,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Nov 20 2013 Karsten Hopp <karsten@redhat.com> 7.4.094-1
+- patchlevel 094
+
 * Tue Oct 15 2013 Karsten Hopp <karsten@redhat.com> 7.4.052-1
 - patchlevel 052
 
