@@ -117,3 +117,40 @@ Individual patches for Vim 7.4:
   1697  7.4.092  (after 7.4.088) can't build small version
   2993  7.4.093  configure can't use LuaJIT on ubuntu 12.04
   4837  7.4.094  configure may not find that -lint is needed for gettext()
+  3138  7.4.095  (after 7.4.093) regexp for LuaJIT version doesn't work on BSD
+  2294  7.4.096  can't change directory to an UNC path
+  1615  7.4.097  unexpected behavior change related to 'virtualedit'
+  8357  7.4.098  error for line numbers out of range when using ":'<,'>del"
+  3122  7.4.099  append in blockwise Visual mode with "$" is wrong
+  3069  7.4.100  NFA regexp doesn't handle backreference correctly
+  2899  7.4.101  using \1 in pattern goes one line too far
+  2128  7.4.102  crash when interrupting "z="
+  3846  7.4.103  dos installer escapes spaces in the diff command wrong
+  2823  7.4.104  ":help s/\_" reports an internal error
+  1792  7.4.105  completing a tag pattern may give an error for invalid pattern
+  1971  7.4.106  can't build with Ruby using Cygwin
+ 21498  7.4.107  Python try/catch doesn't catch Vim error in vim.eval()
+  5478  7.4.108  "zG" and "zW" leave temp files around on MS-Windows
+  3775  7.4.109  ColorScheme autocommand matches with the current buffer name
+  3703  7.4.110  "gUgn" cannot be repeeated
+  1709  7.4.111  memory leak in Python OptionsAssItem
+  1862  7.4.112  MS-Windows: defaults for 'dir' and 'bdir' do not include $TEMP
+  2561  7.4.113  MSVC static analysis gives warnings
+  3353  7.4.114  new GNU make directory change messages are different
+  1633  7.4.115  Zsh: expanding ~abc fails when the result contains a space
+  1381  7.4.116  'showcmd' does not show a typed space
+  8049  7.4.117  can't build with Cygwin/MingW and Perl 5.18
+  2394  7.4.118  redrawing status lines may causes recursive call
+  7060  7.4.119  Vim doesn't work well on OpenVMS
+  1702  7.4.120  (after 7.4.117) can't build with Perl 5.18 on Linux
+  1426  7.4.121  completion doesn't work for ":py3d" and ":py3f"
+  6071  7.4.122  Win32: :grep doesn't work when 'encoding' and ACP differ
+  1883  7.4.123  Win32: Getting user name does not use wide function
+  1730  7.4.124  Win32: Getting host name does not use wide function
+  1568  7.4.125  Win32: Dealing with messages may not work for multi-byte chars
+  1946  7.4.126  compiler warnings for "const" and incompatible types
+  1949  7.4.127  Perl 5.18 on Unix doesn't work
+  1948  7.4.128  Perl 5.18 for MSVC doesn't work
+  1499  7.4.129  getline(-1) returns zero
+  2064  7.4.130  relative line numbers mix up windows when using folds
+  3038  7.4.131  syncbind causes E315 errors in some situations
