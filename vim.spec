@@ -1,4 +1,4 @@
-%define patchlevel 131
+%define patchlevel 160
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -178,6 +178,35 @@ Patch128: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.128
 Patch129: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.129
 Patch130: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.130
 Patch131: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.131
+Patch132: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.132
+Patch133: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.133
+Patch134: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.134
+Patch135: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.135
+Patch136: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.136
+Patch137: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.137
+Patch138: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.138
+Patch139: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.139
+Patch140: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.140
+Patch141: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.141
+Patch142: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.142
+Patch143: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.143
+Patch144: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.144
+Patch145: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.145
+Patch146: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.146
+Patch147: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.147
+Patch148: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.148
+Patch149: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.149
+Patch150: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.150
+Patch151: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.151
+Patch152: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.152
+Patch153: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.153
+Patch154: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.154
+Patch155: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.155
+Patch156: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.156
+Patch157: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.157
+Patch158: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.158
+Patch159: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.159
+Patch160: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.160
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -454,6 +483,35 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch129 -p0
 %patch130 -p0
 %patch131 -p0
+%patch132 -p0
+%patch133 -p0
+%patch134 -p0
+%patch135 -p0
+%patch136 -p0
+%patch137 -p0
+%patch138 -p0
+%patch139 -p0
+%patch140 -p0
+%patch141 -p0
+%patch142 -p0
+%patch143 -p0
+%patch144 -p0
+%patch145 -p0
+%patch146 -p0
+%patch147 -p0
+%patch148 -p0
+%patch149 -p0
+%patch150 -p0
+%patch151 -p0
+%patch152 -p0
+%patch153 -p0
+%patch154 -p0
+%patch155 -p0
+%patch156 -p0
+%patch157 -p0
+%patch158 -p0
+%patch159 -p0
+%patch160 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -954,6 +1012,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jan 29 2014 Karsten Hopp <karsten@redhat.com> 7.4.160-1
+- patchlevel 160
+
 * Tue Dec 17 2013 Karsten Hopp <karsten@redhat.com> 7.4.131-1
 - patchlevel 131
 

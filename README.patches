@@ -100,6 +100,7 @@ Individual patches for Vim 7.4:
   2054  7.4.074  when undo'ing all and making a change, undo structure is wrong
   9907  7.4.075  locally setting 'undolevels' is not tested
   1894  7.4.076  "cgn" does not wrap around the end of the file
+  2216  7.4.077  DOS installer creates shortcut without a path
   3552  7.4.078  MSVC 2013 is not supported
  13657  7.4.079  a script cannot detect whether 'hlsearch' highlighting is on
   1873  7.4.080  (after 7.4.079) missing documentation for v:hlsearch
@@ -154,3 +155,32 @@ Individual patches for Vim 7.4:
   1499  7.4.129  getline(-1) returns zero
   2064  7.4.130  relative line numbers mix up windows when using folds
   3038  7.4.131  syncbind causes E315 errors in some situations
+  1559  7.4.132  (after 7.4.122) Win32: flags/inherit_handles args mixed up
+  2043  7.4.133  Clang warns for using NUL
+  1562  7.4.134  spurious space in MingW Makefile
+  1696  7.4.135  missing dot in MingW test Makefile
+  2314  7.4.136  (after 7.4.096) Windows: readonly when saving UNC path file
+  6184  7.4.137  cannot use IME with Windows 8 console
+  3391  7.4.138  (after 7.4.114) directory change messages are not recognized
+  2254  7.4.139  crash when using :cd in autocommand
+  5016  7.4.140  crash when autocommand wipes out only other buffer
+  2430  7.4.141  problems when building with Borland
+  4651  7.4.142  (after 7.4.137) on MS-Windows 8 IME input doen't work well
+  6310  7.4.143  TextChangedI is not triggered.
+  1480  7.4.144  MingW also supports intptr_t for OPEN_OH_ARGTYPE
+  2513  7.4.145  getregtype() does not return zero for unknown register
+  2324  7.4.146  when starting Vim with "-u NONE" v:oldfiles is NULL
+  2583  7.4.147  cursor position wrong when using "gj" after "$"
+  2554  7.4.148  cannot build with Cygwin and X1.
+ 24083  7.4.149  get E685 error when assigning a function to autoload variable
+  2596  7.4.150  :keeppatterns is not respected for :s
+ 37572  7.4.151  Python: slices with steps are not supported
+ 19610  7.4.152  Python: Cannot iterate over options
+  6150  7.4.153  compiler warning for pointer type
+  5202  7.4.154  (after 7.4.149) still a problem with auto-loading
+  2233  7.4.155  (after 7.4.150) search offset not kept with :keeppatterns
+  1466  7.4.156  test file missing from distribution
+  1643  7.4.157  error number used twice
+  4006  7.4.158  pattern containing \zs not handled correctly by substitute()
+  3819  7.4.159  completion hangs when using the current buffer after keywords
+  2026  7.4.160  Win32: Crash when executing external command
