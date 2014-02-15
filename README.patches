@@ -184,3 +184,22 @@ Individual patches for Vim 7.4:
   4006  7.4.158  pattern containing \zs not handled correctly by substitute()
   3819  7.4.159  completion hangs when using the current buffer after keywords
   2026  7.4.160  Win32: Crash when executing external command
+  2296  7.4.161  crash in Python exception handling
+  1395  7.4.162  running tests in shadow dir doesn't work
+  2083  7.4.163  (after 7.4.142) MS-Windows 7 input doesn't work properly
+  2050  7.4.164  problem with event handling on Windows 8
+  2313  7.4.165  by default, after closing a buffer changes can't be undone
+  1685  7.4.166  auto-loading a function for code that won't be executed
+  7150  7.4.167  (after 7.4.149) fixes are not tested
+  2549  7.4.168  can't compile with Ruby 2.1.0
+  1656  7.4.169  ":sleep" puts cursor in the wrong column
+  3474  7.4.170  some help tags don't work with ":help"
+ 21030  7.4.171  redo does not set v:count and v:count1
+  9545  7.4.172  blowfish code says OFB, but it's doing CFB
+  2110  7.4.173  when using scrollbind the cursor can end up below last line
+  2945  7.4.174  compiler warnings for Python interface
+  5133  7.4.175  wrong fall-back to non-wide function if wide function fails
+  2606  7.4.176  Python: Dictionary.update() thows an unexpected error
+  1491  7.4.177  compiler warning for unused variable
+  1957  7.4.178  the J command does not update '[ and '] marks
+  1675  7.4.179  Compiler warning for type-punned pointer

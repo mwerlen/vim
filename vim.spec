@@ -1,4 +1,4 @@
-%define patchlevel 160
+%define patchlevel 179
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -207,6 +207,25 @@ Patch157: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.157
 Patch158: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.158
 Patch159: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.159
 Patch160: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.160
+Patch161: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.161
+Patch162: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.162
+Patch163: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.163
+Patch164: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.164
+Patch165: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.165
+Patch166: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.166
+Patch167: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.167
+Patch168: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.168
+Patch169: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.169
+Patch170: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.170
+Patch171: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.171
+Patch172: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.172
+Patch173: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.173
+Patch174: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.174
+Patch175: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.175
+Patch176: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.176
+Patch177: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.177
+Patch178: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.178
+Patch179: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.179
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -512,6 +531,25 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch158 -p0
 %patch159 -p0
 %patch160 -p0
+%patch161 -p0
+%patch162 -p0
+%patch163 -p0
+%patch164 -p0
+%patch165 -p0
+%patch166 -p0
+%patch167 -p0
+%patch168 -p0
+%patch169 -p0
+%patch170 -p0
+%patch171 -p0
+%patch172 -p0
+%patch173 -p0
+%patch174 -p0
+%patch175 -p0
+%patch176 -p0
+%patch177 -p0
+%patch178 -p0
+%patch179 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1012,6 +1050,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Feb 15 2014 Karsten Hopp <karsten@redhat.com> 7.4.179-1
+- patchlevel 179
+
 * Wed Jan 29 2014 Karsten Hopp <karsten@redhat.com> 7.4.160-1
 - patchlevel 160
 
