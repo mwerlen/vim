@@ -12,6 +12,7 @@
 %define withvimspell 0
 %define withhunspell 0
 %define withruby 1
+%define withlua 1
 
 %define baseversion 7.4
 %define vimdir vim74
@@ -20,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -249,6 +250,9 @@ BuildRequires: libselinux-devel
 %endif
 %if "%{withruby}" == "1"
 Buildrequires: ruby-devel ruby
+%endif
+%if "%{withlua}" == "1"
+Buildrequires: lua-devel
 %endif
 %if %{desktop_file}
 # for /usr/bin/desktop-file-install
@@ -607,6 +611,11 @@ export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOU
 %else
   --disable-rubyinterp \
 %endif
+%if "%{withlua}" == "1"
+  --enable-luainterp=dynamic \
+%else
+  --disable-luainterp \
+%endif
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim gvim
@@ -635,6 +644,11 @@ make clean
   --enable-rubyinterp=dynamic \
 %else
   --disable-rubyinterp \
+%endif
+%if "%{withlua}" == "1"
+  --enable-luainterp=dynamic \
+%else
+  --disable-luainterp \
 %endif
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
@@ -1050,6 +1064,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Feb 18 2014 Karsten Hopp <karsten@redhat.com> 7.4.179-2
+- enable dynamic lua interpreter
+
 * Sat Feb 15 2014 Karsten Hopp <karsten@redhat.com> 7.4.179-1
 - patchlevel 179
 
