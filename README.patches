@@ -203,3 +203,6 @@ Individual patches for Vim 7.4:
   1491  7.4.177  compiler warning for unused variable
   1957  7.4.178  the J command does not update '[ and '] marks
   1675  7.4.179  Compiler warning for type-punned pointer
+  2650  7.4.180  (after 7.4.174) older Python versions don't support %ld
+  1947  7.4.181  when using 'pastetoggle' the status lines are not updated
+  1916  7.4.182  building with mzscheme and racket does not work

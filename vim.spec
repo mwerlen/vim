@@ -1,4 +1,4 @@
-%define patchlevel 179
+%define patchlevel 182
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -227,6 +227,9 @@ Patch176: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.176
 Patch177: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.177
 Patch178: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.178
 Patch179: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.179
+Patch180: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.182
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -554,6 +557,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch177 -p0
 %patch178 -p0
 %patch179 -p0
+%patch180 -p0
+%patch181 -p0
+%patch182 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1064,6 +1070,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Feb 18 2014 Karsten Hopp <karsten@redhat.com> 7.4.182-1
+- patchlevel 182
+
 * Tue Feb 18 2014 Karsten Hopp <karsten@redhat.com> 7.4.179-2
 - enable dynamic lua interpreter
 
