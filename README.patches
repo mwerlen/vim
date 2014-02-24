@@ -206,3 +206,13 @@ Individual patches for Vim 7.4:
   2650  7.4.180  (after 7.4.174) older Python versions don't support %ld
   1947  7.4.181  when using 'pastetoggle' the status lines are not updated
   1916  7.4.182  building with mzscheme and racket does not work
+  1493  7.4.183  MSVC Visual Studio update not supported
+  5677  7.4.184  match() does not work properly with a {count} argument
+  1837  7.4.185  Clang gives warnings
+  5437  7.4.186  (after 7.4.085) Visual mode insert mode is sometimes wrong
+  3991  7.4.187  delete that crosses line break splits multi-byte character
+ 19236  7.4.188  SIZEOF_LONG clashes with similar defines in header files
+  1429  7.4.189  compiler warning for unused argument
+  2139  7.4.190  compiler warning for using %lld for off_t
+ 27520  7.4.191  can't escape a file name for shell commands without a function
+  1329  7.4.192  memory leak when giving E853

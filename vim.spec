@@ -230,6 +230,52 @@ Patch179: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.179
 Patch180: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.180
 Patch181: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.181
 Patch182: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.192
+Patch180: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.180
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.192
+Patch181: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.181
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.192
+Patch182: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.182
+Patch183: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.183
+Patch184: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.184
+Patch185: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.185
+Patch186: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.186
+Patch187: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.187
+Patch188: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.188
+Patch189: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.189
+Patch190: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.190
+Patch191: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.191
+Patch192: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.192
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -560,6 +606,52 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch180 -p0
 %patch181 -p0
 %patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+%patch188 -p0
+%patch189 -p0
+%patch190 -p0
+%patch191 -p0
+%patch192 -p0
+%patch180 -p0
+%patch181 -p0
+%patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+%patch188 -p0
+%patch189 -p0
+%patch190 -p0
+%patch191 -p0
+%patch192 -p0
+%patch181 -p0
+%patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+%patch188 -p0
+%patch189 -p0
+%patch190 -p0
+%patch191 -p0
+%patch192 -p0
+%patch182 -p0
+%patch183 -p0
+%patch184 -p0
+%patch185 -p0
+%patch186 -p0
+%patch187 -p0
+%patch188 -p0
+%patch189 -p0
+%patch190 -p0
+%patch191 -p0
+%patch192 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1070,6 +1162,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Feb 24 2014 Karsten Hopp <karsten@redhat.com> 7.4.192-1
+- patchlevel 192
+
 * Tue Feb 18 2014 Karsten Hopp <karsten@redhat.com> 7.4.182-1
 - patchlevel 182
 
