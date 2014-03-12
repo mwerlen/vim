@@ -216,3 +216,15 @@ Individual patches for Vim 7.4:
   2139  7.4.190  compiler warning for using %lld for off_t
  27520  7.4.191  can't escape a file name for shell commands without a function
   1329  7.4.192  memory leak when giving E853
+  3561  7.4.193  typos in messages
+  1829  7.4.194  can't build for Android
+  7729  7.4.195  (after 7.4.193) Python tests fail
+  1651  7.4.196  tests fail on Solaris 9 and 10
+ 34900  7.4.197  various problems on VMS
+  3101  7.4.198  can't build with non-threding Perl and dynamic loading
+  2946  7.4.199  (issue 197) ]P doesn't paste over Visual selection
+  1817  7.4.200  too many #ifdefs in the code
+  7626  7.4.201  'lispwords' is a global option
+  7151  7.4.202  MS-Windows: non-ASCII font names don't work
+  7124  7.4.203  parsing 'errorformat' is not correct
+  3446  7.4.204  a mapping where the second byte is 0x80 doesn't work
