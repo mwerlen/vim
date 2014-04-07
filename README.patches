@@ -228,3 +228,52 @@ Individual patches for Vim 7.4:
   7151  7.4.202  MS-Windows: non-ASCII font names don't work
   7124  7.4.203  parsing 'errorformat' is not correct
   3446  7.4.204  a mapping where the second byte is 0x80 doesn't work
+  2953  7.4.205  ":mksession" does not handle the argument list correctly
+  2217  7.4.206  compiler warnings on 64 bit Windows
+  4843  7.4.207  cursor report sometimes not recognized causing replace mode
+  1390  7.4.208  Mercurial picks up some files that are not distributed
+  1924  7.4.209  when repeating a filter command "%" and "#" are expanded
+  3997  7.4.210  Visual block mode + virtual edit doesn't work well with tabs
+  2404  7.4.211  ":lu" is abbreviation for ":lua", but it should be ":lunmap"
+137444  7.4.212  #ifdefs for the +visual feature are not useful
+  6508  7.4.213  it's not possible to open a new buffer without a swapfile
+  1523  7.4.214  compilation problems on HP_nonStop (Tandem)
+  3488  7.4.215  ":sp foo" reloads "foo" if it is the current buffer
+  1922  7.4.216  compiler warnings
+  3225  7.4.217  "make clean" may run configure pointlessly
+ 19321  7.4.218  it's not easy to remove duplicates from a list
+  2890  7.4.219  redraw too often when 'relativenumber' or 'cursorline' set
+  4640  7.4.220  test 105 does not work in a shadow dir
+  1755  7.4.221  quickfix doesn't resize on ":copen 20"
+  3882  7.4.222  the Ruby directory is constructed from parts
+220004  7.4.223  still using an older autoconf version
+  7317  7.4.224  /usr/bin/grep on Solaris does not support -F
+  2702  7.4.225  dynamic Ruby doesn't work on Solaris
+  3535  7.4.226  (after 7.4.219) cursorline highlight not always redrawn
+  2832  7.4.227  (after 7.4.225) can't build with Ruby 1.8
+  6200  7.4.228  compiler warnings when building with Python 3.2
+  3782  7.4.229  ":let" fails when listing vars with a curly braces expression
+  1673  7.4.230  error when using ":options"
+  9286  7.4.231  an error in ":options" is not caught by the tests
+  3599  7.4.232  ":%s/\n//" uses a lot of memory
+  2222  7.4.233  escaping special chars in ":!cmd %" is inconsistant
+  3017  7.4.234  can't get the command that was used to start Vim
+ 16436  7.4.235  it is not easy to get the full path of a command
+  5191  7.4.236  it's not that easy to check the Vim patch version
+  4893  7.4.237  (after 7.4.236) has() not checking for specific patch
+ 14829  7.4.238  Vim does not support the smack library
+  1714  7.4.239  ":e +" does not position cursor at end of the file
+  1676  7.4.240  ":tjump" shows "\n" as "\\n"
+ 12078  7.4.241  submatch() does not distinguish between a NL and a NUL
+ 15570  7.4.242  getreg() does not distinguish between a NL and a NUL character
+ 32738  7.4.243  cannot use setreg() to add text that includes a NUL
+  1807  7.4.244  (after 7.4.238) the smack feature causes stray error messages
+  1874  7.4.245  crash for "vim -u NONE -N  -c '&&'"
+  3736  7.4.246  configure message for detecting smack are out of sequence
+  5838  7.4.247  NUL and NL mixed up when giving input to system()
+ 13519  7.4.248  cannot distinguish between NL and NUL in output of system()
+  6037  7.4.249  using setreg() with a list of numbers does not work
+  1641  7.4.250  some test files missing from distribution
+  4570  7.4.251  crash when BufAdd autocommand wipes out the buffer
+  1446  7.4.252  critical error in GTK, removing timer twice
+  2643  7.4.253  crash when using external reference in syntax regexp 
