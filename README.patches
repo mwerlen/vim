@@ -231,7 +231,7 @@ Individual patches for Vim 7.4:
   2953  7.4.205  ":mksession" does not handle the argument list correctly
   2217  7.4.206  compiler warnings on 64 bit Windows
   4843  7.4.207  cursor report sometimes not recognized causing replace mode
-  1390  7.4.208  Mercurial picks up some files that are not distributed
+  1112  7.4.208  Mercurial picks up files that are not distributed (empty)
   1924  7.4.209  when repeating a filter command "%" and "#" are expanded
   3997  7.4.210  Visual block mode + virtual edit doesn't work well with tabs
   2404  7.4.211  ":lu" is abbreviation for ":lua", but it should be ":lunmap"
@@ -277,3 +277,8 @@ Individual patches for Vim 7.4:
   4570  7.4.251  crash when BufAdd autocommand wipes out the buffer
   1446  7.4.252  critical error in GTK, removing timer twice
   2643  7.4.253  crash when using external reference in syntax regexp 
+  5407  7.4.254  smack support detection is incomplete
+  3397  7.4.255  configure check for smack doesn't work with all shells
+  2252  7.4.256  (after 7.4.248) systemlist() does not work properly
+  1948  7.4.257  compiler warning, possibly for mismatch in parameter name
+  5726  7.4.258  configure fails if $CC contains options
