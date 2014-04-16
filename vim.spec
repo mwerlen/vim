@@ -308,7 +308,7 @@ Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-6.4-checkhl.patch
 Patch3007: vim-7.4-fstabsyntax.patch
 Patch3008: vim-7.0-warning.patch
-Patch3009: vim-7.0-syncolor.patch
+Patch3009: vim-7.4-syncolor.patch
 Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-manpage-typo-668894-675480.patch
@@ -656,7 +656,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch205 -p0
 %patch206 -p0
 %patch207 -p0
-%patch208 -p0
+#patch208 -p0
 %patch209 -p0
 %patch210 -p0
 %patch211 -p0
