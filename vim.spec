@@ -1,4 +1,4 @@
-%define patchlevel 258
+%define patchlevel 307
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -306,6 +306,55 @@ Patch255: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.255
 Patch256: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.256
 Patch257: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.257
 Patch258: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.258
+Patch259: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.259
+Patch260: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.260
+Patch261: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.261
+Patch262: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.262
+Patch263: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.263
+Patch264: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.264
+Patch265: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.265
+Patch266: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.266
+Patch267: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.267
+Patch268: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.268
+Patch269: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.269
+Patch270: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.270
+Patch271: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.271
+Patch272: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.272
+Patch273: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.273
+Patch274: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.274
+Patch275: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.275
+Patch276: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.276
+Patch277: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.277
+Patch278: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.278
+Patch279: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.279
+Patch280: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.280
+Patch281: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.281
+Patch282: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.282
+Patch283: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.283
+Patch284: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.284
+Patch285: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.285
+Patch286: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.286
+Patch287: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.287
+Patch288: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.288
+Patch289: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.289
+Patch290: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.290
+Patch291: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.291
+Patch292: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.292
+Patch293: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.293
+Patch294: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.294
+Patch295: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.295
+Patch296: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.296
+Patch297: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.297
+Patch298: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.298
+Patch299: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.299
+Patch300: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.300
+Patch301: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.301
+Patch302: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.302
+Patch303: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.303
+Patch304: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.304
+Patch305: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.305
+Patch306: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.306
+Patch307: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.307
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -712,6 +761,55 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch256 -p0
 %patch257 -p0
 %patch258 -p0
+%patch259 -p0
+%patch260 -p0
+%patch261 -p0
+%patch262 -p0
+%patch263 -p0
+%patch264 -p0
+%patch265 -p0
+%patch266 -p0
+%patch267 -p0
+%patch268 -p0
+%patch269 -p0
+%patch270 -p0
+%patch271 -p0
+%patch272 -p0
+%patch273 -p0
+%patch274 -p0
+%patch275 -p0
+%patch276 -p0
+%patch277 -p0
+%patch278 -p0
+%patch279 -p0
+%patch280 -p0
+%patch281 -p0
+%patch282 -p0
+%patch283 -p0
+%patch284 -p0
+%patch285 -p0
+%patch286 -p0
+%patch287 -p0
+%patch288 -p0
+%patch289 -p0
+%patch290 -p0
+%patch291 -p0
+%patch292 -p0
+%patch293 -p0
+%patch294 -p0
+%patch295 -p0
+%patch296 -p0
+%patch297 -p0
+%patch298 -p0
+%patch299 -p0
+%patch300 -p0
+%patch301 -p0
+%patch302 -p0
+%patch303 -p0
+%patch304 -p0
+%patch305 -p0
+%patch306 -p0
+%patch307 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1222,6 +1320,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 27 2014 Karsten Hopp <karsten@redhat.com> 7.4.307-1
+- patchlevel 307
+
 * Tue Apr 29 2014 Vít Ondruch <vondruch@redhat.com> - 2:7.4.258-2
 - Rebuilt for https://fedoraproject.org/wiki/Changes/Ruby_2.1
 

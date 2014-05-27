@@ -282,3 +282,52 @@ Individual patches for Vim 7.4:
   2252  7.4.256  (after 7.4.248) systemlist() does not work properly
   1948  7.4.257  compiler warning, possibly for mismatch in parameter name
   5726  7.4.258  configure fails if $CC contains options
+  1554  7.4.259  warning for misplaced "const"
+  8693  7.4.260  no error for function name with colon or lowercase char
+  2863  7.4.261  an interactive :s to replace a "\n" with line break may fail
+  9779  7.4.262  duplicate code in regexec()
+  1306  7.4.263  GCC 4.8 compiler warning for hiding a declaration
+  5143  7.4.264  (after 7.4.260) can't define function g:Foo()
+  4813  7.4.265  (after 7.4.260) can't call function with "g:" in an expression
+  1347  7.4.266  test 62 fails
+ 13880  7.4.267  (after 7.4.178) '[ mark is in the wrong position after "gq"
+  3312  7.4.268  exists() on a funcref for script-local function does not work
+  6283  7.4.269  CTRL-U in Insert mode does not work after using a cursor key
+  1947  7.4.270  comparing pointers instead of the string they point to
+  1457  7.4.271  compiler warning on 64 bit windows
+  4216  7.4.272  using just "$" does not cause an error message
+  2136  7.4.273  "make autoconf/reconfig" may run configure pointlessly
+  1522  7.4.274  check for timestamp does not always detect a changed file
+  1747  7.4.275  no error message when changing type of unplaced sign
+  8604  7.4.276  the fish shell is not supported
+  2243  7.4.277  using ":sign unplace *" may leave the cursor in wrong position
+  5402  7.4.278  list_remove() conflicts with Sun header file
+ 18280  7.4.279  globpath() returns a string, a list would be better
+  3504  7.4.280  relative position of cursor not restored if session has 2 tabs
+  2486  7.4.281  positions are off when loading session with two tabpages
+  1429  7.4.282  (after 7.4.279) test 97 fails on Mac
+  1771  7.4.283  (after 7.4.276) compiler warning about unused variable
+  1727  7.4.284  setting 'langmap' in the modeline can cause trouble
+  1549  7.4.285  line numbers are not always updated for 'relativenumber'
+  1610  7.4.286  error messages are inconsistant
+  1394  7.4.287  patches for .hgignore don't work
+  1397  7.4.288  when 'spellfile' is set the screen is not redrawn
+  3604  7.4.289  NFA regexp with repeated backreference does not match
+  6261  7.4.290  a non-greedy match followed by a branch is too greedy
+  1650  7.4.291  compiler warning for int to pointer of different size
+  4141  7.4.292  pattern "a" matches accented "a" when pattern is one byte
+  9143  7.4.293  can't ignore composing characters in a pattern
+  4480  7.4.294  (after 7.4.293) test files missing from patch
+  5287  7.4.295  various typos, bad white space and unclear comments
+  1927  7.4.296  can't run tests on Solaris
+  2593  7.4.297  memory leak from result of get_isolated_shell_name()
+  1789  7.4.298  can't have a funcref start with "t:"
+ 19202  7.4.299  when running configure twice DYNAMIC_PYTHON_DLL becomes empty
+  2262  7.4.300  the way config.cache is removed doesn't always work
+  1651  7.4.301  (after 7.4.280) scrolling problem when loading a session file
+  2241  7.4.302  signs don't show up after filler lines
+  2182  7.4.303  double-width chars on the command line sometimes truncated
+  1559  7.4.304  cannot always use Python with Vim
+  7820  7.4.305  making 'ttymouse' empty causes problems
+  2660  7.4.306  getchar(0) does not return Esc
+  4150  7.4.307  can't build without the +termresponse feature
