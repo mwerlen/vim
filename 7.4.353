@@ -10,56 +10,13 @@ Content-Transfer-Encoding: 8bit
 Patch 7.4.353
 Problem:    'linebreak' doesn't work with the 'list' option.
 Solution:   Make it work. (Christian Brabandt)
-Files:	    runtime/doc/options.txt, src/charset.c, src/screen.c,
+Files:	    src/charset.c, src/screen.c,
 	    src/testdir/Make_amiga.mak, src/testdir/Make_dos.mak,
 	    src/testdir/Make_ming.mak, src/testdir/Make_os2.mak,
 	    src/testdir/Make_vms.mms, src/testdir/Makefile,
 	    src/testdir/test_listlbr.in, src/testdir/test_listlbr.ok
 
 
-*** ../vim-7.4.352/runtime/doc/options.txt	2014-06-25 11:48:40.729960646 +0200
---- runtime/doc/options.txt	2014-07-02 19:47:21.602363892 +0200
-***************
-*** 1200,1205 ****
---- 1200,1237 ----
-  	break if 'linebreak' is on.  Only works for ASCII and also for 8-bit
-  	characters when 'encoding' is an 8-bit encoding.
-  
-+ 						*'breakindent'* *'bri'*
-+ 'breakindent' 'bri'	boolean (default off)
-+ 			local to window
-+ 			{not in Vi}
-+ 			{not available when compiled without the |+linebreak|
-+ 			feature}
-+ 	Every wrapped line will continue visually indented (same amount of
-+ 	space as the beginning of that line), thus preserving horizontal blocks
-+ 	of text.
-+ 
-+ 						*'breakindentopt'* *'briopt'*
-+ 'breakindentopt' 'briopt' string (default empty)
-+ 			local to window
-+ 			{not in Vi}
-+ 			{not available when compiled without the |+linebreak|
-+ 			feature}
-+ 	Settings for 'breakindent'. It can consist of the following optional
-+ 	items and must be separated by a comma:
-+ 		min:{n}	    Minimum text width that will be kept after
-+ 			    applying 'breakindent', even if the resulting
-+ 			    text should normally be narrower. This prevents
-+ 			    text indented almost to the right window border
-+ 			    occupying lot of vertical space when broken.
-+ 		shift:{n}   After applying 'breakindent', the wrapped line's
-+ 			    beginning will be shifted by the given number of
-+ 			    characters.  It permits dynamic French paragraph
-+ 			    indentation (negative) or emphasizing the line
-+ 			    continuation (positive).
-+ 		sbr	    Display the 'showbreak' value before applying the 
-+ 			    additional indent.
-+ 	The default value for min is 20 and shift is 0.
-+ 
-  						*'browsedir'* *'bsdir'*
-  'browsedir' 'bsdir'	string	(default: "last")
-  			global
 *** ../vim-7.4.352/src/charset.c	2014-07-02 19:37:38.462354956 +0200
 --- src/charset.c	2014-07-02 19:47:21.602363892 +0200
 ***************
