@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -976,7 +976,7 @@ export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURC
 export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
 %configure --with-features=huge \
- --enable-pythoninterp=dynamic \
+  --enable-pythoninterp=dynamic \
   --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
@@ -1248,7 +1248,9 @@ rm -rf %{buildroot}
 %files common
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/vimrc
-%doc README* LICENSE 
+%{!?_licensedir:%global license %%doc}
+%license LICENSE
+%doc README*
 %doc runtime/docs
 %doc Changelog.rpm
 %dir %{_datadir}/%{name}
@@ -1452,6 +1454,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug  6 2014 Tom Callaway <spot@fedoraproject.org> 2:7.4.373-2
+- fix license handling
+
 * Tue Jul 22 2014 Karsten Hopp <karsten@redhat.com> 7.4.373-1
 - patchlevel 373
 
