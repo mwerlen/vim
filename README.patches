@@ -392,7 +392,36 @@ Individual patches for Vim 7.4:
   1602  7.4.366  can't run the linebreak test on MS-Windows
   2165  7.4.367  (after 7.4.357) other solution for redrawing after completion
   2581  7.4.368  window sizes not restored properly when closing cmdline window
+  2331  7.4.369  using freed memory when exiting while compiled with EXITFREE
   9476  7.4.370  linebreak test fails when encoding is not utf-8
   1880  7.4.371  with 'linebreak' set control characters displayed wrong
   5628  7.4.372  with 'winminheight' zero current window might be zero height
   2668  7.4.373  compiler warning for unused argument and unused variable
+  2461  7.4.374  character after "fb" command sometimes not mapped
+  1967  7.4.375  test 63 fails when run with GUI-only Vim
+  1877  7.4.376  (after 7.4.367) popup menu flickers too much
+  4200  7.4.377  with 'equalalways' set a split may report "no room"
+  9720  7.4.378  title of quickfist list is not kept for setqflist(list, 'r')
+  1382  7.4.379  accessing freed memory after using setqflist(list, 'r')
+  3324  7.4.380  loading python may cause Vim to exit
+  1359  7.4.381  u_undo error when backspacing in Insert mode deletes 2 lines
+  1876  7.4.382  mapping chars may not work after typing Esc in Insert mode
+  1744  7.4.383  bad interaction between preview window and omnifunc
+  1522  7.4.384  test 102 fails when compiled with small features
+  2559  7.4.385  when building with tiny/small features .mo files build fails
+  5536  7.4.386  when splitting a window the changelist position is wrong
+  6083  7.4.387  "4gro" replaces one character then executes "ooo"
+  2972  7.4.388  with 'linebreak' set and 'list' unset Tab not counted properly
+ 13930  7.4.389  still sometimes Vim enters Replace mode when starting up
+  1411  7.4.390  advancing pointer over end of a string
+  3316  7.4.391  no 'cul' highlight with cursor on a line with diff highlight
+  2701  7.4.392  not easy to detect type of command line window
+ 53004  7.4.393  text drawing on newer MS-Windows systems is suboptimal
+  1890  7.4.394  (after 7.4.393) with DirectX last italic char is incomplete
+  2600  7.4.395  C indent wrong below an if with wrapped () followed by {}
+  8881  7.4.396  when 'clipboard' is "unnamed", :g/pat/d is very slow
+  5060  7.4.397  matchparen only uses the topmost syntax item
+  1533  7.4.398  (after 7.4.393) gcc error for argument of InterlockedIncrement
+136105  7.4.399  crypt implementation is messy; blowfish crypt has a weakness
+  1848  7.4.400  list of distributed files is incomplete
+  8581  7.4.401  (after 7.4.399) new files missing in Makefiles

@@ -1,4 +1,4 @@
-%define patchlevel 373
+%define patchlevel 401
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -421,6 +421,34 @@ Patch370: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.370
 Patch371: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.371
 Patch372: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.372
 Patch373: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.373
+Patch374: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.374
+Patch375: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.375
+Patch376: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.376
+Patch377: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.377
+Patch378: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.378
+Patch379: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.379
+Patch380: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.380
+Patch381: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.381
+Patch382: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.382
+Patch383: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.383
+Patch384: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.384
+Patch385: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.385
+Patch386: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.386
+Patch387: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.387
+Patch388: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.388
+Patch389: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.389
+Patch390: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.390
+Patch391: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.391
+Patch392: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.392
+Patch393: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.393
+Patch394: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.394
+Patch395: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.395
+Patch396: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.396
+Patch397: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.397
+Patch398: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.398
+Patch399: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.399
+Patch400: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.400
+Patch401: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.401
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -942,6 +970,34 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch371 -p0
 %patch372 -p0
 %patch373 -p0
+%patch374 -p0
+%patch375 -p0
+%patch376 -p0
+%patch377 -p0
+%patch378 -p0
+%patch379 -p0
+%patch380 -p0
+%patch381 -p0
+%patch382 -p0
+%patch383 -p0
+%patch384 -p0
+%patch385 -p0
+%patch386 -p0
+%patch387 -p0
+%patch388 -p0
+%patch389 -p0
+%patch390 -p0
+%patch391 -p0
+%patch392 -p0
+%patch393 -p0
+%patch394 -p0
+%patch395 -p0
+%patch396 -p0
+%patch397 -p0
+%patch398 -p0
+%patch399 -p0
+%patch400 -p0
+%patch401 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1454,6 +1510,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Aug 12 2014 Karsten Hopp <karsten@redhat.com> 7.4.401-1
+- patchlevel 401
+
 * Wed Aug  6 2014 Tom Callaway <spot@fedoraproject.org> 2:7.4.373-2
 - fix license handling
 
