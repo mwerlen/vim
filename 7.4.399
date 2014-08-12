@@ -4950,35 +4950,6 @@ Files:	    runtime/doc/editing.txt, runtime/doc/options.txt, src/Makefile,
   :call append(0, cm1_read_back)
   :call append(0, cm0_read_back)
   :set key= fenc=latin1
-*** ../vim-7.4.398/src/testdir/test71.ok	2010-05-21 15:21:48.000000000 +0200
---- src/testdir/test71.ok	2014-08-09 15:28:07.349357660 +0200
-***************
-*** 4,10 ****
---- 4,15 ----
-  OK 01234567890123456789012345678901234567
-  OK line 2  foo bar blah
-  OK line 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-+ OK OK 01234567890123456789012345678901234567
-+ OK OK line 2  foo bar blah
-+ OK OK line 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  1234567890
-  aábbccddeëff
-  asdfasdfasdf
-  0001112223333
-+ abcdefghijklmnopqrstuvwxyz
-+ !@#$%^&*()_+=-`~
-*** ../vim-7.4.398/src/testdir/test71a.in	2013-07-01 20:45:58.000000000 +0200
---- src/testdir/test71a.in	2014-08-09 15:49:07.125348605 +0200
-***************
-*** 12,14 ****
---- 12,18 ----
-  start of cm=blowfish bytes
-  VimCrypt~02!k)¾#ÝSõ=ºàÈ#¥M´JÃAÍ¥M´!õáÒ÷Ú
-  end of cm=blowfish bytes
-+ 
-+ start of cm=blowfish2 bytes
-+ VimCrypt~03!ÑNã;ÓÀ ^C)÷.¶«FSà6Ò[TË§Ø¾92Q³Ì@ß­Ivª.ØÉî`½$¯%Ð
-+ end of cm=blowfish2 bytes
 *** ../vim-7.4.398/src/testdir/test72.in	2014-03-12 16:51:35.060792541 +0100
 --- src/testdir/test72.in	2014-08-09 15:12:58.001364196 +0200
 ***************
@@ -5038,6 +5009,33 @@ Files:	    runtime/doc/editing.txt, runtime/doc/options.txt, src/Makefile,
 + apr
 + foo mar
 + mar
+diff -up src/testdir/test71.ok.kh src/testdir/test71.ok
+--- src/testdir/test71.ok.kh	2014-08-12 14:21:33.301002125 +0200
++++ src/testdir/test71.ok	2014-08-12 14:21:06.140002788 +0200
+@@ -4,7 +4,12 @@ line 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ OK 01234567890123456789012345678901234567
+ OK line 2  foo bar blah
+ OK line 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
++OK OK 01234567890123456789012345678901234567
++OK OK line 2  foo bar blah
++OK OK line 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 1234567890
+ a�bbccdde�ff
+ asdfasdfasdf
+ 0001112223333
++abcdefghijklmnopqrstuvwxyz
++!@#$%^&*()_+=-`~
+diff -up src/testdir/test71a.in.kh src/testdir/test71a.in
+--- src/testdir/test71a.in.kh	2014-08-12 14:27:34.429993316 +0200
++++ src/testdir/test71a.in	2014-08-12 14:26:40.114994641 +0200
+@@ -12,3 +12,7 @@ end of cm=zip bytes
+ start of cm=blowfish bytes
+ VimCrypt~02!k)��#�S��=���#�M��J�AͥM��!���������
+ end of cm=blowfish bytes
++
++start of cm=blowfish2 bytes
++VimCrypt~03!ÑNã;ÓÀ ^C)÷.¶«FSà6Ò[TË§Ø¾92Q³Ì@ß­Ivª.ØÉî`½$¯%Ð
++end of cm=blowfish2 bytes
 *** ../vim-7.4.398/src/version.c	2014-08-07 13:55:05.898639758 +0200
 --- src/version.c	2014-08-09 15:11:28.665364838 +0200
 ***************
