@@ -1,4 +1,4 @@
-%define patchlevel 401
+%define patchlevel 402
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -449,6 +449,7 @@ Patch398: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.398
 Patch399: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.399
 Patch400: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.400
 Patch401: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.401
+Patch402: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.402
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -998,6 +999,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch399 -p0
 %patch400 -p0
 %patch401 -p0
+%patch402 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1331,43 +1333,43 @@ rm -rf %{buildroot}
 %if ! %{withvimspell}
 %{_datadir}/%{name}/%{vimdir}/spell
 %endif
-%lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
-%lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
-%lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
-%lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
-%lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
-%lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
-%lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
-%lang(es) %{_datadir}/%{name}/%{vimdir}/lang/es
-%lang(fi) %{_datadir}/%{name}/%{vimdir}/lang/fi
-%lang(fr) %{_datadir}/%{name}/%{vimdir}/lang/fr
-%lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
-%lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
-%lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
-%lang(ja.euc-jp) %{_datadir}/%{name}/%{vimdir}/lang/ja.euc-jp
-%lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
-%lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
-%lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
-%lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
-%lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
-%lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
-%lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
-%lang(pl.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/pl.UTF-8
-%lang(pl.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/pl.cp1250
-%lang(pt_BR) %{_datadir}/%{name}/%{vimdir}/lang/pt_BR
-%lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
-%lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
-%lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
-%lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
-%lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
-%lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
-%lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
-%lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
-%lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
-%lang(zh_CN.cp936) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.cp936
-%lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
-%lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
-%lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
+#lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
+#lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
+#lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
+#lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
+#lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
+#lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
+#lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
+#lang(es) %{_datadir}/%{name}/%{vimdir}/lang/es
+#lang(fi) %{_datadir}/%{name}/%{vimdir}/lang/fi
+#lang(fr) %{_datadir}/%{name}/%{vimdir}/lang/fr
+#lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
+#lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
+#lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
+#lang(ja.euc-jp) %{_datadir}/%{name}/%{vimdir}/lang/ja.euc-jp
+#lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
+#lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
+#lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
+#lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
+#lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
+#lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
+#lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
+#lang(pl.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/pl.UTF-8
+#lang(pl.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/pl.cp1250
+#lang(pt_BR) %{_datadir}/%{name}/%{vimdir}/lang/pt_BR
+#lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
+#lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
+#lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
+#lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
+#lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
+#lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
+#lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
+#lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
+#lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
+#lang(zh_CN.cp936) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.cp936
+#lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
+#lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
+#lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
 /%{_bindir}/xxd
 %{_mandir}/man1/ex.*
 %{_mandir}/man1/gex.*
@@ -1510,6 +1512,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 13 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-1
+- patchlevel 402
+
 * Tue Aug 12 2014 Karsten Hopp <karsten@redhat.com> 7.4.401-1
 - patchlevel 401
 
