@@ -1033,6 +1033,26 @@ mv -f Makefile.tmp Makefile
 export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
+
+perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
+perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
+%configure --prefix=%{_prefix} --with-features=small --with-x=no \
+  --enable-multibyte \
+  --disable-netbeans \
+%if %{WITH_SELINUX}
+  --enable-selinux \
+%else
+  --disable-selinux \
+%endif
+  --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
+  --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
+  --with-compiledby="<bugzilla@redhat.com>" \
+  --with-modified-by="<bugzilla@redhat.com>"
+
+make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
+cp vim minimal-vim
+make clean
+
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
   --enable-perlinterp \
@@ -1099,24 +1119,6 @@ make clean
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim enhanced-vim
-make clean
-
-perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
-perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
-%configure --prefix=%{_prefix} --with-features=small --with-x=no \
-  --enable-multibyte \
-  --disable-netbeans \
-%if %{WITH_SELINUX}
-  --enable-selinux \
-%else
-  --disable-selinux \
-%endif
-  --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
-  --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
-  --with-compiledby="<bugzilla@redhat.com>" \
-  --with-modified-by="<bugzilla@redhat.com>"
-
-make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
@@ -1138,7 +1140,7 @@ cd src
 make install DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
 make installgtutorbin  DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
-install -m755 vim %{buildroot}%{_bindir}/vi
+install -m755 minimal-vim %{buildroot}%{_bindir}/vi
 install -m755 enhanced-vim %{buildroot}%{_bindir}/vim
 install -m755 gvim %{buildroot}%{_bindir}/gvim
 install -p -m644 %{SOURCE7} \
@@ -1333,43 +1335,43 @@ rm -rf %{buildroot}
 %if ! %{withvimspell}
 %{_datadir}/%{name}/%{vimdir}/spell
 %endif
-#lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
-#lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
-#lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
-#lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
-#lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
-#lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
-#lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
-#lang(es) %{_datadir}/%{name}/%{vimdir}/lang/es
-#lang(fi) %{_datadir}/%{name}/%{vimdir}/lang/fi
-#lang(fr) %{_datadir}/%{name}/%{vimdir}/lang/fr
-#lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
-#lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
-#lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
-#lang(ja.euc-jp) %{_datadir}/%{name}/%{vimdir}/lang/ja.euc-jp
-#lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
-#lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
-#lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
-#lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
-#lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
-#lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
-#lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
-#lang(pl.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/pl.UTF-8
-#lang(pl.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/pl.cp1250
-#lang(pt_BR) %{_datadir}/%{name}/%{vimdir}/lang/pt_BR
-#lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
-#lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
-#lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
-#lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
-#lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
-#lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
-#lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
-#lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
-#lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
-#lang(zh_CN.cp936) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.cp936
-#lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
-#lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
-#lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
+%lang(af) %{_datadir}/%{name}/%{vimdir}/lang/af
+%lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
+%lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
+%lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
+%lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
+%lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
+%lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
+%lang(es) %{_datadir}/%{name}/%{vimdir}/lang/es
+%lang(fi) %{_datadir}/%{name}/%{vimdir}/lang/fi
+%lang(fr) %{_datadir}/%{name}/%{vimdir}/lang/fr
+%lang(ga) %{_datadir}/%{name}/%{vimdir}/lang/ga
+%lang(it) %{_datadir}/%{name}/%{vimdir}/lang/it
+%lang(ja) %{_datadir}/%{name}/%{vimdir}/lang/ja
+%lang(ja.euc-jp) %{_datadir}/%{name}/%{vimdir}/lang/ja.euc-jp
+%lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
+%lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
+%lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
+%lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
+%lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
+%lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
+%lang(pl) %{_datadir}/%{name}/%{vimdir}/lang/pl
+%lang(pl.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/pl.UTF-8
+%lang(pl.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/pl.cp1250
+%lang(pt_BR) %{_datadir}/%{name}/%{vimdir}/lang/pt_BR
+%lang(ru) %{_datadir}/%{name}/%{vimdir}/lang/ru
+%lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
+%lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
+%lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
+%lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
+%lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
+%lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
+%lang(vi) %{_datadir}/%{name}/%{vimdir}/lang/vi
+%lang(zh_CN) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN
+%lang(zh_CN.cp936) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.cp936
+%lang(zh_TW) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW
+%lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
+%lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
 /%{_bindir}/xxd
 %{_mandir}/man1/ex.*
 %{_mandir}/man1/gex.*
