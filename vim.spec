@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -1033,6 +1033,8 @@ mv -f Makefile.tmp Makefile
 export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
+cp -f os_unix.h os_unix.h.save
+cp -f ex_cmds.c ex_cmds.c.save
 
 perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
@@ -1052,6 +1054,9 @@ perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim minimal-vim
 make clean
+
+mv -f os_unix.h.save os_unix.h
+mv -f ex_cmds.c.save ex_cmds.c
 
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
@@ -1514,6 +1519,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Aug 15 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-2
+- fix help file names
+
 * Wed Aug 13 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-1
 - patchlevel 402
 
