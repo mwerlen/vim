@@ -468,8 +468,7 @@ Patch3009: vim-7.4-syncolor.patch
 Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-manpage-typo-668894-675480.patch
-Patch3013: vim-7.3-xsubpp-path.patch
-Patch3014: vim-manpagefixes-948566.patch
+Patch3013: vim-manpagefixes-948566.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1031,10 +1030,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 
-%if %{?fedora}%{!?fedora:0} >= 20 || %{?rhel}%{!?rhel:0} >= 7
 %patch3013 -p1
-%endif
-%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1535,6 +1531,7 @@ rm -rf %{buildroot}
 %changelog
 * Fri Aug 22 2014 Karsten Hopp <karsten@redhat.com> 7.4.410-1
 - patchlevel 410
+- xsubpp-path patch is obsolete now
 
 * Fri Aug 22 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-3
 - fix help file names
