@@ -1,4 +1,4 @@
-%define patchlevel 402
+%define patchlevel 410
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -449,6 +449,14 @@ Patch399: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.399
 Patch400: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.400
 Patch401: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.401
 Patch402: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.402
+Patch403: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.403
+Patch404: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.404
+Patch405: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.405
+Patch406: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.406
+Patch407: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.407
+Patch408: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.408
+Patch409: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.409
+Patch410: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.410
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -998,6 +1006,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch400 -p0
 %patch401 -p0
 %patch402 -p0
+%patch403 -p0
+%patch404 -p0
+%patch405 -p0
+%patch406 -p0
+%patch407 -p0
+%patch408 -p0
+%patch409 -p0
+%patch410 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1517,6 +1533,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Aug 22 2014 Karsten Hopp <karsten@redhat.com> 7.4.410-1
+- patchlevel 410
+
 * Fri Aug 22 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-3
 - fix help file names
 

@@ -425,3 +425,12 @@ Individual patches for Vim 7.4:
 136105  7.4.399  crypt implementation is messy; blowfish crypt has a weakness
   1848  7.4.400  list of distributed files is incomplete
   8581  7.4.401  (after 7.4.399) new files missing in Makefiles
+  2992  7.4.402  test 72 crashes under certain conditions
+  4049  7.4.403  valgrind reports errors when running test 72
+  3009  7.4.404  Windows 64 bit compiler warnings
+  3787  7.4.405  screen updating is slow when using matches
+  2544  7.4.406  test 72 and 100 fail on MS-Windows
+  3126  7.4.407  Visual block insert with cursor move repeats the wrong text
+  9336  7.4.408  Visual block insert breaks a multi-byte character
+  4404  7.4.409  can't build with Perl on Fedora 20
+  1964  7.4.410  fold does not open after search with CmdwinLeave autocmd
