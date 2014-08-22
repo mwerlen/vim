@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -46,8 +46,7 @@ Patch2003: vim-6.2-specsyntax.patch
 Patch2011: vim-7.0-hunspell.patch
 BuildRequires: hunspell-devel
 %endif
-# If you're as lazy as me, generate the list using
-# for i in `seq 1 14`; do printf "Patch%03d: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.%03d\n" $i $i; done
+
 Patch001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
 Patch002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
 Patch003: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.003
@@ -597,7 +596,6 @@ chmod -x runtime/tools/mve.awk
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 # Base patches...
-# for i in `seq 1 14`; do printf "%%patch%03d -p0 \n" $i; done
 %patch001 -p0
 %patch002 -p0
 %patch003 -p0
@@ -1519,8 +1517,12 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Fri Aug 15 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-2
+* Fri Aug 22 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-3
 - fix help file names
+
+* Mon Aug 18 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.4.402-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 
 * Wed Aug 13 2014 Karsten Hopp <karsten@redhat.com> 7.4.402-1
 - patchlevel 402
