@@ -422,7 +422,7 @@ Individual patches for Vim 7.4:
   8881  7.4.396  when 'clipboard' is "unnamed", :g/pat/d is very slow
   5060  7.4.397  matchparen only uses the topmost syntax item
   1533  7.4.398  (after 7.4.393) gcc error for argument of InterlockedIncrement
-136105  7.4.399  crypt implementation is messy; blowfish crypt has a weakness
+136047  7.4.399  crypt implementation is messy; blowfish crypt has a weakness
   1848  7.4.400  list of distributed files is incomplete
   8581  7.4.401  (after 7.4.399) new files missing in Makefiles
   2992  7.4.402  test 72 crashes under certain conditions
@@ -441,3 +441,28 @@ Individual patches for Vim 7.4:
   2015  7.4.415  (after 7.4.414) cannot build, warning for shadowed variable
   2977  7.4.416  problem with breakindent/showbreak and tabs
   4376  7.4.417  minimum width used for breakindent is not set after split
+  1727  7.4.418  when leaving ":append" the cursor shape is like in Insert mode
+  3294  7.4.419  when part of a list is locked it's possible to make changes
+  2044  7.4.420  it's not obvious how to add a new test
+  3521  7.4.421  crash when searching for "\ze*"
+  3205  7.4.422  with conceal + linebreak some text is not displayed correctly
+  3565  7.4.423  expand("$shell") does not work as documented
+  1793  7.4.424  ml_get error when using Python to delete lines in a buffer
+  2453  7.4.425  when 'showbreak' is used "gj" may move to the wrong position
+  1333  7.4.426  README File missing from list of files
+  3287  7.4.427  system() typeahead may be echoed and mess up the display
+  2926  7.4.428  executable() may return a wrong result on MS-Windows
+  1384  7.4.429  build fails with fewer features
+  1634  7.4.430  test_listlbr fails when compiled with normal features
+  1599  7.4.431  compiler warning
+  3119  7.4.432  MS-Windows: setting 'encoding' does not convert arguments
+  2110  7.4.433  test 75 fails on MS-Windows
+  4131  7.4.434  gettabvar() is not consistent with getwinvar() and getbufvar()
+  1863  7.4.435  line formatting behaves differently when 'linebreak' is set
+  1470  7.4.436  ml_get error for autocommand that moves the cursor
+  3229  7.4.437  new and old regexp engine are not consistent
+  1372  7.4.438  cached values for 'cino' not reset for ":set all&"
+  1655  7.4.439  duplicate message in message history
+  2106  7.4.440  omni complete popup drawn incorrectly
+  1826  7.4.441  endless loop and other problems when 'cedit' is set to CTRL-C
+  2303  7.4.442  (after 7.4.434) using unitinialized variable

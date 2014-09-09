@@ -1,4 +1,4 @@
-%define patchlevel 417
+%define patchlevel 442
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -464,6 +464,31 @@ Patch414: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.414
 Patch415: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.415
 Patch416: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.416
 Patch417: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.417
+Patch418: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.418
+Patch419: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.419
+Patch420: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.420
+Patch421: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.421
+Patch422: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.422
+Patch423: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.423
+Patch424: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.424
+Patch425: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.425
+Patch426: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.426
+Patch427: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.427
+Patch428: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.428
+Patch429: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.429
+Patch430: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.430
+Patch431: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.431
+Patch432: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.432
+Patch433: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.433
+Patch434: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.434
+Patch435: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.435
+Patch436: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.436
+Patch437: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.437
+Patch438: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.438
+Patch439: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.439
+Patch440: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.440
+Patch441: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.441
+Patch442: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.442
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1027,6 +1052,31 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch415 -p0
 %patch416 -p0
 %patch417 -p0
+%patch418 -p0
+%patch419 -p0
+%patch420 -p0
+%patch421 -p0
+%patch422 -p0
+%patch423 -p0
+%patch424 -p0
+%patch425 -p0
+%patch426 -p0
+%patch427 -p0
+%patch428 -p0
+%patch429 -p0
+%patch430 -p0
+%patch431 -p0
+%patch432 -p0
+%patch433 -p0
+%patch434 -p0
+%patch435 -p0
+%patch436 -p0
+%patch437 -p0
+%patch438 -p0
+%patch439 -p0
+%patch440 -p0
+%patch441 -p0
+%patch442 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1543,6 +1593,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Sep 10 2014 Karsten Hopp <karsten@redhat.com> 7.4.442-1
+- patchlevel 442
+
 * Tue Aug 26 2014 Jitka Plesnikova <jplesnik@redhat.com> - 2:7.4.417-2
 - Perl 5.20 rebuild
 
