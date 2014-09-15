@@ -466,3 +466,4 @@ Individual patches for Vim 7.4:
   2106  7.4.440  omni complete popup drawn incorrectly
   1826  7.4.441  endless loop and other problems when 'cedit' is set to CTRL-C
   2303  7.4.442  (after 7.4.434) using unitinialized variable
+  1539  7.4.443  error reported by ubsan when running test 72
