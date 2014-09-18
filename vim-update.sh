@@ -52,7 +52,7 @@ $debug git push
 if [ $? -eq 0 ]; then
     $debug rm -f $HOME/.koji/config
     $debug fedpkg build
-    $debug ln -sf $HOME/.koji/s390-config config
+    $debug ln -sf ppc-config $HOME/.koji/config
 else
     echo "GIT push failed"
 fi
