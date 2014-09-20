@@ -468,3 +468,12 @@ Individual patches for Vim 7.4:
   2303  7.4.442  (after 7.4.434) using unitinialized variable
   1539  7.4.443  error reported by ubsan when running test 72
   1544  7.4.444  reversed question mark not recognized as punctuation
+  2549  7.4.445  clipboard may be cleared on startup
+  7513  7.4.446  environment for executing autocommand may not be restored.
+  4082  7.4.447  spell files from Hunspell may generate a lot of errors
+  2691  7.4.448  MS-Windows: Using ETO_IGNORELANGUAGE causes problems
+  3740  7.4.449  can't easily close the help window
+ 14932  7.4.450  some commands that edit another buffer don't support +cmd
+  1851  7.4.451  calling system() with empty input gives an error
+  1611  7.4.452  can't build with tiny features
+  1409  7.4.453  still can't build with tiny features
