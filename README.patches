@@ -477,3 +477,7 @@ Individual patches for Vim 7.4:
   1851  7.4.451  calling system() with empty input gives an error
   1611  7.4.452  can't build with tiny features
   1409  7.4.453  still can't build with tiny features
+  2495  7.4.454  CTRL-W-] does not work when using a Visual selection
+  5104  7.4.455  completion for :buf does not use 'wildignorecase'
+ 12212  7.4.456  'backupcopy' is global, can't set a local value
+  1513  7.4.457  cannot recognize getchar() returning K_CURSORHOLD
