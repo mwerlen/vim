@@ -481,3 +481,4 @@ Individual patches for Vim 7.4:
   5104  7.4.455  completion for :buf does not use 'wildignorecase'
  12212  7.4.456  'backupcopy' is global, can't set a local value
   1513  7.4.457  cannot recognize getchar() returning K_CURSORHOLD
+  1633  7.4.458  issue 252: Cursor moves in a zero-height window
