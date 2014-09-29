@@ -484,3 +484,4 @@ Individual patches for Vim 7.4:
   1633  7.4.458  issue 252: Cursor moves in a zero-height window
   1470  7.4.460  (after 7.4.454) can't build without the quickfix feature
   2497  7.4.461  MS-Windows: When collate is on the number of copies is too high
+  2454  7.4.462  Setting the local value of 'backupcopy' empty gives an error
