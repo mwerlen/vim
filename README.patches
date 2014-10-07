@@ -469,7 +469,7 @@ Individual patches for Vim 7.4:
   1539  7.4.443  error reported by ubsan when running test 72
   1544  7.4.444  reversed question mark not recognized as punctuation
   2549  7.4.445  clipboard may be cleared on startup
-  7513  7.4.446  environment for executing autocommand may not be restored.
+  7513  7.4.446  environment for executing autocommand may not be restored
   4082  7.4.447  spell files from Hunspell may generate a lot of errors
   2691  7.4.448  MS-Windows: Using ETO_IGNORELANGUAGE causes problems
   3740  7.4.449  can't easily close the help window
@@ -486,3 +486,5 @@ Individual patches for Vim 7.4:
   2497  7.4.461  MS-Windows: When collate is on the number of copies is too high
   2454  7.4.462  Setting the local value of 'backupcopy' empty gives an error
   1844  7.4.463  tests 86 and 87 may hang on MS-Windows
+  1536  7.4.464  (after 7.4.459) compiler warning
+  1588  7.4.465  crash when expanding a very long string
