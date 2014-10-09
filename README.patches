@@ -488,3 +488,8 @@ Individual patches for Vim 7.4:
   1844  7.4.463  tests 86 and 87 may hang on MS-Windows
   1536  7.4.464  (after 7.4.459) compiler warning
   1588  7.4.465  crash when expanding a very long string
+  1576  7.4.466  (after 7.4.460) CTRL-W } does not open preview window
+  4117  7.4.467  'linebreak' does not work well together with Visual mode
+  1892  7.4.469  (after 7.4.467) can't build with MSVC
+  4675  7.4.470  test 11 and 100 do not work properly on Windows
+  2350  7.4.471  MS-Windows: multi-byte printer name is displayed as ???
