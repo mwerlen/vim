@@ -493,3 +493,5 @@ Individual patches for Vim 7.4:
   1892  7.4.469  (after 7.4.467) can't build with MSVC
   4675  7.4.470  test 11 and 100 do not work properly on Windows
   2350  7.4.471  MS-Windows: multi-byte printer name is displayed as ???
+  1527  7.4.472  drawing "precedes" entry of 'listchar' when 'list' is not set
+  1554  7.4.473  cursor position incorrect with number column and 'sbr'
