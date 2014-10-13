@@ -1,4 +1,4 @@
-%define patchlevel 473
+%define patchlevel 475
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -520,6 +520,8 @@ Patch470: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.470
 Patch471: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.471
 Patch472: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.472
 Patch473: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.473
+Patch474: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.474
+Patch475: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.475
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -532,6 +534,7 @@ Patch3010: vim-7.0-specedit.patch
 Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-manpage-typo-668894-675480.patch
 Patch3013: vim-manpagefixes-948566.patch
+Patch3014: vim-7.4-licensemacro-1151450.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1139,6 +1142,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch471 -p0
 %patch472 -p0
 %patch473 -p0
+%patch474 -p0
+%patch475 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1157,6 +1162,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3012 -p1
 
 %patch3013 -p1
+%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1655,6 +1661,12 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Oct 13 2014 Karsten Hopp <karsten@redhat.com> 7.4.475-2
+- add support for %%license macro (Petr Šabata)
+
+* Sat Oct 11 2014 Karsten Hopp <karsten@redhat.com> 7.4.475-1
+- patchlevel 475
+
 * Fri Oct 10 2014 Karsten Hopp <karsten@redhat.com> 7.4.473-1
 - patchlevel 473
 

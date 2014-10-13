@@ -495,3 +495,5 @@ Individual patches for Vim 7.4:
   2350  7.4.471  MS-Windows: multi-byte printer name is displayed as ???
   1527  7.4.472  drawing "precedes" entry of 'listchar' when 'list' is not set
   1554  7.4.473  cursor position incorrect with number column and 'sbr'
+  1293  7.4.474  AIX compiler can't handle // comment
+  7374  7.4.475  can't compile if Xutf8SetWMProperties() is not in X11 library
