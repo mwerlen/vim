@@ -1,4 +1,4 @@
-%define patchlevel 475
+%define patchlevel 477
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -522,6 +522,8 @@ Patch472: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.472
 Patch473: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.473
 Patch474: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.474
 Patch475: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.475
+Patch476: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.476
+Patch477: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.477
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1144,6 +1146,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch473 -p0
 %patch474 -p0
 %patch475 -p0
+%patch476 -p0
+%patch477 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1661,6 +1665,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Oct 15 2014 Karsten Hopp <karsten@redhat.com> 7.4.477-1
+- patchlevel 477
+
 * Mon Oct 13 2014 Karsten Hopp <karsten@redhat.com> 7.4.475-2
 - add support for %%license macro (Petr Šabata)
 

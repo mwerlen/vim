@@ -497,3 +497,5 @@ Individual patches for Vim 7.4:
   1554  7.4.473  cursor position incorrect with number column and 'sbr'
   1293  7.4.474  AIX compiler can't handle // comment
   7374  7.4.475  can't compile if Xutf8SetWMProperties() is not in X11 library
+  2408  7.4.476  MingW: compiling with "XPM=no" doesn't work
+  1666  7.4.477  ":%diffput" adds an empty line if the other file is empty
