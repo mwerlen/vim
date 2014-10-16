@@ -499,3 +499,6 @@ Individual patches for Vim 7.4:
   7374  7.4.475  can't compile if Xutf8SetWMProperties() is not in X11 library
   2408  7.4.476  MingW: compiling with "XPM=no" doesn't work
   1666  7.4.477  ":%diffput" adds an empty line if the other file is empty
+  1763  7.4.478  using byte length instead of character length for 'showbreak'
+  3025  7.4.479  MS-Windows: The console title can be wrong
+  2962  7.4.480  (after 7.4.479) MS-Windows: Can't build
