@@ -502,3 +502,4 @@ Individual patches for Vim 7.4:
   1763  7.4.478  using byte length instead of character length for 'showbreak'
   3025  7.4.479  MS-Windows: The console title can be wrong
   2962  7.4.480  (after 7.4.479) MS-Windows: Can't build
+  2035  7.4.481  (after 7.4.471) compiler warning on MS-Windows
