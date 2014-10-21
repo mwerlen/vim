@@ -503,3 +503,5 @@ Individual patches for Vim 7.4:
   3025  7.4.479  MS-Windows: The console title can be wrong
   2962  7.4.480  (after 7.4.479) MS-Windows: Can't build
   2035  7.4.481  (after 7.4.471) compiler warning on MS-Windows
+  1863  7.4.482  when 'balloonexpr' results in a list, text has a trailing NL
+  5345  7.4.483  a 0x80 byte is not handled correctly in abbreviations
