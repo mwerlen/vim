@@ -505,3 +505,7 @@ Individual patches for Vim 7.4:
   2035  7.4.481  (after 7.4.471) compiler warning on MS-Windows
   1863  7.4.482  when 'balloonexpr' results in a list, text has a trailing NL
   5345  7.4.483  a 0x80 byte is not handled correctly in abbreviations
+  1442  7.4.484  (after 7.4.483) compiler warning
+  3033  7.4.485  (after 7.4.484) abbreviations don't work
+  6864  7.4.486  check for writing to a yank register is wrong
+  5994  7.4.487  ":sign jump" may unnecessarily use another window
