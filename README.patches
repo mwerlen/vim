@@ -509,3 +509,4 @@ Individual patches for Vim 7.4:
   3033  7.4.485  (after 7.4.484) abbreviations don't work
   6864  7.4.486  check for writing to a yank register is wrong
   5994  7.4.487  ":sign jump" may unnecessarily use another window
+  1394  7.4.488  test_mapping fails for some people
