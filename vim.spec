@@ -1,4 +1,4 @@
-%define patchlevel 488
+%define patchlevel 491
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -535,6 +535,9 @@ Patch485: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.485
 Patch486: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.486
 Patch487: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.487
 Patch488: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.488
+Patch489: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.489
+Patch490: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.490
+Patch491: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.491
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1170,6 +1173,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch486 -p0
 %patch487 -p0
 %patch488 -p0
+%patch489 -p0
+%patch490 -p0
+%patch491 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1687,6 +1693,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Oct 31 2014 Karsten Hopp <karsten@redhat.com> 7.4.491-1
+- patchlevel 491
+
 * Thu Oct 23 2014 Karsten Hopp <karsten@redhat.com> 7.4.488-1
 - patchlevel 488
 

@@ -510,3 +510,6 @@ Individual patches for Vim 7.4:
   6864  7.4.486  check for writing to a yank register is wrong
   5994  7.4.487  ":sign jump" may unnecessarily use another window
   1394  7.4.488  test_mapping fails for some people
+  1610  7.4.489  cursor movement wrong when 'lbr' with a number column
+  6856  7.4.490  cannot specify the buffer to use for "do" and "dp"
+  1907  7.4.491  negative "topline" value for winrestview() has display errors
