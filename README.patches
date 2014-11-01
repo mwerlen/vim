@@ -513,3 +513,4 @@ Individual patches for Vim 7.4:
   1610  7.4.489  cursor movement wrong when 'lbr' with a number column
   6856  7.4.490  cannot specify the buffer to use for "do" and "dp"
   1907  7.4.491  negative "topline" value for winrestview() has display errors
+  2917  7.4.492  Ctrl-O in Insert mode moves right after insert comment leader
