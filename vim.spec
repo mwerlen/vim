@@ -1,4 +1,4 @@
-%define patchlevel 492
+%define patchlevel 502
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -539,6 +539,16 @@ Patch489: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.489
 Patch490: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.490
 Patch491: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.491
 Patch492: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.492
+Patch493: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.493
+Patch494: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.494
+Patch495: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.495
+Patch496: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.496
+Patch497: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.497
+Patch498: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.498
+Patch499: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.499
+Patch500: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.500
+Patch501: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.501
+Patch502: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.502
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1178,6 +1188,16 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch490 -p0
 %patch491 -p0
 %patch492 -p0
+%patch493 -p0
+%patch494 -p0
+%patch495 -p0
+%patch496 -p0
+%patch497 -p0
+%patch498 -p0
+%patch499 -p0
+%patch500 -p0
+%patch501 -p0
+%patch502 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1695,6 +1715,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Nov 05 2014 Karsten Hopp <karsten@redhat.com> 7.4.502-1
+- patchlevel 502
+
 * Sat Nov 01 2014 Karsten Hopp <karsten@redhat.com> 7.4.492-1
 - patchlevel 492
 
