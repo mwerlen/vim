@@ -529,3 +529,8 @@ Individual patches for Vim 7.4:
   2125  7.4.505  problem on MS-Windows file name longer than MAX_PATH bytes
   1680  7.4.506  MS-Windows: Cannot open a file with 259 characters
   2027  7.4.507  (after 7.4.496) building with MingW and Perl may fail
+  1928  7.4.508  when generating ja.sjis.po, header is not correctly adjusted
+  3558  7.4.509  users are not aware their encryption is weak
+  2508  7.4.510  "-fwrapv" argument breaks use of cproto
+  1938  7.4.511  generating proto for if_ruby.c uses type not defined elsewhere
+  3016  7.4.512  cannot generate prototypes for Win32 files and VMS
