@@ -534,3 +534,7 @@ Individual patches for Vim 7.4:
   2508  7.4.510  "-fwrapv" argument breaks use of cproto
   1938  7.4.511  generating proto for if_ruby.c uses type not defined elsewhere
   3016  7.4.512  cannot generate prototypes for Win32 files and VMS
+  1408  7.4.513  crash because reference count is wrong for list from getreg()
+  1444  7.4.514  (after 7.4.492) memory access error
+  6056  7.4.515  in a help buffer the global 'foldmethod' is used
+  2134  7.4.516  issue 253: completing function name with a # does not work
