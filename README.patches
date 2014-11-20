@@ -543,3 +543,7 @@ Individual patches for Vim 7.4:
  26031  7.4.519  (after 7.4.497) crash when using syntax highlighting
   1629  7.4.520  Sun PCK locale is not recognzed
   1687  7.4.521  when using "vep" a mark is moved to the next line
+  1489  7.4.522  specifying wrong buffer size for GetLongPathName()
+  2626  7.4.523  copy/paste no longer works is X11 server is restarted
+  3292  7.4.524  when using ":ownsyntax" spell checking is messed up
+  2460  7.4.525  map() leaks memory when there is an error in the expression
