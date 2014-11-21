@@ -547,3 +547,4 @@ Individual patches for Vim 7.4:
   2626  7.4.523  copy/paste no longer works is X11 server is restarted
   3292  7.4.524  when using ":ownsyntax" spell checking is messed up
   2460  7.4.525  map() leaks memory when there is an error in the expression
+  5139  7.4.526  matchstr() fails on long text

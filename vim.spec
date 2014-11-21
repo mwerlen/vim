@@ -1,4 +1,4 @@
-%define patchlevel 525
+%define patchlevel 526
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -572,6 +572,7 @@ Patch522: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.522
 Patch523: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.523
 Patch524: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.524
 Patch525: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.525
+Patch526: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.526
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1244,6 +1245,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch523 -p0
 %patch524 -p0
 %patch525 -p0
+%patch526 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1761,6 +1763,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Nov 21 2014 Karsten Hopp <karsten@redhat.com> 7.4.526-1
+- patchlevel 526
+
 * Thu Nov 20 2014 Karsten Hopp <karsten@redhat.com> 7.4.525-1
 - patchlevel 525
 
