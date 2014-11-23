@@ -548,3 +548,4 @@ Individual patches for Vim 7.4:
   3292  7.4.524  when using ":ownsyntax" spell checking is messed up
   2460  7.4.525  map() leaks memory when there is an error in the expression
   5139  7.4.526  matchstr() fails on long text
+  3709  7.4.527  still confusing regexp failure and NFA_TOO_EXPENSIVE
