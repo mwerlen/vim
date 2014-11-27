@@ -549,3 +549,10 @@ Individual patches for Vim 7.4:
   2460  7.4.525  map() leaks memory when there is an error in the expression
   5139  7.4.526  matchstr() fails on long text
   3709  7.4.527  still confusing regexp failure and NFA_TOO_EXPENSIVE
+  1892  7.4.528  crash when using matchadd()
+  7307  7.4.529  no test for what 7.4.517 fixes
+147087  7.4.530  many commands take count/range that is not using line numbers
+  3706  7.4.531  comments about parsing an Ex command are wrong
+  4239  7.4.532  when using 'incsearch' "2/pattern/e" highlights first match
+  6017  7.4.533  ":hardcopy" leaks memory in case of errors
+  2827  7.4.534  warnings when compiling if_ruby.c
