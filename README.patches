@@ -556,3 +556,6 @@ Individual patches for Vim 7.4:
   4239  7.4.532  when using 'incsearch' "2/pattern/e" highlights first match
   6017  7.4.533  ":hardcopy" leaks memory in case of errors
   2827  7.4.534  warnings when compiling if_ruby.c
+ 10090  7.4.535  (after 7.4.530) can't build with tiny features
+  1915  7.4.536  test 63 fails when using a black&white terminal
+  3897  7.4.537  value of v:hlsearch reflects an internal variable
