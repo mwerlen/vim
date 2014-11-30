@@ -559,3 +559,5 @@ Individual patches for Vim 7.4:
  10090  7.4.535  (after 7.4.530) can't build with tiny features
   1915  7.4.536  test 63 fails when using a black&white terminal
   3897  7.4.537  value of v:hlsearch reflects an internal variable
+  5830  7.4.538  tests fail with small features plus Python
+  7422  7.4.539  (after 7.4.530) crash when computing buffer count
