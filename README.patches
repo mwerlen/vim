@@ -562,3 +562,4 @@ Individual patches for Vim 7.4:
   5830  7.4.538  tests fail with small features plus Python
   7422  7.4.539  (after 7.4.530) crash when computing buffer count
   1802  7.4.540  (after 7.4.539) cannot build with tiny and small features
+  2795  7.4.541  crash when doing a range assign
