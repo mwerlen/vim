@@ -563,3 +563,4 @@ Individual patches for Vim 7.4:
   7422  7.4.539  (after 7.4.530) crash when computing buffer count
   1802  7.4.540  (after 7.4.539) cannot build with tiny and small features
   2795  7.4.541  crash when doing a range assign
+ 28576  7.4.542  cannot specify the type of range for a user command
