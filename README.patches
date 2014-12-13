@@ -564,3 +564,7 @@ Individual patches for Vim 7.4:
   1802  7.4.540  (after 7.4.539) cannot build with tiny and small features
   2795  7.4.541  crash when doing a range assign
  28576  7.4.542  cannot specify the type of range for a user command
+  4114  7.4.543  (after 7.4.232) "1,3s/\n//" joins two lines instead of three
+  1655  7.4.544  warnings for unused arguments with a combination of features
+  1983  7.4.545  highlighting for multi-line matches is not correct
+  4044  7.4.546  repeated use of vim_snprintf() with a number
