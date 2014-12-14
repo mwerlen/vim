@@ -568,3 +568,9 @@ Individual patches for Vim 7.4:
   1655  7.4.544  warnings for unused arguments with a combination of features
   1983  7.4.545  highlighting for multi-line matches is not correct
   4044  7.4.546  repeated use of vim_snprintf() with a number
+  1785  7.4.547  "vit" does not select multi-byte character at the end correctly
+  1681  7.4.548  compilation fails with native version of MinGW-w64
+  6505  7.4.549  function name not recognized correctly when inside a function
+  4016  7.4.550  curs_rows() function is always called with second argument false
+  5608  7.4.551  "ygn" may yank too much; Issue 295
+  2298  7.4.552  langmap applies to Insert mode expression mappings
