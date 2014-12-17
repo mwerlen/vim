@@ -1,4 +1,4 @@
-%define patchlevel 552
+%define patchlevel 557
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -599,6 +599,11 @@ Patch549: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.549
 Patch550: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.550
 Patch551: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.551
 Patch552: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.552
+Patch553: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.553
+Patch554: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.554
+Patch555: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.555
+Patch556: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.556
+Patch557: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.557
 
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
@@ -1298,6 +1303,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch550 -p0
 %patch551 -p0
 %patch552 -p0
+%patch553 -p0
+%patch554 -p0
+%patch555 -p0
+%patch556 -p0
+%patch557 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1815,6 +1825,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Dec 17 2014 Karsten Hopp <karsten@redhat.com> 7.4.557-1
+- patchlevel 557
+
 * Sun Dec 14 2014 Karsten Hopp <karsten@redhat.com> 7.4.552-1
 - patchlevel 552
 
