@@ -579,3 +579,6 @@ Individual patches for Vim 7.4:
   1970  7.4.555  test_close_count may fail for some combination of features
   2121  7.4.556  failed commands in Python interface not handled correctly
   1997  7.4.557  one more small issue
+  1690  7.4.558  when the X server restarts Vim may get stuck
+  3549  7.4.559  block append inside tab is wrong when virtualedit is set
+  5331  7.4.560  memory leak using :wviminfo; Issue 296
