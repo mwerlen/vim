@@ -582,3 +582,9 @@ Individual patches for Vim 7.4:
   1690  7.4.558  when the X server restarts Vim may get stuck
   3549  7.4.559  block append inside tab is wrong when virtualedit is set
   5331  7.4.560  memory leak using :wviminfo; Issue 296
+  3743  7.4.561  Ex range handling is wrong for buffer-local user commands
+  2165  7.4.562  segfault with wide screen and error in 'rulerformat'
+  2129  7.4.563  no test for replacing on a tab in Virtual replace mode
+  7046  7.4.564  FEAT_OSFILETYPE is used even though it's never defined
+ 10949  7.4.565  some ranges are not checked to be valid
+ 19788  7.4.566  :argdo, :bufdo, :windo and :tabdo don't take a range
