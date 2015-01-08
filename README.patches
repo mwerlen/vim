@@ -588,3 +588,4 @@ Individual patches for Vim 7.4:
   7046  7.4.564  FEAT_OSFILETYPE is used even though it's never defined
  10949  7.4.565  some ranges are not checked to be valid
  19788  7.4.566  :argdo, :bufdo, :windo and :tabdo don't take a range
+  1571  7.4.567  non-ascii vertical separater characters are always redrawn
