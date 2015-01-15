@@ -598,3 +598,7 @@ Individual patches for Vim 7.4:
   2177  7.4.574  no error for eval('$')
  16995  7.4.575  Unicode character properties are outdated
   4671  7.4.576  redrawing problem with 'relativenumber' and 'linebreak'
+  2595  7.4.577  matching with virtual column has overhead on very long lines
+  1647  7.4.578  after "$" in an empty line getcurpos() returns negative number
+  5369  7.4.579  wrong cursor positioning when 'linebreak' set and lines wrap
+  1513  7.4.580  ":52wincmd v" still gives an invalid range error
