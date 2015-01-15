@@ -624,6 +624,7 @@ Patch574: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.574
 Patch575: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.575
 Patch576: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.576
 
+Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
 Patch3004: vim-7.0-rclocation.patch
@@ -1329,6 +1330,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch557 -p0
 %patch558 -p0
 %patch559 -p0
+%patch1559 -p0
 %patch560 -p0
 %patch561 -p0
 %patch562 -p0

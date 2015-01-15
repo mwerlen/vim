@@ -59,36 +59,6 @@ Files:	    src/ops.c, src/testdir/test39.in, src/testdir/test39.ok
   	}
   #endif
   
-*** ../vim-7.4.558/src/testdir/test39.in	2014-12-17 14:36:10.363090985 +0100
---- src/testdir/test39.in	2014-12-17 18:27:18.151974111 +0100
-***************
-*** 38,48 ****
-  /^C23$/
-  :exe ":norm! l\<C-V>j$hhAab\<Esc>"
-  :.,/^$/w >> test.out
-! :" Test for Visual block insert when virtualedit=all
-! :set ve=all
-  :/\t\tline
-  :exe ":norm! 07l\<C-V>jjIx\<Esc>"
-! :set ve=
-  :.,/^$/w >> test.out
-  :" gUe must uppercase a whole word, also when ß changes to SS
-  Gothe youtußeuu endYpk0wgUe
---- 38,51 ----
-  /^C23$/
-  :exe ":norm! l\<C-V>j$hhAab\<Esc>"
-  :.,/^$/w >> test.out
-! :" Test for Visual block insert when virtualedit=all and utf-8 encoding
-! :set ve=all enc=utf-8
-  :/\t\tline
-  :exe ":norm! 07l\<C-V>jjIx\<Esc>"
-! :.,/^$/w >> test.out
-! :" Test for Visual block append when virtualedit=all
-! :exe ":norm! 012l\<C-v>jjAx\<Esc>"
-! :set ve= enc=latin1
-  :.,/^$/w >> test.out
-  :" gUe must uppercase a whole word, also when ß changes to SS
-  Gothe youtußeuu endYpk0wgUe
 *** ../vim-7.4.558/src/testdir/test39.ok	2014-08-16 18:13:00.082044726 +0200
 --- src/testdir/test39.ok	2014-12-17 18:18:33.090470463 +0100
 ***************
