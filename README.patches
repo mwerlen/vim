@@ -604,3 +604,7 @@ Individual patches for Vim 7.4:
   1513  7.4.580  ":52wincmd v" still gives an invalid range error
   1773  7.4.581  compiler warnings for unitinialized variables
   3876  7.4.582  (after 7.4.577) can't match "%>80v" properly
+  1391  7.4.583  with tiny features test 16 may fail
+  2093  7.4.584  with tiny features test_command_count may fail
+  3336  7.4.585  range for :bdelete does not work
+  1324  7.4.586  parallel building of documentation html files is not reliable
