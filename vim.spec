@@ -12,7 +12,7 @@
 %define withvimspell 0
 %define withhunspell 0
 %define withruby 1
-%define withlua 1
+%define withlua 0
 
 %define baseversion 7.4
 %define vimdir vim74
