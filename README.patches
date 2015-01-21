@@ -608,3 +608,6 @@ Individual patches for Vim 7.4:
   2093  7.4.584  with tiny features test_command_count may fail
   3336  7.4.585  range for :bdelete does not work
   1324  7.4.586  parallel building of documentation html files is not reliable
+  7106  7.4.587  conceal does not work properly with 'linebreak'
+  6287  7.4.588  ":0argedit foo" puts the new argument in the second place
+  1927  7.4.589  MS-Windows console: Vim can't handle greek utf-8 characters
