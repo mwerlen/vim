@@ -611,3 +611,5 @@ Individual patches for Vim 7.4:
   7106  7.4.587  conceal does not work properly with 'linebreak'
   6287  7.4.588  ":0argedit foo" puts the new argument in the second place
   1927  7.4.589  MS-Windows console: Vim can't handle greek utf-8 characters
+  1739  7.4.590  using ctrl_x_mode as if it contains flags
+  1756  7.4.591  test_listlbr_utf8 fails when conceal feature is not available
