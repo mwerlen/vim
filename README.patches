@@ -613,3 +613,16 @@ Individual patches for Vim 7.4:
   1927  7.4.589  MS-Windows console: Vim can't handle greek utf-8 characters
   1739  7.4.590  using ctrl_x_mode as if it contains flags
   1756  7.4.591  test_listlbr_utf8 fails when conceal feature is not available
+  1645  7.4.592  buffer with 'buftype' "nofile" is cleared on re-edit
+  4914  7.4.593  crash when searching for "x\{0,90000}"
+  3194  7.4.594  using block delete with 'breakindent' does not work properly
+  1533  7.4.595  the test_command_count test fails when using Japanese
+  1604  7.4.596  (after 7.4.592) tiny build doesn't compile
+  1729  7.4.597  cannot change the result of systemlist()
+  7175  7.4.598  ":tabdo windo echo 'hi'" causes "* register not to be changed
+  1503  7.4.599  out-of-memory error for complicated search pattern
+ 14844  7.4.600  memory wasted in struct because of aligning
+  3684  7.4.601  it is not possible to have feedkeys() insert characters
+  3058  7.4.602  ":set" does not accept hex numbers as documented
+  6468  7.4.603  'foldcolumn' may fill the whole window
+  1610  7.4.604  running tests changes viminfo
