@@ -630,3 +630,10 @@ Individual patches for Vim 7.4:
   1457  7.4.606  may crash when using a small window
   1825  7.4.607  (after 7.4.598) compiler warnings for unused variables
   5034  7.4.608  (after 7.4.598) test_eval fails without the clipboard feature
+ 20895  7.4.609  the garbage collector can run out of stack space
+  2518  7.4.610  some function headers may be missing from generated .pro files
+  1341  7.4.611  (after 7.4.609) syntax error
+  3589  7.4.612  test_eval fails on Mac
+  6713  7.4.613  the NFA engine does not implement the 'redrawtime' time limit
+  1880  7.4.614  there is no test for what patch 7.4.601 fixes
+  4050  7.4.615  Vim hangs when freeing a lot of objects
