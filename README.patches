@@ -637,3 +637,6 @@ Individual patches for Vim 7.4:
   6713  7.4.613  the NFA engine does not implement the 'redrawtime' time limit
   1880  7.4.614  there is no test for what patch 7.4.601 fixes
   4050  7.4.615  Vim hangs when freeing a lot of objects
+  4582  7.4.616  cannot insert a tab in front of a block
+  2790  7.4.617  wrong ":argdo" range does not cause an error
+  1337  7.4.618  (after 7.4.609) luaV_setref() is missing a return statement

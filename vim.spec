@@ -1,4 +1,4 @@
-%define patchlevel 615
+%define patchlevel 618
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -662,6 +662,9 @@ Patch612: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.612
 Patch613: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.613
 Patch614: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.614
 Patch615: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.615
+Patch616: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.616
+Patch617: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.617
+Patch618: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.618
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -1426,6 +1429,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch613 -p0
 %patch614 -p0
 %patch615 -p0
+%patch616 -p0
+%patch617 -p0
+%patch618 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1943,6 +1949,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Feb 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.618-1
+- patchlevel 618
+
 * Tue Feb 03 2015 Karsten Hopp <karsten@redhat.com> 7.4.615-1
 - patchlevel 615
 
