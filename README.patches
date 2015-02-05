@@ -640,3 +640,6 @@ Individual patches for Vim 7.4:
   4582  7.4.616  cannot insert a tab in front of a block
   2790  7.4.617  wrong ":argdo" range does not cause an error
   1337  7.4.618  (after 7.4.609) luaV_setref() is missing a return statement
+  1929  7.4.619  (after 7.4.618) luaV_setref() not returning the correct value
+  1549  7.4.620  compiler warning for unitinialized variable
+  1755  7.4.621  (after 7.4.619) returning 1 in the wrong function
