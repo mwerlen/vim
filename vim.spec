@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -690,6 +690,7 @@ Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-manpage-typo-668894-675480.patch
 Patch3013: vim-manpagefixes-948566.patch
 Patch3014: vim-7.4-licensemacro-1151450.patch
+Patch3015: vim-7.4-ssh-keywords.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel ncurses-devel gettext perl-devel
@@ -1472,7 +1473,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3012 -p1
 
 %patch3013 -p1
-%patch3014 -p1
+%patch3015 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -1971,6 +1972,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Feb 11 2015 Karsten Hopp <karsten@redhat.com> 7.4.629-2
+- fix syntax highlighting for some ssh_config sshd_config keywords
+
 * Wed Feb 11 2015 Karsten Hopp <karsten@redhat.com> 7.4.629-1
 - patchlevel 629
 
