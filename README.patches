@@ -644,3 +644,10 @@ Individual patches for Vim 7.4:
   1549  7.4.620  compiler warning for unitinialized variable
   1755  7.4.621  (after 7.4.619) returning 1 in the wrong function
   1584  7.4.622  compiler warning for unused argument
+  2555  7.4.623  crash with pattern: \(\)\{80000}
+  5520  7.4.624  may leak memory or crash when vim_realloc() returns NULL
+  1976  7.4.625  possible NULL pointer dereference
+  2091  7.4.626  MSVC with W4 gives useless warnings
+  6670  7.4.627  the last screen cell is not updated
+  1782  7.4.628  compiler warning for variable might be clobbered by longjmp
+  2023  7.4.629  Coverity warning for Out-of-bounds read
