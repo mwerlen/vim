@@ -651,3 +651,14 @@ Individual patches for Vim 7.4:
   6670  7.4.627  the last screen cell is not updated
   1782  7.4.628  compiler warning for variable might be clobbered by longjmp
   2023  7.4.629  Coverity warning for Out-of-bounds read
+  2242  7.4.630  redo is wrong for insert mode completion with autocommands
+  1674  7.4.631  the default conceal character is a dash instead of a space
+  1620  7.4.632  (after 7.4.592) breaks the netrw plugin
+  2528  7.4.633  after 7.4.630 the problem persists
+  5527  7.4.634  marks are not restored after redo + undo
+  2039  7.4.635  fileformat set to "mac" if a file starts with a very long line
+  4780  7.4.636  a search with end offset gets stuck at end of file
+  2612  7.4.637  buffer number for autocommand is wrong
+  1674  7.4.638  can't build with Lua 5.3 on Windows
+  6808  7.4.639  combination of linebreak and conceal doesn't work well
+  2214  7.4.640  after joining lines in Insert mode undo does not work properly
