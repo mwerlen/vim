@@ -1993,7 +1993,7 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Feb 17 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-1
+* Tue Feb 25 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-1
 - patchlevel 640
 
 * Sat Feb 21 2015 Till Maas <opensource@till.name> - 2:7.4.629-2
