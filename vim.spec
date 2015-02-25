@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -1995,6 +1995,10 @@ rm -rf %{buildroot}
 %changelog
 * Tue Feb 17 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-1
 - patchlevel 640
+
+* Sat Feb 21 2015 Till Maas <opensource@till.name> - 2:7.4.629-2
+- Rebuilt for Fedora 23 Change
+  https://fedoraproject.org/wiki/Changes/Harden_all_packages_with_position-independent_code
 
 * Wed Feb 11 2015 Karsten Hopp <karsten@redhat.com> 7.4.629-1
 - patchlevel 629
