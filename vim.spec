@@ -1994,6 +1994,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Thu Feb 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-2
+- set background to dark in gnome-terminal, rhbz#1159920
+
 * Tue Feb 25 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-1
 - patchlevel 640
 
