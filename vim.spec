@@ -1,4 +1,4 @@
-%define patchlevel 640
+%define patchlevel 643
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -687,6 +687,9 @@ Patch637: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.637
 Patch638: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.638
 Patch639: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.639
 Patch640: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.640
+Patch641: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.641
+Patch642: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.642
+Patch643: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.643
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -1477,6 +1480,9 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch638 -p0
 %patch639 -p0
 %patch640 -p0
+%patch641 -p0
+%patch642 -p0
+%patch643 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -1994,6 +2000,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Feb 27 2015 Karsten Hopp <karsten@redhat.com> 7.4.643-1
+- patchlevel 643
+
 * Thu Feb 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-3
 - bump release
 

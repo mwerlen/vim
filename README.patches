@@ -662,3 +662,6 @@ Individual patches for Vim 7.4:
   1674  7.4.638  can't build with Lua 5.3 on Windows
   6808  7.4.639  combination of linebreak and conceal doesn't work well
   2214  7.4.640  after joining lines in Insert mode undo does not work properly
+  2356  7.4.641  the tabline menu was using ":999tabnew" which is now invalid
+  4539  7.4.642  when using "gf" escaped spaces are not handled
+  6487  7.4.643  using the default file format for Mac files (Issue 77)
