@@ -665,3 +665,8 @@ Individual patches for Vim 7.4:
   2356  7.4.641  the tabline menu was using ":999tabnew" which is now invalid
   4539  7.4.642  when using "gf" escaped spaces are not handled
   6487  7.4.643  using the default file format for Mac files (Issue 77)
+  1597  7.4.644  Stratus VOS doesn't have sync()
+  3336  7.4.645  window count wrong when splitting window in BufAdd autocommand
+  3961  7.4.646  ":bufdo" may start at a deleted buffer
+  5305  7.4.647  files differ after running the tests on MS-Windows
+  1462  7.4.648  (after 7.4.647) tests broken on MS-Windows
