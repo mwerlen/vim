@@ -670,3 +670,7 @@ Individual patches for Vim 7.4:
   3961  7.4.646  ":bufdo" may start at a deleted buffer
   5305  7.4.647  files differ after running the tests on MS-Windows
   1462  7.4.648  (after 7.4.647) tests broken on MS-Windows
+  1941  7.4.649  compiler complains about ignoring return value of fwrite()
+  5907  7.4.650  configure check may fail because the dl library is not used
+  1972  7.4.651  (after 7.4.582) can't match "%>80v" for multi-byte characters
+ 12413  7.4.652  xxd lacks a few features
