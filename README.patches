@@ -674,3 +674,7 @@ Individual patches for Vim 7.4:
   5907  7.4.650  configure check may fail because the dl library is not used
   1972  7.4.651  (after 7.4.582) can't match "%>80v" for multi-byte characters
  12413  7.4.652  xxd lacks a few features
+ 11064  7.4.653  Insert mode completion may have CTRL-L work like CTRL-P
+  5292  7.4.654  glob()/ globpath() cannot include links to non-existing files
+  4592  7.4.655  text deleted by "dit" depends on indent of closing tag
+  2854  7.4.656  (after 7.4.654) missing changes for glob() in one file
