@@ -679,3 +679,4 @@ Individual patches for Vim 7.4:
   4592  7.4.655  text deleted by "dit" depends on indent of closing tag
   2854  7.4.656  (after 7.4.654) missing changes for glob() in one file
   2249  7.4.657  (after 7.4.656) compiler warnings for pointer mismatch
+  3033  7.4.658  'formatexpr' is evaluated too often
