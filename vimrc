@@ -59,7 +59,7 @@ if &term=="xterm"
      set t_Sf=[3%dm
 endif
 
-# rhbz 1159920
+" rhbz 1159920
 if $COLORTERM=="gnome-terminal"
      set background=light
 else
