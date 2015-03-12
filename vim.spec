@@ -2048,7 +2048,7 @@ rm -rf %{buildroot}
 * Fri Feb 27 2015 Karsten Hopp <karsten@redhat.com> 7.4.643-1
 - patchlevel 643
 
-* Mon Mar 02 2015 Dave Airlie <airlied@redhat.com> 7.4.640-4
+* Fri Feb 27 2015 Dave Airlie <airlied@redhat.com> 7.4.640-4
 - fix vimrc using wrong comment character
 
 * Thu Feb 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-3
