@@ -684,3 +684,4 @@ Individual patches for Vim 7.4:
   2025  7.4.660  using freed memory if g:colors_name is changed
   1571  7.4.661  using "0 CTRL-D" in Insert mode may have CursorHoldI interfere
   6826  7.4.662  selecting text object can be wrong when 'M' is in the 'cpo'
+  1729  7.4.663  when using netbeans a buffer is not found in another tab
