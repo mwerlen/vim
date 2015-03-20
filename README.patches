@@ -685,3 +685,8 @@ Individual patches for Vim 7.4:
   1571  7.4.661  using "0 CTRL-D" in Insert mode may have CursorHoldI interfere
   6826  7.4.662  selecting text object can be wrong when 'M' is in the 'cpo'
   1729  7.4.663  when using netbeans a buffer is not found in another tab
+  2289  7.4.664  effect of 'numberwidth' being set not immediately visible
+  2582  7.4.665  'linebreak' does not work properly with multi-byte characters
+  2470  7.4.666  there is a chance that Vim may lock up
+  2109  7.4.667  'colorcolumn' isn't drawn in closed fold like 'cursorcolumn'
+  4671  7.4.668  can't use a glob pattern as a regexp pattern
