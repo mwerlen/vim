@@ -690,3 +690,7 @@ Individual patches for Vim 7.4:
   2470  7.4.666  there is a chance that Vim may lock up
   2109  7.4.667  'colorcolumn' isn't drawn in closed fold like 'cursorcolumn'
   4671  7.4.668  can't use a glob pattern as a regexp pattern
+  4296  7.4.669  when netbeans is active the sign column always shows up
+  9924  7.4.670  using 'cindent' for Javascript is less than perfect
+  2049  7.4.671  (after 7.4.665) warning for shadowing a variable
+ 13937  7.4.672  shell command completion does not see local directories
