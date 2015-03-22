@@ -694,3 +694,5 @@ Individual patches for Vim 7.4:
   9924  7.4.670  using 'cindent' for Javascript is less than perfect
   2049  7.4.671  (after 7.4.665) warning for shadowing a variable
  13937  7.4.672  shell command completion does not see local directories
+  1459  7.4.673  first syntax entry gets wrong sequence number zero
+  2019  7.4.674  (after 7.4.672) missing changes in one file
