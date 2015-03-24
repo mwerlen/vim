@@ -696,3 +696,10 @@ Individual patches for Vim 7.4:
  13937  7.4.672  shell command completion does not see local directories
   1459  7.4.673  first syntax entry gets wrong sequence number zero
   2019  7.4.674  (after 7.4.672) missing changes in one file
+  2676  7.4.675  when FileReadPost moves cursor inside line it gets moved back
+  6606  7.4.676  on Mac, configure can't handle non-default Python framework
+  3820  7.4.677  (after 7.4.676) configure fails when using python-config-dir
+  3797  7.4.678  when using --remote the directory may end up being wrong
+  2444  7.4.679  color values greater than 255 cause problems on MS-Windows
+  9657  7.4.680  CTRL-W in Insert mode does not work well for multi-byte chars
+  2327  7.4.681  MS-Windows: with minimized Vim window height is incorrect
