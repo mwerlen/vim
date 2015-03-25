@@ -703,3 +703,4 @@ Individual patches for Vim 7.4:
   2444  7.4.679  color values greater than 255 cause problems on MS-Windows
   9657  7.4.680  CTRL-W in Insert mode does not work well for multi-byte chars
   2327  7.4.681  MS-Windows: with minimized Vim window height is incorrect
+  2603  7.4.682  search and match highlighting replace cursorline highlighting
