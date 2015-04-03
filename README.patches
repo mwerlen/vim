@@ -710,3 +710,5 @@ Individual patches for Vim 7.4:
   3157  7.4.686  "zr" and "zm" do not take a count
   9372  7.4.687  there is no way to use a different Replace cursor in terminal
   1697  7.4.688  when "$" is in 'cpo' the popup menu isn't undrawn correctly
+  4590  7.4.689  MS-Windows: problem with diff mode when 'autochdir' is set
+  3392  7.4.690  memory access errors when changing indent in Ex mode
