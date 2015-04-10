@@ -713,3 +713,4 @@ Individual patches for Vim 7.4:
   4590  7.4.689  MS-Windows: problem with diff mode when 'autochdir' is set
   3392  7.4.690  memory access errors when changing indent in Ex mode
   4331  7.4.691  (after 7.4.689) can't build with MzScheme
+  1645  7.4.692  defining SOLARIS for no good reason
