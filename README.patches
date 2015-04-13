@@ -714,3 +714,9 @@ Individual patches for Vim 7.4:
   3392  7.4.690  memory access errors when changing indent in Ex mode
   4331  7.4.691  (after 7.4.689) can't build with MzScheme
   1645  7.4.692  defining SOLARIS for no good reason
+  2100  7.4.693  session file is not correct when there are multiple tab pages
+  1515  7.4.694  running tests changes the .viminfo file
+  2184  7.4.695  out-of-bounds read, dectected by Coverity
+  1809  7.4.696  not freeing memory when encountering an error
+  1887  7.4.697  the filename used for ":profile" must be given literally
+ 14611  7.4.698  various problems with locked and fixed lists and dictionaries
