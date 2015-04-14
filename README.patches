@@ -720,3 +720,4 @@ Individual patches for Vim 7.4:
   1809  7.4.696  not freeing memory when encountering an error
   1887  7.4.697  the filename used for ":profile" must be given literally
  14611  7.4.698  various problems with locked and fixed lists and dictionaries
+  1420  7.4.699  E315 when trying to delete a fold
