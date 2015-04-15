@@ -721,3 +721,5 @@ Individual patches for Vim 7.4:
   1887  7.4.697  the filename used for ":profile" must be given literally
  14611  7.4.698  various problems with locked and fixed lists and dictionaries
   1420  7.4.699  E315 when trying to delete a fold
+  3529  7.4.700  fold can't be opened after ":move"
+  1774  7.4.701  compiler warning for using uninitialized variable
