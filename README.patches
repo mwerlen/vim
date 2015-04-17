@@ -723,3 +723,4 @@ Individual patches for Vim 7.4:
   1420  7.4.699  E315 when trying to delete a fold
   3529  7.4.700  fold can't be opened after ":move"
   1774  7.4.701  compiler warning for using uninitialized variable
+  1675  7.4.702  joining an empty list does uneccessary work
