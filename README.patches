@@ -725,3 +725,8 @@ Individual patches for Vim 7.4:
   1774  7.4.701  compiler warning for using uninitialized variable
   1675  7.4.702  joining an empty list does uneccessary work
   1837  7.4.703  compiler warning for start_dir unused when building unittests
+ 20231  7.4.704  invalid memory access if char search matches an illegal byte
+  1983  7.4.705  can't build with Ruby 2.2
+  2207  7.4.706  drawing error when 'laststatus' zero and a cmdline window
+  1623  7.4.707  undo files can have their executable bit set
+ 20526  7.4.708  gettext() is called too often
