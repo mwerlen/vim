@@ -730,3 +730,6 @@ Individual patches for Vim 7.4:
   2207  7.4.706  drawing error when 'laststatus' zero and a cmdline window
   1623  7.4.707  undo files can have their executable bit set
  20526  7.4.708  gettext() is called too often
+  8809  7.4.709  ":tabmove" does not work as documented
+ 10791  7.4.710  it is not possible to make spaces visibible in list mode
+  1437  7.4.711  (after 7.4.710) missing change in one file
