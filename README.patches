@@ -734,3 +734,14 @@ Individual patches for Vim 7.4:
  10791  7.4.710  it is not possible to make spaces visibible in list mode
   1437  7.4.711  (after 7.4.710) missing change in one file
   1434  7.4.712  missing change in another file
+  1657  7.4.713  wrong condition for #ifdef
+  1636  7.4.714  illegal memory access when there are illegal bytes
+  1778  7.4.715  invalid memory access when there are illegal bytes
+  2272  7.4.716  ":substitute" flags are not always remembered
+  7430  7.4.717  ":let list += list" can change a locked list
+  2800  7.4.718  quickfix autocommands cannot get the current title value
+  1682  7.4.719  overflow when adding MAXCOL to a pointer
+  4211  7.4.720  can't build with Visual Studio 2015
+  2029  7.4.721  empty lines do not have Visual highligthing if 'list' set
+  3246  7.4.722  0x202f is not recognized as a non-breaking space character
+  7610  7.4.723  for indenting, finding the C++ baseclass can be slow
