@@ -745,3 +745,6 @@ Individual patches for Vim 7.4:
   2029  7.4.721  empty lines do not have Visual highligthing if 'list' set
   3246  7.4.722  0x202f is not recognized as a non-breaking space character
   7610  7.4.723  for indenting, finding the C++ baseclass can be slow
+  9665  7.4.724  vim icon does not show in Windows context menu (issue 249)
+  1569  7.4.725  ":call setreg('"', [])" reports an internal error
+  1442  7.4.726  (after 7.4.724) cannot build GvimExt
