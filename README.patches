@@ -750,3 +750,4 @@ Individual patches for Vim 7.4:
   1442  7.4.726  (after 7.4.724) cannot build GvimExt
   1709  7.4.727  (after 7.4.724) cannot build GvimExt with MingW
   2037  7.4.728  can't build with some version of Visual Studio 2015
+  1647  7.4.729  (after 7.4.721) occasional crash with 'list' set
