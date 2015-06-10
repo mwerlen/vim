@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -1810,6 +1810,44 @@ install -p -m644 %{SOURCE9} \
 install -p -m644 %{SOURCE10} \
    %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/gvim.png
 
+# Register as an application to be visible in the software center
+#
+# NOTE: It would be *awesome* if this file was maintained by the upstream
+# project, translated and installed into the right place during `make install`.
+#
+# See http://www.freedesktop.org/software/appstream/docs/ for more details.
+#
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/appdata
+cat > $RPM_BUILD_ROOT%{_datadir}/appdata/gvim.appdata.xml <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014 Richard Hughes <richard@hughsie.com> -->
+<!--
+EmailAddress: Bram@moolenaar.net>
+SentUpstream: 2014-05-22
+-->
+<application>
+  <id type="desktop">gvim.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Vim</project_license>
+  <description>
+    <p>
+     Vim is an advanced text editor that seeks to provide the power of the
+     de-facto Unix editor 'Vi', with a more complete feature set.
+     It's useful whether you're already using vi or using a different editor.
+    </p>
+    <p>
+     Vim is a highly configurable text editor built to enable efficient text
+     editing.
+     Vim is often called a "programmer's editor," and so useful for programming
+     that many consider it an entire IDE. It's not just for programmers, though.
+     Vim is perfect for all kinds of text editing, from composing email to
+     editing configuration files.
+    </p>
+  </description>
+  <url type="homepage">http://www.vim.org/</url>
+</application>
+EOF
+
 ( cd %{buildroot}
   ln -sf vi ./%{_bindir}/rvi
   ln -sf vi ./%{_bindir}/rview
@@ -2157,6 +2195,7 @@ rm -rf %{buildroot}
 %files X11
 %defattr(-,root,root)
 %if "%{desktop_file}" == "1"
+%{_datadir}/appdata/*.appdata.xml
 /%{_datadir}/applications/*
 %else
 /%{_sysconfdir}/X11/applnk/*/gvim.desktop
@@ -2172,6 +2211,7 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+<<<<<<< HEAD
 * Thu May 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.729-1
 - patchlevel 729
 
@@ -2240,6 +2280,12 @@ rm -rf %{buildroot}
 
 * Fri Mar 20 2015 Karsten Hopp <karsten@redhat.com> 7.4.668-1
 - patchlevel 668
+
+* Wed Jun 03 2015 Jitka Plesnikova <jplesnik@redhat.com> - 2:7.4.663-3
+- Perl 5.22 rebuild
+
+* Thu Mar 26 2015 Richard Hughes <rhughes@redhat.com> - 2:7.4.663-2
+- Add an AppData file for the software center
 
 * Sat Mar 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.663-1
 - patchlevel 663
