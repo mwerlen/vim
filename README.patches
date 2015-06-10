@@ -759,3 +759,4 @@ Individual patches for Vim 7.4:
   1514  7.4.735  wrong argument for sizeof()
   2537  7.4.736  invalid memory access
   1573  7.4.737  on MS-Windows vimgrep over arglist doesn't work (Issue 361)
+  2961  7.4.738  (after 7.4.732) can't compile without the syntax HL feature
