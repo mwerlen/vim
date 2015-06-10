@@ -2230,7 +2230,6 @@ rm -rf %{buildroot}
 * Wed Jun 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.737-1
 - patchlevel 737
 
-<<<<<<< HEAD
 * Thu May 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.729-1
 - patchlevel 729
 
