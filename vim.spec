@@ -1,4 +1,4 @@
-%define patchlevel 729
+%define patchlevel 737
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -776,6 +776,14 @@ Patch726: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.726
 Patch727: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.727
 Patch728: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.728
 Patch729: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.729
+Patch730: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.730
+Patch731: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.731
+Patch732: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.732
+Patch733: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.733
+Patch734: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.734
+Patch735: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.735
+Patch736: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.736
+Patch737: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.737
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -1655,6 +1663,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch727 -p0
 %patch728 -p0
 %patch729 -p0
+%patch730 -p0
+%patch731 -p0
+%patch732 -p0
+%patch733 -p0
+%patch734 -p0
+%patch735 -p0
+%patch736 -p0
+%patch737 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -2211,6 +2227,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Jun 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.737-1
+- patchlevel 737
+
 <<<<<<< HEAD
 * Thu May 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.729-1
 - patchlevel 729

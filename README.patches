@@ -751,3 +751,11 @@ Individual patches for Vim 7.4:
   1709  7.4.727  (after 7.4.724) cannot build GvimExt with MingW
   2037  7.4.728  can't build with some version of Visual Studio 2015
   1647  7.4.729  (after 7.4.721) occasional crash with 'list' set
+  9012  7.4.730  when setting the crypt key text in swap file may be corrupted
+  5005  7.4.731  the tab menu shows "Close tab" even when it doesn't work
+  1472  7.4.732  the cursor line is not always updated for the "O" command
+  1408  7.4.733  test_listchars breaks on MS-Windows
+  9465  7.4.734  ml_get error when using "p" in Visual selection in last line
+  1514  7.4.735  wrong argument for sizeof()
+  2537  7.4.736  invalid memory access
+  1573  7.4.737  on MS-Windows vimgrep over arglist doesn't work (Issue 361)
