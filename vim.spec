@@ -2299,10 +2299,10 @@ rm -rf %{buildroot}
 * Fri Mar 20 2015 Karsten Hopp <karsten@redhat.com> 7.4.668-1
 - patchlevel 668
 
-* Wed Jun 03 2015 Jitka Plesnikova <jplesnik@redhat.com> - 2:7.4.663-3
+* Thu Mar 19 2015 Jitka Plesnikova <jplesnik@redhat.com> - 7.4.663-3
 - Perl 5.22 rebuild
 
-* Thu Mar 26 2015 Richard Hughes <rhughes@redhat.com> - 2:7.4.663-2
+* Wed Mar 18 2015 Richard Hughes <rhughes@redhat.com> - 7.4.663-2
 - Add an AppData file for the software center
 
 * Sat Mar 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.663-1
@@ -2341,7 +2341,7 @@ rm -rf %{buildroot}
 * Wed Feb 25 2015 Karsten Hopp <karsten@redhat.com> 7.4.640-1
 - patchlevel 640
 
-* Sat Feb 21 2015 Till Maas <opensource@till.name> - 2:7.4.629-2
+* Sat Feb 21 2015 Till Maas <opensource@till.name> - 7.4.629-2
 - Rebuilt for Fedora 23 Change
   https://fedoraproject.org/wiki/Changes/Harden_all_packages_with_position-independent_code
 
