@@ -2221,6 +2221,7 @@ rm -rf %{buildroot}
 %{_bindir}/gvimdiff
 %{_bindir}/gview
 %{_bindir}/gex
+%{_bindir}/vimtutor
 %{_bindir}/vimx
 %{_bindir}/evim
 %{_mandir}/man1/evim.*
