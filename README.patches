@@ -774,3 +774,8 @@ Individual patches for Vim 7.4:
   3282  7.4.750  cannot build with clang 3.5 on Cygwin with perl enabled
   3533  7.4.751  it is not obvious how to enable the address sanitizer
   5908  7.4.752  Unicode 8.0 not supported
+ 10679  7.4.753  appending in Visual mode with 'linebreak' set is wrong
+ 24821  7.4.754  using CTRL-A in Visual mode does not work well
+  7572  7.4.755  it is not easy to count the number of characters
+  6051  7.4.756  can't use strawberry Perl 5.22 x64 on MS-Windows
+  8830  7.4.757  cannot detect the background color of a terminal
