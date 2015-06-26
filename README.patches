@@ -779,3 +779,7 @@ Individual patches for Vim 7.4:
   7572  7.4.755  it is not easy to count the number of characters
   6051  7.4.756  can't use strawberry Perl 5.22 x64 on MS-Windows
   8830  7.4.757  cannot detect the background color of a terminal
+  1573  7.4.758  'conceallevel' in command-line window hides first character
+  5370  7.4.759  building with Lua 5.3 doesn't work, symbols have changed
+  1596  7.4.760  spelling mistakes are not displayed after ":syn spell"
+  4055  7.4.761  (after 7.4.757) incomplete request-background implementation
