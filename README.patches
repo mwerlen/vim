@@ -783,3 +783,5 @@ Individual patches for Vim 7.4:
   5370  7.4.759  building with Lua 5.3 doesn't work, symbols have changed
   1596  7.4.760  spelling mistakes are not displayed after ":syn spell"
   4055  7.4.761  (after 7.4.757) incomplete request-background implementation
+  2084  7.4.762  (after 7.4.757) comment for may_req_bg_color() is wrong
+  5135  7.4.763  (after 7.4.759) building with Lua 5.1 doesn't work
