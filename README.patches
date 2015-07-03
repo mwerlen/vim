@@ -786,3 +786,7 @@ Individual patches for Vim 7.4:
   2084  7.4.762  (after 7.4.757) comment for may_req_bg_color() is wrong
   5135  7.4.763  (after 7.4.759) building with Lua 5.1 doesn't work
   1553  7.4.764  (after 7.4.754) test_increment fails on MS-Windows
+ 12311  7.4.765  (after 7.4.754) CTRL-A/CTRL-X in Visual mode do not work well
+  3085  7.4.766  (after 7.4.757) bg color check does not work on Tera Term
+  2200  7.4.767  --remote-tab-silent can fail on MS-Windows
+  6780  7.4.768  :diffoff only works properly once
