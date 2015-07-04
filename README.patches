@@ -790,3 +790,4 @@ Individual patches for Vim 7.4:
   3085  7.4.766  (after 7.4.757) bg color check does not work on Tera Term
   2200  7.4.767  --remote-tab-silent can fail on MS-Windows
   6780  7.4.768  :diffoff only works properly once
+  3627  7.4.769  (after 7.4 768) behavior of :diffoff is not tested
