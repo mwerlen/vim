@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -2285,6 +2285,7 @@ rm -rf %{buildroot}
 %{_bindir}/gvimdiff
 %{_bindir}/gview
 %{_bindir}/gex
+%{_bindir}/vimtutor
 %{_bindir}/vimx
 %{_bindir}/evim
 %{_mandir}/man1/evim.*
@@ -2314,6 +2315,9 @@ rm -rf %{buildroot}
 
 * Wed Jun 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.738-1
 - patchlevel 738
+
+* Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.4.737-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
 * Wed Jun 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.737-1
 - patchlevel 737
