@@ -2313,9 +2313,6 @@ rm -rf %{buildroot}
 * Mon Jun 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.752-1
 - patchlevel 752
 
-* Wed Jun 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.738-1
-- patchlevel 738
-
 * Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2:7.4.737-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
