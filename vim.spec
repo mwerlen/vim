@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -2292,6 +2292,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Jul 10 2015 Lubomir Rintel <lkundrak@v3.sk> 7.4.769-3
+- drop forcing background, vim detects this since 7.4.757, rhbz#1159920
+
 * Sat Jul 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.769-1
 - patchlevel 769
 
