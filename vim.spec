@@ -12,7 +12,7 @@
 %define withvimspell 0
 %define withhunspell 0
 %define withruby 1
-%define withlua 0
+%define withlua 1
 
 %define baseversion 7.4
 %define vimdir vim74
@@ -891,7 +891,7 @@ Patch3014: vim-7.4-licensemacro-1151450.patch
 Patch3015: vim-7.4-ssh-keywords.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires: python-devel ncurses-devel gettext perl-devel
+BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
 BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
 BuildRequires: libacl-devel gpm-devel autoconf
 %if %{WITH_SELINUX}
@@ -1825,14 +1825,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch799 -p0
 %patch800 -p0
 %patch801 -p0
-%patch802 -p0
+#patch802 -p0
 %patch803 -p0
 %patch804 -p0
 %patch805 -p0
 %patch806 -p0
 %patch807 -p0
 %patch808 -p0
-%patch809 -p0
+#patch809 -p0
 %patch810 -p0
 %patch811 -p0
 %patch812 -p0
@@ -1909,6 +1909,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
+  --enable-python3interp=dynamic \
   --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
@@ -1943,6 +1944,7 @@ make clean
 
 %configure --prefix=%{_prefix} --with-features=huge \
  --enable-pythoninterp=dynamic \
+ --enable-python3interp=dynamic \
  --enable-perlinterp \
  --disable-tclinterp \
  --with-x=no \
@@ -2410,6 +2412,8 @@ rm -rf %{buildroot}
 %changelog
 * Wed Aug 19 2015 Karsten Hopp <karsten@redhat.com> 7.4.827-1
 - patchlevel 827
+- re-enable lua
+- enable python3
 
 * Fri Jul 10 2015 Lubomir Rintel <lkundrak@v3.sk> 7.4.769-3
 - drop forcing background, vim detects this since 7.4.757, rhbz#1159920
