@@ -1,4 +1,4 @@
-%define patchlevel 827
+%define patchlevel 838
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -874,6 +874,17 @@ Patch824: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.824
 Patch825: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.825
 Patch826: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.826
 Patch827: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.827
+Patch828: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.828
+Patch829: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.829
+Patch830: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.830
+Patch831: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.831
+Patch832: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.832
+Patch833: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.833
+Patch834: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.834
+Patch835: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.835
+Patch836: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.836
+Patch837: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.837
+Patch838: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.838
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -1851,6 +1862,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch825 -p0
 %patch826 -p0
 %patch827 -p0
+%patch828 -p0
+%patch829 -p0
+%patch830 -p0
+%patch831 -p0
+%patch832 -p0
+%patch833 -p0
+%patch834 -p0
+%patch835 -p0
+%patch836 -p0
+%patch837 -p0
+%patch838 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -2410,6 +2432,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Aug 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.838-1
+- patchlevel 838
+
 * Wed Aug 19 2015 Karsten Hopp <karsten@redhat.com> 7.4.827-1
 - patchlevel 827
 - re-enable lua

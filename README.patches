@@ -849,3 +849,14 @@ Individual patches for Vim 7.4:
   2270  7.4.825  invalid memory access for ":syn keyword x a["
   1946  7.4.826  compiler warnings and errors
   1795  7.4.827  not all test targets are in the Makefile
+  1748  7.4.828  crash when using "syn keyword x c"
+  1635  7.4.829  crash when clicking in beval balloon
+  2105  7.4.830  resetting 'encoding' when doing ":set all&" causes problems
+  3365  7.4.831  when error in expanding `=expr` the command is still executed
+  1815  7.4.832  $HOME in `=$HOME . '/.vimrc'` is expanded too early
+  8285  7.4.833  more side effects of ":set all&" are missing
+  2971  7.4.834  gettabvar() doesn't work after Vim start
+  3913  7.4.835  comparing utf-8 does not handle different byte sizes correctly
+  1306  7.4.836  accessing unitinialized memory
+  1478  7.4.837  compiler warning with MSVC compiler when using +sniff
+  1820  7.4.838  (after 7.4.833) can't compile without the crypt feature
