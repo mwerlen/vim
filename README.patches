@@ -860,3 +860,6 @@ Individual patches for Vim 7.4:
   1306  7.4.836  accessing unitinialized memory
   1478  7.4.837  compiler warning with MSVC compiler when using +sniff
   1820  7.4.838  (after 7.4.833) can't compile without the crypt feature
+  1944  7.4.839  compiler warning on 64-bit system
+  1482  7.4.840  (after 7.4.829) tooltip window stays open
+  2380  7.4.841  can't compile without the multi-byte feature
