@@ -863,3 +863,5 @@ Individual patches for Vim 7.4:
   1944  7.4.839  compiler warning on 64-bit system
   1482  7.4.840  (after 7.4.829) tooltip window stays open
   2380  7.4.841  can't compile without the multi-byte feature
+  1456  7.4.842  sending too many messages to close the balloon
+  2336  7.4.843  (after 7.4.835) still possible to go beyond end of a string
