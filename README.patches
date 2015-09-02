@@ -865,3 +865,14 @@ Individual patches for Vim 7.4:
   2380  7.4.841  can't compile without the multi-byte feature
   1456  7.4.842  sending too many messages to close the balloon
   2336  7.4.843  (after 7.4.835) still possible to go beyond end of a string
+  5956  7.4.844  when '#' is in 'isident' the is# comparator doesn't work
+  1720  7.4.845  compiler warning for possible loss of data
+  3410  7.4.846  some GitHub users don't know how to use issues
+  1541  7.4.847  "vi)d" may leave a character behind
+  2613  7.4.848  CTRL-A on hex number in Visual block mode is incorrect
+ 11225  7.4.849  moving the cursor in Insert mode starts new undo sequence
+  1868  7.4.850  <Esc> does not show up
+ 11192  7.4.851  saving and restoring console buffer does not work properly
+ 16460  7.4.852  MS-Windows console cannot input/output Unicode characters
+  2377  7.4.853  "zt" in diff mode does not always work properly
+  2145  7.4.854  missing information about runtime files
