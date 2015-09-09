@@ -876,3 +876,10 @@ Individual patches for Vim 7.4:
  16460  7.4.852  MS-Windows console cannot input/output Unicode characters
   2377  7.4.853  "zt" in diff mode does not always work properly
   2145  7.4.854  missing information about runtime files
+  2113  7.4.855  GTK: font glitches for combining characters
+  2405  7.4.856  "zt" still doesn't work well with filler lines
+  1663  7.4.857  dragging the current tab with the mouse doesn't work properly
+ 39395  7.4.858  it's a bit clumsy to execute a command on a list of matches
+  1653  7.4.859  Vim doesn't recognize all htmldjango files
+ 18401  7.4.860  filetype detection is outdated
+  4357  7.4.861  (after 7.4.855) pango_shape_full() is not always available
