@@ -883,3 +883,7 @@ Individual patches for Vim 7.4:
   1653  7.4.859  Vim doesn't recognize all htmldjango files
  18401  7.4.860  filetype detection is outdated
   4357  7.4.861  (after 7.4.855) pango_shape_full() is not always available
+  3012  7.4.862  (after 7.4.861) still problems with pango_shape_full()
+  4501  7.4.863  plines_nofill() used without the diff feature
+  3940  7.4.864  (after 7.4.858) tiny build fails
+  1434  7.4.865  compiler warning for uninitialized variable
