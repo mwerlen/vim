@@ -887,3 +887,9 @@ Individual patches for Vim 7.4:
   4501  7.4.863  plines_nofill() used without the diff feature
   3940  7.4.864  (after 7.4.858) tiny build fails
   1434  7.4.865  compiler warning for uninitialized variable
+ 17603  7.4.866  crash when changing the 'tags' option from a remote command
+  1698  7.4.867  (after 7.4.866) can't build on MS-Windows
+  4998  7.4.868  'smarttab' is also effective when 'paste' is enabled
+  4534  7.4.869  MS-Windows with Intel GPU: scroll may cause text to disappear
+  2143  7.4.870  get into an invalid state when using getchar() in expr mapping
+  5367  7.4.871  Vim leaks memory when 'wildignore' filters out all matches
