@@ -893,3 +893,5 @@ Individual patches for Vim 7.4:
   4534  7.4.869  MS-Windows with Intel GPU: scroll may cause text to disappear
   2143  7.4.870  get into an invalid state when using getchar() in expr mapping
   5367  7.4.871  Vim leaks memory when 'wildignore' filters out all matches
+  3694  7.4.872  not using CI services available
+  3729  7.4.873  (after 7.4.866) compiler warning for unused variable
