@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -939,7 +939,7 @@ Patch3015: vim-7.4-ssh-keywords.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
 BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
-BuildRequires: libacl-devel gpm-devel autoconf
+BuildRequires: libacl-devel gpm-devel autoconf file
 %if %{WITH_SELINUX}
 BuildRequires: libselinux-devel
 %endif
@@ -2246,6 +2246,9 @@ rm -rf %{buildroot}/%{_datadir}/vim/%{vimdir}/doc/vim2html.pl
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/tutor/tutor.gr.utf-8~
 ( cd %{buildroot}/%{_mandir}
   for i in `find ??/ -type f`; do
+    if [[ "`file $i`" == *UTF-8\ Unicode\ text* ]]; then
+      continue
+    fi
     bi=`basename $i`
     iconv -f latin1 -t UTF8 $i > %{buildroot}/$bi
     mv -f %{buildroot}/$bi $i
@@ -2504,6 +2507,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Sep 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.873-2
+- fix garbled xxd manpage in Japanese locale (bugzilla #1035606), Masayuki Oshima
+
 * Tue Sep 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.873-1
 - add Provides: mergetool for bugzilla #990444
 
