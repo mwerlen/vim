@@ -1012,6 +1012,7 @@ Summary: A version of the VIM editor which includes recent enhancements
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} which
 Provides: vim = %{version}-%{release}
+Provides: mergetool
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
 %description enhanced
@@ -1040,6 +1041,7 @@ Summary: The VIM version of the vi editor for the X Window System
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk2 >= 2.6
 Provides: gvim = %{version}-%{release}
+Provides: mergetool
 BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires: hicolor-icon-theme
@@ -2502,6 +2504,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Sep 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.873-1
+- add Provides: mergetool for bugzilla #990444
+
 * Fri Sep 18 2015 Karsten Hopp <karsten@redhat.com> 7.4.873-1
 - patchlevel 873
 
