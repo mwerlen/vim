@@ -823,14 +823,14 @@ Individual patches for Vim 7.4:
   1598  7.4.799  accessing memory before an allocated block
   1889  7.4.800  using freed memory when triggering CmdUndefined autocommands
   2265  7.4.801  (after 7.4.769) ":diffoff" test could catch more problems
-  2317  7.4.802  using "A" in Visual mode with 'linebreak' set is not tested
+  2315  7.4.802  using "A" in Visual mode with 'linebreak' set is not tested
  41522  7.4.803  C indent does not support C11 raw strings
   1515  7.4.804  Xxd doesn't have a license notice
   1662  7.4.805  ruler shows "Bot" when there are only filler lines missing
   3907  7.4.806  CTRL-A in Visual mode fails with "alpha" in 'nrformat'
   3649  7.4.807  (after 7.4.798) after CTRL-V CTRL-A mode isn't updated
   3304  7.4.808  on MS-Windows 10 IME input doesn't work correctly
-  2338  7.4.809  (after 7.4.802) duplicate test case
+  2336  7.4.809  (after 7.4.802) duplicate test case
   1825  7.4.810  sequence of commands using buffers in diff mode gives E749
   2419  7.4.811  invalid memory access when using "exe 'sc'"
   1927  7.4.812  Gcc sanitizer complains about using NULL pointer to memmove()
@@ -895,3 +895,14 @@ Individual patches for Vim 7.4:
   5367  7.4.871  Vim leaks memory when 'wildignore' filters out all matches
   3694  7.4.872  not using CI services available
   3729  7.4.873  (after 7.4.866) compiler warning for unused variable
+  2467  7.4.874  MS-Windows: size isn't right when inside another application
+  1459  7.4.875  not obvious how to contribute
+  3258  7.4.876  Windows7: using vim with msys/msys2, conhost.exe freezes
+  1484  7.4.877  ":find" sometimes fails
+  1527  7.4.878  Coverity error for clearing only one byte of struct
+  2727  7.4.879  can't see line numbers in nested function calls
+  1665  7.4.880  no build and coverage status
+  6097  7.4.881  (after 7.4.879) test 49 fails
+  1623  7.4.882  popup menu remains visible when leaving command line window
+  2651  7.4.883  (after 7.4.818) block-mode replace works characterwise
+  1293  7.4.884  Travis also builds on a tag push

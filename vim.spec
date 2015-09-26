@@ -1,4 +1,4 @@
-%define patchlevel 873
+%define patchlevel 884
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
@@ -920,6 +920,17 @@ Patch870: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.870
 Patch871: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.871
 Patch872: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.872
 Patch873: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.873
+Patch874: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.874
+Patch875: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.875
+Patch876: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.876
+Patch877: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.877
+Patch878: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.878
+Patch879: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.879
+Patch880: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.880
+Patch881: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.881
+Patch882: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.882
+Patch883: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.883
+Patch884: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.884
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -1945,6 +1956,17 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch871 -p0
 %patch872 -p0
 %patch873 -p0
+%patch874 -p0
+%patch875 -p0
+%patch876 -p0
+%patch877 -p0
+%patch878 -p0
+%patch879 -p0
+%patch880 -p0
+%patch881 -p0
+%patch882 -p0
+%patch883 -p0
+%patch884 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -2507,6 +2529,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Sep 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.884-1
+- patchlevel 884
+
 * Tue Sep 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.873-2
 - fix garbled xxd manpage in Japanese locale (bugzilla #1035606), Masayuki Oshima
 
