@@ -906,3 +906,8 @@ Individual patches for Vim 7.4:
   1623  7.4.882  popup menu remains visible when leaving command line window
   2651  7.4.883  (after 7.4.818) block-mode replace works characterwise
   1293  7.4.884  Travis also builds on a tag push
+  2287  7.4.885  upwards search without wildcards does not always work
+  2908  7.4.886  (after 7.4.876) Windows7: screen flicker when using system()
+  1873  7.4.887  using uninitialized memory for regexp with back reference
+  4794  7.4.888  OptionSet autocommands are not triggered from setwinvar()
+  3145  7.4.889  triggering OptionSet from setwinvar() isn't tested
