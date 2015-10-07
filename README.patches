@@ -911,3 +911,4 @@ Individual patches for Vim 7.4:
   1873  7.4.887  using uninitialized memory for regexp with back reference
   4794  7.4.888  OptionSet autocommands are not triggered from setwinvar()
   3145  7.4.889  triggering OptionSet from setwinvar() isn't tested
+  2032  7.4.890  build failure when using dynamic python but not python3
