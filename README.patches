@@ -913,3 +913,10 @@ Individual patches for Vim 7.4:
   3145  7.4.889  triggering OptionSet from setwinvar() isn't tested
   2032  7.4.890  build failure when using dynamic python but not python3
   5013  7.4.891  indentation of array initializer is wrong
+  3100  7.4.892  on MS-Windows the iconv DLL may have a different name
+  2911  7.4.893  C indenting is wrong below a "case (foo):"
+  1617  7.4.894  vimrun.exe is picky about the number of spaces before -s
+  2169  7.4.895  cmdline completion does not work for a command with digits
+  2387  7.4.896  editing a URL, which netrw should handle, doesn't work
+  1776  7.4.897  freeze and crash when there is a sleep in a remote command
+  1419  7.4.898  the 'fixendofline' option is set on with ":edit"
