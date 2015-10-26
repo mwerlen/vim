@@ -920,3 +920,5 @@ Individual patches for Vim 7.4:
   2387  7.4.896  editing a URL, which netrw should handle, doesn't work
   1776  7.4.897  freeze and crash when there is a sleep in a remote command
   1419  7.4.898  the 'fixendofline' option is set on with ":edit"
+  4930  7.4.899  README file is not optimal
+  2100  7.4.900  (after 7.4.899) README file can still be improved
