@@ -922,3 +922,5 @@ Individual patches for Vim 7.4:
   1419  7.4.898  the 'fixendofline' option is set on with ":edit"
   4930  7.4.899  README file is not optimal
   2100  7.4.900  (after 7.4.899) README file can still be improved
+  2150  7.4.901  BufLeave autocommand an corrupt undo
+ 13294  7.4.902  problems with using the MS-Windows console
