@@ -924,3 +924,4 @@ Individual patches for Vim 7.4:
   2100  7.4.900  (after 7.4.899) README file can still be improved
   2150  7.4.901  BufLeave autocommand an corrupt undo
  13294  7.4.902  problems with using the MS-Windows console
+  1820  7.4.903  MS-Windows: expandinig wildcards may cause bad memory access
