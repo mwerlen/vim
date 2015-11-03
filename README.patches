@@ -925,3 +925,8 @@ Individual patches for Vim 7.4:
   2150  7.4.901  BufLeave autocommand an corrupt undo
  13294  7.4.902  problems with using the MS-Windows console
   1820  7.4.903  MS-Windows: expandinig wildcards may cause bad memory access
+ 10391  7.4.904  Vim does not provide .desktop files
+  8728  7.4.905  Python interface misses some functions on vim.message
+  2927  7.4.906  MS-Windows: viminfo file is (always) given hidden attribute
+ 17429  7.4.907  dynamically loaded libs can only be defined at compile time
+  1639  7.4.908  (after 7.4.907) build error with MingW compiler
