@@ -26,6 +26,7 @@ LASTTAG=$(git describe --tags $(git rev-list --tags --max-count=1))
 UPSTREAMMAJOR=$(echo $LASTTAG | sed -e 's/v\([0-9]*\.[0-9]*\).*/\1/')
 LASTPL=`echo $LASTTAG| sed -e 's/.*\.//'`
 LASTPLFILLED=`printf "%03d" $LASTPL`
+echo "$ORIGPLFILLED" == "$LASTPLFILLED"
 if [ "$ORIGPLFILLED" == "$LASTPLFILLED" ]; then
     echo "No new patchlevel available"
     CHANGES=0
@@ -38,11 +39,11 @@ popd
 
 cp -f vim-upstream/dist/README.patches README.patches
 cp -f vim-upstream/dist/vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2 .
-if [ $CHANGES ]; then
+if [ $CHANGES -ne 0 ]; then
 	CHLOG="* $DATE Karsten Hopp <karsten@redhat.com> $UPSTREAMMAJOR"
-	sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
-	sed -i -e "s/define patchlevel $ORIGPLFILLED/define patchlevel $LASTPLFILLED/" $SPEC
-	sed -i -e "/\%changelog/a$CHLOG.$LASTPLFILLED-1\n- patchlevel $LASTPLFILLED\n" $SPEC
+	$debug sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
+	$debug sed -i -e "s/define patchlevel $ORIGPLFILLED/define patchlevel $LASTPLFILLED/" $SPEC
+	$debug sed -i -e "/\%changelog/a$CHLOG.$LASTPLFILLED-1\n- patchlevel $LASTPLFILLED\n" $SPEC
 	$debug fedpkg new-sources vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
 	$debug git add vim.spec README.patches
 	$debug git commit -m "- patchlevel $LASTPL" 
