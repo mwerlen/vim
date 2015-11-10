@@ -1,4 +1,4 @@
-%define patchlevel 909
+%define patchlevel 917
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -757,6 +757,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Nov 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.917-1
+- patchlevel 917
+
 * Wed Nov 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.909-1
 - patchlevel 909
 - Fedora vim now uses tarballs created from upstream git instead

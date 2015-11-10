@@ -1,3 +1,69 @@
+commit 1be2ed6c11671eabefa0fc8600fd2af6cd3963e8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 19:11:58 2015 +0100
+
+    patch 7.4.917
+    Problem:    Compiler warning for comparing signed and unsigned.
+    Solution:   Add a type cast.
+
+commit 8648357841065295e39831d2b559d87ca01a7a7c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 19:04:23 2015 +0100
+
+    patch 7.4.916
+    Problem:    When running out of memory while copying a dict memory may be
+                freed twice. (ZyX)
+    Solution:   Do not call the garbage collector when running out of memory.
+
+commit 174674743d9a2d7361c9cd89836f8dd8651edeeb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 17:50:24 2015 +0100
+
+    patch 7.4.915
+    Problem:    When removing from 'path' and then adding, a comma may go missing.
+                (Malcolm Rowe)
+    Solution:   Fix the check for P_ONECOMMA. (closes #471)
+
+commit 98b30a473a58ae98c280e0383c8b1e08c0ebced5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 15:18:02 2015 +0100
+
+    patch 7.4.914
+    Problem:    New compiler warning: logical-not-parentheses
+    Solution:   Silence the warning.
+
+commit 72f4cc4a987d123c0ed909c85b9a05f65cef7202
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 14:35:18 2015 +0100
+
+    patch 7.4.913
+    Problem:    No utf-8 support for the hangul input feature.
+    Solution:   Add utf-8 support. (Namsh)
+
+commit e01f4f86cef7bed3cb99b26f9f57d86f6eb5fe1a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 14:06:53 2015 +0100
+
+    patch 7.4.912
+    Problem:    Wrong indenting for C++ constructor.
+    Solution:   Recognize ::.  (Anhong)
+
+commit 450ca4335e467ac29c1560b7397225a974aee3bf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 13:30:39 2015 +0100
+
+    patch 7.4.911
+    Problem:    t_Ce and t_Cs are documented but not supported. (Hirohito Higashi)
+    Solution:   Define the options.
+
+commit e7427f4b7e1af6a63600183be6b4c5724beb2f66
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 13:24:20 2015 +0100
+
+    patch 7.4.910
+    Problem:    Compiler complains about type punned pointer.
+    Solution:   Use another way to increment the ref count.
+
 commit de59ba33aa3b94f2757dbf3451682d762c15ebcf
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Nov 3 22:03:16 2015 +0100
