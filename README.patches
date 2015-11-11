@@ -931,3 +931,16 @@ Individual patches for Vim 7.4:
  17429  7.4.907  dynamically loaded libs can only be defined at compile time
   1639  7.4.908  (after 7.4.907) build error with MingW compiler
   2331  7.4.909  "make install" fails
+  1784  7.4.910  (after 7.4.905) compiler complains about type punned pointer
+  1425  7.4.911  t_Ce and t_Cs are documented but not supported
+  2179  7.4.912  wrong indenting for C++ constructor
+ 12094  7.4.913  no utf-8 support for the hangul input feature
+  1384  7.4.914  new compiler warning: logical-not-parentheses
+  2528  7.4.915  comma goes missing when removing from 'path' and then adding
+  1516  7.4.916  when running out of memory, memory may be freed twice
+  1529  7.4.917  compiler warning for comparing signed and unsigned
+  3223  7.4.918  (after 7.4.907) a digit in an option name has problems
+  7041  7.4.919  the dll options are not in the options window
+  1505  7.4.920  the rubydll option is not in the options window
+  1505  7.4.921  (after 7.4.906) missing proto file update
+  1361  7.4.922  leaking memory with ":helpt {dir-not-exists}"
