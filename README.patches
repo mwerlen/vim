@@ -1,3 +1,49 @@
+commit b4ff518d95aa57c2f8c0568c915035bef849581b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 21:15:48 2015 +0100
+
+    Updated runtime files.
+
+commit 1c2836e268ce930bca9ea1287d0d83e92ce1b3ff
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 21:05:48 2015 +0100
+
+    patch 7.4.922
+    Problem:    Leaking memory with ":helpt {dir-not-exists}".
+    Solution:   Free dirname. (Dominique Pelle)
+
+commit cd1c55f706c2f9b8310b8a9fc1f8226c7fd19372
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 20:52:04 2015 +0100
+
+    patch 7.4.921
+    Problem:    Missing proto file update. (Randall W. Morris)
+    Solution:   Add the missing line for mch_ishidden.
+
+commit a93f975e8b39d7cfc8145dbe181cc4e5e4ec0bdf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 20:45:09 2015 +0100
+
+    patch 7.4.920
+    Problem:    The rubydll option is not in the options window.
+    Solution:   Add the rubydll option.
+
+commit d4ece23e2e602d820ab7367c383dc0d72dd87029
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 19:48:14 2015 +0100
+
+    patch 7.4.919
+    Problem:    The dll options are not in the options window.
+    Solution:   Add the dll options.  And other fixes.
+
+commit 0796c0625fa4b9eb2f47fe8c976b78523924e1fb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 10 19:41:37 2015 +0100
+
+    patch 7.4.918
+    Problem:    A digit in an option name has problems.
+    Solution:   Rename 'python3dll' to 'pythonthreedll'.
+
 commit 1be2ed6c11671eabefa0fc8600fd2af6cd3963e8
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Nov 10 19:11:58 2015 +0100
