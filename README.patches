@@ -944,3 +944,11 @@ Individual patches for Vim 7.4:
   1505  7.4.920  the rubydll option is not in the options window
   1505  7.4.921  (after 7.4.906) missing proto file update
   1361  7.4.922  leaking memory with ":helpt {dir-not-exists}"
+  2745  7.4.923  prototypes not always generated
+  2817  7.4.924  DEVELOPER_DIR gets reset by configure
+  5768  7.4.925  user may yank or put using the register being recorded in
+  4328  7.4.926  completing longest match doesn'thandle multi-byte chars
+  3376  7.4.927  Ruby crashes when there is a runtime error
+  1891  7.4.928  a clientserver message interrupts handling keys of a mapping
+  2457  7.4.929  "gv" after paste selects one char less if 'sel' is "exclusive"
+  2135  7.4.930  MS-Windows: Most users appear not to like the window border

@@ -1,4 +1,4 @@
-%define patchlevel 922
+%define patchlevel 930
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -969,6 +969,14 @@ Patch919: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.919
 Patch920: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.920
 Patch921: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.921
 Patch922: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.922
+Patch923: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.923
+Patch924: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.924
+Patch925: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.925
+Patch926: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.926
+Patch927: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.927
+Patch928: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.928
+Patch929: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.929
+Patch930: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.930
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -2043,6 +2051,14 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch920 -p0
 %patch921 -p0
 %patch922 -p0
+%patch923 -p0
+%patch924 -p0
+%patch925 -p0
+%patch926 -p0
+%patch927 -p0
+%patch928 -p0
+%patch929 -p0
+%patch930 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -2605,6 +2621,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Nov 20 2015 Karsten Hopp <karsten@redhat.com> 7.4.930-1
+- patchlevel 930
+
 * Wed Nov 11 2015 Karsten Hopp <karsten@redhat.com> 7.4.922-1
 - patchlevel 922
 
