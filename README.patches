@@ -1,3 +1,79 @@
+commit e392eb41f8dfc01bd13634e534ac6b4d505326f4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 20:38:09 2015 +0100
+
+    Update runtime files.
+
+commit 97b0b0ec764d3a247ef600d809b965d5ab37155d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 20:23:37 2015 +0100
+
+    patch 7.4.930
+    Problem:    MS-Windows: Most users appear not to like the window border.
+    Solution:   Remove WS_EX_CLIENTEDGE. (Ian Halliday)
+
+commit d29c6fea94947b3f4b54fbd5a6f832a7d744bf27
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 20:11:54 2015 +0100
+
+    patch 7.4.929
+    Problem:    "gv" after paste selects one character less if 'selection' is
+                "exclusive".
+    Solution:   Increment the end position. (Christian Brabandt)
+
+commit 5d8afebb5bf7fb1e8ce06062451dc6a1f9a53ac0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 19:55:16 2015 +0100
+
+    patch 7.4.928
+    Problem:    A clientserver message interrupts handling keys of a mapping.
+    Solution:   Have mch_inchar() send control back to WaitForChar when it is
+                interrupted by server message. (James Kolb)
+
+commit 9b1067e038d371bd6c51e5da025383761f4921b4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 19:33:15 2015 +0100
+
+    patch 7.4.927
+    Problem:    Ruby crashes when there is a runtime error.
+    Solution:   Use ruby_options() instead of ruby_process_options(). (Damien)
+
+commit 4f8fa1633cdfbd09a41160c8480fe67c198067e9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 19:00:05 2015 +0100
+
+    patch 7.4.926
+    Problem:    Completing the longest match doesn't work properly with multi-byte
+                characters.
+    Solution:   When using multi-byte characters use another way to find the
+                longest match. (Hirohito Higashi)
+
+commit a0ed84a26897c994512873a895b9fc54e90c6845
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 17:56:13 2015 +0100
+
+    patch 7.4.925
+    Problem:    User may yank or put using the register being recorded in.
+    Solution:   Add the recording register in the message. (Christian Brabandt,
+                closes #470)
+
+commit 32d03b34ac8a34a962f57847fc431a2b4e14efea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 13:46:48 2015 +0100
+
+    patch 7.4.924
+    Problem:    DEVELOPER_DIR gets reset by configure.
+    Solution:   Do not reset DEVELOPER_DIR when there is no --with-developer-dir
+                argument. (Kazuki Sakamoto, closes #482)
+
+commit 6a2697ffd7e894861853b351689b0ddec8901c96
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 19 13:14:30 2015 +0100
+
+    patch 7.4.923
+    Problem:    Prototypes not always generated.
+    Solution:   Change #if to OR with PROTO.
+
 commit b4ff518d95aa57c2f8c0568c915035bef849581b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Nov 10 21:15:48 2015 +0100
