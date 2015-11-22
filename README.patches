@@ -952,3 +952,7 @@ Individual patches for Vim 7.4:
   1891  7.4.928  a clientserver message interrupts handling keys of a mapping
   2457  7.4.929  "gv" after paste selects one char less if 'sel' is "exclusive"
   2135  7.4.930  MS-Windows: Most users appear not to like the window border
+  1446  7.4.931  (after 7.4.929) test 94 fails on some systems
+  3398  7.4.932  (after 7.4.926) test_utf8 has confusing dummy command
+  1411  7.4.933  (after 7.4.926) crash using longest match in completion
+  1381  7.4.934  Appveyor also builds on a tag push
