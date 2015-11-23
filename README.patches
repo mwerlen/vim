@@ -956,3 +956,5 @@ Individual patches for Vim 7.4:
   3398  7.4.932  (after 7.4.926) test_utf8 has confusing dummy command
   1411  7.4.933  (after 7.4.926) crash using longest match in completion
   1381  7.4.934  Appveyor also builds on a tag push
+  3041  7.4.935  test_utf8 fails on MS-Windows when executed with gvim
+  2168  7.4.936  crash when dragging with the mouse

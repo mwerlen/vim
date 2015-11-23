@@ -1,4 +1,4 @@
-%define patchlevel 934
+%define patchlevel 936
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -981,6 +981,8 @@ Patch931: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.931
 Patch932: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.932
 Patch933: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.933
 Patch934: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.934
+Patch935: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.935
+Patch936: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.936
 
 Patch1559: 7.4.559.rhpatched
 Patch3000: vim-7.4-syntax.patch
@@ -2067,6 +2069,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch932 -p0
 %patch933 -p0
 %patch934 -p0
+%patch935 -p0
+%patch936 -p0
 
 # install spell files
 %if %{withvimspell}
@@ -2629,6 +2633,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Nov 23 2015 Karsten Hopp <karsten@redhat.com> 7.4.936-1
+- patchlevel 936
+
 * Sun Nov 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.934-1
 - patchlevel 934
 
