@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 %define patchlevel 936
+=======
+%define patchlevel 930
+>>>>>>> 8710382fb4f260e06cc78fd0d5edc47ec578f348
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +28,7 @@ Version: %{baseversion}.%{patchlevel}
 Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}.tar.bz2
+Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source3: gvim.desktop
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
@@ -47,6 +51,7 @@ Patch2011: vim-7.0-hunspell.patch
 BuildRequires: hunspell-devel
 %endif
 
+<<<<<<< HEAD
 Patch001: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.001
 Patch002: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.002
 Patch003: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.003
@@ -985,10 +990,13 @@ Patch935: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.935
 Patch936: ftp://ftp.vim.org/pub/vim/patches/7.4/7.4.936
 
 Patch1559: 7.4.559.rhpatched
+=======
+
+>>>>>>> 8710382fb4f260e06cc78fd0d5edc47ec578f348
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
 Patch3004: vim-7.0-rclocation.patch
-Patch3006: vim-6.4-checkhl.patch
+Patch3006: vim-7.4-checkhl.patch
 Patch3007: vim-7.4-fstabsyntax.patch
 Patch3008: vim-7.0-warning.patch
 Patch3009: vim-7.4-syncolor.patch
@@ -1133,6 +1141,7 @@ chmod -x runtime/tools/mve.awk
 %endif
 perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
+<<<<<<< HEAD
 # Base patches...
 %patch001 -p0
 %patch002 -p0
@@ -2072,6 +2081,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch935 -p0
 %patch936 -p0
 
+=======
+>>>>>>> 8710382fb4f260e06cc78fd0d5edc47ec578f348
 # install spell files
 %if %{withvimspell}
 %{__tar} xjf %{SOURCE13}
@@ -2084,7 +2095,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3007 -p1
 %patch3008 -p1
 %patch3009 -p1
-%patch3010 -p1
+#patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
 
@@ -2633,18 +2644,25 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Nov 25 2015 Karsten Hopp <karsten@redhat.com> 7.4.941-1
+- patchlevel 941
+
+<<<<<<< HEAD
 * Mon Nov 23 2015 Karsten Hopp <karsten@redhat.com> 7.4.936-1
 - patchlevel 936
 
 * Sun Nov 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.934-1
 - patchlevel 934
 
+=======
+>>>>>>> 8710382fb4f260e06cc78fd0d5edc47ec578f348
 * Fri Nov 20 2015 Karsten Hopp <karsten@redhat.com> 7.4.930-1
 - patchlevel 930
 
 * Wed Nov 11 2015 Karsten Hopp <karsten@redhat.com> 7.4.922-1
 - patchlevel 922
 
+<<<<<<< HEAD
 * Wed Nov 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.909-1
 - patchlevel 909
 
@@ -2659,6 +2677,15 @@ rm -rf %{buildroot}
 
 * Mon Oct 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.900-1
 - patchlevel 900
+=======
+* Tue Nov 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.917-1
+- patchlevel 917
+
+* Wed Nov 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.909-1
+- patchlevel 909
+- Fedora vim now uses tarballs created from upstream git instead
+  of just upstream patches. Now runtime files will have fixes, too.
+>>>>>>> 8710382fb4f260e06cc78fd0d5edc47ec578f348
 
 * Wed Oct 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.898-1
 - patchlevel 898
