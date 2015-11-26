@@ -1,3 +1,17 @@
+commit 60422e68a3a555144f8c76c666f050e8d104c16b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Nov 25 23:53:01 2015 +0100
+
+    patch 7.4.942
+    Problem:    test_tagcase breaks for small builds.
+    Solution:   Bail out of the test early. (Hirohito Higashi)
+
+commit d042dc825c9b97dacd84d4728f88300da4d5b6b9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 24 19:18:36 2015 +0100
+
+    Update runtime files.
+
 commit 0f6562e9036f889185dff49a75c7fc5ffb28b307
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Nov 24 18:48:14 2015 +0100
