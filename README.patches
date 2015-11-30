@@ -1,3 +1,21 @@
+commit 43345546ae63710441f066648b8485fb545b3801
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 29 17:35:35 2015 +0100
+
+    patch 7.4.944
+    Problem:    Writing tests for Vim script is hard.
+    Solution:   Add assertEqual(), assertFalse() and assertTrue() functions.  Add
+                the v:errors variable.  Add the runtest script. Add a first new
+                style test script.
+
+commit 48a969b48898fb08dce636c6b918408c6fbd3ea0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 28 14:29:26 2015 +0100
+
+    patch 7.4.943
+    Problem:    Tests are not run.
+    Solution:   Add test_writefile to makefiles. (Ken Takata)
+
 commit 60422e68a3a555144f8c76c666f050e8d104c16b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Nov 25 23:53:01 2015 +0100
