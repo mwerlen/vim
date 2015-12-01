@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -527,6 +527,14 @@ if [ -x /%{_bindir}/gtk-update-icon-cache ]; then
 fi
 update-desktop-database &> /dev/null ||:
 
+# Refresh documentation helptags
+%transfiletriggerin common -- %{_datadir}/%{name}/vimfiles/doc
+vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null
+
+%transfiletriggerpostun common -- %{_datadir}/%{name}/vimfiles/doc
+> %{_datadir}/%{name}/vimfiles/doc/tags
+vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null
+
 %clean
 rm -rf %{buildroot}
 
@@ -746,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Nov 07 2016 Vít Ondruch <vondruch@redhat.com> - 8.0.037-2
+- Add RPM file triggers support.
+
 * Wed Oct 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.037-1
 - patchlevel 037
 
