@@ -1,3 +1,14 @@
+commit 683fa185a4b4ed7595e5942901548b8239ed5cdb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Nov 30 21:38:24 2015 +0100
+
+    patch 7.4.945
+    Problem:    New style testing is incomplete.
+    Solution:   Add the runtest script to the list of distributed files.
+                Add the new functions to the function overview.
+                Rename the functions to match Vim function style.
+                Move undolevels testing into a new style test script.
+
 commit 43345546ae63710441f066648b8485fb545b3801
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Nov 29 17:35:35 2015 +0100
