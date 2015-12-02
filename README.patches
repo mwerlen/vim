@@ -1,3 +1,20 @@
+commit 5311c02f25eed8f34e8a80becb98e86264f371c3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Dec 1 20:19:26 2015 +0100
+
+    patch 7.4.947
+    Problem:    Test_listchars fails with MingW. (Michael Soyka)
+    Solution:   Add the test to the ones that need the fileformat fixed.
+                (Christian Brabandt)
+
+commit bbfbaf9741deebb9f1ed790885bd571c4cbce17a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Dec 1 15:32:56 2015 +0100
+
+    patch 7.4.946
+    Problem:    Missing changes in source file.
+    Solution:   Include changes to the eval.c file.
+
 commit 683fa185a4b4ed7595e5942901548b8239ed5cdb
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Nov 30 21:38:24 2015 +0100
