@@ -1,3 +1,109 @@
+commit 90f5d0a5c3bbfeefcbc4d6eac59cf225ec714b28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 22:37:21 2015 +0100
+
+    patch 7.4.960
+    Problem:    Detecting every version of nmake is clumsy.
+    Solution:   Use a tiny C program to get the version of _MSC_VER. (Ken Takata)
+
+commit 0379d01c52e7930ccfc9133f229fba54a2024a42
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 21:17:24 2015 +0100
+
+    patch 7.4.959
+    Problem:    When setting 'term' the clipboard ownership is lost.
+    Solution:   Do not call clip_init(). (James McCoy)
+
+commit e1a61991d9b6fd5f65636d17583f93118268cda5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 21:02:27 2015 +0100
+
+    patch 7.4.958
+    Problem:    Vim checks if the directory "$TMPDIR" exists.
+    Solution:   Do not check if the name starts with "$".
+
+commit bc96c29ffc753daef302d20322d1e3d560094f44
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 20:46:20 2015 +0100
+
+    patch 7.4.957
+    Problem:    Test_tagcase fails when using another language than English.
+    Solution:   Set the messages language to C. (Kenichi Ito)
+
+commit f882d9f89dbe24ab1ba4bc88529bef28242fd2ed
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 20:18:24 2015 +0100
+
+    patch 7.4.956
+    Problem:    A few more file name extensions not recognized.
+    Solution:   Add .asciidoc, .bzl, .gradle, etc.
+
+commit 3b8fcd945c5f0ee104eaabcf969fb6f973e79c77
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 20:14:12 2015 +0100
+
+    patch 7.4.955
+    Problem:    Vim doesn't recognize .pl6 and .pod6 files.
+    Solution:   Recognize them as perl6 and pod6. (Mike Eve, closes #511)
+
+commit f609dcf8c1094f6fc95f4fc36321a1fb08a7110c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 17:43:17 2015 +0100
+
+    patch 7.4.954
+    Problem:    When using Lua there may be a crash. (issue #468)
+    Solution:   Avoid using an unitialized tv. (Yukihiro Nakadaira)
+
+commit de0ad40cb3c1bc691a754698ed16a5b6cdb4086b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 17:21:28 2015 +0100
+
+    patch 7.4.953
+    Problem:    When a test script navigates to another buffer the .res file is
+                created with the wrong name.
+    Solution:   Use the "testname" for the .res file. (Damien)
+
+commit 6cd1345307440491580e5e86cb82c54ee9a46baa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 16:54:53 2015 +0100
+
+    patch 7.4.952
+    Problem:    'lispwords' is tested in the old way.
+    Solution:   Make a new style test for 'lispwords'.
+
+commit b00da1d6d1655cb6e415f84ecc3be5ff3b790811
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 16:33:12 2015 +0100
+
+    patch 7.4.951
+    Problem:    Sorting number strings does not work as expected. (Luc Hermitte)
+    Solution:   Add the 'N" argument to sort()
+
+commit 4649ded2877508fe343cbcf6f7e7fd277be0aab3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 14:55:55 2015 +0100
+
+    patch 7.4.950
+    Problem:    v:errors is not initialized.
+    Solution:   Initialze it to an empty list. (Thinca)
+
+commit 32a214e78df0120f92fe049eab1385c60f0cdb0b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 14:29:02 2015 +0100
+
+    patch 7.4.949
+    Problem:    When using 'colorcolumn' and there is a sign with a fullwidth
+                character the highlighting is wrong. (Andrew Stewart)
+    Solution:   Only increment vcol when in the right state. (Christian Brabandt)
+
+commit 20ad69ccfb60ef718bd26387ef0e5424461a643e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 3 13:52:52 2015 +0100
+
+    patch 7.4.948
+    Problem:    Can't build when the insert_expand feature is disabled.
+    Solution:   Add #ifdefs. (Dan Pasanen, closes #499)
+
 commit 5311c02f25eed8f34e8a80becb98e86264f371c3
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Dec 1 20:19:26 2015 +0100
