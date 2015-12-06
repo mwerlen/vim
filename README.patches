@@ -1,3 +1,25 @@
+commit 2c5e8e80eacf491d4f266983f534a77776c7ae83
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 5 20:59:21 2015 +0100
+
+    Updated runtime files.
+
+commit 3f12a2421bda43a4e48c822541b75f72ee11125a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 5 20:56:57 2015 +0100
+
+    patch 7.4.962
+    Problem:    Cannot run the tests with gvim.  Cannot run individual new stests.
+    Solution:   Add the -f flag. Add new test targets in Makefile.
+
+commit 9dc2ce398bb3456cc8f590ef0260459798b34d2a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 5 19:47:04 2015 +0100
+
+    patch 7.4.961
+    Problem:    Test107 fails in some circunstances.
+    Solution:   When using "zt", "zb" and "z=" recompute the fraction.
+
 commit 90f5d0a5c3bbfeefcbc4d6eac59cf225ec714b28
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Dec 3 22:37:21 2015 +0100
