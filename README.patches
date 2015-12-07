@@ -1,3 +1,12 @@
+commit 1c57fe8b9450eb29c3e42a94527d4b7514f853e2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Dec 6 14:53:18 2015 +0100
+
+    patch 7.4.963
+    Problem:    test_listlbr_utf8 sometimes fails.
+    Solution:   Don't use a literal multibyte character but <C-V>uXXXX. Do not
+                dump the screen highlighting. (Christian Brabandt, closes #518)
+
 commit 2c5e8e80eacf491d4f266983f534a77776c7ae83
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sat Dec 5 20:59:21 2015 +0100
