@@ -1,3 +1,52 @@
+commit 35be4534c029148a89ccc41e8e465d793e7ed7c2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 11 22:38:36 2015 +0100
+
+    patch 7.4.969
+    Problem:    Compiler warnings on Windowx x64 build.
+    Solution:   Add type casts. (Mike Williams)
+
+commit b65c749ac5a8a990d53493e3b9677142b1b9e4ce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 11 20:53:58 2015 +0100
+
+    patch 7.4.968
+    Problem:    test86 and test87 are flaky in Appveyor.
+    Solution:   Reduce the count from 8 to 7. (suggested by ZyX)
+
+commit 6b90351786eb0915336b576cc930300bf5c9ac63
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 11 19:38:44 2015 +0100
+
+    patch 7.4.967
+    Problem:    Cross compilation on MS-windows doesn't work well.
+    Solution:   Tidy up cross compilation across architectures with Visual Studio.
+                (Mike Williams)
+
+commit 49222bee65228c7b5994b33c1568394c3cbf4583
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 11 18:11:30 2015 +0100
+
+    patch 7.4.966
+    Problem:    Configure doesn't work with a space in a path.
+    Solution:   Put paths in quotes. (James McCoy, close #525)
+
+commit 941aea2b975623a0c8bc24b140881ef0032a8bb8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 11 17:14:27 2015 +0100
+
+    patch 7.4.965
+    Problem:    On FreeBSD /dev/fd/ files are special.
+    Solution:   Use is_dev_fd_file() also for FreeBSD. (Derek Schrock, closes #521)
+
+commit 91376b63877c113fe9a3fff2c1b04bf9504f447f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 11 16:17:02 2015 +0100
+
+    patch 7.4.964
+    Problem:    Test 87 doesn't work in a shadow directory.
+    Solution:   Handle the extra subdirectory. (James McCoy, closes #515)
+
 commit 1c57fe8b9450eb29c3e42a94527d4b7514f853e2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Dec 6 14:53:18 2015 +0100
