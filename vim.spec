@@ -1,4 +1,4 @@
-%define patchlevel 969
+%define patchlevel 970
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -756,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sun Dec 13 2015 Karsten Hopp <karsten@redhat.com> 7.4.970-1
+- patchlevel 970
+
 * Sat Dec 12 2015 Karsten Hopp <karsten@redhat.com> 7.4.969-1
 - patchlevel 969
 

@@ -1,3 +1,12 @@
+commit 9ec021a2b0dd35ba744a8e2a9430a643c85b922a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 12 16:23:29 2015 +0100
+
+    patch 7.4.970
+    Problem:    Rare crash in getvcol(). (Timo Mihaljov)
+    Solution:   Check for the buffer being NULL in init_preedit_start_col.
+                (Hirohito Higashi, Christian Brabandt)
+
 commit 35be4534c029148a89ccc41e8e465d793e7ed7c2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Fri Dec 11 22:38:36 2015 +0100
