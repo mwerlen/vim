@@ -1,3 +1,19 @@
+commit a98849670674264de699d7ab22ae4b9b32e78f4a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Dec 13 15:08:56 2015 +0100
+
+    patch 7.4.972
+    Problem:    Memory leak when there is an error in setting an option.
+    Solution:   Free the saved value (Christian Brabandt)
+
+commit 099fdde0f073315b7f2700786ae533d23a556348
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Dec 13 14:45:21 2015 +0100
+
+    patch 7.4.971
+    Problem:    The asin() function can't be used.
+    Solution:   Sort the function table properly. (Watiko)
+
 commit 9ec021a2b0dd35ba744a8e2a9430a643c85b922a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sat Dec 12 16:23:29 2015 +0100
