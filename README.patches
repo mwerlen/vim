@@ -1,3 +1,48 @@
+commit 9bc01ebb957d2b30d57bd30d7aee6f1df2a336b0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 17 21:14:58 2015 +0100
+
+    patch 7.4.977
+    Problem:    'linebreak' does not work properly when using "space" in
+                'listchars'.
+    Solution:   (Hirohito Higashi, Christian Brabandt)
+
+commit 8def26a0f5f5535e9af64e715cb80845fc8ec322
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 17 15:34:53 2015 +0100
+
+    patch 7.4.976
+    Problem:    When compiling Vim for MSYS2 (linked with msys-2.0.dll), the Win32
+                clipboard is not enabled.
+    Solution:   Recognize MSYS like CYGWIN. (Ken Takata)
+
+commit 75e3ad019933f4879137775549261bf51985ab7d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 17 15:07:32 2015 +0100
+
+    patch 7.4.975
+    Problem:    Using ":sort" on a very big file sometimes causes text to be
+                corrupted. (John Beckett)
+    Solution:   Copy the line into a buffer before calling ml_append().
+
+commit f29a82dcd0914c76f595d475ddac4517371fab2b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 17 15:03:55 2015 +0100
+
+    patch 7.4.974
+    Problem:    When using :diffsplit the cursor jumps to the first line.
+    Solution:   Put the cursor on the line related to where the cursor was before
+                the split.
+
+commit 6f62fed349bf829da2adb02619dc9acba13c8ab6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 17 14:04:24 2015 +0100
+
+    patch 7.4.973
+    Problem:    When pasting on the command line line breaks result in literal
+                <CR> characters. This makes pasting a long file name difficult.
+    Solution:   Skip the characters.
+
 commit a98849670674264de699d7ab22ae4b9b32e78f4a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Dec 13 15:08:56 2015 +0100
