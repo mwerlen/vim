@@ -1,3 +1,20 @@
+commit 4a8c2cfc56b9affc36934aa0f20d8cfd2b1511c8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 19 15:28:18 2015 +0100
+
+    patch 7.4.979
+    Problem:    When changing the crypt key the blocks read from disk are not
+                decrypted.
+    Solution:   Also call ml_decrypt_data() when mf_old_key is set. (Ken Takata)
+
+commit c42b9c670ea621d4dac0f216e011a6db576c5136
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 19 15:15:54 2015 +0100
+
+    patch 7.4.978
+    Problem:    test_cdo fails when using another language than English.
+    Solution:   Set the language to C. (Dominique Pelle)
+
 commit 9bc01ebb957d2b30d57bd30d7aee6f1df2a336b0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Dec 17 21:14:58 2015 +0100
