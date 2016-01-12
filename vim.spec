@@ -1,4 +1,4 @@
-%define patchlevel 909
+%define patchlevel 1087
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -47,7 +47,6 @@ Patch2011: vim-7.0-hunspell.patch
 BuildRequires: hunspell-devel
 %endif
 
-
 Patch3000: vim-7.4-syntax.patch
 Patch3002: vim-7.1-nowarnings.patch
 Patch3004: vim-7.0-rclocation.patch
@@ -61,6 +60,7 @@ Patch3012: vim-7.3-manpage-typo-668894-675480.patch
 Patch3013: vim-manpagefixes-948566.patch
 Patch3014: vim-7.4-licensemacro-1151450.patch
 Patch3015: vim-7.4-ssh-keywords.patch
+Patch3016: vim-7.4-globalsyntax.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -214,6 +214,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %patch3013 -p1
 %patch3015 -p1
+%patch3016 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -757,10 +758,83 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Jan 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1087-2
+- fix ssh syntax files
+- fix %%global in spec.vim (rhbz#1058041)
+
+* Mon Jan 11 2016 Karsten Hopp <karsten@redhat.com> 7.4.1087-1
+- patchlevel 1087
+
+* Sun Dec 20 2015 Karsten Hopp <karsten@redhat.com> 7.4.979-1
+- patchlevel 979
+
+* Fri Dec 18 2015 Karsten Hopp <karsten@redhat.com> 7.4.977-1
+- patchlevel 977
+
+* Mon Dec 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.972-1
+- patchlevel 972
+
+* Sun Dec 13 2015 Karsten Hopp <karsten@redhat.com> 7.4.970-1
+- patchlevel 970
+
+* Sat Dec 12 2015 Karsten Hopp <karsten@redhat.com> 7.4.969-1
+- patchlevel 969
+
+* Mon Dec 07 2015 Karsten Hopp <karsten@redhat.com> 7.4.963-1
+- patchlevel 963
+
+* Sun Dec 06 2015 Karsten Hopp <karsten@redhat.com> 7.4.962-1
+- patchlevel 962
+
+* Fri Dec 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.960-1
+- patchlevel 960
+
+* Wed Dec 02 2015 Karsten Hopp <karsten@redhat.com> 7.4.947-1
+- patchlevel 947
+
+* Tue Dec 01 2015 Karsten Hopp <karsten@redhat.com> 7.4.945-1
+- patchlevel 945
+
+* Mon Nov 30 2015 Karsten Hopp <karsten@redhat.com> 7.4.944-1
+- patchlevel 944
+
+* Thu Nov 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.942-1
+- patchlevel 942
+
+* Wed Nov 25 2015 Karsten Hopp <karsten@redhat.com> 7.4.941-1
+- patchlevel 941
+
+* Mon Nov 23 2015 Karsten Hopp <karsten@redhat.com> 7.4.936-1
+- patchlevel 936
+
+* Sun Nov 22 2015 Karsten Hopp <karsten@redhat.com> 7.4.934-1
+- patchlevel 934
+
+* Fri Nov 20 2015 Karsten Hopp <karsten@redhat.com> 7.4.930-1
+- patchlevel 930
+
+* Wed Nov 11 2015 Karsten Hopp <karsten@redhat.com> 7.4.922-1
+- patchlevel 922
+
+* Tue Nov 10 2015 Karsten Hopp <karsten@redhat.com> 7.4.917-1
+- patchlevel 917
+
 * Wed Nov 04 2015 Karsten Hopp <karsten@redhat.com> 7.4.909-1
 - patchlevel 909
 - Fedora vim now uses tarballs created from upstream git instead
   of just upstream patches. Now runtime files will have fixes, too.
+
+* Tue Nov 03 2015 Karsten Hopp <karsten@redhat.com> 7.4.908-1
+- patchlevel 908
+
+* Mon Nov 02 2015 Karsten Hopp <karsten@redhat.com> 7.4.903-1
+- patchlevel 903
+
+* Sat Oct 31 2015 Karsten Hopp <karsten@redhat.com> 7.4.902-1
+- patchlevel 902
+
+* Mon Oct 26 2015 Karsten Hopp <karsten@redhat.com> 7.4.900-1
+- patchlevel 900
 
 * Wed Oct 14 2015 Karsten Hopp <karsten@redhat.com> 7.4.898-1
 - patchlevel 898
