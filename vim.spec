@@ -758,7 +758,7 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Di Jan 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1087-2
+* Tue Jan 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1087-2
 - fix ssh syntax files
 - fix %%global in spec.vim (rhbz#1058041)
 

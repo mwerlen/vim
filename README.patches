@@ -1,3 +1,9 @@
+commit 2b527328d1927b42ca190ff5f92ba69283bdcad0
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 12 14:59:32 2016 +0100
+
+    add more ssh keywords
+
 commit d79e55016cf8268cee935f1ac3b5b28712d1399e
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 10 22:13:02 2016 +0100
