@@ -1,3 +1,20 @@
+commit ef2b5036b3005f1ce15d146dce72379a9834c56d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 12 22:20:58 2016 +0100
+
+    patch 7.4.1089
+    Problem:    Repeating CTRL-A doesn't work.
+    Solution:   Call prep_redo_cmd(). (Hirohito Higashi)
+
+commit 7ae4fbca552c972eb3645ece02a2807e517610d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 12 21:00:40 2016 +0100
+
+    patch 7.4.1088
+    Problem:    Coverity warns for uninitialized variables.  Only one is an actual
+                problem.
+    Solution:   Move the conditions.  Don't use endpos if handling an error.
+
 commit d79e55016cf8268cee935f1ac3b5b28712d1399e
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 10 22:13:02 2016 +0100
