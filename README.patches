@@ -1,3 +1,11 @@
+commit b5690794cf081773628fa0f1f2b948fd129d5b39
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 14 22:10:41 2016 +0100
+
+    patch 7.4.1090
+    Problem:    No tests for :hardcopy and related options.
+    Solution:   Add test_hardcopy.
+
 commit ef2b5036b3005f1ce15d146dce72379a9834c56d
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 12 22:20:58 2016 +0100

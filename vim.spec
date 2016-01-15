@@ -1,4 +1,4 @@
-%define patchlevel 1089
+%define patchlevel 1090
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -756,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Jan 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1090-1
+- patchlevel 1090
+
 * Wed Jan 13 2016 Karsten Hopp <karsten@redhat.com> 7.4.1089-1
 - patchlevel 1089
 
