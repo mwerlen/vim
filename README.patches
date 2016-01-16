@@ -1,3 +1,111 @@
+commit e39b3d9fb4e4006684c33847d1ef6a0d742699dd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 22:52:22 2016 +0100
+
+    patch 7.4.1101
+    Problem:    With 'rightleft' and concealing the cursor may move to the wrong
+                position.
+    Solution:   Compute the column differently when 'rightleft' is set. (Hirohito
+                Higashi)
+
+commit abfa9efb983c6fe9f5c4c342ff4d7017ce9a2c4b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 22:34:45 2016 +0100
+
+    patch 7.4.1100
+    Problem:    Cygwin makefiles are unused.
+    Solution:   Remove them.
+
+commit 36d7cd8965bc4027d420c7d70c56ac95d83d3bfa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 22:08:23 2016 +0100
+
+    patch 7.4.1099
+    Problem:    It's not easy to know if Vim supports blowfish. (Smu Johnson)
+    Solution:   Add has('crypt-blowfish') and has('crypt-blowfish2').
+
+commit b7604cc19fa1db6a8182546bf662aa13d4574d7a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 21:23:22 2016 +0100
+
+    patch 7.4.1098
+    Problem:    Still using old style C function declarations.
+    Solution:   Always define __ARGS() to include types.  Turn a few functions
+                into ANSI style to find out if this causes problems for anyone.
+
+commit 345efa013dc6d1754ba06e5596a26c48c9935937
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 20:57:49 2016 +0100
+
+    Update runtime files
+
+commit 065ee9aebf9abe08ae8c0dba7d05cbdcc423c8e0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 20:53:38 2016 +0100
+
+    patch 7.4.1097
+    Problem:    Looking up the alloc ID for tests fails.
+    Solution:   Fix the line computation.  Use assert_fails() for unlet test.
+
+commit a260b87d9da17f605666630f18c1ed909c2b8bae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 20:48:22 2016 +0100
+
+    patch 7.4.1096
+    Problem:    Need several lines to verify a command produces an error.
+    Solution:   Add assert_fails(). (suggested by Nikolay Pavlov)
+                Make the quickfix alloc test actually work.
+
+commit 3d6d5cc3a417c04d9772596ea83f8e6b41321781
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 18:03:32 2016 +0100
+
+    patch 7.4.1095
+    Problem:    Can't build GvimExt with SDK 7.1.
+    Solution:   Support using setenv.bat instead of vcvars32.bat. (Ken Takata)
+
+commit 5a46a58eb6e50cb5204909cc2202e3400761263f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:56:58 2016 +0100
+
+    Add missing test file.
+
+commit ccb80989f2779c8441f7f15d160fb2141bd1676d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:56:35 2016 +0100
+
+    patch 7.4.1094
+    Problem:    Test for :hardcopy fails on MS-Windows.
+    Solution:   Check for the +postscript feature.
+
+commit 24c4d539eed33e8073f8f9fe2bee497bbba935a4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:37:20 2016 +0100
+
+    patch 7.4.1093
+    Problem:    Typo in test goes unnoticed.
+    Solution:   Fix the typo. Give error for wrong arguments to cursor().
+                (partly by Hirohito Higashi) Add a test for cursor().
+
+commit a803c7f94070f94b831fdfd1984f288c8b825b5d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:31:39 2016 +0100
+
+    patch 7.4.1092
+    Problem:    It is not simple to test for an exception and give a proper error
+                message.
+    Solution:   Add assert_exception().
+
+commit b01f357791f88c7083e58cf2b36509dd83f21ea2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:17:04 2016 +0100
+
+    patch 7.4.1091
+    Problem:    When making a change while need_wait_return is set there is a two
+                second delay.
+    Solution:   Do not assume the ATTENTION prompt was given when need_wait_return
+                was set already.
+
 commit b5690794cf081773628fa0f1f2b948fd129d5b39
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Jan 14 22:10:41 2016 +0100
