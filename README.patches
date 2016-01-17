@@ -1,3 +1,98 @@
+commit 2db5c3b3ceeaded7fb5a64dc5cb22b0cb95b78a1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:49:34 2016 +0100
+
+    patch 7.4.1112
+    Problem:    When using ":next" with an illegal file name no error is reported.
+    Solution:   Give an error message.
+
+commit f60b796fa9870bdfc4cdeb91653bac041916077d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:47:23 2016 +0100
+
+    patch 7.4.1111
+    Problem:    test_expand fails on MS-Windows.
+    Solution:   Always use forward slashes.  Remove references to test27.
+
+commit 8c600052fabe4859470d9d0ba2ddd74a52ea9745
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:08:11 2016 +0100
+
+    patch 7.4.1110
+    Problem:    Test 108 fails when language is French.
+    Solution:   Force English messages. (Dominique Pelle)
+
+commit 4cf7679383dca81a4a351e2b0ec333c95d6d9085
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:02:57 2016 +0100
+
+    patch 7.4.1109
+    Problem:    MS-Windows doesn't have rmdir().
+    Solution:   Add mch_rmdir().
+
+commit 58adb14739fa240ca6020cede9ab1f1cb07bd90a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 21:50:51 2016 +0100
+
+    patch 7.4.1108
+    Problem:    Expanding "~" halfway a file name.
+    Solution:   Handle the file name as one name. (Marco Hinz)  Add a test.
+                Closes #564.
+
+commit da440d21a6b94d7f525fa7be9b1417c78dd9aa4c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 21:27:23 2016 +0100
+
+    patch 7.4.1107
+    Problem:    Vim can create a directory but not delete it.
+    Solution:   Add an argument to delete() to make it possible to delete a
+                directory, also recursively.
+
+commit 286eacd3f6631e985089176fb1dff1bcf1a1d6b5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 18:05:50 2016 +0100
+
+    patch 7.4.1106
+    Problem:    The nsis script can't be used from the appveyor build.
+    Solution:   Add "ifndef" to allow for variables to be set from the command
+                line. Remove duplicate SetCompressor command. Support using other
+                gettext binaries. (Ken Takata)  Update build instructions to use
+                libintl-8.dll.
+
+commit 9bbf63dbf8286fadc0cd6b3428010abb67b1b64d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 16:49:28 2016 +0100
+
+    patch 7.4.1105
+    Problem:    When using slices there is a mixup of variable name and namespace.
+    Solution:   Recognize variables that can't be a namespace. (Hirohito Higashi)
+
+commit 4e640bd930d133889dbc9f9a77e29bab902e3b7d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 16:20:38 2016 +0100
+
+    patch 7.4.1104
+    Problem:    Various problems building with MzScheme/Racket.
+    Solution:   Make it work with new versions of Racket. (Yukihiro Nakadaira, Ken
+                Takata)
+
+commit d125001297ac76e0ed4759a9320ffb7872cf6242
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 15:45:15 2016 +0100
+
+    patch 7.4.1103
+    Problem:    Removed file still in distribution.
+    Solution:   Remove Make_cyg.mak from the list of files.
+
+commit f1f60f859cdbb2638b3662ccf7b1d179865fe7dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 15:40:53 2016 +0100
+
+    patch 7.4.1102
+    Problem:    Debugger has no stack backtrace support.
+    Solution:   Add "backtrace", "frame", "up" and "down" commands. (Alberto
+                Fanjul, closes #433)
+
 commit e39b3d9fb4e4006684c33847d1ef6a0d742699dd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Fri Jan 15 22:52:22 2016 +0100
