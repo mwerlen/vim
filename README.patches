@@ -1,3 +1,152 @@
+commit 77324fc9d3206a12f5ae39da1574be3ee1273591
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:37:03 2016 +0100
+
+    patch 7.4.1129
+    Problem:    Python None value can't be converted to a Vim value.
+    Solution:   Just use zero. (Damien)
+
+commit 85084ef1e999dcf50e8d466106a33bac24a0febb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:26:33 2016 +0100
+
+    Update help files.
+
+commit 203258c3ad2966cc9d08b3805b103333988b30b7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:15:16 2016 +0100
+
+    patch 7.4.1128
+    Problem:    MS-Windows: delete() does not recognize junctions.
+    Solution:   Add mch_isrealdir() for MS-Windows. Update mch_is_symbolic_link().
+                (Ken Takata)
+
+commit 021b593e7ed6c7111cbf189744ad1e5d6c4a7d79
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:05:48 2016 +0100
+
+    patch 7.4.1127
+    Problem:    Both old and new style tests for Perl.
+    Solution:   Merge the old tests with the new style tests.
+
+commit c970330676eaae7ba7cd05cfa46df5a413853ef9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 21:49:33 2016 +0100
+
+    patch 7.4.1126
+    Problem:    Can only get the directory of the current window.
+    Solution:   Add window and tab arguments to getcwd() and haslocaldir().
+                (Thinca, Hirohito Higashi)
+
+commit e9b892ebcd8596bf813793a1eed5a460a9495a28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 21:15:58 2016 +0100
+
+    patch 7.4.1125
+    Problem:    There is no perleval().
+    Solution:   Add perleval(). (Damien)
+
+commit 25b2b94ea73eff2aeef624d2ba7f59a1a265a0c1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 20:53:12 2016 +0100
+
+    patch 7.4.1124
+    Problem:    MS-Windows: dead key behavior is not ideal.
+    Solution:   Handle dead keys differently when not in Insert or Select mode.
+                (John Wellesz, closes #399)
+
+commit a24f0a550fed3d9773800cf6be4efd072fff20ec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 19:39:00 2016 +0100
+
+    patch 7.4.1123
+    Problem:    Using ":argadd" when there are no arguments results in the second
+                argument to be the current one. (Yegappan Lakshmanan)
+    Solution:   Correct the w_arg_idx value.
+
+commit 42c9cfa7f4d2f176234e385573ff2fb1f61915e5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:49:57 2016 +0100
+
+    patch 7.4.1122
+    Problem:    Test 92 and 93 fail when using gvim on a system with a non utf-8
+                locale.
+    Solution:   Avoid using .gvimrc by adding -U NONE. (Yukihiro Nakadaira)
+
+commit 08b270a8a4544be9a7fecce311834fde2b457634
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:34:19 2016 +0100
+
+    patch 7.4.1121
+    Problem:    test_expand leaves files behind.
+    Solution:   Edit another file before deleting, otherwise the swap file
+                remains.
+
+commit 336bd622c31e1805495c034e1a8cfadcc0bbabc7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:23:58 2016 +0100
+
+    patch 7.4.1120
+    Problem:    delete(x, 'rf') fails if a directory is empty. (Lcd)
+    Solution:   Ignore not finding matches in an empty directory.
+
+commit 72defda84eb26be9e2ade56c7877b912f818026e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:04:33 2016 +0100
+
+    patch 7.4.1119
+    Problem:    argidx() has a wrong value after ":%argdelete". (Yegappan
+                Lakshmanan)
+    Solution:   Correct the value of w_arg_idx.  Add a test.
+
+commit a99b90437af730dcafd9143c0942c87777a00d52
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 17:10:59 2016 +0100
+
+    patch 7.4.1118
+    Problem:    Tests hang in 24 line terminal.
+    Solution:   Set the 'more' option off.
+
+commit d82103ed8534a1207742e9666ac7ef1e47dda12d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 17:04:05 2016 +0100
+
+    patch 7.4.1117
+    Problem:    No longer get "." and ".." in directory list.
+    Solution:   Do not skip "." and ".." unless EW_DODOT is set.
+
+commit b0967d587fc420fa02832533d4915c85d1a78c17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 16:49:43 2016 +0100
+
+    patch 7.4.1116
+    Problem:    delete(x, 'rf') does not delete files starting with a dot.
+    Solution:   Also delete files starting with a dot.
+
+commit d0232917ced39ff4838665fbcf379d5116a91aa3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 16:15:32 2016 +0100
+
+    patch 7.4.1115
+    Problem:    MS-Windows: make clean in testdir doesn't clean everything.
+    Solution:   Add command to delete X* directories. (Ken Takata)
+
+commit 43a34f9f74fdce462fa250baab620264c28b6165
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 15:56:34 2016 +0100
+
+    patch 7.4.1114
+    Problem:    delete() does not work well with symbolic links.
+    Solution:   Recognize symbolik links.
+
+commit 4119cf80e1e534057680f9543e73edf7967c2440
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 14:59:01 2016 +0100
+
+    patch 7.4.1113
+    Problem:    Using {ns} in variable name does not work. (lilydjwg)
+    Solution:   Fix recognizing colon.  Add a test.
+
 commit 2db5c3b3ceeaded7fb5a64dc5cb22b0cb95b78a1
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sat Jan 16 22:49:34 2016 +0100
