@@ -1,3 +1,21 @@
+commit b20e334859334be35de4b295023a2b49bdabbfa9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 18 23:29:01 2016 +0100
+
+    patch 7.4.1131
+    Problem:    New lines in the viminfo file are dropped.
+    Solution:   Copy lines starting with "|".  Fix that when using :rviminfo in a
+                function global variables were restored as function-local
+                variables.
+
+commit 61ff4dd6a4d47bd32383fe28087be2b37dec53f4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 18 20:30:17 2016 +0100
+
+    patch 7.4.1130
+    Problem:    Memory leak in :vimgrep.
+    Solution:   Call FreeWild(). (Yegappan Lakshmanan)
+
 commit 77324fc9d3206a12f5ae39da1574be3ee1273591
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 17 22:37:03 2016 +0100
