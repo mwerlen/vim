@@ -59,8 +59,7 @@ Patch3011: vim72-rh514717.patch
 Patch3012: vim-7.3-manpage-typo-668894-675480.patch
 Patch3013: vim-manpagefixes-948566.patch
 Patch3014: vim-7.4-licensemacro-1151450.patch
-Patch3015: vim-7.4-ssh-keywords.patch
-Patch3016: vim-7.4-globalsyntax.patch
+Patch3015: vim-7.4-globalsyntax.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -214,7 +213,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 
 %patch3013 -p1
 %patch3015 -p1
-%patch3016 -p1
 
 %build
 cp -f %{SOURCE5} .
