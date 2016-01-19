@@ -1,3 +1,498 @@
+commit 67a4e64892d55b6ee45673230ca77693860ac6cb
+Merge: 2b52732 b8060fe
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 19 22:53:42 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit b8060fe862f684b591f9ac679eac5b2594d6c5a0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 22:29:28 2016 +0100
+
+    patch 7.4.1142
+    Problem:    Cannot define keyword characters for a syntax file.
+    Solution:   Add the ":syn iskeyword" command. (Christian Brabandt)
+
+commit 6773a348da0dcf45df3c6c6649880655ec0d2042
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 20:52:44 2016 +0100
+
+    patch 7.4.1141
+    Problem:    Using searchpair() with a skip expression that uses syntax
+                highlighting sometimes doesn't work. (David Fishburn)
+    Solution:   Reset next_match_idx. (Christian Brabandt)
+
+commit e266d6d664d6d743c79797af400b2c01ec746216
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 20:51:32 2016 +0100
+
+    patch 7.4.1140
+    Problem:    Recognizing <sid> does not work when the language is Turkish.
+                (Christian Brabandt)
+    Solution:   Use MB_STNICMP() instead of STNICMP().
+
+commit fce7b3d24fd18b1486e474e933a95f9090df9973
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 19:00:32 2016 +0100
+
+    patch 7.4.1139
+    Problem:    MS-Windows: getftype() returns "file for symlink to directory.
+    Solution:   Make it return "dir". (Ken Takata)
+
+commit 3a466a87180d677b898687ef72d09f14a397794e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 17:47:25 2016 +0100
+
+    patch 7.4.1138
+    Problem:    When running gvim in the foreground some icons are missing.
+                (Taylor Venable)
+    Solution:   Move the call to gui_gtk_register_resource(). (Kazunobu Kuriyama)
+
+commit 62ef797496c6243d111c596a592a8ef8c1d1e710
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 14:51:54 2016 +0100
+
+    patch 7.4.1137
+    Problem:    Illegal memory access when using :copen and :cclose.
+    Solution:   Avoid that curbuf is invalid. (suggestion by Justin M. Keyes)
+                Add a test.
+
+commit da5dcd936656f524dd0ae7cb2685245f07f5720f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 14:31:20 2016 +0100
+
+    patch 7.4.1136
+    Problem:    Wrong argument to assert_exception() causes a crash. (reported by
+                Coverity)
+    Solution:   Check for NULL pointer.  Add a test.
+
+commit 301417041bdb15264a9c8ff20e4fea4dcc12c478
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 14:14:08 2016 +0100
+
+    patch 7.4.1135
+    Problem:    One more arglist test fails on MS-Windows.
+    Solution:   Don't edit "Y" after editing "y".
+
+commit 82e4184d489e2ce950c871354062fca40bf59598
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 13:50:57 2016 +0100
+
+    patch 7.4.1134
+    Problem:    The arglist test fails on MS-Windows.
+    Solution:   Only check for failure of argedit on Unix.
+
+commit ef26954a35207c3f17d6ed35d9a40c918d974892
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 13:22:12 2016 +0100
+
+    patch 7.4.1133
+    Problem:    Generated function prototypes still have __ARGS().
+    Solution:   Generate function prototypes without __ARGS().
+
+commit 99dbe291f55022bd5166c9c3c7967b8693cd9d1b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 13:07:23 2016 +0100
+
+    patch 7.4.1132
+    Problem:    Old style tests for the argument list.
+    Solution:   Add more new style tests. (Yegappan Lakshmanan)
+
+commit b20e334859334be35de4b295023a2b49bdabbfa9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 18 23:29:01 2016 +0100
+
+    patch 7.4.1131
+    Problem:    New lines in the viminfo file are dropped.
+    Solution:   Copy lines starting with "|".  Fix that when using :rviminfo in a
+                function global variables were restored as function-local
+                variables.
+
+commit 61ff4dd6a4d47bd32383fe28087be2b37dec53f4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 18 20:30:17 2016 +0100
+
+    patch 7.4.1130
+    Problem:    Memory leak in :vimgrep.
+    Solution:   Call FreeWild(). (Yegappan Lakshmanan)
+
+commit 77324fc9d3206a12f5ae39da1574be3ee1273591
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:37:03 2016 +0100
+
+    patch 7.4.1129
+    Problem:    Python None value can't be converted to a Vim value.
+    Solution:   Just use zero. (Damien)
+
+commit 85084ef1e999dcf50e8d466106a33bac24a0febb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:26:33 2016 +0100
+
+    Update help files.
+
+commit 203258c3ad2966cc9d08b3805b103333988b30b7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:15:16 2016 +0100
+
+    patch 7.4.1128
+    Problem:    MS-Windows: delete() does not recognize junctions.
+    Solution:   Add mch_isrealdir() for MS-Windows. Update mch_is_symbolic_link().
+                (Ken Takata)
+
+commit 021b593e7ed6c7111cbf189744ad1e5d6c4a7d79
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 22:05:48 2016 +0100
+
+    patch 7.4.1127
+    Problem:    Both old and new style tests for Perl.
+    Solution:   Merge the old tests with the new style tests.
+
+commit c970330676eaae7ba7cd05cfa46df5a413853ef9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 21:49:33 2016 +0100
+
+    patch 7.4.1126
+    Problem:    Can only get the directory of the current window.
+    Solution:   Add window and tab arguments to getcwd() and haslocaldir().
+                (Thinca, Hirohito Higashi)
+
+commit e9b892ebcd8596bf813793a1eed5a460a9495a28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 21:15:58 2016 +0100
+
+    patch 7.4.1125
+    Problem:    There is no perleval().
+    Solution:   Add perleval(). (Damien)
+
+commit 25b2b94ea73eff2aeef624d2ba7f59a1a265a0c1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 20:53:12 2016 +0100
+
+    patch 7.4.1124
+    Problem:    MS-Windows: dead key behavior is not ideal.
+    Solution:   Handle dead keys differently when not in Insert or Select mode.
+                (John Wellesz, closes #399)
+
+commit a24f0a550fed3d9773800cf6be4efd072fff20ec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 19:39:00 2016 +0100
+
+    patch 7.4.1123
+    Problem:    Using ":argadd" when there are no arguments results in the second
+                argument to be the current one. (Yegappan Lakshmanan)
+    Solution:   Correct the w_arg_idx value.
+
+commit 42c9cfa7f4d2f176234e385573ff2fb1f61915e5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:49:57 2016 +0100
+
+    patch 7.4.1122
+    Problem:    Test 92 and 93 fail when using gvim on a system with a non utf-8
+                locale.
+    Solution:   Avoid using .gvimrc by adding -U NONE. (Yukihiro Nakadaira)
+
+commit 08b270a8a4544be9a7fecce311834fde2b457634
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:34:19 2016 +0100
+
+    patch 7.4.1121
+    Problem:    test_expand leaves files behind.
+    Solution:   Edit another file before deleting, otherwise the swap file
+                remains.
+
+commit 336bd622c31e1805495c034e1a8cfadcc0bbabc7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:23:58 2016 +0100
+
+    patch 7.4.1120
+    Problem:    delete(x, 'rf') fails if a directory is empty. (Lcd)
+    Solution:   Ignore not finding matches in an empty directory.
+
+commit 72defda84eb26be9e2ade56c7877b912f818026e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 18:04:33 2016 +0100
+
+    patch 7.4.1119
+    Problem:    argidx() has a wrong value after ":%argdelete". (Yegappan
+                Lakshmanan)
+    Solution:   Correct the value of w_arg_idx.  Add a test.
+
+commit a99b90437af730dcafd9143c0942c87777a00d52
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 17:10:59 2016 +0100
+
+    patch 7.4.1118
+    Problem:    Tests hang in 24 line terminal.
+    Solution:   Set the 'more' option off.
+
+commit d82103ed8534a1207742e9666ac7ef1e47dda12d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 17:04:05 2016 +0100
+
+    patch 7.4.1117
+    Problem:    No longer get "." and ".." in directory list.
+    Solution:   Do not skip "." and ".." unless EW_DODOT is set.
+
+commit b0967d587fc420fa02832533d4915c85d1a78c17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 16:49:43 2016 +0100
+
+    patch 7.4.1116
+    Problem:    delete(x, 'rf') does not delete files starting with a dot.
+    Solution:   Also delete files starting with a dot.
+
+commit d0232917ced39ff4838665fbcf379d5116a91aa3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 16:15:32 2016 +0100
+
+    patch 7.4.1115
+    Problem:    MS-Windows: make clean in testdir doesn't clean everything.
+    Solution:   Add command to delete X* directories. (Ken Takata)
+
+commit 43a34f9f74fdce462fa250baab620264c28b6165
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 15:56:34 2016 +0100
+
+    patch 7.4.1114
+    Problem:    delete() does not work well with symbolic links.
+    Solution:   Recognize symbolik links.
+
+commit 4119cf80e1e534057680f9543e73edf7967c2440
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 17 14:59:01 2016 +0100
+
+    patch 7.4.1113
+    Problem:    Using {ns} in variable name does not work. (lilydjwg)
+    Solution:   Fix recognizing colon.  Add a test.
+
+commit 2db5c3b3ceeaded7fb5a64dc5cb22b0cb95b78a1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:49:34 2016 +0100
+
+    patch 7.4.1112
+    Problem:    When using ":next" with an illegal file name no error is reported.
+    Solution:   Give an error message.
+
+commit f60b796fa9870bdfc4cdeb91653bac041916077d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:47:23 2016 +0100
+
+    patch 7.4.1111
+    Problem:    test_expand fails on MS-Windows.
+    Solution:   Always use forward slashes.  Remove references to test27.
+
+commit 8c600052fabe4859470d9d0ba2ddd74a52ea9745
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:08:11 2016 +0100
+
+    patch 7.4.1110
+    Problem:    Test 108 fails when language is French.
+    Solution:   Force English messages. (Dominique Pelle)
+
+commit 4cf7679383dca81a4a351e2b0ec333c95d6d9085
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 22:02:57 2016 +0100
+
+    patch 7.4.1109
+    Problem:    MS-Windows doesn't have rmdir().
+    Solution:   Add mch_rmdir().
+
+commit 58adb14739fa240ca6020cede9ab1f1cb07bd90a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 21:50:51 2016 +0100
+
+    patch 7.4.1108
+    Problem:    Expanding "~" halfway a file name.
+    Solution:   Handle the file name as one name. (Marco Hinz)  Add a test.
+                Closes #564.
+
+commit da440d21a6b94d7f525fa7be9b1417c78dd9aa4c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 21:27:23 2016 +0100
+
+    patch 7.4.1107
+    Problem:    Vim can create a directory but not delete it.
+    Solution:   Add an argument to delete() to make it possible to delete a
+                directory, also recursively.
+
+commit 286eacd3f6631e985089176fb1dff1bcf1a1d6b5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 18:05:50 2016 +0100
+
+    patch 7.4.1106
+    Problem:    The nsis script can't be used from the appveyor build.
+    Solution:   Add "ifndef" to allow for variables to be set from the command
+                line. Remove duplicate SetCompressor command. Support using other
+                gettext binaries. (Ken Takata)  Update build instructions to use
+                libintl-8.dll.
+
+commit 9bbf63dbf8286fadc0cd6b3428010abb67b1b64d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 16:49:28 2016 +0100
+
+    patch 7.4.1105
+    Problem:    When using slices there is a mixup of variable name and namespace.
+    Solution:   Recognize variables that can't be a namespace. (Hirohito Higashi)
+
+commit 4e640bd930d133889dbc9f9a77e29bab902e3b7d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 16:20:38 2016 +0100
+
+    patch 7.4.1104
+    Problem:    Various problems building with MzScheme/Racket.
+    Solution:   Make it work with new versions of Racket. (Yukihiro Nakadaira, Ken
+                Takata)
+
+commit d125001297ac76e0ed4759a9320ffb7872cf6242
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 15:45:15 2016 +0100
+
+    patch 7.4.1103
+    Problem:    Removed file still in distribution.
+    Solution:   Remove Make_cyg.mak from the list of files.
+
+commit f1f60f859cdbb2638b3662ccf7b1d179865fe7dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 16 15:40:53 2016 +0100
+
+    patch 7.4.1102
+    Problem:    Debugger has no stack backtrace support.
+    Solution:   Add "backtrace", "frame", "up" and "down" commands. (Alberto
+                Fanjul, closes #433)
+
+commit e39b3d9fb4e4006684c33847d1ef6a0d742699dd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 22:52:22 2016 +0100
+
+    patch 7.4.1101
+    Problem:    With 'rightleft' and concealing the cursor may move to the wrong
+                position.
+    Solution:   Compute the column differently when 'rightleft' is set. (Hirohito
+                Higashi)
+
+commit abfa9efb983c6fe9f5c4c342ff4d7017ce9a2c4b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 22:34:45 2016 +0100
+
+    patch 7.4.1100
+    Problem:    Cygwin makefiles are unused.
+    Solution:   Remove them.
+
+commit 36d7cd8965bc4027d420c7d70c56ac95d83d3bfa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 22:08:23 2016 +0100
+
+    patch 7.4.1099
+    Problem:    It's not easy to know if Vim supports blowfish. (Smu Johnson)
+    Solution:   Add has('crypt-blowfish') and has('crypt-blowfish2').
+
+commit b7604cc19fa1db6a8182546bf662aa13d4574d7a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 21:23:22 2016 +0100
+
+    patch 7.4.1098
+    Problem:    Still using old style C function declarations.
+    Solution:   Always define __ARGS() to include types.  Turn a few functions
+                into ANSI style to find out if this causes problems for anyone.
+
+commit 345efa013dc6d1754ba06e5596a26c48c9935937
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 20:57:49 2016 +0100
+
+    Update runtime files
+
+commit 065ee9aebf9abe08ae8c0dba7d05cbdcc423c8e0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 20:53:38 2016 +0100
+
+    patch 7.4.1097
+    Problem:    Looking up the alloc ID for tests fails.
+    Solution:   Fix the line computation.  Use assert_fails() for unlet test.
+
+commit a260b87d9da17f605666630f18c1ed909c2b8bae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 20:48:22 2016 +0100
+
+    patch 7.4.1096
+    Problem:    Need several lines to verify a command produces an error.
+    Solution:   Add assert_fails(). (suggested by Nikolay Pavlov)
+                Make the quickfix alloc test actually work.
+
+commit 3d6d5cc3a417c04d9772596ea83f8e6b41321781
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 18:03:32 2016 +0100
+
+    patch 7.4.1095
+    Problem:    Can't build GvimExt with SDK 7.1.
+    Solution:   Support using setenv.bat instead of vcvars32.bat. (Ken Takata)
+
+commit 5a46a58eb6e50cb5204909cc2202e3400761263f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:56:58 2016 +0100
+
+    Add missing test file.
+
+commit ccb80989f2779c8441f7f15d160fb2141bd1676d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:56:35 2016 +0100
+
+    patch 7.4.1094
+    Problem:    Test for :hardcopy fails on MS-Windows.
+    Solution:   Check for the +postscript feature.
+
+commit 24c4d539eed33e8073f8f9fe2bee497bbba935a4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:37:20 2016 +0100
+
+    patch 7.4.1093
+    Problem:    Typo in test goes unnoticed.
+    Solution:   Fix the typo. Give error for wrong arguments to cursor().
+                (partly by Hirohito Higashi) Add a test for cursor().
+
+commit a803c7f94070f94b831fdfd1984f288c8b825b5d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:31:39 2016 +0100
+
+    patch 7.4.1092
+    Problem:    It is not simple to test for an exception and give a proper error
+                message.
+    Solution:   Add assert_exception().
+
+commit b01f357791f88c7083e58cf2b36509dd83f21ea2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 15 15:17:04 2016 +0100
+
+    patch 7.4.1091
+    Problem:    When making a change while need_wait_return is set there is a two
+                second delay.
+    Solution:   Do not assume the ATTENTION prompt was given when need_wait_return
+                was set already.
+
+commit b5690794cf081773628fa0f1f2b948fd129d5b39
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 14 22:10:41 2016 +0100
+
+    patch 7.4.1090
+    Problem:    No tests for :hardcopy and related options.
+    Solution:   Add test_hardcopy.
+
+commit ef2b5036b3005f1ce15d146dce72379a9834c56d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 12 22:20:58 2016 +0100
+
+    patch 7.4.1089
+    Problem:    Repeating CTRL-A doesn't work.
+    Solution:   Call prep_redo_cmd(). (Hirohito Higashi)
+
+commit 7ae4fbca552c972eb3645ece02a2807e517610d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 12 21:00:40 2016 +0100
+
+    patch 7.4.1088
+    Problem:    Coverity warns for uninitialized variables.  Only one is an actual
+                problem.
+    Solution:   Move the conditions.  Don't use endpos if handling an error.
+
 commit 2b527328d1927b42ca190ff5f92ba69283bdcad0
 Author: Karsten Hopp <karsten@redhat.com>
 Date:   Tue Jan 12 14:59:32 2016 +0100
