@@ -1,3 +1,105 @@
+commit f7edf40448a09e04eec3bd05e043f7fea93b07c9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 23:36:15 2016 +0100
+
+    patch 7.4.1143
+    Problem:    Can't sort on floating point numbers.
+    Solution:   Add the "f" flag to ":sort".  (Alex Jakushev)  Also add the "f"
+                flag to sort().
+
+commit b8060fe862f684b591f9ac679eac5b2594d6c5a0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 22:29:28 2016 +0100
+
+    patch 7.4.1142
+    Problem:    Cannot define keyword characters for a syntax file.
+    Solution:   Add the ":syn iskeyword" command. (Christian Brabandt)
+
+commit 6773a348da0dcf45df3c6c6649880655ec0d2042
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 20:52:44 2016 +0100
+
+    patch 7.4.1141
+    Problem:    Using searchpair() with a skip expression that uses syntax
+                highlighting sometimes doesn't work. (David Fishburn)
+    Solution:   Reset next_match_idx. (Christian Brabandt)
+
+commit e266d6d664d6d743c79797af400b2c01ec746216
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 20:51:32 2016 +0100
+
+    patch 7.4.1140
+    Problem:    Recognizing <sid> does not work when the language is Turkish.
+                (Christian Brabandt)
+    Solution:   Use MB_STNICMP() instead of STNICMP().
+
+commit fce7b3d24fd18b1486e474e933a95f9090df9973
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 19:00:32 2016 +0100
+
+    patch 7.4.1139
+    Problem:    MS-Windows: getftype() returns "file for symlink to directory.
+    Solution:   Make it return "dir". (Ken Takata)
+
+commit 3a466a87180d677b898687ef72d09f14a397794e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 17:47:25 2016 +0100
+
+    patch 7.4.1138
+    Problem:    When running gvim in the foreground some icons are missing.
+                (Taylor Venable)
+    Solution:   Move the call to gui_gtk_register_resource(). (Kazunobu Kuriyama)
+
+commit 62ef797496c6243d111c596a592a8ef8c1d1e710
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 14:51:54 2016 +0100
+
+    patch 7.4.1137
+    Problem:    Illegal memory access when using :copen and :cclose.
+    Solution:   Avoid that curbuf is invalid. (suggestion by Justin M. Keyes)
+                Add a test.
+
+commit da5dcd936656f524dd0ae7cb2685245f07f5720f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 14:31:20 2016 +0100
+
+    patch 7.4.1136
+    Problem:    Wrong argument to assert_exception() causes a crash. (reported by
+                Coverity)
+    Solution:   Check for NULL pointer.  Add a test.
+
+commit 301417041bdb15264a9c8ff20e4fea4dcc12c478
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 14:14:08 2016 +0100
+
+    patch 7.4.1135
+    Problem:    One more arglist test fails on MS-Windows.
+    Solution:   Don't edit "Y" after editing "y".
+
+commit 82e4184d489e2ce950c871354062fca40bf59598
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 13:50:57 2016 +0100
+
+    patch 7.4.1134
+    Problem:    The arglist test fails on MS-Windows.
+    Solution:   Only check for failure of argedit on Unix.
+
+commit ef26954a35207c3f17d6ed35d9a40c918d974892
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 13:22:12 2016 +0100
+
+    patch 7.4.1133
+    Problem:    Generated function prototypes still have __ARGS().
+    Solution:   Generate function prototypes without __ARGS().
+
+commit 99dbe291f55022bd5166c9c3c7967b8693cd9d1b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 19 13:07:23 2016 +0100
+
+    patch 7.4.1132
+    Problem:    Old style tests for the argument list.
+    Solution:   Add more new style tests. (Yegappan Lakshmanan)
+
 commit b20e334859334be35de4b295023a2b49bdabbfa9
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jan 18 23:29:01 2016 +0100
