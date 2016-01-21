@@ -1,3 +1,36 @@
+commit 88e8f9f14434a7cd538d0c159dc432bea869a5bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 20 22:48:02 2016 +0100
+
+    patch 7.4.1147
+    Problem:    Conflict for "chartab". (Kazunobu Kuriyama)
+    Solution:   Rename the global one to something less obvious.  Move it into
+                src/chartab.c.
+
+commit a7c3795a2e65233ba2d187d680acc83bf6bf4ef5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 20 22:23:15 2016 +0100
+
+    patch 7.4.1146
+    Problem:    Can't build with Python 3 interface using MingW.
+    Solution:   Update the Makefile. (Yasuhiro Matsumoto, Ken Takata)
+
+commit 23c4f7183cca0ff8d2c5c2ef9a5c62f6307e07ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 20 22:11:59 2016 +0100
+
+    patch 7.4.1145
+    Problem:    Default features are conservative.
+    Solution:   Make the default feature set for most of todays systems "huge".
+
+commit 17576a1e33d71b5602cee86bf220a806c8412605
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 20 20:05:44 2016 +0100
+
+    patch 7.4.1144
+    Problem:    Can't build on several systems.
+    Solution:   Include float.h. (Christian Robinson, closes #570 #571)
+
 commit f7edf40448a09e04eec3bd05e043f7fea93b07c9
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 19 23:36:15 2016 +0100
