@@ -1,3 +1,52 @@
+commit 09e786e7a7fc952f43e3f88ba49ab1ac6ef3b3a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 21 23:53:06 2016 +0100
+
+    patch 7.4.1152
+    Problem:    Langmap test fails with normal build.
+    Solution:   Check for +langmap feature.
+
+commit 13d5aeef56e3140a8eb8f40c7062aa1c5700f76e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 21 23:36:05 2016 +0100
+
+    Update runtime files
+
+commit 5f8a14b9dea094b8bbab94cfc1e8da8e633fbc01
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 21 23:34:58 2016 +0100
+
+    patch 7.4.1151
+    Problem:    Missing change to eval.c
+    Solution:   Also change feedkeys().
+
+commit 25281634cda03ce302aaf9f906a9520b5f81f91e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 21 23:32:32 2016 +0100
+
+    patch 7.4.1150
+    Problem:    'langmap' applies to the first character typed in Select mode.
+                (David Watson)
+    Solution:   Check for SELECTMODE. (Christian Brabandt, closes #572)
+                Add the 'x' flag to feedkeys().
+
+commit d6357e8f93c50f984ffd69c3a0d247d8603f86c3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 21 21:48:09 2016 +0100
+
+    patch 7.4.1149
+    Problem:    Using the local value of 'errorformat' causes more problems than
+                it solves.
+    Solution:   Revert 7.4.1013.
+
+commit e5f2be61595fbbba77261f3bf1e032fe03a1966d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 21 20:24:34 2016 +0100
+
+    patch 7.4.1148
+    Problem:    Default for MingW and Cygwin is still "normal".
+    Solution:   Use "huge" as default. (Ken Takata)
+
 commit 88e8f9f14434a7cd538d0c159dc432bea869a5bd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jan 20 22:48:02 2016 +0100
