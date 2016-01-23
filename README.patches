@@ -1,3 +1,12 @@
+commit 6920c72d4d62c8dc5596e9f392e38204f561d7af
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 22 22:44:10 2016 +0100
+
+    patch 7.4.1153
+    Problem:    Autocommands triggered by quickfix cannot always get the current
+                title value.
+    Solution:   Call qf_fill_buffer() later. (Christian Brabandt)
+
 commit 09e786e7a7fc952f43e3f88ba49ab1ac6ef3b3a3
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Jan 21 23:53:06 2016 +0100

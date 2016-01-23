@@ -1,4 +1,4 @@
-%define patchlevel 1152
+%define patchlevel 1153
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -756,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Sat Jan 23 2016 Karsten Hopp <karsten@redhat.com> 7.4.1153-1
+- patchlevel 1153
+
 * Fri Jan 22 2016 Karsten Hopp <karsten@redhat.com> 7.4.1152-1
 - patchlevel 1152
 
