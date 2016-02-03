@@ -1,3 +1,807 @@
+commit 7c764f7bbf71a7a49baae07641efd2ead69e4d08
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 23:33:43 2016 +0100
+
+    Make the python script executable.
+
+commit d7ece1008ee6173afda6d173bed486ae79c1c38a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 23:23:02 2016 +0100
+
+    patch 7.4.1246
+    Problem:    The channel functionality isn't tested.
+    Solution:   Add a test using a Python test server.
+
+commit d087566a419cc107adab77db997b184ea0e433ad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 20:52:42 2016 +0100
+
+    patch 7.4.1245
+    Problem:    File missing from distribution.
+    Solution:   Add json_test.c.
+
+commit f57969a20a4398f56e3028a6cc1102f9f9286ccf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 20:47:49 2016 +0100
+
+    patch 7.4.1244
+    Problem:    The channel functions don't sort together.
+    Solution:   Use a common "ch_" prefix.
+
+commit fbf9c6b6c3bdb1c2eb42ea8c227e8ee021a7a8f2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 19:43:57 2016 +0100
+
+    patch 7.4.1243
+    Problem:    Compiler warning for uninitialized variable.
+    Solution:   Initialize it. (Elias Diem)
+
+commit 8d8c509ac8dea59ad07712971d74afae08521f79
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 19:15:38 2016 +0100
+
+    patch 7.4.1242
+    Problem:    json_test fails without the eval feature.
+    Solution:   Add #ifdef.
+
+commit 04b08c3de68534adff95c8823787299e07ed3b49
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 19:01:55 2016 +0100
+
+    patch 7.4.1241
+    Problem:    Missing change in Makefile due to diff mismatch
+    Solution:   Update the list of object files.
+
+commit bc073092254df17b282d162d8e8181e8f6a7a356
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 18:50:45 2016 +0100
+
+    patch 7.4.1240
+    Problem:    Visual studio tools are noisy.
+    Solution:   Suppress startup info. (Mike Williams)
+
+commit df5b27b20ec023274fb0f5347973d5abcde7ddd6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 18:43:17 2016 +0100
+
+    patch 7.4.1239
+    Problem:    JSON message after the first one is dropped.
+    Solution:   Put remainder of message back in the queue.
+
+commit 56ead341a75e1a0395eee94a3280c67e2278a57e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 18:20:08 2016 +0100
+
+    patch 7.4.1238
+    Problem:    Can't handle two messages right after each other.
+    Solution:   Find the end of the JSON.  Read more when incomplete.  Add a C
+                test for the JSON decoding.
+
+commit d9ea9069f5ef5b8b9f9e0d0daecdd124e2dcd818
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 2 12:38:02 2016 +0100
+
+    patch 7.4.1237
+    Problem:    Can't translate message without adding a line break.
+    Solution:   Join the two parts of the message.
+
+commit 885f24fbcae2a39ae496ffb3a1e139379be8fae1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 22:54:46 2016 +0100
+
+    patch 7.4.1236
+    Problem:    When "syntax manual" was used switching between buffers removes
+                the highlighting.
+    Solution:   Set the syntax option without changing the value. (Anton
+                Lindqvist)
+
+commit 11e0afa00a8e6c0aa1d50f760b5d5cb62dade038
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 22:41:00 2016 +0100
+
+    patch 7.4.1235
+    Problem:    Missing change to eval.c.
+    Solution:   Include that change.
+
+commit 5e9b2fa9bb0e6061cf18457c173cd141a5dc9c92
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 22:37:05 2016 +0100
+
+    Updated runtime files and translations.
+
+commit 488a130ea261f02317adc2c2ca93cc6e68cf2c23
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 22:01:10 2016 +0100
+
+    patch 7.4.1234
+    Problem:    Demo server only runs with Python 2.
+    Solution:   Make it run with Python 3 as well. (Ken Takata)
+
+commit 14ad611ca435d97e8fd0d9ab03ddc982843298ac
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 21:47:13 2016 +0100
+
+    patch 7.4.1233
+    Problem:    Channel command may cause a crash.
+    Solution:   Check for NULL argument. (Damien)
+
+commit 1357caf31f3e447d99baf8dd6a3243e2ab38567f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 21:40:14 2016 +0100
+
+    patch 7.4.1232
+    Problem:    Compiler warnings when the Sniff feature is enabled.
+    Solution:   Add UNUSED.
+
+commit 19d2f1589850d7db1ce77efec052929246f156e2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 21:38:19 2016 +0100
+
+    patch 7.4.1231
+    Problem:    JSON messages are not parsed properly.
+    Solution:   Queue received messages.
+
+commit ca568aeec60dd6cc13b4dcf5cec0e0a07113547f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 1 21:32:58 2016 +0100
+
+    patch 7.4.1230
+    Problem:    Win32: opening a channel may hang.  Not checking for messages
+                while waiting for characters.
+    Solution:   Add a zero timeout.  Call parse_queued_messages(). (Yasuhiro
+                Matsumoto)
+
+commit fb1f62691eae7c79a28b3b17a60e72ce198c71a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 20:24:32 2016 +0100
+
+    patch 7.4.1229
+    Problem:    "eval" and "expr" channel commands don't work yet.
+    Solution:   Implement them.  Update the error numbers.  Also add "redraw".
+
+commit 155500077c80cdb5d9c63996000c011b66a676bf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 18:45:24 2016 +0100
+
+    patch 7.4.1228
+    Problem:    copy() and deepcopy() fail with special variables. (Nikolai
+                Pavlov)
+    Solution:   Make it work.  Add a test.  Closes #614.
+
+commit 448a22549b4528fd81d520497f30672567199c96
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 18:08:34 2016 +0100
+
+    patch 7.4.1227
+    Problem:    Compiler warnings.
+    Solution:   Add UNUSED.  Add type cast. (Yegappan Lakshmanan)
+
+commit 3803bad99de92f4c5ebd6f40b757bc7ade47619e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 17:56:07 2016 +0100
+
+    patch 7.4.1226
+    Problem:    GRESOURCE_HDR is unused.
+    Solution:   Remove it. (Kazunobu Kuriyama)
+
+commit d14e00ea67afbaa8cb4a7e6b1eb306da6a2d5adb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 17:30:51 2016 +0100
+
+    patch 7.4.1225
+    Problem:    Still a few old style function declarations.
+    Solution:   Make them new style. (Hirohito Higashi)
+
+commit bbb3339dbfa2067fab616698739097df06aa5e6c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 16:37:33 2016 +0100
+
+    patch 7.4.1224
+    Problem:    Build problems with GTK on BSD. (Mike Williams)
+    Solution:   Don't use "$<". Skip building gui_gtk_gresources.h when it doesn't
+                work. (Kazunobu Kuriyama)
+
+commit a542c680a8b42cb766e64d4ee7374ef4dacb7832
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 16:28:04 2016 +0100
+
+    patch 7.4.1223
+    Problem:    Crash when setting v:errors to a number.
+    Solution:   Free the typval without assuming its type. (Yasuhiro Matsumoto)
+
+commit e2c3810c2ae290bbc2cba18eb47cc2d44e4b9797
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 14:55:40 2016 +0100
+
+    patch 7.4.1222
+    Problem:    ":normal" command and others missing in tiny build.
+    Solution:   Graduate FEAT_EX_EXTRA.
+
+commit 3c124e3ac81521ae1e7e4a9cb9597ab754b92429
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 14:36:58 2016 +0100
+
+    patch 7.4.1221
+    Problem:    Including netbeans and channel support in small and tiny builds.
+                Build fails with some interfaces.
+    Solution:   Only include these features in small build and above.  Let
+                configure fail if trying to enable an interface that won't build.
+
+commit fa399af7ece091203bd70ebcf955bf07a820beff
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 31 14:13:21 2016 +0100
+
+    patch 7.4.1220
+    Problem:    Warnings for unused variables in tiny build. (Tony Mechelynck)
+    Solution:   Move declarations inside #ifdef. (Hirohito Higashi)
+
+commit 937204a9175d0fe2f13c8bc4ebeb043003d7e7d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 23:37:38 2016 +0100
+
+    patch 7.4.1219
+    Problem:    Build fails with +channel but without +float.
+    Solution:   Add #ifdef.
+
+commit 779a7759ad03e6a3fb616828793512644390655a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 23:26:34 2016 +0100
+
+    patch 7.4.1218
+    Problem:    Missing change in configure.  More changes for function style.
+    Solution:   Avoid the typos.
+
+commit 20fb9f346497daca4d19402fdfa5de7958642477
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 23:20:33 2016 +0100
+
+    patch 7.4.1217
+    Problem:    Execution of command on channel doesn't work yet.
+    Solution:   Implement the "ex" and "normal" commands.
+
+commit ba4ef2757cfc126f342b710f1ad9ea39e6b56cec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 21:48:49 2016 +0100
+
+    patch 7.4.1216
+    Problem:    Still using HAVE_STDARG_H.
+    Solution:   Assume it's always defined.
+
+commit b638a7be952544ceb03052c25b84224577a6494b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 21:29:58 2016 +0100
+
+    patch 7.4.1215
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 764b23c8fd3369cb05ae9122abf3ca16fec539d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 21:10:09 2016 +0100
+
+    patch 7.4.1214
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 055409764ca5f7978d4c399d2c440af0ce971c4f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 20:31:25 2016 +0100
+
+    patch 7.4.1213
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit c1ab67674aa0dfdcf9f0e9701ac248e3eb41b19c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 19:45:49 2016 +0100
+
+    patch 7.4.1212
+    Problem:    Can't build with Motif.
+    Solution:   Fix function declaration.(Dominique Pelle)
+
+commit 9b57814db13c29ecb08260b36923c0e1c8a373a9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 19:39:49 2016 +0100
+
+    patch 7.4.1211
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 52ea13da0fe86df1abf34de52841e367035170c0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 18:51:09 2016 +0100
+
+    patch 7.4.1210
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 02fdaeaa697fb5af4ba7fee6e209b3c2c825bb4f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 18:13:55 2016 +0100
+
+    patch 7.4.1209
+    Problem:    Can't build with Athena.
+    Solution:   Fix function declarations.
+
+commit 68c2f638e65d914dc6e84eb7ce2624f08af525c0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 17:24:07 2016 +0100
+
+    patch 7.4.1208
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 66f948e928d5e0cd3123af902aa8ac1613534c94
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 16:39:25 2016 +0100
+
+    patch 7.4.1207
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 78c0b7d43e5048fd71d12816659667834170c76d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 15:52:46 2016 +0100
+
+    patch 7.4.1206
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 7454a06e2642d2b37afad1c5e71cec68081ca4ff
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 15:14:10 2016 +0100
+
+    patch 7.4.1205
+    Problem:    Using old style function declarations.
+    Solution:   Change to new style function declarations. (script by Hirohito
+                Higashi)
+
+commit 305598b71261265994e2846b4ff4a4d8efade280
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 13:53:36 2016 +0100
+
+    patch 7.4.1204
+    Problem:    Latin1 characters cause encoding conversion.
+    Solution:   Remove the characters.
+
+commit 4349c57543a98dc417b74da5a08c326337aa0bd3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 30 13:28:28 2016 +0100
+
+    patch 7.4.1203
+    Problem:    Still more files still using __ARGS.
+    Solution:   Remove __ARGS in really the last files.
+
+commit 3e96c3d241ab657cf4df0913ea8de50a6cb90730
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 23:46:21 2016 +0100
+
+    patch 7.4.1202
+    Problem:    Still one more file still using __ARGS.
+    Solution:   Remove __ARGS in the last file. (script by Hirohito Higashi)
+                (closes #612)
+
+commit 569850724ef37061bfd4cb6423f04c8b8c690515
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 23:23:06 2016 +0100
+
+    patch 7.4.1201
+    Problem:    One more file still using __ARGS.
+    Solution:   Remove __ARGS in the last file. (script by Hirohito Higashi)
+
+commit d99df423c559d85c17779b3685426c489554908c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 23:20:40 2016 +0100
+
+    patch 7.4.1200
+    Problem:    Still using __ARGS.
+    Solution:   Remove __ARGS in several files. (script by Hirohito Higashi)
+
+commit baaa7e9ec7398a813e21285c272fa99792642077
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 22:47:03 2016 +0100
+
+    patch 7.4.1199
+    Problem:    Still using __ARGS.
+    Solution:   Remove __ARGS in several files. (script by Hirohito Higashi)
+
+commit 92b8b2d307e34117f146319872010b0ccc9d2713
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 22:36:45 2016 +0100
+
+    patch 7.4.1198
+    Problem:    Still using __ARGS.
+    Solution:   Remove __ARGS in several files. (script by Hirohito Higashi)
+                Also remove use of HAVE_STDARG_H.
+
+commit d25c16e2f2776d50245bf31d6e4d5364f12d188e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 22:13:30 2016 +0100
+
+    patch 7.4.1197
+    Problem:    Still using __ARGS.
+    Solution:   Remove __ARGS in several files. (script by Hirohito Higashi)
+
+commit f28dbcea371b3a35727d91afc90fb90e0527d78a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 22:03:47 2016 +0100
+
+    patch 7.4.1196
+    Problem:    Still using __ARGS.
+    Solution:   Remove __ARGS in several files. (script by Hirohito Higashi)
+
+commit f12d983deab06b0408781d7a6c2f8970d765b723
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 29 21:11:25 2016 +0100
+
+    patch 7.4.1195
+    Problem:    The channel feature does not work in the MS-Windows console.
+    Solution:   Add win32 console support. (Yasuhiro Matsumoto)
+
+commit 83162468b3c8722fffea033d3de144cd4191472a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 23:10:07 2016 +0100
+
+    patch 7.4.1194
+    Problem:    Compiler warning for not using return value of fwrite().
+    Solution:   Return OK/FAIL. (Charles Campbell)
+
+commit b8b6511fc1f8422a17778d710ed11538174a7f33
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 23:01:49 2016 +0100
+
+    patch 7.4.1193
+    Problem:    Can't build the channel feature on MS-Windows.
+    Solution:   Add #ifdef HAVE_POLL.
+
+commit fa06a517b5d5e37f40ab7c884bd334f089988fac
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 22:46:58 2016 +0100
+
+    patch 7.4.1192
+    Problem:    Can't build with FEAT_EVAL but without FEAT_MBYTE. (John
+                Marriott)
+    Solution:   Add #ifdef for FEAT_MBYTE.
+
+commit 298b440930ecece38d6ea0505a3e582dc817e79b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 22:38:53 2016 +0100
+
+    Update runtime files.
+
+commit 3b5f929b18492fec291d1ec95a91f54e5912c03b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 22:37:01 2016 +0100
+
+    patch 7.4.1191
+    Problem:    The channel feature isn't working yet.
+    Solution:   Add the connect(), disconnect(), sendexpr() and sendraw()
+                functions.  Add initial documentation.  Add a demo server.
+
+commit ba59ddbd3642d02614acbe52694e3e8a78c0e9d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 15:34:25 2016 +0100
+
+    patch 7.4.1190
+    Problem:    On OSX the default flag for dlopen() is different.
+    Solution:   Add RTLD_LOCAL in the configure check. (sv99, closes #604)
+
+commit 923e43b837ca4c8edb7998743f142823eaeaf588
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 15:07:38 2016 +0100
+
+    patch 7.4.1189
+    Problem:    Using another language on MS-Windows does not work. (Yongwei Wu)
+    Solution:   Undo the change to try loading libintl-8.dll first.
+
+commit 009d84a34f3678ec93921bee3bc05be2fd606264
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 28 14:12:00 2016 +0100
+
+    patch 7.4.1188
+    Problem:    Using older JSON standard.
+    Solution:   Update the link.  Adjust the text a bit.
+
+commit 85be35f33ea848b50e84d57321a45ebfedfad669
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 27 21:08:18 2016 +0100
+
+    patch 7.4.1187
+    Problem:    MS-Windows channel code only supports one channel.  Doesn't build
+                without netbeans support.
+    Solution:   Get the channel index from the socket in the message. Closes #600.
+
+commit 4a1314cb9c1847dc32ceeb3eebeae123ef10b16e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 27 20:47:18 2016 +0100
+
+    patch 7.4.1186
+    Problem:    Error messages for security context are hard to translate.
+    Solution:   Use one string with %s. (Ken Takata)
+
+commit 0d6f835683bede8bfa171c2518dce10832eb8226
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 27 11:07:47 2016 +0100
+
+    patch 7.4.1185
+    Problem:    Can't build with TCL on some systems.
+    Solution:   Rename the channel_ functions.
+
+commit 54e09e71984af6db92f3ad37ce390630a23407af
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 26 23:49:31 2016 +0100
+
+    patch 7.4.1184
+    Problem:    MS-Windows build is still broken.
+    Solution:   Change nbsock to ch_fd.
+
+commit fb4194e4e0d6bd2df43c3e75a969866fcb103f6b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 26 23:39:55 2016 +0100
+
+    patch 7.4.1183
+    Problem:    MS-Windows build is broken.
+    Solution:   Remove init in wrong place.
+
+commit d04a020a8a8d7a438b091d49218c438880beb50c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 26 23:30:18 2016 +0100
+
+    patch 7.4.1182
+    Problem:    Still socket code intertwined with netbeans.
+    Solution:   Move code from netbeans.c to channel.c
+
+commit 6650a694547eb744afa060ec62dd8270e99db9f2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 26 19:59:10 2016 +0100
+
+    patch 7.4.1181
+    Problem:    free_tv() can't handle special variables. (Damien)
+    Solution:   Add the variable type.
+
+commit ac80999985299dae4a9ef56dbf31fbdb35c04c08
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 22:44:54 2016 +0100
+
+    add missing test file
+
+commit 7465c6375fd60eab603681bcad8a8744ddc31614
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 22:20:27 2016 +0100
+
+    patch 7.4.1180
+    Problem:    Crash with invalid argument to glob2regpat().
+    Solution:   Check for NULL. (Justin M. Keyes, closes #596)  Add a test.
+
+commit f4f79b84a5595c511f6fdbe4e3e1d188d97879a0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 20:38:30 2016 +0100
+
+    patch 7.4.1179
+    Problem:    test_writefile and test_viml do not delete the tempfile.
+    Solution:   Delete the tempfile. (Charles Cooper)  Add DeleteTheScript().
+
+commit 767d8c1a1ae762ecf47297c168b8c23caf05d30a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 20:22:54 2016 +0100
+
+    patch 7.4.1178
+    Problem:    empty() doesn't work for the new special variables.
+    Solution:   Make empty() work. (Damien)
+
+commit 5aec481097278d7d4e6559d9db2b9c3b8aa0dd5d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 20:15:45 2016 +0100
+
+    patch 7.4.1177
+    Problem:    The +channel feature is not in :version output. (Tony Mechelynck)
+    Solution:   Add the feature string.
+
+commit 1d63539cc72c5be7ad875d2d48a34c4f74c096ab
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 16:05:56 2016 +0100
+
+    patch 7.4.1176
+    Problem:    Missing change to proto file.
+    Solution:   Update the proto file. (Charles Cooper)
+
+commit f75612fd9912205870bf024e4fb20af62b096c1d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 25 14:17:04 2016 +0100
+
+    patch 7.4.1175
+    Problem:    Can't build with Mingw and Cygwin.
+    Solution:   Remove extra "endif". (Christian J. Robinson)
+
+commit 3e53c700a2bcbe7fafb51cd01f3e6428fd803099
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 22:17:03 2016 +0100
+
+    patch 7.4.1174
+    Problem:    Netbeans contains dead code insde #ifdef.
+    Solution:   Remove the dead code.
+
+commit 65591001e405cbaaf9772c9375d0bb6049cf9a3a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 21:51:57 2016 +0100
+
+    patch 7.4.1173
+    Problem:    No test for new behavior of v:true et al.
+    Solution:   Add a test.
+
+commit 16435480f0f41372585b3d305a29b5fda8271fbc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 21:31:54 2016 +0100
+
+    patch 7.4.1172
+    Problem:    Configure is overly positive.
+    Solution:   Insert "test".
+
+commit 2e2301437cb5cd4782fa031ea36dea086b9bd804
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 20:54:37 2016 +0100
+
+    patch 7.4.1171
+    Problem:    Makefile dependencies are outdated.
+    Solution:   Run "make depend". Add GTK resource dependencies.
+
+commit 0e7f88e73ee6a47a9c2933b7fdbfc4d83476f67f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 20:41:51 2016 +0100
+
+    patch 7.4.1170
+    Problem:    Missing changes in src/Makefile, Filelist.
+    Solution:   Add the missing changes.
+
+commit e0874f8cbcddfcf9965a85ba35199964efb1d01a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 20:36:41 2016 +0100
+
+    patch 7.4.1169
+    Problem:    The socket I/O is intertwined with the netbeans code.
+    Solution:   Start refactoring the netbeans communication to split off the
+                socket I/O.  Add the +channel feature.
+
+commit 705ada1aff27ecd9c47c690df817d043c2ceb5e2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 17:56:50 2016 +0100
+
+    Update a few runtime files.
+
+commit f48aa160fdd7b8caa7678e1a2139244dd2bdc547
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 17:54:24 2016 +0100
+
+    patch 7.4.1168
+    Problem:    This doesn't give the right result: eval(string(v:true)). (Nikolay
+                Pavlov)
+    Solution:   Make the string "v:true" instead of "true".
+
+commit 04369229657f182d35b471eb8b38f273a4d9ef65
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 17:21:29 2016 +0100
+
+    patch 7.4.1167
+    Problem:    No tests for "is" and "isnot" with the new variables.
+    Solution:   Add tests.
+
+commit fcaaae6b3fdbf3421a1ff95a25ae16d82381c39a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 16:49:11 2016 +0100
+
+    patch 7.4.1166
+    Problem:    Can't encode a Funcref into JSON.  jsonencode() doesn't handle the
+                same list or dict twice properly.  (Nikolay Pavlov)
+    Solution:   Give an error.  Reset copyID when the list or dict is finished.
+
+commit 938ee834d345062cd94f8fdfd54fad0019432a83
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 15:36:03 2016 +0100
+
+    patch 7.4.1165
+    Problem:    When defining DYNAMIC_ICONV_DLL in the makefile, the build fails.
+    Solution:   Add #ifdef's. (Taro Muraoka)  Try the newer version first.
+
+commit 6039c7f05376f0e470cf62bf2757e653aea357f3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 15:05:32 2016 +0100
+
+    patch 7.4.1164
+    Problem:    No tests for comparing special variables.  Error in jsondecode()
+                not reported.  test_json does not work Japanse system.
+    Solution:   Set scriptencoding. (Ken Takata) Add a few more tests. Add error.
+
+commit 17a13437c9414a8693369a97f3be2fc8ad48c12e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 14:22:10 2016 +0100
+
+    patch 7.4.1163
+    Problem:    Expressions "0 + v:true" and "'' . v:true" cause an error.
+    Solution:   Return something sensible when using a special variable as a
+                number or as a string. (suggested by Damien)
+
+commit 9e3be26872307f9c53a9f37647a659091bdffb1f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 24 13:58:40 2016 +0100
+
+    patch 7.4.1162
+    Problem:    Missing error number in MzScheme. (Dominique Pelle)
+    Solution:   Add a proper error number.
+
+commit 2faa29f896252073b53f387406109e331fbbe5f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 23:02:34 2016 +0100
+
+    patch 7.4.1161
+    Problem:    ":argadd" without argument is supposed to add the current buffer
+                name to the arglist.
+    Solution:   Make it work as documented. (Coot, closes #577)
+
+commit bd4593ffb170230504500ddedabad3fad1f31291
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 22:51:07 2016 +0100
+
+    patch 7.4.1160
+    Problem:    No error for jsondecode('"').
+    Solution:   Give an error message for missing double quote.
+
+commit e240c2da796531e807ea9df78bdbcc7b1012870c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 22:46:10 2016 +0100
+
+    patch 7.4.1159
+    Problem:    Automatically generated function prototypes use __ARGS.
+    Solution:   Remove __ARGS from osdef.sh.
+
+commit 48e697e4b6b6b490c58ec9393da9b2d2ea47c6d8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 22:17:30 2016 +0100
+
+    patch 7.4.1158
+    Problem:    Still using __ARGS().
+    Solution:   Remove __ARGS() from eval.c
+
+commit f95534c3d411084d1b6112fe64f6108bf7acbb92
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 21:59:52 2016 +0100
+
+    patch 7.4.1157
+    Problem:    type() does not work for v:true, v:none, etc.
+    Solution:   Add new type numbers.
+
+commit 2dedb45260604911035cff2364aca90a69156ed9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 21:38:51 2016 +0100
+
+    patch 7.4.1156
+    Problem:    Coverity warns for NULL pointer and ignoring return value.
+    Solution:   Check for NULL pointer. When dict_add() returns FAIL free the item.
+
+commit 64922b9014765a41bb09e8612433a2a61918af6e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 19:54:30 2016 +0100
+
+    patch 7.4.1155
+    Problem:    Build with normal features fails.
+    Solution:   Always deinfe dict_lookup().
+
+commit 520e1e41f35b063ede63b41738c82d6636e78c34
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 23 19:46:28 2016 +0100
+
+    patch 7.4.1154
+    Problem:    No support for JSON.
+    Solution:   Add jsonencode() and jsondecode().  Also add v:false, v:true,
+                v:null and v:none.
+
 commit 6920c72d4d62c8dc5596e9f392e38204f561d7af
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Fri Jan 22 22:44:10 2016 +0100
