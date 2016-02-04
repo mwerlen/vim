@@ -1,3 +1,95 @@
+commit e24692573a266f5060c06dd80bde264092c90dd5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 10:54:34 2016 +0100
+
+    patch 7.4.1257
+    Problem:    Channel test fails in some configurations.
+    Solution:   Add check for the +channel feature.
+
+commit b3e2f00f39d6edafda6e5508a926ebd244997a0f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 00:11:37 2016 +0100
+
+    patch 7.4.1256
+    Problem:    On Mac sys.exit(0) doesn't kill the test server.
+    Solution:   Use self.server.shutdown(). (Jun Takimoto)
+
+commit 66624ff0d9e1de2fc5eb4f95f3a3a2ed70b10138
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 23:59:43 2016 +0100
+
+    patch 7.4.1255
+    Problem:    Crash for channel "eval" command without third argument.
+    Solution:   Check for missing argument.
+
+commit 3b05b135e3ee4cfd59983fd63461e8f7642c1713
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 23:25:07 2016 +0100
+
+    patch 7.4.1254
+    Problem:    Opening a second channel causes a crash. (Ken Takata)
+    Solution:   Don't re-allocate the array with channels.
+
+commit 608a8919cae982cb38e38725a843df47b234dae6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 22:39:51 2016 +0100
+
+    patch 7.4.1253
+    Problem:    Python test server not displaying second of two commands.
+                Solaris doesn't have "pkill --full".
+    Solution:   Also echo the second command. Use "pkill -f".
+
+commit e7bed627c89ed80bc4b2d96f542819029adf6e76
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 22:20:29 2016 +0100
+
+    patch 7.4.1252
+    Problem:    The channel test server may receive two messages concatenated.
+    Solution:   Split the messages.
+
+commit bf087cead956513bcd8d40d70322875c479a1984
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 21:56:42 2016 +0100
+
+    patch 7.4.1251
+    Problem:    New test file missing from distribution.
+    Solution:   Add src/testdir/*.py.
+
+commit 2212c4154cde0641225782cc4dd1a6483ff2ff35
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 21:45:27 2016 +0100
+
+    patch 7.4.1250
+    Problem:    Running tests in shadow directory fails.
+    Solution:   Also link testdir/*.py
+
+commit fcb1e3d16832ce06da0dc38ecb7ab9aaa3ee4383
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 21:32:46 2016 +0100
+
+    patch 7.4.1249
+    Problem:    Crash when the process a channel is connected to exits.
+    Solution:   Use the file descriptor properly.  Add a test. (Damien)
+                Also add a test for eval().
+
+commit f92591f7f9fc78d2aced99befe444cb423b26df8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 20:22:32 2016 +0100
+
+    patch 7.4.1248
+    Problem:    Can't reliably stop the channel test server.  Can't start the
+                server if the python file is not executable.
+    Solution:   Use "pkill" instead of "killall".  Run the python file as an
+                argument instead of as an executable.
+
+commit a0f9cd148eaab23b2037d2f543f3b8f5a3a7ad3c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 3 20:13:24 2016 +0100
+
+    patch 7.4.1247
+    Problem:    The channel test doesn't run on MS-Windows.
+    Solution:   Make it work on the MS-Windows console. (Ken Takata)
+
 commit 7c764f7bbf71a7a49baae07641efd2ead69e4d08
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Feb 2 23:33:43 2016 +0100
