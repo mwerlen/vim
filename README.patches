@@ -1,3 +1,43 @@
+commit 4b6a6dcbe7bd13170c4884cc17acb1eac2c633d1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 22:49:49 2016 +0100
+
+    patch 7.4.1261
+    Problem:    Pending channel messages are garbage collected. Leaking memory in
+                ch_sendexpr().  Leaking memory for a decoded JSON string.
+    Solution:   Mark the message list as used. Free the encoded JSON.  Don't save
+                the JSON string.
+
+commit a8343c1808f2f268282f3030ce4adaf22e8ade54
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 22:09:48 2016 +0100
+
+    patch 7.4.1260
+    Problem:    The channel feature doesn't work on Win32 GUI.
+    Solution:   Use WSAGetLastError(). (Ken Takata)
+
+commit 3fc3e14282c182c046d1335f3d576bc0eeb605c5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 21:53:33 2016 +0100
+
+    patch 7.4.1259
+    Problem:    No test for what patch 7.3.414 fixed.
+    Solution:   Add a test. (Elias Diem)
+
+commit a02b321686d9827ac806353ea8af780676da340d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 21:03:33 2016 +0100
+
+    patch 7.4.1258
+    Problem:    The channel test can fail if messages arrive later.
+    Solution:   Add a short sleep. (Jun T.)
+
+commit 681baaf4a4c81418693dcafb81421a8614832e91
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 4 20:57:07 2016 +0100
+
+    Update runtime files.
+
 commit e24692573a266f5060c06dd80bde264092c90dd5
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 4 10:54:34 2016 +0100
