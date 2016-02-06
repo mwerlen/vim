@@ -1,3 +1,35 @@
+commit f416086f264c1d998863b2e600f4c14f799d0d99
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 5 23:09:12 2016 +0100
+
+    patch 7.4.1265
+    Problem:    Not all channel commands are tested.
+    Solution:   Add a test for "normal", "expr" and "redraw".
+
+commit 6076fe1986255d32b7a078a28bf9e7bea19d6f30
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 5 22:49:56 2016 +0100
+
+    patch 7.4.1264
+    Problem:    Crash when receiving an empty array.
+    Solution:   Check for array with wrong number of arguments. (Damien)
+
+commit 4d919d748e4e435edb135aa5ccf6ee7de9212023
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 5 22:36:41 2016 +0100
+
+    patch 7.4.1263
+    Problem:    ch_open() hangs when the server isn't running.
+    Solution:   Add a timeout. Use a dict to pass arguments. (Yasuhiro Matsumoto)
+
+commit a07fec9c85d062acd9dd433a2e681770f459ba47
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 5 21:04:08 2016 +0100
+
+    patch 7.4.1262
+    Problem:    The channel callback is not invoked.
+    Solution:   Make a list of pending callbacks.
+
 commit 4b6a6dcbe7bd13170c4884cc17acb1eac2c633d1
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 4 22:49:49 2016 +0100
