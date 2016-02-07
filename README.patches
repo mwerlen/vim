@@ -1,3 +1,69 @@
+commit c5f98ee987ae0c369867cf6cc581c766d3c0226d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 00:00:35 2016 +0100
+
+    patch 7.4.1273
+    Problem:    assert_false(v:false) still fails.
+    Solution:   Fix the typo.
+
+commit 1701481c53f4e6756038c9c00d51d491a8f42c65
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 20:32:25 2016 +0100
+
+    patch 7.4.1272
+    Problem:    Using future enum value.
+    Solution:   Remove it.
+
+commit 3712792637516aea7acf76a11533be1066952820
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 20:29:28 2016 +0100
+
+    patch 7.4.1271
+    Problem:    assert_false(v:false) reports an error. (Nikolai Pavlov)
+    Solution:   Recognize v:true and v:false. (Closes #625)
+
+commit 81e7a9c3fb37cad46c8f04a5ce871fb06819a371
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 19:57:20 2016 +0100
+
+    patch 7.4.1270
+    Problem:    Warnings for missing values in switch.
+    Solution:   Change switch to if-else or add values.
+
+commit 4f8b8faec31a934920a723053e8dcf47b6fac08c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 18:42:07 2016 +0100
+
+    patch 7.4.1269
+    Problem:    Encoding {'key':} to JSON doesn't give an error (Tyru)
+    Solution:   Give an error.
+
+commit 26dfc41335ef47fe765643148ae980be388084ec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 18:18:54 2016 +0100
+
+    patch 7.4.1268
+    Problem:    Waittime is used as seconds instead of milliseconds. (Hirohito
+                Higashi)
+    Solution:   Divide by 1000.
+
+commit a03f23351588f04276469cd7742b7ec655bb604b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 18:09:59 2016 +0100
+
+    patch 7.4.1267
+    Problem:    Easy to miss handling all types of variables.
+    Solution:   Change the variable type into an enum.
+
+commit ab9fc7e0cf22bcee119b62d3433cac60f405e645
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 6 15:29:40 2016 +0100
+
+    patch 7.4.1266
+    Problem:    A BufAdd autocommand may cause an ml_get error (Christian
+                Brabandt)
+    Solution:   Increment RedrawingDisabled earlier.
+
 commit f416086f264c1d998863b2e600f4c14f799d0d99
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Fri Feb 5 23:09:12 2016 +0100
