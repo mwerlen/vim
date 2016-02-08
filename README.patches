@@ -1,3 +1,158 @@
+commit cbebd4879cc78e670d79b2c57dc33d7b911c962a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 23:02:56 2016 +0100
+
+    Updated runtime files.
+
+commit ee5aeae22b8029fdb5ae97bb6ed8114a81e34c22
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 22:30:47 2016 +0100
+
+    patch 7.4.1290
+    Problem:    Coverity complains about uneccessary check for NULL.
+    Solution:   Remove the check.
+
+commit 0fa98e7b85b52c63611b2fe8e370f0aa1c8f6dc9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 22:21:19 2016 +0100
+
+    patch 7.4.1289
+    Problem:    Channel test fails on MS-Windows, connect() takes too long.
+    Solution:   Adjust the test for MS-Windows using "waittime".
+
+commit ae8eb3ca927f1b0ac2a6643da8699538cdc380f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 21:59:26 2016 +0100
+
+    patch 7.4.1288
+    Problem:    ch_sendexpr() does not use JS encoding.
+    Solution:   Use the encoding that fits the channel mode.  Refuse using
+                ch_sendexpr() on a raw channel.
+
+commit 74f5e65bcc3d77ab879f56eb977f5038edccbcf8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 21:44:49 2016 +0100
+
+    patch 7.4.1287
+    Problem:    Channel test fails.
+    Solution:   Use reltimefloat().
+
+commit 7a84dbe6be0ef0e1ffbb7148cfe4ab50b9ba8f41
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 21:29:00 2016 +0100
+
+    patch 7.4.1286
+    Problem:    ch_open() with a timeout doesn't work correctly.
+    Solution:   Change how select() is used.  Don't give an error on timeout.
+                Add a test for ch_open() failing.
+
+commit cb00f039332d3188931035e9d07144546fdea78a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 21:25:56 2016 +0100
+
+    Add missing test file.
+
+commit 79c2c881bb7ae1cbdeeff91d4875b4bf2e54df06
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 21:19:28 2016 +0100
+
+    patch 7.4.1285
+    Problem:    Cannot measure elapsed time.
+    Solution:   Add reltimefloat().
+
+commit dc94a26a641914df5f1ba1ab47a5752e1137287e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 20:29:00 2016 +0100
+
+    patch 7.4.1284
+    Problem:    Test 49 fails.
+    Solution:   Check for a different error message.
+
+commit 942d6b22686858c9e72f8b8929df5c288170179c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 19:57:16 2016 +0100
+
+    patch 7.4.1283
+    Problem:    The job feature isn't available on MS-Windows.
+    Solution:   Add the job feature.  Fix argument of job_stop(). (Yasuhiro
+                Matsumoto)
+
+commit 768ce2435ae956041579ef2d26e3e9d3a2444e1e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 19:46:12 2016 +0100
+
+    patch 7.4.1282
+    Problem:    Crash when evaluating the pattern of ":catch" causes an error.
+                (Dominique Pelle)
+    Solution:   Block error messages at this point.
+
+commit ea8c219ca852cc8eaf603b1bf475edf95e2850cf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 19:27:53 2016 +0100
+
+    patch 7.4.1281
+    Problem:    No test for skipping over code that isn't evaluated.
+    Solution:   Add a test with code that would fail when not skipped.
+
+commit eba6d8c66c3511a5e1bfe6ffa30c8bea47d129ad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 19:25:51 2016 +0100
+
+    patch 7.4.1280
+    Problem:    Missing case value.
+    Solution:   Add VAR_JOB.
+
+commit 595e64e259faefb330866852e1b9f6168544572a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 19:19:53 2016 +0100
+
+    patch 7.4.1279
+    Problem:    jsonencode() is not producing strict JSON.
+    Solution:   Add jsencode() and jsdecode().  Make jsonencode() and jsondecode()
+                strict.
+
+commit 55fab439a6f3bba6dbe780ac034b84d5822a1a96
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 16:53:13 2016 +0100
+
+    patch 7.4.1278
+    Problem:    When jsonencode() fails it still returns something.
+    Solution:   Return an empty string on failure.
+
+commit a6f72ba7c6cadd37be38d92008d10a3025fdc5ec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 15:57:00 2016 +0100
+
+    patch 7.4.1277
+    Problem:    Compiler can complain about missing enum value in switch with some
+                combination of features.
+    Solution:   Remove #ifdefs around case statements.
+
+commit fbc4b4db3a9690906a96e16724350a6241cf32a5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 15:14:01 2016 +0100
+
+    patch 7.4.1276
+    Problem:    Warning for not using return value of fcntl().
+    Solution:   Explicitly ignore the return value.
+
+commit cb4b01230be26ada92a1622c2278277d59ef2ec1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 14:53:21 2016 +0100
+
+    patch 7.4.1275
+    Problem:    Build fails on MS-Windows.
+    Solution:   Fix wrong #ifdef.
+
+commit 835dc636a5350f610b62f110227d2363b5b2880a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 7 14:27:38 2016 +0100
+
+    patch 7.4.1274
+    Problem:    Cannot run a job.
+    Solution:   Add job_start(), job_status() and job_stop(). Currently only works
+                for Unix.
+
 commit c5f98ee987ae0c369867cf6cc581c766d3c0226d
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Feb 7 00:00:35 2016 +0100
