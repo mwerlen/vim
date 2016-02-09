@@ -1,3 +1,29 @@
+commit e56bf15c163a921ce9e1c09c0d5b3a03efc63324
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 8 23:23:42 2016 +0100
+
+    patch 7.4.1293
+    Problem:    Sometimes a channel may hang waiting for a message that was
+                already discarded. (Ken Takata)
+    Solution:   Store the ID of the message blocking on in the channel.
+
+commit 2fc83fcd1d6dfd4728a2ef70e2316f79203c7ee0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 8 22:57:24 2016 +0100
+
+    patch 7.4.1292
+    Problem:    Some compilers complain about uninitialzed variable, even though
+                all possible cases are handled. (Dominique Pelle)
+    Solution:   Add a default initialization.
+
+commit b92abad0c58de36d0b0afdcd4ec05261fa1fa84c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 8 22:37:24 2016 +0100
+
+    patch 7.4.1291
+    Problem:    On MS-Windows the channel test server doesn't quit.
+    Solution:   Use return instead of break. (Ken Takata)
+
 commit cbebd4879cc78e670d79b2c57dc33d7b911c962a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Feb 7 23:02:56 2016 +0100
