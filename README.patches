@@ -1,3 +1,36 @@
+commit a483326e3b04215b86fe9c582ac96bb9679f0812
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 9 23:33:25 2016 +0100
+
+    patch 7.4.1297
+    Problem:    On Mac test_channel leaves python instances running.
+    Solution:   Use a small waittime to make ch_open() work. (Ozaki Kiichi)
+
+commit f068dcafcfe0c8018e5a559c50769ca1364bd9a5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 9 21:24:46 2016 +0100
+
+    patch 7.4.1296
+    Problem:    Cursor changes column with up motion when the matchparen plugin
+                saves and restores the cursor position. (Martin Kunev)
+    Solution:   Make sure curswant is updated before invoking the autocommand.
+
+commit 4d8747cdfc13843a5680dc8340fbeb6d32e7b626
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 9 20:39:26 2016 +0100
+
+    patch 7.4.1295
+    Problem:    string(job) doesn't work well on MS-Windows.
+    Solution:   Use the process ID. (Yasuhiro Matsumoto)
+
+commit 7280140c08799f683ef31a6c1019e283c3dc13aa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 9 11:37:50 2016 +0100
+
+    patch 7.4.1294
+    Problem:    job_stop() only kills the started process.
+    Solution:   Send the signal to the process group. (Olaf Dabrunz)
+
 commit e56bf15c163a921ce9e1c09c0d5b3a03efc63324
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Feb 8 23:23:42 2016 +0100
