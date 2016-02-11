@@ -1,3 +1,38 @@
+commit 39b21272d521512b6ecac6cc0f310944f21b7443
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 10 23:28:21 2016 +0100
+
+    patch 7.4.1301
+    Problem:    Missing options in ch_open().
+    Solution:   Add s:chopt like in the other calls. (Ozaki Kiichi)
+
+commit 2ab375e54ef4eac438d1aef8b99d9e71f2fa0c63
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 10 22:23:06 2016 +0100
+
+    patch 7.4.1300
+    Problem:    Cannot test CursorMovedI because there is typeahead.
+    Solution:   Add disable_char_avail_for_testing().
+
+commit f6157284de71d8881f3b89fbd79d1ecbf842929f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 10 21:07:14 2016 +0100
+
+    patch 7.4.1299
+    Problem:    When the server sends a message with ID zero the channel handler
+                is not invoked. (Christian J.  Robinson)
+    Solution:   Recognize zero value for the request ID.  Add a test for invoking
+                the channel handler.
+
+commit d6a8d48587b2ff43c343fa365898576cc1e235ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 10 20:32:20 2016 +0100
+
+    patch 7.4.1298
+    Problem:    When the channel test fails in an unexpected way the server keeps
+                running.
+    Solution:   Use try/catch. (Ozaki Kiichi)
+
 commit a483326e3b04215b86fe9c582ac96bb9679f0812
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Feb 9 23:33:25 2016 +0100
