@@ -1,3 +1,28 @@
+commit 7823a3bd2eed6ff9e544d201de96710bd5344aaf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 11 21:08:32 2016 +0100
+
+    patch 7.4.1304
+    Problem:    Function names are difficult to read.
+    Solution:   Rename jsonencode to json_encode, jsondecode to json_decode,
+                jsencode to js_encode and jsdecode to js_decode.
+
+commit b6a4fee37ebbb0c76f2fbda7d06cbf48a3a07e8d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 11 20:48:34 2016 +0100
+
+    patch 7.4.1303
+    Problem:    A Funcref is not accepted as a callback.
+    Solution:   Make a Funcref work. (Damien)
+
+commit 6119e6156e024d9047bbfeb7cdfdae259f9e1b92
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 11 12:48:36 2016 +0100
+
+    patch 7.4.1302
+    Problem:    Typo in struct field name. (Ken Takata)
+    Solution:   Rename jf_pi to jv_pi.
+
 commit 39b21272d521512b6ecac6cc0f310944f21b7443
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Feb 10 23:28:21 2016 +0100
