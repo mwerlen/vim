@@ -1,3 +1,36 @@
+commit 45c7f054730da5c88e1e5c7de290d25c450578a0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 12 22:35:51 2016 +0100
+
+    patch 7.4.1308
+    Problem:    Typo in test.
+    Solution:   Change endf to endif.
+
+commit f02c5cffd8cd567d8dfbe4d9e93ec75eb29e7910
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 12 22:25:56 2016 +0100
+
+    patch 7.4.1307
+    Problem:    Some channel tests fail on MS-Windows.
+    Solution:   Disable the failing tests temporarily.
+
+commit 76467dfcafcf295fd987f712730774c6f55317d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 12 19:30:26 2016 +0100
+
+    patch 7.4.1306
+    Problem:    Job control doesn't work well on MS-Windows.
+    Solution:   Various fixes. (Ken Takata, Ozaki Kiichi , Yukihiro Nakadaira,
+                Yasuhiro Matsumoto)
+
+commit 7c29f387819b5817b003d2ba73e2b5cf3cb3d0dd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 12 19:08:15 2016 +0100
+
+    patch 7.4.1305
+    Problem:    "\%1l^#.*" does not match on a line starting with "#".
+    Solution:   Do not clear the start-of-line flag. (Christian Brabandt)
+
 commit 7823a3bd2eed6ff9e544d201de96710bd5344aaf
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 11 21:08:32 2016 +0100
