@@ -1,3 +1,77 @@
+commit 0727d362b4dad83d9fdf1caba074213e77e0aa49
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 14 00:19:59 2016 +0100
+
+    patch 7.4.1317
+    Problem:    MS-Windows: channel test fails.
+    Solution:   Temporarily disable Test_connect_waittime().
+
+commit fa4bce7dd23e62d5a2fd79c7719969e11d5597aa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 23:50:08 2016 +0100
+
+    patch 7.4.1316
+    Problem:    Can't build MS-Windows console version. (Tux)
+    Solution:   Add #ifdefs.
+
+commit 7707344ddec9069b495b2a5ed41f2104466fc88b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 23:23:53 2016 +0100
+
+    patch 7.4.1315
+    Problem:    Using a channel handle does not allow for freeing it when unused.
+    Solution:   Add the Channel variable type.
+
+commit e516c39ee97cb85fa230fbb1b1f54ad1346920d9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 18:50:38 2016 +0100
+
+    patch 7.4.1314
+    Problem:    Warning for uninitialzed variable.
+    Solution:   Initialize it. (Dominique Pelle)
+
+commit bfa1ffca8bcce92c030d8366036a316954f1ee69
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 18:40:30 2016 +0100
+
+    patch 7.4.1313
+    Problem:    MS-Windows: Using socket after it was closed causes an exception.
+    Solution:   Don't give an error when handling WM_NETBEANS.  Re-enable tests
+                for MS-Windows.
+
+commit f8b7d890f1d62f3ab101d2b02dd7716cb7f053cb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 17:24:26 2016 +0100
+
+    patch 7.4.1312
+    Problem:    sock_T is not defined without the +channel feature.
+    Solution:   Always define it.
+
+commit d090d7bab5a0d96559579e078dfdcc6d7d4f4713
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 17:09:53 2016 +0100
+
+    patch 7.4.1311
+    Problem:    sock_T is defined too late.
+    Solution:   Move it up.
+
+commit 6463ca229cb9412581419497924c85fcbfc854ab
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 17:04:46 2016 +0100
+
+    patch 7.4.1310
+    Problem:    Jobs don't open a channel.
+    Solution:   Create pipes and add them to the channel.  Add ch_logfile().
+                Only Unix for now.
+
+commit 00af60bbb6cc7e8ccafddb30a1964f891b800bce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 13 14:06:14 2016 +0100
+
+    patch 7.4.1309
+    Problem:    When a test fails not all relevant info is listed.
+    Solution:   Add the errors to the messages.
+
 commit 45c7f054730da5c88e1e5c7de290d25c450578a0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Fri Feb 12 22:35:51 2016 +0100
