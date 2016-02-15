@@ -1,3 +1,28 @@
+commit 44d571868f4fcf000e8b03ee0a350f1f8131c9ca
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 14 23:11:23 2016 +0100
+
+    patch 7.4.1320
+    Problem:    Building with Cygwin or MingW with channel but without Netbeans
+                doesn't work.
+    Solution:   Set NETBEANS to "no" when not used.
+
+commit 16eb4f88000cfdba68df6c421fe44e7e029ba53e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 14 23:02:34 2016 +0100
+
+    patch 7.4.1319
+    Problem:    Tests fail on MS-Windows and on Unix with GUI.
+    Solution:   Fix unregistering.
+
+commit 7b3ca76a451b10d238ef946f3231762e0bd988e9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 14 19:13:43 2016 +0100
+
+    patch 7.4.1318
+    Problem:    Channel with pipes doesn't work in GUI.
+    Solution:   Register input handlers for pipes.
+
 commit 0727d362b4dad83d9fdf1caba074213e77e0aa49
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Feb 14 00:19:59 2016 +0100
