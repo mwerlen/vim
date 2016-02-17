@@ -52,14 +52,12 @@ Patch3002: vim-7.4-nowarnings.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-7.4-checkhl.patch
 Patch3007: vim-7.4-fstabsyntax.patch
-Patch3008: vim-7.0-warning.patch
-Patch3009: vim-7.4-syncolor.patch
-Patch3010: vim-7.0-specedit.patch
-Patch3011: vim72-rh514717.patch
-Patch3012: vim-7.3-manpage-typo-668894-675480.patch
-Patch3013: vim-manpagefixes-948566.patch
-Patch3014: vim-7.4-licensemacro-1151450.patch
-Patch3015: vim-7.4-globalsyntax.patch
+Patch3008: vim-7.4-syncolor.patch
+Patch3009: vim-7.0-specedit.patch
+Patch3010: vim-7.3-manpage-typo-668894-675480.patch
+Patch3011: vim-manpagefixes-948566.patch
+Patch3012: vim-7.4-licensemacro-1151450.patch
+Patch3013: vim-7.4-globalsyntax.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -206,13 +204,11 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3006 -p1
 %patch3007 -p1
 %patch3008 -p1
-%patch3009 -p1
-#patch3010 -p1
+#patch3009 -p1
+%patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
-
 %patch3013 -p1
-%patch3015 -p1
 
 %build
 cp -f %{SOURCE5} .
