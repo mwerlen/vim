@@ -48,7 +48,7 @@ BuildRequires: hunspell-devel
 %endif
 
 Patch3000: vim-7.4-syntax.patch
-Patch3002: vim-7.1-nowarnings.patch
+Patch3002: vim-7.4-nowarnings.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-7.4-checkhl.patch
 Patch3007: vim-7.4-fstabsyntax.patch
