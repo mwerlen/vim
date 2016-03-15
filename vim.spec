@@ -1,4 +1,4 @@
-%define patchlevel 1344
+%define patchlevel 1570
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -752,6 +752,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Mar 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1570-1
+- patchlevel 1570
+
 * Wed Feb 17 2016 Karsten Hopp <karsten@redhat.com> 7.4.1344-1
 - patchlevel 1344
 
