@@ -555,6 +555,7 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
+%{_datadir}/%{name}/%{vimdir}/pack
 %{_datadir}/%{name}/%{vimdir}/doc
 %{_datadir}/%{name}/%{vimdir}/*.vim
 %{_datadir}/%{name}/%{vimdir}/ftplugin
