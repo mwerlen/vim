@@ -1,3 +1,1271 @@
+commit 8cf439cb8003c79addd36cc2c6d1dcc42652f3f2
+Merge: d8dc5e6 d56374e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 8 11:00:52 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit d56374e25df0b317b01423a01f158157faa647fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 7 22:16:30 2016 +0200
+
+    patch 7.4.1718
+    Problem:    Coverity: not using return value of set_ref_in_item().
+    Solution:   Use the return value.
+
+commit 0e4c1de5560c7f8b4cae539ec8cff0949daba3fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 7 21:40:38 2016 +0200
+
+    patch 7.4.1717
+    Problem:    Leaking memory when opening a channel fails.
+    Solution:   Unreference partials in job options.
+
+commit baec5c1768098f9dd867b465aaabfdfb294f10c2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Apr 6 23:06:23 2016 +0200
+
+    patch 7.4.1716
+    Problem:    'autochdir' doesn't work for the first file. (Rob Hoelz)
+    Solution:   Call DO_AUTOCHDIR after startup. (Christian Brabandt, closes #704)
+
+commit ddecc25947dbdd689d5bcaed32f298a08abdd497
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Apr 6 22:59:37 2016 +0200
+
+    patch 7.4.1715
+    Problem:    Double free when a partial is in a cycle with a list or dict.
+                (Nikolai Pavlov)
+    Solution:   Do not free a nested list or dict used by the partial.
+
+commit 54f1b7abf8c48b1dd997202258d1d0673ed4bd29
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 5 22:07:04 2016 +0200
+
+    patch 7.4.1714
+    Problem:    Non-GUI specific settings in the gvimrc_example file.
+    Solution:   Move some settings to the vimrc_example file.  Remove setting
+                'hlsearch' again. (suggested by Hirohito Higashi)
+
+commit f80663f17b2f2499b45eb4467088704c8298c385
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 5 21:56:06 2016 +0200
+
+    patch 7.4.1713
+    Problem:    GTK GUI doesn't work on Wayland.
+    Solution:   Specify that only the X11 backend is allowed. (Simon McVittie)
+
+commit 49b27326447d0827c59c6cd201d58f65c1163086
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 5 21:13:00 2016 +0200
+
+    patch 7.4.1712
+    Problem:    For plugins in packages, plugin authors need to take care of all
+                dependencies.
+    Solution:   When loading "start" packages and for :packloadall, first add all
+                directories to 'runtimepath' before sourcing plugins.
+
+commit a742e084b677f76c67e9e52c4f9fb9ab24002e20
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 5 21:10:38 2016 +0200
+
+    patch 7.4.1711
+    Problem:    When using try/catch in 'statusline' it is still considered an
+                error and the status line will be disabled.
+    Solution:   Check did_emsg instead of called_emsg. (haya14busa, closes #729)
+
+commit 17fe5e1aecbeff5ca4b2a821ede9badd5dddae59
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 4 22:03:08 2016 +0200
+
+    patch 7.4.1710
+    Problem:    Not all output of an external command is read.
+    Solution:   Avoid timing out when the process has exited. (closes #681)
+
+commit 4c9ce053d9f2a94cd704342dd4c25670a5995cbd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 4 21:06:19 2016 +0200
+
+    patch 7.4.1709
+    Problem:    Mistake in #ifdef.
+    Solution:   Change PROOF_QUALITY to DRAFT_QUALITY. (Ken Takata)
+
+commit 2a6fa564a3b5061c14ff63b8b0f12801df0b0ac2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 4 20:55:59 2016 +0200
+
+    patch 7.4.1708
+    Problem:    New regexp engine does not work properly with EBCDIC.
+    Solution:   Define equivalence class characters. (Owen Leibman)
+
+commit 0921ecff1c5a74541bad6c073e8ade32247403d8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 22:44:36 2016 +0200
+
+    patch 7.4.1707
+    Problem:    Cannot use empty dictionary key, even though it can be useful.
+    Solution:   Allow using an empty dictionary key.
+
+commit e185c1efba3cb2611ac303c39a08e908497cbac4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 22:22:30 2016 +0200
+
+    patch 7.4.1706
+    Problem:    Old style function declaration breaks build.
+    Solution:   Remove __ARGS().
+
+commit 7c1c6dbb6817640fd3956a0d5417da23fde336d8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 22:08:05 2016 +0200
+
+    patch 7.4.1705
+    Problem:    The 'guifont' option does not allow for a quality setting.
+    Solution:   Add the "q" item, supported on MS-Windows. (Yasuhiro Matsumoto)
+
+commit 3dda7db4e1f7c4a8110a1f83001ec36b46693d27
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 21:22:58 2016 +0200
+
+    patch 7.4.1704
+    Problem:    Using freed memory with "wincmd p". (Dominique Pelle)
+    Solution:   Also clear "prevwin" in other tab pages.
+
+commit b50e5f56861deb867478997397f7c784a7043233
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 20:57:20 2016 +0200
+
+    patch 7.4.1703
+    Problem:    Can't assert for not equal and not matching.
+    Solution:   Add assert_notmatch() and assert_notequal().
+
+commit 4afc7c5d4a73340831077a02bfe1f74935e7f4a1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 14:56:52 2016 +0200
+
+    patch 7.4.1702
+    Problem:    Using freed memory when parsing 'printoptions' fails.
+    Solution:   Save the old options and restore them in case of an error.
+                (Dominique)
+
+commit f9f22dbe4f90673ecce601a9dee4bb750ce3cd8f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 14:09:59 2016 +0200
+
+    patch 7.4.1701
+    Problem:    Equivalence classes still tested in old style tests.
+    Solution:   Remove the duplicate.
+
+commit 22e421549d54147d003f6444de007cb1d73f1d27
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 3 14:02:02 2016 +0200
+
+    patch 7.4.1700
+    Problem:    Equivalence classes are not properly tested.
+    Solution:   Add tests for multi-byte and latin1. Fix an error. (Owen Leibman)
+
+commit 71fb0c146bef08dc276fc5793bd47366e6e0f32a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 22:44:16 2016 +0200
+
+    patch 7.4.1699
+    Problem:    :packadd does not work the same when used early or late.
+    Solution:   Always load plugins matching "plugin/**/*.vim".
+
+commit 298c65971e884666d57c32bff6b730d517d9dc30
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 22:24:20 2016 +0200
+
+    patch 7.4.1698
+    Problem:    Two tests fail when running tests with MinGW. (Michael Soyka)
+    Solution:   Convert test_getcwd.ok test_wordcount.ok to unix fileformat.
+
+commit cb0700844c1274fe8bc0ceaffaee0ad21c406f30
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 22:14:51 2016 +0200
+
+    patch 7.4.1697
+    Problem:    Display problems when the 'ambiwidth' and 'emoji' options are not
+                set properly or the terminal doesn't behave as expected.
+    Solution:   After drawing an ambiguous width character always position the
+                cursor.
+
+commit fd773e9e88add7d1ffef890fb9f3a00d613b4326
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 19:39:16 2016 +0200
+
+    patch 7.4.1696
+    Problem:    When using :stopinsert in a silent mapping the "INSERT" message
+                isn't cleared. (Coacher)
+    Solution:   Always clear the message. (Christian Brabandt, closes #718)
+
+commit 8bc189e81aa98ba4aebb03a9dc9527a210fce816
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 19:01:58 2016 +0200
+
+    patch 7.4.1695
+    Problem:    ":syn reset" clears the effect ":syn iskeyword". (James McCoy)
+    Solution:   Remove clearing the syntax keywords.
+
+commit f28d87146544e3b5d70aaa6a2513019f6de043ad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 15:59:40 2016 +0200
+
+    patch 7.4.1694
+    Problem:    Win32 gvim doesn't work with "dvorakj" input method.
+    Solution:   Wait for QS_ALLINPUT instead of QS_ALLEVENTS. (Yukihiro Nakadaira)
+
+commit 8e77bad3c18245f05a3db3acc566856d30667db8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 15:32:45 2016 +0200
+
+    Add json_test to gitignore (Hirohito Higashi)
+
+commit 864733ad92e30cd603314604af73f25106db4c90
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 2 14:18:01 2016 +0200
+
+    patch 7.4.1693
+    Problem:    Building the Perl interface gives compiler warnings.
+    Solution:   Remove a pragma. Add noreturn attributes. (Damien)
+
+commit 9bd547aca41799605c3a3f83444f6725c2d6eda9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 1 21:00:48 2016 +0200
+
+    patch 7.4.1692
+    Problem:    feedkeys('i', 'x') gets stuck, waits for a character to be typed.
+    Solution:   Behave like ":normal". (Yasuhiro Matsumoto)
+
+commit b681be175b6991cdc2b8ddd49b0e97e3fe2b201e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 31 23:02:16 2016 +0200
+
+    patch 7.4.1691
+    Problem:    When switching to a new buffer and an autocommand applies syntax
+                highlighting an ml_get error may occur.
+    Solution:   Check "syn_buf" against the buffer in the window. (Alexander von
+                Buddenbrock, closes #676)
+
+commit 42356150badca33b4e42dc8172abbceff2e86cbe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 31 22:27:40 2016 +0200
+
+    patch 7.4.1690
+    Problem:    Can't compile with the conceal feature but without multi-byte.
+    Solution:   Adjust #ifdef. (Owen Leibman)
+
+commit 758535a1df4c5e86b45dddf12db2a54dea28ca40
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 30 22:06:16 2016 +0200
+
+    patch 7.4.1689
+    Problem:    Ruby interface has inconsistent coding style.
+    Solution:   Fix the coding style. (Ken Takata)
+
+commit 67c2c058ea34628bd575aac7ddba4cd3b244ed57
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 30 22:03:02 2016 +0200
+
+    patch 7.4.1688
+    Problem:    MzScheme does not support partial.
+    Solution:   Add minimal partial support. (Ken Takata)
+
+commit bdf0bda968a53a55149a4c83a10a60c28e431305
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 30 21:06:57 2016 +0200
+
+    patch 7.4.1687
+    Problem:    The channel close_cb option does not work.
+    Solution:   Use jo_close_partial instead of jo_err_partial. (Damien)
+
+commit e9c07270031e312082604d3505650f185aa65948
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 30 20:50:46 2016 +0200
+
+    patch 7.4.1686
+    Problem:    When running tests $HOME/.viminfo is written. (James McCoy)
+    Solution:   Add 'nviminfo' to the 'viminfo' option. (closes #722)
+
+commit 7db8f6f4f85e5d0526d23107b2a5e2334dc23354
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 29 23:12:46 2016 +0200
+
+    Updated runtime files.
+
+commit 7fed5c18f8577b75404b80d8b9a9907b1bbd27e4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 29 23:10:31 2016 +0200
+
+    patch 7.4.1685
+    Problem:    There is no easy way to get all the information about a match.
+    Solution:   Add matchstrpos(). (Ozaki Kiichi)
+
+commit d18cfb7dbfd32af729d3ac5136f77dcdbefe5dee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 29 22:29:18 2016 +0200
+
+    patch 7.4.1684
+    Problem:    README text is slightly outdated.
+    Solution:   Mention the READMEdir directory.
+
+commit e609ad557c15e3e5d1e9ace2c578f48c5589c488
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 23:05:48 2016 +0200
+
+    patch 7.4.1683
+    Problem:    Generated .bat files do not support --nofork.
+    Solution:   Add check for --nofork.  Also add "setlocal". (Kevin Cantú,
+                closes #659)
+
+commit 72188e9aae26e6191c68ff673ef145104b17c64f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 22:48:29 2016 +0200
+
+    patch 7.4.1682
+    Problem:    Coverity: no check for NULL.
+    Solution:   Add check for invalid argument to assert_match().
+
+commit ef9d9b94a8803c405884bb6914ed745ede57c596
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 22:44:50 2016 +0200
+
+    patch 7.4.1681
+    Problem:    Coverity warns for fixed size buffer length (false positive).
+    Solution:   Add a check for the name length.
+
+commit 925ccfde79bf734bc89269c705cebe2d49fe6444
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 22:38:02 2016 +0200
+
+    patch 7.4.1680
+    Problem:    Coverity warns for not checking name length (false positive).
+    Solution:   Only copy the characters we know are there.
+
+commit 7d2a5796d39905a972e8f74af5f7b0a62e3de173
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 22:30:50 2016 +0200
+
+    patch 7.4.1679
+    Problem:    Coverity: copying value of v_lock without initializing it.
+    Solution:   Init v_lock in rettv_list_alloc() and rettv_dict_alloc().
+
+commit 8b29aba0192cc56294ef49bb3c01adff4b8f3a28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 22:17:16 2016 +0200
+
+    patch 7.4.1678
+    Problem:    Warning for unused argument.
+    Solution:   Add UNUSED. (Dominique Pelle)
+
+commit 0b9e4d1224522791c0dbbd45742cbd688be823f3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 22:05:47 2016 +0200
+
+    patch 7.4.1677
+    Problem:    A reference to the removed file_select plugin remains.
+    Solution:   Remove it.
+
+commit fead3ac9a35e0fc358141d3eb19574cd8a3ecb55
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 21:26:47 2016 +0200
+
+    patch 7.4.1676
+    Problem:    The shellmenu plugin has to be copied or sourced to be used.
+    Solution:   Turn it into a package.
+
+commit e101204906e10f1e100e2f9017985c61f26b03ac
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 21:10:49 2016 +0200
+
+    patch 7.4.1675
+    Problem:    The swapmous plugin has to be copied or sourced to be used.
+    Solution:   Turn it into the swapmouse package.
+
+commit cf2d8dee5117b9add3a3f5fc91b3569437e7d359
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 21:04:37 2016 +0200
+
+    patch 7.4.1674
+    Problem:    The editexisting plugin has to be copied or sourced to be used.
+    Solution:   Turn it into a package.
+
+commit 2946d0236dc9e23ec0050feacdb959b9ae5672a8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 20:53:08 2016 +0200
+
+    patch 7.4.1673
+    Problem:    The justify plugin has to be copied or sourced to be used.
+    Solution:   Turn it into a package.
+
+commit e934e8f5c1c5c64411d98583ecbcf89e5ad01073
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 20:40:32 2016 +0200
+
+    patch 7.4.1672
+    Problem:    The Dvorak support is a bit difficult to install.
+    Solution:   Turn it into an optional package.
+
+commit 61264d99692803eec76a171916ab9720c75536b0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 19:59:02 2016 +0200
+
+    patch 7.4.1671
+    Problem:    When help exists in multiple languages, adding @ab while "ab" is
+                the default help language is unnecessary.
+    Solution:   Leave out "@ab" when not needed. (Ken Takata)
+
+commit a32095fc8fdf5fe3d487c86d9cc54adb1236731e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 19:27:13 2016 +0200
+
+    patch 7.4.1670
+    Problem:    Completion doesn't work well for a variable containing "#".
+    Solution:   Recognize the "#". (Watiko)
+
+commit 8b877ac38e96424a08a8b8eb713ef4b3cf0064be
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 19:16:20 2016 +0200
+
+    patch 7.4.1669
+    Problem:    When writing buffer lines to a pipe Vim may block.
+    Solution:   Avoid blocking, write more lines later.
+
+commit ee1f7b3cb71684aaa9bf457e2caf9d02187e6b7c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 14:42:14 2016 +0200
+
+    patch 7.4.1668
+    Problem:    channel_get_all() does multiple allocations.
+    Solution:   Compute the size and allocate once.
+
+commit 84e1d2b21a424f2687b61daaf84f5fc4f1ab0abe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 14:20:41 2016 +0200
+
+    patch 7.4.1667
+    Problem:    Win32: waiting on a pipe with fixed sleep time.
+    Solution:   Start with a short delay and increase it when looping.
+
+commit 46c00a6565b8f1f4b7b1041d03eaceaf6ffc4aee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 28 14:11:42 2016 +0200
+
+    patch 7.4.1666
+    Problem:    When reading JSON from a channel all readahead is used.
+    Solution:   Use the fill function to reduce overhead.
+
+commit 8038568722a0aad72d001edf4972c29abab57f8f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 27 19:13:35 2016 +0200
+
+    patch 7.4.1665
+    Problem:    Crash when calling job_start() with a NULL string. (Dominique)
+    Solution:   Check for an invalid argument.
+
+commit 89c64d557dbe0bacfdd7b2872411b00cc1523d85
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 27 18:44:40 2016 +0200
+
+    patch 7.4.1664
+    Problem:    Crash in :cgetexpr.
+    Solution:   Check for NULL pointer. (Dominique) Add a test.
+
+commit ea6553bec340920d8a09c7210cdc2d218e25ace2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 27 15:13:38 2016 +0200
+
+    patch 7.4.1663
+    Problem:    In tests it's often useful to check if a pattern matches.
+    Solution:   Add assert_match().
+
+commit 4f3f668c8486444e53163c29d2fc79bf47eb3c82
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 23:01:59 2016 +0100
+
+    Updated runtime files.
+
+commit c4dcd60c76666bf113719f929709ad6120eb6528
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 22:56:46 2016 +0100
+
+    patch 7.4.1662
+    Problem:    No test for an invalid Ex command on a channel.
+    Solution:   Test handling an invalid command gracefully.  Avoid getting an
+                error message, do write it to the channel log.
+
+commit fa8b2e173dd5f6c4a5cfd326abdcf68b8eebf90d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 22:19:27 2016 +0100
+
+    patch 7.4.1661
+    Problem:    No test for special characters in channel eval command.
+    Solution:   Testing sending and receiving text with special characters.
+
+commit 819821c5a95fc60797ecbb5e5ca1302e397e3d9a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 21:24:14 2016 +0100
+
+    patch 7.4.1660
+    Problem:    has('patch-7.4.1') doesn't work.
+    Solution:   Fix off-by-one error. (Thinca)
+
+commit e1581307d281ceb35726e1b4ca30ef773a2ef23e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 21:04:48 2016 +0100
+
+    patch 7.4.1659
+    Problem:    Compiler warning for argument type. (Manuel Ortega)
+    Solution:   Remove "&".
+
+commit 1473551a4457d4920b235eeeb9f279e196ee7225
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 21:00:08 2016 +0100
+
+    patch 7.4.1658
+    Problem:    A plugin does not know when VimEnter autocommands were already
+                triggered.
+    Solution:   Add the v:vim_did_enter variable.
+
+commit 8fdd7210479f0c486822ad8934087b4bfd8a4765
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 19:41:48 2016 +0100
+
+    patch 7.4.1657
+    Problem:    On Unix in a terminal: channel messages are not handled right away.
+                (Jackson Alves de Aquino)
+    Solution:   Break the loop for timers when something was received.
+
+commit 92e35efaf6a3278e4729115648997f09cd4005f5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 26 18:20:41 2016 +0100
+
+    patch 7.4.1656
+    Problem:    Crash when using partial with a timer.
+    Solution:   Increment partial reference count. (Hirohito Higashi)
+
+commit 1e7885abe8daa793fd9328d0fd6c456214cb467e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 19:03:03 2016 +0100
+
+    patch 7.4.1655
+    Problem:    remote_expr() hangs. (Ramel)
+    Solution:   Check for messages in the waiting loop.
+
+commit 52c6eaffd43a8c8865f8d6ed7cde0a8b137479e2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 18:42:46 2016 +0100
+
+    patch 7.4.1654
+    Problem:    Crash when using expand('%:S') in a buffer without a name.
+    Solution:   Don't set a NUL. (James McCoy, closes #714)
+
+commit da64ab322ae35e473a24b211d22d05b1439aa05c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 18:35:01 2016 +0100
+
+    patch 7.4.1653
+    Problem:    Users who loaded matchit.vim manually have to change their
+                startup. (Gary Johnson)
+    Solution:   Add a file in the old location that loads the package.
+
+commit 610cc1b9b3c8104382f5506606c1f87118c28114
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 17:55:42 2016 +0100
+
+    patch 7.4.1652
+    Problem:    Old style test for fnamemodify().
+    Solution:   Turn it into a new style test.
+
+commit 780d4c3fff3c06baa3135a9f9739c56a0c280a94
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 17:21:19 2016 +0100
+
+    patch 7.4.1651
+    Problem:    Some dead (MSDOS) code remains.
+    Solution:   Remove the unused lines. (Ken Takata)
+
+commit f68f1d70799631d38461c36cd59d08cf839b010d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 17:14:06 2016 +0100
+
+    patch 7.4.1650
+    Problem:    Quickfix test fails.
+    Solution:   Accept any number of matches.
+
+commit aedfcbe1e6c7df6edcd6756d7601bfdec7dd2087
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 17:02:51 2016 +0100
+
+    patch 7.4.1649
+    Problem:    The matchit plugin needs to be copied to be used.
+    Solution:   Put the matchit plugin in an optional package.
+
+commit bee6c0cf86a75faa2aa893f2c9db82fd944a89a5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 15:40:50 2016 +0100
+
+    patch 7.4.1648
+    Problem:    Compiler has a problem copying a string into di_key[]. (Yegappan
+                Lakshmanan)
+    Solution:   Add dictitem16_T.
+
+commit 8b20179c657b4266dff115486ca68c6a50324071
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 25 15:01:10 2016 +0100
+
+    patch 7.4.1647
+    Problem:    Using freed memory after setqflist() and ":caddbuffer".  (Dominique)
+    Solution:   Set qf_ptr when adding the first item to the quickfix list.
+
+commit 4c90861e9f864eab94f043c432acff508396ed62
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 24 21:58:12 2016 +0100
+
+    patch 7.4.1646
+    Problem:    Using Python vim.bindeval() on a partial doesn't work. (Nikolai
+                Pavlov)
+    Solution:   Add VAR_PARTIAL support in Python.
+
+commit c5fbe8af4cd80789f831b78aa44ff0b238138769
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 24 21:42:09 2016 +0100
+
+    patch 7.4.1645
+    Problem:    When a dict contains a partial it can't be redefined as a
+                function. (Nikolai Pavlov)
+    Solution:   Remove the partial when overwriting with a function.
+
+commit 24c77a1e3a2ad510582116229462b482d69b4b8e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 24 21:23:06 2016 +0100
+
+    patch 7.4.1644
+    Problem:    Using string() on a partial that exists in the dictionary it binds
+                results in an error. (Nikolai Pavlov)
+    Solution:   Make string() not fail on a recursively nested structure. (Ken
+                Takta)
+
+commit d4caf5c16a9f1c9477d426e58d8d3dc47ab5f066
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 24 19:14:35 2016 +0100
+
+    patch 7.4.1643
+    Problem:    Terminating file name has side effects.
+    Solution:   Restore the character. (mostly by James McCoy, closes #713)
+
+commit 6a08454b93784c92296d4c08456401cbaa74c9d5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 24 18:24:58 2016 +0100
+
+    patch 7.4.1642
+    Problem:    Handling emoji characters as full width has problems with
+                backwards compatibility.
+    Solution:   Only put characters in the 1f000 range in the emoji table.
+
+commit 5ca84ce4aa2832041f843e624c222bbc1f4d3e14
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 23 22:28:25 2016 +0100
+
+    patch 7.4.1641
+    Problem:    Using unterminated string.
+    Solution:   Add NUL before calling vim_strsave_shellescape(). (James McCoy)
+
+commit ffec3c53496d49668669deabc0724ec78e2274fd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 23 20:55:42 2016 +0100
+
+    patch 7.4.1640
+    Problem:    Crash when an autocommand changes a quickfix list. (Dominique)
+    Solution:   Check wether an entry is still valid. (Yegappan Lakshmanan,
+                Hirohito Higashi)
+
+commit 5f436fcf9960c95702820d5ac1b8b612995f6c04
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 22 22:34:03 2016 +0100
+
+    patch 7.4.1639
+    Problem:    Invoking garbage collection may cause a double free.
+    Solution:   Don't free the dict in a partial when recursive is FALSE.
+
+commit e4eb6ff089e79e659acf33c17dd0fda7177de526
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 22 21:00:09 2016 +0100
+
+    patch 7.4.1638
+    Problem:    When binding a function to a dict the reference count is wrong.
+    Solution:   Decrement dict reference count, only reference the function when
+                actually making a copy. (Ken Takata)
+
+commit 6c0e984f263fc1eef42c9b34a80eff1bceb8d05b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 22 20:42:31 2016 +0100
+
+    patch 7.4.1637
+    Problem:    Can't build with older MinGW compiler.
+    Solution:   Change option from c++11 to gnu++11. (Ken Takata)
+
+commit 6135d0d803084f6c2dd8672df1bef4c6e58f9e19
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 22 20:31:13 2016 +0100
+
+    patch 7.4.1636
+    Problem:    When 'F' is in 'shortmess' the prompt for the encryption key isn't
+                displayed. (Toothpik)
+    Solution:   Reset msg_silent.
+
+commit 6a06363861fcc6beca6e06b39385da411ce58633
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 23:18:54 2016 +0100
+
+    patch 7.4.1635
+    Problem:    Channel test is a bit flaky.
+    Solution:   Remove 'DETACH' if it's there.
+
+commit 8e08125d3a9afd0b16cd84454ae9ddad0abaaab0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 23:13:32 2016 +0100
+
+    patch 7.4.1634
+    Problem:    Vertical movement after CTRL-A ends up in the wrong column.
+                (Urtica Dioica)
+    Solution:   Set curswant when appropriate. (Hirohito Higashi)
+
+commit b763eba7ae3540cd879f7c29882a29308f9688db
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 22:40:03 2016 +0100
+
+    patch 7.4.1633
+    Problem:    If the help tags file was removed "make install" fails. (Tony
+                Mechelynck)
+    Solution:   Only try moving the file if it exists.
+
+commit 6098957458e538682f54e23de217da06200876a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 22:38:34 2016 +0100
+
+    patch 7.4.1632
+    Problem:    List of test targets is outdated.
+    Solution:   Update to current list of test targets.
+
+commit 573e445664eef399a72b1bfc975260a639605fef
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 22:35:10 2016 +0100
+
+    patch 7.4.1631
+    Problem:    Compiler doesn't understand switch on all enum values. (Tony
+                Mechelynck)
+    Solution:   Initialize variable.
+
+commit d63aff0a65b955447de2fd8bfdaee29b61ce2843
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 22:15:30 2016 +0100
+
+    patch 7.4.1630
+    Problem:    Unicode table for double width is outdated.
+    Solution:   Update to the latest Unicode standard.
+
+commit b86f10ee10bdf932df02bdaf601dffa671518a47
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 22:09:44 2016 +0100
+
+    patch 7.4.1629
+    Problem:    Handling emoji characters as full width has problems with
+                backwards compatibility.
+    Solution:   Remove ambiguous and double width characters from the emoji table.
+                Use a separate table for the character class.
+                (partly by Yasuhiro Matsumoto)
+
+commit 3f3fbd3fdb73bdfbfeab22a9dfc7a25e38bdf5f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 21 12:36:28 2016 +0100
+
+    patch 7.4.1628
+    Problem:    64-bit Compiler warning.
+    Solution:   Change type of variable. (Mike Williams)
+
+commit 75f7265dd402665b8600fdf21ba33f19db06ac0d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 22:16:56 2016 +0100
+
+    patch 7.4.1627
+    Problem:    Channel out_cb and err_cb are not tested.
+    Solution:   Add a test.
+
+commit 580984e026a46ea0c29789897b701057423b4923
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 21:17:13 2016 +0100
+
+    patch 7.4.1626
+    Problem:    Missing changes to structs.
+    Solution:   Include the changes.
+
+commit e18c0b39815c5a746887a509c2cd9f11fadaba07
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 21:08:34 2016 +0100
+
+    Updated runtime files.
+
+commit be6aa46c4d8948e164f7d181dc19ed2fc4818395
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 21:02:00 2016 +0100
+
+    patch 7.4.1625
+    Problem:    Trying to close file descriptor that isn't open.
+    Solution:   Check for negative number.
+
+commit 03602ec28ed25739e88b2c835adb0662d3720bb2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 20:57:45 2016 +0100
+
+    patch 7.4.1624
+    Problem:    Can't get info about a channel.
+    Solution:   Add ch_info().
+
+commit e9d6a298df6108e2044b1f0da5a2712f0c51c7d9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 19:31:33 2016 +0100
+
+    patch 7.4.1623
+    Problem:    All Channels share the message ID, it keeps getting bigger.
+    Solution:   Use a message ID per channel.
+
+commit 17b56c9f8327e6869580e3cfd82efcf8966d797a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 18:54:19 2016 +0100
+
+    patch 7.4.1622
+    Problem:    Channel demo doesn't work with Python 2.6.
+    Solution:   Add number in formatting placeholder
+
+commit a63cdb5ed685181c377ee89f1d1de6a97dfeb151
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 18:24:45 2016 +0100
+
+    patch 7.4.1621
+    Problem:    Channel test doesn't work with Python 2.6.
+    Solution:   Add number in formatting placeholder. (Wiredool)
+
+commit 4077b33a8370afb3d5ae74e556a0119cf51fe294
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 18:15:21 2016 +0100
+
+    patch 7.4.1620
+    Problem:    Emoji characters are not considered as a kind of word character.
+    Solution:   Give emoji characters a word class number. (Yasuhiro Matsumoto)
+
+commit 364fa5c7ec2a99a791c8f8b66fe70b0bf1dd9a41
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 17:53:25 2016 +0100
+
+    patch 7.4.1619
+    Problem:    When 'fileformats' is set in the vimrc it applies to new buffers
+                but not the initial buffer.
+    Solution:   Set 'fileformat' when starting up. (Mike Williams)
+
+commit a4f6ca717b4483eb82c6c71f71a5a5cf70e55d80
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 17:28:35 2016 +0100
+
+    patch 7.4.1618
+    Problem:    Starting job with output to buffer changes options in the current
+                buffer.
+    Solution:   Set "curbuf" earlier. (Yasuhiro Matsumoto)
+
+commit ba61ac0d61f46de7d29c64bb0de6d25c2e378be0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 16:40:37 2016 +0100
+
+    patch 7.4.1617
+    Problem:    When a JSON message is split it isn't decoded.
+    Solution:   Wait a short time for the rest of the message to arrive.
+
+commit ac74d5e86cd16b42e81ba48f58f3d45c72758248
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 20 14:31:00 2016 +0100
+
+    patch 7.4.1616
+    Problem:    Malformed channel request causes a hang.
+    Solution:   Drop malformed message. (Damien)
+
+commit 829c8e369630a7cbbdac015d8177b7fde25e2f19
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 23:07:23 2016 +0100
+
+    patch 7.4.1615
+    Problem:    Build fails with tiny features.
+    Solution:   Adjust #ifdefs.
+
+commit 7eba3d2cbf19e731dc51652bc26099cc253d538a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 22:54:09 2016 +0100
+
+    patch 7.4.1614
+    Problem:    Still quickfix test in old style.
+    Solution:   Turn test 10 into a new style test.
+
+commit 064154c3fedd6a46ca2f61463d7e5567bd22d9f1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 22:50:43 2016 +0100
+
+    patch 7.4.1613
+    Problem:    Still can't build with small features.
+    Solution:   Adjust #ifdefs.
+
+commit d293b2b9d43ee4b7b48ca6974202cbf319438975
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 22:29:49 2016 +0100
+
+    patch 7.4.1612
+    Problem:    Can't build with small features.
+    Solution:   Move code and #ifdefs.
+
+commit 44a2f923c00f1384c9ecde12fb5b4711bc20702e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 22:11:51 2016 +0100
+
+    patch 7.4.1611
+    Problem:    The versplit feature makes the code uneccessary complicated.
+    Solution:   Remove FEAT_VERTSPLIT, always support vertical splits when
+                FEAT_WINDOWS is defined.
+
+commit cc6cf9b9f9045a7d8b5923ea0c556e9a4c2567d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 20:51:35 2016 +0100
+
+    patch 7.4.1610
+    Problem:    Compiler warnings for non-virtual destructor.
+    Solution:   Mark the classe final. (Ken Takata)
+
+commit 4d581a826c54cecdde3001fdf0a5becf67e54cfd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 20:29:39 2016 +0100
+
+    patch 7.4.1609
+    Problem:    Contents file is only for Amiga distro.
+    Solution:   Move it to "READMEdir".  Update some info.
+
+commit 5c29154b521e9948190be653cfda666ecbb63b5b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 20:05:45 2016 +0100
+
+    patch 7.4.1608
+    Problem:    string() doesn't handle a partial.
+    Solution:   Make a string from a partial.
+
+commit f0e86a0dbddc18568910e9e4aaae0cd88ca8087a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 19:38:12 2016 +0100
+
+    patch 7.4.1607
+    Problem:    Comparing a function that exists on two dicts is not backwards
+                compatible. (Thinca)
+    Solution:   Only compare the function, not what the partial adds.
+
+commit 953cc7fb139dc2ba8590f8b03a095b63f4e1208f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 18:52:29 2016 +0100
+
+    patch 7.4.1606
+    Problem:    Having type() handle a Funcref that is or isn't a partial
+                differently causes problems for existing scripts.
+    Solution:   Make type() return the same value. (Thinca)
+
+commit 3905e291fe4375ca5c59efa9ffcb01a39c7be3a9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 18:44:08 2016 +0100
+
+    patch 7.4.1605
+    Problem:    Catching exception that won't be thrown.
+    Solution:   Remove try/catch.
+
+commit 3848e00e0177abdb31bc600234967863ec487233
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 18:42:29 2016 +0100
+
+    patch 7.4.1604
+    Problem:    Although emoji characters are ambiguous width, best is to treat
+                them as full width.
+    Solution:   Update the Unicode character tables. Add the 'emoji' options.
+                (Yasuhiro Matsumoto)
+
+commit bfb96c047b79b2aab5fd57a2472871508819f3ef
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 17:05:20 2016 +0100
+
+    patch 7.4.1603
+    Problem:    Timer with an ":echo" command messes up display.
+    Solution:   Redraw depending on the mode. (Hirohito Higashi)  Avoid the more
+                prompt being used recursively.
+
+commit cff572abb922d49455b01484e99b98c371fa4560
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 16:24:14 2016 +0100
+
+    patch 7.4.1602
+    Problem:    Info files take space in the top directory.
+    Solution:   Move them to "READMEdir".
+
+commit 818c9e7edfce339eff7cb357f2ec29a72afd1977
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 16:09:42 2016 +0100
+
+    patch 7.4.1601
+    Problem:    README files take a lot of space in the top directory.
+    Solution:   Move most of them to "READMEdir".
+
+commit 062cc1857d1c990287384409332b2b050bc9c82e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 15:25:51 2016 +0100
+
+    patch 7.4.1600
+    Problem:    libs directory is not useful.
+    Solution:   Remove arp.library, it was only for very old Amiga versions.
+
+commit 8a82c7fa5ec55b59782f7a7846d6152ccf3a22c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 15:15:01 2016 +0100
+
+    patch 7.4.1599
+    Problem:    No link to Coverity.
+    Solution:   Add Coverity badge in README.
+
+commit 6d8d849f5ac8a3a228c62fd29e8f40ae1b8381fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 14:48:31 2016 +0100
+
+    patch 7.4.1598
+    Problem:    When starting the GUI fails a swap file is left behind. (Joerg
+                Plate)
+    Solution:   Preserve files before exiting. (closes #692)
+
+commit 9f6154f26ef17b0a7efd2fcdd79cabfe510f28b4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 14:22:11 2016 +0100
+
+    patch 7.4.1597
+    Problem:    Memory leak when out of memory. (Coverity)
+    Solution:   Free the name.
+
+commit ba8cd122ef60a7c71a7723be0d635f0c2d4556ab
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 14:16:39 2016 +0100
+
+    patch 7.4.1596
+    Problem:    Memory leak. (Coverity)
+    Solution:   Free the pattern.
+
+commit c0a1d7f3ad4d41b64c6c881bb8ad7c201f8439a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 14:12:50 2016 +0100
+
+    patch 7.4.1595
+    Problem:    Not checking for failed open(). (Coverity)
+    Solution:   Check file descriptor not being negative.
+
+commit 943bb2b8eb80266a5de143feeab4c842c4b68c61
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 14:11:18 2016 +0100
+
+    patch 7.4.1594
+    Problem:    Timers don't work on Unix.
+    Solution:   Add missing code.
+
+commit a889cf4642a89537e3eeecf6d30326bf6aa4776f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 13:49:43 2016 +0100
+
+    patch 7.4.1593
+    Problem:    Using channel timeout instead of request timeout. (Coverity)
+    Solution:   Remove the extra assignment.
+
+commit 0899d698030ec076eb26352cda1ea334ab0819d9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 19 13:35:03 2016 +0100
+
+    patch 7.4.1592
+    Problem:    Quickfix code using memory after being freed. (Dominique Pelle)
+    Solution:   Detect that the window was closed. (Hirohito Higashi)
+
+commit 5584df65a0ca2315d1eebc13c54a448bee4d0758
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 18 21:00:51 2016 +0100
+
+    patch 7.4.1591
+    Problem:    The quickfix title is truncated.
+    Solution:   Save the command before it is truncated. (Anton Lindqvist)
+
+commit 3f242a844e83a5a04943869f6e3bcbf8650dc465
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 18 19:39:25 2016 +0100
+
+    patch 7.4.1590
+    Problem:    Warning for shadowed variable. (Christian Brabandt)
+    Solution:   Move the variable into a local block.
+
+commit 9e63f61cb01c70fd71652f54b2d01ee27b2a3534
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 17 23:13:28 2016 +0100
+
+    patch 7.4.1589
+    Problem:    Combining dict and args with partial doesn't always work.
+    Solution:   Use the arguments from the partial.
+
+commit 1ff2b64b11e7d263c6853745d5e594bd8f94b91e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 17 22:07:02 2016 +0100
+
+    patch 7.4.1588
+    Problem:    Old style test for quickfix.
+    Solution:   Turn test 96 into a new style test.
+
+commit 1c8b4edb9b6cd5248925f3f06ec82486be9fb4ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 17 21:51:03 2016 +0100
+
+    patch 7.4.1587
+    Problem:    Compiler warnings with 64 bit compiler.
+    Solution:   Add type casts. (Mike Williams)
+
+commit 8a1bb046378f4bc68d6a04af2eab80fb3ce04da6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 17 21:11:53 2016 +0100
+
+    patch 7.4.1586
+    Problem:    Nesting partials doesn't work.
+    Solution:   Append arguments. (Ken Takata)
+
+commit d22a18928ebcb465393da1418bb88204b97badb1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 17 20:50:47 2016 +0100
+
+    patch 7.4.1585
+    Problem:    Partial is not recognized everywhere.
+    Solution:   Check for partial in trans_function_name(). (Yasuhiro Matsumoto)
+                Add a test.
+
+commit 0e0b3dd335b863603b9a2d415ef18d983e2467ae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 17 17:58:56 2016 +0100
+
+    patch 7.4.1584
+    Problem:    Timers don't work for Win32 console.
+    Solution:   Add check_due_timer() in WaitForChar().
+
+commit 597385ab43093ba27adcb86cdc1b46aba86a0093
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 16 23:24:43 2016 +0100
+
+    patch 7.4.1583
+    Problem:    Warning for unitinialized variable.
+    Solution:   Initialize it. (Dominique)
+
+commit 6f2e4b36c9d9908e1cace2b1b96e2c154a837bc2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 16 22:52:12 2016 +0100
+
+    patch 7.4.1582
+    Problem:    Get E923 when using function(dict.func, [], dict). (Kent Sibilev)
+                Storing a function with a dict in a variable drops the dict if the
+                function is script-local.
+    Solution:   Translate the function name.  Use dict arg if present.
+
+commit 65639032bb7b17996cd255d1508a1df4ad528a1f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 16 21:40:30 2016 +0100
+
+    patch 7.4.1581
+    Problem:    Using ":call dict.func()" where the function is a partial does
+                not work.  Using "dict.func()" where the function does not take a
+                Dictionary does not work.
+    Solution:   Handle partial properly in ":call". (Yasuhiro Matsumoto)
+
+commit 7a5c46a9df7ef01a4f6a620861c35400d5ad28d9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 16 20:41:21 2016 +0100
+
+    patch 7.4.1580
+    Problem:    Crash when using function reference. (Luchr)
+    Solution:   Set initial refcount. (Ken Takata, closes #690)
+
+commit a3dc5e92dcb79bdc4f0103e6eb91de4c7a6ee9a7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 23:19:14 2016 +0100
+
+    patch 7.4.1579
+    Problem:    Missing changes in channel.c
+    Solution:   Include the changes.
+
+commit 975b5271eed4fa0500c24a8f37be0b1797cb9db7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 23:10:59 2016 +0100
+
+    patch 7.4.1578
+    Problem:    There is no way to invoke a function later or periodically.
+    Solution:   Add timer support.
+
+commit ab1fa3955f25dfdb7e329c3bd76e175c93c8cb5e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 19:33:34 2016 +0100
+
+    patch 7.4.1577
+    Problem:    Cannot pass "dict.Myfunc" around as a partial.
+    Solution:   Create a partial when expected.
+
+commit 927030af23982a70580178e32806cd3638ce6e5b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 18:23:55 2016 +0100
+
+    patch 7.4.1576
+    Problem:    Write error of viminfo file is not handled properly. (Christian
+                Neukirchen)
+    Solution:   Check the return value of fclose(). (closes #682)
+
+commit 89e375a88f3eceb73bbd97e78aca1a1c4647c897
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 18:09:57 2016 +0100
+
+    patch 7.4.1575
+    Problem:    Using wrong size for struct.
+    Solution:   Use the size for wide API. (Ken Takata)
+
+commit 8067a64852d6d134b493c5674e404225ed4bbe7d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 17:52:10 2016 +0100
+
+    Add missing test file.
+
+commit d22e9465f6228207a4fe722ee84371c7817060d6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 17:43:55 2016 +0100
+
+    patch 7.4.1574
+    Problem:    ":undo 0" does not work. (Florent Fayolle)
+    Solution:   Make it undo all the way. (closes #688)
+
+commit ce2ec0a82a778ff4d79a2c3309f6cac079d7b5ee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 17:10:19 2016 +0100
+
+    patch 7.4.1573
+    Problem:    Tests get stuck at the more prompt.
+    Solution:   Move the backspace test out of test_alot.
+
+commit 85a7cb4dcf50aa562ff1fc872bfc1b50a5a9e368
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 16:53:26 2016 +0100
+
+    patch 7.4.1572
+    Problem:    Setting 'compatible' in test influences following tests.
+    Solution:   Turn 'compatible' off again.
+
+commit 8e15ffcde757ffc6cfe8b5e384948b3278e9af33
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 15 16:35:39 2016 +0100
+
+    patch 7.4.1571
+    Problem:    No test for ":help".
+    Solution:   Add a test for what 7.4.1568 fixed. (Higashi Higashi)
+
 commit d8dc5e63fabbbddeb45a311f1deff240e4a8e709
 Merge: 0ee7bfe 426dd02
 Author: Karsten Hopp <karsten@redhat.com>
