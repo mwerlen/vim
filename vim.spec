@@ -60,6 +60,7 @@ Patch3011: vim-manpagefixes-948566.patch
 Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-virc.patch
+Patch3015: vim-7.4-spec_rfc822.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -212,6 +213,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3012 -p1
 %patch3013 -p1
 %patch3014 -p1
+%patch3015 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -768,6 +770,7 @@ rm -rf %{buildroot}
 - add %%_libdir/vim  directory for plugins (rhbz#1193230)
 - vi, rvi, rview, ex, view don't read vimrc anymore. They use virc instead
   (rhbz#1045815)
+- fix dates in changelogs when spec.vim is used and locale != 'C'
 
 * Fri Apr 08 2016 Karsten Hopp <karsten@redhat.com> 7.4.1718-1
 - patchlevel 1718
