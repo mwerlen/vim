@@ -25,7 +25,8 @@ Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
-Source3: gvim.desktop
+Source2: gvim.desktop
+Source3: vimrc
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
@@ -212,7 +213,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
-%patch3014 -p1
+#patch3014 -p1
 %patch3015 -p1
 
 %build
@@ -230,7 +231,7 @@ cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
 perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
-perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
+perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
@@ -414,11 +415,11 @@ EOF
         --vendor fedora \
     %endif
         --dir %{buildroot}/%{_datadir}/applications \
-        %{SOURCE3}
+        %{SOURCE2}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
   %else
     mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
-    cp %{SOURCE3} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
+    cp %{SOURCE2} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
@@ -473,8 +474,8 @@ if ( -x /usr/bin/id ) then
 endif
 EOF
 chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/*
+install -p -m644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/virc
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/vimrc
-install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
 
 mkdir -p %{buildroot}%{_libdir}/%{name}
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
