@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -39,6 +39,7 @@ Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
 Source15: spec-template.new
+Source16: macros.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -58,6 +59,7 @@ Patch3010: vim-7.3-manpage-typo-668894-675480.patch
 Patch3011: vim-manpagefixes-948566.patch
 Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
+Patch3014: vim-7.4-virc.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -209,6 +211,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
+%patch3014 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -470,6 +473,11 @@ EOF
 chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/*
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/vimrc
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
+
+mkdir -p %{buildroot}%{_libdir}/%{name}
+mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
+install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
+
 (cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
  gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
@@ -714,6 +722,8 @@ rm -rf %{buildroot}
 
 %files filesystem
 %defattr(-,root,root)
+%{_rpmconfigdir}/macros.d/macros.vim
+%dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
 %dir %{_datadir}/%{name}/vimfiles/after/*
@@ -753,6 +763,12 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Wed Apr 13 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1718-2
+- add vimfiles_root macro (rhbz#844975)
+- add %%_libdir/vim  directory for plugins (rhbz#1193230)
+- vi, rvi, rview, ex, view don't read vimrc anymore. They use virc instead
+  (rhbz#1045815)
+
 * Fri Apr 08 2016 Karsten Hopp <karsten@redhat.com> 7.4.1718-1
 - patchlevel 1718
 
