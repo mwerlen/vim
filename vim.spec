@@ -764,7 +764,7 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Wed Apr 13 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1718-2
+* Tue Apr 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1718-2
 - add vimfiles_root macro (rhbz#844975)
 - add %%_libdir/vim  directory for plugins (rhbz#1193230)
 - vi, rvi, rview, ex, view don't read vimrc anymore. They use virc instead
