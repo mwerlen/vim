@@ -561,6 +561,7 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/vimfiles/template.spec
 %dir %{_datadir}/%{name}/%{vimdir}
+%{_datadir}/%{name}/%{vimdir}/rgb.txt
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
