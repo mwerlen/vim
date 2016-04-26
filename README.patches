@@ -1,3 +1,103 @@
+commit f9538136beff21c04d8d7f8ad7f8d23ed0905771
+Merge: b33f51a d10abe5
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Apr 26 13:09:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit d10abe52019d10403eb559ea0a424bbd310b738f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 24 15:41:33 2016 +0200
+
+    patch 7.4.1786
+    Problem:    Compiled-in colors do not match rgb.txt.
+    Solution:   Use the rgb.txt colors. (Kazunobu Kuriyama)
+
+commit 490465bda6ab66f78041709cc02f48a25486a3e5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 24 15:11:02 2016 +0200
+
+    patch 7.4.1785
+    Problem:    Regexp test fails on windows.
+    Solution:   set 'isprint' to the right value for testing.
+
+commit 8e9eb3a6a1e589949f1c878c839528d917fdfc4a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 24 15:00:11 2016 +0200
+
+    patch 7.4.1784
+    Problem:    The termtruecolor feature is enabled differently from many other
+                features.
+    Solution:   Enable the termtruecolor feature for the big build, not through
+                configure.
+
+commit af98a49dd0ef1661b4998f118151fddbf6e4df75
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 24 14:40:12 2016 +0200
+
+    patch 7.4.1783
+    Problem:    The old regexp engine doesn't handle character classes correctly.
+                (Manuel Ortega)
+    Solution:   Use regmbc() instead of regc().  Add a test.
+
+commit fca66003053f8c0da5161d1fe4b75b3a389934b5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 23 15:30:09 2016 +0200
+
+    patch 7.4.1782
+    Problem:    strcharpart() does not work properly with some multi-byte
+                characters.
+    Solution:   Use mb_cptr2len() instead of mb_char2len(). (Hirohito Higashi)
+
+commit da5b3dcf06a3af5b398450258be32b0416451a9b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 23 15:19:02 2016 +0200
+
+    patch 7.4.1781
+    Problem:    synIDattr() does not respect 'guicolors'.
+    Solution:   Change the conditition for the mode. (Christian Brabandt)
+
+commit dc633cf82758f67f656cda7fa8ccc30414ee53f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 23 14:33:19 2016 +0200
+
+    patch 7.4.1780
+    Problem:    Warnings reported by cppcheck.
+    Solution:   Fix the warnings. (Dominique Pelle)
+
+commit 73dfe917ba6357413aaf98a021c91add5ac6e9bc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 23 13:54:48 2016 +0200
+
+    patch 7.4.1779
+    Problem:    Using negative index in strcharpart(). (Yegappan Lakshmanan)
+    Solution:   Assume single byte when using a negative iindex.
+
+commit b2fa54a84078e2b8dc3c7c7bfbccf6b75c0788d0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 22 21:11:09 2016 +0200
+
+    patch 7.4.1778
+    Problem:    When using the term truecolor feature, the t_8f and t_8b termcap
+                options are not set by default.
+    Solution:   Move the values to before BT_EXTRA_KEYS. (Christian Brabandt)
+
+commit 3849992b16011e36a5cb5be4b127f843389b96fd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 22 20:46:52 2016 +0200
+
+    patch 7.4.1777
+    Problem:    Newly added features can escape the sandbox.
+    Solution:   Add checks for restricted and secure. (Yasuhiro Matsumoto)
+
+commit a1c487eef71d1673e57511453009de9cb4c9af51
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 22 20:20:19 2016 +0200
+
+    patch 7.4.1776
+    Problem:    Using wrong buffer length.
+    Solution:   use the right name. (Kazunobu Kuriyama)
+
 commit b33f51aac191c8831bebbc0ca5b0a49456fc0003
 Merge: 8cf439c 763b684
 Author: Karsten Hopp <karsten@redhat.com>
