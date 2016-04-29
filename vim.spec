@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -39,6 +39,8 @@ Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
 Source15: spec-template.new
+Source16: ftplugin-spec.vim
+Source17: syntax-spec.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -330,6 +332,8 @@ cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %else
 cp -f %{SOURCE14} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %endif
+cp -f %{SOURCE16} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/ftplugin/spec.vim
+cp -f %{SOURCE17} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/syntax/spec.vim
 cp runtime/doc/uganda.txt LICENSE
 # Those aren't Linux info files but some binary files for Amiga:
 rm -f README*.info
@@ -756,6 +760,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon Apr 25 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1320-2
+- update ftplugin/spec.vim, syntax/spec.vim (rhbz#1297746)
+
 * Mon Feb 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1320-1
 - patchlevel 1320
 
