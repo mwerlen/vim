@@ -1,4 +1,4 @@
-%define patchlevel 1718
+%define patchlevel 1797
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -25,7 +25,8 @@ Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
-Source3: gvim.desktop
+Source2: gvim.desktop
+Source3: vimrc
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
@@ -39,6 +40,7 @@ Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
 Source15: spec-template.new
+Source16: macros.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -58,6 +60,8 @@ Patch3010: vim-7.3-manpage-typo-668894-675480.patch
 Patch3011: vim-manpagefixes-948566.patch
 Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
+Patch3014: vim-7.4-spec_rfc822.patch
+Patch3015: vim-7.4-releasestring-1318991.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -209,6 +213,8 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3011 -p1
 %patch3012 -p1
 %patch3013 -p1
+%patch3014 -p1
+%patch3015 -p1
 
 %build
 cp -f %{SOURCE5} .
@@ -224,8 +230,8 @@ export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOU
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
-perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
-perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
+#perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
+perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
@@ -249,7 +255,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
   --enable-python3interp=dynamic \
-  --enable-perlinterp \
+  --enable-perlinterp=dynamic \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
@@ -276,6 +282,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %else
   --disable-luainterp \
 %endif
+  --enable-termtruecolor
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim gvim
@@ -284,7 +291,7 @@ make clean
 %configure --prefix=%{_prefix} --with-features=huge \
  --enable-pythoninterp=dynamic \
  --enable-python3interp=dynamic \
- --enable-perlinterp \
+ --enable-perlinterp=dynamic \
  --disable-tclinterp \
  --with-x=no \
  --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
@@ -311,6 +318,7 @@ make clean
 %else
   --disable-luainterp \
 %endif
+  --enable-termtruecolor
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim enhanced-vim
@@ -409,11 +417,11 @@ EOF
         --vendor fedora \
     %endif
         --dir %{buildroot}/%{_datadir}/applications \
-        %{SOURCE3}
+        %{SOURCE2}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
   %else
     mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
-    cp %{SOURCE3} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
+    cp %{SOURCE2} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
@@ -468,21 +476,26 @@ if ( -x /usr/bin/id ) then
 endif
 EOF
 chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/*
+install -p -m644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/virc
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/vimrc
-install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
+
+mkdir -p %{buildroot}%{_libdir}/%{name}
+mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
+install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
+
 (cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
- gzip -9 *.txt
- gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
- cp %{SOURCE12} .
- cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
-cat >> tags << EOF
-vi_help.txt	vi_help.txt	/*vi_help.txt*
-vi-author.txt	vi_help.txt	/*vi-author*
-vi-Bram.txt	vi_help.txt	/*vi-Bram*
-vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
-vi-credits.txt	vi_help.txt	/*vi-credits*
-EOF
-LANG=C sort tags > tags.tmp; mv tags.tmp tags
+# gzip -9 *.txt
+# gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
+# cp %{SOURCE12} .
+# cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
+#cat >> tags << EOF
+#vi_help.txt	vi_help.txt	/*vi_help.txt*
+#vi-author.txt	vi_help.txt	/*vi-author*
+#vi-Bram.txt	vi_help.txt	/*vi-Bram*
+#vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
+#vi-credits.txt	vi_help.txt	/*vi-credits*
+#EOF
+#LANG=C sort tags > tags.tmp; mv tags.tmp tags
  )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
@@ -552,6 +565,7 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/vimfiles/template.spec
 %dir %{_datadir}/%{name}/%{vimdir}
+%{_datadir}/%{name}/%{vimdir}/rgb.txt
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
@@ -714,6 +728,8 @@ rm -rf %{buildroot}
 
 %files filesystem
 %defattr(-,root,root)
+%{_rpmconfigdir}/macros.d/macros.vim
+%dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
 %dir %{_datadir}/%{name}/vimfiles/after/*
@@ -753,6 +769,28 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> 7.4.1797-1
+- patchlevel 1797
+
+* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1786-1
+- dynamically load perl when needed (rhbz#1327755)
+
+* Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> 7.4.1786-1
+- patchlevel 1786
+
+* Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1775-2
+- fix error in spec.vim (rhbz#1318991)
+
+* Fri Apr 22 2016 Karsten Hopp <karsten@redhat.com> 7.4.1775-1
+- patchlevel 1775
+
+* Tue Apr 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1718-2
+- add vimfiles_root macro (rhbz#844975)
+- add %%_libdir/vim  directory for plugins (rhbz#1193230)
+- vi, rvi, rview, ex, view don't read vimrc anymore. They use virc instead
+  (rhbz#1045815)
+- fix dates in changelogs when spec.vim is used and locale != 'C'
+
 * Fri Apr 08 2016 Karsten Hopp <karsten@redhat.com> 7.4.1718-1
 - patchlevel 1718
 
