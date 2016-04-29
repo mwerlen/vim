@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -34,7 +34,6 @@ Source8: gvim32.png
 Source9: gvim48.png
 Source10: gvim64.png
 Source11: Changelog.rpm
-Source12: vi_help.txt
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
@@ -232,7 +231,6 @@ export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOU
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
-perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
@@ -487,20 +485,6 @@ mkdir -p %{buildroot}%{_libdir}/%{name}
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
 install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
 
-(cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
- gzip -9 *.txt
- gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
- cp %{SOURCE12} .
- cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
-cat >> tags << EOF
-vi_help.txt	vi_help.txt	/*vi_help.txt*
-vi-author.txt	vi_help.txt	/*vi-author*
-vi-Bram.txt	vi_help.txt	/*vi-Bram*
-vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
-vi-credits.txt	vi_help.txt	/*vi-credits*
-EOF
-LANG=C sort tags > tags.tmp; mv tags.tmp tags
- )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
 rm -rf %{buildroot}/%{_datadir}/vim/%{vimdir}/tools
@@ -773,6 +757,12 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1797-3
+- use uncompressed help files. vimtutor and vi will access those when
+  vim-common is installed.  (rhbz#1262182)
+  No hard requirement vim-minimal -> vim-common added, to allow minimal
+  installations
+
 * Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1797-2
 - merge git branches and rebuild
 
