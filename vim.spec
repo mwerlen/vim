@@ -1,4 +1,4 @@
-%define patchlevel 1320
+%define patchlevel 1786
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -25,7 +25,8 @@ Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
-Source3: gvim.desktop
+Source2: gvim.desktop
+Source3: vimrc
 Source4: vimrc
 Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
@@ -39,8 +40,9 @@ Source13: vim-spell-files.tar.bz2
 %endif
 Source14: spec-template
 Source15: spec-template.new
-Source16: ftplugin-spec.vim
-Source17: syntax-spec.vim
+Source16: macros.vim
+Source17: ftplugin-spec.vim
+Source18: syntax-spec.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -50,18 +52,18 @@ BuildRequires: hunspell-devel
 %endif
 
 Patch3000: vim-7.4-syntax.patch
-Patch3002: vim-7.1-nowarnings.patch
+Patch3002: vim-7.4-nowarnings.patch
 Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-7.4-checkhl.patch
 Patch3007: vim-7.4-fstabsyntax.patch
-Patch3008: vim-7.0-warning.patch
-Patch3009: vim-7.4-syncolor.patch
-Patch3010: vim-7.0-specedit.patch
-Patch3011: vim72-rh514717.patch
-Patch3012: vim-7.3-manpage-typo-668894-675480.patch
-Patch3013: vim-manpagefixes-948566.patch
-Patch3014: vim-7.4-licensemacro-1151450.patch
-Patch3015: vim-7.4-ssh-keywords.patch
+Patch3008: vim-7.4-syncolor.patch
+Patch3009: vim-7.0-specedit.patch
+Patch3010: vim-7.3-manpage-typo-668894-675480.patch
+Patch3011: vim-manpagefixes-948566.patch
+Patch3012: vim-7.4-licensemacro-1151450.patch
+Patch3013: vim-7.4-globalsyntax.patch
+Patch3014: vim-7.4-spec_rfc822.patch
+Patch3015: vim-7.4-releasestring-1318991.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -208,12 +210,12 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3006 -p1
 %patch3007 -p1
 %patch3008 -p1
-%patch3009 -p1
-#patch3010 -p1
+#patch3009 -p1
+%patch3010 -p1
 %patch3011 -p1
 %patch3012 -p1
-
 %patch3013 -p1
+%patch3014 -p1
 %patch3015 -p1
 
 %build
@@ -231,7 +233,7 @@ cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
 perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
-perl -pi -e "s/\/etc\/vimrc/\/etc\/virc/"  os_unix.h
+perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
   --disable-netbeans \
@@ -282,6 +284,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %else
   --disable-luainterp \
 %endif
+  --enable-termtruecolor
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim gvim
@@ -317,6 +320,7 @@ make clean
 %else
   --disable-luainterp \
 %endif
+  --enable-termtruecolor
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim enhanced-vim
@@ -332,8 +336,8 @@ cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %else
 cp -f %{SOURCE14} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %endif
-cp -f %{SOURCE16} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/ftplugin/spec.vim
-cp -f %{SOURCE17} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/syntax/spec.vim
+cp -f %{SOURCE17} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/ftplugin/spec.vim
+cp -f %{SOURCE18} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/syntax/spec.vim
 cp runtime/doc/uganda.txt LICENSE
 # Those aren't Linux info files but some binary files for Amiga:
 rm -f README*.info
@@ -417,11 +421,11 @@ EOF
         --vendor fedora \
     %endif
         --dir %{buildroot}/%{_datadir}/applications \
-        %{SOURCE3}
+        %{SOURCE2}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
   %else
     mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
-    cp %{SOURCE3} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
+    cp %{SOURCE2} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
@@ -476,8 +480,13 @@ if ( -x /usr/bin/id ) then
 endif
 EOF
 chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/*
+install -p -m644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/virc
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/vimrc
-install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
+
+mkdir -p %{buildroot}%{_libdir}/%{name}
+mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
+install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
+
 (cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
  gzip -9 *.txt
  gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
@@ -560,9 +569,11 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/vimfiles/template.spec
 %dir %{_datadir}/%{name}/%{vimdir}
+%{_datadir}/%{name}/%{vimdir}/rgb.txt
 %{_datadir}/%{name}/%{vimdir}/autoload
 %{_datadir}/%{name}/%{vimdir}/colors
 %{_datadir}/%{name}/%{vimdir}/compiler
+%{_datadir}/%{name}/%{vimdir}/pack
 %{_datadir}/%{name}/%{vimdir}/doc
 %{_datadir}/%{name}/%{vimdir}/*.vim
 %{_datadir}/%{name}/%{vimdir}/ftplugin
@@ -721,6 +732,8 @@ rm -rf %{buildroot}
 
 %files filesystem
 %defattr(-,root,root)
+%{_rpmconfigdir}/macros.d/macros.vim
+%dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
 %dir %{_datadir}/%{name}/vimfiles/after/*
@@ -760,8 +773,33 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> 7.4.1786-1
+- patchlevel 1786
+
+* Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1775-2
+- fix error in spec.vim (rhbz#1318991)
+
 * Mon Apr 25 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1320-2
 - update ftplugin/spec.vim, syntax/spec.vim (rhbz#1297746)
+
+* Fri Apr 22 2016 Karsten Hopp <karsten@redhat.com> 7.4.1775-1
+- patchlevel 1775
+
+* Tue Apr 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1718-2
+- add vimfiles_root macro (rhbz#844975)
+- add %%_libdir/vim  directory for plugins (rhbz#1193230)
+- vi, rvi, rview, ex, view don't read vimrc anymore. They use virc instead
+  (rhbz#1045815)
+- fix dates in changelogs when spec.vim is used and locale != 'C'
+
+* Fri Apr 08 2016 Karsten Hopp <karsten@redhat.com> 7.4.1718-1
+- patchlevel 1718
+
+* Tue Mar 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1570-1
+- patchlevel 1570
+
+* Wed Feb 17 2016 Karsten Hopp <karsten@redhat.com> 7.4.1344-1
+- patchlevel 1344
 
 * Mon Feb 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1320-1
 - patchlevel 1320
@@ -793,14 +831,11 @@ rm -rf %{buildroot}
 * Sat Feb 06 2016 Karsten Hopp <karsten@redhat.com> 7.4.1265-1
 - patchlevel 1265
 
-* Fri Feb 05 2016 Karsten Hopp <karsten@redhat.com> 7.4.1261-1
-- patchlevel 1261
+* Fri Feb 05 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2:7.4.1229-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
-* Thu Feb 04 2016 Karsten Hopp <karsten@redhat.com> 7.4.1257-1
-- patchlevel 1257
-
-* Wed Feb 03 2016 Karsten Hopp <karsten@redhat.com> 7.4.1246-1
-- patchlevel 1246
+* Mon Feb 01 2016 Karsten Hopp <karsten@redhat.com> 7.4.1229-1
+- patchlevel 1229
 
 * Sat Jan 23 2016 Karsten Hopp <karsten@redhat.com> 7.4.1153-1
 - patchlevel 1153
@@ -813,6 +848,9 @@ rm -rf %{buildroot}
 
 * Wed Jan 20 2016 Karsten Hopp <karsten@redhat.com> 7.4.1143-1
 - patchlevel 1143
+
+* Tue Jan 19 2016 Karsten Hopp <karsten@redhat.com> 7.4.1142-1
+- patchlevel 1142
 
 * Tue Jan 19 2016 Karsten Hopp <karsten@redhat.com> 7.4.1131-1
 - patchlevel 1131
@@ -831,6 +869,10 @@ rm -rf %{buildroot}
 
 * Wed Jan 13 2016 Karsten Hopp <karsten@redhat.com> 7.4.1089-1
 - patchlevel 1089
+
+* Tue Jan 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1087-2
+- fix ssh syntax files
+- fix %%global in spec.vim (rhbz#1058041)
 
 * Mon Jan 11 2016 Karsten Hopp <karsten@redhat.com> 7.4.1087-1
 - patchlevel 1087

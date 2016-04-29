@@ -1,0 +1,14 @@
+diff -up vim74/runtime/ftplugin/spec.vim.1318991 vim74/runtime/ftplugin/spec.vim
+--- vim74/runtime/ftplugin/spec.vim.1318991	2016-04-26 13:01:33.781838194 +0200
++++ vim74/runtime/ftplugin/spec.vim	2016-04-26 13:02:41.958130012 +0200
+@@ -40,8 +40,8 @@ else:
+         headers = spec.packages[0].header
+         version = headers['Version']
+         release = ".".join(headers['Release'].split(".")[:-1])
+-        vim.command("let ver = " + version)
+-        vim.command("let rel = " + release)
++        vim.command("let ver = '" + version + "'")
++        vim.command("let rel = '" + release + "'")
+ PYEND
+ 		endif
+ 	endfunction
