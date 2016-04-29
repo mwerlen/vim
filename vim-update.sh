@@ -42,6 +42,8 @@ popd
 
 cp -f vim-upstream/dist/README.patches README.patches
 cp -f vim-upstream/dist/vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2 .
+wget https://raw.githubusercontent.com/ignatenkobrain/vim-spec-plugin/master/ftplugin/spec.vim -O ftplugin-spec.vim
+wget https://raw.githubusercontent.com/ignatenkobrain/vim-spec-plugin/master/syntax/spec.vim -O syntax-spec.vim
 if [ $CHANGES -ne 0 ]; then
    CHLOG="* $DATE Karsten Hopp <karsten@redhat.com> $UPSTREAMMAJOR"
    $debug sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC

@@ -41,6 +41,8 @@ Source13: vim-spell-files.tar.bz2
 Source14: spec-template
 Source15: spec-template.new
 Source16: macros.vim
+Source17: ftplugin-spec.vim
+Source18: syntax-spec.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-6.2-specsyntax.patch
@@ -230,7 +232,7 @@ export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOU
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
-#perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
+perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
@@ -255,7 +257,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
   --enable-python3interp=dynamic \
-  --enable-perlinterp=dynamic \
+  --enable-perlinterp \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
@@ -291,7 +293,7 @@ make clean
 %configure --prefix=%{_prefix} --with-features=huge \
  --enable-pythoninterp=dynamic \
  --enable-python3interp=dynamic \
- --enable-perlinterp=dynamic \
+ --enable-perlinterp \
  --disable-tclinterp \
  --with-x=no \
  --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
@@ -354,6 +356,8 @@ install -p -m644 %{SOURCE9} \
    %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gvim.png
 install -p -m644 %{SOURCE10} \
    %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/gvim.png
+cp -f %{SOURCE17} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/ftplugin/spec.vim
+cp -f %{SOURCE18} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/syntax/spec.vim
 
 # Register as an application to be visible in the software center
 #
@@ -484,18 +488,18 @@ mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
 install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
 
 (cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
-# gzip -9 *.txt
-# gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
-# cp %{SOURCE12} .
-# cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
-#cat >> tags << EOF
-#vi_help.txt	vi_help.txt	/*vi_help.txt*
-#vi-author.txt	vi_help.txt	/*vi-author*
-#vi-Bram.txt	vi_help.txt	/*vi-Bram*
-#vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
-#vi-credits.txt	vi_help.txt	/*vi-credits*
-#EOF
-#LANG=C sort tags > tags.tmp; mv tags.tmp tags
+ gzip -9 *.txt
+ gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
+ cp %{SOURCE12} .
+ cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
+cat >> tags << EOF
+vi_help.txt	vi_help.txt	/*vi_help.txt*
+vi-author.txt	vi_help.txt	/*vi-author*
+vi-Bram.txt	vi_help.txt	/*vi-Bram*
+vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
+vi-credits.txt	vi_help.txt	/*vi-credits*
+EOF
+LANG=C sort tags > tags.tmp; mv tags.tmp tags
  )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
@@ -772,14 +776,14 @@ rm -rf %{buildroot}
 * Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> 7.4.1797-1
 - patchlevel 1797
 
-* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1786-1
-- dynamically load perl when needed (rhbz#1327755)
-
 * Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> 7.4.1786-1
 - patchlevel 1786
 
 * Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1775-2
 - fix error in spec.vim (rhbz#1318991)
+
+* Mon Apr 25 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1320-2
+- update ftplugin/spec.vim, syntax/spec.vim (rhbz#1297746)
 
 * Fri Apr 22 2016 Karsten Hopp <karsten@redhat.com> 7.4.1775-1
 - patchlevel 1775
@@ -800,14 +804,74 @@ rm -rf %{buildroot}
 * Wed Feb 17 2016 Karsten Hopp <karsten@redhat.com> 7.4.1344-1
 - patchlevel 1344
 
+* Mon Feb 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1320-1
+- patchlevel 1320
+
+* Sun Feb 14 2016 Karsten Hopp <karsten@redhat.com> 7.4.1317-1
+- patchlevel 1317
+
+* Sat Feb 13 2016 Karsten Hopp <karsten@redhat.com> 7.4.1308-1
+- patchlevel 1308
+
+* Fri Feb 12 2016 Karsten Hopp <karsten@redhat.com> 7.4.1304-1
+- patchlevel 1304
+
+* Thu Feb 11 2016 Karsten Hopp <karsten@redhat.com> 7.4.1301-1
+- patchlevel 1301
+
+* Wed Feb 10 2016 Karsten Hopp <karsten@redhat.com> 7.4.1297-1
+- patchlevel 1297
+
+* Tue Feb 09 2016 Karsten Hopp <karsten@redhat.com> 7.4.1293-1
+- patchlevel 1293
+
+* Mon Feb 08 2016 Karsten Hopp <karsten@redhat.com> 7.4.1290-1
+- patchlevel 1290
+
+* Sun Feb 07 2016 Karsten Hopp <karsten@redhat.com> 7.4.1273-1
+- patchlevel 1273
+
+* Sat Feb 06 2016 Karsten Hopp <karsten@redhat.com> 7.4.1265-1
+- patchlevel 1265
+
 * Fri Feb 05 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2:7.4.1229-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
 * Mon Feb 01 2016 Karsten Hopp <karsten@redhat.com> 7.4.1229-1
 - patchlevel 1229
 
+* Sat Jan 23 2016 Karsten Hopp <karsten@redhat.com> 7.4.1153-1
+- patchlevel 1153
+
+* Fri Jan 22 2016 Karsten Hopp <karsten@redhat.com> 7.4.1152-1
+- patchlevel 1152
+
+* Thu Jan 21 2016 Karsten Hopp <karsten@redhat.com> 7.4.1147-1
+- patchlevel 1147
+
+* Wed Jan 20 2016 Karsten Hopp <karsten@redhat.com> 7.4.1143-1
+- patchlevel 1143
+
 * Tue Jan 19 2016 Karsten Hopp <karsten@redhat.com> 7.4.1142-1
 - patchlevel 1142
+
+* Tue Jan 19 2016 Karsten Hopp <karsten@redhat.com> 7.4.1131-1
+- patchlevel 1131
+
+* Mon Jan 18 2016 Karsten Hopp <karsten@redhat.com> 7.4.1129-1
+- patchlevel 1129
+
+* Sun Jan 17 2016 Karsten Hopp <karsten@redhat.com> 7.4.1112-1
+- patchlevel 1112
+
+* Sat Jan 16 2016 Karsten Hopp <karsten@redhat.com> 7.4.1101-1
+- patchlevel 1101
+
+* Fri Jan 15 2016 Karsten Hopp <karsten@redhat.com> 7.4.1090-1
+- patchlevel 1090
+
+* Wed Jan 13 2016 Karsten Hopp <karsten@redhat.com> 7.4.1089-1
+- patchlevel 1089
 
 * Tue Jan 12 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1087-2
 - fix ssh syntax files
