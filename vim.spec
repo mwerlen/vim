@@ -1,4 +1,4 @@
-%define patchlevel 1786
+%define patchlevel 1797
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -230,7 +230,7 @@ export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOU
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
-perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
+#perl -pi -e "s/help.txt/vi_help.txt/"  os_unix.h ex_cmds.c
 perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
@@ -255,7 +255,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
   --enable-python3interp=dynamic \
-  --enable-perlinterp \
+  --enable-perlinterp=dynamic \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
@@ -291,7 +291,7 @@ make clean
 %configure --prefix=%{_prefix} --with-features=huge \
  --enable-pythoninterp=dynamic \
  --enable-python3interp=dynamic \
- --enable-perlinterp \
+ --enable-perlinterp=dynamic \
  --disable-tclinterp \
  --with-x=no \
  --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
@@ -484,18 +484,18 @@ mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
 install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
 
 (cd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc;
- gzip -9 *.txt
- gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
- cp %{SOURCE12} .
- cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
-cat >> tags << EOF
-vi_help.txt	vi_help.txt	/*vi_help.txt*
-vi-author.txt	vi_help.txt	/*vi-author*
-vi-Bram.txt	vi_help.txt	/*vi-Bram*
-vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
-vi-credits.txt	vi_help.txt	/*vi-credits*
-EOF
-LANG=C sort tags > tags.tmp; mv tags.tmp tags
+# gzip -9 *.txt
+# gzip -d help.txt.gz version7.txt.gz sponsor.txt.gz
+# cp %{SOURCE12} .
+# cat tags | sed -e 's/\t\(.*.txt\)\t/\t\1.gz\t/;s/\thelp.txt.gz\t/\thelp.txt\t/;s/\tversion7.txt.gz\t/\tversion7.txt\t/;s/\tsponsor.txt.gz\t/\tsponsor.txt\t/' > tags.new; mv -f tags.new tags
+#cat >> tags << EOF
+#vi_help.txt	vi_help.txt	/*vi_help.txt*
+#vi-author.txt	vi_help.txt	/*vi-author*
+#vi-Bram.txt	vi_help.txt	/*vi-Bram*
+#vi-Moolenaar.txt	vi_help.txt	/*vi-Moolenaar*
+#vi-credits.txt	vi_help.txt	/*vi-credits*
+#EOF
+#LANG=C sort tags > tags.tmp; mv tags.tmp tags
  )
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
@@ -769,6 +769,12 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> 7.4.1797-1
+- patchlevel 1797
+
+* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1786-1
+- dynamically load perl when needed (rhbz#1327755)
+
 * Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> 7.4.1786-1
 - patchlevel 1786
 

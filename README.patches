@@ -1,3 +1,103 @@
+commit 3247fc9e85ec2067ebfd44d0e7efebce66f0aac2
+Merge: f953813 c61348e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 29 11:43:48 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit c61348e83fd4eed8b999fe5b7cdfb4caf90bf3fd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 28 22:20:03 2016 +0200
+
+    patch 7.4.1797
+    Problem:    Warning from Windows 64 bit compiler.
+    Solution:   Change int to size_t. (Mike Williams)
+
+commit 283ee8b3a07b9da18f6c73f35cf465b83f96406a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Apr 27 20:36:31 2016 +0200
+
+    patch 7.4.1796
+    Problem:    Colors are wrong on MS-Windows. (Christian Robinson)
+    Solution:   Use existing RGB macro if it exists. (Ken Takata)
+
+commit 5487544fa5d46af9f8f98aa4f5c59074a6e0639a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 22:33:17 2016 +0200
+
+    patch 7.4.1795
+    Problem:    Compiler warning for redefining RGB. (John Marriott)
+    Solution:   Rename it to TORGB.
+
+commit c285fe7c3ffdb3ec4eff20a1d1d5accfc80f1a86
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 21:51:48 2016 +0200
+
+    patch 7.4.1794
+    Problem:    Can't build on MS-Windows.
+    Solution:   Add missing declaration.
+
+commit e8aee7dcf9b12becff86e8ce1783a86801c5f9f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 21:39:13 2016 +0200
+
+    patch 7.4.1793
+    Problem:    Some character classes may differ between systems.  On OS/X the
+                regexp test fails.
+    Solution:   Make this less dependent on the system. (idea by Kazunobu Kuriyama)
+
+commit ab3022196ea4f1496e79b8ee85996e31c45d02f1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 20:59:29 2016 +0200
+
+    patch 7.4.1792
+    Problem:    Color name decoding is implemented several times.
+    Solution:   Move it to term.c. (Christian Brabandt)
+
+commit 674127e1801fd02ff07dddf0dc3bf0d8cce68997
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 20:30:07 2016 +0200
+
+    patch 7.4.1791
+    Problem:    Channel could be garbage collected too early.
+    Solution:   Don't free a channel or remove it from a job when it is still
+                useful.
+
+commit 6231cb8b5b208becf088531816027001acc754e5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 19:42:42 2016 +0200
+
+    patch 7.4.1790
+    Problem:    Leading white space in a job command matters. (Andrew Stewart)
+    Solution:   Skip leading white space.
+
+commit 437905c25d4cedfa16d0f87392e4a000d22362b7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 19:01:05 2016 +0200
+
+    patch 7.4.1789
+    Problem:    Cannot use ch_read() in the close callback.
+    Solution:   Do not discard the channel if there is readahead.  Do not discard
+                readahead if there is a close callback.
+
+commit c7baa43fdb3f5b001ba3e6eb05bf6e199698eeea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 17:34:44 2016 +0200
+
+    patch 7.4.1788
+    Problem:    NSIS script is missing packages.
+    Solution:   Add the missing directories. (Ken Takata)
+
+commit b2658a1ab02cd0ba848164f70c7c464fdc398162
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 26 17:16:24 2016 +0200
+
+    patch 7.4.1787
+    Problem:    When a job ends the close callback is invoked before other
+                callbacks. On Windows the close callback is not called.
+    Solution:   First invoke out/err callbacks before the close callback.
+                Make the close callback work on Windows.
+
 commit f9538136beff21c04d8d7f8ad7f8d23ed0905771
 Merge: b33f51a d10abe5
 Author: Karsten Hopp <karsten@redhat.com>
