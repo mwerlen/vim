@@ -1,4 +1,4 @@
-%define patchlevel 1786
+%define patchlevel 1797
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -773,6 +773,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> 7.4.1797-1
+- patchlevel 1797
+
 * Tue Apr 26 2016 Karsten Hopp <karsten@redhat.com> 7.4.1786-1
 - patchlevel 1786
 
