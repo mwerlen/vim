@@ -8,6 +8,7 @@ SPEC=vim.spec
 CHANGES=1
 
 DATE=`date +"%a %b %d %Y"`
+fedpkg switch-branch master
 MAJORVERSION=`grep "define baseversion" vim.spec | cut -d ' ' -f 3`
 ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3 | sed -e "s/^0*//g"`
 ORIGPLFILLED=`printf "%03d" $ORIGPL`
