@@ -1,4 +1,4 @@
-%define patchlevel 1797
+%define patchlevel 1816
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -757,6 +757,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Mon May 02 2016 Karsten Hopp <karsten@redhat.com> 7.4.1816-1
+- patchlevel 1816
+
 * Fri Apr 29 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1797-3
 - use uncompressed help files. vimtutor and vi will access those when
   vim-common is installed.  (rhbz#1262182)

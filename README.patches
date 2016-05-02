@@ -1,3 +1,163 @@
+commit d8585eded6359f1d7e1981e96ae775efd077c638
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 1 23:05:53 2016 +0200
+
+    patch 7.4.1816
+    Problem:    Looping over a null list throws an error.
+    Solution:   Skip over the for loop.
+
+commit 9a3b3311d26c990208150255ad65472bb4eefaa4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 1 20:20:49 2016 +0200
+
+    patch 7.4.1815
+    Problem:    Compiler warnings for unused variables. (Ajit Thakkar)
+    Solution:   Add a dummy initialization. (Yasuhiro Matsumoto)
+
+commit b8d4905592fc26fcd09180d7d6bfefd899f2f6c6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 1 14:22:16 2016 +0200
+
+    patch 7.4.1814
+    Problem:    A channel may be garbage collected while it's still being used by
+                a job. (James McCoy)
+    Solution:   Mark the channel as used if the job is still used.  Do the same
+                for channels that are still used.
+
+commit 9b4ebc692d77ca8ef90d72517347f74c2474dd3d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 1 13:28:38 2016 +0200
+
+    patch 7.4.1813
+    Problem:    Memory access error when running test_quickfix.
+    Solution:   Allocate one more byte. (Yegappan Lakshmanan)
+
+commit 187147aedd588070d0676664d5076d046644094e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 1 13:09:57 2016 +0200
+
+    patch 7.4.1812
+    Problem:    Failure on startup with Athena and Motif.
+    Solution:   Check for INVALCOLOR. (Kazunobu Kuriyama)
+
+commit 3266c85a44a637862b0ed6e531680c6ab2897ab5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 18:07:05 2016 +0200
+
+    patch 7.4.1811
+    Problem:    Netbeans channel gets garbage collected.
+    Solution:   Set reference in nb_channel.
+
+commit 715d285d79a1d97928dd717278e25e6de45d1496
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 17:06:31 2016 +0200
+
+    patch 7.4.1810
+    Problem:    Sending DETACH after a channel was closed isn't useful.
+    Solution:   Only add DETACH for a netbeans channel.
+
+commit 868cfc19bb079a16ca58884b551486566f35419b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 16:49:58 2016 +0200
+
+    patch 7.4.1809
+    Problem:    Using wrong short option name for 'termguicolors'.
+    Solution:   Use the option name.
+
+commit 8a24b794b89916c8074892e7b25121a21f1fa9c9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 16:13:10 2016 +0200
+
+    patch 7.4.1808
+    Problem:    Using wrong feature name to check for 'termguicolors'.
+    Solution:   Use the right feature name. (Ken Takata)
+
+commit d75263c020a5044fa73bc8cd57ce73ca5e23b360
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 16:07:23 2016 +0200
+
+    patch 7.4.1807
+    Problem:    Test_out_close_cb sometimes fails.
+    Solution:   Always write DETACH to out, not err.
+
+commit 8e3d1b6326c103cc92f8d07b1161ee5172acf201
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 15:17:19 2016 +0200
+
+    patch 7.4.1806
+    Problem:    'termguicolors' option missing from the options window.
+    Solution:   Add the entry.
+
+commit 06481427005a9dae39721087df94855f7d4d1feb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 15:13:38 2016 +0200
+
+    Update runtime files.
+
+commit 4cc39a527fecc96ad6639f10c9389c66af828cf1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 15:08:27 2016 +0200
+
+    patch 7.4.1805
+    Problem:    Running tests in shadow dir fails.
+    Solution:   Link the samples directory
+
+commit b20545f2a718d4f19c3f609fd11c0ca4eff450ce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 14:15:54 2016 +0200
+
+    patch 7.4.1804
+    Problem:    Can't use Vim as MANPAGER.
+    Solution:   Add manpager.vim. (Enno Nagel, closes #491)
+
+commit 0b6cf69c038b9af198542edc349ebe8e53a8f847
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 13:26:14 2016 +0200
+
+    patch 7.4.1803
+    Problem:    GTK3 doesn't handle menu separaters properly.
+    Solution:   Use gtk_separator_menu_item_new(). (Kazunobu Kuriyama)
+
+commit 6be8c8e165204b8aa4eeb8a52be87a58d8b41b9e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 13:17:09 2016 +0200
+
+    patch 7.4.1802
+    Problem:    Quickfix doesn't handle long lines well, they are split.
+    Solution:   Drop characters after a limit. (Anton Lindqvist)
+
+commit 113ce084569893a3897c8cc4d7d0f301fef7978a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 12:32:52 2016 +0200
+
+    patch 7.4.1801
+    Problem:    Make uninstall leaves file behind.
+    Solution:   Delete rgb.txt. (Kazunobu Kuriyama)
+
+commit 631225627d448b591e529a5d3e7ac74ef44b8459
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 30 12:28:15 2016 +0200
+
+    patch 7.4.1800
+    Problem:    Unnecessary #ifdef.
+    Solution:   Just use USE_24BIT. (Ken Takata)
+
+commit 61be73bb0f965a895bfb064ea3e55476ac175162
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 29 22:59:22 2016 +0200
+
+    patch 7.4.1799
+    Problem:    'guicolors' is a confusing option name.
+    Solution:   Use 'termguicolors' instead. (Hirohito Higashi)
+
+commit bb82762907ba024717ad9af3b229c2fa6405cd36
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 29 22:33:27 2016 +0200
+
+    patch 7.4.1798
+    Problem:    Still compiler warning for unused return value. (Charles Campbell)
+    Solution:   Assign to ignoredp.
+
 commit c61348e83fd4eed8b999fe5b7cdfb4caf90bf3fd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Apr 28 22:20:03 2016 +0200
