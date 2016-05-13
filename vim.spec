@@ -1,4 +1,4 @@
-%define patchlevel 1816
+%define patchlevel 1830
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -757,6 +757,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Fri May 13 2016 Karsten Hopp <karsten@redhat.com> 7.4.1830-1
+- patchlevel 1830
+
 * Mon May 02 2016 Karsten Hopp <karsten@redhat.com> 7.4.1816-1
 - patchlevel 1816
 

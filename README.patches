@@ -1,3 +1,134 @@
+commit 0a1b630aab827344cc14ea2c98bbd068f6498abb
+Merge: 3247fc9 73a733e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri May 13 11:29:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit 73a733e08bb7853d2ac12c60756ae51e39abb4d9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 11 21:05:05 2016 +0200
+
+    patch 7.4.1830
+    Problem:    non-antialiased misnamed.
+    Solution:   Use NONANTIALIASED and NONANTIALIASED_QUALITY. (Kim Brouer,
+                closes #793)
+
+commit de7eb0a47b557eb4656c6b63d421c7e7bae1ef30
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 9 20:54:33 2016 +0200
+
+    patch 7.4.1829
+    Problem:    No message on channel log when buffer was freed.
+    Solution:   Log a message.
+
+commit e0f76d00979c972329f6c371463a20da61ccad65
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 9 20:38:53 2016 +0200
+
+    patch 7.4.1828
+    Problem:    May try to access buffer that's already freed.
+    Solution:   When freeing a buffer remove it from any channel.
+
+commit fb6ffc732e65dbc459c89247ff78134402f1a18b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 9 17:58:04 2016 +0200
+
+    patch 7.4.1827
+    Problem:    No error when invoking a callback when it's not safe.
+    Solution:   Add an error message.  Avoid the error when freeing a channel.
+
+commit cf7ff70ca73218d618e7c00ab785bcf5f9120a94
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 9 17:20:14 2016 +0200
+
+    patch 7.4.1826
+    Problem:    Callbacks are invoked when it's not safe. (Andrew Stewart)
+    Solution:   When a channel is to be closed don't invoke callbacks right away,
+                wait for a safe moment.
+
+commit 5d96e3ae534ade8ed09a5de9ff8fd7519537ec28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 8 21:47:01 2016 +0200
+
+    patch 7.4.1825
+    Problem:    When job writes to buffer nothing is written. (Nicola)
+    Solution:   Do not discard a channel before writing is done.
+
+commit 36e0f7da9bc4a6ee8a7b17df503542a339e034c8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 8 13:21:12 2016 +0200
+
+    patch 7.4.1824
+    Problem:    When a job is no longer referenced and does not have an exit
+                callback the process may hang around in defunc state. (Nicola)
+    Solution:   Call job_status() if the job is running and won't get freed
+                because it might still be useful.
+
+commit d9db8b448c214eb583e84c598bca0688b9202ba7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 8 12:52:05 2016 +0200
+
+    patch 7.4.1823
+    Problem:    Warning from 64 bit compiler.
+    Solution:   Add type cast. (Mike Williams)
+
+commit 91c4937be15b0b743b6bc495df602c1abbff6b87
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 8 09:50:29 2016 +0200
+
+    Updated runtime files.
+
+commit ea83bf06b92baeb6d68a10d8e8ffad289d31dae2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 8 09:40:51 2016 +0200
+
+    patch 7.4.1822
+    Problem:    Redirecting stdout of a channel to "null" doesn't work. (Nicola)
+    Solution:   Correct the file descriptor number.
+
+commit 4ed6b2e2d7fd5959fb9b9f608935d47305c4bbe4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 7 22:28:53 2016 +0200
+
+    patch 7.4.1821
+    Problem:    Test fails on MS-Windows.
+    Solution:   Sort the completion results.
+
+commit 9ccaae04c6f263e6db14fc403bca2404a7871114
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 7 18:36:48 2016 +0200
+
+    patch 7.4.1820
+    Problem:    Removing language from help tags too often.
+    Solution:   Only remove @en when not needed. (Hirohito Higashi)
+
+commit 827b165b2aebad2cfe98cc6d5804c6c0fe8afd89
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu May 5 18:14:03 2016 +0200
+
+    patch 7.4.1819
+    Problem:    Compiler warnings when sprintf() is a macro.
+    Solution:   Don't interrupt sprintf() with an #ifdef. (Michael Jarvis,
+                closes #788)
+
+commit 89c79b99328b66f77f1d12dc8c6701dfe2c57f15
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu May 5 17:18:41 2016 +0200
+
+    patch 7.4.1818
+    Problem:    Help completion adds @en to all matches except the first one.
+    Solution:   Remove "break", go over all items.
+
+commit cefe4f994853c2d4866e2aa4ea3e3f36ab2fea13
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 4 21:49:19 2016 +0200
+
+    patch 7.4.1817
+    Problem:    The screen is not updated if a callback is invoked when closing a
+                channel.
+    Solution:   Invoke redraw_after_callback().
+
 commit d8585eded6359f1d7e1981e96ae775efd077c638
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun May 1 23:05:53 2016 +0200
@@ -158,6 +289,13 @@ Date:   Fri Apr 29 22:33:27 2016 +0200
     Problem:    Still compiler warning for unused return value. (Charles Campbell)
     Solution:   Assign to ignoredp.
 
+commit 3247fc9e85ec2067ebfd44d0e7efebce66f0aac2
+Merge: f953813 c61348e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 29 11:43:48 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit c61348e83fd4eed8b999fe5b7cdfb4caf90bf3fd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Apr 28 22:20:03 2016 +0200
@@ -251,6 +389,13 @@ Date:   Tue Apr 26 17:16:24 2016 +0200
     Solution:   First invoke out/err callbacks before the close callback.
                 Make the close callback work on Windows.
 
+commit f9538136beff21c04d8d7f8ad7f8d23ed0905771
+Merge: b33f51a d10abe5
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Apr 26 13:09:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit d10abe52019d10403eb559ea0a424bbd310b738f
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Apr 24 15:41:33 2016 +0200
@@ -343,6 +488,13 @@ Date:   Fri Apr 22 20:20:19 2016 +0200
     patch 7.4.1776
     Problem:    Using wrong buffer length.
     Solution:   use the right name. (Kazunobu Kuriyama)
+
+commit b33f51aac191c8831bebbc0ca5b0a49456fc0003
+Merge: 8cf439c 763b684
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 22 12:40:34 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 763b684373bf5954445d8d8d99da1e39a4fc5105
 Author: Bram Moolenaar <Bram@vim.org>
@@ -854,6 +1006,13 @@ Date:   Fri Apr 8 17:07:19 2016 +0200
     Solution:   Add a copyID to job and channel.  Set references in items referred
                 by them.  Go through all jobs and channels to find unreferenced
                 items.  Also, decrement reference counts when garbage collecting.
+
+commit 8cf439cb8003c79addd36cc2c6d1dcc42652f3f2
+Merge: d8dc5e6 d56374e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 8 11:00:52 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit d56374e25df0b317b01423a01f158157faa647fa
 Author: Bram Moolenaar <Bram@vim.org>
@@ -2115,6 +2274,13 @@ Date:   Tue Mar 15 16:35:39 2016 +0100
     patch 7.4.1571
     Problem:    No test for ":help".
     Solution:   Add a test for what 7.4.1568 fixed. (Higashi Higashi)
+
+commit d8dc5e63fabbbddeb45a311f1deff240e4a8e709
+Merge: 0ee7bfe 426dd02
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Mar 15 16:13:43 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 426dd0219512af5f4abeb0901b533159253ffba3
 Author: Bram Moolenaar <Bram@vim.org>
@@ -3421,6 +3587,14 @@ Date:   Thu Feb 25 15:25:03 2016 +0100
                 (Jörg Plate)
     Solution:   Use "char_u" always.
 
+commit 0ee7bfeec9fef5bd2a86ba0e37de6b4ffe11e152
+Merge: 61d7db7 f391327
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Thu Feb 25 00:31:00 2016 +0100
+
+    Merg e branch 'master' of https://github.com/vim/vim
+    pd
+
 commit f391327adbbffb11180cf6038a92af1ed144e907
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 25 00:00:01 2016 +0100
@@ -4028,6 +4202,13 @@ Date:   Wed Feb 17 20:48:19 2016 +0100
     patch 7.4.1345
     Problem:    A few more compiler warnings. (Axel Bender)
     Solution:   Add type casts.
+
+commit 61d7db7b5a9897fea34054cebe8442f45efa3fa4
+Merge: 07a61e8 2032190
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Wed Feb 17 14:50:39 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 203219048fa007b5042d9b893fd647aef44722a0
 Author: Bram Moolenaar <Bram@vim.org>
@@ -5023,6 +5204,13 @@ Date:   Mon Feb 1 21:32:58 2016 +0100
     Solution:   Add a zero timeout.  Call parse_queued_messages(). (Yasuhiro
                 Matsumoto)
 
+commit 07a61e8ce9dfd44a17d63b4629fb7443cc481a7f
+Merge: 67a4e64 fb1f626
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Mon Feb 1 14:12:20 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit fb1f62691eae7c79a28b3b17a60e72ce198c71a2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 31 20:24:32 2016 +0100
@@ -5774,6 +5962,13 @@ Date:   Tue Jan 19 23:36:15 2016 +0100
     Solution:   Add the "f" flag to ":sort".  (Alex Jakushev)  Also add the "f"
                 flag to sort().
 
+commit 67a4e64892d55b6ee45673230ca77693860ac6cb
+Merge: 2b52732 b8060fe
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 19 22:53:42 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit b8060fe862f684b591f9ac679eac5b2594d6c5a0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 19 22:29:28 2016 +0100
@@ -6261,6 +6456,12 @@ Date:   Tue Jan 12 21:00:40 2016 +0100
     Problem:    Coverity warns for uninitialized variables.  Only one is an actual
                 problem.
     Solution:   Move the conditions.  Don't use endpos if handling an error.
+
+commit 2b527328d1927b42ca190ff5f92ba69283bdcad0
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 12 14:59:32 2016 +0100
+
+    add more ssh keywords
 
 commit d79e55016cf8268cee935f1ac3b5b28712d1399e
 Author: Bram Moolenaar <Bram@vim.org>
