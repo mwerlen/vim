@@ -1,4 +1,4 @@
-%define patchlevel 1830
+%define patchlevel 1835
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -745,6 +745,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 24 2016 Karsten Hopp <karsten@redhat.com> 7.4.1835-1
+- patchlevel 1835
+
 * Tue May 24 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1830-3
 - mv vim.sh and vim.csh to source files
 - sh profile.d improvements: don't leak $ID, don't fail on nounset
