@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -257,7 +257,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
   --enable-python3interp=dynamic \
-  --enable-perlinterp \
+  --enable-perlinterp=dynamic \
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
@@ -293,7 +293,7 @@ make clean
 %configure --prefix=%{_prefix} --with-features=huge \
  --enable-pythoninterp=dynamic \
  --enable-python3interp=dynamic \
- --enable-perlinterp \
+ --enable-perlinterp=dynamic \
  --disable-tclinterp \
  --with-x=no \
  --enable-gui=no --exec-prefix=%{_prefix} --enable-multibyte \
@@ -745,6 +745,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 24 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1835-2
+- compile perl support as a dynamic module (rhbz#1327755)
+
 * Tue May 24 2016 Karsten Hopp <karsten@redhat.com> 7.4.1835-1
 - patchlevel 1835
 
