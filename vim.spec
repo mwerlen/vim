@@ -21,14 +21,16 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
-Source2: gvim.desktop
-Source3: vimrc
-Source4: vimrc
-Source5: ftp://ftp.vim.org/pub/vim/patches/README.patches
+Source1: vim.sh
+Source2: vim.csh
+Source3: gvim.desktop
+Source4: virc
+Source5: vimrc
+Source6: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
 Source8: gvim32.png
 Source9: gvim48.png
@@ -218,7 +220,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3015 -p1
 
 %build
-cp -f %{SOURCE5} .
+cp -f %{SOURCE6} .
 cd src
 autoconf
 
@@ -419,11 +421,11 @@ EOF
         --vendor fedora \
     %endif
         --dir %{buildroot}/%{_datadir}/applications \
-        %{SOURCE2}
+        %{SOURCE3}
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
   %else
     mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
-    cp %{SOURCE2} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
+    cp %{SOURCE3} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
@@ -461,25 +463,11 @@ chmod 644 %{buildroot}/%{_datadir}/%{name}/%{vimdir}/doc/vim2html.pl \
 chmod 644 ../runtime/doc/vim2html.pl
 
 mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
-cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.sh <<EOF
-if [ -n "\$BASH_VERSION" -o -n "\$KSH_VERSION" -o -n "\$ZSH_VERSION" ]; then
-  [ -x %{_bindir}/id ] || return
-  ID=\`/usr/bin/id -u\`
-  [ -n "\$ID" -a "\$ID" -le 200 ] && return
-  # for bash and zsh, only if no alias is already set
-  alias vi >/dev/null 2>&1 || alias vi=vim
-fi
-EOF
-cat >%{buildroot}/%{_sysconfdir}/profile.d/vim.csh <<EOF
-if ( -x /usr/bin/id ) then
-    if ( "\`/usr/bin/id -u\`" > 200 ) then
-        alias vi vim
-    endif
-endif
-EOF
-chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/*
-install -p -m644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/virc
-install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/vimrc
+cp %{SOURCE1} %{buildroot}/%{_sysconfdir}/profile.d/vim.sh
+cp %{SOURCE2} %{buildroot}/%{_sysconfdir}/profile.d/vim.csh
+chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/vim.*
+install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
+install -p -m644 %{SOURCE5} %{buildroot}/%{_sysconfdir}/vimrc
 
 mkdir -p %{buildroot}%{_libdir}/%{name}
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
@@ -757,6 +745,11 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue May 24 2016 Karsten Hopp <karsten@redhat.com> - 7.4.1830-3
+- mv vim.sh and vim.csh to source files
+- sh profile.d improvements: don't leak $ID, don't fail on nounset
+  (rhbz#1339106 Ville Skyttä)
+
 * Sun May 15 2016 Jitka Plesnikova <jplesnik@redhat.com> - 2:7.4.1830-2
 - Perl 5.24 rebuild
 
