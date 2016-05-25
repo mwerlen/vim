@@ -1,3 +1,70 @@
+commit 03e19a04ac2ca55643663b97b6ab94043233dcbd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 22:29:49 2016 +0200
+
+    patch 7.4.1842
+    Problem:    get() works for Partial but not for Funcref.
+    Solution:   Accept Funcref.  Also return the function itself. (Nikolai Pavlov)
+
+commit 26852128a2b713ef49341a0c18daba928444e7eb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 20:02:38 2016 +0200
+
+    Update runtime files.
+
+commit 2b2b8ae5ab37b04584633c469265d85825166905
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 19:59:51 2016 +0200
+
+    patch 7.4.1841
+    Problem:    The code to reallocate the buffer used for quickfix is repeated.
+    Solution:   Move the code to a function. (Yegappan Lakshmanan, closes #831)
+
+commit a57024453115592b8847af40ddd965a33898e390
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 19:37:29 2016 +0200
+
+    patch 7.4.1840
+    Problem:    When using packages an "after" directory cannot be used.
+    Solution:   Add the "after" directory of the package to 'runtimepath' if it
+                exists.
+
+commit 2bbf8eff6fab16d86e7bcfc0da1962d31bec7891
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 18:37:12 2016 +0200
+
+    patch 7.4.1839
+    Problem:    Cannot get the items stored in a partial.
+    Solution:   Support using get() on a partial.
+
+commit 574860b5ee9da281c875dad07a607454e135eaee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 17:33:34 2016 +0200
+
+    patch 7.4.1838
+    Problem:    Functions specifically for testing do not sort together.
+    Solution:   Rename garbagecollect_for_testing() to test_garbagecollect_now().
+                Add test_null_list(), test_null_dict(), etc.
+
+commit c67e89213476b5f4756d92208b57ce9ef4a4cf24
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 16:07:40 2016 +0200
+
+    patch 7.4.1837
+    Problem:    The BufUnload event is triggered twice, when :bunload is used with
+                 set to  or .
+    Solution:   Do not trigger the event when ml_mfp is NULL. (Hirohito Higashi)
+
+commit 1d429610bf9e99a6252be8abbc910d6667e4d1da
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 24 15:44:17 2016 +0200
+
+    patch 7.4.1836
+    Problem:    When using a partial on a dictionary it always gets bound to that
+                dictionary.
+    Solution:   Make a difference between binding a function to a dictionary
+                explicitly or automatically.
+
 commit 991dea3ab185fb35e577ab0bdfd443cd4b43ccc6
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue May 24 11:31:32 2016 +0200
