@@ -1,3 +1,233 @@
+commit 1c582ef49f17436313b82977c0a941f461ba130a
+Merge: 0a1b630 b89a25f
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Thu Jun 2 10:51:31 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit b89a25f17e274dc308c584ea69a129ffbb26bc3d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 1 23:08:39 2016 +0200
+
+    patch 7.4.1868
+    Problem:    Setting really_exiting causes memory leaks to be reported.
+    Solution:   Add the in_free_all_mem flag.
+
+commit 3c809343c72d9964475f421fd03bb892bc584a51
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 1 22:34:48 2016 +0200
+
+    patch 7.4.1867
+    Problem:    Memory leak in test_matchstrpos.
+    Solution:   Free the string before overwriting. (Yegappan Lakshmanan)
+
+commit a96732150cda2f242133228579b05437a39b8daa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 1 22:21:06 2016 +0200
+
+    patch 7.4.1866
+    Problem:    Invalid memory access when exiting with EXITFREE defined.
+                (Dominique Pelle)
+    Solution:   Set "really_exiting" and skip error messages.
+
+commit 9ad73239c26467832a5b553b2a4b99d7ffbaa25e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 1 22:08:17 2016 +0200
+
+    patch 7.4.1865
+    Problem:    Memory leaks in tet49. (Dominique Pelle)
+    Solution:   Use NULL instead of an empty string.
+
+commit 22081f4a3397704645841121d994058abd6cb481
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 1 20:38:34 2016 +0200
+
+    patch 7.4.1864
+    Problem:    Python: encoding error with Python 2.
+    Solution:   Use "getcwdu" instead of "getcwd". (Ken Takata)
+
+commit 9b0ac229bcfc91acabd35fc576055a94c1687c32
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 1 20:31:43 2016 +0200
+
+    patch 7.4.1863
+    Problem:    Compiler warnings on Win64.
+    Solution:   Adjust types, add type casts. (Ken Takata)
+
+commit 18dfb4404a618c52ee7138630a2381aed4d66eaf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 31 22:31:23 2016 +0200
+
+    patch 7.4.1862
+    Problem:    string() with repeated argument does not give a result usable by
+                eval().
+    Solution:   Refactor echo_striong and tv2string(), moving the common part to
+                echo_string_core(). (Ken Takata)
+
+commit b055066a1daf12c349d6c575aff22ae4d999a157
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 31 21:37:36 2016 +0200
+
+    patch 7.4.1861
+    Problem:    Compiler warnings with 64 bit compiler.
+    Solution:   Change int to size_t. (Mike William)
+
+commit e3188e261569ae512fb1ae2653b57fdd9e259ca3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 31 21:13:04 2016 +0200
+
+    patch 7.4.1860
+    Problem:    Using a partial for timer_start() may cause a crash.
+    Solution:   Set the copyID in timer objects. (Ozaki Kiichi)
+
+commit ef3abc6442260e9a0314970a532400b05571d3fe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 29 16:44:26 2016 +0200
+
+    patch 7.4.1859
+    Problem:    Cannot use a function reference for "exit_cb".
+    Solution:   Use get_callback(). (Yegappan Lakshmanan)
+
+commit b127cfd75f59e82580df395b6e2c009774644b16
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 29 16:24:50 2016 +0200
+
+    patch 7.4.1858
+    Problem:    When a channel writes to a buffer it doesn't find a buffer by the
+                short name but re-uses it anyway.
+    Solution:   Find buffer also by the short name.
+
+commit 9f5842e63fc63d438cbffcec503e072a06f74dc2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 29 16:17:08 2016 +0200
+
+    patch 7.4.1857
+    Problem:    When a channel appends to a buffer that is 'nomodifiable' there is
+                an error but appending is done anyway.
+    Solution:   Add the 'modifiable' option.  Refuse to write to a 'nomodifiable'
+                when the value is 1.
+
+commit 324a78f3b649e7b14741519ecf19c4aba178772d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 22:47:12 2016 +0200
+
+    patch 7.4.1856
+    Problem:    failing job test fails on MS-Windows.
+    Solution:   Expect "fail" status instead of "dead".
+
+commit 655da31a18ef3f888acf10e68b438e2a851f7b14
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 22:22:34 2016 +0200
+
+    patch 7.4.1855
+    Problem:    Valgrind reports memory leak for job that is not freed.
+    Solution:   Free all jobs on exit.  Add test for failing job.
+
+commit d80629cef03cd40b0bf06c402dfe0b720b3bf608
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 15:53:53 2016 +0200
+
+    patch 7.4.1854
+    Problem:    When setting 'termguicolors' the Ignore highlighting doesn't work.
+                (Charles Campbell)
+    Solution:   Handle the color names "fg" and "bg" when the GUI isn't running
+                and no colors are speficied, fall back to black and white.
+
+commit 28ae5773422c2cf61aaf8d9d2b9fae70642d6a33
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 14:16:10 2016 +0200
+
+    patch 7.4.1853
+    Problem:    Crash when job and channel are in the same dict while using
+                partials. (Luc Hermitte)
+    Solution:   Do not decrement the channel reference count too early.
+
+commit af6c12c27bcb553b2fb2c8a9dcfde626fb3670fe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 13:40:10 2016 +0200
+
+    patch 7.4.1852
+    Problem:    Unix: Cannot run all tests with the GUI.
+    Solution:   Add the "testgui" target.
+
+commit 180fc2d41812c49b60224a1ca89945a002a090f5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 13:28:10 2016 +0200
+
+    patch 7.4.1851
+    Problem:    test_syn_attr failes when using the GUI. (Dominique Pelle)
+    Solution:   Escape the font name properly.
+
+commit bf981eeb6b4ee63ae8543a7f9865ab700159a79c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 28 13:20:31 2016 +0200
+
+    patch 7.4.1850
+    Problem:    GUI freezes when using a job. (Shougo)
+    Solution:   Unregister the channel when there is an input error.
+
+commit 5850a764eae74a4dae7238e4e76b4c24f062699b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri May 27 19:59:48 2016 +0200
+
+    patch 7.4.1849
+    Problem:    Still trying to read from channel that is going to be closed.
+                (Ramel Eshed)
+    Solution:   Check if ch_to_be_closed is set.
+
+commit 6727bf861776cfbb93c97dfea5f87a095cf9f364
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu May 26 22:10:00 2016 +0200
+
+    patch 7.4.1848
+    Problem:    Can't build with Strawberry Perl 5.24.
+    Solution:   Define S_SvREFCNT_dec() if needed. (Damien, Ken Takata)
+
+commit 13ddc5c35921efa69e980284117b6db6465e019c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 25 22:51:17 2016 +0200
+
+    patch 7.4.1847
+    Problem:    Getting an item from a NULL dict crashes.  Setting a register to a
+                NULL list crashes. (Nikolai Pavlov, issue #768)  Comparing a NULL
+                dict with a NULL dict fails.
+    Solution:   Properly check for NULL.
+
+commit 54c10ccf9274880e83093a99690e7bfa9a2d2fa8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 25 22:00:11 2016 +0200
+
+    patch 7.4.1846
+    Problem:    Ubsan detects a multiplication overflow.
+    Solution:   Don't use orig_mouse_time when it's zero. (Dominique Pelle)
+
+commit f8df45d84f1d17dced23e185d4835fc23406d73d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 25 21:48:13 2016 +0200
+
+    patch 7.4.1845
+    Problem:    Mentioning NetBeans when reading from channel. (Ramel Eshed)
+    Solution:   Make the text more generic.
+
+commit 8e8df251bf2505e5decf258397c6069fbe5e2e01
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 25 21:23:21 2016 +0200
+
+    patch 7.4.1844
+    Problem:    Using old function name in comment.  More functions should start
+                with test_.
+    Solution:   Rename function in comment. (Higashi Higashi) Rename
+                disable_char_avail_for_testing() to test_disable_char_avail().
+                And alloc_fail() to test_alloc_fail().
+
+commit 2177f9fe18a927ef65ccebb0856722a28dc00252
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 25 20:39:09 2016 +0200
+
+    patch 7.4.1843
+    Problem:    Tests involving Python are flaky.
+    Solution:   Set the pt_auto field.  Add tests. (Nikolai Pavlov)
+
 commit 03e19a04ac2ca55643663b97b6ab94043233dcbd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue May 24 22:29:49 2016 +0200
@@ -111,6 +341,13 @@ Date:   Sun May 15 18:00:19 2016 +0200
     Problem:    When timer_stop() is called with a string there is no proper error
                 message.
     Solution:   Require getting a number. (Bjorn Linse)
+
+commit 0a1b630aab827344cc14ea2c98bbd068f6498abb
+Merge: 3247fc9 73a733e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri May 13 11:29:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 73a733e08bb7853d2ac12c60756ae51e39abb4d9
 Author: Bram Moolenaar <Bram@vim.org>
@@ -396,6 +633,13 @@ Date:   Fri Apr 29 22:33:27 2016 +0200
     Problem:    Still compiler warning for unused return value. (Charles Campbell)
     Solution:   Assign to ignoredp.
 
+commit 3247fc9e85ec2067ebfd44d0e7efebce66f0aac2
+Merge: f953813 c61348e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 29 11:43:48 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit c61348e83fd4eed8b999fe5b7cdfb4caf90bf3fd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Apr 28 22:20:03 2016 +0200
@@ -489,6 +733,13 @@ Date:   Tue Apr 26 17:16:24 2016 +0200
     Solution:   First invoke out/err callbacks before the close callback.
                 Make the close callback work on Windows.
 
+commit f9538136beff21c04d8d7f8ad7f8d23ed0905771
+Merge: b33f51a d10abe5
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Apr 26 13:09:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit d10abe52019d10403eb559ea0a424bbd310b738f
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Apr 24 15:41:33 2016 +0200
@@ -581,6 +832,13 @@ Date:   Fri Apr 22 20:20:19 2016 +0200
     patch 7.4.1776
     Problem:    Using wrong buffer length.
     Solution:   use the right name. (Kazunobu Kuriyama)
+
+commit b33f51aac191c8831bebbc0ca5b0a49456fc0003
+Merge: 8cf439c 763b684
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 22 12:40:34 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 763b684373bf5954445d8d8d99da1e39a4fc5105
 Author: Bram Moolenaar <Bram@vim.org>
@@ -1092,6 +1350,13 @@ Date:   Fri Apr 8 17:07:19 2016 +0200
     Solution:   Add a copyID to job and channel.  Set references in items referred
                 by them.  Go through all jobs and channels to find unreferenced
                 items.  Also, decrement reference counts when garbage collecting.
+
+commit 8cf439cb8003c79addd36cc2c6d1dcc42652f3f2
+Merge: d8dc5e6 d56374e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 8 11:00:52 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit d56374e25df0b317b01423a01f158157faa647fa
 Author: Bram Moolenaar <Bram@vim.org>
@@ -2353,6 +2618,13 @@ Date:   Tue Mar 15 16:35:39 2016 +0100
     patch 7.4.1571
     Problem:    No test for ":help".
     Solution:   Add a test for what 7.4.1568 fixed. (Higashi Higashi)
+
+commit d8dc5e63fabbbddeb45a311f1deff240e4a8e709
+Merge: 0ee7bfe 426dd02
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Mar 15 16:13:43 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 426dd0219512af5f4abeb0901b533159253ffba3
 Author: Bram Moolenaar <Bram@vim.org>
@@ -3659,6 +3931,14 @@ Date:   Thu Feb 25 15:25:03 2016 +0100
                 (Jörg Plate)
     Solution:   Use "char_u" always.
 
+commit 0ee7bfeec9fef5bd2a86ba0e37de6b4ffe11e152
+Merge: 61d7db7 f391327
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Thu Feb 25 00:31:00 2016 +0100
+
+    Merg e branch 'master' of https://github.com/vim/vim
+    pd
+
 commit f391327adbbffb11180cf6038a92af1ed144e907
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 25 00:00:01 2016 +0100
@@ -4266,6 +4546,13 @@ Date:   Wed Feb 17 20:48:19 2016 +0100
     patch 7.4.1345
     Problem:    A few more compiler warnings. (Axel Bender)
     Solution:   Add type casts.
+
+commit 61d7db7b5a9897fea34054cebe8442f45efa3fa4
+Merge: 07a61e8 2032190
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Wed Feb 17 14:50:39 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 203219048fa007b5042d9b893fd647aef44722a0
 Author: Bram Moolenaar <Bram@vim.org>
@@ -5261,6 +5548,13 @@ Date:   Mon Feb 1 21:32:58 2016 +0100
     Solution:   Add a zero timeout.  Call parse_queued_messages(). (Yasuhiro
                 Matsumoto)
 
+commit 07a61e8ce9dfd44a17d63b4629fb7443cc481a7f
+Merge: 67a4e64 fb1f626
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Mon Feb 1 14:12:20 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit fb1f62691eae7c79a28b3b17a60e72ce198c71a2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 31 20:24:32 2016 +0100
@@ -6012,6 +6306,13 @@ Date:   Tue Jan 19 23:36:15 2016 +0100
     Solution:   Add the "f" flag to ":sort".  (Alex Jakushev)  Also add the "f"
                 flag to sort().
 
+commit 67a4e64892d55b6ee45673230ca77693860ac6cb
+Merge: 2b52732 b8060fe
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 19 22:53:42 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit b8060fe862f684b591f9ac679eac5b2594d6c5a0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 19 22:29:28 2016 +0100
@@ -6499,6 +6800,12 @@ Date:   Tue Jan 12 21:00:40 2016 +0100
     Problem:    Coverity warns for uninitialized variables.  Only one is an actual
                 problem.
     Solution:   Move the conditions.  Don't use endpos if handling an error.
+
+commit 2b527328d1927b42ca190ff5f92ba69283bdcad0
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 12 14:59:32 2016 +0100
+
+    add more ssh keywords
 
 commit d79e55016cf8268cee935f1ac3b5b28712d1399e
 Author: Bram Moolenaar <Bram@vim.org>
