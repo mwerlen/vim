@@ -68,6 +68,7 @@ Patch3015: vim-7.4-releasestring-1318991.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
+BuildRequires: perl-generators
 BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
 BuildRequires: libacl-devel gpm-devel autoconf file
 %if %{WITH_SELINUX}
