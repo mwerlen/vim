@@ -1,3 +1,19 @@
+commit 550c699eb780b27b3875f6cdffa2eae471390908
+Merge: 26522e4 b33c7eb
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jul 5 12:56:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit b33c7eb5b813cb631b2b0ca5c4029e1788a09bde
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 4 22:29:49 2016 +0200
+
+    patch 7.4.1989
+    Problem:    filter() and map() only accept a string argument.
+    Solution:   Implement using a Funcref argument (Yasuhiro Matsumoto, Ken
+                Takata)
+
 commit 26522e4eebc3a78a23eeb63fa5ee2d24a9a7f189
 Merge: 1c582ef ab9c89b
 Author: Karsten Hopp <karsten@redhat.com>
