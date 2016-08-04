@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -46,7 +46,7 @@ Source17: ftplugin-spec.vim
 Source18: syntax-spec.vim
 
 Patch2002: vim-7.0-fixkeys.patch
-Patch2003: vim-6.2-specsyntax.patch
+Patch2003: vim-7.4-specsyntax.patch
 %if %{withhunspell}
 Patch2011: vim-7.0-hunspell.patch
 BuildRequires: hunspell-devel
@@ -63,8 +63,7 @@ Patch3010: vim-7.3-manpage-typo-668894-675480.patch
 Patch3011: vim-manpagefixes-948566.patch
 Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
-Patch3014: vim-7.4-spec_rfc822.patch
-Patch3015: vim-7.4-releasestring-1318991.patch
+Patch3014: vim-7.4-releasestring-1318991.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -218,7 +217,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3012 -p1
 %patch3013 -p1
 %patch3014 -p1
-%patch3015 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -746,6 +744,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Aug 04 2016 Karsten Hopp <karsten@redhat.com> 7.4.1989-2
+- redo patches, some upstream updates broke them
+
 * Tue Jul 05 2016 Karsten Hopp <karsten@redhat.com> 7.4.1989-1
 - patchlevel 1989
 
