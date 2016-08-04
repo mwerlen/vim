@@ -744,7 +744,7 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
-* Tue Aug 04 2016 Karsten Hopp <karsten@redhat.com> 7.4.1989-2
+* Thu Aug 04 2016 Karsten Hopp <karsten@redhat.com> 7.4.1989-2
 - redo patches, some upstream updates broke them
 
 * Tue Jul 05 2016 Karsten Hopp <karsten@redhat.com> 7.4.1989-1
