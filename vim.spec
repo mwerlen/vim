@@ -742,6 +742,7 @@ rm -rf %{buildroot}
 %{_bindir}/evim
 %{_mandir}/man1/evim.*
 %{_datadir}/icons/hicolor/*/apps/*
+%{_datadir}/icons/locolor/*/apps/*
 
 %changelog
 * Tue Sep 13 2016 Karsten Hopp <karsten@redhat.com> 8.0.003-1
