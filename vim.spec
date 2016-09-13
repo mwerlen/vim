@@ -14,8 +14,8 @@
 %define withruby 1
 %define withlua 1
 
-%define baseversion 7.4
-%define vimdir vim74
+%define baseversion 8.0
+%define vimdir vim80
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
