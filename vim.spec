@@ -1,4 +1,4 @@
-%define patchlevel 2330
+%define patchlevel 003
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -744,6 +744,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/apps/*
 
 %changelog
+* Tue Sep 13 2016 Karsten Hopp <karsten@redhat.com> 8.0.003-1
+- patchlevel 003
+
 * Mon Sep 05 2016 Karsten Hopp <karsten@redhat.com> 7.4.2330-1
 - patchlevel 2330
 

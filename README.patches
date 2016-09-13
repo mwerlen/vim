@@ -1,3 +1,379 @@
+commit 789a5c0e3d27f09456678f0cfb6c1bd2d8ab4a35
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 19:51:11 2016 +0200
+
+    patch 8.0.0003
+    Problem:    getwinvar() returns wrong Value of boolean and number options,
+                especially non big endian systems. (James McCoy)
+    Solution:   Cast the pointer to long or int. (closes #1060)
+
+commit b56e7ff0dbbfa85361bdbc5b4a86ff8b57a7acbb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 16:41:04 2016 +0200
+
+    Update translations for intro page.
+
+commit 9e1e7afc1f29b67fe3721442b49af3b20644a3ee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 16:31:10 2016 +0200
+
+    patch 8.0.0002
+    Problem:    The netrw plugin does not work.
+    Solution:   Make it accept version 8.0.
+
+commit 6401024869dcd722ee1b98b4ba58e6caa215201b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 16:23:34 2016 +0200
+
+    patch 8.0.0001
+    Problem:    Intro screen still mentions version7. (Paul)
+    Solution:   Change it to version8.
+
+commit bb76f24af2010943387ce696a7092175b4ecccf2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 14:24:39 2016 +0200
+
+    Vim 8.0 release
+
+commit edeb846c1f04a49466992077eaea3396838bf4fd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 13:32:02 2016 +0200
+
+    patch 7.4.2367
+    Problem:    Test runner misses a comma.
+    Solution:   Add the comma.
+
+commit 100f27721b2f901eae348ef3635897e8be5d0307
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 13:18:29 2016 +0200
+
+    patch 7.4.2366
+    Problem:    MS-Windows gvim.exe does not have DirectX support.
+    Solution:   Add the DIRECTX to the script.
+
+commit 1b010058235fb803c1d4f42a02d2883921be8ef4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 12:24:11 2016 +0200
+
+    patch 7.4.2365
+    Problem:    Needless line break. Confusing directory name.
+    Solution:   Remove line break.  Prepend "../" to "tools".
+
+commit 220adb1e9f9e0b27d28185167d2730bf2f93057d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 12 12:17:26 2016 +0200
+
+    A few more runtime updates.
+
+commit e1c8c7a6742be6072290f9aa54ae358060d9c42f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 11 16:48:50 2016 +0200
+
+    patch 7.4.2364
+    Problem:    Sort test sometimes fails.
+    Solution:   Add it to the list of flaky tests.
+
+commit cbeab96f87b91ed4b096216c397552b7f6d270f9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 11 15:08:56 2016 +0200
+
+    patch 7.4.2363
+    Problem:    Superfluous function prototypes.
+    Solution:   Remove them.
+
+commit 7e1479b86c590a66b63a274c079b7f18907d45a4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 11 15:07:27 2016 +0200
+
+    Updated runtime files, Japanese translations.
+
+commit 4930a76a0357f76a829eafe4985d04cf3ce0e9e0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 11 14:39:53 2016 +0200
+
+    patch 7.4.2362
+    Problem:    Illegal memory access with ":1@". (Dominique Pelle)
+    Solution:   Correct cursor column after setting the line number.  Also avoid
+                calling end_visual_mode() when not in Visual mode.
+
+commit ee39ef0b93d31763d05e54ba99801e3f1a254c0d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 10 19:17:42 2016 +0200
+
+    patch 7.4.2361
+    Problem:    Checking for last_timer_id to overflow is not reliable. (Ozaki
+                Kiichi)
+    Solution:   Check for the number not going up.
+
+commit 80c3fd7c559c7d329d57afe10db9bfb0adf10e46
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 10 15:52:55 2016 +0200
+
+    patch 7.4.2360
+    Problem:    Invalid memory access when formatting. (Dominique Pelle)
+    Solution:   Make sure cursor line and column are associated.
+
+commit 26fe0d56912e42c2b16a61b2480e19ba569aee98
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 10 14:27:30 2016 +0200
+
+    patch 7.4.2359
+    Problem:    Memory leak in timer_start().
+    Solution:   Check the right field to be NULL.
+
+commit d47d83745ff450232328ca7a4b8b00b31bad22fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 22:13:24 2016 +0200
+
+    patch 7.4.2358
+    Problem:    Compiler warnings with Solaris Studio when using GTK3.
+    Solution:   Define FUNC2GENERIC depending on the system. (Kazunobu Kuriyama)
+
+commit 46643713dc6bb04b4e84986b1763ef309e960161
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 21:42:36 2016 +0200
+
+    patch 7.4.2357
+    Problem:    Attempt to read history entry while not initialized.
+    Solution:   Skip when the index is negative.
+
+commit ea683da58cf9ecf3afab9d650d3d2da76e5298d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 21:41:34 2016 +0200
+
+    patch 7.4.2356
+    Problem:    Reading past end of line when using previous substitute pattern.
+                (Dominique Pelle)
+    Solution:   Don't set "pat" only set "searchstr".
+
+commit 16b3578f355282846f2600ce77fb344950f0b9ce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 20:29:50 2016 +0200
+
+    patch 7.4.2355
+    Problem:    Regexp fails to match when using "\>\)\?". (Ramel)
+    Solution:   When a state is already in the list, but addstate_here() is used
+                and the existing state comes later, add the new state anyway.
+
+commit d563883a1fb5ec6cf4a2758c5e36ac1ff4e9bb3d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 17:59:50 2016 +0200
+
+    patch 7.4.2354
+    Problem:    The example that explains nested backreferences does not work
+                properly with the new regexp engine. (Harm te Hennepe)
+    Solution:   Also save the end position when adding a state. (closes #990)
+
+commit 2931f2a5df0d962032d41060af84d9fd2cb35c9f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 16:59:08 2016 +0200
+
+    patch 7.4.2353
+    Problem:    Not enough test coverage for Normal mode commands.
+    Solution:   Add more tests. (Christian Brabandt)
+
+commit 922a443cfdb1a37ef8bdeadf84f8b821ec4b37bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 16:03:48 2016 +0200
+
+    patch 7.4.2352
+    Problem:    Netbeans test fails in shadow directory.
+    Solution:   Also copy README.txt to the shadow directory.
+
+commit ff330ff2c4500dc5535631418d601194654e4536
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 15:31:34 2016 +0200
+
+    patch 7.4.2351
+    Problem:    Netbeans test fails when run from unpacked MS-Windows sources.
+    Solution:   Open README.txt instead of Makefile.
+
+commit cf703fe9d66744ffd7d9c625ee1cbe048ee07740
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 14:59:39 2016 +0200
+
+    patch 7.4.2350
+    Problem:    Test 86 and 87 fail with some version of Python.
+    Solution:   Unify "can't" and "cannot".  Unify quotes.
+
+commit 2321ca2a78286bc026fa7f407281ddbeb04114bb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 14:17:18 2016 +0200
+
+    patch 7.4.2349
+    Problem:    Valgrind reports using uninitialzed memory. (Dominique Pelle)
+    Solution:   Check the length before checking for a NUL.
+
+commit 9a27c7fde6d453d9892b6f6baa756bce4d6d419d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 9 12:57:09 2016 +0200
+
+    patch 7.4.2348
+    Problem:    Crash on exit when EXITFREE is defined. (Dominique Pelle)
+    Solution:   Don't access curwin when exiting.
+
+commit c4a908e83690844b0d3a46124ba6af7d23485d69
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 8 23:35:30 2016 +0200
+
+    patch 7.4.2347
+    Problem:    Crash when closing a buffer while Visual mode is active.
+                (Dominique Pelle)
+    Solution:   Adjust the position before computing the number of lines.
+                When closing the current buffer stop Visual mode.
+
+commit abd468ed0fbcba391e7833feeaa7de3ced841455
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 8 22:22:43 2016 +0200
+
+    Updated runtime files
+
+commit f18c4dbbe545757ce93563b25380e6f010340b4e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 8 22:10:06 2016 +0200
+
+    patch 7.4.2346
+    Problem:    Autocommand test fails when run directly, passes when run as part
+                of test_alot.
+    Solution:   Add command to make the cursor move.  Close a tab page.
+
+commit 0eaadec6b275a8add49242e1940855fcd154ba64
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 8 20:28:45 2016 +0200
+
+    patch 7.4.2345
+    Problem:    For MinGW RUBY_API_VER_LONG isn't set correctly.  Many default
+                version numbers are outdated.
+    Solution:   Set RUBY_API_VER_LONG to RUBY_VER_LONG. Use latest stable releases
+                for defaults. (Ken Takata)
+
+commit 169ebb080454357279ad5ad21ac532deaec605e8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 7 23:32:23 2016 +0200
+
+    patch 7.4.2344
+    Problem:    The "Reading from channel output..." message can be unwanted.
+                Appending to a buffer leaves an empty first line behind.
+    Solution:   Add the "out_msg" and "err_msg" options. Writing the first line
+                overwrites the first, empty line.
+
+commit 53f1673cd909eb1c809c6a9086e3d104a0df9bed
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 7 20:46:39 2016 +0200
+
+    patch 7.4.2343
+    Problem:    Too many old file tests.
+    Solution:   Turn several into new style tests. (Yegappan Lakshmanan)
+
+commit 1b0c1d050e28f351650c0c84e234fd24f12e5e29
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 23:23:52 2016 +0200
+
+    patch 7.4.2342
+    Problem:    Typo in MS-Windows build script.
+    Solution:   change "w2" to "22".
+
+commit aeac9006d5d14910f214f09df52c026a5936e737
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 22:15:08 2016 +0200
+
+    patch 7.4.2341
+    Problem:    Tiny things.  Test doesn't clean up properly.
+    Solution:   Adjust comment and white space. Restore option value.
+
+commit 64d8e25bf6efe5f18b032563521c3ce278c316ab
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 22:12:34 2016 +0200
+
+    Updated runtime files.
+
+commit 6384c5db8dda70076c878d393ba19a1510695228
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 22:06:35 2016 +0200
+
+    patch 7.4.2340
+    Problem:    MS-Windows: Building with Ruby uses old version.
+    Solution:   Update to 2.2.X. Use clearer name for the API version. (Ken
+                Takata)
+
+commit 100f5c90f4d4fb40bc3aeabc35192db371f5988f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 21:33:52 2016 +0200
+
+    patch 7.4.2339
+    Problem:    Tab page test fails when run as fake root.
+    Solution:   Check 'buftype' instead of 'filetype'. (James McCoy, closes #1042)
+
+commit 7947312871e7d01cdba058199904c212ec32f1c0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 21:32:11 2016 +0200
+
+    patch 7.4.2338
+    Problem:    Can't build with small features. (John Marriott)
+    Solution:   Nearly always define FEAT_TAG_BINS.
+
+commit 77b642501ac4c84b4e6820d4e5636eb856faaea7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 21:14:27 2016 +0200
+
+    patch 7.4.2337
+    Problem:    taglist() is still slow. (Luc Hermitte)
+    Solution:   Check for CTRL-C less often when finding duplicates.
+
+commit df0db16cf74281a83a9ea3388a2ef9aedccd013c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 20:37:41 2016 +0200
+
+    patch 7.4.2336
+    Problem:    Running normal mode tests leave a couple of files behind.
+                (Yegappan Lakshmanan)
+    Solution:   Delete the files. (Christian Brabandt)
+
+commit 72b4b870fcc445c14faf282e0595b5f9406b101d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 6 20:24:50 2016 +0200
+
+    patch 7.4.2335
+    Problem:    taglist() is slow. (Luc Hermitte)
+    Solution:   Check for CTRL-C less often when doing a linear search. (closes
+                #1044)
+
+commit 1b0c2fcf6e85c9b85c24757ba970061e1f3e4e80
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 5 23:29:26 2016 +0200
+
+    patch 7.4.2334
+    Problem:    On MS-Windows test_getcwd leaves Xtopdir behind.
+    Solution:   Set 'noswapfile'. (Michael Soyka)
+
+commit 31845093b7f1b33e0c7e9e592bef65528674a1f2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 5 22:58:31 2016 +0200
+
+    patch 7.4.2333
+    Problem:    Outdated comments in test.
+    Solution:   Cleanup normal mode test. (Christian Brabandt)
+
+commit 75537a93e985ef32e6c267b06ce93629855dd983
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 5 22:45:28 2016 +0200
+
+    patch 7.4.2332
+    Problem:    Crash when stop_timer() is called in a callback of a callback.
+                Vim hangs when the timer callback uses too much time.
+    Solution:   Set tr_id to -1 when a timer is to be deleted. Don't keep calling
+                callbacks forever. (Ozaki Kiichi)
+
+commit 33a80eeb859a78ba93432da6fa585786cfd77249
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 5 21:51:14 2016 +0200
+
+    patch 7.4.2331
+    Problem:    Using CTRL-X CTRL-V to complete a command line from Insert mode
+                does not work after entering an expression on the command line.
+    Solution:   Don't use "ccline" when not actually using a command line. (test
+                by Hirohito Higashi)
+
 commit 030cddc7ec0c3d2fe3969140cd1b92b2f18633c0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Sep 4 23:41:42 2016 +0200
