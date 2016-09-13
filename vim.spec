@@ -747,6 +747,9 @@ rm -rf %{buildroot}
 * Tue Sep 13 2016 Karsten Hopp <karsten@redhat.com> 8.0.003-1
 - patchlevel 003
 
+* Wed Sep 07 2016 Karsten Hopp <karsten@redhat.com> 7.4.2342-1
+- patchlevel 2342
+
 * Mon Sep 05 2016 Karsten Hopp <karsten@redhat.com> 7.4.2330-1
 - patchlevel 2330
 
