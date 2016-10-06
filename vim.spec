@@ -1,4 +1,4 @@
-%define patchlevel 003
+%define patchlevel 018
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -745,6 +745,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Oct 06 2016 Karsten Hopp <karsten@redhat.com> 8.0.018-1
+- patchlevel 018
+
 * Tue Sep 13 2016 Karsten Hopp <karsten@redhat.com> 8.0.003-1
 - patchlevel 003
 

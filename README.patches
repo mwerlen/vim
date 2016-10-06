@@ -1,3 +1,206 @@
+commit a24b70db343ff0872a314d076c8a9cf437530495
+Merge: 550c699 ec68a99
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Thu Oct 6 18:37:07 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
+commit ec68a99464055029c01082762517e97245ddae0c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Oct 3 21:37:41 2016 +0200
+
+    patch 8.0.0022
+    Problem:    If a channel in NL mode is missing the NL at the end the remaining
+                characters are dropped.
+    Solution:   When the channel is closed use the remaining text. (Ozaki Kiichi)
+
+commit 84dbd494dca599ecff05b2c2279d402c12e6d197
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Oct 2 23:09:31 2016 +0200
+
+    patch 8.0.0021
+    Problem:    In the GUI when redrawing the cursor it may be on the second half
+                of a double byte character.
+    Solution:   Correct the cursor column. (Yasuhiro Matsumoto)
+
+commit 6100d02aab7c8294b581cb299250eea164b50e9d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Oct 2 16:51:57 2016 +0200
+
+    patch 8.0.0020
+    Problem:    The regexp engines are not reentrant.
+    Solution:   Add regexec_T and save/restore the state when needed.
+
+commit 2ec618c9feac4573b154510236ad8121c77d0eca
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Oct 1 14:47:05 2016 +0200
+
+    Updated runtime files.
+
+commit b3435b0a3a0967115658d0a8c0224a28969cfa02
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 29 20:54:59 2016 +0200
+
+    patch 8.0.0019
+    Problem:    Test_command_count is old style.
+    Solution:   Turn it into a new style test. (Naruhiko Nishino)
+                Use more assert functions.
+
+commit b9c31e71f5a4653a27e81c21226039bfa35b9131
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 29 15:18:57 2016 +0200
+
+    patch 8.0.0018
+    Problem:    When using ":sleep" channel input is not handled.
+    Solution:   When there is a channel check for input also when not in raw mode.
+                Check every 100 msec.
+
+commit 177778575148e265c0e32ec2abf2d2c615f5ead5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 27 21:30:22 2016 +0200
+
+    Missing part of patch 8.0.0014
+
+commit 890680ca6364386fabb271c85e0755bcaa6a33c1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 27 21:28:56 2016 +0200
+
+    patch 8.0.0017
+    Problem:    Cannot get the number of the current quickfix or location list.
+    Solution:   Use the current list if "nr" in "what" is zero. (Yegappan
+                Lakshmanan)  Remove debug command from test.
+
+commit 0e77b7691ee7c477facb4c9d9162c8603ada2d84
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 26 22:58:58 2016 +0200
+
+    patch 8.0.0016
+    Problem:    Build fails.
+    Solution:   Include missing change.
+
+commit 7ef3810d28b7ab2edbfcafab3fe8ad8bc2c2f138
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 26 22:36:58 2016 +0200
+
+    patch 8.0.0015
+    Problem:    Can't tell which part of a channel has "buffered" status.
+    Solution:   Add an optional argument to ch_status().  Let ch_info() also
+                return "buffered" for out_status and err_status.
+
+commit 1eceadaf481e34ed8155011534159775697ce884
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 26 20:14:56 2016 +0200
+
+    patch 8.0.0014
+    Problem:    Crypt tests are old style.
+    Solution:   Convert to new style.
+
+commit c79d6aa01d86cd98cffddc80825c1c600e833bbf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 22:27:37 2016 +0200
+
+    patch 8.0.0013
+    Problem:    Missing comma in list.
+    Solution:   Add the comma.
+
+commit 3e496b0ea31996b665824f45664dee1fdd73c4d0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 22:11:48 2016 +0200
+
+    Updated runtime files.
+
+commit 9af418427652562384744648d7d173a4bfebba95
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 21:45:05 2016 +0200
+
+    patch 8.0.0012
+    Problem:    Typos in comments.
+    Solution:   Change "its" to "it's". (Matthew Brener, closes #1088)
+
+commit 20eeb6129d12a5d073ee949043de73242a36976c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 21:06:50 2016 +0200
+
+    Fix patch applied twice.
+
+commit 947000d6e481042d3869bd65b149d72511c31ab2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 21:03:02 2016 +0200
+
+    patch 8.0.0011
+    Problem:    On OSX Test_pipe_through_sort_all() sometimes fails.
+    Solution:   Add the test to the list of flaky tests.
+
+commit 680e015bfe19be6772d3bd754486fbd45c1a9d3b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 20:54:11 2016 +0200
+
+    patch 8.0.0010
+    Problem:    Crash when editing file that starts with crypt yeader. (igor2x)
+    Solution:   Check for length of text. (Christian Brabandt) Add a test.
+
+commit 3f1c15b24a3939d193c80c509132db9ee4d8cceb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 25 20:22:02 2016 +0200
+
+    patch 8.0.0009
+    Problem:    Unecessary workround for AppVeyor.
+    Solution:   Revert patch 7.4.990. (Christian Brabandt)
+
+commit 50ba526fbf3e9e5e0e6b0b3086a4d5df581ebc7e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 22 22:33:02 2016 +0200
+
+    Updated runtime files.
+
+commit 9e02cfa226b2577ec867b544a1a450a428a19880
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 22 21:27:11 2016 +0200
+
+    patch 8.0.0008
+    Problem:    Popup complete test is disabled.
+    Solution:   Enable the test and change the assert. (Hirohito Higashi)
+
+commit bbe917d9d465a66a29e38879c7f66df51b0b0dc3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 21 22:41:24 2016 +0200
+
+    patch 8.0.0007
+    Problem:    Vim 7.4 is still mentioned in a few places.
+    Solution:   Update to Vim 8.  (Uncle Bill, closes #1094)
+
+commit ebdd90ac282909c0bfcd6e83e70505abbbd5a38d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 20 21:39:14 2016 +0200
+
+    patch 8.0.0006
+    Problem:    ":lb" is interpreted as ":lbottom" while the documentation says it
+                means ":lbuffer".
+    Solution:   Adjust the order of the commands. (haya14busa, closes #1093)
+
+commit d07969093a9b3051511c478d71c36de6fc33c0d6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 16 20:02:31 2016 +0200
+
+    Updated runtime files.
+
+commit 3c4ebeba17399e4ef33d004c269e667f696f0eb6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 15 11:44:27 2016 +0200
+
+    patch 8.0.0005
+    Problem:    Netbeans test fails with Python 3. (Jonathonf)
+    Solution:   Encode the string before sending it. (closes #1070)
+
+commit 5582ef14384525e8cec86016876d97a6b32dd548
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 14 22:16:13 2016 +0200
+
+    patch 8.0.0004
+    Problem:    A string argument for function() that is not a function name
+                results in an error message with NULL. (Christian Brabandt)
+    Solution:   Use the argument for the error message.
+
 commit 789a5c0e3d27f09456678f0cfb6c1bd2d8ab4a35
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Sep 12 19:51:11 2016 +0200
@@ -3363,6 +3566,13 @@ Date:   Tue Jul 5 22:28:40 2016 +0200
     Problem:    Cscope items are not sorted.
     Solution:   Put the new "a" command first. (Ken Takata)
 
+commit 550c699eb780b27b3875f6cdffa2eae471390908
+Merge: 26522e4 b33c7eb
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jul 5 12:56:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit b33c7eb5b813cb631b2b0ca5c4029e1788a09bde
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jul 4 22:29:49 2016 +0200
@@ -3371,6 +3581,13 @@ Date:   Mon Jul 4 22:29:49 2016 +0200
     Problem:    filter() and map() only accept a string argument.
     Solution:   Implement using a Funcref argument (Yasuhiro Matsumoto, Ken
                 Takata)
+
+commit 26522e4eebc3a78a23eeb63fa5ee2d24a9a7f189
+Merge: 1c582ef ab9c89b
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Mon Jul 4 10:17:45 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit ab9c89b68dcbdb3fbda8c5a50dd90caca64f1bfd
 Author: Bram Moolenaar <Bram@vim.org>
@@ -4418,6 +4635,13 @@ Date:   Thu Jun 2 11:54:06 2016 +0200
     Problem:    Can't build with old version of Perl.
     Solution:   Define PERLIO_FUNCS_DECL. (Tom G. Christensen)
 
+commit 1c582ef49f17436313b82977c0a941f461ba130a
+Merge: 0a1b630 b89a25f
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Thu Jun 2 10:51:31 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit b89a25f17e274dc308c584ea69a129ffbb26bc3d
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jun 1 23:08:39 2016 +0200
@@ -4755,6 +4979,13 @@ Date:   Sun May 15 18:00:19 2016 +0200
                 message.
     Solution:   Require getting a number. (Bjorn Linse)
 
+commit 0a1b630aab827344cc14ea2c98bbd068f6498abb
+Merge: 3247fc9 73a733e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri May 13 11:29:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit 73a733e08bb7853d2ac12c60756ae51e39abb4d9
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed May 11 21:05:05 2016 +0200
@@ -5039,6 +5270,13 @@ Date:   Fri Apr 29 22:33:27 2016 +0200
     Problem:    Still compiler warning for unused return value. (Charles Campbell)
     Solution:   Assign to ignoredp.
 
+commit 3247fc9e85ec2067ebfd44d0e7efebce66f0aac2
+Merge: f953813 c61348e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 29 11:43:48 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit c61348e83fd4eed8b999fe5b7cdfb4caf90bf3fd
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Apr 28 22:20:03 2016 +0200
@@ -5132,6 +5370,13 @@ Date:   Tue Apr 26 17:16:24 2016 +0200
     Solution:   First invoke out/err callbacks before the close callback.
                 Make the close callback work on Windows.
 
+commit f9538136beff21c04d8d7f8ad7f8d23ed0905771
+Merge: b33f51a d10abe5
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Apr 26 13:09:13 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit d10abe52019d10403eb559ea0a424bbd310b738f
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Apr 24 15:41:33 2016 +0200
@@ -5224,6 +5469,13 @@ Date:   Fri Apr 22 20:20:19 2016 +0200
     patch 7.4.1776
     Problem:    Using wrong buffer length.
     Solution:   use the right name. (Kazunobu Kuriyama)
+
+commit b33f51aac191c8831bebbc0ca5b0a49456fc0003
+Merge: 8cf439c 763b684
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 22 12:40:34 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 763b684373bf5954445d8d8d99da1e39a4fc5105
 Author: Bram Moolenaar <Bram@vim.org>
@@ -5735,6 +5987,13 @@ Date:   Fri Apr 8 17:07:19 2016 +0200
     Solution:   Add a copyID to job and channel.  Set references in items referred
                 by them.  Go through all jobs and channels to find unreferenced
                 items.  Also, decrement reference counts when garbage collecting.
+
+commit 8cf439cb8003c79addd36cc2c6d1dcc42652f3f2
+Merge: d8dc5e6 d56374e
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Fri Apr 8 11:00:52 2016 +0200
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit d56374e25df0b317b01423a01f158157faa647fa
 Author: Bram Moolenaar <Bram@vim.org>
@@ -6996,6 +7255,13 @@ Date:   Tue Mar 15 16:35:39 2016 +0100
     patch 7.4.1571
     Problem:    No test for ":help".
     Solution:   Add a test for what 7.4.1568 fixed. (Higashi Higashi)
+
+commit d8dc5e63fabbbddeb45a311f1deff240e4a8e709
+Merge: 0ee7bfe 426dd02
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Mar 15 16:13:43 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 426dd0219512af5f4abeb0901b533159253ffba3
 Author: Bram Moolenaar <Bram@vim.org>
@@ -8302,6 +8568,14 @@ Date:   Thu Feb 25 15:25:03 2016 +0100
                 (Jörg Plate)
     Solution:   Use "char_u" always.
 
+commit 0ee7bfeec9fef5bd2a86ba0e37de6b4ffe11e152
+Merge: 61d7db7 f391327
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Thu Feb 25 00:31:00 2016 +0100
+
+    Merg e branch 'master' of https://github.com/vim/vim
+    pd
+
 commit f391327adbbffb11180cf6038a92af1ed144e907
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 25 00:00:01 2016 +0100
@@ -8909,6 +9183,13 @@ Date:   Wed Feb 17 20:48:19 2016 +0100
     patch 7.4.1345
     Problem:    A few more compiler warnings. (Axel Bender)
     Solution:   Add type casts.
+
+commit 61d7db7b5a9897fea34054cebe8442f45efa3fa4
+Merge: 07a61e8 2032190
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Wed Feb 17 14:50:39 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
 
 commit 203219048fa007b5042d9b893fd647aef44722a0
 Author: Bram Moolenaar <Bram@vim.org>
@@ -9904,6 +10185,13 @@ Date:   Mon Feb 1 21:32:58 2016 +0100
     Solution:   Add a zero timeout.  Call parse_queued_messages(). (Yasuhiro
                 Matsumoto)
 
+commit 07a61e8ce9dfd44a17d63b4629fb7443cc481a7f
+Merge: 67a4e64 fb1f626
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Mon Feb 1 14:12:20 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit fb1f62691eae7c79a28b3b17a60e72ce198c71a2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 31 20:24:32 2016 +0100
@@ -10655,6 +10943,13 @@ Date:   Tue Jan 19 23:36:15 2016 +0100
     Solution:   Add the "f" flag to ":sort".  (Alex Jakushev)  Also add the "f"
                 flag to sort().
 
+commit 67a4e64892d55b6ee45673230ca77693860ac6cb
+Merge: 2b52732 b8060fe
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 19 22:53:42 2016 +0100
+
+    Merge branch 'master' of https://github.com/vim/vim
+
 commit b8060fe862f684b591f9ac679eac5b2594d6c5a0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 19 22:29:28 2016 +0100
@@ -11142,6 +11437,12 @@ Date:   Tue Jan 12 21:00:40 2016 +0100
     Problem:    Coverity warns for uninitialized variables.  Only one is an actual
                 problem.
     Solution:   Move the conditions.  Don't use endpos if handling an error.
+
+commit 2b527328d1927b42ca190ff5f92ba69283bdcad0
+Author: Karsten Hopp <karsten@redhat.com>
+Date:   Tue Jan 12 14:59:32 2016 +0100
+
+    add more ssh keywords
 
 commit d79e55016cf8268cee935f1ac3b5b28712d1399e
 Author: Bram Moolenaar <Bram@vim.org>
