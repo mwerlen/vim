@@ -1,4 +1,4 @@
-%define patchlevel 2342
+%define patchlevel 018
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -14,8 +14,8 @@
 %define withruby 1
 %define withlua 1
 
-%define baseversion 7.4
-%define vimdir vim74
+%define baseversion 8.0
+%define vimdir vim80
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
@@ -742,8 +742,15 @@ rm -rf %{buildroot}
 %{_bindir}/evim
 %{_mandir}/man1/evim.*
 %{_datadir}/icons/hicolor/*/apps/*
+%{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Oct 06 2016 Karsten Hopp <karsten@redhat.com> 8.0.018-1
+- patchlevel 018
+
+* Tue Sep 13 2016 Karsten Hopp <karsten@redhat.com> 8.0.003-1
+- patchlevel 003
+
 * Wed Sep 07 2016 Karsten Hopp <karsten@redhat.com> 7.4.2342-1
 - patchlevel 2342
 
