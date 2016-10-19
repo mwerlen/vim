@@ -1,4 +1,4 @@
-%define patchlevel 018
+%define patchlevel 037
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -746,6 +746,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Oct 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.037-1
+- patchlevel 037
+
 * Wed Oct 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.018-1
 - switch to gtk3
 
