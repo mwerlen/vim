@@ -169,10 +169,10 @@ packages that add vim files, p.e.  additional syntax files or filetypes.
 %package X11
 Summary: The VIM version of the vi editor for the X Window System
 Group: Applications/Editors
-Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk2 >= 2.6
+Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
 Provides: mergetool
-BuildRequires: gtk2-devel libSM-devel libXt-devel libXpm-devel
+BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires: hicolor-icon-theme
 
@@ -260,7 +260,8 @@ mv -f ex_cmds.c.save ex_cmds.c
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
-  --enable-gtk2-check --enable-gui=gtk2 \
+  --disable-gtk3-check \
+  --enable-gtk3-check --enable-gui=gtk3 \
   --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
   --with-modified-by="<bugzilla@redhat.com>" \
 %if "%{withnetbeans}" == "1"
@@ -745,6 +746,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Oct 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.018-1
+- switch to gtk3
+
 * Thu Oct 06 2016 Karsten Hopp <karsten@redhat.com> 8.0.018-1
 - patchlevel 018
 
