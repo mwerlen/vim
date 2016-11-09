@@ -1,3 +1,250 @@
+commit c4d4ac22f78fb1394c79eccc8a1e6812c0c7d8a7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Nov 7 22:42:57 2016 +0100
+
+    patch 8.0.0071
+    Problem:    Exit value from a shell command is wrong. (Hexchain Tong)
+    Solution:   Do not check for ended jobs while waiting for a shell command.
+                (ichizok, closes #1196)
+
+commit 3f9ebf32a392a9cae1c3e4b6bf8cecad60e2a22a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Nov 7 22:13:32 2016 +0100
+
+    patch 8.0.0070
+    Problem:    Tests referred in Makefile that no longer exist.
+    Solution:   Remove test71 and test74 entries. (Michael Soyka)
+
+commit a1f4cb93ba50ea9e40cd4b1f5592b8a6d1398660
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 6 15:25:42 2016 +0100
+
+    patch 8.0.0069
+    Problem:    Compiler warning for self-comparison.
+    Solution:   Define ONE_WINDOW and add #ifdef.
+
+commit 25de4c232d580583feadae11ab34e3cc6333c350
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 6 14:48:06 2016 +0100
+
+    Updated runtime files.
+
+commit 21662be2211675824df1771c7f169948ede40c41
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 6 14:46:44 2016 +0100
+
+    patch 8.0.0068
+    Problem:    Checking did_throw after executing autocommands is wrong. (Daniel
+                Hahler)
+    Solution:   Call aborting() instead, and only when autocommands were executed.
+
+commit 98500fdc6119eb5f02d7a52ab6ffcac3085181be
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 6 14:17:16 2016 +0100
+
+    patch 8.0.0067
+    Problem:    VMS has a problem with infinity.
+    Solution:   Avoid an overflow. (Zoltan Arpadffy)
+
+commit 4a08b0dc4dd70334056fc1bf069b5e938f2ed7d5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 5 21:55:13 2016 +0100
+
+    patch 8.0.0066
+    Problem:    when calling an operator function when 'linebreak' is set, it is
+                internally reset before calling the operator function.
+    Solution:   Restore 'linebreak' before calling op_function(). (Christian
+                Brabandt)
+
+commit 40d3f137e751c0e9f5e7e6a587b93a52dd833d04
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 5 20:13:35 2016 +0100
+
+    patch 8.0.0065
+    Problem:    Compiler warning for unused function in tiny build. (Tony
+                Mechelynck)
+    Solution:   Add #ifdef.
+
+commit eb828d01d9c91791fa1fe217ba651cdc25746d1b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 5 19:54:01 2016 +0100
+
+    patch 8.0.0064
+    Problem:    Normal test fails on MS-Windows.
+    Solution:   Don't try using an illegal file name.
+
+commit 55952d4dd490bb2f63bda5d7f6d8fb69f58c333c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 5 14:58:34 2016 +0100
+
+    patch 8.0.0063
+    Problem:    Compiler warning for comparing with unsigned. (Zoltan Arpadffy)
+    Solution:   Change <= to ==.
+
+commit 81615517249bb78cba9c37c9834b787c1b265521
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 22:17:16 2016 +0100
+
+    patch 8.0.0062
+    Problem:    No digraph for HORIZONTAL ELLIPSIS.
+    Solution:   Use ",.". (Hans Ginzel, closes #1226)
+
+commit aab3383e70456f054fe9d0963fe3eb45994aa5e7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 22:08:29 2016 +0100
+
+    patch 8.0.0061
+    Problem:    Compiler warning for unused variable.
+    Solution:   Add #ifdef. (John Marriott)
+
+commit 426f3754223c8ff8a1bc51d6ba1eba11e8982ebc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 21:22:37 2016 +0100
+
+    patch 8.0.0060
+    Problem:    When using an Ex command for 'keywordprg' it is escaped as with a
+                shell command. (Romain Lafourcade)
+    Solution:   Escape for an Ex command. (closes #1175)
+
+commit de5e2c219b99895445fb75ae3541ee69282a5846
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 20:35:31 2016 +0100
+
+    patch 8.0.0059
+    Problem:    Vim does not build on VMS systems.
+    Solution:   Various changes for VMS. (Zoltan Arpadffy)
+
+commit 91e44a3305ef6bf2d43496c351dcff0a45c6bfb8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 20:08:52 2016 +0100
+
+    patch 8.0.0058
+    Problem:    Positioning of the popup menu is not good.
+    Solution:   Position it better. (Hirohito Higashi)
+
+commit 9376f5f482a4d579436bf364778c2d8ab8e2f22d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 16:41:20 2016 +0100
+
+    patch 8.0.0057
+    Problem:    Tests fail without the 'keymap' features.
+    Solution:   Check for feature in test.
+
+commit d0b5138ba4bccff8a744c99836041ef6322ed39a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 4 15:23:45 2016 +0100
+
+    patch 8.0.0056
+    Problem:    When setting 'filetype' there is no check for a valid name.
+    Solution:   Only allow valid characters in 'filetype', 'syntax' and 'keymap'.
+
+commit 3a117e19e02bf29cfc5e398470dd7851ae3d6803
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Oct 30 21:57:52 2016 +0100
+
+    patch 8.0.0055
+    Problem:    Minor comment and style deficiencies.
+    Solution:   Update comments and fix style.
+
+commit b4ada79aa7d0d1e5da3a659b1a203d7cae9f7f59
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Oct 30 21:55:26 2016 +0100
+
+    Runtime file updates.
+
+commit fb63090b62801d718fe7e1f44407358404c08724
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Oct 29 14:55:00 2016 +0200
+
+    patch 8.0.0054
+    Problem:    On Windows job_stop() stops cmd.exe, not the processes it runs.
+                (Linwei)
+    Solution:   Iterate over all processes and terminate the one where the parent
+                is the job process. Now only when there is no job object.
+                (Yasuhiro Matsumoto, closes #1203)
+
+commit 60ef3e81f4a54d9f7ee617d57021f0811ec8ada5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Oct 29 14:37:56 2016 +0200
+
+    patch 8.0.0053
+    Problem:    No test for what 8.0.0047 fixes.
+    Solution:   Add a test. (Hirohito Higashi)
+
+commit 35a1f59d635d9a655e1267c18f7cc757afd0d5b0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Oct 28 22:10:27 2016 +0200
+
+    patch 8.0.0052
+    Problem:    Conceal test passes even without the bug fix.
+    Solution:   Add a redraw command. (Christian Brabandt)
+
+commit 14207f487c9e79a913256a41e3e9716b03b46955
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Oct 27 21:13:10 2016 +0200
+
+    patch 8.0.0051
+    Problem:    New code for job_stop() breaks channel test on AppVeyor.
+    Solution:   Revert the change.
+
+commit 01688ad545ff0809ddad5c8fa6b149dc5d67312b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Oct 27 20:00:07 2016 +0200
+
+    patch 8.0.0050
+    Problem:    An exiting job is detected with a large latency.
+    Solution:   Check for pending job more often. (Ozaki Kiichi)  Change the
+                double loop in mch_inchar() into one.
+
+commit 2f97912800e86a296c001832bbbf2fc425f1e533
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Oct 27 17:27:44 2016 +0200
+
+    patch 8.0.0049
+    Problem:    When a match ends in part of concealed text highlighting, it might
+                mess up concealing by resetting prev_syntax_id.
+    Solution:   Do not reset prev_syntax_id and add a test to verify. (Christian
+                Brabandt, closes #1092)
+
+commit 6d5ad4c4118cab5fd96db157621c3aa9af368edb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Oct 27 17:00:16 2016 +0200
+
+    Updated runtime files.
+
+commit a350bab042605422304161df462b173ffa31dcb9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Oct 27 16:46:53 2016 +0200
+
+    patch 8.0.0048
+    Problem:    On Windows job_stop() stops cmd.exe, not the processes it runs.
+                (Linwei)
+    Solution:   Iterate over all processes and terminate the one where the parent
+                is the job process. (Yasuhiro Matsumoto, closes #1184)
+
+commit 50e5376926dc2ec4a26a7a16f8f0f3213c4afdf0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Oct 27 14:49:15 2016 +0200
+
+    patch 8.0.0047
+    Problem:    Crash when using the preview window from an unnamed buffer.
+                (lifepillar)
+    Solution:   Do not clear the wrong buffer. (closes #1200)
+
+commit 46fceaaa8d1447a9588736d86eb4908214187b08
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Oct 23 21:21:08 2016 +0200
+
+    Updated runtime files.
+
+commit 7756e7465d627ff9cd01e59625484a8c302ef853
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Oct 21 20:35:37 2016 +0200
+
+    patch 8.0.0046
+    Problem:    Using NUL instead of NULL.
+    Solution:   Change to NULL. (Dominique Pelle)
+
 commit bb09ceb95477ecc271854b3fdd8d2776eca66adf
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Oct 18 16:27:23 2016 +0200
