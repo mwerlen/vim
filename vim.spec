@@ -1,4 +1,4 @@
-%define patchlevel 057
+%define patchlevel 061
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -754,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Pá lis 11 2016 Karsten Hopp <karsten@redhat.com> 8.0.061-1
+- patchlevel 061
+
 * Wed Nov 09 2016 Karsten Hopp <karsten@redhat.com> 8.0.057-1
 - patchlevel 057
 

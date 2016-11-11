@@ -1,3 +1,36 @@
+commit 8a5883b7488e492419dde7e1637cc72f2d566ba4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 10 20:20:05 2016 +0100
+
+    patch 8.0.0075
+    Problem:    Using number for exception type lacks type checking.
+    Solution:   Use an enum.
+
+commit 95f096030ed1a8afea028f2ea295d6f6a70f466f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 10 20:01:45 2016 +0100
+
+    patch 8.0.0074
+    Problem:    Cannot make Vim fail on an internal error.
+    Solution:   Add IEMSG() and IEMSG2(). (Domenique Pelle)  Avoid reporting an
+                internal error without mentioning where.
+
+commit 459ca563128f2edb7e3bb190090bbb755a56dd55
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 10 18:16:33 2016 +0100
+
+    patch 8.0.0073
+    Problem:    More comparisons between firstwin and lastwin.
+    Solution:   Use ONE_WINDOW for consistency. (Hirohito Higashi)
+
+commit 38bc49563782ee1cb91660e58acf1afe1a31020a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 10 17:10:51 2016 +0100
+
+    patch 8.0.0072
+    Problem:    MS-Windows: Crash with long font name. (Henry Hu)
+    Solution:   Fix comparing with LF_FACESIZE. (Ken Takata, closes #1243)
+
 commit c4d4ac22f78fb1394c79eccc8a1e6812c0c7d8a7
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Nov 7 22:42:57 2016 +0100
