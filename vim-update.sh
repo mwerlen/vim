@@ -26,7 +26,7 @@ pushd vim-upstream
 LASTTAG=$(git describe --tags $(git rev-list --tags --max-count=1))
 # vim upstream tags have the form v7.4.123. Remove the 'v' and get major release and patchlevel:
 UPSTREAMMAJOR=$(echo $LASTTAG | sed -e 's/v\([0-9]*\.[0-9]*\).*/\1/')
-LASTPL=`echo $LASTTAG| sed -e 's/.*\.//'`
+LASTPL=`echo $LASTTAG| sed -e 's/.*\.//;s/^0*//'`
 LASTPLFILLED=`printf "%03d" $LASTPL`
 if [ "$ORIGPLFILLED" == "$LASTPLFILLED" ]; then
     echo "No new patchlevel available"
