@@ -1,3 +1,76 @@
+commit 7618e00d3b8bfe064cfc524640d754607361f9df
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 13 15:09:26 2016 +0100
+
+    patch 8.0.0084
+    Problem:    Using freed memory when adding to a quickfix list. (Domenique
+                Pelle)
+    Solution:   Clear the directory name.
+
+commit 8e639052638a9bb8c7dd6e3e10776b1218cec1a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Nov 13 14:31:40 2016 +0100
+
+    patch 8.0.0083
+    Problem:    Using freed memory with win_getid(). (Domenique Pelle)
+    Solution:   For the current tab use curwin.
+
+commit 3f7d0907269558cb3ea184a3083640f9e20bb21e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 12 21:13:42 2016 +0100
+
+    patch 8.0.0082
+    Problem:    Extension for configure should be ".ac".
+    Solution:   Rename configure.in to configure.ac. (James McCoy, closes #1173)
+
+commit d4db7719bdfbc54df396eac08d8cbb2389feacf4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 12 19:16:46 2016 +0100
+
+    patch 8.0.0081
+    Problem:    Inconsistent function names.
+    Solution:   Rename do_cscope to ex_cscope.  Clean up comments.
+
+commit b6be3ea45b3bb260d475ba63620252ce2963c560
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 12 18:30:39 2016 +0100
+
+    patch 8.0.0080
+    Problem:    The OS X build fails on Travis.
+    Solution:   Skip the virtual framebuffer on OS X.
+
+commit 2b946c9f9b0e0fd805fb8f3e4c16e0a68ae13129
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 12 18:14:44 2016 +0100
+
+    patch 8.0.0079
+    Problem:    Accessing freed memory in quickfix. (Domenique Pelle)
+    Solution:   Do not free the current list when adding to it.
+
+commit 63bed3d319b5d90765dbdae93a3579b6322d79fb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 12 15:36:54 2016 +0100
+
+    patch 8.0.0078
+    Problem:    Accessing freed memory in quickfix.
+    Solution:   Reset pointer when freeing 'errorformat'. (Domenique Pelle)
+
+commit e3505dfc858260a21f2bbc6056f5769dea2f273d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 11 21:57:45 2016 +0100
+
+    patch 8.0.0077
+    Problem:    The GUI code is not tested by Travis.
+    Solution:   Install the virtual framebuffer.
+
+commit 79cbdcb1eeead00bad6fc64ab4a53e5860d5a663
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 11 21:14:03 2016 +0100
+
+    patch 8.0.0076
+    Problem:    Channel log has double parens ()().
+    Solution:   Remove () for write_buf_line. (Yasuhiro Matsumoto)
+
 commit 8a5883b7488e492419dde7e1637cc72f2d566ba4
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Nov 10 20:20:05 2016 +0100

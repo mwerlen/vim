@@ -1,4 +1,4 @@
-%define patchlevel 061
+%define patchlevel 000
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -388,7 +388,7 @@ SentUpstream: 2014-05-22
      Vim is a highly configurable text editor built to enable efficient text
      editing.
      Vim is often called a "programmer's editor," and so useful for programming
-     that many consider it an entire IDE. It's not just for programmers, though.
+     that many consider it an entire IDE. It is not just for programmers, though.
      Vim is perfect for all kinds of text editing, from composing email to
      editing configuration files.
     </p>
@@ -754,8 +754,8 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
-* Pá lis 11 2016 Karsten Hopp <karsten@redhat.com> 8.0.061-1
-- patchlevel 061
+* Mon Nov 14 2016 Karsten Hopp <karsten@redhat.com> 8.0.000-1
+- patchlevel 000
 
 * Wed Nov 09 2016 Karsten Hopp <karsten@redhat.com> 8.0.057-1
 - patchlevel 057
