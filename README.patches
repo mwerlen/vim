@@ -1,3 +1,11 @@
+commit 8a01f969c198eeb655ad2f96f2796a6f6f4a1924
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Nov 14 21:50:00 2016 +0100
+
+    patch 8.0.0085
+    Problem:    Using freed memory with recursive function call. (Dominique Pelle)
+    Solution:   Make a copy of the function name.
+
 commit 7618e00d3b8bfe064cfc524640d754607361f9df
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Nov 13 15:09:26 2016 +0100
