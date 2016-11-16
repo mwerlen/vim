@@ -1,3 +1,11 @@
+commit 2256c9947164229c0960803e2a2992b793c23298
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 15 21:17:07 2016 +0100
+
+    patch 8.0.0086
+    Problem:    Cannot add a comment after ":hide". (Norio Takagi)
+    Solution:   Make it work, add a test. (Hirohito Higashi)
+
 commit 8a01f969c198eeb655ad2f96f2796a6f6f4a1924
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Nov 14 21:50:00 2016 +0100
