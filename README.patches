@@ -1,3 +1,79 @@
+commit 63e4344edc0cc1b4ed68a9d9c787265799602670
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 19 17:28:44 2016 +0100
+
+    patch 8.0.0094
+    Problem:    When vimrun.exe is not found the error message is not properly
+                encoded.
+    Solution:   Use utf-16 and MessageBoxW(). (Ken Takata)
+
+commit dda39aeafc94484e7d209d7bdfd2fc403b7383f5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 19 17:17:12 2016 +0100
+
+    patch 8.0.0093
+    Problem:    Not using multiprocess build feature.
+    Solution:   Enable multiprocess build with MSVC 10. (Ken Takata)
+
+commit ca8b8d6956dd881de6446fc32c38e817a364a6cc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 21:30:27 2016 +0100
+
+    patch 8.0.0092
+    Problem:    C indenting does not support nested namespaces that C++ 17 has.
+    Solution:   Add check that passes double colon inside a name. (Pauli, closes
+                #1214)
+
+commit 9f0e423c2818c0cacd0810f9c3c67cbb6b80963d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 19:48:18 2016 +0100
+
+    patch 8.0.0091
+    Problem:    Test_help_complete sometimes fails in MS-Windows console.
+    Solution:   Use getcompletion() instead of feedkeys() and command line
+                completion. (Hirohito Higashi)
+
+commit 6c896867c4f5d759616028ef7cbfce2a9ed32600
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 19:46:51 2016 +0100
+
+    patch 8.0.0090
+    Problem:    Test_help_complete sometimes fails in MS-Windows console.
+    Solution:   Use getcompletion() instead of feedkeys() and command line
+                completion. (Hirohito Higashi)
+
+commit a859f04b4db651860c07db3587f29906517c552b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 19:11:55 2016 +0100
+
+    patch 8.0.0089
+    Problem:    Various problems with GTK 3.22.2.
+    Solution:   Fix the problems, add #ifdefs. (Kazunobu Kuriyama)
+
+commit cc28e2d05d05552d8b72a520be8a193f3d9822d4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 17:56:13 2016 +0100
+
+    patch 8.0.0088
+    Problem:    When a test fails in Setup or Teardown the problem is not reported.
+    Solution:   Add a try/catch. (Hirohito Higashi)
+
+commit 7df915d113ac1981792c50e8b000c9f5f784b78b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 17:25:32 2016 +0100
+
+    patch 8.0.0087
+    Problem:    When the channel callback gets job info the job may already have
+                been deleted. (lifepillar)
+    Solution:   Do not delete the job when the channel is still useful. (ichizok,
+                closes #1242, closes #1245)
+
+commit c0514bf4777a1d55f5785b3887c5686fd0bbe870
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 17 14:50:09 2016 +0100
+
+    Updated runtime files.
+
 commit 2256c9947164229c0960803e2a2992b793c23298
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Nov 15 21:17:07 2016 +0100
