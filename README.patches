@@ -1,3 +1,11 @@
+commit 182707ac10d77359bf7a87c6b23ce4025d5b0ad4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Nov 21 20:55:58 2016 +0100
+
+    patch 8.0.0095
+    Problem:    Problems with GTK 3.22.2 fixed in 3.22.4.
+    Solution:   Adjust the #ifdefs. (Kazunobu Kuriyama)
+
 commit 63e4344edc0cc1b4ed68a9d9c787265799602670
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sat Nov 19 17:28:44 2016 +0100
