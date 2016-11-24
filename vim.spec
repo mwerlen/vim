@@ -754,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Nov 24 2016 Karsten Hopp <karsten@redhat.com> 8.0.095-1
+- patchlevel 095
+
 * Thu Nov 24 2016 Karsten Hopp <karsten@redhat.com> 8.0.095-2
 - disable download of spec.vim, main sources are newer
 
