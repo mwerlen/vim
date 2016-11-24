@@ -42,8 +42,8 @@ Source13: vim-spell-files.tar.bz2
 Source14: spec-template
 Source15: spec-template.new
 Source16: macros.vim
-Source17: ftplugin-spec.vim
-Source18: syntax-spec.vim
+#Source17: ftplugin-spec.vim
+#Source18: syntax-spec.vim
 
 Patch2002: vim-7.0-fixkeys.patch
 Patch2003: vim-7.4-specsyntax.patch
@@ -356,8 +356,8 @@ install -p -m644 %{SOURCE9} \
    %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/gvim.png
 install -p -m644 %{SOURCE10} \
    %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/gvim.png
-cp -f %{SOURCE17} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/ftplugin/spec.vim
-cp -f %{SOURCE18} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/syntax/spec.vim
+#cp -f %{SOURCE17} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/ftplugin/spec.vim
+#cp -f %{SOURCE18} %{buildroot}/%{_datadir}/%{name}/%{vimdir}/syntax/spec.vim
 
 # Register as an application to be visible in the software center
 #
@@ -754,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Nov 24 2016 Karsten Hopp <karsten@redhat.com> 8.0.095-2
+- disable download of spec.vim, main sources are newer
+
 * Tue Nov 22 2016 Karsten Hopp <karsten@redhat.com> 8.0.095-1
 - patchlevel 095
 
