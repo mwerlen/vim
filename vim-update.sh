@@ -6,6 +6,11 @@ cd `dirname $0`
 LANG=C
 SPEC=vim.spec
 CHANGES=1
+force=0
+
+if [ "x$1" == "x--force" ]; then
+  force=1
+fi
 
 DATE=`date +"%a %b %d %Y"`
 fedpkg switch-branch master
@@ -28,7 +33,7 @@ LASTTAG=$(git describe --tags $(git rev-list --tags --max-count=1))
 UPSTREAMMAJOR=$(echo $LASTTAG | sed -e 's/v\([0-9]*\.[0-9]*\).*/\1/')
 LASTPL=`echo $LASTTAG| sed -e 's/.*\.//;s/^0*//'`
 LASTPLFILLED=`printf "%03d" $LASTPL`
-if [ "$ORIGPLFILLED" == "$LASTPLFILLED" ]; then
+if [ $force -ne 1 -a "$ORIGPLFILLED" == "$LASTPLFILLED" ]; then
     echo "No new patchlevel available"
     CHANGES=0
 fi
