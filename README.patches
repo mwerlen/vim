@@ -1,3 +1,80 @@
+commit f422bcc7f9615fe91fa69b059cfe4785093d3d4a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 26 17:45:53 2016 +0100
+
+    patch 8.0.0104
+    Problem:    Value of 'thesaurus' option not checked properly.
+    Solution:   Add P_NDNAME flag. (Daisuke Suzuki)
+
+commit 8a8199e4a1814b10630a770165502abb1121cd1b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Nov 26 15:13:33 2016 +0100
+
+    patch 8.0.0103
+    Problem:    May not process channel readahead. (skywind)
+    Solution:   If there is readahead don't block on input.
+
+commit 7554da4033498c4da0af3cde542c3e87e9097b73
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Nov 25 22:04:13 2016 +0100
+
+    patch 8.0.0102
+    Problem:    Cannot set 'dictionary' to a path.
+    Solution:   Allow for slash and backslash.  Add a test (partly by Daisuke
+                Suzuki, closes #1279, closes #1284)
+
+commit 031cb743ae154cfb727a9b7787bdcb61202ff1c8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 24 21:46:19 2016 +0100
+
+    patch 8.0.0101
+    Problem:    Some options are not strictly checked.
+    Solution:   Add flags for strickter checks.
+
+commit 319afe3804741db5a6c188bd69535fa7ed044c62
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 24 18:30:59 2016 +0100
+
+    patch 8.0.0100
+    Problem:    Options that are a file name may contain non-filename characters.
+    Solution:   Check for more invalid characters.
+
+commit 73095288da839f7c738a49baa109773e76106806
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 24 17:47:07 2016 +0100
+
+    patch 8.0.0099
+    Problem:    Popup menu always appears above the cursor when it is in the lower
+                half of the screen. (Matt Gardner)
+    Solution:   Compute the available space better. (Hirohito Higashi,
+                closes #1241)
+
+commit 58c358753ef47e217e18c0bf8a2fca9d1ea23a8e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 24 17:33:17 2016 +0100
+
+    patch 8.0.0098
+    Problem:    Can't build on MS-Windows.
+    Solution:   Add missing parenthesis.
+
+commit 833eb1d752426689051bf2001083359899536939
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 24 17:22:50 2016 +0100
+
+    patch 8.0.0097
+    Problem:    When a channel callback consumes a lot of time Vim becomes
+                unresponsive. (skywind)
+    Solution:   Bail out of checking channel readahead after 100 msec.
+
+commit 2cab0e191055a8145ccd46cd52869fbb9798b971
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Nov 24 15:09:07 2016 +0100
+
+    patch 8.0.0096
+    Problem:    When the input or output is not a tty Vim appears to hang.
+    Solution:   Add the --ttyfail argument.  Also add the "ttyin" and "ttyout"
+                features to be able to check in Vim script.
+
 commit 182707ac10d77359bf7a87c6b23ce4025d5b0ad4
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Nov 21 20:55:58 2016 +0100
