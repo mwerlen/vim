@@ -21,13 +21,12 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
 Source2: vim.csh
-Source3: gvim.desktop
 Source4: virc
 Source5: vimrc
 Source6: ftp://ftp.vim.org/pub/vim/patches/README.patches
@@ -421,11 +420,11 @@ EOF
         --vendor fedora \
     %endif
         --dir %{buildroot}/%{_datadir}/applications \
-        %{SOURCE3}
+        %{_builddir}/%{vimdir}/runtime/gvim.desktop
         # --add-category "Development;TextEditor;X-Red-Hat-Base" D\
   %else
     mkdir -p ./%{_sysconfdir}/X11/applnk/Applications
-    cp %{SOURCE3} ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
+    cp %{_builddir}/%{vimdir}/runtime/gvim.desktop ./%{_sysconfdir}/X11/applnk/Applications/gvim.desktop
   %endif
   # ja_JP.ujis is obsolete, ja_JP.eucJP is recommended.
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
@@ -738,6 +737,7 @@ rm -rf %{buildroot}
 %if "%{desktop_file}" == "1"
 %{_datadir}/appdata/*.appdata.xml
 /%{_datadir}/applications/*
+%exclude /%{_datadir}/applications/vim.desktop
 %else
 /%{_sysconfdir}/X11/applnk/*/gvim.desktop
 %endif
@@ -754,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Nov 28 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.104-2
+- do not ship vim.desktop
+
 * Mon Nov 28 2016 Karsten Hopp <karsten@redhat.com> 8.0.104-1
 - patchlevel 104
 
