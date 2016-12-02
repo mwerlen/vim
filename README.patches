@@ -1,3 +1,128 @@
+commit 5162822914372fc916a93f85848c0c82209e7cec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 23:03:28 2016 +0100
+
+    patch 8.0.0118
+    Problem:    "make proto" adds extra function prototype.
+    Solution:   Add #ifdef.
+
+commit cf49790443eea7d720be556f4aaea261feb55259
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 22:57:02 2016 +0100
+
+    Updated runtime files.
+
+commit 327054df45faf5390e7392708f58eb49e9f323d4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 21:46:14 2016 +0100
+
+    patch 8.0.0117
+    Problem:    Parallel make fails. (J. Lewis Muir)
+    Solution:   Make sure the objects directory exists. (closes #1259)
+
+commit 6dbf66aa3e2197ce41f2b1cc7602bb9c15840548
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 21:32:32 2016 +0100
+
+    patch 8.0.0116
+    Problem:    When reading English help and using CTRl-] the language from
+                'helplang' is used.
+    Solution:   Make help tag jumps keep the language. (Tatsuki, test by Hirohito
+                Higashi, closes #1249)
+
+commit e3af763d5e6b90a9b5d5706920e669fd8f0b6c77
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 20:37:47 2016 +0100
+
+    patch 8.0.0115
+    Problem:    When building with Cygwin libwinpthread isn't found.
+    Solution:   Link winpthread statically. (jmmerz, closes #1255, closes #1256)
+
+commit b04a98f6c3cca14bf055934b0a793f4dc376858b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 20:32:29 2016 +0100
+
+    patch 8.0.0114
+    Problem:    Coding style not optimal.
+    Solution:   Add spaces. (Ken Takata)
+
+commit 87f3d202a90bd2d08a7afd55b3486b10bef858bb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 20:18:50 2016 +0100
+
+    patch 8.0.0113
+    Problem:    MS-Windows: message box to prompt for saving changes may appear on
+                the wrong monitor.
+    Solution:   Adjust the CenterWindow function. (Ken Takata)
+
+commit eca626fcdb73d480660c78b9f84cc043fa561922
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 18:47:38 2016 +0100
+
+    patch 8.0.0112
+    Problem:    Tests 92 and 93 are old style.
+    Solution:   Make test92 and test93 new style. (Hirohito Higashi, closes #1289)
+
+commit eebd84eb94ed7f59a06a52cb4863563642f58899
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 17:57:44 2016 +0100
+
+    patch 8.0.0111
+    Problem:    The :history command is not tested.
+    Solution:   Add tests. (Dominique Pelle)
+
+commit 5a030a540f4157d5c9905e3564282c92b4dcec9a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 17:48:29 2016 +0100
+
+    patch 8.0.0110
+    Problem:    Drop command doesn't use existing window.
+    Solution:   Check the window width properly. (Hirohito Higashi)
+
+commit b129a447f3b580d4c941869672b0557c52c37e4d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 17:25:20 2016 +0100
+
+    patch 8.0.0109
+    Problem:    Still checking if memcmp() exists while every system should have
+                it now.
+    Solution:   Remove vim_memcmp().  (James McCoy, closes #1295)
+
+commit 65e08ee1d26aa7bf341ac0e0400839d696d1ab64
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 16:41:50 2016 +0100
+
+    patch 8.0.0108
+    Problem:    The channel "drop" option is not tested.
+    Solution:   Add a test.
+
+commit 958dc6923d341390531888058495569d73c356c3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Dec 1 15:34:12 2016 +0100
+
+    patch 8.0.0107
+    Problem:    When reading channel output in a timer, messages may go missing.
+                (Skywind)
+    Solution:   Add the "drop" option.  Write error messages in the channel log.
+                Don't have ch_canread() check for the channel being open.
+
+commit 0945eaface83e78138fbd40f95cc590bab0e8c86
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 29 22:10:48 2016 +0100
+
+    patch 8.0.0106
+    Problem:    Cannot use a semicolon in 'backupext'. (Jeff)
+    Solution:   Allow for a few more characters when "secure" isn't set.
+
+commit 4b785f69c0616dba5d3f38e8ce4b5398cec89407
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Nov 29 21:54:44 2016 +0100
+
+    patch 8.0.0105
+    Problem:    When using ch_read() with zero timeout, can't tell the difference
+                between reading an empty line and nothing available.
+    Solution:   Add ch_canread().
+
 commit f422bcc7f9615fe91fa69b059cfe4785093d3d4a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sat Nov 26 17:45:53 2016 +0100
