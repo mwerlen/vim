@@ -1,3 +1,57 @@
+commit 3421566376b5723213af502bd3c2b9debe025ef1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Dec 4 13:37:41 2016 +0100
+
+    patch 8.0.0124
+    Problem:    Internal error for assert_inrange(1, 1).
+    Solution:   Adjust number of allowed arguments. (Dominique Pelle)
+
+commit a899e6ecc4523c7e411eaf6fbaa4197d70f6f39e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 3 16:40:51 2016 +0100
+
+    patch 8.0.0123
+    Problem:    Modern Sun compilers define "__sun" instead of "sun".
+    Solution:   Use __sun. (closes #1296)
+
+commit 3fad98e8af247af8ebc49730646282a71ccdd47a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 3 15:23:40 2016 +0100
+
+    patch 8.0.0122
+    Problem:    Channel test is still flaky on OS X.
+    Solution:   Add a short sleep.
+
+commit a2477fd3490c1166522631eee53c57d34321086a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 3 15:13:20 2016 +0100
+
+    patch 8.0.0121
+    Problem:    Setting 'cursorline' changes the curswant column. (Daniel Hahler)
+    Solution:   Add the P_RWINONLY flag. (closes #1297)
+
+commit 5643db84c6a9f15d14492cefd52647623aa2ac7c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 3 14:29:10 2016 +0100
+
+    patch 8.0.0120
+    Problem:    Channel test is still flaky on OS X.
+    Solution:   Set the drop argument to "never".
+
+commit 21efc3633edb58809c5dd89b025d34d7002e731c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Dec 3 14:05:49 2016 +0100
+
+    patch 8.0.0119
+    Problem:    No test for using CTRL-R on the command line.
+    Solution:   Add a test. (Dominique Pelle) And some more.
+
+commit 99c5eb4fd755853a134471a63174cec71becbca7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Dec 2 21:24:21 2016 +0100
+
+    Add objects dirstamp to gitignore.
+
 commit 5162822914372fc916a93f85848c0c82209e7cec
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Dec 1 23:03:28 2016 +0100
