@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -754,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Dec 05 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.124-2
+- add new sources
+
 * Mon Dec 05 2016 Karsten Hopp <karsten@redhat.com> 8.0.124-1
 - patchlevel 124
 
