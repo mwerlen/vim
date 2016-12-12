@@ -1,4 +1,4 @@
-%define patchlevel 124
+%define patchlevel 133
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -754,6 +754,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Dec 12 2016 Karsten Hopp <karsten@redhat.com> 8.0.133-1
+- patchlevel 133
+
 * Mon Dec 05 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.124-2
 - add new sources
 
