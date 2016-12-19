@@ -63,6 +63,7 @@ Patch3011: vim-manpagefixes-948566.patch
 Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
+Patch3015: vim-8.0-copy-paste.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -216,6 +217,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3012 -p1
 %patch3013 -p1
 %patch3014 -p1
+%patch3015 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -756,6 +758,7 @@ rm -rf %{buildroot}
 %changelog
 * Mon Dec 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.134-1
 - patchlevel 134
+- f24->f25 vim: copy paste no longer works (bug #1401410) - revert previous changes, set mouse=v in defaults.vim
 
 * Thu Dec 15 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.133-2
 - f24->f25 vim: copy paste no longer works (bug #1401410) - change mouse default setting to 'v'
