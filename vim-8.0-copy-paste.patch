@@ -1,6 +1,6 @@
 diff -up vim80/runtime/defaults.vim.copy-paste vim80/runtime/defaults.vim
---- vim80/runtime/defaults.vim.copy-paste	2016-12-19 08:33:07.270919287 +0100
-+++ vim80/runtime/defaults.vim	2016-12-19 08:51:51.196438644 +0100
+--- vim80/runtime/defaults.vim.copy-paste	2016-12-19 09:01:20.351119199 +0100
++++ vim80/runtime/defaults.vim	2016-12-19 09:01:53.735738941 +0100
 @@ -64,12 +64,6 @@ map Q gq
  " Revert with ":iunmap <C-U>".
  inoremap <C-U> <C-G>u<C-U>
@@ -8,7 +8,7 @@ diff -up vim80/runtime/defaults.vim.copy-paste vim80/runtime/defaults.vim
 -" In many terminal emulators the mouse works just fine.  By enabling it you
 -" can position the cursor, Visually select and scroll with the mouse.
 -if has('mouse')
--  set mouse=v
+-  set mouse=a
 -endif
 -
  " Switch syntax highlighting on when the terminal has colors or when using the
