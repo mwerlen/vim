@@ -757,6 +757,9 @@ rm -rf %{buildroot}
 
 %changelog
 * Mon Dec 19 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.134-2
+- f24->f25 vim: copy paste no longer works (bug #1401410) - fixing error in prep
+
+* Mon Dec 19 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.134-2
 - f24->f25 vim: copy paste no longer works (bug #1401410) - deleting mouse setting block from defaults.vim
 
 * Mon Dec 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.134-1
