@@ -1,4 +1,4 @@
-%define patchlevel 133
+%define patchlevel 134
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -64,6 +64,7 @@ Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3015: vim-8.0-rhbz1365258.patch
+Patch3016: vim-8.0-copy-paste.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -218,6 +219,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3013 -p1
 %patch3014 -p1
 %patch3015 -p1
+%patch3016 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -756,9 +758,12 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
-* Thu Dec 15 2016 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.133-3
+* Mon Dec 19 2016 Karsten Hopp <karsten@redhat.com> 8.0.134-1
+- patchlevel 134
+- f24->f25 vim: copy paste no longer works (bug #1401410) - revert previous changes, set mouse=v in defaults.vim
+
+* Thu Dec 15 2016 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.133-2
 - f24->f25 vim: copy paste no longer works (bug #1401410) - change mouse default setting to 'v'
->>>>>>> f25
 
 * Thu Dec 15 2016 Karsten Hopp <karsten@redhat.com> - 8.0.133-2
 - fix fstab syntax highlighting (rhbz#1365258)

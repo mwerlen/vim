@@ -1,3 +1,11 @@
+commit c4bfedabe057c05f09a455a5851089e177fa9c00
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Dec 14 21:42:00 2016 +0100
+
+    patch 8.0.0134
+    Problem:    Null pointer access reported by UBsan.
+    Solution:   Check curwin->w_buffer is not NULL. (Yegappan Lakshmanan)
+
 commit fe38b494fff56cd9b2fcaeef26a8fd7b6557d69c
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Dec 11 21:34:23 2016 +0100
