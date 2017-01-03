@@ -1,3 +1,79 @@
+commit 0cdb72aa38c4a0140c94d56bf8bc17cb30260ebf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 21:37:40 2017 +0100
+
+    patch 8.0.0142
+    Problem:    Normal colors are wrong with 'termguicolors'.
+    Solution:   Initialize to INVALCOLOR instead of zero. (Ben Jackson, closes
+                #1344)
+
+commit bc2eada5424bff06f7eb77c032ecc067da52b846
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 21:27:47 2017 +0100
+
+    Updated runtime files.
+
+commit 269aec7e615b7710139a69a4c715dfe534aa3a1a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 18:32:39 2017 +0100
+
+    patch 8.0.0141
+    Problem:    Nested function test fails on AppVeyor.
+    Solution:   Disable the test on Windows for now.
+
+commit f8eb9c51e5bbd10e59c9b1247f8f6c7f5b77ccd0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 17:31:24 2017 +0100
+
+    patch 8.0.0140
+    Problem:    Pasting inserted text in Visual mode does not work properly.
+                (Matthew Malcomson)
+    Solution:   Stop Visual mode before stuffing the inserted text. (Christian
+                Brabandt, from neovim #5709)
+
+commit 5e1e6d265d26ee2952c4a018a5ff72c950d2d700
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 17:26:00 2017 +0100
+
+    patch 8.0.0139
+    Problem:    Warning for unused argument.
+    Solution:   Add UNUSED.
+
+commit b094ff4b2be4d8b7364c566a1cc7e27aa4452a50
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 16:16:39 2017 +0100
+
+    patch 8.0.0138
+    Problem:    Small build fails.
+    Solution:   Add #ifdef.
+
+commit 777b30f827bcbe10a40640b1bf0361cb93a16be1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 15:26:27 2017 +0100
+
+    patch 8.0.0137
+    Problem:    When 'maxfuncdepth' is set above 200 the nesting is limited to
+                200. (Brett Stahlman)
+    Solution:   Allow for Ex command recursion depending on 'maxfuncdepth'.
+
+commit 54b2bfa399017ebae76ed62f21578261d1b55c1f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 14:57:08 2017 +0100
+
+    patch 8.0.0136
+    Problem:    When using indent folding and changing indent the wrong fold is
+                opened. (Jonathan Fudger)
+    Solution:   Open the fold under the cursor a bit later. (Christian Brabandt)
+
+commit ded2782783f352201ac0b05c6dbe4831adb4a58b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 2 14:27:34 2017 +0100
+
+    patch 8.0.0135
+    Problem:    An address relative to the current line, ":.,+3y", does not work
+                properly on a closed fold. (Efraim Yawitz)
+    Solution:   Correct for including the closed fold. (Christian Brabandt)
+
 commit c4bfedabe057c05f09a455a5851089e177fa9c00
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Dec 14 21:42:00 2016 +0100
