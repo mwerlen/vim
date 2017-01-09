@@ -1,3 +1,208 @@
+commit de33011ec623fd562419dede6bf465b5b9881a20
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 20:50:52 2017 +0100
+
+    patch 8.0.0160: EMSG() is sometimes used where it should be IEMSG()
+    
+    Problem:    EMSG() is sometimes used for internal errors.
+    Solution:   Change them to IEMSG(). (Dominique Pelle)  And a few more.
+
+commit c695cec4698b41d7b9555efdd47dda9b1945d3ae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 20:00:04 2017 +0100
+
+    patch 8.0.0159: crash on startup when updating tabline
+    
+    Problem:    Using a NULL pointer when using feedkeys() to trigger drawing a
+                tabline.
+    Solution:   Skip drawing a tabline if TabPageIdxs is NULL. (Dominique Pelle)
+                Also fix recursing into getcmdline() from the cmd window.
+
+commit 6247361101dcccc0c877e90ad67cd0cc83df7c68
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 19:25:40 2017 +0100
+
+    patch 8.0.0158: float funcion test fails on MS-Windows
+    
+    Problem:    On MS-Windows some float functions return a different value when
+                passed unusual values.  strtod() doesn't work for "inf" and "nan".
+    Solution:   Accept both results.  Fix str2float() for MS-Windows.  Also
+                reorder assert function arguments.
+
+commit 2d02839050a2557bf36dab37ccd9f92168a757d1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 18:28:22 2017 +0100
+
+    patch 8.0.0157: no completion for :syntax spell and :syntax sync
+    
+    Problem:    No command line completion for ":syntax spell" and ":syntax sync".
+    Solution:   Implement the completion. (Dominique Pelle)
+
+commit 453b576ee5d32e9b8e6876712748ae01f9be68dd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 17:59:14 2017 +0100
+
+    patch 8.0.0156: not enough test coverage for float functions
+    
+    Problem:    Several float functions are not covered by tests.
+    Solution:   Add float tests. (Dominique Pelle)
+
+commit a216255a4faa91a15e7005ac319f2f62294f3f9e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 17:46:20 2017 +0100
+
+    patch 8.0.0155: ubsan complains about NULL pointer
+    
+    Problem:    When sorting zero elements a NULL pointer is passed to qsort(),
+                which ubsan warns for.
+    Solution:   Don't call qsort() if there are no elements. (Dominique Pelle)
+
+commit 31f19ce0a052f7c76d44a9a190e468c79cf5d56d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 14:14:43 2017 +0100
+
+    patch 8.0.0154: system() test fails on OS/X
+    
+    Problem:    system() test fails on OS/X.
+    Solution:   Deal with leading spaces.
+
+commit 9d9c35651712b88c81f1ae11091de1fd0bbbd35c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 13:55:06 2017 +0100
+
+    patch 8.0.0153: system() test fails on MS-Windows
+    
+    Problem:    system() test fails on MS-Windows.
+    Solution:   Deal when extra space and CR.
+
+commit 04e94c788175c83be8a78372b0ed6c332969edff
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 13:38:58 2017 +0100
+
+    patch 8.0.0152: stray channellog created when running tests
+    
+    Problem:    Running the channel test creates channellog.
+    Solution:   Delete the debug line.
+
+commit 12c4492dd35e0cd83c8816be2ec849b836109882
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 8 13:26:03 2017 +0100
+
+    patch 8.0.0151: passing buffer content to system() is clumsy
+    
+    Problem:    To pass buffer content to system() and systemlist() one has to
+                first create a string or list.
+    Solution:   Allow passing a buffer number. (LemonBoy, closes #1240)
+
+commit 7069bf18e1b1b7bc7640335e07d1022b5acc9048
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 7 20:39:53 2017 +0100
+
+    patch 8.0.0150: completion for :filter does not skip the pattern
+    
+    Problem:    When the pattern of :filter does not have a separator then
+                completion of the command fails.
+    Solution:   Skip over the pattern. (Ozaki Kiichi, clodes #1299)
+
+commit cbd4de44e8d08fba3c09eb40ad6e36e83faf020a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 7 16:14:57 2017 +0100
+
+    patch 8.0.0149: :earlier does not work after reading the undo file
+    
+    Problem:    ":earlier" and ":later" do not work after startup or reading the
+                undo file.
+    Solution:   Use absolute time stamps instead of relative to the Vim start
+                time. (Christian Brabandt, Pavel Juhas, closes #1300, closes
+                #1254)
+
+commit c6aa475a27e3ed1645446b014c32ebf68d005d49
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 7 15:39:43 2017 +0100
+
+    patch 8.0.0148: wrong indent in C preprocessor with line continuation
+    
+    Problem:    When a C preprocessor statement has two line continuations the
+                following line does not have the right indent. (Ken Takata)
+    Solution:   Add the indent of the previous continuation line. (Hirohito
+                Higashi)
+
+commit 6e450a57541676036203a72d40b2e604e938371e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 20:03:58 2017 +0100
+
+    patch 8.0.0147: searchpair() fails when 'magic' is off
+    
+    Problem:    searchpair() does not work when 'magic' is off. (Chris Paul)
+    Solution:   Add \m in the pattern. (Christian Brabandt, closes #1341)
+
+commit 287266527abc163e191a06dd70518bbbdab4468f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 18:16:19 2017 +0100
+
+    patch 8.0.0146: termguicolors uses wrong colors on MS-Windows with ConEmu
+    
+    Problem:    When using 'termguicolors' on MS-Windows the RGB definition causes
+                the colors to be wrong.
+    Solution:   Undefined RGB and use our own. (Gabriel Barta)
+
+commit 29891c4ed4a7d08af1ba1628933a387adf5c1555
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 18:00:12 2017 +0100
+
+    patch 8.0.0145: running tests on MS-Windows is noisy
+    
+    Problem:    Running tests on MS-Windows is a little bit noisy.
+    Solution:   Redirect some output to "nul". (Ken Takata)
+
+commit aaeabfbca571e24a29925dacf104e21dc251a771
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 16:47:24 2017 +0100
+
+    Only install coveralls when used.
+
+commit 14a612fa2e5705547d0687ac07abc200c9359125
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 16:35:04 2017 +0100
+
+    Better solution to make coveralls work again.
+
+commit 7034a83743459a46287944a127cc041dcf8b799c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 16:01:59 2017 +0100
+
+    Tune travis config for coverage with gcc only.
+
+commit a4ce25bd987a8fad44ad5e47f7785cf9295322be
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 15:37:45 2017 +0100
+
+    Another attempt to make coveralls work.
+
+commit 294740d2ac42e3dfdc7f0f6f02a6e2ff2d17c848
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 15:28:44 2017 +0100
+
+    Attempt to make coverage working again.
+
+commit 9269315f635e44a340389be7e986782b98499311
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 14:55:36 2017 +0100
+
+    patch 8.0.0144: when using MSVC the GvimExt directory is cleaned twice
+    
+    Problem:    When using MSVC the GvimExt directory is cleaned twice.
+    Solution:   Remove the lines. (Ken Takata)
+
+commit f845b87f2b3a45cbee160e28d7a3f50e54054809
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 6 14:04:54 2017 +0100
+
+    patch 8.0.0143: line number of current buffer in getbufinfo() is wrong
+    
+    Problem:    Line number of current buffer in getbufinfo() is wrong.
+    Solution:   For the current buffer use the current line number. (Ken Takata)
+
 commit 0cdb72aa38c4a0140c94d56bf8bc17cb30260ebf
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jan 2 21:37:40 2017 +0100
