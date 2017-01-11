@@ -1,4 +1,4 @@
-%define patchlevel 160
+%define patchlevel 170
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -64,7 +64,6 @@ Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3015: vim-8.0-copy-paste.patch
-Patch3016: vim-ftbfs-ccline.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -219,7 +218,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3013 -p1
 %patch3014 -p1
 %patch3015 -p1
-%patch3016 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -758,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jan 11 2017 Karsten Hopp <karsten@redhat.com> 8.0.170-1
+- patchlevel 170
+
 * Mon Jan 09 2017 Karsten Hopp <karsten@redhat.com> 8.0.160-1
 - patchlevel 160
 
