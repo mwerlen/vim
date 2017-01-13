@@ -1,4 +1,4 @@
-%define patchlevel 172
+%define patchlevel 176
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -756,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jan 13 2017 Karsten Hopp <karsten@redhat.com> 8.0.176-1
+- patchlevel 176
+
 * Thu Jan 12 2017 Karsten Hopp <karsten@redhat.com> 8.0.172-1
 - patchlevel 172
 
