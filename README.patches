@@ -1,3 +1,339 @@
+commit e32bbded641a5da0263ecf82f9ccc95a8e0a089e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 21:12:48 2017 +0100
+
+    patch 8.0.0194: profile tests fails if total and self time are equal
+    
+    Problem:    Profile tests fails if total and self time are equal.
+    Solution:   Make one time optional.
+
+commit 1b9750d8054ce4a5a6f84af9f10654330bbf869b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 20:51:37 2017 +0100
+
+    patch 8.0.0193: accidentally removed #ifdef
+    
+    Problem:    Accidentally removed #ifdef.
+    Solution:   Put it back. (Masanori Misono)
+
+commit 42b8d916c719002dbafade6b977d4e266f8712dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 17:18:57 2017 +0100
+
+    patch 8.0.0192: cannot build with tiny features
+    
+    Problem:    Build fails with tiny features.
+    Solution:   Change #ifdef for hash_clear().  Avoid warning for unused
+                argument.
+
+commit 4f391796b7de78a434a2cc7107034603df414905
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 16:59:07 2017 +0100
+
+    patch 8.0.0191: can't build with Ruby on some systems
+    
+    Problem:    Some systems do not have ruby_sysinit(), causing the build to
+                fail.
+    Solution:   Clean up how ruby_sysinit() and NtInitialize() are used. (Taro
+                Muraoka)
+
+commit 810f9c361c83afb36b9f1cdadca2b93f1201d039
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 16:52:51 2017 +0100
+
+    patch 8.0.0190: finding duplicate tags uses a slow linear search
+    
+    Problem:    Detecting duplicate tags uses a slow linear search.
+    Solution:   Use a much faster hash table solution. (James McCoy, closes #1046)
+                But don't add hi_keylen, it makes hash tables 50% bigger.
+
+commit 296b1f28ca9cedeb55872f306808b2214b519ce7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 15:22:33 2017 +0100
+
+    patch 8.0.0189: profile commands are not tested
+    
+    Problem:    There are no tests for the :profile command.
+    Solution:   Add tests. (Dominique Pelle, closes #1383)
+
+commit 9506cad7a1a6e52a613f356de969cbd980815777
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 15 13:53:49 2017 +0100
+
+    patch 8.0.0188: redrawing for 'cursorbind' is inefficient
+    
+    Problem:    Using NOT_VALID for redraw_later() to update the cursor
+                line/column highlighting is not efficient.
+    Solution:   Call validate_cursor() when 'cul' or 'cuc' is set.
+
+commit fe6ce331d94c24ad745d0bf329ec0a65a5c07cc9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 20:12:01 2017 +0100
+
+    patch 8.0.0187: cant build with new Ruby version
+    
+    Problem:    Building with a new Ruby version fails.
+    Solution:   Use ruby_sysinit() instead of NtInitialize(). (Tomas Volf,
+                closes #1382)
+
+commit 5869cf060e60cc09e71b2b3bd85f0576ec78f9f5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 20:06:14 2017 +0100
+
+    patch 8.0.0186: confusing error message from assert_notequal()
+    
+    Problem:    The error message from assert_notequal() is confusing.
+    Solution:   Only mention the expected value.
+
+commit fad609d067926d350b4e4ee6ecb55bdbf111a272
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 19:38:36 2017 +0100
+
+    patch 8.0.0185: system() test fails on MS-Windows
+    
+    Problem:    The system() test fails on MS-Windows.
+    Solution:   Skip the test on MS-Windows.
+
+commit 2b7bc567b9238aaac682236cb4f727d0376e1302
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 19:24:52 2017 +0100
+
+    patch 8.0.0184: when an error is caught Vim still exits with non-zero result
+    
+    Problem:    When in Ex mode and an error is caught by try-catch, Vim still
+                exits with a non-zero exit code.
+    Solution:   Don't set ex_exitval when inside a try-catch. (partly by Christian
+                Brabandt)
+
+commit 7173b47958a238bb07f80b8f26fb232b0ea69b4a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 17:04:38 2017 +0100
+
+    patch 8.0.0183: ubsan warns for unaligned address
+    
+    Problem:    Ubsan warns for using a pointer that is not aligned.
+    Solution:   First copy the address. (Yegappan Lakshmanan)
+
+commit e47683a0913f102b6ae08c8848d5aa675d99b188
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 15:52:46 2017 +0100
+
+    patch 8.0.0182: cursor ilne not update when 'cursorbind' is set
+    
+    Problem:    When 'cursorbind' and 'cursorline' are set, but 'cursorcolumn' is
+                not, then the cursor line highlighting is not updated. (Hirohito
+                Higashi)
+    Solution:   Call redraw_later() with NOT_VALID.
+
+commit 519d7785f4437762c07b2e04217f83a069a8c663
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 14:54:33 2017 +0100
+
+    patch 8.0.0181: with cursorbind set cursor column highlighting is off
+    
+    Problem:    When 'cursorbind' and 'cursorcolumn' are both on, the column
+                highlignt in non-current windows is wrong.
+    Solution:   Add validate_cursor(). (Masanori Misono, closes #1372)
+
+commit 83381f7129aca00bc2dd24527f160bc6a60d70af
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 14:36:08 2017 +0100
+
+    patch 8.0.0180: error E937 is used twice
+    
+    Problem:    Error E937 is used both for duplicate key in JSON and for trying
+                to delete a buffer that is in use.
+    Solution:   Rename the JSON error to E938. (Norio Takagi, closes #1376)
+
+commit 9be7c04e6cd5b0facedcb56b09a5bcfc339efe03
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 14 14:28:30 2017 +0100
+
+    patch 8.0.0179: cannot have a local value for 'formatprg'
+    
+    Problem:    'formatprg' is a global option but the value may depend on the
+                type of buffer. (Sung Pae)
+    Solution:   Make 'formatprg' global-local. (closes #1380)
+
+commit 9b73c4a215cb5f0f7df1e7f0663aea2bce1914ab
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 13 22:30:08 2017 +0100
+
+    patch 8.0.0178: command count test fails on MS-Windows
+    
+    Problem:    test_command_count may fail when a previous test interferes, seen
+                on MS-Windows.
+    Solution:   Run it separately.
+
+commit e13b9afe1283f5ae43232b5992372a0eb570666c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 13 22:01:02 2017 +0100
+
+    patch 8.0.0177: BufEnter autocommand not fired for a directory
+    
+    Problem:    When opening a buffer on a directory and inside a try/catch then
+                the BufEnter event is not triggered.
+    Solution:   Return NOTDONE from readfile() for a directory and deal with the
+                three possible return values. (Justin M. Keyes, closes #1375,
+                closes #1353)
+
+commit 70bcd7336f9f19304f32c52a86ed5b4b3de852c2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 12 22:20:54 2017 +0100
+
+    patch 8.0.0176: cannot use :change inside a function definition
+    
+    Problem:    Using :change in between :function and :endfunction fails.
+    Solution:   Recognize :change inside a function. (ichizok, closes #1374)
+
+commit 972c3b8f1b50e2f887a397c324af99eb354aad0b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 12 21:44:49 2017 +0100
+
+    patch 8.0.0175: setting language on MS-Windows does not always work
+    
+    Problem:    Setting language in gvim on MS-Windows does not work when
+                libintl.dll is dynamically linked with msvcrt.dll.
+    Solution:   Use putenv() from libintl as well. (Ken Takata, closes #1082)
+
+commit b8f7bd68f6fdff51ca4db5b145dcde42ee7b804b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 12 20:28:25 2017 +0100
+
+    patch 8.0.0174: executing "locale -a" on MS-Windows needlessly
+    
+    Problem:    For completion "locale -a" is executed on MS-Windows, even though
+                it most likely won't work.
+    Solution:   Skip executing "locale -a" on MS-Windows. (Ken Takata)
+
+commit a1fa8929395351f03c56f50ca6e891d825123c0f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 12 20:06:33 2017 +0100
+
+    patch 8.0.0173: build fails with EBCDIC defined
+    
+    Problem:    When compiling with EBCDIC defined the build fails. (Yaroslav
+                Kuzmin)
+    Solution:   Move sortFunctions() to the right file.  Avoid warning for
+                redefining __SUSV3.
+
+commit 1d669c233c97486555a34f7d3f069068d9ebdb63
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 11 22:40:19 2017 +0100
+
+    patch 8.0.0172: command line window does not work
+    
+    Problem:    The command selected in the command line window is not executed.
+                (Andrey Starodubtsev)
+    Solution:   Save and restore the command line at a lower level. (closes #1370)
+
+commit ee142add229cbcd58bc76d59f23e02517df14379
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 11 21:50:08 2017 +0100
+
+    patch 8.0.0171: JS style JSON does not support single quotes
+    
+    Problem:    JS style JSON does not support single quotes.
+    Solution:   Allow for single quotes. (Yasuhiro Matsumoto, closes #1371)
+
+commit e32abbe42c921c5e521420417abe5bc301e540b3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 22:57:34 2017 +0100
+
+    patch 8.0.0170: crash in channel test
+    
+    Problem:    Channel test fails for using freed memory.
+    Solution:   Fix memory use in json_decode().
+
+commit 8b2f19536ff979046f0d241850f4176a1ce4bca9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 19:44:18 2017 +0100
+
+    patch 8.0.0169: json_decode() may run out of stack space
+    
+    Problem:    For complicated string json_decode() may run out of stack space.
+    Solution:   Change the recursive solution into an iterative solution.
+
+commit 872004132f25cabe59352912889e042d6c7e6b4e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 16:31:20 2017 +0100
+
+    patch 8.0.0168: not all float functionality is tested
+    
+    Problem:    Still some float functionality is not covered by tests.
+    Solution:   Add more tests. (Dominique Pelle, closes #1364)
+
+commit 08243d26d22ad44a857d02c90071578577b8a55d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 16:12:29 2017 +0100
+
+    patch 8.0.0167: str2nr()/str2float() fail with negative values
+    
+    Problem:    str2nr() and str2float() do not always work with negative values.
+    Solution:   Be more flexible about handling signs. (LemonBoy, closes #1332)
+                Add more tests.
+
+commit 03c60c1573cdbebbb662863cfc1780d19d511db5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 15:15:37 2017 +0100
+
+    patch 8.0.0166: JSON with a duplicate key gives an internal error
+    
+    Problem:    JSON with a duplicate key gives an internal error. (Lcd)
+    Solution:   Give a normal error.  Avoid an error when parsing JSON from a
+                remote client fails.
+
+commit f446b48ff0bffae2b453cd4f9e3c25dfe363d29d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 13:55:14 2017 +0100
+
+    patch 8.0.0165: ubsan warns for integer overflow
+    
+    Problem:    Ubsan warns for integer overflow.
+    Solution:   Swap two conditions. (Dominique Pelle)
+
+commit caa55b65c204946d160c1b743c5f8f3b506dc4d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 13:51:09 2017 +0100
+
+    patch 8.0.0164: outdated and misplaced comments
+    
+    Problem:    Outdated and misplaced comments.
+    Solution:   Fix the comments.
+
+commit 68563937f58ea2dc31b58739336c383d2fd7e6cf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 10 13:31:15 2017 +0100
+
+    Updated runtime files.
+
+commit 6abda995a57306028c3dc5c62c9b15858e5a3bcf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 9 21:10:31 2017 +0100
+
+    patch 8.0.0163: cannot build with Ruby 2.4
+    
+    Problem:    Ruby 2.4 no longer supports rb_cFixnum.
+    Solution:   move rb_cFixnum into an #ifdef. (Kazuki Sakamoto, closes #1365)
+
+commit 009c7b2640b6e04c101118cc7d0dc5785f9aa116
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 9 20:30:27 2017 +0100
+
+    patch 8.0.0162: build error on Fedora 23
+    
+    Problem:    Build error on Fedora 23 with small features and gnome2.
+    Solution:   Undefine ngettext(). (Hirohito Higashi)
+
+commit 4d0504019cc744a5122821f187dd3adfe536afff
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 9 12:58:11 2017 +0100
+
+    patch 8.0.0161: can't build with small features
+    
+    Problem:    Build fails when using small features.
+    Solution:   Update #ifdef for using save_ccline. (Hirohito Higashi)
+
 commit de33011ec623fd562419dede6bf465b5b9881a20
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 8 20:50:52 2017 +0100
