@@ -1,3 +1,33 @@
+commit 97d62d4321df358665e2e6504aad8ac2ba7fd841
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 16 22:53:57 2017 +0100
+
+    patch 8.0.0197: system() test skips some parts for MS-Windows
+    
+    Problem:    On MS-Windows the system() test skips a few parts.
+    Solution:   Swap single and double quotes for the command.
+
+commit c011a3d083001bcd9853b4447422f1819f3cee2f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 16 22:37:42 2017 +0100
+
+    patch 8.0.0196: profile test is slo and does not work on MS-Windows
+    
+    Problem:    The test for :profile is slow and does not work on MS-Windows.
+    Solution:   Use the "-es" argument. (Dominique Pelle)  Swap single and double
+                quotes for system()
+
+commit a9d23c20879d0dcb289a4db54b3c7df060f87c3c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 16 20:53:34 2017 +0100
+
+    patch 8.0.0195: fail to jump to static tag in current file
+    
+    Problem:    Jumping to a tag that is a static item in the current file fails.
+                (Kazunobu Kuriyama)
+    Solution:   Make sure the first byte of the tag key is not NUL. (Suggested by
+                James McCoy, closes #1387)
+
 commit e32bbded641a5da0263ecf82f9ccc95a8e0a089e
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 15 21:12:48 2017 +0100
