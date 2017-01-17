@@ -1,3 +1,9 @@
+commit 369b6f57c426b4bf39b4a0cac8d21ed1b5f7de4d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 17 12:22:32 2017 +0100
+
+    Update runtime files.
+
 commit 97d62d4321df358665e2e6504aad8ac2ba7fd841
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jan 16 22:53:57 2017 +0100

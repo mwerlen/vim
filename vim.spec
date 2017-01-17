@@ -760,6 +760,7 @@ rm -rf %{buildroot}
 %changelog
 * Tue Jan 17 2017 Karsten Hopp <karsten@redhat.com> 8.0.197-1
 - patchlevel 197
+- update runtime files
 
 * Mon Jan 16 2017 Karsten Hopp <karsten@redhat.com> 8.0.194-1
 - patchlevel 194
