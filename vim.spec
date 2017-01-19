@@ -1,4 +1,4 @@
-%define patchlevel 197
+%define patchlevel 206
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -756,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Jan 19 2017 Karsten Hopp <karsten@redhat.com> 8.0.206-1
+- patchlevel 206
+
 * Tue Jan 17 2017 Karsten Hopp <karsten@redhat.com> 8.0.197-1
 - patchlevel 197
 - update runtime files
