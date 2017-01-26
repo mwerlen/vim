@@ -1,3 +1,321 @@
+commit 9e817c8a31232eda57963215eb16ee5b1ceefa7b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jan 25 21:36:17 2017 +0100
+
+    patch 8.0.0238: bracketed paste does not disable autoindent
+    
+    Problem:    When using bracketed paste autoindent causes indent to be
+                increased.
+    Solution:   Disable 'ai' and set 'paste' temporarily. (Ken Takata)
+
+commit ba47b51ff88d91c9bb5aa522183e23a656865697
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 21:18:19 2017 +0100
+
+    patch 8.0.0237: when 'wildoptions' is "tagfile" completion may not work
+    
+    Problem:    When setting wildoptions=tagfile the completion context is not set
+                correctly. (desjardins)
+    Solution:   Check for EXPAND_TAGS_LISTFILES. (Christian Brabandt, closes #1399)
+
+commit 6a717f17ec6b09634be1c29e0ac4c35213f7b32d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 20:47:50 2017 +0100
+
+    patch 8.0.0236: gcc complains about uninitialized variable
+    
+    Problem:    Gcc complains that a variable may be used uninitialized. Confusion
+                between variable and label name. (John Marriott)
+    Solution:   Initialize it.  Rename end to end_lnum.
+
+commit b031c4ea04eb1e37a873fbb85e90d835aa1e2b1c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 20:14:48 2017 +0100
+
+    patch 8.0.0235: memory leak in diff mode
+    
+    Problem:    Memory leak detected when running tests for diff mode.
+    Solution:   Free p_extra_free.
+
+commit 941c12da3c087fd04aa6c120a76bf28f19349d96
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 19:55:43 2017 +0100
+
+    patch 8.0.0234: crash when using put in Visual mode
+    
+    Problem:    When several lines are visually selected and one of them is short,
+                using put may cause a crash. (Axel Bender)
+    Solution:   Check for a short line. (Christian Brabandt)
+
+commit bff6ad133195145f810645c0bde7a2a1fdfc37b8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 19:18:13 2017 +0100
+
+    patch 8.0.0233: paste test fails in the GUI
+    
+    Problem:    The paste test fails if the GUI is being used.
+    Solution:   Skip the test in the GUI.
+
+commit 48c9f3b123364f368472564a66a9b71dc383558b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 19:08:15 2017 +0100
+
+    patch 8.0.0232: paste does not work when 'esckeys' is off
+    
+    Problem:    Pasting in Insert mode does not work when bracketed paste is used
+                and 'esckeys' is off.
+    Solution:   When 'esckeys' is off disable bracketed paste in Insert mode.
+
+commit 076e502199b19e6141e4c1e659ff3f21b71934e1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 18:58:30 2017 +0100
+
+    patch 8.0.0231: bracketed paste mode is not tested
+    
+    Problem:    There are no tests for bracketed paste mode.
+    Solution:   Add a test.  Fix repeating with "normal .".
+
+commit 915350edec02f0326ecbe49f3b6cf2cbcd105f7d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 17:50:52 2017 +0100
+
+    patch 8.0.0230: bracketed paste does not support line breaks
+    
+    Problem:    When using bracketed paste line breaks are not respected.
+    Solution:   Turn CR characters into a line break if the text is being
+                inserted. (closes #1404)
+
+commit 24a2d416ec261829ff7fd29f7b66739c96dd6513
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 17:48:36 2017 +0100
+
+    patch 8.0.0229: local 'formatprg' option value leaks
+    
+    Problem:    When freeing a buffer the local value of the 'formatprg' option is
+                not cleared.
+    Solution:   Add missing change.
+
+commit abbc448bc09a292ec1263ffe69b4cb3d1c57f020
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 15:57:55 2017 +0100
+
+    patch 8.0.0228: pasting in xterm on the command line has PasteStart
+    
+    Problem:    When pasting test in an xterm on the command line it is surrounded
+                by <PasteStart> and <PasteEnd>. (Johannes Kaltenbach)
+    Solution:   Add missing changes.
+
+commit 2aa5f696b91a51f29873e340de4bdc182e1e8dd4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 15:46:48 2017 +0100
+
+    patch 8.0.0227: crash with ff=dos when first line in file has no CR
+    
+    Problem:    Crash when 'fileformat' is forced to "dos" and the first line in
+                the file is empty and does not have a CR character.
+    Solution:   Don't check for CR before the start of the buffer.
+
+commit 1695f99d08076d77ed3015f1edf09a668a4d449a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 24 13:18:43 2017 +0100
+
+    patch 8.0.0226: test for patch 8.0.0224 missing CR characters
+    
+    Problem:    The test for patch 8.0.0224 misses the CR characters and passes
+                even without the fix. (Christian Brabandt)
+    Solution:   Use double quotes and \<CR>.
+
+commit 9957a10d0f0c34d8083af6ed66e198e4796038e0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 23 21:53:53 2017 +0100
+
+    patch 8.0.0225: put in Visual block mode terminates early
+    
+    Problem:    When a block is visually selected and put is used on the end of
+                the selection only one line is changed.
+    Solution:   Check for the end properly. (Christian Brabandt, neovim issue
+                5781)
+
+commit 7a2699e868bca781e26b060a44fc714d87cfa4ba
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 23 21:31:09 2017 +0100
+
+    patch 8.0.0224: change to 'fileformats' from autocmd does not take effect
+    
+    Problem:    When 'fileformats' is changed in a BufReadPre auto command, it
+                does not take effect in readfile(). (Gary Johnson)
+    Solution:   Check the value of 'fileformats' after executing auto commands.
+                (Christian Brabandt)
+
+commit fffbf308dd98d1129ba4914d921ab47dc6a6c9b1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 23 20:47:12 2017 +0100
+
+    patch 8.0.0223: Coverity warns for an uninitialized variable
+    
+    Problem:    Coverity gets confused by the flags passed to find_tags() and
+                warnts for an uninitialized variable.
+    Solution:   Disallow using cscope and help tags at the same time.
+
+commit c81299684b2b9045e56525d3da3f45e8440fbf0d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 20:04:51 2017 +0100
+
+    patch 8.0.0222: blockwise put on multi-byte character misplaced
+    
+    Problem:    When a multi-byte character ends in a zero byte, putting blockwise
+                text puts it before the character instead of after it.
+    Solution:   Use int instead of char for the character under the cursor.
+                (Luchr, closes #1403)  Add a test.
+
+commit 6a8ede99dd76a7de92ce9f40df6198428a530dd0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 19:49:12 2017 +0100
+
+    patch 8.0.0221: unnecessary condition on PROTO
+    
+    Problem:    Checking if PROTO is defined inside a function has no effect.
+    Solution:   Remove the check for PROTO. (Hirohito Higashi)
+
+commit 15eedf1d621d980cb40f50cc6a78a09ab94388c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 19:25:33 2017 +0100
+
+    patch 8.0.0220: completion of highlight names misses a few values
+    
+    Problem:    Completion for :match does not show "none" and other missing
+                highlight names.
+    Solution:   Skip over cleared entries before checking the index to be at the
+                end.
+
+commit 7a40ea2138102545848ea86a361f1b8dec7552b5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 18:34:57 2017 +0100
+
+    patch 8.0.0219: ubsan reports errors for overflow
+    
+    Problem:    Ubsan reports errors for integer overflow.
+    Solution:   Define macros for minimum and maximum values.  Select an
+                expression based on the value. (Mike Williams)
+
+commit 2b2207ba69c6b009e466a36eef0644ca723e16d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 16:46:56 2017 +0100
+
+    patch 8.0.0218: no completion for :cexpr and similar commands
+    
+    Problem:    No command line completion for :cexpr, :cgetexpr, :caddexpr, etc.
+    Solution:   Make completion work. (Yegappan Lakshmanan)  Add a test.
+
+commit e2d74dbe19c0980c72725a7d0c2b668d6f41766e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 16:13:35 2017 +0100
+
+    patch 8.0.0217: build fails without cscope feature
+    
+    Problem:    Build fails without the cscope feature.
+    Solution:   Add #ifdef.
+
+commit e2c6037da387aad05e4f6bd4a8a6267051d6de04
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 15:56:26 2017 +0100
+
+    patch 8.0.0216: decoding js style json may fail
+    
+    Problem:    When decoding JSON with a JS style object the JSON test may use a
+                NULL pointer. (Coverity)
+    Solution:   Check for a NULL pointer.
+
+commit e362c3d2c34f2b7ff38b4c3d2a7ff127d2290e09
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 15:40:00 2017 +0100
+
+    patch 8.0.0215: NULL pointer use if cscope line looks like emacs tag
+    
+    Problem:    When a Cscope line contains CTRL-L a NULL pointer may be used.
+                (Coverity)
+    Solution:   Don't check for an emacs tag in a cscope line.
+
+commit d7a96151e0c86e8d4f9162c919cf3ff400a893b6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 15:28:55 2017 +0100
+
+    patch 8.0.0214: leaking memory when syntax cluster id is unknown
+    
+    Problem:    Leaking memory when syntax cluster id is unknown. (Coverity)
+    Solution:   Free the memory.
+
+commit ca24e2cfcfd3f064ea1674886e3dcaa8254ad8d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 15:19:22 2017 +0100
+
+    patch 8.0.0213: Netbeans specialKeys command does not check argument length
+    
+    Problem:    The Netbeans "specialKeys" command does not check if the argument
+                fits in the buffer. (Coverity)
+    Solution:   Add a length check.
+
+commit 423977d3cebac2be1158b1d11da60fe96db4b750
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 22 15:05:12 2017 +0100
+
+    patch 8.0.0212: buffer for key name may be too small
+    
+    Problem:    The buffer used to store a key name theoreticaly could be too
+                small. (Coverity)
+    Solution:   Count all possible modifier characters.  Add a check for the
+                length just in case.
+
+commit 560379d7ae1bace259bbc29a275e73446346ce66
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 21 22:50:00 2017 +0100
+
+    patch 8.0.0211: cannot build without the multi-byte feature
+    
+    Problem:    Build fails if the multi-byte feature is disabled.
+    Solution:   Change #ifdef around ins_char_bytes.
+
+commit ec2da36ca48b40c0654b32a8d2c9f52e796daa5e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 21 20:04:22 2017 +0100
+
+    patch 8.0.0210: no support for bracketed paste
+    
+    Problem:    Vim does not support bracketed paste, as implemented by xterm and
+                other terminals.
+    Solution:   Add t_BE, t_BD, t_PS and t_PE.
+
+commit 41baa7983aa81b0343b053e6a672cf8224a10245
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 21 14:45:09 2017 +0100
+
+    patch 8.0.0209: cursor binding does not work with :substitute
+    
+    Problem:    When using :substitute with the "c" flag and 'cursorbind' is set
+                the cursor is not updated in other windows.
+    Solution:   Call do_check_cursorbind(). (Masanori Misono)
+
+commit 25b0e6b701a7a8dfcb4f60e217360a5c75053d8c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 20 21:51:53 2017 +0100
+
+    patch 8.0.0208: internally used commands end up in history
+    
+    Problem:    Internally used commands for CTRL-Z and mouse click end up in
+                history. (Matthew Malcomson)
+    Solution:   Use do_cmdline_cmd() instead of stuffing them in the readahead
+                buffer. (James McCoy, closes #1395)
+
+commit 23c9e8b3bc86ac1083dd97b00c943fbb7af7bc29
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 20 19:59:54 2017 +0100
+
+    patch 8.0.0207: leaking file descriptor when system() fails
+    
+    Problem:    Leaking file descriptor when system() cannot find the buffer.
+                (Coverity)
+    Solution:   Close the file descriptor.  (Dominique Pelle, closes #1398)
+
 commit 8822744b4d9d40aa1fd59870a8bdd7c64c59a42b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 17 22:16:00 2017 +0100
