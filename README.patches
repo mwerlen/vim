@@ -1,3 +1,334 @@
+commit a4c906a4a111cbe59cf5f1e8354a36ba83e0a444
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 23:26:37 2017 +0100
+
+    patch 8.0.0271: may get ml_get error when :tcldo deletes lines
+    
+    Problem:    May get ml_get error when :tcldo deletes lines or switches to
+                another buffer. (Nikolai Pavlov, closes #1421)
+    Solution:   Check the buffer and line every time.
+
+commit c593fee0e5e850f7e75be41f5d1751f28892a27f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 23:11:25 2017 +0100
+
+    patch 8.0.0270: may get ml_get error when :rubydo deletes lines
+    
+    Problem:    May get ml_get error when :rubydo deletes lines or switches to
+                another buffer. (Nikolai Pavlov, issue #1421)
+    Solution:   Check the buffer and line every time.
+
+commit 85b5743d3e69f96882b6124d4b4ebf873ca24707
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 22:59:12 2017 +0100
+
+    patch 8.0.0269: may get ml_get error when :perldo deletes lines
+    
+    Problem:    May get ml_get error when :perldo deletes lines or switches to
+                another buffer. (Nikolai Pavlov, issue #1421)
+    Solution:   Check the buffer and line every time.
+
+commit d58f03b1c21b5b0242718f89da53ddd67b1eff6b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 22:48:45 2017 +0100
+
+    patch 8.0.0268: may get ml_get error when :luado deletes lines
+    
+    Problem:    May get ml_get error when :luado deletes lines or switches to
+                another buffer. (Nikolai Pavlov, issue #1421)
+    Solution:   Check the buffer and line every time.
+
+commit 6fe2eb43d2527cc8a3450456a60639e87f16d32d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 21:49:51 2017 +0100
+
+    patch 8.0.0267: channel test sometimes fails on Mac
+    
+    Problem:    A channel test sometimes fails on Mac.
+    Solution:   Add the test to the list of flaky tests.
+
+commit c625155ea42da2d7cefd853837f18115713b439c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 21:42:20 2017 +0100
+
+    patch 8.0.0266: compiler warning for using uninitialized variable
+    
+    Problem:    Compiler warning for using uninitialized variable.
+    Solution:   Set tab_number also when there is an error.
+
+commit a58883b4ea0bbb813fd4dd7eb49dd6f03e3e5387
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 21:31:09 2017 +0100
+
+    patch 8.0.0265: may get ml_get error when :pydo deletes lines
+    
+    Problem:    May get ml_get error when :pydo deletes lines or switches to
+                another buffer. (Nikolai Pavlov, issue #1421)
+    Solution:   Check the buffer and line every time.
+
+commit d297f35eb0f6cfed47dd7ecf47df62994695a454
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 20:31:21 2017 +0100
+
+    patch 8.0.0264: memory error reported by ubsan
+    
+    Problem:    Memory error reported by ubsan, probably for using the string
+                returned by execute().
+    Solution:   NUL terminate the result of execute().
+
+commit 80627cf51fd4274320875193a43ce11cee58c96e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 19:59:39 2017 +0100
+
+    patch 8.0.0263: Farsi support is not tested enough
+    
+    Problem:    Farsi support is not tested enough.
+    Solution:   Add more tests for Farsi.  Clean up the code.
+
+commit ddf662a1c86ef0b4bd0c55c5f0aa192ebd6d9a5e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 17:59:12 2017 +0100
+
+    patch 8.0.0262: Farsi support is barely tested
+    
+    Problem:    Farsi support is barely tested.
+    Solution:   Add more tests for Farsi.  Clean up the code.
+
+commit 24c2e48ef8b8b9053fa18039e6f6118337f908f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 15:45:12 2017 +0100
+
+    patch 8.0.0261: not enough test coverage for eval functions
+    
+    Problem:    Not enough test coverage for eval functions.
+    Solution:   Add more tests. (Dominique Pelle, closes #1420)
+
+commit dea2570740a79c9f2c6ce723689e563f19aff5cf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 15:18:10 2017 +0100
+
+    patch 8.0.0260: build fails with tiny features
+    
+    Problem:    Build fails with tiny features.
+    Solution:   Move get_tabpage_arg() inside #ifdef.
+
+commit 2f72c70657129c16e6b0e413752a775c804f02f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 14:48:10 2017 +0100
+
+    patch 8.0.0259: tab commands do not handle count correctly
+    
+    Problem:    Tab commands do not handle count correctly. (Ken Hamada)
+    Solution:   Add ADDR_TABS_RELATIVE. (Hirohito Higashi)
+
+commit c9b56b2ceb4662f87c39ea07ba5090a073fd6286
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jan 29 14:14:09 2017 +0100
+
+    patch 8.0.0258: mksession test leaves file behind
+    
+    Problem:    mksession test leaves file behind.
+    Solution:   Delete the file.  Rename files to start with "X".
+
+commit e0b66da69123815076b38c0c074a1c6aca5dfd27
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 18:42:56 2017 +0100
+
+    patch 8.0.0257: test file missing in distribution
+    
+    Problem:    The keyword test file is not included in the archive.
+    Solution:   Update the list of files.
+
+commit 690afe1fef87e7eef6fb7343a926617d5f7315fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 18:34:47 2017 +0100
+
+    Update runtime files.
+
+commit 3a29abcb6154d9f55ca8abd6d97e5822b97ac4b3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 18:31:41 2017 +0100
+
+    patch 8.0.0256: missing changes to one file breaks test
+    
+    Problem:    Tests fail because some changes were not included.
+    Solution:   Add changes to evalfunc.c
+
+commit f13e00b2cf381e13fd327b5387a5bd6f004ac2a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 18:23:54 2017 +0100
+
+    patch 8.0.0255: setpos() does not use the buffer argument for all marks
+    
+    Problem:    When calling setpos() with a buffer argument it often is ignored.
+                (Matthew Malcomson)
+    Solution:   Make the buffer argument work for all marks local to a buffer.
+                (neovim #5713)  Add more tests.
+
+commit c7b831ca154537505f5a22d01335a86b2e9cb023
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 18:08:12 2017 +0100
+
+    patch 8.0.0254: error message of assert functions is sometimes incomplete
+    
+    Problem:    When using an assert function one can either specify a message or
+                get a message about what failed, not both.
+    Solution:   Concatenate the error with the message.
+
+commit 36ae89c550a4f0a380606c3fb4a054957ad698f0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 17:11:14 2017 +0100
+
+    patch 8.0.0253: error when loading session if winminheight is 2
+    
+    Problem:    When creating a session when winminheight is 2 or larger and
+                loading that session gives an error.
+    Solution:   Also set winminheight before setting winheight to 1. (Rafael
+                Bodill, neovim #5717)
+
+commit 4019cf90b8657d4ab1c39744db63550f44f405a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 16:39:34 2017 +0100
+
+    patch 8.0.0252: not properly recognizing word characters between 128 and 255
+    
+    Problem:    Characters below 256 that are not one byte are not always
+                recognized as word characters.
+    Solution:   Make vim_iswordc() and vim_iswordp() work the same way. Add a test
+                for this. (Ozaki Kiichi)
+
+commit f42dd3c3901ea0ba38e67a616aea9953cae81b8d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 16:06:38 2017 +0100
+
+    patch 8.0.0251: not easy to select Python 2 or 3
+    
+    Problem:    It is not so easy to write a script that works with both Python 2
+                and Python 3, even when the Python code works with both.
+    Solution:   Add 'pyxversion', :pyx, etc. (Marc Weber, Ken Takata)
+
+commit 0c0590d9827cb07a33c1552cb3558b94bddcb4dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jan 28 13:48:10 2017 +0100
+
+    patch 8.0.0250: virtcol() does not work well for multi-byte characters
+    
+    Problem:    When virtcol() gets a column that is not the first byte of a
+                multi-byte character the result is unpredictable. (Christian
+                Ludwig)
+    Solution:   Correct the column to the first byte of a multi-byte character.
+                Change the utf-8 test to new style.
+
+commit 4bc2f2e9fd73da4ba79cef83e4720e918981c483
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 27 22:20:13 2017 +0100
+
+    patch 8.0.0249: CI failure when a submit is close to previous one
+    
+    Problem:    When two submits happen quick after each other, the tests for the
+                first one may error out.
+    Solution:   Use a git depth of 10 instead of 1. (Christian Brabandt)
+
+commit 45600ce8f2bead069882032f992623cd5a799ca0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 27 21:54:07 2017 +0100
+
+    patch 8.0.0248: vim_strcat() cannot handle overlapping arguments
+    
+    Problem:    vim_strcat() cannot handle overlapping arguments.
+    Solution:   Use mch_memmove() instead of strcpy(). (Justin M Keyes,
+                closes #1415)
+
+commit aed6d0b81a14a81433c0f3c2c65cef935100db33
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 27 21:48:54 2017 +0100
+
+    patch 8.0.0247: need to type Ctrl-N twice to select a completion
+    
+    Problem:    Under some circumstances, one needs to type Ctrl-N or Ctrl-P twice
+                to have a menu entry selected. (Lifepillar)
+    Solution:   call ins_compl_free(). (Christian Brabandt, closes #1411)
+
+commit 3a118be1501549a7a9b8f52618fd0a967470d0a1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 27 21:22:19 2017 +0100
+
+    patch 8.0.0246: compiler warnings for int to pointer conversion
+    
+    Problem:    Compiler warnings for int to pointer conversion.
+    Solution:   Fix macro for mch_memmove(). (John Marriott)
+
+commit 16038d50c4309e8dee33c70ca2c9e7f73439c4df
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 27 20:37:49 2017 +0100
+
+    patch 8.0.0245: zh_CN.cp936.po has a conversion error
+    
+    Problem:    The generated zh_CN.cp936.po message file is not encoded properly.
+    Solution:   Instead of using zh_CN.po as input, use zh_CN.UTF-8.po.
+
+commit d9c60648e50a82dcb85b8dffb47f6416c3d56972
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jan 27 20:03:18 2017 +0100
+
+    patch 8.0.0244: making t_BE empty only has an effect before startup
+    
+    Problem:    When the user sets t_BE empty after startup to disable bracketed
+                paste, this has no direct effect.
+    Solution:   When t_BE is made empty write t_BD.  When t_BE is made non-empty
+                write the new value.
+
+commit cc5b22b3bfdc0e9e835cf7871166badda31447bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 26 22:51:56 2017 +0100
+
+    patch 8.0.0243: tolower() does not work if the byte count changes
+    
+    Problem:    When making a character lower case with tolower() changes the byte
+                cound, it is not made lower case.
+    Solution:   Add strlow_save(). (Dominique Pelle, closes #1406)
+
+commit 65c836e6004647196ae0bc18e409a9e7b79207c0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 26 22:07:33 2017 +0100
+
+    patch 8.0.0242: no tests for user command completion
+    
+    Problem:    Completion of user defined functions is not covered by tests.
+    Solution:   Add tests.  Also test various errors of user-defined commands.
+                (Dominique Pelle, closes #1413)
+
+commit 52c0de1de196120976fef82cbbaaeafbedd9c62f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 26 21:36:34 2017 +0100
+
+    patch 8.0.0241: fallback implementation of mch_memmove is unused
+    
+    Problem:    Vim defines a mch_memmove() function but it doesn't work, thus is
+                always unused.
+    Solution:   Remove the mch_memmove implementation. (suggested by Dominique
+                Pelle)
+
+commit 4f7090b93d9b2c2e1724466a2e069e97a5e91808
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 26 21:24:02 2017 +0100
+
+    patch 8.0.0240: failure with one build on CI
+    
+    Problem:    The clang build on CI fails with one configuration.
+    Solution:   Redo a previous patch that was accidentally reverted.
+
+commit 1e07633a5d42f1756da88c25c3e7df957470acd9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jan 26 20:11:12 2017 +0100
+
+    patch 8.0.0239: no CI with an address sanitizer
+    
+    Problem:    The address sanitizer sometimes finds errors, but it needs to be
+                run manually.
+    Solution:   Add an environment to Travis with clang and the address sanitizer.
+                (Christian Brabandt)  Also include changes only on github.
+
 commit 9e817c8a31232eda57963215eb16ee5b1ceefa7b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jan 25 21:36:17 2017 +0100
