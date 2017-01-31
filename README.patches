@@ -1,3 +1,22 @@
+commit c4a249a736d40ec54794827ef95804c225d0e38f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 30 22:56:48 2017 +0100
+
+    patch 8.0.0273: dead code detected by Coverity
+    
+    Problem:    Dead code detected by Coverity when not using gnome.
+    Solution:   Rearrange the #ifdefs to avoid dead code.
+
+commit 432c839ebd5b99d548de82f66ddb5a47740fdb28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jan 30 22:01:01 2017 +0100
+
+    patch 8.0.0272: crash on exit is not detected when running tests
+    
+    Problem:    Crash on exit is not detected when running tests.
+    Solution:   Remove the dash before the command. (Dominique Pelle, closes
+                #1425)
+
 commit a4c906a4a111cbe59cf5f1e8354a36ba83e0a444
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jan 29 23:26:37 2017 +0100
