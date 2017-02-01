@@ -1,3 +1,23 @@
+commit e3caa1109072b9655f8d5103c92efd73177f8577
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 31 22:07:42 2017 +0100
+
+    patch 8.0.0275: the screen may be updated at the wrong time
+    
+    Problem:    When checking for CTRL-C typed the GUI may detect a screen resize
+                and redraw the screen, causing trouble.
+    Solution:   Set updating_screen in ui_breakcheck().
+
+commit 070b33da93ad3a191664bb61f5ccc50781460c03
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jan 31 21:53:39 2017 +0100
+
+    patch 8.0.0274: possible recursive screen updating causes trouble
+    
+    Problem:    When update_single_line() is called recursively, or another screen
+                update happens while it is busy, errors may occur.
+    Solution:   Check and update updating_screen. (Christian Brabandt)
+
 commit c4a249a736d40ec54794827ef95804c225d0e38f
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jan 30 22:56:48 2017 +0100
