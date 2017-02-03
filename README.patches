@@ -1,3 +1,216 @@
+commit 03ff9bcbc968f7d306e4a4e334e226fdde62ca82
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 2 22:59:27 2017 +0100
+
+    patch 8.0.0297: double free on exit when using a closure
+    
+    Problem:    Double free on exit when using a closure. (James McCoy)
+    Solution:   Split free_al_functions in two parts. (closes #1428)
+
+commit fd8983b09c64d9bfa8a4bdc16d72c55fbb22b4dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 2 22:21:29 2017 +0100
+
+    patch 8.0.0296: bracketed paste can only append, not insert
+    
+    Problem:    Bracketed paste can only append, not insert.
+    Solution:   When the cursor is in the first column insert the text.
+
+commit 7a073549a3b1e72037a4e98ceb406d057ac9ba50
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 23:17:36 2017 +0100
+
+    patch 8.0.0295: test_viml hangs
+    
+    Problem:    test_viml hangs.
+    Solution:   Put resetting 'more' before sourcing the script.
+
+commit 79da563cf9220b9abb83455a68d995684133ea56
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 22:52:44 2017 +0100
+
+    patch 8.0.0294: argument list is not stored correctly in a session file
+    
+    Problem:    Argument list is not stored correctly in a session file.
+                (lgpasquale)
+    Solution:   Use "$argadd" instead of "argadd". (closes #1434)
+
+commit e5f2a075e35aa903e8d5a63bef1a438344bba5fb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 22:31:49 2017 +0100
+
+    patch 8.0.0293: some tests have a one or three second wait
+    
+    Problem:    Some tests have a one or three second wait.
+    Solution:   Reset the 'showmode' option.  Use a test time of one to disable
+                sleep after an error or warning message.
+
+commit a2f28859bfb3fa52bde14c9d2ca3ab7196a9154a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 22:05:28 2017 +0100
+
+    patch 8.0.0292: the stat test is a bit slow
+    
+    Problem:    The stat test is a bit slow.
+    Solution:   Remove a couple of sleep comments and reduce another.
+
+commit 23fa81d2223cd9bb7c51829c48047b2976bc2d11
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 21:50:21 2017 +0100
+
+    patch 8.0.0291: Visual block insertion does not insert in all lines
+    
+    Problem:    Visual block insertion does not insert in all lines.
+    Solution:   Don't bail out of insert too early. Add a test. (Christian
+                Brabandt, closes #1290)
+
+commit 04e87b72c5fa88b7034a5b0ec0be6a7ad763e9d2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 21:23:10 2017 +0100
+
+    patch 8.0.0290: cursor positioning wrong if wide character wraps
+    
+    Problem:    If a wide character doesn't fit at the end of the screen line, and
+                the line doesn't fit on the screen, then the cursor position may
+                be wrong. (anliting)
+    Solution:   Don't skip over wide character. (Christian Brabandt, closes #1408)
+
+commit 21d7c9b601f3048e1293ecd6c09b8325a15503cd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 20:53:38 2017 +0100
+
+    patch 8.0.0289: no test for "ga" and :ascii
+    
+    Problem:    No test for "ga" and :ascii.
+    Solution:   Add a test. (Dominique Pelle, closes #1429)
+
+commit 4e032e1b17c92e1bb4b94be7f487d6be725274ac
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 20:48:13 2017 +0100
+
+    patch 8.0.0288: errors reported while running tests
+    
+    Problem:    Errors reported while running tests.
+    Solution:   Put comma in the right place.
+
+commit c7d9eacefa319e5ac3b3b2334fda5acb126b8716
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 20:26:51 2017 +0100
+
+    patch 8.0.0287: debug mode: cannot access function arguments
+    
+    Problem:    Cannot access the arguments of the current function in debug mode.
+                (Luc Hermitte)
+    Solution:   use get_funccal(). (Lemonboy, closes #1432, closes #1352)
+
+commit c10f0e7cb0f35eea489b038e56c87b818eee975b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 18:37:14 2017 +0100
+
+    patch 8.0.0286: not always redrawing after screen resize
+    
+    Problem:    When concealing is active and the screen is resized in the GUI it
+                is not immediately redrawn.
+    Solution:   Use update_prepare() and update_finish() from
+                update_single_line().
+
+commit c386267ffe1eb7ddf11794ade4f97d8b6b534588
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 18:07:38 2017 +0100
+
+    patch 8.0.0285: tests fail with tiny build on Unix
+    
+    Problem:    Tests fail with tiny build on Unix.
+    Solution:   Only set g:tester_HOME when build with the +eval feature.
+
+commit b245559fa9b03bfb0d0f77023120e60d870f0b56
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 18:00:13 2017 +0100
+
+    patch 8.0.0284: collapse buffers test failed once
+    
+    Problem:    The Test_collapse_buffers() test failed once, looks like it is
+                flaky.
+    Solution:   Add it to the list of flaky tests.
+
+commit e90858d0229444b3cd16b1cd3a8d61a24c435705
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 17:24:34 2017 +0100
+
+    patch 8.0.0283: mode() does not indicate Insert mode completion
+    
+    Problem:    The return value of mode() does not indicate that completion is
+                active in Replace and Insert mode. (Zhen-Huan (Kenny) Hu)
+    Solution:   Add "c" or "x" for two kinds of completion. (Yegappan Lakshmanan,
+                closes #1397)  Test some more modes.
+
+commit 0b5c93a7f266cd8c90ea27bdaf9f7214a95d64d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 15:03:30 2017 +0100
+
+    patch 8.0.0282: need to use CTRL-O twice when in Visual-Insert mode
+    
+    Problem:    When doing a Visual selection and using "I" to go to insert mode,
+                CTRL-O needs to be used twice to go to Normal mode. (Coacher)
+    Solution:   Check for the return value of edit(). (Christian Brabandt,
+                closes #1290)
+
+commit 1266d678bf2ed5072cca9381409536406f8d7b32
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 13:43:36 2017 +0100
+
+    patch 8.0.0281: some files are still using ARGSUSED instead of UNUSED
+    
+    Problem:    MS-Windows files are still using ARGSUSED while most other files
+                have UNUSED.
+    Solution:   Change ARGSUSED to UNUSED or delete it.
+
+commit 7c23d1d9d9cc1d3d19fe35708da7c5d5b3556e05
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 13:14:16 2017 +0100
+
+    patch 8.0.0280: problem setting multi-byte environment var on MS-Windows
+    
+    Problem:    On MS-Windows setting an environment variable with multi-byte
+                strings does not work well.
+    Solution:   Use wputenv when possible. (Taro Muraoka, Ken Takata)
+
+commit 168dd00f72515750505458018767f2ae0bcdb54e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 13:02:47 2017 +0100
+
+    patch 8.0.0279: MSVC 2015 uses a different dll name
+    
+    Problem:    With MSVC 2015 the dll name is vcruntime140.dll.
+    Solution:   Check the MSVC version and use the right dll name. (Ken Takata)
+
+commit f1ab9c137060a4d3aa1e69bcbbed02342cd746a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 12:32:58 2017 +0100
+
+    patch 8.0.0278: GUI test fails on MS-Windows
+    
+    Problem:    GUI test fails on MS-Windows.
+    Solution:   Check that tester_HOME exists.
+
+commit 56e6bd7ba2edcb069f55c3515341537c654a9046
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 12:08:47 2017 +0100
+
+    patch 8.0.0277: the GUI test may trigger fontconfig and take a long time
+    
+    Problem:    The GUI test may trigger fontconfig and take a long time.
+    Solution:   Set $XDG_CACHE_HOME. (Kazunobu Kuriyama)
+
+commit 3954e3c4b5d2bfda4c481c076fbc39ab06be7639
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 1 11:50:09 2017 +0100
+
+    patch 8.0.0276: unnecessary #ifdefs
+    
+    Problem:    Checking for FEAT_GUI_GNOME inside GTK 3 code is unnecessary.
+    Solution:   Remove the #ifdef. (Kazunobu Kuriyama)
+
 commit e3caa1109072b9655f8d5103c92efd73177f8577
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jan 31 22:07:42 2017 +0100
