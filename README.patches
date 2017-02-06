@@ -1,3 +1,140 @@
+commit 544d3bc9f0e494cb712a33b61558b8e8e12b1e0b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 21:14:50 2017 +0100
+
+    patch 8.0.0311: linebreak tests are old style
+    
+    Problem:    Linebreak tests are old style.
+    Solution:   Turn the tests into new style. Share utility functions. (Ozaki
+                Kiichi, closes #1444)
+
+commit 13c724fb3a630257b736a1c91643b396fee917c1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 20:54:26 2017 +0100
+
+    patch 8.0.0310: not enough testing for GUI functionality
+    
+    Problem:    Not enough testing for GUI functionality.
+    Solution:   Add tests for v:windowid and getwinpos[xy](). (Kazunobu Kuriyama)
+
+commit 059b7482a2d9d4cebbf4c01b2b2ea6f1e783cc20
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 16:34:43 2017 +0100
+
+    patch 8.0.0309: cannot use an empty key in json
+    
+    Problem:    Cannot use an empty key in json.
+    Solution:   Allow for using an empty key.
+
+commit 2f9e575583c2ad3978ee3d0f790eeff7df56bd6c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 16:07:54 2017 +0100
+
+    patch 8.0.0308: 'runtimepath' not update correctly when using symbolic link
+    
+    Problem:    When using a symbolic link, the package path will not be inserted
+                at the right position in 'runtimepath'. (Dugan Chen, Norio Takagi)
+    Solution:   Resolve symbolic links when finding the right position in
+                'runtimepath'. (Hirohito Higashi)
+
+commit 955f198fc546cc30a34361932d3f454a61df0efa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 15:10:51 2017 +0100
+
+    patch 8.0.0307: asan detects a memory error when EXITFREE is defined
+    
+    Problem:    Asan detects a memory error when EXITFREE is defined. (Dominique
+                Pelle)
+    Solution:   In getvcol() check for ml_get_buf() returning an empty string.
+                Also skip adjusting the scroll position.  Set "exiting" in
+                mch_exit() for all systems.
+
+commit e971df39a5aac5d9b7e8033247dc18b12daa0eb8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 14:15:29 2017 +0100
+
+    patch 8.0.0306: mode() not sufficiently tested
+    
+    Problem:    mode() not sufficiently tested.
+    Solution:   Add more tests. (Yegappan Lakshmanan)
+
+commit aaaf57d8a936efe420190c077e4a74041cc6c72e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 5 14:13:20 2017 +0100
+
+    patch 8.0.0305: invalid memory access when option has duplicate flag
+    
+    Problem:    Invalid memory access when option has duplicate flag.
+    Solution:   Correct pointer computation. (Dominique Pelle, closes #1442)
+
+commit 1fb0d49803b4f57025ed6a43b1f5b9eb91524645
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 4 21:50:19 2017 +0100
+
+    patch 8.0.0304: assign test fails in the GUI
+    
+    Problem:    Assign test fails in the GUI.
+    Solution:   Skip the test for setting t_k1.
+
+commit a1891848d970452cd775d35a4bccfdd9758a690a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 4 21:34:31 2017 +0100
+
+    patch 8.0.0303: bracketed paste does not work in Visual mode
+    
+    Problem:    Bracketed paste does not work in Visual mode.
+    Solution:   Delete the text before pasting
+
+commit e353c402e63b9b0a0bc06acf390e352d9e7eeaeb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 4 19:49:16 2017 +0100
+
+    patch 8.0.0302: cannot set terminal key codes with :let
+    
+    Problem:    Cannot set terminal key codes with :let.
+    Solution:   Make it work.
+
+commit 698f8b207bbfefa1cbbd7361caf5412cb3416534
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 4 15:53:32 2017 +0100
+
+    patch 8.0.0301: not enough testing for setting options
+    
+    Problem:    No tests for ":set completion" and various errors of the :set
+                command.
+    Solution:   Add more :set tests. (Dominique Pelle, closes #1440)
+
+commit 25ea0544587dd45088512fec9d7a685e35fea679
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 3 23:16:28 2017 +0100
+
+    patch 8.0.0300: cannot stop diffing hidden buffers
+    
+    Problem:    Cannot stop diffing hidden buffers. (Daniel Hahler)
+    Solution:   When using :diffoff! make the whole list if diffed buffers empty.
+                (closes #736)
+
+commit 6b40f303291be6b2fe524b5708e089773048c269
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 3 22:01:47 2017 +0100
+
+    patch 8.0.0299: a window resize is sometimes not taking effect
+    
+    Problem:    When the GUI window is resized Vim does not always take over the
+                new size. (Luchr)
+    Solution:   Reset new_p_guifont in gui_resize_shell().  Call
+                gui_may_resize_shell() in the main loop.
+
+commit cbf20fbcd3e9bb006f694bcc35da859930fb12a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Feb 3 21:19:04 2017 +0100
+
+    patch 8.0.0298: Ex command range with repeated search does not work
+    
+    Problem:    Ex command range with repeated search does not work. (Bruce
+                DeVisser)
+    Solution:   Skip over \/, \? and \&.
+
 commit 03ff9bcbc968f7d306e4a4e334e226fdde62ca82
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 2 22:59:27 2017 +0100
