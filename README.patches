@@ -1,3 +1,32 @@
+commit 65189a1294307abf007faab7385dc0145ba72b06
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 6 22:22:17 2017 +0100
+
+    patch 8.0.0314: getcmd*() functions are not tested
+    
+    Problem:    getcmdtype(), getcmdpos() and getcmdline() are not tested.
+    Solution:   Add tests. (Yegappan Lakshmanan)
+
+commit 6f785749db766205616fcf8438f43d1859d8f5e4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 6 22:11:55 2017 +0100
+
+    patch 8.0.0313: not enough testing for GUI functionality
+    
+    Problem:    Not enough testing for GUI functionality.
+    Solution:   Add tests for the GUI font. (Kazunobu Kuriyama)
+
+commit 88989cc381c764978f7d7c8e387f3efc21333b4b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Feb 6 21:56:09 2017 +0100
+
+    patch 8.0.0312: failure when a channel receives a split json message
+    
+    Problem:    When a json message arrives in pieces, the start is dropped and
+                the decoding fails.
+    Solution:   Do not drop the start when it is still needed. (Kay Zheng)  Add a
+                test.  Reset the timeout when something is received.
+
 commit 544d3bc9f0e494cb712a33b61558b8e8e12b1e0b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Feb 5 21:14:50 2017 +0100

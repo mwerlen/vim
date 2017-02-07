@@ -1,4 +1,4 @@
-%define patchlevel 311
+%define patchlevel 314
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -756,6 +756,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Feb 07 2017 Karsten Hopp <karsten@redhat.com> 8.0.314-1
+- patchlevel 314
+
 * Mon Feb 06 2017 Karsten Hopp <karsten@redhat.com> 8.0.311-1
 - patchlevel 311
 
