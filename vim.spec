@@ -172,7 +172,7 @@ Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
 Provides: mergetool
-BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel
+BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires: hicolor-icon-theme
 
@@ -394,6 +394,11 @@ SentUpstream: 2014-05-22
      editing configuration files.
     </p>
   </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/zdohnal/vim/zdohnal-screenshot/gvim16_9.png</image>
+    </screenshot>
+  </screenshots>
   <url type="homepage">http://www.vim.org/</url>
 </application>
 EOF
@@ -432,6 +437,8 @@ EOF
   ( cd ./%{_datadir}/%{name}/%{vimdir}/lang; \
     ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
 )
+
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/*.appdata.xml
 
 pushd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/tutor
 mkdir conv
@@ -757,7 +764,7 @@ rm -rf %{buildroot}
 
 %changelog
 * Tue Feb 07 2017 Karsten Hopp <karsten@redhat.com> 8.0.314-1
-- patchlevel 314
+- patchlevel 314, added screenshot to appdata and testing validity of appdata.xml
 
 * Mon Feb 06 2017 Karsten Hopp <karsten@redhat.com> 8.0.311-1
 - patchlevel 311
