@@ -1,3 +1,39 @@
+commit a9f8ffb6345f5b246944c73b9861fcc53eaa5228
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 16:14:53 2017 +0100
+
+    patch 8.0.0318: small mistake in 7x13 font name
+    
+    Problem:    Small mistake in 7x13 font name.
+    Solution:   Use ISO 8859-1 name instead of 10646-1. (Kazunobu Kuriyama)
+
+commit 43dded8c59c0647a70dd52c3125783945d90ae5a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 16:06:17 2017 +0100
+
+    patch 8.0.0317: no test for setting 'guifont'
+    
+    Problem:    No test for setting 'guifont'.
+    Solution:   Add a test for X11 GUIs. (Kazunobu Kuriyama)
+
+commit dad7309dd22f0c6b5de0b031acd7f54d3aa94326
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 11:54:50 2017 +0100
+
+    patch 8.0.0316: :help z? does not work
+    
+    Problem:    ":help z?" does not work. (Pavol Juhas)
+    Solution:   Remove exception for z?.
+
+commit a76f59d817e2da31d83b4f0e978b52abe81e0ae9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 11:41:01 2017 +0100
+
+    patch 8.0.0315: :help :[range] does not work
+    
+    Problem:    ":help :[range]" does not work. (Tony Mechelynck)
+    Solution:   Translate to insert a backslash.
+
 commit 65189a1294307abf007faab7385dc0145ba72b06
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Feb 6 22:22:17 2017 +0100

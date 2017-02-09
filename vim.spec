@@ -1,4 +1,4 @@
-%define patchlevel 314
+%define patchlevel 318
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -763,6 +763,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Feb 09 2017 Karsten Hopp <karsten@redhat.com> 8.0.318-1
+- patchlevel 318
+
 * Tue Feb 07 2017 Karsten Hopp <karsten@redhat.com> 8.0.314-1
 - patchlevel 314, added screenshot to appdata and testing validity of appdata.xml
 
