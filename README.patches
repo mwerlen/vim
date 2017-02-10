@@ -1,3 +1,61 @@
+commit f1f6f3f7df2938b3583e341482d96c1d53124c51
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 22:28:20 2017 +0100
+
+    patch 8.0.0324: illegal memory access with a wrong yank range
+    
+    Problem:    Illegal memory access with "1;y".
+    Solution:   Call check_cursor() instead of check_cursor_lnum(). (Dominique
+                Pelle, closes #1455)
+
+commit 31eb139b8877439d06db0ca57692dfe35fec3f0c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 21:44:03 2017 +0100
+
+    patch 8.0.0323: one second pause when running cmdline test
+    
+    Problem:    When running the command line tests there is a one second wait.
+    Solution:   Change an Esc to Ctrl-C. (Yegappan Lakshmanan)
+
+commit 399c297aa93afe2c0a39e2a1b3f972aebba44c9d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 21:07:12 2017 +0100
+
+    patch 8.0.0322: possible overflow with corrupted spell file
+    
+    Problem:    Possible overflow with spell file where the tree length is
+                corrupted.
+    Solution:   Check for an invalid length (suggested by shqking)
+
+commit 8cc2a9c062fa38e133a62778518f769a423a2526
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 20:22:30 2017 +0100
+
+    patch 8.0.0321: errors when trying to use scripts in tiny version
+    
+    Problem:    When using the tiny version trying to load the matchit plugin
+                gives an error. On MS-Windows some default mappings fail.
+    Solution:   Add a check if the command used is available. (Christian Brabandt)
+
+commit 4d8505155ec3d0f04e268b2997153ecaf37ee188
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 18:25:14 2017 +0100
+
+    patch 8.0.0320: warning for unused variable with small build
+    
+    Problem:    Warning for unused variable with small build.
+    Solution:   Change #ifdef to exclude FEAT_CMDWIN. (Kazunobu Kuriyama)
+
+commit 190b04cdd936f4696c22466b7f077f9371d96580
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 9 17:37:03 2017 +0100
+
+    patch 8.0.0319: insert mode completion does not respect 'backspace'
+    
+    Problem:    Insert mode completion does not respect "start" in 'backspace'.
+    Solution:   Check whether backspace can go before where insert started.
+                (Hirohito Higashi)
+
 commit a9f8ffb6345f5b246944c73b9861fcc53eaa5228
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 9 16:14:53 2017 +0100
