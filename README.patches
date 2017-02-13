@@ -1,3 +1,49 @@
+commit 10434674821939222bf552d15d93e0132d13badc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 12 19:59:08 2017 +0100
+
+    patch 8.0.0329: xfontset and guifontwide are not tested
+    
+    Problem:    Xfontset and guifontwide are not tested.
+    Solution:   Add tests. (Kazunobu Kuriyama)
+
+commit 23a5558cfd860401aa694f0302d621887440f031
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 12 18:45:25 2017 +0100
+
+    patch 8.0.0328: the "zero count" error doesn't have a number
+    
+    Problem:    The "zero count" error doesn't have a number. (Hirohito Higashi)
+    Solution:   Give it a number and be more specific about the error.
+
+commit 75c19464ed7fb6024af64747379e61abc4e4a483
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 12 18:34:05 2017 +0100
+
+    patch 8.0.0327: error message in cmdline window is not translated
+    
+    Problem:    The E11 error message in the command line window is not
+                translated.
+    Solution:   use _(). (Hirohito Higashi)
+
+commit 24f8f543d4036c5d2ce4ea6973a174cf2176cb72
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 11 23:00:36 2017 +0100
+
+    patch 8.0.0326: packadd test uses wrong directory name
+    
+    Problem:    Packadd test uses wrong directory name.
+    Solution:   Use the variable name value. (Hirohito Higashi)
+
+commit 913727e56761d57aaba61197c2d3485418dea7eb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 11 11:34:58 2017 +0100
+
+    patch 8.0.0325: packadd test does not clean up symlink
+    
+    Problem:    Packadd test does not clean up symlink.
+    Solution:   Delete the link. (Hirohito Higashi)
+
 commit f1f6f3f7df2938b3583e341482d96c1d53124c51
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 9 22:28:20 2017 +0100
