@@ -1,0 +1,12 @@
+diff -up vim80/runtime/syntax/tex.vim.missing-bracket vim80/runtime/syntax/tex.vim
+--- vim80/runtime/syntax/tex.vim.missing-bracket	2017-02-16 13:30:17.881056557 +0100
++++ vim80/runtime/syntax/tex.vim	2017-02-16 13:31:20.901494027 +0100
+@@ -511,7 +511,7 @@ if !exists("g:tex_no_math")
+   if &ambw == "double" || exists("g:tex_usedblwidth")
+     let s:texMathDelimList= s:texMathDelimList + [
+      \ ['\\langle'     , '〈'] ,
+-     \ ['\\rangle'     , '〉'] ,
++     \ ['\\rangle'     , '〉']]
+   else
+     let s:texMathDelimList= s:texMathDelimList + [
+      \ ['\\langle'     , '<'] ,
