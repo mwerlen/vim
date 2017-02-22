@@ -1,0 +1,31 @@
+diff -up vim80/src/gui_gtk_x11.c.gtk3-render vim80/src/gui_gtk_x11.c
+--- vim80/src/gui_gtk_x11.c.gtk3-render	2017-02-22 10:38:37.935193240 +0100
++++ vim80/src/gui_gtk_x11.c	2017-02-22 10:53:22.847435530 +0100
+@@ -688,8 +688,13 @@ draw_event(GtkWidget *widget UNUSED,
+ 	    {
+ 		const cairo_rectangle_t rect = list->rectangles[i];
+ 
+-		gui_mch_clear_block(Y_2_ROW(rect.y), 1,
+-			Y_2_ROW(rect.y + rect.height - 1), Columns);
++		gui_mch_clear_block(Y_2_ROW((int)rect.y), 0,
++			Y_2_ROW((int)(rect.y + rect.height)) - 1, Columns - 1);
++           }
++
++           for (i = 0; i < list->num_rectangles; i++)
++           {
++               const cairo_rectangle_t rect = list->rectangles[i];
+ 
+ 		if (blink_mode)
+ 		    gui_gtk3_redraw(rect.x, rect.y, rect.width, rect.height);
+@@ -6723,6 +6728,11 @@ gui_mch_clear_block(int row1, int col1,
+     color.pixel = gui.back_pixel;
+ #endif
+ 
++    col1 = check_col(col1);
++    col2 = check_col(col2);
++    row1 = check_row(row1);
++    row2 = check_row(row2);
++
+ #if GTK_CHECK_VERSION(3,0,0)
+     {
+ 	/* Add one pixel to the far right column in case a double-stroked
