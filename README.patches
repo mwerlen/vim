@@ -1,3 +1,32 @@
+commit d099e033703ce0772f152b8df8a763f0b65303ee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 21 23:00:36 2017 +0100
+
+    patch 8.0.0347: when using completion comment leader wont work
+    
+    Problem:    When using CTRL-X CTRL-U inside a comment, the use of the comment
+                leader may not work. (Klement)
+    Solution:   Save and restore did_ai. (Christian Brabandt, closes #1494)
+
+commit bfd30590f6e3475033099d0fb20d9444fa10af6b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 21 21:57:06 2017 +0100
+
+    patch 8.0.0346: Vim relies on limits.h to be included indirectly
+    
+    Problem:    Vim relies on limits.h to be included indirectly, but on Solaris 9
+                it may not be. (Ben Fritz)
+    Solution:   Always include limits.h.
+
+commit 3a257737726ba42980bf38ec9a0c80944756af24
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 21 20:47:13 2017 +0100
+
+    patch 8.0.0345: islocked('d.changedtick') does not work
+    
+    Problem:    islocked('d.changedtick') does not work.
+    Solution:   Make it work.
+
 commit 49439c4cdf7d2822255f292adda4226656fe144d
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Feb 20 23:07:05 2017 +0100

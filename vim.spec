@@ -1,4 +1,4 @@
-%define patchlevel 344
+%define patchlevel 347
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -65,6 +65,7 @@ Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3015: vim-8.0-rhbz1365258.patch
 Patch3016: vim-8.0-copy-paste.patch
+Patch3017: vim-8.0-gtk3-render.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -220,6 +221,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3015 -p1
 %patch3016 -p1
+%patch3017 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -765,6 +767,10 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Feb 22 2017 Karsten Hopp <karsten@redhat.com> 8.0.347-2
+- patchlevel 347
+- 1405234 - Gvim fails to properly render after Openbox desktop switch
+
 * Tue Feb 21 2017 Karsten Hopp <karsten@redhat.com> 8.0.344-1
 - patchlevel 344
 
