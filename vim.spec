@@ -765,6 +765,7 @@ rm -rf %{buildroot}
 %changelog
 * Fri Feb 24 2017 Karsten Hopp <karsten@redhat.com> 8.0.363-1
 - patchlevel 363
+- removing vim-8.0-gtk-render.patch
 
 * Wed Feb 22 2017 Karsten Hopp <karsten@redhat.com> 8.0.347-1
 - patchlevel 347
