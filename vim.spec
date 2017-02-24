@@ -14,6 +14,9 @@
 %define withruby 1
 %define withlua 1
 
+%define python3 python3.6m
+%define python3path %{_includedir}/%{python3}
+
 %define baseversion 8.0
 %define vimdir vim80
 
@@ -231,8 +234,8 @@ autoconf
 sed -e "s+VIMRCLOC	= \$(VIMLOC)+VIMRCLOC	= /etc+" Makefile > Makefile.tmp
 mv -f Makefile.tmp Makefile
 
-export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
-export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
+export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2 -I%{python3path}"
+export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2 -I%{python3path}"
 
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
@@ -770,6 +773,7 @@ rm -rf %{buildroot}
 * Wed Feb 22 2017 Karsten Hopp <karsten@redhat.com> 8.0.347-2
 - patchlevel 347
 - 1405234 - Gvim fails to properly render after Openbox desktop switch
+- 1426296 - vim: FTBFS with python3-3.6.0-18.fc26
 
 * Tue Feb 21 2017 Karsten Hopp <karsten@redhat.com> 8.0.344-1
 - patchlevel 344
