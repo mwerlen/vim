@@ -1,3 +1,154 @@
+commit 3834e3d039777e0144914a86289870bee147c0a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 20:20:53 2017 +0100
+
+    patch 8.0.0363: Travis is too slow to keep up with patches
+    
+    Problem:    Travis is too slow to keep up with patches.
+    Solution:   Increase git depth to 20
+
+commit 10c6029e28ab666a42190fcceb0bb098a4ebf724
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 20:17:13 2017 +0100
+
+    patch 8.0.0362: tests fail on MS-Windows
+    
+    Problem:    Tests fail on MS-Windows.
+    Solution:   Use $*.vim instead of $<.
+
+commit 8be2fbb6705dfb41d06d688701803d206c968404
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 19:32:47 2017 +0100
+
+    patch 8.0.0361: GUI initialisation is not sufficiently tested
+    
+    Problem:    GUI initialisation is not sufficiently tested.
+    Solution:   Add the gui_init test. (Kazuki Kuriyama)
+
+commit b544f3c81f1e6a50322855681ac266ffaa8e313c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 19:03:28 2017 +0100
+
+    patch 8.0.0360: sometimes VimL is used instead of "Vim script"
+    
+    Problem:    Sometimes VimL is used, which is confusing.
+    Solution:   Consistently use "Vim script". (Hirohito Higashi)
+
+commit dc9a081712ec8c140e6d4909e9f6b03a629d32d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 18:46:50 2017 +0100
+
+    patch 8.0.0359: 'number' and 'relativenumber' are not properly tested
+    
+    Problem:    'number' and 'relativenumber' are not properly tested.
+    Solution:   Add tests, change old style to new style tests. (Ozaki Kiichi,
+                closes #1447)
+
+commit 60629d642541a089c322e65963c0a77e5f77eb79
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 18:08:56 2017 +0100
+
+    patch 8.0.0358: invalid memory access in C-indent code
+    
+    Problem:    Invalid memory access in C-indent code.
+    Solution:   Don't go over end of empty line. (Dominique Pelle, closes #1492)
+
+commit 24922ec23360e7ea7c5a803c9edf476bb6395b32
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 17:59:22 2017 +0100
+
+    patch 8.0.0357: crash when setting 'guicursor' to weird value
+    
+    Problem:    Crash when setting 'guicursor' to weird value.
+    Solution:   Avoid negative size. (Dominique Pelle, closes #1465)
+
+commit 354796c19a0a4a048017059a0281938cc0b8f09a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 17:18:37 2017 +0100
+
+    patch 8.0.0356: leaking memory when setting 'ttytype'
+    
+    Problem:    Leaking memory when setting 'ttytype'.
+    Solution:   Get free_oldval from the right option entry.
+
+commit 187a4f28140f10ff833862be7e3ef823d317e1c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 17:07:14 2017 +0100
+
+    patch 8.0.0355: using uninitialized memory when 'isfname' is empty
+    
+    Problem:    Using uninitialized memory when 'isfname' is empty.
+    Solution:   Don't call getpwnam() without an argument. (Dominique Pelle,
+                closes #1464)
+
+commit 1c410400fad79068b16dc4c6c7a023463a0858cf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 15:20:03 2017 +0100
+
+    patch 8.0.0354: test to check that setting termcap key fails sometimes
+    
+    Problem:    Test to check that setting termcap key fails sometimes.
+    Solution:   Check for "t_k1" to exist. (Christian Brabandt, closes #1459)
+
+commit 3457d295f4035293a78f9a9851ea416f923dd59e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 14:55:59 2017 +0100
+
+    patch 8.0.0353: if [RO] is translated it may be truncated
+    
+    Problem:    If [RO] in the status line is translated to a longer string, it is
+                trunctted to 4 bytes.
+    Solution:   Skip over the resulting string. (Jente Hidskes, closes #1499)
+
+commit f06e5a549f42396be3478ccc1b5f03be64e1173e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 14:25:17 2017 +0100
+
+    patch 8.0.0352: not easy to see when a typval needs to be cleared
+    
+    Problem:    The condition for when a typval needs to be cleared is too
+                complicated.
+    Solution:   Init the type to VAR_UNKNOWN and clear it always.
+
+commit 218426896cbb2129aa4e85803ea97c5b57df1eaa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 13:50:38 2017 +0100
+
+    patch 8.0.0351: no test for concatenating an empty string
+    
+    Problem:    No test for concatenating an empty string that results from out of
+                bounds indexing.
+    Solution:   Add a simple test.
+
+commit ae177b716626c8d517b7c6c7d77f8b1aec6ba5f9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 13:45:57 2017 +0100
+
+    patch 8.0.0350: not enough test coverage for Perl
+    
+    Problem:    Not enough test coverage for Perl.
+    Solution:   Add more Perl tests. (Dominique Perl, closes #1500)
+
+commit fe344a9875667537ce32fc11936dc56ad51f2139
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Feb 23 12:20:35 2017 +0100
+
+    patch 8.0.0349: redrawing errors with GTK 3
+    
+    Problem:    Redrawing errors with GTK 3.
+    Solution:   When updating, first clear all rectangles and then draw them.
+                (Kazunobu Kuriyama, Christian Ludwig, closes #848)
+
+commit b7a59906d7ce41b7e74ec31b910375c21e427c0a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Feb 22 22:04:04 2017 +0100
+
+    patch 8.0.0348: using shadow dir on Mac lack +clipboard
+    
+    Problem:    When building with a shadow directory on macOS lacks the
+                +clipboard feature.
+    Solution:   Link *.m files, specifically os_macosx.m. (Kazunobu Kuriyama)
+
 commit d099e033703ce0772f152b8df8a763f0b65303ee
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Feb 21 23:00:36 2017 +0100
