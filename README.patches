@@ -1,3 +1,177 @@
+commit aeb661e1f4a491286ef7af8c3105aff1f3b16f1c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 19:59:59 2017 +0100
+
+    patch 8.0.0381: diff mode is not sufficiently tested
+    
+    Problem:    Diff mode is not sufficiently tested.
+    Solution:   Add more diff mode tests. (Dominique Pelle, closes #1515)
+
+commit 38632faf635f6434441827e136bceb5a930c59ad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 19:40:59 2017 +0100
+
+    patch 8.0.0380: with 'linebreak' double wide char wraps badly
+    
+    Problem:    With 'linebreak' set and 'breakat' includes ">" a double-wide
+                character results in "<<" displayed.
+    Solution:   Check for the character not to be replaced. (Ozaki Kiichi,
+                closes #1456)
+
+commit 74a47162a07fddb532f4bead212f6c80ef474ae7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 19:09:05 2017 +0100
+
+    patch 8.0.0379: CTRL-Z and mouse click use CTRL-O unnecessary
+    
+    Problem:    CTRL-Z and mouse click use CTRL-O unnecessary.
+    Solution:   Remove stuffing CTRL-O. (James McCoy, closes #1453)
+
+commit 0c8485f0e4931463c0f7986e1ea84a7d79f10c75
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 18:17:10 2017 +0100
+
+    patch 8.0.0378: possible overflow when reading corrupted undo file
+    
+    Problem:    Another possible overflow when reading corrupted undo file.
+    Solution:   Check if allocated size is not too big. (King)
+
+commit 3eb1637b1bba19519885dd6d377bd5596e91d22c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 18:11:36 2017 +0100
+
+    patch 8.0.0377: possible overflow when reading corrupted undo file
+    
+    Problem:    Possible overflow when reading corrupted undo file.
+    Solution:   Check if allocated size is not too big. (King)
+
+commit 6d3c8586fc81b022e9f06c611b9926108fb878c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 15:27:23 2017 +0100
+
+    patch 8.0.0376: size computations in spell file reading are off
+    
+    Problem:    Size computations in spell file reading are not exactly right.
+    Solution:   Make "len" a "long" and check with LONG_MAX.
+
+commit 5074a0e0333eaa6a9f697eb765124ca0e244c89b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 15:08:21 2017 +0100
+
+    patch 8.0.0375: the "+ register is not tested
+    
+    Problem:    The "+ register is not tested.
+    Solution:   Add a test using another Vim instance to change the "+ register.
+                (Kazuki Kuriyama)
+
+commit ba748c8a847561c043a63827bcb1d98bdebe16e6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Feb 26 14:00:07 2017 +0100
+
+    patch 8.0.0374: invalid memory access when using :sc in Ex mode
+    
+    Problem:    Invalid memory access when using :sc in Ex mode. (Dominique Pelle)
+    Solution:   Avoid the column being negative.  Also fix a hang in Ex mode.
+
+commit 376407674ff10b60e7c6090906be50982763f0f3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 22:37:15 2017 +0100
+
+    patch 8.0.0373: build fails without +folding
+    
+    Problem:    Build fails without +folding.
+    Solution:   Move misplaced #ifdef.
+
+commit a713ff819d134dc34e507c05273c935bfc17e795
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 22:18:43 2017 +0100
+
+    patch 8.0.0372: more options are not always defined
+    
+    Problem:    More options are not always defined.
+    Solution:   Consistently define all possible options.
+
+commit 14c2e18b63faaa4056d987fd501a68480cb40c5c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 21:39:17 2017 +0100
+
+    patch 8.0.0371: leaking memory when setting v:completed_item
+    
+    Problem:    Leaking memory when setting v:completed_item.
+    Solution:   Or the flags instead of setting them.
+
+commit a12e40351d1357687e8b5dc3122fffef705bdc08
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 21:37:57 2017 +0100
+
+    patch 8.0.0370: invalid memory access when setting wildchar empty
+    
+    Problem:    Invalid memory access when setting wildchar empty.
+    Solution:   Avoid going over the end of the option value. (Dominique Pelle,
+                closes #1509)  Make option test check all number options with
+                empty value.
+
+commit c43a8b8de0676caf8a460b6af1310d7aba8221bb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 21:12:29 2017 +0100
+
+    patch 8.0.0369: a few options are not defined, depending on features
+    
+    Problem:    The 'balloondelay', 'ballooneval' and 'balloonexpr' options are
+                not defined without the +balloon_eval feature. Testing that an
+                option value fails does not work for unsupported options.
+    Solution:   Make the options defined but not supported.  Don't test if
+                setting unsupported options fails.
+
+commit 2f5463df014a406a2b780068e341ef30a99c9b98
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 20:40:46 2017 +0100
+
+    patch 8.0.0368: not all options are tested with a range of values
+    
+    Problem:    Not all options are tested with a range of values.
+    Solution:   Generate a test script from the source code.
+
+commit f7506cade470efd122fa8fb61dd4e5ad21d1e246
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 16:01:49 2017 +0100
+
+    patch 8.0.0367: types in include files may be inconsistent
+    
+    Problem:    If configure defines _LARGE_FILES some include files are included
+                before it is defined.
+    Solution:   Include vim.h first. (Sam Thursfield, closes #1508)
+
+commit 92769c3928bb8a3faa43c533c07ef8476af32ade
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 15:41:37 2017 +0100
+
+    patch 8.0.0366: build fails with tiny features
+    
+    Problem:    Build fails with tiny features.
+    Solution:   Add #ifdef.
+
+commit 95c526e1f6d76acafee4b21f5701d6d6ac8c4b5f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 14:59:34 2017 +0100
+
+    patch 8.0.0365: might free a dict item that wasn't allocated
+    
+    Problem:    Might free a dict item that wasn't allocated.
+    Solution:   Call dictitem_free(). (Nikolai Pavlov)  Use this for
+                b:changedtick.
+
+commit d3f78dc9ebd729475a7f24a50a91112e300d5ac9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Feb 25 14:21:10 2017 +0100
+
+    patch 8.0.0364: ]s does not move cursor with two spell errors in one line
+    
+    Problem:    ]s does not move cursor with two spell errors in one line. (Manuel
+                Ortega)
+    Solution:   Don't stop search immediately when wrapped, search the line first.
+                (Ken Takata)  Add a test.
+
 commit 3834e3d039777e0144914a86289870bee147c0a2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Feb 23 20:20:53 2017 +0100
