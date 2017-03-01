@@ -1,3 +1,23 @@
+commit 1159b168dd94c1a25b4284c6544de385855df6f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 28 21:53:56 2017 +0100
+
+    patch 8.0.0388: filtering lines changes folds
+    
+    Problem:    filtering lines through "cat", without changing the line count,
+                changes manual folds.
+    Solution:   Change how marks and folds are adjusted. (Matthew Malcomson, from
+                neovim #6194.
+
+commit b113c3a618113122e62697dd73427261f8c51b2c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 28 21:26:17 2017 +0100
+
+    patch 8.0.0387: compiler warnings
+    
+    Problem:    compiler warnings
+    Solution:   Add type casts. (Christian Brabandt)
+
 commit 5b3af14b34c97ab58bfd4699bc2f3e5a2b704117
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Feb 27 22:59:40 2017 +0100
