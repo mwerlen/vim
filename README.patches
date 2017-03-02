@@ -1,3 +1,103 @@
+commit 66727e16079fbac6db3897b5c3736ec9fba995bb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 22:17:05 2017 +0100
+
+    patch 8.0.0398: illegal memory access with "t"
+    
+    Problem:    Illegal memory access with "t".
+    Solution:   Use strncmp() instead of memcmp(). (Dominique Pelle, closes #1528)
+
+commit 5a66dfb25eb478c26176d993393a3b1b124edb39
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 20:40:39 2017 +0100
+
+    patch 8.0.0397: can't build with +viminfo but without +eval
+    
+    Problem:    Cannot build with the viminfo feature but without the eval
+                feature.
+    Solution:   Adjust #ifdef. (John Marriott)
+
+commit 59716a27bd5c6c64def6c3ca430ff1246deae749
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 20:32:44 2017 +0100
+
+    patch 8.0.0396: 'balloonexpr' only works synchronously
+    
+    Problem:    'balloonexpr' only works synchronously.
+    Solution:   Add balloon_show(). (Jusufadis Bakamovic, closes #1449)
+
+commit f8ab1b14fd972a093e0c12146dd3becd511eb519
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 18:30:34 2017 +0100
+
+    patch 8.0.0395: testing the + register fails with Motif
+    
+    Problem:    Testing the + register fails with Motif.
+    Solution:   Also ignore the "failed to create input context" error in the
+                second gvim.  Don't use msg() when it would result in a dialog.
+
+commit abc39ab642791ae3d22a524516eeedb673a95d9d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 18:04:05 2017 +0100
+
+    patch 8.0.0394: tabs are not aligned when scrolling horizontally
+    
+    Problem:    Tabs are not aligned when scrolling horizontally and a Tab doesn't
+                fit. (Axel Bender)
+    Solution:   Handle a Tab as a not fitting character. (Christian Brabandt)
+                Also fix that ":redraw" does not scroll horizontally to show the
+                cursor.  And fix the test that depended on the old behavior.
+
+commit 98e83b295628bc29bc67bcc1adb8ae75d01b8e07
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 15:45:05 2017 +0100
+
+    patch 8.0.0393: order of duplicate tags is not preserved
+    
+    Problem:    When the same tag appears more than once, the order is
+                unpredictable. (Charles Campbell)
+    Solution:   Besides using a dict for finding duplicates, use a grow array for
+                keeping the tags in sequence.
+
+commit e0c31f6a304496b597a51ce98af419ec815bec74
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 15:07:05 2017 +0100
+
+    patch 8.0.0392: GUI test fails with Athena and Motif
+    
+    Problem:    GUI test fails with Athena and Motif.
+    Solution:   Add test_ignore_error().  Use it to ignore the "failed to create
+                input context" error.
+
+commit 5f53dd3f747711be90879fa2f22a207970b86750
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 14:02:30 2017 +0100
+
+    patch 8.0.0391: arabic support is verbose and not well tested
+    
+    Problem:    Arabic support is verbose and not well tested.
+    Solution:   Simplify the code.  Add more tests.
+
+commit cb03642399ae4f3c47a006f608a6b912f9d98b5f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 1 12:29:10 2017 +0100
+
+    patch 8.0.0390: when the window scrolls the popup menu may be garbled
+    
+    Problem:    When the window scrolls horizontally when the popup menu is
+                displayed part of it may not be cleared. (Neovim issue #6184)
+    Solution:   Remove the menu when the windows scrolled. (closes #1524)
+
+commit 5342f00ff95ed0256b8183063a83d72112f1243c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Feb 28 22:51:12 2017 +0100
+
+    patch 8.0.0389: test for arabic does not check what is displayed
+    
+    Problem:    Test for arabic does not check what is displayed.
+    Solution:   Improve what is asserted. (Dominique Pelle, closes #1523)
+                Add a first shaping test.
+
 commit 1159b168dd94c1a25b4284c6544de385855df6f6
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Feb 28 21:53:56 2017 +0100
