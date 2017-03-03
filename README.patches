@@ -1,3 +1,40 @@
+commit cf5fdf7d1689ecb145b634dcb9c6e9fc60f63869
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 2 23:05:51 2017 +0100
+
+    patch 8.0.0402: :map completion does not have <special>
+    
+    Problem:    :map completion does not have <special>. (Dominique Pelle)
+    Solution:   Recognize <special> in completion.  Add a test.
+
+commit a0107bdf8762d81cb49909ef02ffff9954092fb6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 2 22:48:01 2017 +0100
+
+    patch 8.0.0401: test fails with missing balloon feature
+    
+    Problem:    Test fails with missing balloon feature.
+    Solution:   Add check for balloon feature.
+
+commit 358f6b0a36d25e0e2f8f1fc625974816b71fa50a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 2 22:43:01 2017 +0100
+
+    patch 8.0.0400: some tests have a one second delay
+    
+    Problem:    Some tests have a one second delay.
+    Solution:   Add --not-a-term in RunVim().
+
+commit caf6434ac937cf26050276d7b474be2d2d6a06b3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 2 22:11:33 2017 +0100
+
+    patch 8.0.0399: crash when using balloon_show() when not supported
+    
+    Problem:    Crash when using balloon_show() when not supported. (Hirohito
+                Higashi)
+    Solution:   Check for balloonEval not to be NULL. (Ken Takata)
+
 commit 66727e16079fbac6db3897b5c3736ec9fba995bb
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Mar 1 22:17:05 2017 +0100

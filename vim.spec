@@ -1,4 +1,4 @@
-%define patchlevel 398
+%define patchlevel 402
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -768,6 +768,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Mar 03 2017 Karsten Hopp <karsten@redhat.com> 8.0.402-1
+- patchlevel 402
+
 * Thu Mar 02 2017 Karsten Hopp <karsten@redhat.com> 8.0.398-1
 - patchlevel 398
 
