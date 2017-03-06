@@ -1,3 +1,223 @@
+commit a6c07603ca2fa98a4184f5fd5ab021adcf5156b2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 21:18:27 2017 +0100
+
+    patch 8.0.0425: build errors when building without folding
+    
+    Problem:    Build errors when building without folding.
+    Solution:   Add #ifdefs. (John Marriott)
+
+commit f7e894dfb60b6fd8f426aa3da1452803f8de010c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 19:49:13 2017 +0100
+
+    patch 8.0.0424: compiler warnings on MS-Windows
+    
+    Problem:    Compiler warnings on MS-Windows. (Ajit Thakkar)
+    Solution:   Add type casts.
+
+commit 6b64394f346594404cffb9591d71ac693040679f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 19:44:06 2017 +0100
+
+    patch 8.0.0423: changing 'cinoptions' does not always work
+    
+    Problem:    The effect of adding "#" to 'cinoptions' is not always removed.
+                (David Briscoe)
+    Solution:   Reset b_ind_hash_comment. (Christian Brabandt, closes #1475)
+
+commit f411a3c5aff644ec7a999be83ef22adf3e1132dd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 19:00:34 2017 +0100
+
+    patch 8.0.0422: Python test fails with Python 3.6
+    
+    Problem:    Python test fails with Python 3.6.
+    Solution:   Convert new exception messages to old ones. (closes #1359)
+
+commit f58a8475e17bd566760fc7e2a17d35ddf4edacf2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 18:03:04 2017 +0100
+
+    patch 8.0.0421: diff mode wrong when adding line at end of buffer
+    
+    Problem:    Diff mode is displayed wrong when adding a line at the end of a
+                buffer.
+    Solution:   Adjust marks in diff mode. (James McCoy, closes #1329)
+
+commit 2c7292dc5bbf155fe2192d417363b8c085759cad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 17:43:31 2017 +0100
+
+    patch 8.0.0420: text garbled when the system encoding differs from 'encoding'
+    
+    Problem:    When running :make the output may be in the system encoding,
+                different from 'encoding'.
+    Solution:   Add the 'makeencoding' option. (Ken Takata)
+
+commit 214641f77df6f318a4b3a0b09723c19859a103f4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 17:04:09 2017 +0100
+
+    Runtime file updates.
+
+commit 066029ef92b45dc4bd21a353b1fac25841062c26
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 15:19:32 2017 +0100
+
+    patch 8.0.0419: test for v:progpath fails on MS-Windows
+    
+    Problem:    Test for v:progpath fails on MS-Windows.
+    Solution:   Expand to full path.  Also add ".exe" when the path is an absolute
+                path.
+
+commit a382868115e8f8e44c6a85bb9587f8eb31fa0033
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 14:56:07 2017 +0100
+
+    patch 8.0.0418: ASAN logs are disabled
+    
+    Problem:    ASAN logs are disabled and don't cause a failure.
+    Solution:   Enable ASAN logs and fail if not empty. (James McCoy,
+                closes #1425)
+
+commit 0fbff646d5beb1f48c9be3d0ce0339be90fd49f5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 14:30:52 2017 +0100
+
+    patch 8.0.0417: test for the clipboard fails sometimes
+    
+    Problem:    Test for the clipboard fails sometimes.
+    Solution:   Add it to the flaky tests.
+
+commit 436631969716e056feca47480976100b70283370
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 14:29:12 2017 +0100
+
+    patch 8.0.0416: setting v:progpath is not quite right
+    
+    Problem:    Setting v:progpath is not quite right.
+    Solution:   On MS-Windows add the extension. On Unix use the full path for a
+                relative directory. (partly by James McCoy, closes #1531)
+
+commit 0f9ea22c115084a982c86214ef41200e0dfc1ea6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 13:48:13 2017 +0100
+
+    patch 8.0.0415: balloon test fails on MS-Windows
+    
+    Problem:    Balloon test fails on MS-Windows.
+    Solution:   Test with 0x7fffffff instead of 0xffffffff.
+
+commit d5841f28d4b041830af0f3314979f9b9093d1a77
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 5 13:27:25 2017 +0100
+
+    patch 8.0.0414: balloon eval is not tested
+    
+    Problem:    Balloon eval is not tested.
+    Solution:   Add a few balloon tests. (Kazunobu Kuriyama)
+
+commit a1c8ecfda90c0e0e519762ae0521d7f6e297c32e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 21:41:05 2017 +0100
+
+    patch 8.0.0413: menu test fails on MS-Windows using gvim
+    
+    Problem:    Menu test fails on MS-Windows using gvim.
+    Solution:   First delete the English menus.
+
+commit 5558d19432120696409c007c64d5ba52eed42670
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 21:02:22 2017 +0100
+
+    patch 8.0.0412: menu test fails on MS-Windows
+    
+    Problem:    Menu test fails on MS-Windows.
+    Solution:   Use a menu entry with only ASCII characters.
+
+commit 11dd8c1201033dd74e2ea665ba277425b4b965b0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 20:41:34 2017 +0100
+
+    patch 8.0.0411: menu translations don't match when case is changed.
+    
+    Problem:    We can't change the case in menu entries, it breaks translations.
+    Solution:   Ignore case when looking up a menu translation.
+
+commit a54d2fc0d3ec7c4c8ca99b91e2ff7f7fee45c8bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 20:09:34 2017 +0100
+
+    patch 8.0.0410: newer gettext/iconv library has extra dll file
+    
+    Problem:    Newer gettext/iconv library has extra dll file.
+    Solution:   Add the file to the Makefile and nsis script. (Christian Brabandt)
+
+commit 595297d6d5658266dd0574361f77f7832bb18e26
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 19:11:12 2017 +0100
+
+    patch 8.0.0409: set_progpath is defined but not always used
+    
+    Problem:    set_progpath is defined but not always used
+    Solution:   Adjust #ifdef.
+
+commit eadbc2b46176e2aff2cde5f3874b734ae2ae082a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 18:42:39 2017 +0100
+
+    patch 8.0.0408: updating folds does not always work properly
+    
+    Problem:    Updating folds does not work properly when inserting a file and a
+                few other situations.
+    Solution:   Adjust the way folds are updated. (Matthew Malcomson)
+
+commit 3f3897e41f77a7bcd44ffd37acd4d524c0169ed4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 15:28:53 2017 +0100
+
+    patch 8.0.0407: filtering folds with marker method not tested
+    
+    Problem:    Filtering folds with marker method not tested.
+    Solution:   Also set 'foldmethod' to "marker".
+
+commit 7f73b54631af3f0e6f0acd1a1b4c9e8436784705
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 14:50:19 2017 +0100
+
+    patch 8.0.0406: arabic shaping code is verbose
+    
+    Problem:    The arabic shaping code is verbose.
+    Solution:   Shorten the code without changing the functionality.
+
+commit 08cab9608781c975b4acbad875862b842b29258d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 14:37:18 2017 +0100
+
+    patch 8.0.0405: v:progpath may become invalid after :cd
+    
+    Problem:    v:progpath may become invalid after ":cd".
+    Solution:   Turn v:progpath into a full path if needed.
+
+commit 391b1dd040af204b150d43c5a1c97477ee450a28
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 13:47:11 2017 +0100
+
+    patch 8.0.0404: not enough testing for quickfix
+    
+    Problem:    Not enough testing for quickfix.
+    Solution:   Add some more tests. (Yegappan Lakshmanan)
+
+commit 24d7636e98b33ec6873c51fc72f6bf4b10188d8b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 4 13:32:10 2017 +0100
+
+    patch 8.0.0403: GUI tests may fail
+    
+    Problem:    GUI tests may fail.
+    Solution:   Ignore the E285 error better. (Kazunobu Kuriyama)
+
 commit cf5fdf7d1689ecb145b634dcb9c6e9fc60f63869
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Mar 2 23:05:51 2017 +0100
