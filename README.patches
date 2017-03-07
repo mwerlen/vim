@@ -1,3 +1,21 @@
+commit ad4187e6fc9c8e1083a172852d958a70a689a75c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 6 21:45:20 2017 +0100
+
+    patch 8.0.0427: 'makeencoding' missing from the options window
+    
+    Problem:    'makeencoding' missing from the options window.
+    Solution:   Add the entry.
+
+commit 300af82eca3dd5fec6be5516f16c9fd344ae104b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 6 20:28:10 2017 +0100
+
+    patch 8.0.0426: insufficient testing for statusline
+    
+    Problem:    Insufficient testing for statusline.
+    Solution:   Add several tests. (Dominique Pelle, closes #1534)
+
 commit a6c07603ca2fa98a4184f5fd5ab021adcf5156b2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Mar 5 21:18:27 2017 +0100
