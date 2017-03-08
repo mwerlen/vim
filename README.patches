@@ -1,3 +1,34 @@
+commit bb962262eb6b18d93161d7506317d215ae80bfe5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 8 00:01:35 2017 +0100
+
+    patch 8.0.0430: options test fails or hangs on MS-Windows
+    
+    Problem:    Options test fails or hangs on MS-Windows.
+    Solution:   Run it separately instead of part of test_alot.  Use "-S" instead
+                of "-u" to run the script.  Fix failures.
+
+commit e8512d7fedbddd8d464b2c589e6ba5ab9a41bc78
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 7 22:33:32 2017 +0100
+
+    patch 8.0.0429: options test does not always test everything
+    
+    Problem:    Options test does not always test everything.
+    Solution:   Fix dependency for opt_test.vim.  Give a message when opt_test.vim
+                was not found.
+
+commit 65408f7dfbd4bb50d740a8b8f2171080571223f2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 7 21:31:27 2017 +0100
+
+    patch 8.0.0428: git and hg see new files after running tests
+    
+    Problem:    Git and hg see new files after running tests. (Manuel Ortega)
+    Solution:   Add the generated file to .hgignore (or .gitignore). Delete the
+                resulting verbose file. (Christian Brabandt)  Improve dependency
+                on opt_test.vim.  Reset the 'more' option.
+
 commit ad4187e6fc9c8e1083a172852d958a70a689a75c
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Mar 6 21:45:20 2017 +0100
