@@ -1,3 +1,116 @@
+commit 1ef73e33c9414eb02c229d8234aafd9d481a8856
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 19:21:30 2017 +0100
+
+    patch 8.0.0442: patch shell command not well escaped
+    
+    Problem:    Patch shell command uses double quotes around the argument, which
+                allows for $HOME to be expanded. (Etienne)
+    Solution:   Use single quotes on Unix. (closes #1543)
+
+commit ad2cfb54b78523435b31de7234081ff70a53e736
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 18:59:14 2017 +0100
+
+    patch 8.0.0441: dead code in #ifdef
+    
+    Problem:    Dead code in #ifdef.
+    Solution:   Remove the #ifdef and #else part.
+
+commit eb992cb90fd79c77ad2743459ac898e6ac3de939
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 18:20:16 2017 +0100
+
+    patch 8.0.0440: not enough test coverage in Insert mode
+    
+    Problem:    Not enough test coverage in Insert mode.
+    Solution:   Add lots of tests.  Add test_override(). (Christian Brabandt,
+                closes #1521)
+
+commit 69a92fb5aecdf2f9d5f6947790b18991b22d0e4c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 15:58:30 2017 +0100
+
+    patch 8.0.0439: ":%argdel" gives an error for an empty arglist
+    
+    Problem:    Using ":%argdel" while the argument list is already empty gives an
+                error. (Pavol Juhas)
+    Solution:   Don't give an error. (closes #1546)
+
+commit 056f700031602a2734b1ddf45f6bc2817e49b996
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 14:00:27 2017 +0100
+
+    patch 8.0.0438: the fnamemodify test may cause later tests to fail
+    
+    Problem:    The fnamemodify test changes 'shell' in a way later tests may not
+                be able to use system().
+    Solution:   Save and restore 'shell'.
+
+commit 644df41c44cbdfacdedbba55ef77a6c6031eccd8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 13:58:02 2017 +0100
+
+    patch 8.0.0437: packadd test does not fully work
+    
+    Problem:    The packadd test does not create the symlink correctly and does
+                not test the right thing.
+    Solution:   Create the directory and symlink correctly.
+
+commit ee1dd1cdc1f9a07e53b792e8762f515213b10c8a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 13:55:01 2017 +0100
+
+    patch 8.0.0436: running the options test sometimes resizes the terminal
+    
+    Problem:    Running the options test sometimes resizes the terminal.
+    Solution:   Clear out t_WS.
+
+commit 41042f3cfdb91f946e553456278a995e61dd8578
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 12:09:32 2017 +0100
+
+    patch 8.0.0435: some functions are not tested
+    
+    Problem:    Some functions are not tested.
+    Solution:   Add more tests for functions. (Dominique Pelle, closes #1541)
+
+commit 5f69fee26e0688c1646c8724ab794cb0c8d7c44d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 9 11:58:40 2017 +0100
+
+    patch 8.0.0434: clang version not correctly detected
+    
+    Problem:    Clang version not correctly detected.
+    Solution:   Adjust the configure script. (Kazunobu Kuriyama)
+
+commit c3c766ea8c35f5b2bd45fb3d74d0ae46b2d8c24f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 8 22:55:19 2017 +0100
+
+    patch 8.0.0433: beeps when running tests
+    
+    Problem:    Quite a few beeps when running tests.
+    Solution:   Set 'belloff' for these tests. (Christian Brabandt)
+
+commit 12d1dc9155a507f2bbffae19696c33a640fbc8d1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 8 22:39:50 2017 +0100
+
+    patch 8.0.0432: "make shadow" creates an invalid link
+    
+    Problem:    "make shadow" creates an invalid link.
+    Solution:   Don't link "*.vim". (Kazunobu Kuriyama)
+
+commit 7720ba8599162fbbb8f7fc034f674a2ccd3ca7f1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 8 22:19:26 2017 +0100
+
+    patch 8.0.0431: 'cinoptions' cannot set indent for extern block
+    
+    Problem:    'cinoptions' cannot set indent for extern block.
+    Solution:   Add the "E" flag in 'cinoptions'. (Hirohito Higashi)
+
 commit bb962262eb6b18d93161d7506317d215ae80bfe5
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Mar 8 00:01:35 2017 +0100
