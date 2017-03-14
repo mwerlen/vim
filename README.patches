@@ -1,3 +1,143 @@
+commit 84be8b66604ef28c0e249284da3c6f0cab1c25ae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 13 22:41:42 2017 +0100
+
+    patch 8.0.0456: typo in MinGW test makefile
+    
+    Problem:    Typo in MinGW test makefile.
+    Solution:   Change an underscore to a dot. (Michael Soyka)
+
+commit 26a280c47a1c6e32cdced79032dc495c60710d0d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 13 21:50:55 2017 +0100
+
+    Fix duplication of patch.
+
+commit ffea8c99d9658b0b51a848a6f674851851e78fa7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 13 20:37:15 2017 +0100
+
+    patch 8.0.0455: the mode test may hang
+    
+    Problem:    The mode test may hang in Test_mode(). (Michael Soyka)
+    Solution:   Set 'complete' to only search the current buffer (as suggested by
+                Michael)
+
+commit 977d03733601948ab334fec24d0da82bc18c57c3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 21:31:58 2017 +0100
+
+    patch 8.0.0454: compiler warnings for "always true" comparison
+    
+    Problem:    Compiler warnings for comparing unsigned char with 256 always
+                being true. (Manuel Ortega)
+    Solution:   Add type cast.
+
+commit 025a6b708a9bff54c73fb9c641b980da19e943a9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 20:37:21 2017 +0100
+
+    patch 8.0.0453: adding fold marker creates new comment
+    
+    Problem:    Adding fold marker creates new comment.
+    Solution:   Use an existing comment if possible. (LemonBoy, closes #1549)
+
+commit 1c46544412382db8b3203d6c78e550df885540bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 20:10:05 2017 +0100
+
+    patch 8.0.0452: some macros are in lower case
+    
+    Problem:    Some macros are in lower case.
+    Solution:   Make a few more macros upper case.
+
+commit 91acfffc1e6c0d8c2abfb186a0e79a5bf19c3f3f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 19:22:36 2017 +0100
+
+    patch 8.0.0451: some macros are in lower case
+    
+    Problem:    Some macros are in lower case.
+    Solution:   Make a few more macros upper case. Avoid lower case macros use an
+                argument twice.
+
+commit 47ffb905f363571072faefbd417938e7ff351a9f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 18:38:02 2017 +0100
+
+    patch 8.0.0450: v:progpath is not reliably set
+    
+    Problem:    v:progpath is not reliably set.
+    Solution:   Read /proc/self/exe if possible. (idea by Michal Grochmal)
+                Also fixes missing #if.
+
+commit abb4d5f73fd97d8f3c3e32311959929820e74b54
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 18:32:32 2017 +0100
+
+    patch 8.0.0449: part of fold patch accidentally included
+    
+    Problem:    Part of fold patch accidentally included.
+    Solution:   Revert that part of the patch.
+
+commit b5aedf3e228d35821591da9ae8501b61cf2e264c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 18:23:53 2017 +0100
+
+    patch 8.0.0448: some macros are in lower case
+    
+    Problem:    Some macros are in lower case, which can be confusing.
+    Solution:   Make a few lower case macros upper case.
+
+commit 8774845ce1a7def122ea07c057a79417f3be3d17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 17:10:33 2017 +0100
+
+    patch 8.0.0447: getting font name does not work on X11
+    
+    Problem:    Getting font name does not work on X11.
+    Solution:   Implement gui_mch_get_fontname() for X11.  Add more GUI tests.
+                (Kazunobu Kuriyama)
+
+commit 454709baffd3205bf2b7d2519419675a122f2bd2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 12 16:37:14 2017 +0100
+
+    patch 8.0.0446: the ";" command does not work after some characters
+    
+    Problem:    The ";" command does not work after characters with a lower byte
+                that is NUL.
+    Solution:   Properly check for not having a previous character. (Hirohito
+                Higashi)
+
+commit 2fcf6688bc3a8df2dff9c352d415b89db8b33668
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 11 20:03:42 2017 +0100
+
+    patch 8.0.0445: getpgid is not supported on all systems
+    
+    Problem:    Getpgid is not supported on all systems.
+    Solution:   Add a configure check.
+
+commit a95ab321200f0239991bf53756b17cd7b90745f9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 11 19:21:53 2017 +0100
+
+    patch 8.0.0444: diffpatch fails when the file name has a quote
+    
+    Problem:    Diffpatch fails when the file name has a quote.
+    Solution:   Escape the name properly. (zetzei)
+
+commit 38a3d6c9601b637a28f399059263300e9f65eba4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 11 18:42:56 2017 +0100
+
+    patch 8.0.0443: terminal width is set to 80 in test3
+    
+    Problem:    Terminal width is set to 80 in test3.
+    Solution:   Instead of setting 'columns' set 'wrapmargin' depending on
+                'columns.
+
 commit 1ef73e33c9414eb02c229d8234aafd9d481a8856
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Mar 9 19:21:30 2017 +0100
