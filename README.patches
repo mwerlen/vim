@@ -1,3 +1,23 @@
+commit 42f45b850df93b806ef44f3025aecedfffb9ae01
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 14 22:17:14 2017 +0100
+
+    patch 8.0.0458: potential crash if adding list or dict to dict fails
+    
+    Problem:    Potential crash if adding list or dict to dict fails.
+    Solution:   Make sure the reference count is correct. (Nikolai Pavlov, closes
+                #1555)
+
+commit 88d298aed8682eac872ebfe40df3112a6acd83e8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 14 21:53:58 2017 +0100
+
+    patch 8.0.0457: using :move messes up manual folds
+    
+    Problem:    Using :move messes up manual folds.
+    Solution:   Split adjusting marks and folds.  Add foldMoveRange(). (neovim
+                patch #6221)
+
 commit 84be8b66604ef28c0e249284da3c6f0cab1c25ae
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Mar 13 22:41:42 2017 +0100
