@@ -1,3 +1,353 @@
+commit 1662ce104e47f6a1eb0c2004d86b995f74dc4652
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 21:47:50 2017 +0100
+
+    patch 8.0.0494: build failure with older compiler on MS-Windows
+    
+    Problem:    Build failure with older compiler on MS-Windows.
+    Solution:   Move declaration to start of block.
+
+commit 15618fa643867cf0d9c31f327022a22dff78a0cf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 21:37:13 2017 +0100
+
+    patch 8.0.0493: crash with cd command with very long argument
+    
+    Problem:    Crash with cd command with very long argument.
+    Solution:   Check for running out of space. (Dominique pending, closes #1576)
+
+commit 81b9d0bd5c705815e903e671e81b0b05828efd9c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 21:20:53 2017 +0100
+
+    patch 8.0.0492: a failing client-server request can make Vim hang
+    
+    Problem:    A failing client-server request can make Vim hang.
+    Solution:   Add a timeout argument to functions that wait.
+
+commit bfd830d3e2dbd1e9b14c65625f18773074e6ac67
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 21:01:14 2017 +0100
+
+    patch 8.0.0491: quotestar test fails when features are missing
+    
+    Problem:    The quotestar test fails when a required feature is missing.
+    Solution:   Prepend "Skipped" to the thrown exception.
+
+commit 38e3483637c16e018f88c07b1dcff97cdb821a29
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 20:22:36 2017 +0100
+
+    patch 8.0.0490: vertical split makes 'winfixwidth' window smaller
+    
+    Problem:    Splitting a 'winfixwidth' window vertically makes it one column
+                smaller. (Dominique Pelle)
+    Solution:   Add one to the width for the separator.
+
+commit 7dd4850698e37c3ed4a3c3b23f4cdbf1ae6542f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 20:04:22 2017 +0100
+
+    patch 8.0.0489: clipboard and "* register is not tested
+    
+    Problem:    Clipboard and "* register is not tested.
+    Solution:   Add a test for Mac and X11. (Kazunobu Kuriyama)
+
+commit b4c5572e749063daeef30cfc2932bea1fd468165
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 19:11:35 2017 +0100
+
+    patch 8.0.0488: running tests leaves an "xxx" file behind
+    
+    Problem:    Running tests leaves an "xxx" file behind.
+    Solution:   Delete the 'verbosefile' after resetting the option.
+
+commit 651e4056aceaa580df9e2fff575a6402d5c6f0dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 18:34:46 2017 +0100
+
+    patch 8.0.0487: the autocmd test hangs on MS-Windows
+    
+    Problem:    The autocmd test hangs on MS-Windows.
+    Solution:   Skip the hanging tests for now.
+
+commit 8c752bd6c4af54c0b7bac35a39acc2bf16015f85
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 17:09:56 2017 +0100
+
+    patch 8.0.0486: crash and endless loop when closing windows in autocmd
+    
+    Problem:    Crash and endless loop when closing windows in a SessionLoadPost
+                autocommand.
+    Solution:   Check for valid tabpage.  (partly neovim #6308)
+
+commit 4520d440c59034452d1450b27fcd56825c090687
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 16:09:46 2017 +0100
+
+    patch 8.0.0485: not all windows commands are tested
+    
+    Problem:    Not all windows commands are tested.
+    Solution:   Add more tests for windows commands. (Dominique Pelle,
+                closes #1575) Run test_autocmd separately, it interferes with
+                other tests.  Fix tests that depended on side effects.
+
+commit ee85df37634dfb0c40ae5de0b4f246aef460b392
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 19 14:19:50 2017 +0100
+
+    patch 8.0.0484: :lhelpgrep does not fail after a successful one
+    
+    Problem:    Using :lhelpgrep with an argument that should fail does not
+                produce an error if the previous :helpgrep worked.
+    Solution:   Use another way to detect that autocommands made the quickfix info
+                invalid. (Yegappan Lakshmanan)
+
+commit f79225ed4f81bc579bb3360ad2eb06adc8058153
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 23:11:04 2017 +0100
+
+    patch 8.0.0483: illegal memory access when using :all
+    
+    Problem:    Illegal memory access when using :all. (Dominique Pelle)
+    Solution:   Adjust the cursor position right after setting "curwin".
+
+commit 2c90d51123fba44a90e09aa4a4f2b7d972dadb94
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 22:35:30 2017 +0100
+
+    patch 8.0.0482: the setbufvar() function may mess up the window layout
+    
+    Problem:    The setbufvar() function may mess up the window layout. (Kay Z.)
+    Solution:   Do not check the window to be valid if it is NULL.
+
+commit aab93b12cb54fbe5efe9e8f6fde1c46802a3031e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 21:37:28 2017 +0100
+
+    patch 8.0.0481: unnecessary if statement
+    
+    Problem:    Unnecessary if statement.
+    Solution:   Remove the statement.  Fix "it's" vs "its" mistakes. (Dominique
+                Pelle, closes #1568)
+
+commit 15e737f768542fcc516296b5c158e14cc7ba7feb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 21:22:47 2017 +0100
+
+    patch 8.0.0480: the remote_peek() test fails on MS-Windows
+    
+    Problem:    The remote_peek() test fails on MS-Windows.
+    Solution:   Check for pending messages. Also report errors in the first run if
+                a flaky test fails twice.
+
+commit 6caf606b144bbe2bf3ac515a194f5ff18fdfd331
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 20:45:05 2017 +0100
+
+    patch 8.0.0479: remote_peek() is not tested
+    
+    Problem:    remote_peek() is not tested.
+    Solution:   Add a test.
+
+commit 37175409d766ce67f2548dffa6d73451379b5737
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 20:18:45 2017 +0100
+
+    patch 8.0.0478: tests use assert_true(0) and assert_false(1) to report errors
+    
+    Problem:    Tests use assert_true(0) and assert_false(1) to report errors.
+    Solution:   Use assert_report().
+
+commit 42205551b140bee8b419b24abe210f56bb80b35e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 19:42:22 2017 +0100
+
+    patch 8.0.0477: the client-server test may hang when failing
+    
+    Problem:    The client-server test may hang when failing.
+    Solution:   Set a timer.  Add assert_report()
+
+commit 7a43cb9cb5909634469b0a3e865747f10ea38e9b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 18:15:16 2017 +0100
+
+    patch 8.0.0476: missing change to main.c
+    
+    Problem:    Missing change to main.c.
+    Solution:   Add new function.
+
+commit 7416f3e73ab2c4e7ae3adc2ff6e70234f7d40d2e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 18:10:13 2017 +0100
+
+    patch 8.0.0475: not enough testing for the client-server feature
+    
+    Problem:    Not enough testing for the client-server feature.
+    Solution:   Add more tests.  Add the remote_startserver() function.  Fix that
+                a locally evaluated expression uses function-local variables.
+
+commit 15bf76d40be1f1622ff5cc16596c308e76e2ca94
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 18 16:18:37 2017 +0100
+
+    patch 8.0.0474: the client-server feature is not tested
+    
+    Problem:    The client-server feature is not tested.
+    Solution:   Add a test.
+
+commit 8c34aa09a449a5c1c2d1141b6fafa90f29b3fc12
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 22:52:32 2017 +0100
+
+    patch 8.0.0473: no test covering arg_all()
+    
+    Problem:    No test covering arg_all().
+    Solution:   Add a test expanding ##.
+
+commit c537947100d4a73754ad4b4c9228c6c439655e5d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 22:38:00 2017 +0100
+
+    patch 8.0.0472: when a test fails another test may also fail
+    
+    Problem:    When a test fails and test.log is created, Test_edit_CTRL_I
+                matches it instead of test1.in.
+    Solution:   Match with runtest.vim instead.
+
+commit 0529b3eb01fcfd18c0644f8ece9ea107dd460a0f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 22:30:37 2017 +0100
+
+    patch 8.0.0471: exit callback test sometimes fails
+    
+    Problem:    Exit callback test sometimes fails.
+    Solution:   Add it to the list of flaky tests.
+
+commit 751ba616d1c47de2c273b269df06c36a7ed141a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 22:26:44 2017 +0100
+
+    patch 8.0.0470: not enough testing for help commands
+    
+    Problem:    Not enough testing for help commands.
+    Solution:   Add a few more help tests. (Dominique Pelle, closes #1565)
+
+commit 0c0d4eca4dd6252f22ec39f2d561a5e8a68e9a4e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 22:06:57 2017 +0100
+
+    patch 8.0.0469: compiler warnings on MS-Windows
+    
+    Problem:    Compiler warnings on MS-Windows.
+    Solution:   Add type casts. (Christian Brabandt)
+
+commit f2405ed2321da4a879fe0b0703af780fc0432c63
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 19:58:25 2017 +0100
+
+    patch 8.0.0468: after aborting an Ex command g< does not work
+    
+    Problem:    After aborting an Ex command g< does not work. (Marcin
+                Szamotulski)
+    Solution:   Postpone clearing scrollback messages to until the command line
+                has been entered.  Also fix that the screen isn't redrawn if after
+                g< the command line is cancelled.
+
+commit 57002ad70c4c32f3afefec24994a974cf3eef3ad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 19:04:19 2017 +0100
+
+    patch 8.0.0467: using g< after :for does not show the right output
+    
+    Problem:    Using g< after :for does not show the right output. (Marcin
+                Szamotulski)
+    Solution:   Call msg_sb_eol() in :echomsg.
+
+commit 036986f1507d223549d110af300144468bd3a1f7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 17:41:02 2017 +0100
+
+    Update runtime files.
+
+commit 8820b48654b62472821d9b155fe03ab7ac13a05c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 17:23:31 2017 +0100
+
+    patch 8.0.0466: still macros that should be all-caps
+    
+    Problem:    There are still a few macros that should be all-caps.
+    Solution:   Make a few more macros all-caps.
+
+commit 40ebc0afda8d8e478d2090133ed6a3cd3d8da3ec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 15:59:14 2017 +0100
+
+    patch 8.0.0465: off-by-one error in using :move with folding
+    
+    Problem:    Off-by-one error in using :move with folding.
+    Solution:   Correct off-by-one mistakes and add more tests. (Matthew
+                Malcomson)
+
+commit f3757f0c87bbd52c7989c85dcbd21511bffcbdd6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 15:13:45 2017 +0100
+
+    patch 8.0.0464: can't find executable name on Solaris and FreeBSD
+    
+    Problem:    Can't find executable name on Solaris and FreeBSD.
+    Solution:   Check for "/proc/self/path/a.out". (Danek Duvall) And for
+                "/proc/curproc/file".
+
+commit 0f39a82b07b285e0c54162e1038348b2988a715c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 14:19:36 2017 +0100
+
+    patch 8.0.0463: side effects from resetting 'compatible' in defaults.vim
+    
+    Problem:    Resetting 'compatible' in defaults.vim has unexpected side
+                effects. (David Fishburn)
+    Solution:   Only reset 'compatible' if it was set.
+
+commit b27523ff7ab3083c20c0f33415d890f978726c4f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 14:04:51 2017 +0100
+
+    patch 8.0.0462: failure of an MS-Windows test may go unnoticed
+    
+    Problem:    If an MS-Windows tests succeeds at first and then fails in a way
+                it does not produce a test.out file it looks like the test
+                succeeded.
+    Solution:   Delete the previous output file.
+
+commit 4a5a8dd6e5fa5581bd24b584a71b5fce9ba34bb8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 13:54:10 2017 +0100
+
+    patch 8.0.0461: test 45 hangs on MS-Windows
+    
+    Problem:    Test 45 hangs on MS-Windows.
+    Solution:   Reset 'shiftwidth'.  Also remove redundent function.
+
+commit d8492792f26c5bbdefc8f452a393621f055edd8c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 16 12:22:38 2017 +0100
+
+    patch 8.0.0460: can't build on HPUX
+    
+    Problem:    Can't build on HPUX.
+    Solution:   Fix argument names in vim_stat(). (John Marriott)
+
+commit fe70c5198336dba7e8b0fa915e6c4350e7f80f6f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 15 20:45:53 2017 +0100
+
+    patch 8.0.0459: old fix for :move and folding no longer needed
+    
+    Problem:    Old fix for :move messing up folding no longer needed, now that we
+                have a proper solution.
+    Solution:   Revert patch 7.4.700. (Christian Brabandt)
+
 commit 42f45b850df93b806ef44f3025aecedfffb9ae01
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Mar 14 22:17:14 2017 +0100
