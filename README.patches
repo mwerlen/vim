@@ -1,3 +1,32 @@
+commit 3ff2f09525e3461419886763efa1a01f08882d8c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 13:22:44 2017 +0100
+
+    patch 8.0.0497: arabic support is not fully tested
+    
+    Problem:    Arabic support is not fully tested.
+    Solution:   Add more tests for the untested functions.  Comment out
+                unreachable code.
+
+commit 518c9b133baed4b1a555d7be0ece1b48bb234b1d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 11:48:39 2017 +0100
+
+    patch 8.0.0496: insufficient testing for folding
+    
+    Problem:    Insufficient testing for folding.
+    Solution:   Add a couple more fold tests. (Dominique Pelle, closes #1579)
+
+commit f5610da7a8a5908e747d1ae39dbed1408bbd2644
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 20 21:47:16 2017 +0100
+
+    patch 8.0.0495: quotestar test uses timer instead of timeout
+    
+    Problem:    The quotestar test uses a timer instead of a timeout, thus it
+                cannot be rerun like a flaky test.
+    Solution:   Remove the timer and add a timeout. (Kazunobu Kuriyama)
+
 commit 1662ce104e47f6a1eb0c2004d86b995f74dc4652
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Mar 19 21:47:50 2017 +0100
