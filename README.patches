@@ -1,3 +1,56 @@
+commit a37ffaa5e0a47e2db27bc0cc23f49e7094f47f3b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 21:58:00 2017 +0100
+
+    patch 8.0.0502: Coverity complains about possible NULL pointer
+    
+    Problem:    Coverity complains about possible NULL pointer.
+    Solution:   Add an assert(), let's see if this works on all systems.
+
+commit b2964f2570574b4c66f3645d69956fec99f2af3e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 19:29:26 2017 +0100
+
+    patch 8.0.0501: on MS-Windows ":!start" does not work as expected
+    
+    Problem:    On MS-Windows ":!start" does not work as expected.
+    Solution:   When creating a process fails try passing the argument to
+                ShellExecute().  (Katsuya Hino, closes #1570)
+
+commit 3c2881dc1195f53ebafc387378399ddd6cb677a7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 19:18:29 2017 +0100
+
+    Update runtime files.  Add Rust support.
+
+commit 4889ad7c6cd46368f553cc1140ca17508e8beaaa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 18:02:41 2017 +0100
+
+    patch 8.0.0500: quotestar test is still a bit flaky
+    
+    Problem:    Quotestar test is still a bit flaky.
+    Solution:   Add a slower check for v:version.
+
+commit c6aafbaf3ea755e3ab4ee2e3045911126a08b038
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 17:09:10 2017 +0100
+
+    patch 8.0.0499: taglist() does not prioritize tags for a buffer
+    
+    Problem:    taglist() does not prioritize tags for a buffer.
+    Solution:   Add an optional buffer argument. (Duncan McDougall, closes #1194)
+
+commit e94260f3582cf928cc59e792b3b6ede57794a4a6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Mar 21 15:50:12 2017 +0100
+
+    patch 8.0.0498: two autocmd tests are skipped on MS-Windows
+    
+    Problem:    Two autocmd tests are skipped on MS-Windows.
+    Solution:   Make the test pass on MS-Windows. Write the messages in a file
+                instead of getting the output of system().
+
 commit 3ff2f09525e3461419886763efa1a01f08882d8c
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Mar 21 13:22:44 2017 +0100
