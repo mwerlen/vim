@@ -1,4 +1,4 @@
-%define patchlevel 502
+%define patchlevel 503
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -768,6 +768,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Mar 24 2017 Karsten Hopp <karsten@redhat.com> 8.0.503-1
+- patchlevel 503
+
 * Wed Mar 22 2017 Karsten Hopp <karsten@redhat.com> 8.0.502-1
 - patchlevel 502
 
