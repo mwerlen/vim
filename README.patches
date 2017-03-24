@@ -1,3 +1,12 @@
+commit 9d20ce6970158de69202a82529d9e97827a9e71b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 23 21:53:35 2017 +0100
+
+    patch 8.0.0503: endless loop in updating folds with 32 bit ints
+    
+    Problem:    Endless loop in updating folds with 32 bit ints.
+    Solution:   Subtract from LHS instead of add to the RHS. (Matthew Malcomson)
+
 commit a37ffaa5e0a47e2db27bc0cc23f49e7094f47f3b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Mar 21 21:58:00 2017 +0100
