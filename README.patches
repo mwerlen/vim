@@ -1,3 +1,108 @@
+commit 980128c369451450743bdb90a67588fa72ec4b07
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 26 21:46:28 2017 +0200
+
+    patch 8.0.0514: script for creating cmdidxs can be improved
+    
+    Problem:    Script for creating cmdidxs can be improved.
+    Solution:   Count skipped lines instead of collecting the lines.  Add "const".
+                (Dominique Pelle, closes #1594)
+
+commit c96272e30e2b81e5e0c8418f09d9db4e2fcd5d73
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Mar 26 13:50:09 2017 +0200
+
+    patch 8.0.0513: getting name of cleared highlight group is wrong
+    
+    Problem:    Getting name of cleared highlight group is wrong. (Matt Wozniski)
+    Solution:   Only skip over cleared names for completion. (closes #1592)
+                Also fix that a cleared group causes duplicate completions.
+
+commit 1572e30607e9a3bee9750242bf37168f7d2b6e66
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 20:16:28 2017 +0100
+
+    patch 8.0.0512: check for available characters takes too long
+    
+    Problem:    Check for available characters takes too long.
+    Solution:   Only check did_start_blocking if wtime is negative. (Daisuke
+                Suzuki, closes #1591)
+
+commit a683ec44c34f0717dcc6a0c03493ba39b879ac38
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 20:14:34 2017 +0100
+
+    patch 8.0.0511: message for skipping client-server tests is unclear
+    
+    Problem:    Menuage for skipping client-server tests is unclear.
+    Solution:   Be more specific about what's missing (Hirohito Higashi, Kazunobu
+                Kuriyama)
+
+commit 8a0141d4e7054587281d3bfd09480376b1fc719f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 18:10:31 2017 +0100
+
+    patch 8.0.0510: typo in link to codecov.io results
+    
+    Problem:    Typo in link to codecov.io results.
+    Solution:   Remove duplicate https:.
+
+commit dd00851e07f251c7c2696d87303f3df70a458731
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 18:04:32 2017 +0100
+
+    patch 8.0.0509: no link to codecov.io results
+    
+    Problem:    No link to codecov.io results.
+    Solution:   Add a badge to the readme file.
+
+commit d722fd74d84c8e7119d9599b67388bd26a2dacf5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 17:46:59 2017 +0100
+
+    patch 8.0.0508: Coveralls no longer shows per-file coverage
+    
+    Problem:    Coveralls no longer shows per-file coverage.
+    Solution:   Add coverage from codecov.io. (Christian Brabandt)
+
+commit a2845b8f5a3058c8c89699771ffd4d69513b097d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 15:20:06 2017 +0100
+
+    patch 8.0.0507: client-server tests fail when $DISPLAY is not set
+    
+    Problem:    Client-server tests fail when $DISPLAY is not set.
+    Solution:   Check for E240 before running the test.
+
+commit 6c0c1e8052811a818739e2f3d543291b7a347ad0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 15:07:43 2017 +0100
+
+    patch 8.0.0506: can't build with ANSI C
+    
+    Problem:    Can't build with ANSI C.
+    Solution:   Move declarations to start of block.
+
+commit ba6ad17378ddb9b33412d85174224997b8ff7a4f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 15:03:45 2017 +0100
+
+    patch 8.0.0505: failed window split for :stag not handled
+    
+    Problem:    Failed window split for :stag not handled. (Coverity CID 99204)
+    Solution:   If the split fails skip to the end. (bstaletic, closes #1577)
+
+commit e5e0fbcd4244d032a0635ad7defe2831f251c639
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Mar 25 14:51:01 2017 +0100
+
+    patch 8.0.0504: looking up an Ex command is a bit slow
+    
+    Problem:    Looking up an Ex command is a bit slow.
+    Solution:   Instead of just using the first letter, also use the second letter
+                to skip ahead in the list of commands. Generate the table with a
+                Perl script. (Dominique Pelle, closes #1589)
+
 commit 9d20ce6970158de69202a82529d9e97827a9e71b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Mar 23 21:53:35 2017 +0100

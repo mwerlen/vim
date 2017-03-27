@@ -1,4 +1,4 @@
-%define patchlevel 503
+%define patchlevel 514
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -64,6 +64,7 @@ Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3015: vim-8.0-copy-paste.patch
+Patch3016: vim-8.0-bindsyntax.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -218,6 +219,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3013 -p1
 %patch3014 -p1
 %patch3015 -p1
+%patch3016 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -763,6 +765,10 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Mar 27 2017 Karsten Hopp <karsten@redhat.com> 8.0.514-1
+- patchlevel 514
+- 1436124 - VIM chooses ft=bindzone for sudoedit /etc/named.conf
+
 * Fri Mar 24 2017 Karsten Hopp <karsten@redhat.com> 8.0.503-1
 - patchlevel 503
 
