@@ -1,3 +1,13 @@
+commit d5d37537d1fa46fd468bd378af2006dd09840f38
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Mar 27 23:02:07 2017 +0200
+
+    patch 8.0.0515: ml_get errors in silent Ex mode
+    
+    Problem:    ml_get errors in silent Ex mode. (Dominique Pelle)
+    Solution:   Clear valid flags when setting the cursor.  Set the topline when
+                not in full screen mode.
+
 commit 980128c369451450743bdb90a67588fa72ec4b07
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Mar 26 21:46:28 2017 +0200

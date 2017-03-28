@@ -1,4 +1,4 @@
-%define patchlevel 514
+%define patchlevel 515
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -765,6 +765,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Mar 28 2017 Karsten Hopp <karsten@redhat.com> 8.0.515-1
+- patchlevel 515
+
 * Mon Mar 27 2017 Karsten Hopp <karsten@redhat.com> 8.0.514-1
 - patchlevel 514
 - 1436124 - VIM chooses ft=bindzone for sudoedit /etc/named.conf
