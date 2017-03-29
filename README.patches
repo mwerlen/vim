@@ -1,3 +1,29 @@
+commit b6fa30ccc39cdb7f1d07b99fe2f4c6b61671dac2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 14:19:25 2017 +0200
+
+    patch 8.0.0517: there is no way to remove quickfix lists
+    
+    Problem:    There is no way to remove quickfix lists (for testing).
+    Solution:   Add the 'f' action to setqflist(). Add tests. (Yegappan
+                Lakshmanan)
+
+commit e0720cbf63eb3045be8d965e3182c0c392c7b5e9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 13:48:40 2017 +0200
+
+    Update runtime files.
+
+commit b1e04fca3704e272a30afbe062498819eaacd4f9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 13:08:35 2017 +0200
+
+    patch 8.0.0516: a large count on a normal command causes trouble
+    
+    Problem:    A large count on a normal command causes trouble. (Dominique
+                Pelle)
+    Solution:   Make "opcount" long.
+
 commit d5d37537d1fa46fd468bd378af2006dd09840f38
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Mar 27 23:02:07 2017 +0200

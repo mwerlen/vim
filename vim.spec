@@ -1,4 +1,4 @@
-%define patchlevel 515
+%define patchlevel 517
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -219,7 +219,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3013 -p1
 %patch3014 -p1
 %patch3015 -p1
-%patch3016 -p1
+%patch3016 -p1 -b .bindsyntax
 
 %build
 cp -f %{SOURCE6} .
@@ -765,6 +765,10 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Mar 29 2017 Karsten Hopp <karsten@redhat.com> 8.0.517-1
+- patchlevel 517
+- enhance rhbz#1436124
+
 * Tue Mar 28 2017 Karsten Hopp <karsten@redhat.com> 8.0.515-1
 - patchlevel 515
 

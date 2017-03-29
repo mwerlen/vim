@@ -1,12 +1,12 @@
 diff -up vim80/runtime/filetype.vim.bindsyntax vim80/runtime/filetype.vim
---- vim80/runtime/filetype.vim.bindsyntax	2017-03-27 16:51:42.863820018 +0200
-+++ vim80/runtime/filetype.vim	2017-03-27 17:04:41.264496625 +0200
-@@ -288,7 +288,7 @@ au BufNewFile,BufRead *.bib			setf bib
- au BufNewFile,BufRead *.bst			setf bst
+--- vim80/runtime/filetype.vim.bindsyntax	2017-03-30 14:35:27.226674642 +0200
++++ vim80/runtime/filetype.vim	2017-03-30 14:43:01.743145007 +0200
+@@ -289,7 +289,7 @@ au BufNewFile,BufRead *.bst			setf bst
  
  " BIND configuration
--au BufNewFile,BufRead named.conf,rndc.conf	setf named
-+au BufNewFile,BufRead named*.conf,rndc*.conf,rndc*.key	setf named
+ " sudoedit uses namedXXXX.conf
+-au BufNewFile,BufRead named*.conf,rndc*.conf	setf named
++au BufNewFile,BufRead named*.conf,rndc*.conf,rndc*.key,named.*	setf named
  
  " BIND zone
  au BufNewFile,BufRead named.root		setf bindzone
