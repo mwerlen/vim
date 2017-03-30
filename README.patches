@@ -1,3 +1,87 @@
+commit a33ddbbd04ca9b81cba6114708f42b8e26293b99
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 21:30:04 2017 +0200
+
+    patch 8.0.0525: completion for user command argument not tested
+    
+    Solution:   Completion for user command argument not tested.
+    Problem:    Add a test.
+
+commit 8da1e6cedf839902e15987a98733ebd31b5f1b81
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 20:38:59 2017 +0200
+
+    patch 8.0.0524: folds messed up
+    
+    Problem:    Folds are messed up when 'encodin' is "utf-8".
+    Solution:   Also set the fold character when it's not multi-byte.
+
+commit bf3d58073f7b34b2d65d1d08a728d1164e03cceb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 19:48:11 2017 +0200
+
+    patch 8.0.0523: dv} deletes part of a multi-byte character.
+    
+    Problem:    dv} deletes part of a multi-byte character. (Urtica Dioica)
+    Solution:   Include the whole character.
+
+commit 3fcfa35f82b9d1ef5e95051b3a45578e10c14ec3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 19:20:41 2017 +0200
+
+    patch 8.0.0522: Win32: when 'clipboard' is "unnamed" yyp does not work
+    
+    Problem:    MS-Windows: when 'clipboard' is "unnamed" yyp does not work in a
+                :global command.
+    Solution:   When setting the clipboard was postponed, do not clear the
+                register.
+
+commit 99a6e8dd824399332563caa6cacfcda33da1f366
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 18:07:40 2017 +0200
+
+    patch 8.0.0521: GtkForm handling is outdated
+    
+    Problem:    GtkForm handling is outdated.
+    Solution:   Get rid of event filter functions.  Get rid of GtkForm.width and
+                .height.  Eliminate gtk_widget_size_request() calls. (Kazunobu
+                Kuriyama)
+
+commit ace95989ed81929a84e205b26d0972cb9d6b4b19
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 17:30:27 2017 +0200
+
+    patch 8.0.0520: using a function pointer while the function is known
+    
+    Problem:    Using a function pointer instead of the actual function, which we
+                know.
+    Solution:   Change mb_ functions to utf_ functions when already checked for
+                Unicode. (Dominique Pelle, closes #1582)
+
+commit 0c078fc7db2902d4ccba04506db082ddbef45a8c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 15:31:20 2017 +0200
+
+    patch 8.0.0519: character classes are not well tested
+    
+    Problem:    Character classes are not well tested. They can differ between
+                platforms.
+    Solution:   Add tests.  In the documentation make clear which classes depend
+                on what library function.  Only use :cntrl: and :graph: for ASCII.
+                (Kazunobu Kuriyama, Dominique Pelle, closes #1560)
+                Update the documentation.
+
+commit c6cd8409c2993b1476e123fba11cb4b8d743b896
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Mar 29 14:40:47 2017 +0200
+
+    patch 8.0.0518: bad fold text when a multi-byte char has a zero byte
+    
+    Problem:    Storing a zero byte from a multi-byte character causes fold text
+                to show up wrong.
+    Solution:   Avoid putting zero in ScreenLines. (Christian Brabandt,
+                closes #1567)
+
 commit b6fa30ccc39cdb7f1d07b99fe2f4c6b61671dac2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Mar 29 14:19:25 2017 +0200

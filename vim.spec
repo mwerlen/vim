@@ -1,4 +1,4 @@
-%define patchlevel 517
+%define patchlevel 525
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -770,6 +770,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Mar 30 2017 Karsten Hopp <karsten@redhat.com> 8.0.525-1
+- patchlevel 525
+
 * Wed Mar 29 2017 Karsten Hopp <karsten@redhat.com> 8.0.517-1
 - patchlevel 517
 - enhance rhbz#1436124
