@@ -1,3 +1,43 @@
+commit 13489b9c41922b9ecb16fa47564ec76641515c08
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 30 22:20:29 2017 +0200
+
+    patch 8.0.0529: line in test commented out
+    
+    Problem:    Line in test commented out.
+    Solution:   Uncomment the lines for character classes that were failing before
+                8.0.0519. (Dominique Pelle, closes #1599)
+
+commit ef8eb0897819099fb00d675afb9bffe1d008c45e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 30 22:04:55 2017 +0200
+
+    patch 8.0.0528: highlight wrong text when 'wim' includes "longest"
+    
+    Problem:    When 'wildmenu' is set and 'wildmode' has "longest" then the first
+                file name is highlighted, even though the text shows the longest
+                match.
+    Solution:   Do not highlight the first match. (LemonBoy, closes #1602)
+
+commit ce5c2742012e4793cb4cf82791e849f817fecd95
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 30 21:51:31 2017 +0200
+
+    patch 8.0.0527: leftover file from RISC OS
+    
+    Problem:    RISC OS support was removed long ago, but one file is still
+                included.
+    Solution:   Delete the file. (Thomas Dziedzic, closes #1603)
+
+commit 85325f839a14212c7d517a4cb3464c347bfd0c1e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Mar 30 21:18:45 2017 +0200
+
+    patch 8.0.0526: Coverity complains about possible negative value
+    
+    Problem:    Coverity complains about possible negative value.
+    Solution:   Check return value of ftell() not to be negative.
+
 commit a33ddbbd04ca9b81cba6114708f42b8e26293b99
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Mar 29 21:30:04 2017 +0200
