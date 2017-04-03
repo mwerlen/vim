@@ -1,3 +1,104 @@
+commit a604429529ce3d3c97309c7cf6bba8b699f6bfb5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 2 18:19:53 2017 +0200
+
+    patch 8.0.0540: building unit tests fails
+    
+    Problem:    Building unit tests fails.
+    Solution:   Move params outside of #ifdef.
+
+commit 08f88b139d2f93661ed2b17214ee6b308b4edb5b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 2 17:21:16 2017 +0200
+
+    patch 8.0.0539: startup test fails on Mac
+    
+    Problem:    Startup test fails on Mac.
+    Solution:   Use another term name, "unknown" is known. Avoid a 2 second delay.
+
+commit 85045a73db258a054a17fd52a67eb5cd02a788dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 2 16:54:09 2017 +0200
+
+    patch 8.0.0538: no test for falling back to default term value
+    
+    Problem:    No test for falling back to default term value.
+    Solution:   Add a test.
+
+commit fa0ad0bb0b4255e64ebcf9269d60a942e0ae7ff9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 2 15:45:17 2017 +0200
+
+    patch 8.0.0537: illegal memory access with :z and large count
+    
+    Problem:    Illegal memory access with :z and large count.
+    Solution:   Check for number overflow, using long instead of int. (Dominique
+                Pelle, closes #1612)
+
+commit 69f40be64555d50f603c6f22722cf762aaa6bbc1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 2 15:15:49 2017 +0200
+
+    patch 8.0.0536: quickfix window not updated when freeing quickfix stack
+    
+    Problem:    Quickfix window not updated when freeing quickfix stack.
+    Solution:   Update the quickfix window. (Yegappan Lakshmanan)
+
+commit 6914c64ee58ce68f31fb8a8793293a9b3f2f6240
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 1 21:21:30 2017 +0200
+
+    patch 8.0.0535: memory leak when exiting from within a user function
+    
+    Problem:    Memory leak when exiting from within a user function.
+    Solution:   Clear the function call stack on exit.
+
+commit 33ccb24cf7891911561adccf9f2af8859e581198
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 1 16:59:29 2017 +0200
+
+    patch 8.0.0534: defaults.vim does not work well with tiny features
+    
+    Problem:    Defaults.vim does not work well with tiny features. (crd477)
+    Solution:   When the +eval feature is not available always reset 'compatible'.
+
+commit 878c263a489b7e211eda31fa13a3d5ad9e120554
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 1 15:15:52 2017 +0200
+
+    patch 8.0.0533: abbreviation doesn't work after backspacing newline
+    
+    Problem:    Abbreviation doesn't work after backspacing newline. (Hkonrk)
+    Solution:   Set the insert start column. (closes #1609)
+
+commit c77d6757471fa207520586bbdbc1b30af84cf5c8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 1 14:13:14 2017 +0200
+
+    patch 8.0.0532: test with long directory name fails on Mac
+    
+    Problem:    Test with long directory name fails on Mac.
+    Solution:   Skip the test on Mac systems.
+
+commit 9b81079ddd839a666682f6bdbc24890bf4d1a42c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 31 23:32:53 2017 +0200
+
+    patch 8.0.0531: test with long directory name fails on non-unix systems
+    
+    Problem:    Test with long directory name fails on non-unix systems.
+    Solution:   Skip the test on non-unix systems.
+
+commit 658a3a2caf5852d071b6b1be92d9d6614a6208dc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Mar 31 22:27:12 2017 +0200
+
+    patch 8.0.0530: buffer overflow when 'columns' is very big
+    
+    Problem:    Buffer overflow when 'columns' is very big. (Nikolai Pavlov)
+    Solution:   Correctly compute where to truncate.  Fix translation.
+                (closes #1600)
+
 commit 13489b9c41922b9ecb16fa47564ec76641515c08
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Mar 30 22:20:29 2017 +0200
