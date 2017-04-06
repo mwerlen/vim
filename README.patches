@@ -1,3 +1,31 @@
+commit ba6ec182973af726ce9b7b7eb3753fc3a7ae7d1b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 4 22:41:10 2017 +0200
+
+    patch 8.0.0543: test_edit causes older xfce4-terminal to close
+    
+    Problem:    Test_edit causes older xfce4-terminal to close. (Dominique Pelle)
+    Solution:   Reduce number of columns to 2000.  Try to restore the window
+                position.
+
+commit a1d5fa65bc7e8a548858e9c295a192b63dcd011b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 3 22:02:55 2017 +0200
+
+    patch 8.0.0542: getpos() can return a negative line number
+    
+    Problem:    getpos() can return a negative line number. (haya14busa)
+    Solution:   Handle a zero topline and botline. (closes #1613)
+
+commit 04000560ca81cc2608b291d0990e661b41ca8c68
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 3 21:35:42 2017 +0200
+
+    patch 8.0.0541: compiler warning on MS-Windows
+    
+    Problem:    Compiler warning on MS-Windows.
+    Solution:   Add a type cast. (Mike Williams)
+
 commit a604429529ce3d3c97309c7cf6bba8b699f6bfb5
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Apr 2 18:19:53 2017 +0200
