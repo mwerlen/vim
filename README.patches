@@ -1,3 +1,162 @@
+commit f803a7697808f63949ea26fc256d4c9a8647089e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 22:54:13 2017 +0200
+
+    patch 8.0.0559: setting ttytype to xxx does not always fail
+    
+    Problem:    Setting ttytype to xxx does not always fail as expected. (Marvin
+                Schmidt)
+    Solution:   Catch both possible errors. (closes #1601)
+
+commit cd5c8f82507822467232ab71e1ebbaae19595916
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 20:11:58 2017 +0200
+
+    Update runtime files.
+
+commit f8ec998613d8037e345f4e7e08460dfc15c528a9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 15:41:31 2017 +0200
+
+    patch 8.0.0558: :ownsyntax is not tested
+    
+    Problem:    The :ownsyntax command is not tested.
+    Solution:   Add a test. (Dominique Pelle, closes #1622)
+
+commit 59053e1d9f41f9afa16ac7e266ee825a2eb2dd59
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 15:27:09 2017 +0200
+
+    patch 8.0.0557: GTK: using static gravities is not useful
+    
+    Problem:    GTK: using static gravities is not useful.
+    Solution:   Remove setting static gravities. (Kazunobu Kuriyama)
+
+commit 7860bac57baeda408d5ef84f3334b0e52cc690bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 15:03:15 2017 +0200
+
+    patch 8.0.0556: getting window position fails if GUI and term possible
+    
+    Problem:    Getting the window position fails if both the GUI and term
+                code is built in.
+    Solution:   Return after getting the GUI window position. (Kazunobu Kuriyama)
+
+commit d2381a2cadb9ef359ad5efb916734c635b29bd13
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 14:58:15 2017 +0200
+
+    patch 8.0.0555: toupper/tolower test fails on OSX without Darwin
+    
+    Problem:    Toupper/tolower test fails on OSX without Darwin.
+    Solution:   Skip that part of the test also for OSX. (Kazunobu Kuriyama)
+
+commit 1cc482069a3407132aeb43a55d6dc284153e79c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 9 13:41:59 2017 +0200
+
+    patch 8.0.0554: toupper and tolower don't work properly for Turkish
+    
+    Problem:    Toupper and tolower don't work properly for Turkish when 'casemap'
+                contains "keepascii". (Bjorn Linse)
+    Solution:   When 'casemap' contains "keepascii" use ASCII toupper/tolower.
+
+commit 9f4de1f5435b900e43e19766da1a5bed4686cf44
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 8 19:39:43 2017 +0200
+
+    patch 8.0.0553: toupper/tolower test fails on Mac
+    
+    Problem:    Toupper/tolower test with Turkish locale fails on Mac.
+    Solution:   Skip the test on Mac.
+
+commit 3317d5ebbe8304da82b8088446060afcae0012af
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 8 19:12:06 2017 +0200
+
+    patch 8.0.0552: toupper and tolower don't work properly for Turkish
+    
+    Problem:    Toupper and tolower don't work properly for Turkish when 'casemap'
+                is empty. (Bjorn Linse)
+    Solution:   Check the 'casemap' options when deciding how to upper/lower case.
+
+commit d34f9b1155a6b470e1dc766ff98192f440e7eba7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 8 18:41:13 2017 +0200
+
+    patch 8.0.0551: the typeahead buffer is reallocated too often
+    
+    Problem:    The typeahead buffer is reallocated too often.
+    Solution:   Re-use the existing buffer if possible.
+
+commit 9585a1655ba0d34ea88574617112093a9bd4f2e9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 20:30:29 2017 +0200
+
+    patch 8.0.0550: cannot parse some etags format tags file
+    
+    Problem:    Some etags format tags file use 0x01, breaking the parsing.
+    Solution:   Use 0x02 for TAG_SEP. (James McCoy, closes #1614)
+
+commit 395b6bab33e5ed9a0377d7f140e98fd3ab682672
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 20:09:51 2017 +0200
+
+    patch 8.0.0549: no test for the 8g8 command
+    
+    Problem:    No test for the 8g8 command.
+    Solution:   Add a test. (Dominique Pelle, closes #1615)
+
+commit d4863aa99e0527e9505c79cbeafc68a6832200bf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 19:50:12 2017 +0200
+
+    patch 8.0.0548: saving the redo buffer only works one time
+    
+    Problem:    Saving the redo buffer only works one time, resulting in the "."
+                command not working well for a function call inside another
+                function call. (Ingo Karkat)
+    Solution:   Save the redo buffer at every user function call. (closes #1619)
+
+commit 52604f2454e5369f861d3ce34764f74a0999c773
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 16:17:39 2017 +0200
+
+    patch 8.0.0547: extra line break in verbosefile
+    
+    Problem:    Extra line break in verbosefile when using ":echomsg". (Ingo
+                Karkat)
+    Solution:   Don't call msg_start(). (closes #1618)
+
+commit 3bab93998d01a01b7f2a071fa3b8054bb0094625
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 15:42:25 2017 +0200
+
+    patch 8.0.0546: swap file exists briefly when opening the command window
+    
+    Problem:    Swap file exists briefly when opening the command window.
+    Solution:   Set the noswapfile command modifier before splitting the window.
+                (James McCoy, closes #1620)
+
+commit 15ecbd6f3d39ff04862999a577962ef9369a9e53
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 14:10:48 2017 +0200
+
+    patch 8.0.0545: edit test may fail on some systems
+    
+    Problem:    Edit test may fail on some systems.
+    Solution:   If creating a directory with a very long path fails, bail out.
+
+commit 866c68861071f8cd1ef5a82445bebaafc8626e7e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 7 14:02:01 2017 +0200
+
+    patch 8.0.0544: cppcheck warnings
+    
+    Problem:    Cppcheck warnings.
+    Solution:   Use temp variable. Change NUL to NULL. Swap conditions. (Dominique
+                Pelle)
+
 commit ba6ec182973af726ce9b7b7eb3753fc3a7ae7d1b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Apr 4 22:41:10 2017 +0200
