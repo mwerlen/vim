@@ -1,3 +1,30 @@
+commit ea588154d00aec288e48b344b2685e46bea99cd6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 10 22:45:30 2017 +0200
+
+    patch 8.0.0562: not enough test coverage for syntax commands
+    
+    Problem:    Not enough test coverage for syntax commands.
+    Solution:   Add a few more tests. (Dominique Pelle, closes #1624)
+
+commit 478af67dd6a9adc456464c3736bda328ae3a28cb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 10 22:22:42 2017 +0200
+
+    patch 8.0.0561: undefined behavior when using backslash after empty line
+    
+    Problem:    Undefined behavior when using backslash after empty line.
+    Solution:   Check for an empty line. (Dominique Pelle, closes #1631)
+
+commit 451a4a1cb7797e5d9b9fd625671cb5c652e7da00
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Apr 10 21:46:38 2017 +0200
+
+    patch 8.0.0560: :windo allows for ! but it's not supported
+    
+    Problem:    :windo allows for ! but it's not supported.
+    Solution:   Disallow passing !. (Hirohito Higashi)
+
 commit f803a7697808f63949ea26fc256d4c9a8647089e
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Apr 9 22:54:13 2017 +0200
