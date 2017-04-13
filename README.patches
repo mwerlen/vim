@@ -1,3 +1,12 @@
+commit 9f9288627795cb6cc6bff332d28eac86b1dbcf13
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 11 22:44:05 2017 +0200
+
+    patch 8.0.0563: crash when getting the window position in tmux
+    
+    Problem:    Crash when getting the window position in tmux. (Marvin Schmidt)
+    Solution:   Add t_GP to the list of terminal options. (closes #1627)
+
 commit ea588154d00aec288e48b344b2685e46bea99cd6
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Apr 10 22:45:30 2017 +0200
