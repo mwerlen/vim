@@ -1,3 +1,32 @@
+commit 43d1ac6e81a6796f2e6b3514bbe029cf9bd0a0ae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 15 15:37:25 2017 +0200
+
+    patch 8.0.0566: setting nocompatible for the tiny version moves the cursor
+    
+    Problem:    Setting nocompatible for the tiny version moves the cursor.
+    Solution:   Use another trick to skip commands when the +eval feature is
+                present. (Christian Brabandt, closes #1630)
+
+commit 31bdd13c335533c749993b57dcd980a87373139e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 15 15:22:52 2017 +0200
+
+    patch 8.0.0565: using freed memory in :caddbuf
+    
+    Problem:    Using freed memory in :caddbuf after clearing quickfix list.
+                (Dominique Pelle)
+    Solution:   Set qf_last to NULL.
+
+commit 39170e2d9761345df4be67d4d3928ac1094b9adf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 15 14:36:07 2017 +0200
+
+    patch 8.0.0564: cannot detect Bazel BUILD files on some systems
+    
+    Problem:    Cannot detect Bazel BUILD files on some systems.
+    Solution:   Check for BUILD after script checks. (Issue #1340)
+
 commit 9f9288627795cb6cc6bff332d28eac86b1dbcf13
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Apr 11 22:44:05 2017 +0200
