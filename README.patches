@@ -1,3 +1,198 @@
+commit b7637c44c26b057d1f3721d932bbab06d9f74393
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 23 18:49:36 2017 +0200
+
+    patch 8.0.0586: no test for mapping timing out
+    
+    Problem:    No test for mapping timing out.
+    Solution:   Add a test.
+
+commit 86e5792906621be5a6c4a1de9b8852e9caf65ea1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 23 18:44:26 2017 +0200
+
+    patch 8.0.0585: test_options fails when run in the GUI
+    
+    Problem:    Test_options fails when run in the GUI.
+    Solution:   Also check the 'imactivatekey' value when the GUI is not running.
+                Specify test values that work and that fail.
+
+commit 94237495c03f919a60b262fdcd3861e1931fc45a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 23 18:40:21 2017 +0200
+
+    Updated runtime files.
+
+commit d788f6fe89c77262c474de323f5dab6d1c814e27
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 23 17:19:43 2017 +0200
+
+    patch 8.0.0584: memory leak when executing quickfix tests
+    
+    Problem:    Memory leak when executing quickfix tests.
+    Solution:   Free the list reference. (Yegappan Lakshmanan)
+
+commit b11c826ddc459813f9f991cdb8e8736b686a6328
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 23 16:48:20 2017 +0200
+
+    patch 8.0.0583: fold test hangs on MS-Windows
+    
+    Problem:    Fold test hangs on MS-Windows.
+    Solution:   Avoid overflow in compare.
+
+commit 5b276aa80e112ae1993bd43e28f599f257827c54
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 22 23:49:52 2017 +0200
+
+    patch 8.0.0582: illegal memory access with z= command
+    
+    Problem:    Illegal memory access with z= command. (Dominique Pelle)
+    Solution:   Avoid case folded text to be longer than the original text.  Use
+                MB_PTR2LEN() instead of MB_BYTE2LEN().
+
+commit 94be619e30e82d28cadeea5e0766c6f5c321ff8b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 22 22:40:11 2017 +0200
+
+    patch 8.0.0581: moving folded text is sometimes not correct
+    
+    Problem:    Moving folded text is sometimes not correct.
+    Solution:   Bail out when "move_end" is zero. (Matthew Malcomson)
+
+commit f1d21c8cc83f40c815b6bf13cd2043152db533ee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 22 21:20:46 2017 +0200
+
+    patch 8.0.0580: cannot set the valid flag with setqflist()
+    
+    Problem:    Cannot set the valid flag with setqflist().
+    Solution:   Add the "valid" argument. (Yegappan Lakshmanan, closes #1642)
+
+commit 9b77016545d5ef1a1f4a90c9bb4b7a6693af8918
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 22 15:42:53 2017 +0200
+
+    patch 8.0.0579: duplicate test case for quickfix
+    
+    Problem:    Duplicate test case for quickfix.
+    Solution:   Remove the function. (Yegappan Lakshmanan)
+
+commit 7a85b0f028e0960ba70650ab462a9b6cca32139d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 22 15:17:40 2017 +0200
+
+    patch 8.0.0578: :simalt on MS-Windows does not work properly
+    
+    Problem:    :simalt on MS-Windows does not work properly.
+    Solution:   Put something in the typeahead buffer. (Christian Brabandt)
+
+commit 97db5541a65e4614f8753af27996c204946061a9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 21 23:18:26 2017 +0200
+
+    patch 8.0.0577: warning for uninitialized variable
+    
+    Problem:    Warning for uninitialized variable. (John Marriott)
+    Solution:   Initialize "indent".
+
+commit 1d4be82c7d794e62bcf892310fe2a9b1eb5e2fec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 21 23:00:02 2017 +0200
+
+    patch 8.0.0576: can't build when configure choses "install-sh"
+    
+    Problem:    Can't build when configure choses "install-sh". (Daniel Hahler)
+    Solution:   Always use install-sh.  Fix remaining use of mkinstalldirs.
+                (closes #1647)
+
+commit a701b3b6f0f06ac0c9fcc75c6c34a1258fc3b1a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 22:57:27 2017 +0200
+
+    patch 8.0.0575: using freed memory when resetting 'indentexpr'
+    
+    Problem:    Using freed memory when resetting 'indentexpr' while evaluating
+                it. (Dominique Pelle)
+    Solution:   Make a copy of 'indentexpr'.
+
+commit 99895eac1cf71be43ece7e14b50e206e041fbe9f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 22:44:47 2017 +0200
+
+    patch 8.0.0574: get only one quickfix list after :caddbuf
+    
+    Problem:    Get only one quickfix list after :caddbuf.
+    Solution:   Reset qf_multiline. (Yegappan Lakshmanan)
+
+commit 91b6e4591a839139f720798a2efbe83b2ecf8446
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 22:32:24 2017 +0200
+
+    patch 8.0.0573: running parallel make after distclean fails
+    
+    Problem:    Running parallel make after distclean fails. (Manuel Ortega)
+    Solution:   Instead of using targets "scratch config myself" use "reconfig".
+
+commit 6de5e126018b6f92526795cc06b1d73fac965db1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 21:55:44 2017 +0200
+
+    patch 8.0.0572: building the command table requires Perl
+    
+    Problem:    Building the command table requires Perl.
+    Solution:   Use a Vim script solution. (Dominique Pelle, closes #1641)
+
+commit a364cdb648ae009fa7aa05382f5659335683d349
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 21:12:30 2017 +0200
+
+    patch 8.0.0571: negative line number when using :z^ in an empty buffer
+    
+    Problem:    The cursor line number becomes negative when using :z^ in an empty
+                buffer. (neovim #6557)
+    Solution:   Correct the line number.  Also reset the column.
+
+commit c03944151fec2d5469746642a949c8fcb5a744a8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 20:20:23 2017 +0200
+
+    patch 8.0.0570: can't run make with several jobs
+    
+    Problem:    Can't run make with several jobs, creating directories has a race
+                condition.
+    Solution:   Use the MKDIR_P autoconf mechanism. (Eric N. Vander Weele,
+                closes #1639)
+
+commit 62cf09b5dcb9a04b8e4f5e6cf3b14a787758e1a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 19:44:09 2017 +0200
+
+    patch 8.0.0569: bracketed paste is still enabled in a shell command
+    
+    Problem:    Bracketed paste is still enabled when executing a shell command.
+                (Michael Smith)
+    Solution:   Disable brackted paste when going into cooked mode. (closes #1638)
+
+commit 60402d68da09997cacdeec71fd22c9344f8f40d5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Apr 20 18:54:50 2017 +0200
+
+    patch 8.0.0568: 1gd may hang
+    
+    Problem:    "1gd" may hang.
+    Solution:   Don't get stuck in one position. (Christian Brabandt, closes #1643)
+
+commit fc8f1118e7ccd65b0537e47e6323c93a1df6a61a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Apr 18 18:51:35 2017 +0200
+
+    patch 8.0.0567: call for requesting color and ambiwidth is too early
+    
+    Problem:    Call for requesting color and ambiwidth is too early. (Hirohito
+                Higashi)
+    Solution:   Move the call down to below resetting "starting".
+
 commit 43d1ac6e81a6796f2e6b3514bbe029cf9bd0a0ae
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sat Apr 15 15:37:25 2017 +0200
