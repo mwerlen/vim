@@ -1,3 +1,108 @@
+commit 4475b623960671898dac6a72b13a8d140402afa6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 1 20:46:52 2017 +0200
+
+    patch 8.0.0596: crash when complete() called after complete_add()
+    
+    Problem:    Crash when complete() is called after complete_add() in
+                'completefunc'. (Lifepillar)
+    Solution:   Bail out if compl_pattern is NULL. (closes #1668)
+                Also avoid using freed memory.
+
+commit beb9cb19c660484488a71a25eda46ab0fa579278
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 1 14:14:04 2017 +0200
+
+    patch 8.0.0595: Coverity warning for not checking return value
+    
+    Problem:    Coverity warning for not checking return value of dict_add().
+    Solution:   Check the return value for FAIL.
+
+commit 66c0e70b806cd8afdc9da9ddae11945ddf29841a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 30 20:46:32 2017 +0200
+
+    patch 8.0.0594: build failure when windows feature is missing
+    
+    Problem:    Build failure when windows feature is missing.
+    Solution:   Add #ifdef.
+
+commit 45cf6e910c6d162775ca9d470fac4b6db844001f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 30 20:25:19 2017 +0200
+
+    patch 8.0.0593: duplication of code for adding a list or dict return value
+    
+    Problem:    Duplication of code for adding a list or dict return value.
+    Solution:   Add rettv_dict_set() and rettv_list_set(). (Yegappan Lakshmanan)
+
+commit 29ae377ea7039874337bc79ace9ab2b37b9056e5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 30 19:39:39 2017 +0200
+
+    patch 8.0.0592: if a job writes to a buffer screen is not updated
+    
+    Problem:    If a job writes to a buffer and the user is typing a command, the
+                screen isn't updated. When a message is displayed the changed
+                buffer may cause it to be cleared. (Ramel Eshed)
+    Solution:   Update the screen and then the command line if the screen didn't
+                scroll. Avoid inserting screen lines, as it clears any message.
+                Update the status line when the buffer changed.
+
+commit 45d2cca1ea3f90fc70ad99d0c6812a9d8536303c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 30 16:36:05 2017 +0200
+
+    patch 8.0.0591: changes to eval functionality not documented
+    
+    Problem:    Changes to eval functionality not documented.
+    Solution:   Include all the changes.
+
+commit 8f77c5a4ec756f3f866bd6b18feb6fca6f2a2e91
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Apr 30 14:21:00 2017 +0200
+
+    patch 8.0.0590: cannot add a context to locations
+    
+    Problem:    Cannot add a context to locations.
+    Solution:   Add the "context" entry in location entries. (Yegappan Lakshmanan,
+                closes #1012)
+
+commit a21ccb7a974a96550c5cd99c4633e166d2083172
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 29 17:40:22 2017 +0200
+
+    patch 8.0.0589: :simalt still does not work
+    
+    Problem:    :simalt still does not work.
+    Solution:   Use K_NOP instead of K_IGNORE. (Christian Brabandt)
+
+commit 1a9020d4cba6d90688506102ab587c371ff72f8b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Apr 29 16:24:38 2017 +0200
+
+    patch 8.0.0588: job_stop() often assumes the channel will be closed
+    
+    Problem:    job_stop() often assumes the channel will be closed, while the job
+                may not actually be stopped. (Martin Gammelsæter)
+    Solution:   Only assume the job stops on "kill".  Don't send a signal if the
+                job has already ended. (closes #1632)
+
+commit 0635ee682481e2da0d39cd970b3cb573a1c12a17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 28 20:32:33 2017 +0200
+
+    Runtime file updates
+
+commit 696cbd224b4f78b99b8fc34538867303a8a922fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Apr 28 15:45:46 2017 +0200
+
+    patch 8.0.0587: configure check for return value of tgetent skipped
+    
+    Problem:    Configure check for return value of tgetent is skipped.
+    Solution:   Always perform the check. (Marvin Schmidt, closes #1664)
+
 commit b7637c44c26b057d1f3721d932bbab06d9f74393
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Apr 23 18:49:36 2017 +0200
