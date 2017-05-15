@@ -1,3 +1,12 @@
+commit 253f9128779f315ea670f9b4a17446b7b4c74927
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon May 15 08:45:13 2017 +0200
+
+    patch 8.0.0597: off-by-one error in size computation
+    
+    Problem:    Off-by-one error in buffer size computation.
+    Solution:   Use ">=" instead of ">". (Lemonboy, closes #1694)
+
 commit 4475b623960671898dac6a72b13a8d140402afa6
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon May 1 20:46:52 2017 +0200
