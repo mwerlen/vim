@@ -1,3 +1,12 @@
+commit 9e0f6ec0762575d229b86798b284ca4876bc3d73
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 16 09:36:54 2017 +0200
+
+    patch 8.0.0598: building with gcc 7.1 yields new warnings
+    
+    Problem:    Building with gcc 7.1 yields new warnings.
+    Solution:   Initialize result. (John Marriott)
+
 commit 253f9128779f315ea670f9b4a17446b7b4c74927
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon May 15 08:45:13 2017 +0200
