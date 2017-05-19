@@ -1,4 +1,4 @@
-%define patchlevel 599
+%define patchlevel 600
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -770,6 +770,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri May 19 2017 Karsten Hopp <karsten@redhat.com> 8.0.600-1
+- patchlevel 600
+
 * Wed May 17 2017 Karsten Hopp <karsten@redhat.com> 8.0.599-1
 - patchlevel 599
 
