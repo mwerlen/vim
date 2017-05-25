@@ -1,3 +1,40 @@
+commit 712598f210570627534246cb5dcbb4f213367997
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 24 10:42:37 2017 +0200
+
+    patch 8.0.0604: gF test fails still on MS-Windows
+    
+    Problem:    gF test fails still on MS-Windows.
+    Solution:   Use : before the line number and remove it from 'isfname'.
+
+commit d7aca7a71c7254501c08f04db1798df479df0e89
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 24 10:05:56 2017 +0200
+
+    patch 8.0.0603: gF test fails on MS-Windows
+    
+    Problem:    gF test fails on MS-Windows.
+    Solution:   Use @ instead of : before the line number
+
+commit 2a79ed293c077ba791db962f0e121cf97ba4f7a7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed May 24 09:51:39 2017 +0200
+
+    patch 8.0.0602: when gF fails to edit the file the cursor still moves
+    
+    Problem:    When gF fails to edit the file the cursor still moves to the found
+                line number.
+    Solution:   Check the return value of do_ecmd(). (Michael Hwang)
+
+commit 545cb79da586be3333a0a55616046f94b01f6b1a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue May 23 11:31:22 2017 +0200
+
+    patch 8.0.0601: no test coverage for :spellrepall
+    
+    Problem:    No test coverage for :spellrepall.
+    Solution:   Add a test. (Dominique Pelle, closes #1717)
+
 commit 2a0b06def49198aef45ef173f524a638a700f9c9
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu May 18 16:23:43 2017 +0200
