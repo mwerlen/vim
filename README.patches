@@ -1,3 +1,30 @@
+commit 6e62da3e14d32f76f60d5cc8b267059923842f17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 28 08:16:25 2017 +0200
+
+    patch 8.0.0606: cannot set the context for a specified quickfix list
+    
+    Problem:    Cannot set the context for a specified quickfix list.
+    Solution:   Use the list index instead of the current list. (Yegappan
+                Lakshmanan)
+
+commit 6dd4a53502fb4ec1b66104eab1805e7254ad9e41
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun May 28 07:56:36 2017 +0200
+
+    patch 8.0.0605: the quickfix cached buffer may become invalid
+    
+    Problem:    The buffer that quickfix caches for performance may become
+                invalid. (Daniel Hahler)
+    Solution:   Reset qf_last_bufref in qf_init_ext(). (Daniel Hahler,
+                closes #1728, closes #1676)
+
+commit b4d6c3ea4a59c6d8d4e0e52120596866f0edd510
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat May 27 16:45:17 2017 +0200
+
+    Update runtime files.
+
 commit 712598f210570627534246cb5dcbb4f213367997
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed May 24 10:42:37 2017 +0200
