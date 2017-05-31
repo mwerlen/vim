@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -69,6 +69,7 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3015: vim-8.0-rhbz1365258.patch
 Patch3016: vim-8.0-copy-paste.patch
 Patch3017: vim-8.0-bindsyntax.patch
+Patch3018: vim-8.0-ftbfs-perl526.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -225,6 +226,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3015 -p1
 %patch3016 -p1
 %patch3017 -p1
+%patch3018 -p1
 
 %build
 cp -f %{SOURCE6} .
@@ -770,6 +772,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon May 29 2017 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.606-2
+- 1456455 - vim-8.0.600-1.fc27 FTBFS with Perl 5.26.0 
+
 * Mon May 29 2017 Karsten Hopp <karsten@redhat.com> 8.0.606-1
 - patchlevel 606
 

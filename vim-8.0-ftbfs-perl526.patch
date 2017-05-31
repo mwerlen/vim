@@ -1,0 +1,81 @@
+From 6abca28cf208f4b263b2308a2b4e1e2ace4ae020 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Petr=20P=C3=ADsa=C5=99?= <ppisar@redhat.com>
+Date: Mon, 29 May 2017 13:57:40 +0200
+Subject: [PATCH] Restore compatiblity wih Perl 5.26.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Since Perl 5.25.4, S_POPMARK() macro is in Perl's inline.h (Perl's commit
+33a4312b882). But vim decided to define PERL_NO_INLINE_FUNCTIONS to prevent
+from including inline.h because Perl 5.18.0. And that prevents from having
+S_POPMARK() available when building against dynamic Perl 5.26.0:
+
+gcc   -L. -Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -fstack-protector -rdynamic -Wl,-export-dynamic -Wl,--enable-new-dtags -Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld  -Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -L/usr/local/lib -Wl,--as-needed   -o vim objects/arabic.o objects/buffer.o objects/blowfish.o objects/crypt.o objects/crypt_zip.o objects/dict.o objects/diff.o objects/digraph.o objects/edit.o objects/eval.o objects/evalfunc.o objects/ex_cmds.o objects/ex_cmds2.o objects/ex_docmd.o objects/ex_eval.o objects/ex_getln.o objects/farsi.o objects/fileio.o objects/fold.o objects/getchar.o objects/hardcopy.o objects/hashtab.o  objects/if_cscope.o objects/if_xcmdsrv.o objects/list.o objects/mark.o objects/memline.o objects/menu.o objects/misc1.o objects/misc2.o objects/move.o objects/mbyte.o objects/normal.o objects/ops.o objects/option.o objects/os_unix.o objects/pathdef.o objects/popupmnu.o objects/quickfix.o objects/regexp.o objects/screen.o objects/search.o objects/sha256.o objects/spell.o objects/spellfile.o objects/syntax.o objects/tag.o objects/term.o objects/ui.o objects/undo.o objects/userfunc.o objects/version.o objects/window.o objects/gui.o objects/gui_gtk.o objects/gui_gtk_x11.o objects/pty.o objects/gui_gtk_f.o objects/gui_beval.o objects/gui_gtk_gresources.o objects/if_lua.o  objects/if_perl.o objects/if_perlsfio.o objects/if_python.o objects/if_python3.o  objects/if_ruby.o   objects/netbeans.o objects/channel.o  objects/charset.o objects/json.o objects/main.o objects/memfile.o objects/message.o   -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0  -lSM -lICE -lXpm -lXt -lX11 -lSM -lICE  -lm -lelf -lnsl  -lselinux   -lncurses -lacl -lattr -lgpm -ldl   -Wl,--enable-new-dtags -Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -fstack-protector-strong -L/usr/local/lib  -L/usr/lib64/perl5/CORE -lperl -lpthread -lresolv -lnsl -ldl -lm -lcrypt -lutil -lc
+objects/if_perl.o: In function `XS_VIBUF_Count':
+/home/test/fedora/vim/vim80/src/if_perl.c:2085: undefined reference to `S_POPMARK'
+objects/if_perl.o: In function `XS_VIBUF_Number':
+/home/test/fedora/vim/vim80/src/if_perl.c:2054: undefined reference to `S_POPMARK'
+objects/if_perl.o: In function `XS_VIBUF_Name':
+/home/test/fedora/vim/vim80/src/if_perl.c:2019: undefined reference to `S_POPMARK'
+objects/if_perl.o: In function `XS_VIBUF_DESTROY':
+/home/test/fedora/vim/vim80/src/if_perl.c:1992: undefined reference to `S_POPMARK'
+objects/if_perl.o: In function `XS_VIBUF_Append':
+/home/test/fedora/vim/vim80/src/if_perl.c:2299: undefined reference to `S_POPMARK'
+objects/if_perl.o:/home/test/fedora/vim/vim80/src/if_perl.c:2222: more undefined references to `S_POPMARK' follow
+collect2: error: ld returned 1 exit status
+
+This patch removes the PERL_NO_INLINE_FUNCTIONS definition and
+S_SvREFCNT_dec redefinition from src/if_perl.xs to restore
+compatibility with Perl 5.26.0.
+
+Signed-off-by: Petr Písař <ppisar@redhat.com>
+---
+ src/if_perl.xs | 24 ------------------------
+ 1 file changed, 24 deletions(-)
+
+diff --git a/src/if_perl.xs b/src/if_perl.xs
+index 2bf72c5..7dedfba 100644
+--- a/src/if_perl.xs
++++ b/src/if_perl.xs
+@@ -37,13 +37,6 @@
+ 
+ #include "vim.h"
+ 
+-/* Work around for perl-5.18.
+- * Don't include "perl\lib\CORE\inline.h" for now,
+- * include it after Perl_sv_free2 is defined. */
+-#ifdef DYNAMIC_PERL
+-# define PERL_NO_INLINE_FUNCTIONS
+-#endif
+-
+ /* Work around for using MSVC and ActivePerl 5.18. */
+ #ifdef _MSC_VER
+ # define __inline__ __inline
+@@ -616,23 +609,6 @@ static struct {
+     {"", NULL},
+ };
+ 
+-/* Work around for perl-5.18.
+- * For now, only the definitions of S_SvREFCNT_dec are needed in
+- * "perl\lib\CORE\inline.h". */
+-# if (PERL_REVISION == 5) && (PERL_VERSION >= 18)
+-static void
+-S_SvREFCNT_dec(pTHX_ SV *sv)
+-{
+-    if (LIKELY(sv != NULL)) {
+-	U32 rc = SvREFCNT(sv);
+-	if (LIKELY(rc > 1))
+-	    SvREFCNT(sv) = rc - 1;
+-	else
+-	    Perl_sv_free2(aTHX_ sv, rc);
+-    }
+-}
+-# endif
+-
+ /*
+  * Make all runtime-links of perl.
+  *
+-- 
+2.9.4
+
