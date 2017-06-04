@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -772,6 +772,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Sun Jun 04 2017 Jitka Plesnikova <jplesnik@redhat.com> - 2:8.0.606-3
+- Perl 5.26 rebuild
+
 * Mon May 29 2017 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.606-2
 - 1456455 - vim-8.0.600-1.fc27 FTBFS with Perl 5.26.0 
 
