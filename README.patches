@@ -1,3 +1,113 @@
+commit 763209c57bf50ae777f9c2929eeea01eff7ae6ee
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 21:40:36 2017 +0200
+
+    patch 8.0.0617: hardcopy test hangs on MS-Windows
+    
+    Problem:    Hardcopy test hangs on MS-Windows.
+    Solution:   Check the postscript feature is supported.
+
+commit 1615b36b91b094263240d7b555283ddf33208f62
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 21:06:09 2017 +0200
+
+    patch 8.0.0616: not always setting 'background' correctly after :hi Normal
+    
+    Problem:    When setting the cterm background with ":hi Normal" the value of
+                'background' may be set wrongly.
+    Solution:   Check that the color is less than 16.  Don't set 'background' when
+                it was set explicitly. (Lemonboy, closes #1710)
+
+commit bf15b8d78b22661db8b19d662b62bb9a061cdd37
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 20:43:48 2017 +0200
+
+    patch 8.0.0615: using % with :hardcopy wrongly escapes spaces
+    
+    Problem:    Using % with :hardcopy wrongly escapes spaces. (Alexey Muranov)
+    Solution:   Expand % differently. (Christian Brabandt, closes #1682)
+
+commit 863e80b4451b5102b41bebf9ddca3a420de746fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 20:30:00 2017 +0200
+
+    patch 8.0.0614: float2nr() is not exactly right
+    
+    Problem:    float2nr() is not exactly right.
+    Solution:   Make float2nr() more accurate.  Turn test64 into a new style test.
+                (Hirohito Higashi, closes #1688)
+
+commit 3e54569b17683318e0cb6693ab0024c2ad1e3e8f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 19:00:32 2017 +0200
+
+    patch 8.0.0613: the conf filetype is used before ftdetect from packages
+    
+    Problem:    The conf filetype detection is done before ftdetect scripts from
+                packages that are added later.
+    Solution:   Add the FALLBACK argument to :setfiletype. (closes #1679,
+                closes #1693)
+
+commit ce876aaa9a250a5a0d0e34b3a2625e51cf9bf5bb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 17:47:42 2017 +0200
+
+    patch 8.0.0612: pack dirs are added to 'runtimepath' too late
+    
+    Problem:    Package directories are added to 'runtimepath' only after loading
+                non-package plugins.
+    Solution:   Split off the code to add package directories to 'runtimepath'.
+                (Ingo Karkat, closes #1680)
+
+commit 976787d1f31451ca7a88e774a03e6c24ddc67876
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 15:45:50 2017 +0200
+
+    patch 8.0.0611: the screen is not redrawn after sending t_u7
+    
+    Problem:    When t_u7 is sent a few characters in the second screen line are
+                overwritten and not redrawn later. (Rastislav Barlik)
+    Solution:   Move redrawing the screen to after overwriting the characters.
+
+commit 4b974d54434b8020771be7225da94648e9ec961a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 15:37:46 2017 +0200
+
+    patch 8.0.0610: the screen is redrawn when default 'background' is detected
+    
+    Problem:    The screen is redrawn when t_BG is set and used to detect the
+                value for 'background'.
+    Solution:   Don't redraw when the value of 'background' didn't change.
+
+commit 28a8193e3113f676f89fb6312b099d849df881d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 15:33:48 2017 +0200
+
+    patch 8.0.0609: some people still don't know how to quit
+    
+    Problem:    For some people the hint about quitting is not sufficient.
+    Solution:   Put <Enter> separately.  Also use ":qa!" to get out even when
+                there are changes.
+
+commit a3921f48c6b31a035c80fda49925dd3b42df0dec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 15:30:34 2017 +0200
+
+    patch 8.0.0608: cannot manipulate other than the current quickfix list
+    
+    Problem:    Cannot manipulate other than the current quickfix list.
+    Solution:   Pass the list index to quickfix functions. (Yegappan Lakshmanan)
+
+commit 45e5fd135da5710f24a1acc142692f120f8b0b78
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 4 14:58:02 2017 +0200
+
+    patch 8.0.0607: after :bwipe + :new bufref might still be valid
+    
+    Problem:    When creating a bufref, then using :bwipe and :new it might get
+                the same memory and bufref_valid() returns true.
+    Solution:   Add br_fnum to check the buffer number didn't change.
+
 commit 6e62da3e14d32f76f60d5cc8b267059923842f17
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun May 28 08:16:25 2017 +0200
