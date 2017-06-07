@@ -1,3 +1,109 @@
+commit add8dce38de65a0c64e8f54d6bdcadb45a8de2cf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 19:56:04 2017 +0200
+
+    patch 8.0.0627: "gn" selects only one character with 'nowrapscan'
+    
+    Problem:    When 'wrapscan' is off "gn" does not select the whole pattern when
+                it's the last one in the text. (KeyboardFire)
+    Solution:   Check if the search fails. (Christian Brabandt, closes #1683)
+
+commit e21d69eec1870a3f4732653aa8ee25d5da10128c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 19:32:32 2017 +0200
+
+    patch 8.0.0626: in the GUI the cursor may flicker
+    
+    Problem:    In the GUI the cursor may flicker.
+    Solution:   Check the cmd_silent flag before updating the cursor shape.
+                (Hirohito Higashi, closes #1637)
+
+commit 206155280def51160a9d81d983aed639015ffb44
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 18:46:26 2017 +0200
+
+    patch 8.0.0625: shellescape() always escapes a newline
+    
+    Problem:    shellescape() always escapes a newline, which does not work with
+                some shells. (Harm te Hennepe)
+    Solution:   Only escape a newline when the "special" argument is non-zero.
+                (Christian Brabandt, closes #1590)
+
+commit 6c95fbc9ae64f3a7619070e830f0c35aa4f0ada9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 17:53:37 2017 +0200
+
+    patch 8.0.0624: warning for unused variable in tiny build
+    
+    Problem:    Warning for unused variable in tiny build. (Tony Mechelynck)
+    Solution:   Add an #ifdef.
+
+commit 966e58e413ffa88af8d748e697aa2999571fcd7b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 16:54:08 2017 +0200
+
+    patch 8.0.0623: error for invalid regexp is not very informative
+    
+    Problem:    The message "Invalid range" is used for multiple errors.
+    Solution:   Add two more specific error messages. (Itchyny, Ken Hamada)
+
+commit c5e2b040b490c2f4dd50c945840bc176bfcccb29
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 16:37:07 2017 +0200
+
+    patch 8.0.0622: selecting quoted text fails with 'selection' "exclusive"
+    
+    Problem:    Using a text object to select quoted text fails when 'selection'
+                is set to "exclusive". (Guraga)
+    Solution:   Swap cursor and visual start position. (Christian Brabandt,
+                closes #1687)
+
+commit 8ad80dea089ffeb1a845199c013e9bb4be1cd22e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 16:01:59 2017 +0200
+
+    patch 8.0.0621: :stag does not respect 'switchbuf'
+    
+    Problem:    The ":stag" command does not respect 'switchbuf'.
+    Solution:   Check 'switchbuf' for tag commands that may open a new window.
+                (Ingo Karkat, closes #1681)  Define macros for the return values
+                of getfile().
+
+commit b463e8d999ec812d656876f313efbeaeed663b45
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 15:07:09 2017 +0200
+
+    patch 8.0.0620: checking for HAVE_GTK_MULTIHEAD is not needed
+    
+    Problem:    Since we only support GTK versions that have it, the ckeck for
+                HAVE_GTK_MULTIHEAD is no longer needed.
+    Solution:   Remove HAVE_GTK_MULTIHEAD. (Kazunobu Kuriyama)
+
+commit 6aa8cea46d4179b2617daae034063dd0d8054e35
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 14:44:35 2017 +0200
+
+    Update runtime files.
+
+commit 9472eec83c3f9c191814dc81dd82498c10b1fc9c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 13:31:56 2017 +0200
+
+    patch 8.0.0619: GUI gets stuck if timer uses feedkeys()
+    
+    Problem:    In the GUI, when a timer uses feedkeys(), it still waits for an
+                event. (Raymond Ko)
+    Solution:   Check tb_change_cnt in one more place.
+
+commit bb7943b7920ef2f88cb9b6f46c34c7946c370819
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 5 13:30:06 2017 +0200
+
+    patch 8.0.0618: NFA regex engine handles [0-z] incorrectly
+    
+    Problem:    NFA regex engine handles [0-z] incorrectly.
+    Solution:   Return at the right point. (James McCoy, closes #1703)
+
 commit 763209c57bf50ae777f9c2929eeea01eff7ae6ee
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jun 4 21:40:36 2017 +0200
