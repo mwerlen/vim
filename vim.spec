@@ -1,4 +1,4 @@
-%define patchlevel 627
+%define patchlevel 628
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -772,6 +772,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jun 09 2017 Karsten Hopp <karsten@redhat.com> 8.0.628-1
+- patchlevel 628
+
 * Wed Jun 07 2017 Jitka Plesnikova <jplesnik@redhat.com> - 2:8.0.627-2
 - Perl 5.26 re-rebuild of bootstrapped packages
 
