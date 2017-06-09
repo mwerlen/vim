@@ -1,3 +1,13 @@
+commit f085f4266e07b36279c56d43fd0d73ed080046ae
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 7 20:39:47 2017 +0200
+
+    patch 8.0.0628: cursor disappears after silent mapping
+    
+    Problem:    Cursor disappears after silent mapping. (Ramel Eshed)
+    Solution:   Do restore the cursor when it was changed, but don't change it in
+                the first place for a silent mapping.
+
 commit add8dce38de65a0c64e8f54d6bdcadb45a8de2cf
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jun 5 19:56:04 2017 +0200
