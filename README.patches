@@ -1,3 +1,80 @@
+commit 56f2db562ddc6c69026d55360f0cfaacd8adc26a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 11 23:09:15 2017 +0200
+
+    patch 8.0.0636: when reading the undo file fails may use uninitialized data
+    
+    Problem:    When reading the undo file fails may use uninitialized data.
+    Solution:   Always clear the buffer on failure.
+
+commit 3a429efb628a3925d13c3fe415e02a7ce117071f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 11 17:10:32 2017 +0200
+
+    patch 8.0.0635: when 'ignorecase' is set script detection is inaccurate
+    
+    Problem:    When 'ignorecase' is set script detection is inaccurate.
+    Solution:   Enforce matching case for text. (closes #1753)
+
+commit 875feea6ce223462d55543735143d747dcaf4287
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 11 16:07:51 2017 +0200
+
+    patch 8.0.0634: cannot easily get to the last quickfix list
+    
+    Problem:    Cannot easily get to the last quickfix list.
+    Solution:   Add "$" as a value for the "nr" argument of getqflist() and
+                setqflist(). (Yegappan Lakshmanan)
+
+commit 60964f68740b8abcbb2d3f0f3aeade21d1bacb22
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 10 17:06:16 2017 +0200
+
+    patch 8.0.0633: the client-server test is still a bit flaky
+    
+    Problem:    The client-server test is still a bit flaky.
+    Solution:   Wait a bit for the GUI to start.  Check that the version number
+                can be obtained.
+
+commit 1c13c0fe3e7b15750464ffbc39a4648aa5c639be
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 10 16:30:32 2017 +0200
+
+    patch 8.0.0632: the quotestar test is still a bit flaky
+    
+    Problem:    The quotestar test is still a bit flaky.
+    Solution:   Kill any existing server to make the retry work.  Wait for the
+                register to be filled.
+
+commit fa4161cb0c266378012d3fde0eca56da8739528d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 10 15:46:23 2017 +0200
+
+    patch 8.0.0631: can't build with Perl 5.26
+    
+    Problem:    Perl 5.26 also needs S_TOPMARK and S_POPMARK defined.
+    Solution:   Define the functions when needed. (Jesin, closes #1748)
+
+commit f84b122a99da75741ae686fabb6f81b8b4755998
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 10 14:29:52 2017 +0200
+
+    patch 8.0.0630: it is not easy to work on lines without a match
+    
+    Problem:    The :global command does not work recursively, which makes it
+                difficult to execute a command on a line where one pattern matches
+                and another does not match. (Miles Cranmer)
+    Solution:   Allow for recursion if it is for only one line. (closes #1760)
+
+commit 6b1da3312e15c065b373c9ec2732f31a77cee61f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jun 9 21:35:47 2017 +0200
+
+    patch 8.0.0629: checking for ambigous width is not working
+    
+    Problem:    Checking for ambigous width is not working. (Hirohito Higashi)
+    Solution:   Reset "starting" earlier.
+
 commit f085f4266e07b36279c56d43fd0d73ed080046ae
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jun 7 20:39:47 2017 +0200
