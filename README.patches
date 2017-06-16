@@ -1,3 +1,71 @@
+commit 8cf91286ca46a501d24e4b7d631b193256782c88
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 19:38:37 2017 +0200
+
+    patch 8.0.0642: writefile() continues after detecting an error
+    
+    Problem:    writefile() continues after detecting an error.
+    Solution:   Bail out as soon as an error is detected. (suggestions by Nikolai
+                Pavlov, closes #1476)
+
+commit 3ec574f2b549f456f664f689d6da36dc5719aeb9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 18:12:01 2017 +0200
+
+    Update runtime files.
+    
+    Includes changing &sw to shiftwidth() for all indent scripts.
+
+commit 2102035488e80ef6fd5038ed15d21672712ba0f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 17:21:04 2017 +0200
+
+    patch 8.0.0641: cannot set a separate highlighting for the quickfix line
+    
+    Problem:    Cannot set a separate highlighting for the current line in the
+                quickfix window.
+    Solution:   Add QuickFixLine. (anishsane, closes #1755)
+
+commit 83064068eaabf75a7d235b0eec561dccbcb96b31
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 16:34:54 2017 +0200
+
+    patch 8.0.0640: mismatch between help and actual message
+    
+    Problem:    Mismatch between help and actual message for ":syn conceal".
+    Solution:   Change the message to match the help. (Ken Takata)
+
+commit 9a48961d8bd7ffea14330b9b0181a6cdbe9288f7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 16:12:51 2017 +0200
+
+    patch 8.0.0639: the cursor position is set when editing a new commit message
+    
+    Problem:    The cursor position is set to the last position in a new commit
+                message.
+    Solution:   Don't set the position if the filetype matches "commit".
+                (Christian Brabandt)
+
+commit d7383881c8e9f474a909b54b21abb0aa2b412ba2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 15:22:12 2017 +0200
+
+    patch 8.0.0638: cannot build with new MSVC version
+    
+    Problem:    Cannot build with new MSVC version VS2017.
+    Solution:   Change the compiler arguments. (Leonardo Manera, closes #1731,
+                closes #1747)
+
+commit 21b34b63b3f63dd54b338c4433fa7117dad9507b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jun 13 14:34:01 2017 +0200
+
+    patch 8.0.0637: crash when using some version of GTK 3
+    
+    Problem:    Crash when using some version of GTK 3.
+    Solution:   Add #ifdefs around incrementing the menu index. (Kazunobu
+                Kuriyama)
+
 commit 56f2db562ddc6c69026d55360f0cfaacd8adc26a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jun 11 23:09:15 2017 +0200
