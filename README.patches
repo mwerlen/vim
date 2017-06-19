@@ -1,3 +1,53 @@
+commit 06f1ed2f78c5c03af95054fc3a8665df39dec362
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 18 22:41:03 2017 +0200
+
+    patch 8.0.0647: syntax highlighting can make cause a freeze
+    
+    Problem:    Syntax highlighting can make cause a freeze.
+    Solution:   Apply 'redrawtime' to syntax highlighting, per window.
+
+commit 0946326580e6f034fe2c88d041407ea0fde980ab
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 17 20:55:06 2017 +0200
+
+    patch 8.0.0646: the hlsearch test fails on fast systems
+    
+    Problem:    The hlsearch test fails on fast systems.
+    Solution:   Make the search pattern slower.  Fix that the old regexp engine
+                doesn't timeout properly.
+
+commit 1ef9bbe215e13a273e74fccaddd8fc5a42c76b6e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 17 20:08:20 2017 +0200
+
+    patch 8.0.0645: no error for illegal back reference in NFA engine
+    
+    Problem:    The new regexp engine does not give an error for using a back
+                reference where it is not allowed. (Dominique Pelle)
+    Solution:   Check the back reference like the old engine. (closes #1774)
+
+commit 5b1affefd0e96154517ec6f71300086ae6d22d24
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 17 19:13:49 2017 +0200
+
+    patch 8.0.0644: the timeout for 'hlsearch' is not tested
+    
+    Problem:    There is no test for 'hlsearch' timing out.
+    Solution:   Add a test.
+
+commit fbd0b0af6800f6ff89857863d6a07ea03f09ff6c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 17 18:44:21 2017 +0200
+
+    patch 8.0.0643: when a pattern search is slow Vim becomes unusable
+    
+    Problem:    When 'hlsearch' is set and matching with the last search pattern
+                is very slow, Vim becomes unusable.  Cannot quit search by
+                pressing CTRL-C.
+    Solution:   When the search times out set a flag and don't try again.  Check
+                for timeout and CTRL-C in NFA loop that adds states.
+
 commit 8cf91286ca46a501d24e4b7d631b193256782c88
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jun 13 19:38:37 2017 +0200
