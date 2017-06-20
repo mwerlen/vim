@@ -1,3 +1,13 @@
+commit fadacf01d0dbcc7a96ef5eee0ad57956eeab04d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 19 20:35:32 2017 +0200
+
+    patch 8.0.0648: possible use of NULL pointer
+    
+    Problem:    Possible use of NULL pointer if buflist_new() returns NULL.
+                (Coverity)
+    Solution:   Check for NULL pointer in set_bufref().
+
 commit 06f1ed2f78c5c03af95054fc3a8665df39dec362
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jun 18 22:41:03 2017 +0200
