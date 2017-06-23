@@ -1,3 +1,134 @@
+commit 4670490673ed98502a09b74fbabe785b47e3d289
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 23:03:12 2017 +0200
+
+    patch 8.0.0662: stray FIXME for fixed problem
+    
+    Problem:    Stray FIXME for fixed problem.
+    Solution:   Remove the comment. (Dominique Pelle)
+
+commit a529ce068ba84d53343f3732b6a1ed4ad1fe3a68
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 22:37:57 2017 +0200
+
+    patch 8.0.0661: recognizing urxvt mouse codes does not work well
+    
+    Problem:    Recognizing urxvt mouse codes does not work well.
+    Solution:   Recognize "Esc[*M" and "Esc[*m". (Maurice Bos, closes #1486)
+
+commit a1fed064d1eca6ae2c526311ec5464175c6f19e2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 22:05:02 2017 +0200
+
+    patch 8.0.0660: silent install on MS-Windows shows dialog
+    
+    Problem:    Silent install on MS-Windows does show a dialog.
+    Solution:   Add /SD to the default choice. (allburov, closes #1772)
+
+commit 4d785895d1f8b54cdd3fabd87446ca692f49e94e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 22:00:50 2017 +0200
+
+    patch 8.0.0659: no test for conceal mode
+    
+    Problem:    No test for conceal mode.
+    Solution:   Add a conceal mode test. (Dominique Pelle, closes #1783)
+
+commit d2c061d24c0534f1f1b92f3462ed6ae8fa848a9a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 21:42:49 2017 +0200
+
+    patch 8.0.0658: spell test is old style
+    
+    Problem:    Spell test is old style.
+    Solution:   Turn the spell test into a new style test (pschuh, closes #1778)
+
+commit 6a8958db259d4444da6e6956e54a6513c1af8860
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 21:33:20 2017 +0200
+
+    patch 8.0.0657: cannot get and set quickfix list items
+    
+    Problem:    Cannot get and set quickfix list items.
+    Solution:   Add the "items" argument to getqflist() and setqflist(). (Yegappan
+                Lakshmanan)
+
+commit 6f9a476b2f2f0bb5c50d703ec4fc535ffd5bfe8f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 20:39:17 2017 +0200
+
+    patch 8.0.0656: cannot use ! after some user commands
+    
+    Problem:    Cannot use ! after some user commands.
+    Solution:   Properly check for existing command. (Higashi Higashi)
+
+commit d6abcd154cdc6a8dd4b7c6ccad37617ea8a1b4aa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 19:15:24 2017 +0200
+
+    patch 8.0.0655: not easy to make sure a function does not exist
+    
+    Problem:    Not easy to make sure a function does not exist.
+    Solution:   Add ! as an optional argument to :delfunc.
+
+commit 663bb2331626944cea156374858131fcd323b9e9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 19:12:10 2017 +0200
+
+    patch 8.0.0654: no warning for text after :endfunction
+    
+    Problem:    Text found after :endfunction is silently ignored.
+    Solution:   Give a warning if 'verbose' is set.  When | or \n are used,
+                execute the text as a command.
+
+commit c768a208ca8e0e0fec900c18d5d9a593357ad793
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 16:04:27 2017 +0200
+
+    patch 8.0.0653: the default highlight for QuickFixLine is not good
+    
+    Problem:    The default highlight for QuickFixLine does not work for several
+                color schemes. (Manas Thakur)
+    Solution:   Make the default use the old color. (closes #1780)
+
+commit 383aa84c0d3456c12987ba7e12042dcffba0eac6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 15:27:37 2017 +0200
+
+    patch 8.0.0652: unicode information is outdated
+    
+    Problem:    Unicode information is outdated.
+    Solution:   Update to Unicode 10. (Christian Brabandt)
+
+commit 157069b04e64eff72d2b34a2f727dfb6e2190cf3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 14:56:12 2017 +0200
+
+    patch 8.0.0651: build failure without the auto command feature
+    
+    Problem:    Build failure without the auto command feature.
+    Solution:   Add #ifdef. (closes #1782)
+
+commit 868831f1224cfc17a4de21fb7386873254592308
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 14:47:22 2017 +0200
+
+    patch 8.0.0650: for extra help files the filetype is set more than once
+    
+    Problem:    For extra help files the filetype is set more than once.
+    Solution:   In *.txt files check that there is no help file modline.
+
+commit 9049298f8d0bbc237b7c666c7ad6cdabe738e8fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 22 14:16:31 2017 +0200
+
+    patch 8.0.0649: when opening a help file the filetype is set several times
+    
+    Problem:    When opening a help file the filetype is set several times.
+    Solution:   When setting the filetype to the same value from a modeline, don't
+                trigger FileType autocommands.  Don't set the filetype to "help"
+                when it's already set correctly.
+
 commit fadacf01d0dbcc7a96ef5eee0ad57956eeab04d7
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jun 19 20:35:32 2017 +0200
