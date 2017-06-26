@@ -1,3 +1,166 @@
+commit 41cc038ff83498c589c7d25b3d2984145528eb92
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jun 26 09:59:35 2017 +0200
+
+    patch 8.0.0679: using freed memory
+    
+    Problem:    Using freed memory.
+    Solution:   Get the parent frame pointer earlier.
+
+commit 8eeeba8c025ff844e6514c4a60cec11bf1fc1b35
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 25 22:45:39 2017 +0200
+
+    patch 8.0.0678: closing a window does not trigger resizing
+    
+    Problem:    When 'equalalways' is set and closing a window in a separate
+                frame, not all window sizes are adjusted. (Glacambre)
+    Solution:   Resize all windows if the new current window is not in the same
+                frame as the closed window. (closes #1707)
+
+commit 1814183b865059679f6ee526ec23fc575e536e66
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 25 21:17:25 2017 +0200
+
+    patch 8.0.0677: setting 'filetype' may switch buffers
+    
+    Problem:    Setting 'filetype' internally may cause the current buffer and
+                window to change unexpectedly.
+    Solution:   Set curbuf_lock. (closes #1734)
+
+commit 182a17b1e80b92826204d967808df0d30eb2ef27
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 25 20:57:18 2017 +0200
+
+    patch 8.0.0676: crash when closing quickfix window in autocmd
+    
+    Problem:    Crash when closing the quickfix window in a FileType autocommand
+                that triggers when the quickfix window is opened.
+    Solution:   Save the new value before triggering the OptionSet autocommand.
+                Add the "starting" flag to test_override() to make the text work.
+
+commit 774e5a9673260b1b8b88463669213a96637f72e8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 25 18:03:37 2017 +0200
+
+    patch 8.0.0675: 'colorcolumn' has a higher priority than 'hlsearch'
+    
+    Problem:    'colorcolumn' has a higher priority than 'hlsearch', it should be
+                the other way around. (Nazri Ramliy)
+    Solution:   Change the priorities. (LemonBoy, closes #1794)
+
+commit 5d7be4f0fa04a9210a14fca69b4f9e34613b378f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jun 25 13:40:17 2017 +0200
+
+    patch 8.0.0674: cannot build with eval but without timers
+    
+    Problem:    Cannot build with eval but without timers.
+    Solution:   Add #ifdef (John Marriott)
+
+commit ea20de81462a7e1a7f8fc1d53ad618efb0663c17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 22:52:24 2017 +0200
+
+    patch 8.0.0673: build failure without conceal feature
+    
+    Problem:    Build failure without conceal feature.
+    Solution:   Add #ifdef.
+
+commit cc0750dc6e878394ab0fd922b7ea4280918ae406
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 22:29:24 2017 +0200
+
+    patch 8.0.0672: third item of synconcealed() changes too often
+    
+    Problem:    Third item of synconcealed() changes too often. (Dominique Pelle)
+    Solution:   Reset the sequence number at the start of each line.
+
+commit 4eb6531b03445b4d492bc52fea0b6dcd886583af
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 18:49:00 2017 +0200
+
+    patch 8.0.0671: hang when typing CTRL-C in confirm() in timer
+    
+    Problem:    When a function invoked from a timer calls confirm() and the user
+                types CTRL-C then Vim hangs.
+    Solution:   Reset typebuf_was_filled. (Ozaki Kiichi, closes #1791)
+
+commit 1e8e14552e0cc8881411eb8fbe39a654dae42554
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 16:03:06 2017 +0200
+
+    patch 8.0.0670: can't use input() in a timer callback
+    
+    Problem:    Can't use input() in a timer callback. (Cosmin Popescu)
+    Solution:   Reset vgetc_busy and set timer_busy. (Ozaki Kiichi, closes #1790,
+                closes #1129)
+
+commit 24a9e348aa88a6c60ae0cdf5c4a777d8c03b08ca
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 15:39:07 2017 +0200
+
+    patch 8.0.0669: CTRL-N at start of the buffer does not work correctly
+    
+    Problem:    In Insert mode, CTRL-N at start of the buffer does not work
+                correctly. (zuloloxi)
+    Solution:   Wrap around the start of the buffer. (Christian Brabandt)
+
+commit a1bd86e0f2056f796390bc0cd3aba5c89513d0d2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 15:11:01 2017 +0200
+
+    patch 8.0.0668: nsis installer script does not work
+    
+    Problem:    Nsis installer script does not work. (Christian Brabandt)
+    Solution:   Fix the syntax of /SD.
+
+commit 53564f7c1a2998d92568e07fff1f2a4c1cecb646
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jun 24 14:48:11 2017 +0200
+
+    patch 8.0.0667: memory access error when command follows :endfunc
+    
+    Problem:    Memory access error when command follows :endfunction. (Nikolai
+                Pavlov)
+    Solution:   Make memory handling in :function straightforward. (closes #1793)
+
+commit 5fe691240bff11e9618252486147f0156e875666
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jun 23 23:00:08 2017 +0200
+
+    patch 8.0.0666: dead for loop
+    
+    Problem:    Dead for loop. (Coverity)
+    Solution:   Remove the for loop.
+
+commit 090209bfbd41af5d8c8e44f8366d290431ffbf18
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jun 23 22:45:33 2017 +0200
+
+    patch 8.0.0665: warning for uninitialized variable
+    
+    Problem:    Warning for uninitialized variable. (Tony Mechelynck)
+    Solution:   Initialize it.
+
+commit 6d006f9e950364898240b7a6358516bbf73fe458
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jun 23 22:35:34 2017 +0200
+
+    patch 8.0.0664: mouse does not work in tmux
+    
+    Problem:    Mouse does not work in tmux. (lilydjwg)
+    Solution:   Add flag for SGR release being present.
+
+commit f8be461d0284110b321be748fea206d4169b98bb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jun 23 20:52:40 2017 +0200
+
+    patch 8.0.0663: unexpected error message only when 'verbose' is set
+    
+    Problem:    Giving an error message only when 'verbose' set is unexpected.
+    Solution:   Give a warning message instead.
+
 commit 4670490673ed98502a09b74fbabe785b47e3d289
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Jun 22 23:03:12 2017 +0200
