@@ -1,3 +1,35 @@
+commit 9c4fefffb65a2ed9b4a5b0f1bde0da8f349470b5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 28 22:26:54 2017 +0200
+
+    patch 8.0.0688: cannot resize the window in a FileType autocommand
+    
+    Problem:    Cannot resize the window in a FileType autocommand. (Ingo Karkat)
+    Solution:   Add the CMDWIN flag to :resize. (test by Ingo Karkat,
+                closes #1804)
+
+commit 86f100dc0922e83bead7bcd5fd2bb2abbf153f46
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 28 21:26:27 2017 +0200
+
+    patch 8.0.0687: minor issues related to quickfix
+    
+    Problem:    Minor issues related to quickfix.
+    Solution:   Set the proper return status for all cases in setqflist() and at
+                test cases for this.  Move the "adding" flag outside of
+                FEAT_WINDOWS. Minor update to the setqflist() help text. (Yegappan
+                Lakshmanan)
+
+commit 9f5f7bf4d5f757ef885acf74ce03c25429a328aa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jun 28 20:45:26 2017 +0200
+
+    patch 8.0.0686: extra redraw when using CTRL-L in second window
+    
+    Problem:    When typing CTRL-L in a window that's not the first one, another
+                redraw will happen later. (Christian Brabandt)
+    Solution:   Reset must_redraw after calling screenclear().
+
 commit e6bf655bc4de1b7f4586e1f5c2fc4978141c3aa3
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Jun 27 22:11:51 2017 +0200
