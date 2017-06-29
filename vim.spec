@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -71,7 +71,7 @@ Patch3016: vim-8.0-copy-paste.patch
 Patch3017: vim-8.0-bindsyntax.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
+BuildRequires: python2-devel python3-devel ncurses-devel gettext perl-devel
 BuildRequires: perl-generators
 BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
 BuildRequires: libacl-devel gpm-devel autoconf file
@@ -770,6 +770,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Jun 29 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.685-3
+- update python dependencies accordingly Fedora Guidelines for Python (python-devel -> python2-devel)
+
 * Wed Jun 28 2017 Karsten Hopp <karsten@redhat.com> 8.0.685-1
 - patchlevel 685
 
