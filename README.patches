@@ -1,3 +1,31 @@
+commit a83fe75ca76f6f74daa1e5a620054b973b43379b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 29 22:33:13 2017 +0200
+
+    patch 8.0.0691: compiler warning without the linebreak feature
+    
+    Problem:    Compiler warning without the linebreak feature.
+    Solution:   Add #ifdef. (John Marriott)
+
+commit c2226845eb207bcd1a24e1afa941acbfecbc5170
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 29 22:27:24 2017 +0200
+
+    patch 8.0.0690: compiler warning on non-Unix system
+    
+    Problem:    Compiler warning on non-Unix system.
+    Solution:   Add #ifdef. (John Marriott)
+
+commit a693d0584b9a7ccce98813dda3a6badb209904c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jun 29 22:23:06 2017 +0200
+
+    patch 8.0.0689: ~ character not escaped when extending search pattern
+    
+    Problem:    The ~ character is not escaped when adding to the search pattern
+                with CTRL-L. (Ramel Eshed)
+    Solution:   Escape the character. (Christian Brabandt)
+
 commit 9c4fefffb65a2ed9b4a5b0f1bde0da8f349470b5
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jun 28 22:26:54 2017 +0200
