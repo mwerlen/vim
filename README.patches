@@ -1,3 +1,144 @@
+commit cae24be4a808d60313913cc6feea6c2bee2e2a42
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 10 22:12:10 2017 +0200
+
+    patch 8.0.0705: crash when there is an error in a timer callback
+    
+    Problem:    Crash when there is an error in a timer callback. (Aron Griffis,
+                Ozaki Kiichi)
+    Solution:   Check did_throw before discarding an exception.  NULLify
+                current_exception when no longer valid.
+
+commit 163095f088a7c29710a16c75bb56229dd3b4116a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 9 15:41:53 2017 +0200
+
+    patch 8.0.0704: problems with autocommands when opening help
+    
+    Problem:    Problems with autocommands when opening help.
+    Solution:   Avoid using invalid "varp" value.  Allow using :wincmd if buffer
+                is locked. (closes #1806, closes #1804)
+
+commit faf29d7f91477c25c85d9d7165d90e8d8f1c512e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 9 11:07:16 2017 +0200
+
+    patch 8.0.0703: illegal memory access with empty :doau command
+    
+    Problem:    Illegal memory access with empty :doau command.
+    Solution:   Check the event for being out of range. (James McCoy)
+
+commit c577d813b7978345dec4310b2d8f5d5624a681f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 8 22:37:34 2017 +0200
+
+    patch 8.0.0702: an error in a timer can make Vim unusable
+    
+    Problem:    An error in a timer can make Vim unusable.
+    Solution:   Don't set the error flag or exception from a timer.  Stop a timer
+                if it causes an error 3 out of 3 times.  Discard an exception
+                caused inside a timer.
+
+commit 11e79bb04ea635d180dd79b1d5cbc755b56e66e1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 8 17:03:21 2017 +0200
+
+    patch 8.0.0701: system test failing when using X11 forwarding
+    
+    Problem:    System test failing when using X11 forwarding.
+    Solution:   Set $XAUTHORITY before changing $HOME. (closes #1812)
+                Also use a better check for the exit value.
+
+commit 0ea5070d79c8a13fb2403280a72f968495b0fab7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 8 14:44:50 2017 +0200
+
+    patch 8.0.0700: segfault with QuitPre autocommand closes the window
+    
+    Problem:    Segfault with QuitPre autocommand closes the window. (Marek)
+    Solution:   Check that the window pointer is still valid. (Christian Brabandt,
+                closes #1817)
+
+commit 710b4a16465fb38492801a0dccf2293397aadc6a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 8 14:29:19 2017 +0200
+
+    patch 8.0.0699: checksum tests are not actually run
+    
+    Problem:    Checksum tests are not actually run.
+    Solution:   Add the tests to the list. (Dominique Pelle, closes #1819)
+
+commit c4f833808af930505017c9389d44a828601e247c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 7 14:50:44 2017 +0200
+
+    patch 8.0.0698: crash on exit when using Python function in timer.
+    
+    Problem:    When a timer uses ":pyeval" or another Python command and it
+                happens to be triggered while exiting a Crash may happen.
+                (Ricky Zhou)
+    Solution:   Avoid running a Python command after python_end() was called.
+                Do not trigger timers while exiting.  (closes #1824)
+
+commit 8858498516108432453526f07783f14c9196e112
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 7 13:32:14 2017 +0200
+
+    patch 8.0.0697: recorded key sequences may become invalid
+    
+    Problem:    Recorded key sequences may become invalid.
+    Solution:   Add back KE_SNIFF removed in 7.4.1433. Use fixed numbers for the
+                key_extra enum.
+
+commit cce1cf12eb567bcfac161f39d15178f2a4c04e43
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 7 13:04:16 2017 +0200
+
+    patch 8.0.0696: .inc files missing in git
+    
+    Problem:    The .inc files are missing in git. (Nazri Ramliy)
+    Solution:   Remove the .inc line from .gitignore.
+
+commit e5ae108ab87ab7bdca85c57349a6b31a6b1aa49a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 7 12:42:40 2017 +0200
+
+    patch 8.0.0695: missing dependencies breaks parallel make
+    
+    Problem:    Missing dependencies breaks parallel make.
+    Solution:   Add dependencies for terminal.o.
+
+commit a34293ae0a87a35eb422f145ef999295705f3731
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 7 12:22:55 2017 +0200
+
+    patch 8.0.0694: building in shadow directory does not work
+    
+    Problem:    Building in shadow directory does not work.  Running Vim fails.
+    Solution:   Add the new libvterm directory.  Add missing change in command
+                list.
+
+commit e4f25e4a8db2c8a8a71a4ba2a68540b3ab341e42
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 7 11:54:15 2017 +0200
+
+    patch 8.0.0693: no terminal emulator support
+    
+    Problem:    No terminal emulator support.  Cannot properly run commands in the
+                GUI.  Cannot run a job interactively with an ssh connection.
+    Solution:   Very early implementation of the :terminal command.  Includes
+                libvterm converted to ANSI C.  Many parts still missing.
+
+commit da5116da4586fc714434411d2cccb066caa3723e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 1 23:11:17 2017 +0200
+
+    patch 8.0.0692: CTRL-G with 'incsearch' and ? goes in the wrong direction
+    
+    Problem:    Using CTRL-G with 'incsearch' and ? goes in the wrong direction.
+                (Ramel Eshed)
+    Solution:   Adjust search_start. (Christian Brabandt)
+
 commit a83fe75ca76f6f74daa1e5a620054b973b43379b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Jun 29 22:33:13 2017 +0200
