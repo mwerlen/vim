@@ -1,4 +1,4 @@
-%define patchlevel 705
+%define patchlevel 711
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -765,6 +765,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Jul 13 2017 Karsten Hopp <karsten@redhat.com> 8.0.711-1
+- patchlevel 711
+
 * Tue Jul 11 2017 Karsten Hopp <karsten@redhat.com> 8.0.705-1
 - patchlevel 705
 

@@ -1,3 +1,60 @@
+commit 85dad2c815aaef69aa948fb17874b3825dd72def
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jul 12 21:12:43 2017 +0200
+
+    patch 8.0.0711: cannot build without the wildmenu feature
+    
+    Problem:    Cannot build without the wildmenu feature.
+    Solution:   Add #ifdef
+
+commit 8603356bf41e4aa5fe1d7cffe3ee003745c167a6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jul 12 20:24:41 2017 +0200
+
+    patch 8.0.0710: a job that writes to a buffer clears completion
+    
+    Problem:    A job that writes to a buffer clears command line completion.
+                (Ramel Eshed)
+    Solution:   Do not redraw while showing the completion menu.
+
+commit 8327d1df1754b33d8a93b3411f30692f0042f4ce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 11 22:34:51 2017 +0200
+
+    patch 8.0.0709: libvterm cannot use vsnprintf()
+    
+    Problem:    Libvterm cannot use vsnprintf(), it does not exist in C90.
+    Solution:   Use vim_vsnprintf() instead.
+
+commit 292eff0c5aacb8531d65509679b6c29eae8dc22a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 11 21:46:28 2017 +0200
+
+    patch 8.0.0708: some tests are old style
+    
+    Problem:    Some tests are old style.
+    Solution:   Change a few tests from old style to new style. (pschuh,
+                closes #1813)
+
+commit f1d13478e3a7e1a86d52552c8c5571f00dc28ad1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 11 18:28:46 2017 +0200
+
+    patch 8.0.0707: freeing wrong memory with certain autocommands
+    
+    Problem:    Freeing wrong memory when manipulating buffers in autocommands.
+                (James McCoy)
+    Solution:   Also set the w_s pointer if w_buffer was NULL.
+
+commit 5a15b6aa0aa5c1559c6f1a9f06c595a8c564637d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 11 15:11:57 2017 +0200
+
+    patch 8.0.0706: crash when cancelling the cmdline window in Ex mode
+    
+    Problem:    Crash when cancelling the cmdline window in Ex mode. (James McCoy)
+    Solution:   Do not set cmdbuff to NULL, make it empty.
+
 commit cae24be4a808d60313913cc6feea6c2bee2e2a42
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jul 10 22:12:10 2017 +0200
