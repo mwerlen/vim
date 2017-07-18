@@ -1,3 +1,159 @@
+commit 96ca27a0ee8ae738cab9fb386984c75c6821e31a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 17 23:20:24 2017 +0200
+
+    patch 8.0.0728: the terminal structure is never freed
+    
+    Problem:    The terminal structure is never freed.
+    Solution:   Free the structure and unreference what it contains.
+
+commit 60d0e97497f1104b31f711072ef174af533b61fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 20:54:34 2017 +0200
+
+    patch 8.0.0727: message about what register to yank into is not translated
+    
+    Problem:    Message about what register to yank into is not translated.
+                (LemonBoy)
+    Solution:   Add _().
+
+commit 4d2ba822fd80f5b5ff6d9195a5f0fd802aabf304
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 20:32:25 2017 +0200
+
+    patch 8.0.0726: translations cleanup script is too conservative
+    
+    Problem:    Translations cleanup script is too conservative.
+    Solution:   Also delete untranslated messages.
+
+commit 938783d0ab5678c259ceb62b15be72abe69362fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 20:13:26 2017 +0200
+
+    patch 8.0.0725: a terminal window does not handle keyboard input
+    
+    Problem:    A terminal window does not handle keyboard input.
+    Solution:   Add terminal_loop().  ":term bash -i" sort of works now.
+
+commit e45deb79978677cb41f1477ba4140bccff658fd1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 17:56:16 2017 +0200
+
+    patch 8.0.0724: the message for yanking doesn't indicate the register
+    
+    Problem:    The message for yanking doesn't indicate the register.
+    Solution:   Show the register name in the "N lines yanked" message. (Lemonboy,
+                closes #1803, closes #1809)
+
+commit 9b50bba643f8d1fcac91e11780da7d03d8995260
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 16:42:13 2017 +0200
+
+    patch 8.0.0723: arglist test fails if file name case is ignored
+    
+    Problem:    Arglist test fails if file name case is ignored.
+    Solution:   Wipe existing buffers, check for fname_case property.
+
+commit c9041079a199d753e73d3b242f21cc8db620179a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 15:48:46 2017 +0200
+
+    patch 8.0.0722: screen is messed by timer up at inputlist() prompt
+    
+    Problem:    Screen is messed by timer up at inputlist() prompt.
+    Solution:   Set state to ASKMORE. (closes #1843)
+
+commit 90305c66a8637ea43a6509c7ab597734dd218365
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 15:31:17 2017 +0200
+
+    patch 8.0.0721: :argedit can only have one argument
+    
+    Problem:    :argedit can only have one argument.
+    Solution:   Allow for multiple arguments. (Christian Brabandt)
+
+commit 6a77d2667e982655f6adacee774ee7aa2581bd8a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 15:24:01 2017 +0200
+
+    patch 8.0.0720: unfinished mapping not displayed when running timer
+    
+    Problem:    Unfinished mapping not displayed when running timer.
+    Solution:   Also use the extra_char while waiting for a mapping and digraph.
+                (closes #1844)
+
+commit c0aa482a5add1e1125fd983d62c67a182c76ae24
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 14:04:29 2017 +0200
+
+    patch 8.0.0719: build failure without +terminal feature
+    
+    Problem:    Build failure without +terminal feature.
+    Solution:   Add #ifdefs.
+
+commit cb8bbe9bf3214d07580d6b43d6539416884153bd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 16 13:48:22 2017 +0200
+
+    patch 8.0.0718: output of job in terminal is not displayed
+    
+    Problem:    Output of job in terminal is not displayed.
+    Solution:   Connect the job output to the terminal.
+
+commit 26e8558e74fc1701b57f092cc2c3dbf879cf1af3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 15 20:05:54 2017 +0200
+
+    patch 8.0.0717: terminal feature precence unclear
+    
+    Problem:    Terminal feature not included in :version output.
+    Solution:   Add +terminal or -terminal.
+
+commit c4da113ef98dcfd6f2a088b1693c0317dcb5bf42
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 15 19:39:43 2017 +0200
+
+    patch 8.0.0716: not easy to start Vim cleanly
+    
+    Problem:    Not easy to start Vim cleanly without changing the viminfo file.
+                Not possible to know whether the -i command line flag was used.
+    Solution:   Add the --clean command line argument.  Add the 'viminfofile'
+                option.  Add "-u DEFAULTS".
+
+commit a92522fbf3a49d06e08caf010f7d7b0f58d2e131
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 15 15:21:38 2017 +0200
+
+    patch 8.0.0714: when a timer causes a command line redraw " goes missing
+    
+    Problem:    When a timer causes a command line redraw the " that is displayed
+                for CTRL-R goes missing.
+    Solution:   Remember an extra character to display.
+
+commit 0daf843b4cad734df6be16573423206eae43028b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 15 15:16:40 2017 +0200
+
+    patch 8.0.0713: 'termkey' option not fully implemented
+    
+    Problem:    'termkey' option not fully implemented.
+    Solution:   Add initialisation.
+
+commit 1b0675caece63c559951629837520a782d8c9cb8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 15 14:04:01 2017 +0200
+
+    patch 8.0.0712: the terminal implementation is incomplete
+    
+    Problem:    The terminal implementation is incomplete.
+    Solution:   Add the 'termkey' option.
+
+commit 74675a666b51edd61e0210132658d81a86c5102c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 15 13:53:23 2017 +0200
+
+    Updated runtime files and translations.
+
 commit 85dad2c815aaef69aa948fb17874b3825dd72def
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jul 12 21:12:43 2017 +0200
