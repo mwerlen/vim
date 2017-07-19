@@ -1,3 +1,22 @@
+commit 8c0095c59a34ef74fb873036cfbf1aa90be449f3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 18 22:53:21 2017 +0200
+
+    patch 8.0.0730: terminal feature only supports Unix-like systems
+    
+    Problem:    Terminal feature only supports Unix-like systems.
+    Solution:   Prepare for adding an MS-Windows implementaiton.
+
+commit 8008b6318dbd68b2c2c8cf08280768489a8f0114
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 18 21:33:20 2017 +0200
+
+    patch 8.0.0729: the help for the terminal configure option is wrong
+    
+    Problem:    The help for the terminal configure option is wrong.
+    Solution:   Change "Disable" to "Enable". (E Kawashima, closes #1849)
+                Improve alignment.
+
 commit 96ca27a0ee8ae738cab9fb386984c75c6821e31a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jul 17 23:20:24 2017 +0200
