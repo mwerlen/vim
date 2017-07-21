@@ -1,3 +1,13 @@
+commit 58556cd0e592cba75bf60310d822a20e41f6b02e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 20 23:04:46 2017 +0200
+
+    patch 8.0.0739: terminal resizing doesn't work well.
+    
+    Problem:    Terminal resizing doesn't work well.
+    Solution:   Resize the terminal to the Vim window and the other way around.
+                Avoid mapping typed keys.  Set the environment properly.
+
 commit e825d8b0a4173871272b723f1c1f5b95ee981067
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Jul 19 23:20:19 2017 +0200
