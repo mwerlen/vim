@@ -1,3 +1,826 @@
+commit c9456cec0cfe956e083891187b791343e732207b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 21:46:04 2017 +0200
+
+    patch 8.0.0823: cannot paste text into a terminal window
+    
+    Problem:    Cannot paste text into a terminal window.
+    Solution:   Make CTRL-W " work.
+
+commit d09be321422669fc32d4d31a4ac7621c89136f7b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 21:37:58 2017 +0200
+
+    patch 8.0.0822: Test_with_partial_callback is a tiny bit flaky
+    
+    Problem:    Test_with_partial_callback is a tiny bit flaky.
+    Solution:   Add it to the list of flaky tests.
+
+commit b000e328efcf859d14454ffd241d44f6d14f300b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 19:38:21 2017 +0200
+
+    patch 8.0.0821: cannot get the title and status of a terminal window
+    
+    Problem:    Cannot get the title and status of a terminal window.
+    Solution:   Implement term_gettitle() and term_getstatus().
+
+commit 12d93ee26d4290321ed0cc3d0493b966d1475a66
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 19:02:02 2017 +0200
+
+    patch 8.0.0820: GUI: cursor in terminal window lags behind
+    
+    Problem:    GUI: cursor in terminal window lags behind.
+    Solution:   call gui_update_cursor() under different conditions. (Ozaki
+                Kiichi, closes #1893)
+
+commit 0e23e9c5e74dbf0e5eec710c41c9eaed35794682
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 18:47:19 2017 +0200
+
+    patch 8.0.0819: cursor not positioned in terminal window
+    
+    Problem:    After changing current window the cursor position in the terminal
+                window is not updated.
+    Solution:   Set w_wrow, w_wcol and w_valid.
+
+commit 97870002d30a9846374d1ff7d73fbef351046f20
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 18:28:38 2017 +0200
+
+    patch 8.0.0818: cannot get the cursor position of a terminal
+    
+    Problem:    Cannot get the cursor position of a terminal.
+    Solution:   Add term_getcursor().
+
+commit 22aad2f8806acf390568b8e524e53260a322aaa5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 18:19:46 2017 +0200
+
+    patch 8.0.0817: cannot get the terminal line at the cursor
+    
+    Problem:    Cannot get the line of a terminal window at the cursor.
+    Solution:   Make the row argunt optionsl. (Yasuhiro Matsumoto, closes #1898)
+
+commit f144a3fb73340fe22e08bd1fa77e27c9f55bb0af
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 18:02:12 2017 +0200
+
+    patch 8.0.0816: crash when using invalid buffer number
+    
+    Problem:    Crash when using invalid buffer number.
+    Solution:   Check for NULL buffer. (Yasuhiro Matsumoto, closes #1899)
+
+commit 43c007ff225bf5522e07f23f41bfaced573b0e98
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 17:45:37 2017 +0200
+
+    patch 8.0.0815: terminal window not correctly updated
+    
+    Problem:    Terminal window not correctly updated when 'statusline' invokes
+                ":sleep". (NIkolay Pavlov)
+    Solution:   Clear got_int.  Repeat redrawing when needed.
+
+commit 0e7885e67d7d798812e23dd8d32e75106f06cb76
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 16:58:56 2017 +0200
+
+    patch 8.0.0814: file in Filelist does not exist
+    
+    Problem:    File in Filelist does not exist.
+    Solution:   Remove the line.
+
+commit 423802d1a282df35078539970eabf559186e1ec8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 16:52:24 2017 +0200
+
+    patch 8.0.0813: cannot use a terminal window while the job is running
+    
+    Problem:    Cannot use Vim commands in a terminal window while the job is
+                running.
+    Solution:   Implement Terminal Normal mode.
+
+commit 68c4bdd53cb54b6c0dccb2dcee446ef42ef3dedd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 13:57:41 2017 +0200
+
+    patch 8.0.0812: terminal window colors shift when 'number' is set
+    
+    Problem:    Terminal window colors shift when 'number' is set. (Nazri Ramliy)
+    Solution:   Use vcol instead of col.
+
+commit 5449f7c6fc574fed1020d70878becbbfca5a5a41
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 13:51:37 2017 +0200
+
+    patch 8.0.0811: MS-Windows: test_expand_dllpath fails
+    
+    Problem:    MS-Windows: test_expand_dllpath fails.
+    Solution:   Change backslashes to forward slashes
+
+commit d0b6c6c54e0f3c2984e1d9b316a587ef14cfd53a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 30 13:28:23 2017 +0200
+
+    patch 8.0.0810: MS-Windows: tests still hang
+    
+    Problem:    MS-Windows: tests still hang.
+    Solution:   Only create the XfakeHOME directory if it does not exist yet.
+
+commit 30fe88677dd2b16e733ca0ac14edc8d70c7259fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 23:01:57 2017 +0200
+
+    patch 8.0.0809: MS-Windows: tests hang
+    
+    Problem:    MS-Windows: tests hang.
+    Solution:   Delete the XfakeHOME directory.
+
+commit d507a685ad9cd270e5afc3bd4aa6a80ddb0d8802
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 22:41:18 2017 +0200
+
+    patch 8.0.0808: cannot build with terminal feature and DEBUG defined
+    
+    Problem:    Cannot build with terminal feature and DEBUG defined. (Christian
+                Brabandt)
+    Solution:   Use DEBUG_LOG3().
+
+commit 6e1ef28057b100b206a88a175b37e75f5130668c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 22:23:40 2017 +0200
+
+    patch 8.0.0807: terminal window can't handle mouse buttons
+    
+    Problem:    Terminal window can't handle mouse buttons. (Hirohito Higashi)
+    Solution:   Implement mouse buttons and many other keys.  Ignore the ones that
+                are not implemented.
+
+commit f98246d4849e670c6660e97887428dcddf88dc9f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 22:21:18 2017 +0200
+
+    patch 8.0.0806: tests may try to create XfakeHOME twice
+    
+    Problem:    Tests may try to create XfakeHOME twice.
+    Solution:   Avoid loading setup.vim twice.
+
+commit d1ee0043c0360f6b504c0283edd2a844ef73a349
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 20:39:53 2017 +0200
+
+    patch 8.0.0805: GUI test fails with gnome2
+    
+    Problem:    GUI test fails with gnome2.
+    Solution:   Set $HOME to an existing directory.
+
+commit 91d348abfc0d7ac9b5b19cde0112de8ae4335602
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 20:16:03 2017 +0200
+
+    patch 8.0.0804: running tests fails when stdin is /dev/null
+    
+    Problem:    Running tests fails when stdin is /dev/null. (James McCoy)
+    Solution:   Do not bail out from getting input if the --not-a-term argument
+                was given. (closes #1460)
+
+commit c6df10e5d33ffab2c392626e285317ea8241ebff
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 20:15:08 2017 +0200
+
+    patch 8.0.0804: terminal window functions not yet implemented
+    
+    Problem:    Terminal window functions not yet implemented.
+    Solution:   Implement several functions. Add a first test. (Yasuhiro
+                Matsumoto, closes #1871)
+
+commit 70229f951f00cdcff790f2e70b0b0a601202e9e7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 16:01:53 2017 +0200
+
+    patch 8.0.0802: last line of terminal window has no color
+    
+    Problem:    After a job exits the last line in the terminal window does not
+                get color attributes.
+    Solution:   Fix off-by-one error.
+
+commit 1e8340bbbfb26d170a3f8b135dcb874e90a74e0b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 15:53:39 2017 +0200
+
+    patch 8.0.0801: terminal window title says "running" after job exits
+    
+    Problem:    The terminal window title sometimes still says "running" even
+                though the job has finished.
+    Solution:   Also consider the job finished when the channel has been closed.
+
+commit 696d00f488dc0599692993f226a7dd95a187920d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 29 14:52:43 2017 +0200
+
+    patch 8.0.0800
+    Problem:    Terminal window scrollback contents is wrong.
+    Solution:   Fix handling of multi-byte characters (Yasuhiro Matsumoto) Handle
+                empty lines correctly. (closes #1891)
+
+commit dcbfa33fa169b9358908aafe9e7e54faaef1c0fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 23:16:13 2017 +0200
+
+    patch 8.0.0799: missing semicolon
+    
+    Problem:    Missing semicolon.
+    Solution:   Add it.
+
+commit 63ecddab6d918214371ccaaeb10c118ae7c39d02
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 22:29:35 2017 +0200
+
+    patch 8.0.0798: no highlighting in a terminal window with a finished job
+    
+    Problem:    No highlighting in a terminal window with a finished job.
+    Solution:   Highlight the text.
+
+commit d85f271bf8516dbd90be4d18f905f0abbfcd6db6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 21:51:57 2017 +0200
+
+    patch 8.0.0797: finished job in terminal window is not handled
+    
+    Problem:    Finished job in terminal window is not handled.
+    Solution:   Add the scrollback buffer.  Use it to fill the buffer when the job
+                has ended.
+
+commit d973bcb483088b69eb1aed3788476662fe6b77ef
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 18:01:58 2017 +0200
+
+    patch 8.0.0796: no coverage on Travis with clang
+    
+    Problem:    No coverage on Travis with clang.
+    Solution:   Use a specific coveralls version. (Ozaki Kiichi, closes #1888)
+
+commit 607985a95f31f4db238c7d825e548b14da64ac26
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 17:04:15 2017 +0200
+
+    patch 8.0.0795: terminal feature does not build with older MSVC
+    
+    Problem:    Terminal feature does not build with older MSVC.
+    Solution:   Do not use stdint.h.
+
+commit 9966b21a57277986217aa28237d6c247ebd060d7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 16:46:57 2017 +0200
+
+    patch 8.0.0794: checking translations fails with multiple NL
+    
+    Problem:    The script to check translations fails if there is more than one
+                NL in one line.
+    Solution:   Count the number of NL characters.  Make count() accept a string.
+
+commit 93723a4ef18f260b82d89759db2f1eeae730c4ec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 15:55:32 2017 +0200
+
+    patch 8.0.0793: using wrong terminal name for terminal window
+    
+    Problem:    Using wrong terminal name for terminal window.
+    Solution:   When 'term' starts with "xterm" use it for $TERM in a terminal
+                window.
+
+commit 1a0f2005002a9993ba7313d1978fa2043314f8b8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 15:38:10 2017 +0200
+
+    patch 8.0.0792: spell test leaves files behind
+    
+    Problem:    Spell test leaves files behind.
+    Solution:   Delete the files.
+
+commit b41bf8e6b45a773456031954bca1bc4212cbffbe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 15:11:38 2017 +0200
+
+    patch 8.0.0791: terminal colors depend on the system
+    
+    Problem:    Terminal colors depend on the system.
+    Solution:   Use the highlight color lookup tables.
+
+commit fa228f716a4b63bf508887a49ce56bf4c07364d3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 14:19:19 2017 +0200
+
+    patch 8.0.0790: MSVC compiler warning for strncpy in libvterm
+    
+    Problem:    MSVC compiler warning for strncpy in libvterm.
+    Solution:   Add a define to stop the warnings. (Mike Williams)
+
+commit 96ad8c9ac181b51605ac1f399c7835a515e5a1fa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 14:17:34 2017 +0200
+
+    patch 8.0.0789: splitting terminal window has resizing problems
+    
+    Problem:    When splitting a terminal window where the terminal follows the
+                size of the window doesn't work.
+    Solution:   Use the size of the smallest window. (Yasuhiro Matsumoto, closes
+                #1885)
+
+commit f86eea9f01460e3b375ee768d4b863beb690006f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 13:51:30 2017 +0200
+
+    patch 8.0.0788: MS-Windows: cannot build with terminal feature
+    
+    Problem:    MS-Windows: cannot build with terminal feature.
+    Solution:   Move set_ref_in_term(). (Ozaki Kiichi)
+
+commit 1f28b4c6a30d1519a8770d16cbb874735ccced97
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 13:48:34 2017 +0200
+
+    patch 8.0.0787: cannot send CTRL-W command to terminal job
+    
+    Problem:    Cannot send CTRL-W command to terminal job.
+    Solution:   Make CTRL-W . a prefex for sending a key to the job.
+
+commit 8bcc99b821706fe4a0a4b8e1b588d453bbf0dfbd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 13:45:16 2017 +0200
+
+    patch 8.0.0786: build failures on Travis
+    
+    Problem:    Build failures on Travis.
+    Solution:   Go back to precise termporarily.  Disable coverage with clang.
+
+commit 38ed1f5bea7d2b1174d4843ac7a4b08ff2413bb9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 13:41:22 2017 +0200
+
+    Do not run coverage with clang, currently fails.
+
+commit d243a2a5efd9c48836f48657e91b9fb9426baece
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 13:12:19 2017 +0200
+
+    Do not invoke rvm reset
+
+commit bb543088a5517e0cccb78273f260923cab98caa9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 12:45:40 2017 +0200
+
+    Remove ruby-dev from travis config.
+
+commit 59ee05b2f5d44f624647ee474662cbe649c06988
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 28 12:22:55 2017 +0200
+
+    Switch travis back to precise temporarily
+
+commit 67883b4909d0e9d4c024beb18f02750c6f7e3069
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 27 22:57:00 2017 +0200
+
+    patch 8.0.0785: wildcards are not expanded for :terminal
+    
+    Problem:    Wildcards are not expanded for :terminal.
+    Solution:   Add FILES to the command flags. (Yasuhiro Matsumoto, closes #1883)
+                Also complete commands.
+
+commit a2c45a17c174d815fd1d160f92ec6c277201e111
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 27 22:14:59 2017 +0200
+
+    patch 8.0.0784: job of terminal may be garbage collected
+    
+    Problem:    Job of terminal may be garbage collected.
+    Solution:   Set copyID on job in terminal. (Ozaki Kiichi)
+
+commit 0e83f02d80acacee55c5de3bbbee52625d368375
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 27 22:07:35 2017 +0200
+
+    patch 8.0.0783: job of terminal may be freed too early
+    
+    Problem:    Job of terminal may be freed too early.
+    Solution:   Increment job refcount. (Yasuhiro Matsumoto)
+
+commit d28cc3f55d4a5a980f6ac6fa682382822a223720
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 27 22:03:50 2017 +0200
+
+    patch 8.0.0782: using freed memory in quickfix code
+    
+    Problem:    Using freed memory in quickfix code. (Dominique Pelle)
+    Solution:   Handle a help window differently. (Yegappan Lakshmanan)
+
+commit ab6eec3887d68c260b50b1b8f9ed95d49d9306c6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 27 21:46:43 2017 +0200
+
+    patch 8.0.0781: MS-Windows: memory leak when using :terminal
+    
+    Problem:    MS-Windows: Memory leak when using :terminal.
+    Solution:   Handle failures properly. (Ken Takata)
+
+commit cb25d1822094f2bc243cc2f64daf2e3b55f1d31b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Jul 27 21:29:31 2017 +0200
+
+    patch 8.0.0780: build failure on Travis
+    
+    Problem:    Build failure on Travis.
+    Solution:   Set distribution explicitly. Use Lua and Ruby dev. (Ken Takata,
+                closes #1884)
+
+commit 293424c199615b774365db9b412209b102cdfe20
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jul 26 23:11:01 2017 +0200
+
+    patch 8.0.0779: :term without an argument uses empty buffer name
+    
+    Problem:    :term without an argument uses empty buffer name but runs the
+                snell.
+    Solution:   Change the command to the shell earlier.
+
+commit 4cc93dc85a7aaf6bb1ccccc466f8d5fa523094e4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jul 26 21:49:37 2017 +0200
+
+    patch 8.0.0778: in a terminal the cursor may be hidden
+    
+    Problem:    In a terminal the cursor may be hidden and screen updating lags
+                behind. (Nazri Ramliy)
+    Solution:   Switch the cursor on and flush output when needed. (Ozaki Kiichi)
+
+commit a1b5b0928118b135f9917679c0da28175c845140
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Jul 26 21:29:34 2017 +0200
+
+    patch 8.0.0777: compiler warnings with 64 bit compiler
+    
+    Problem:    Compiler warnings with 64 bit compiler.
+    Solution:   Add type casts. (Mike Williams)
+
+commit f0a521f4f76904edb74e182c12732189b347ff68
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 25 23:31:12 2017 +0200
+
+    patch 8.0.0776: function prototypes missing without the quickfix feature
+    
+    Problem:    Function prototypes missing without the quickfix feature. (Tony
+                Mechelynck)
+    Solution:   Move non-quickfix functions to buffer.c.
+
+commit fc716d725613c3b5934e7eac6573adde8e4f8183
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 25 23:08:47 2017 +0200
+
+    patch 8.0.0775: in a terminal the cursor is updated too often
+    
+    Problem:    In a terminal the cursor is updated too often.
+    Solution:   Only flush when needed. (Yasuhiro Matsumoto).  Remeber whether the
+                cursor is visible. (closes #1873)
+
+commit 8f14bb58cb7db31797bc1e5ab5c8080dcbb55b98
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 25 22:06:43 2017 +0200
+
+    patch 8.0.0774: build failure without the multi-byte feature
+    
+    Problem:    Build failure without the multi-byte feature on HPUX.
+    Solution:   Move #ifdefs. (John Marriott)
+
+commit f80451e6fe19b3bbddc45ec047a2f95989ef3531
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 25 21:49:35 2017 +0200
+
+    patch 8.0.0773: mixing 32 and 64 bit libvterm builds fails
+    
+    Problem:    Mixing 32 and 64 bit libvterm builds fails.
+    Solution:   Use OUTDIR. (Ken Takata)
+
+commit b2a76ec06bb1130cfb632bdfef64e479fa55dd5c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Jul 25 21:34:46 2017 +0200
+
+    patch 8.0.0772: other stdbool.h dependencies in libvterm
+    
+    Problem:    Other stdbool.h dependencies in libvterm.
+    Solution:   Remove the dependency and use TRUE/FALSE/int. (Ken Takata)
+
+commit 1c84493bbeda1d58b70e9b2b7723ce92fb2a49d4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 24 23:36:41 2017 +0200
+
+    patch 8.0.0771: cursor in terminal window not always updated in GUI
+    
+    Problem:    Cursor in a terminal window not always updated in the GUI.
+    Solution:   Call gui_update_cursor(). (Yasuhiro Matsumoto, closes #1868)
+
+commit 86067eb05ef01ff4acea9b006506b2b4abd3a3eb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 24 23:05:35 2017 +0200
+
+    patch 8.0.0770: compiler warning for missing field initializer
+    
+    Problem:    Compiler warning for missing field initializer.
+    Solution:   Add two more values. (Yegappan Lakshmanan)
+
+commit 8a77306fa170f9d95f2402e73b4a94a2692ce84f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 24 22:29:21 2017 +0200
+
+    patch 8.0.0769: build problems with terminal on MS-Windows
+    
+    Problem:    Build problems with terminal on MS-Windows using MSVC.
+    Solution:   Remove stdbool.h dependency. Only use ScreenLinesUC when it was
+                allocated. Fix typos. (Ken Takata)
+
+commit 2155441460a6dc0a72125f7860507693112a1460
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 24 21:44:43 2017 +0200
+
+    patch 8.0.0768: terminal window status shows "[Scratch]"
+    
+    Problem:    Terminal window status shows "[Scratch]".
+    Solution:   Show "[Terminal]" when no title was set. (Yasuhiro Matsumoto)
+                Store the terminal title that vterm sends and use it.  Update the
+                special buffer name.  (closes #1869)
+
+commit d60547bf80881f6c99bcbd7c8c4c6cfb7e405a90
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 24 20:15:30 2017 +0200
+
+    patch 8.0.0767: build failure with Athena and Motif
+    
+    Problem:    Build failure with Athena and Motif.
+    Solution:   Move local variable delcarations. (Kazunobu Kuriyama)
+
+commit c4f43bce7c43e5fe413e77b66b9805f3354fbb63
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 24 20:03:01 2017 +0200
+
+    patch 8.0.0766: option test fails with +terminal feature
+    
+    Problem:    Option test fails with +terminal feature.
+    Solution:   Fix using the right option when checking the value.
+
+commit 81bdd6a02575b024db3dd5d91ec4ac4dfd41aa7a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 22:57:00 2017 +0200
+
+    patch 8.0.0765: build fails with tiny features
+    
+    Problem:    Build fails with tiny features.
+    Solution:   Adjust #ifdef. (John Marriott)
+
+commit dbe948d6c350feacc01ad019b57717149c8ea5e5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 22:50:51 2017 +0200
+
+    patch 8.0.0764: 'termkey' does not work yet
+    
+    Problem:    'termkey' does not work yet.
+    Solution:   Implement 'termkey'.
+
+commit b6e0ec6b71c45284d94f51728dbc33e5d3428ff4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 22:12:20 2017 +0200
+
+    Documentation updates.
+
+commit 9cc5f75932b10f611d8b3f444d025053f9dbcab1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 22:07:27 2017 +0200
+
+    patch 8.0.0763: libvterm can be improved
+    
+    Problem:    Libvterm can be improved.
+    Solution:   Various small improvements, more comments.
+
+commit c31f9ae4f1976544522313b182957793063ee02c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 22:02:02 2017 +0200
+
+    patch 8.0.0762: ml_get error with :psearch in buffer without a name
+    
+    Problem:    ml_get error with :psearch in buffer without a name. (Dominique
+                Pelle)
+    Solution:   Use the buffer number instead of the file name.  Check the cursor
+                position.
+
+commit 1f2903c43109b16594d141a730659317b15f388d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 19:51:01 2017 +0200
+
+    patch 8.0.0761: options not set properly for a terminal buffer
+    
+    Problem:    Options of a buffer for a terminal window are not set properly.
+    Solution:   Add "terminal" value for 'buftype'.  Make 'buftype' and
+                'bufhidden' not depend on the quickfix feature.
+                Also set the buffer name and show "running" or "finished" in the
+                window title.
+
+commit 065f41c8143271d1af7c8f5d14a59e29bf7ecdf3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 18:07:56 2017 +0200
+
+    patch 8.0.0760: terminal window colors wrong with 'termguicolors'
+    
+    Problem:    Terminal window colors wrong with 'termguicolors'.
+    Solution:   Add 'termguicolors' support.
+
+commit 43da3e36b21b9df20e4b2f380df76bbc7e91a965
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 17:27:54 2017 +0200
+
+    patch 8.0.0759: MS-Windows: terminal does not adjust size
+    
+    Problem:    MS-Windows: terminal does not adjust size to the Vim window size.
+    Solution:   Add a call to winpty_set_size(). (Yasuhiro Matsumoto, closes #1863)
+
+commit cdeae99b4ef4d359e4388a72c6d35f9343ce578a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 17:22:35 2017 +0200
+
+    patch 8.0.0758: possible crash when using a terminal window
+    
+    Problem:    Possible crash when using a terminal window.
+    Solution:   Check for NULL pointers. (Yasuhiro Matsumoto, closes #1864)
+
+commit 9c5589c7cef9bacc41e2c359f60c53ed67c010de
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 17:15:18 2017 +0200
+
+    patch 8.0.0757: libvterm MSVC Makefile not included in the distribution
+    
+    Problem:    Libvterm MSVC Makefile not included in the distribution.
+    Solution:   Add the file to the list.
+
+commit 2aeaf3fc013a3c4828d6e98a80e6a2e2d980f109
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 17:11:15 2017 +0200
+
+    patch 8.0.0756: cannot build libvterm with MSVC
+    
+    Problem:    Cannot build libvterm with MSVC.
+    Solution:   Add an MSVC Makefile to libvterm. (Yasuhiro Matsumoto, closes
+                #1865)
+
+commit 26af85d97ba1ed0ade6cdd41890ca04ed879b9c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 16:45:10 2017 +0200
+
+    patch 8.0.0755: terminal window does not have colors in the GUI
+    
+    Problem:    Terminal window does not have colors in the GUI.
+    Solution:   Lookup the GUI color.
+
+commit eeac67788677a9ea81bcab69f81b4fc22c2adc00
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Jul 23 15:48:37 2017 +0200
+
+    patch 8.0.0754: terminal window does not support colors
+    
+    Problem:    Terminal window does not support colors.
+    Solution:   Lookup the color attribute.
+
+commit b13501f7dada4154fc7633d79989d1dab98ae99d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 22:32:56 2017 +0200
+
+    patch 8.0.0753: no size reports to a job running in a terminal
+    
+    Problem:    A job running in a terminal does not get notified of changes in
+                the terminal size.
+    Solution:   Use ioctl() and SIGWINCH to report the terminal size.
+
+commit d7d3cbedb3dc5c843724430539ad52ddafcefc93
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 21:15:42 2017 +0200
+
+    patch 8.0.0752: build fails on MS-Windows
+    
+    Problem:    Build fails on MS-Windows.
+    Solution:   Change #ifdef for set_color_count().
+
+commit 613fe7ad2b8e2d4e990cc56596590a23a42c3f7a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 21:11:53 2017 +0200
+
+    patch 8.0.0751: OpenPTY missing with some combination of features
+    
+    Problem:    OpenPTY missing with some combination of features. (Kazunobu
+                Kuriyama)
+    Solution:   Adjust #ifdef.  Also include pty.pro when needed.
+
+commit 6ed8069c798827ec4448f37bf2795a08fc9cbd05
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 20:53:21 2017 +0200
+
+    patch 8.0.0750: OpenPTY missing in non-GUI build
+    
+    Problem:    OpenPTY missing in non-GUI build.
+    Solution:   Always include pty.c, add an #ifdef to skip over the contents.
+
+commit 816e7660e1efb918ad85b5c78d21b957d1bcad17
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 20:42:04 2017 +0200
+
+    patch 8.0.0749: some unicode digraphs are hard to remember
+    
+    Problem:    Some unicode digraphs are hard to remember.
+    Solution:   Add alternatives with a backtick. (Chris Harding, closes #1861)
+
+commit b7a8dfeb49784145fe133496ce38703d236e4fbe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 20:33:05 2017 +0200
+
+    patch 8.0.0748: running Vim in terminal window doesn't use the right colors
+    
+    Problem:    When running Vim in a terminal window it does not detect the right
+                number of colors available.
+    Solution:   Detect the version string that libvterm returns.  Pass the number
+                of colors in $COLORS.
+
+commit e173fd09720a346fbaa340003d31a4329283a805
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 19:03:32 2017 +0200
+
+    patch 8.0.0747: :terminal without an argument doesn't work
+    
+    Problem:    :terminal without an argument doesn't work.
+    Solution:   Use the 'shell' option. (Yasuhiro Matsumoto, closes #1860)
+
+commit 61a6605ea1201eb49a126ca696fcfc56caf5dca6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 18:39:00 2017 +0200
+
+    patch 8.0.0746: when :term fails the job is not properly cleaned up
+    
+    Problem:    When :term fails the job is not properly cleaned up.
+    Solution:   Free the terminal. Handle a job that failed to start. (closes
+                #1858)
+
+commit 9f1f49b839fbc5d099301d5318a5e1e70dd59b7c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 18:14:17 2017 +0200
+
+    patch 8.0.0745: multi-byte characters in a terminal don't display well
+    
+    Problem:    multi-byte characters in a terminal window are not displayed
+                properly.
+    Solution:   Set the unused screen characters. (Yasuhiro Matsumoto, closes
+                #1857)
+
+commit 5a1feb809191e236cadd2884a5f57ad26cd213a3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 18:04:08 2017 +0200
+
+    patch 8.0.0744: terminal window does not use a pty
+    
+    Problem:    A terminal window uses pipes instead of a pty.
+    Solution:   Add pty support.
+
+commit 825680f5f4ffed5d57fdb283dde5f0ad734605fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 17:04:02 2017 +0200
+
+    patch 8.0.0743: the 'termsize' option can be set to an invalid value
+    
+    Problem:    The 'termsize' option can be set to an invalid value.
+    Solution:   Check the 'termsize' option to be valid.
+
+commit 8f84c3a8666cea04484ec93fa05386bf33f93f5a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 16:14:44 2017 +0200
+
+    patch 8.0.0742: terminal feature does not work on MS-Windows
+    
+    Problem:    Terminal feature does not work on MS-Windows.
+    Solution:   Use libvterm and libwinpty on MS-Windows. (Yasuhiro Matsumoto)
+
+commit 5f7e7bdcf865df67099c59013775d14c85358300
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Jul 22 14:08:43 2017 +0200
+
+    patch 8.0.0741: cannot build with HPUX
+    
+    Problem:    Cannot build with HPUX.
+    Solution:   Rename envbuf_TERM to envbuf_Term. (John Marriott)
+
+commit e906ae85b291ccc7da842b7ac609c697bb582e1f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Jul 21 21:10:01 2017 +0200
+
+    patch 8.0.0740: cannot resize a terminal window by the command
+    
+    Problem:    Cannot resize a terminal window by the command running in it.
+    Solution:   Add support for the window size escape sequence.  Make BS work.
+
 commit 58556cd0e592cba75bf60310d822a20e41f6b02e
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Jul 20 23:04:46 2017 +0200
