@@ -1,3 +1,33 @@
+commit 662d93866636995c0564d974e554f96e76fb2dd9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 31 22:56:24 2017 +0200
+
+    patch 8.0.0826: cannot use text objects in Terminal mode
+    
+    Problem:    Cannot use text objects in Terminal mode.
+    Solution:   Check for pending operator and Visual mode first. (Yasuhiro
+                Matsumoto, closes #1906)
+
+commit 3633cf5201e914cc802fd2f813fa87bc959ffaec
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 31 22:29:35 2017 +0200
+
+    patch 8.0.0825: not easy to see that a window is a terminal window
+    
+    Problem:    Not easy to see that a window is a terminal window.
+    Solution:   Add StatusLineTerm highlighting.
+
+commit 392d1bfa5e14b9534af322003723ebd57cedcc64
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Jul 31 21:18:58 2017 +0200
+
+    patch 8.0.0824: in Terminal mode the cursor and screen gets redrawn
+    
+    Problem:    In Terminal mode the cursor and screen gets redrawn when the job
+                produces output.
+    Solution:   Check for tl_terminal_mode. (partly by Yasuhiro Matsumoto, closes
+                #1904)
+
 commit c9456cec0cfe956e083891187b791343e732207b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Jul 30 21:46:04 2017 +0200
