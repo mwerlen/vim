@@ -1,3 +1,178 @@
+commit e0ab979fa7404592eaf4180e6d7d3af4c7787e8f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 2 23:18:25 2017 +0200
+
+    patch 8.0.0844: wrong function prototype because of missing static
+    
+    Problem:    Wrong function prototype because of missing static.
+    Solution:   Add "static".
+
+commit 66cd19fef1c5e86d798db164cc29f8ec2793411d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 2 23:13:27 2017 +0200
+
+    patch 8.0.0843: MS-Windows: compiler warning for signed/unsigned
+    
+    Problem:    MS-Windows: compiler warning for signed/unsigned.
+    Solution:   Add type cast. (Yasuhiro Matsumoto, closes #1912)
+
+commit 223896d3e9d4d511fc38fd9ee27ba16318733df6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 2 22:33:28 2017 +0200
+
+    patch 8.0.0842: using slave pty after closing it
+    
+    Problem:    Using slave pty after closing it.
+    Solution:   Do the ioctl() before dup'ing it.
+
+commit 5c838a3e7141f9950508c84439d2f959bc67e941
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 2 22:10:34 2017 +0200
+
+    patch 8.0.0841: term_getline() may cause a crash
+    
+    Problem:    term_getline() may cause a crash.
+    Solution:   Check that the row is valid. (Hirohito Higashi)
+
+commit b6843a007da9c06bd8f9491cc12e5e0afd858f33
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 2 22:07:12 2017 +0200
+
+    patch 8.0.0840: MS-Windows: fopen() and open() prototypes are wrong
+    
+    Problem:    MS-Windows: fopen() and open() prototypes do not match the ones in
+                the system header file.  Can't build without FEAT_MBYTE.
+    Solution:   Add "const".  Move macro to after including protoo.h.
+
+commit fae428354213b54626ff9e29faa5fd86161da942
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 22:24:26 2017 +0200
+
+    patch 8.0.0839: cannot kill a job in a terminal with CTRL-C
+    
+    Problem:    Cannot kill a job in a terminal with CTRL-C.
+    Solution:   Set the controlling tty and send SIGINT. (closes #1910)
+
+commit 94053a51255121713f51c122eb0dbb46c120e6d4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 21:44:33 2017 +0200
+
+    patch 8.0.0838: buffer hangs around whem terminal window is closed
+    
+    Problem:    Buffer hangs around whem terminal window is closed.
+    Solution:   When the job has ended wipe out a terminal buffer when the window
+                is closed.
+
+commit 0792048842493f224bbd7a5dfb348d834f61b205
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 20:53:30 2017 +0200
+
+    patch 8.0.0837: signs can be drawn on top of console messages
+    
+    Problem:    Signs can be drawn on top of console messages.
+    Solution:   don't redraw at a prompt or when scrolled up. (Christian Brabandt,
+                closes #1907)
+
+commit f55e4c867f774d1f27973d06b07b97c0a4d6b968
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 20:44:53 2017 +0200
+
+    Updated runtime files
+
+commit 20e6cd07baed8992e7a509ccef7f111ffcded44d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 20:25:22 2017 +0200
+
+    patch 8.0.0836: can abandon a terminal buffer after making a change
+    
+    Problem:    When a terminal buffer is changed it can still be accidentally
+                abandoned.
+    Solution:   When making a change reset the 'buftype' option.
+
+commit 65cedb2074ce550d20a3069c200e2a5d4061d3f6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 18:52:55 2017 +0200
+
+    patch 8.0.0835: translations check with msgfmt does not work
+    
+    Problem:    Translations check with msgfmt does not work.
+    Solution:   Add a space before the file name.
+
+commit 2a4f06f370df0eb6fb77a05343604f5124ae5a11
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 18:44:29 2017 +0200
+
+    patch 8.0.0834: can't build without the client-server feature
+    
+    Problem:    Can't build without the client-server feature.
+    Solution:   Add #ifdef.
+
+commit 9c8448472fe686f10c4aaf69bcf0fafbbd19abc2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 18:41:21 2017 +0200
+
+    patch 8.0.0833: terminal test fails
+    
+    Problem:    Terminal test fails.
+    Solution:   Update the row argument to one based.
+
+commit c2ce52c011fcd17ad7ef241e5f95a78294a6a141
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 18:35:38 2017 +0200
+
+    patch 8.0.0832: terminal function arguments are not consistent
+    
+    Problem:    Terminal function arguments are not consistent.
+    Solution:   Use one-based instead of zero-based rows and cols.  Use "." for
+                the current row.
+
+commit 12d853fae1fc37c33874b5cf1e40a2dfaf04268c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 18:04:04 2017 +0200
+
+    patch 8.0.0831: with 8 colors the bold attribute is not set properly
+    
+    Problem:    With 8 colors the bold attribute is not set properly.
+    Solution:   Move setting HL_TABLE() out of lookup_color. (closes #1901)
+
+commit aaef1bae3cc331e7a7bb9c698e707c90cd4ded15
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 17:40:23 2017 +0200
+
+    patch 8.0.0830: translating messages is not ideal
+    
+    Problem:    Translating messages is not ideal.
+    Solution:   Add a remark about obsolete messages.  Use msgfmt in the check
+                script. (Christian Brabandt)
+
+commit 7da346035bf5837e6f5b734c5469477d981730f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 17:14:21 2017 +0200
+
+    patch 8.0.0829: job running in terminal can't communicate with Vim
+    
+    Problem:    A job running in a terminal window cannot easily communicate with
+                the Vim it is running in.
+    Solution:   Pass v:servername in an environment variable. (closes #1908)
+
+commit 983b3a5bc44a91cc7e40b8e71e3bfdb03dd4606f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 15:14:26 2017 +0200
+
+    patch 8.0.0828: Coverity: may dereference NULL pointer
+    
+    Problem:    Coverity: may dereference NULL pointer.
+    Solution:   Bail out if calloc_state() returns NULL.
+
+commit 979e8c534684737920c1891bf9c4af9e1fdb8c3b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 1 15:08:07 2017 +0200
+
+    patch 8.0.0827: Coverity: could leak pty file descriptor
+    
+    Problem:    Coverity: could leak pty file descriptor, theoretically.
+    Solution:   If channel is NULL, free the file descriptors.
+
 commit 662d93866636995c0564d974e554f96e76fb2dd9
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Jul 31 22:56:24 2017 +0200
