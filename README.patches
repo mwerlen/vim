@@ -1,3 +1,57 @@
+commit 7fadbf83256bb823b994a52758127594dd82ab39
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 7 22:08:05 2017 +0200
+
+    patch 8.0.0891: uninitialized memory use with empty line in terminal
+    
+    Problem:    Uninitialized memory use with empty line in terminal.
+    Solution:   Initialize growarray earlier. (Yasuhiro Matsumoto, closes #1949)
+
+commit 75373f38087dd756babdbbf9f14fd4711712c5de
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 7 22:02:30 2017 +0200
+
+    patch 8.0.0890: still many old style tests
+    
+    Problem:    Still many old style tests.
+    Solution:   Convert several tests to new style. (Yegappan Lakshmanan)
+
+commit e20b3eba731bafb97c609dd20a4c378c105acc0d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 7 21:26:29 2017 +0200
+
+    patch 8.0.0889: gcc gives warnings for uninitialized variables
+    
+    Problem:    Gcc gives warnings for uninitialized variables. (Tony Mechelynck)
+    Solution:   Initialize variables even though they are not used.
+
+commit 116a0f800c6a62e29c5af832df092507f1355c68
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 7 21:17:57 2017 +0200
+
+    patch 8.0.0888: compiler warnings with 64 bit build
+    
+    Problem:    Compiler warnings with 64 bit build.
+    Solution:   Add type cast of change the type. (Mike Williams)
+
+commit 6d87e9e1c6a580609d48d4aa54a20b26b10c5b77
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 7 20:51:51 2017 +0200
+
+    patch 8.0.0887: can create a logfile in the sandbox
+    
+    Problem:    Can create a logfile in the sandbox.
+    Solution:   Disable ch_logfile() in the sandbox. (Yasuhiro Matsumoto)
+
+commit f8d57a50496d854f3e82725bfde1543c9d01ff98
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 7 20:38:42 2017 +0200
+
+    patch 8.0.0886: crash when using ":term ls"
+    
+    Problem:    Crash when using ":term ls".
+    Solution:   Fix line number computation.  Add a test for this.
+
 commit 33a43bee9cdc62f9cd0999eb23c6eca01b4d2d67
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Aug 6 21:36:22 2017 +0200
