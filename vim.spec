@@ -1,4 +1,4 @@
-%define patchlevel 891
+%define patchlevel 893
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -765,6 +765,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Aug 09 2017 Karsten Hopp <karsten@redhat.com> 8.0.893-1
+- patchlevel 893
+
 * Wed Aug 09 2017 Zdenek Dohnal <zdohnal@redhat.com> 8.0.891-2
 - editing vim-update.sh - now it takes branch name as argument for switching and run mockbuild
 
