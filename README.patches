@@ -1,3 +1,21 @@
+commit 82b9ca05f40a627355e7c3bcf49b1f19ffbdaf87
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 8 23:06:46 2017 +0200
+
+    patch 8.0.0893: cannot get the scroll count of a terminal window
+    
+    Problem:    Cannot get the scroll count of a terminal window.
+    Solution:   Add term_getscrolled().
+
+commit 292d5699356dc4a22fcfbab92f0a558e90f7cfba
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 8 21:52:22 2017 +0200
+
+    patch 8.0.0892: when opening a terminal the pty size doesn't always match
+    
+    Problem:    When opening a terminal the pty size doesn't always match.
+    Solution:   Update the pty size after opening the terminal. (Ken Takata)
+
 commit 7fadbf83256bb823b994a52758127594dd82ab39
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Aug 7 22:08:05 2017 +0200
