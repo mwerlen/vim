@@ -13,7 +13,13 @@ if [ "x$1" == "x--force" ]; then
 fi
 
 DATE=`date +"%a %b %d %Y"`
-fedpkg switch-branch master
+fedpkg switch-branch $1
+
+if [ $? -ne 0 ]; then
+  echo "Error with switching branch"
+  exit 1
+fi
+
 MAJORVERSION=`grep "define baseversion" vim.spec | cut -d ' ' -f 3`
 ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3 | sed -e "s/^0*//g"`
 ORIGPLFILLED=`printf "%03d" $ORIGPL`
@@ -61,12 +67,13 @@ if [ $CHANGES -ne 0 ]; then
    $debug fedpkg new-sources vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
    $debug git add vim.spec README.patches
    $debug git commit -m "- patchlevel $LASTPL" 
-   $debug git push
-   if [ $? -eq 0 ]; then
-      $debug rm -f $HOME/.koji/config
-      $debug fedpkg build
-      $debug ln -sf ppc-config $HOME/.koji/config
-   else
-      echo "GIT push failed"
-   fi
+   $debug fedpkg mockbuild
+   #$debug git push
+   #if [ $? -eq 0 ]; then
+   #   $debug rm -f $HOME/.koji/config
+   #   $debug fedpkg build
+   #   $debug ln -sf ppc-config $HOME/.koji/config
+   #else
+   #   echo "GIT push failed"
+   #fi
 fi
