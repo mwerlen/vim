@@ -1,4 +1,4 @@
-%define patchlevel 893
+%define patchlevel 895
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -770,6 +770,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Aug 10 2017 Karsten Hopp <karsten@redhat.com> 8.0.895-1
+- patchlevel 895
+
 * Wed Aug 09 2017 Karsten Hopp <karsten@redhat.com> 8.0.893-1
 - patchlevel 893
 
