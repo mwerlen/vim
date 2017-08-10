@@ -1,3 +1,21 @@
+commit 8ab3c1dc6bf70021f89e6e614b202606863bc168
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 9 22:24:52 2017 +0200
+
+    patch 8.0.0895: filetype test fails on MS-Windows
+    
+    Problem:    Filetype test fails on MS-Windows.
+    Solution:   Fix file names.
+
+commit 0a0217abfabcee8b0779df2e18a186a4b41e18ce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 9 22:06:48 2017 +0200
+
+    patch 8.0.0894: there is no test for runtime filetype detection
+    
+    Problem:    There is no test for runtime filetype detection.
+    Solution:   Test a list of filetypes from patterns.
+
 commit 82b9ca05f40a627355e7c3bcf49b1f19ffbdaf87
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Aug 8 23:06:46 2017 +0200
