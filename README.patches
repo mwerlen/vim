@@ -1,3 +1,14 @@
+commit dd693ce28b158ff573129ee30fe5b886544a03c2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 10 23:15:19 2017 +0200
+
+    patch 8.0.0896: cannot close a terminal window when the job ends
+    
+    Problem:    Cannot automaticlaly close a terminal window when the job ends.
+    Solution:   Add the ++close argument to :term.  Add the term_finish option to
+                term_start(). (Yasuhiro  Matsumoto, closes #1950)  Also add
+                ++open.
+
 commit 8ab3c1dc6bf70021f89e6e614b202606863bc168
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Aug 9 22:24:52 2017 +0200
