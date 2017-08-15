@@ -1,4 +1,4 @@
-%define patchlevel 938
+%define patchlevel 946
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -211,7 +211,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3004 -p1
 %patch3006 -p1
 %patch3007 -p1
-%patch3008 -p1
+%patch3008 -p1 -b .syncolor
 #patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
@@ -765,6 +765,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Aug 15 2017 Karsten Hopp <karsten@redhat.com> 8.0.946-1
+- patchlevel 946
+
 * Mon Aug 14 2017 Karsten Hopp <karsten@redhat.com> 8.0.938-1
 - patchlevel 938
 

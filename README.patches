@@ -1,3 +1,78 @@
+commit a9f8ee05f46f2d6621a3719cd15150155d33eed4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 23:40:45 2017 +0200
+
+    patch 8.0.0946: using PATH_MAX does not work well on some systems
+    
+    Problem:    Using PATH_MAX does not work well on some systems.
+    Solution:   use MAXPATHL instead. (James McCoy, closes #1973)
+
+commit 60104f183cc639d2a5295ba157d4ec66ac19fa53
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 23:25:04 2017 +0200
+
+    patch 8.0.0945: 64-bit compiler warnings
+    
+    Problem:    64-bit compiler warnings.
+    Solution:   Use "size_t" instead of "int". (Mike Williams)
+
+commit d21b16f3c0c676bfe3a37aef1ac3118e1ecded60
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 23:13:30 2017 +0200
+
+    patch 8.0.0944: test_profile is a little bit flaky
+    
+    Problem:    Test_profile is a little bit flaky.
+    Solution:   Accept a match when self and total time are the same. (James
+                McCoy, closes #1972)
+
+commit 3678393baa2fbfcd5020fcf0ac12947fc485e912
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 23:07:30 2017 +0200
+
+    patch 8.0.0943: MS-Windows: Test_terminal_scrape_multibyte may fail
+    
+    Problem:    Test_terminal_scrape_multibyte fails if the codepage is not utf-8.
+    Solution:   Start "cmd" with the utf-8 codepage. (micbou, closes #1975)
+
+commit 4fa1019f8026cb383423fb4086cba7e308591e18
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 22:56:27 2017 +0200
+
+    patch 8.0.0942: using freed memory with ":terminal"
+    
+    Problem:    Using freed memory with ":terminal" if an autocommand changes
+                'shell' when splitting the window. (Marius Gedminas)
+    Solution:   Make a copy of 'shell'. (closes #1974)
+
+commit 05fbfdcda48a564e7a778c67251f732481f3ceaa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 22:35:08 2017 +0200
+
+    patch 8.0.0941: existing color schemes don't like StatusLineTerm
+    
+    Problem:    Existing color schemes don't work well with StatusLineTerm.
+    Solution:   Don't use "reverse", use fg and bg colors.  Also add
+                StatusLineTermNC.
+
+commit c08706135d006453784f85d211c76e27b4f2a6d0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 22:01:16 2017 +0200
+
+    patch 8.0.0940: Test_terminal_scrape_multibyte is flaky
+    
+    Problem:    Test_terminal_scrape_multibyte is flaky. (James McCoy)
+    Solution:   Use WaitFor() instead of term_wait().
+
+commit 51c23687a9298c27d41ad9780b032f434e1e1646
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 14 21:45:00 2017 +0200
+
+    patch 8.0.0939: Test_terminal_env is flaky
+    
+    Problem:    Test_terminal_env is flaky. (James McCoy)
+    Solution:   Use WaitFor() instead of term_wait().
+
 commit 6bb18a878cc4cc79cdca4b7497367e59a90125e7
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Aug 13 22:14:17 2017 +0200
