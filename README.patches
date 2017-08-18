@@ -1,3 +1,100 @@
+commit cfce71710b6a2e1fb7f7f27d2a359e4b926f3af9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 20:31:48 2017 +0200
+
+    patch 8.0.0956: scrolling in a terminal window has flicker
+    
+    Problem:    Scrolling in a terminal hwindow as flicker when the Normal
+                background differs from the terminal window background.
+    Solution:   Set the attribute to clear with.
+
+commit 82de3c2c036bc89c2d9bdea236e0a7f1208a5571
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 17:35:36 2017 +0200
+
+    patch 8.0.0955: Test_existent_file() fails on some file systems
+    
+    Problem:    Test_existent_file() fails on some file systems.
+    Solution:   Run the test again with a sleep when the test fails without a
+                sleep. (James McCoy, closes #1984)
+
+commit bc906e445c77eb4fb5ef97465a45b46499bba111
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 17:21:05 2017 +0200
+
+    patch 8.0.0954: /proc/self/exe might be a relative path
+    
+    Problem:    /proc/self/exe might be a relative path.
+    Solution:   Make the path a full path. (James McCoy, closes #1983)
+
+commit f5be7cd01642fafc4b7d68894eb60cca60c7a405
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 16:55:13 2017 +0200
+
+    patch 8.0.0953: get "no write since last change" error in terminal window
+    
+    Problem:    Get "no write since last change" error in terminal window.
+    Solution:   Use another message when closing a terminal window. Make ":quit!"
+                also end the job.
+
+commit a83e3962ac0e4bbfef15a072ad9a7390fc255409
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 14:39:07 2017 +0200
+
+    patch 8.0.0952: has('terminal') does not check existence of dll file
+    
+    Problem:    MS-Windows: has('terminal') does not check existence of dll file.
+    Solution:   Check if the winpty dll file can be loaded. (Ken Takata)
+
+commit 84ed4ad08486f85948d4fe10a47aa2e312699eb9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 11:33:42 2017 +0200
+
+    patch 8.0.0951: another wrong #ifdef
+    
+    Problem:    Another wrong #ifdef.
+    Solution:   Change TERMINAL to FEAT_TERMINAL. (closes #1981)
+
+commit ade59630c737026edfaeff2d76985b304a34afb5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 11:22:46 2017 +0200
+
+    patch 8.0.0950: MS-Windows: wrong #ifdef, compiler warnings
+    
+    Problem:    MS-Windows: wrong #ifdef, compiler warnings for signed/unsigned.
+    Solution:   Change variable type. Change TERMINAL to FEAT_TERMINAL.
+
+commit 9e13aa7729486d79a530ecae1a7a95d10da27d61
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 16 23:14:08 2017 +0200
+
+    patch 8.0.0949: winpty.dll name is fixed
+    
+    Problem:    winpty.dll name is fixed.
+    Solution:   Add the 'winptydll' option. Make the default name depend on
+                whether it is a 32-bit or 64-bit build. (idea by Yasuhiro
+                Matsumoto, closes #1978)
+
+commit 989a70c590c2bd109eb362d3a0e48cb1427ae13d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 16 22:46:01 2017 +0200
+
+    patch 8.0.0948: crash if timer closes window while dragging status line
+    
+    Problem:    Crash if timer closes window while dragging status line.
+    Solution:   Check if the window still exists. (Yasuhiro Matsumoto, closes
+                #1979)
+
+commit 6fe15bbc87cb996912fe3c2c4068e356071ac516
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 16 21:09:18 2017 +0200
+
+    patch 8.0.0947: entering terminal using C-O C-W C-W goes to Insert mode
+    
+    Problem:    When in Insert mode and using CTRL-O CTRL-W CTRL-W to move to a
+                termainal window, get in a weird Insert mode.
+    Solution:   Don't go to Insert mode in a terminal window. (closes #1977)
+
 commit a9f8ee05f46f2d6621a3719cd15150155d33eed4
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Aug 14 23:40:45 2017 +0200
