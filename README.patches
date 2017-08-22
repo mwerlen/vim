@@ -1,3 +1,355 @@
+commit 3f9a1ff141412e9e85f7dff47d02946cb9be9228
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 21 22:06:02 2017 +0200
+
+    patch 8.0.0983: unnecessary check for NULL pointer
+    
+    Problem:    Unnecessary check for NULL pointer.
+    Solution:   Remove the NULL check in dialog_changed(), it already happens in
+                dialog_msg(). (Ken Takata)
+
+commit 740c433c5909e3118dc4a7c42028f8a8b78a353b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 21 22:01:27 2017 +0200
+
+    patch 8.0.0982: cannot use a terminal when 'encoding' is non-utf8 multi-byte
+    
+    Problem:    When 'encoding' is set to a multi-byte encoding other than utf-8
+                the characters from ther terminal are messed up.
+    Solution:   Convert displayed text from utf-8 to 'encoding' for MS-Windows.
+                (Yasuhiro Matsumoto, close #2000)
+
+commit 0cbba82359ff9f061aa65632cec7b6b57ae6d6e7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 21 21:39:28 2017 +0200
+
+    patch 8.0.0981: cursor in terminal window blinks by default
+    
+    Problem:    Cursor in terminal window blinks by default, while in a real xterm
+                it does not blink, unless the -bc argument is used.
+    Solution:   Do not use a blinking cursor by default.
+
+commit b109bb4e1208753cb286b39992b58126d5aa4ce6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Aug 21 21:07:29 2017 +0200
+
+    patch 8.0.0980: Coverity warning for failing to open /dev/null
+    
+    Problem:    Coverity warning for failing to open /dev/null.
+    Solution:   When /dev/null can't be opened exit the child.
+
+commit eef0531621c8d4045d669eb815b051d925983df8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 20:21:23 2017 +0200
+
+    patch 8.0.0979: terminal noblock test fails on MS-Windows
+    
+    Problem:    Terminal noblock test fails on MS-Windows. (Christian Brabandt)
+    Solution:   Ignore empty line below "done".
+
+commit 37819ed54064b949b1f205c9f4084ba32e3db8bc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 19:33:47 2017 +0200
+
+    patch 8.0.0978: writing to terminal job is not tested
+    
+    Problem:    Writing to terminal job is not tested.
+    Solution:   Add a test.
+
+commit 5983d5024711f078e7261264cb0e7d6e57953968
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 19:22:56 2017 +0200
+
+    patch 8.0.0977: cannot send lines to a terminal job on MS-Windows
+    
+    Problem:    Cannot send lines to a terminal job on MS-Windows.
+    Solution:   Set jv_in_buf.  Command doesn't get EOF yet though.
+
+commit b241208a13d3e9def36d749b1e824ae694aa85f8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 18:09:14 2017 +0200
+
+    patch 8.0.0976: cannot send lines to a terminal job
+    
+    Problem:    Cannot send lines to a terminal job.
+    Solution:   Make [range]terminal send selected lines to the job.
+                Use ++rows and ++cols for the terminal size.
+
+commit edbc0d46cffe1766d0b330dc2842212cff644f8e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 16:11:51 2017 +0200
+
+    patch 8.0.0975: using freed memory when setting 'backspace'
+    
+    Problem:    Using freed memory when setting 'backspace'.
+    Solution:   When changing oldval also change origval.
+
+commit 8efa026a25b95de5598535ef62505282a8584a4b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 15:47:20 2017 +0200
+
+    patch 8.0.0974: resetting a string option does not trigger OptionSet
+    
+    Problem:    Resetting a string option does not trigger OptionSet. (Rick Howe)
+    Solution:   Set the origval.
+
+commit ce1c32780a7d0ae5110eab627fcbfd4a11e5eb52
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Aug 20 15:05:15 2017 +0200
+
+    patch 8.0.0973: initial info about blinking cursor is wrong
+    
+    Problem:    initial info about blinking cursor is wrong
+    Solution:   Invert the blink flag.  Add t_VS to stop a blinking cursor.
+
+commit 37b9b8199792882e3e0e7e19e230ea6442b9e857
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 23:23:43 2017 +0200
+
+    patch 8.0.0972: compiler warnings for unused variables
+    
+    Problem:    Compiler warnings for unused variables. (Tony Mechelynck)
+    Solution:   Add #ifdefs.
+
+commit 0aed9a2e2eb93c43b21a5f781bf07c8a53dbd830
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 23:18:02 2017 +0200
+
+    patch 8.0.0971: 'winptydll' missing from :options
+    
+    Problem:    'winptydll' missing from :options.
+    Solution:   Add the entry.
+
+commit d6a7b3e6bbb8f87507de68d86cf70eab806aab3a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 21:35:35 2017 +0200
+
+    patch 8.0.0970: passing invalid highlight id
+    
+    Problem:    if there is no StatusLine highlighting and there is StatusLineNC
+                or StatusLineTermNC highlighting then an invalid highlight id is
+                passed to combine_stl_hlt(). (Coverity)
+    Solution:   Check id_S to be -1 instead of zero.
+
+commit dc926dd0dd0ef72fe7993f134f2cc1551cd269ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 21:26:44 2017 +0200
+
+    patch 8.0.0969: Coverity warning for unused return value
+    
+    Problem:    Coverity warning for unused return value.
+    Solution:   Add (void) to avoid the warning.
+
+commit 77ac9b5c62b35e90df35fc0bfdee57636cedb144
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 21:23:05 2017 +0200
+
+    patch 8.0.0968: crash when switching terminal modes
+    
+    Problem:    Crash when switching terminal modes. (Nikolai Pavlov)
+    Solution:   Check that there are scrollback lines.
+
+commit 93c92eff26cbf6b1f1a81891ebaf53ee3fb86d51
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 21:11:57 2017 +0200
+
+    patch 8.0.0967: using a terminal may cause the cursor to blink
+    
+    Problem:    Using a terminal may cause the cursor to blink.
+    Solution:   Do not set t_vs, since we cannot restore the old blink state.
+
+commit fc8bec0be4d1354f20fc4f514e47e98280b9d64a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 19:57:34 2017 +0200
+
+    patch 8.0.0966: build failure without terminal feature
+    
+    Problem:    Build failure without terminal feature.
+    Solution:   Move #endif.
+
+commit 3eee06e7d4c3a8e2dbb2577a1eef0e0f108e0288
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 19:40:50 2017 +0200
+
+    patch 8.0.0965: not restoring cursor shape after it was set in a terminal
+    
+    Problem:    The cursor shape is not reset after it was changed in a terminal.
+    Solution:   Request the original cursor shape and restore it.  Add t_RS.
+                Do not add t_SH for now, it does not work properly.
+
+commit 683b7967253ecd44476a5a01d857271c0d3ff4f4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 15:51:59 2017 +0200
+
+    patch 8.0.0964: channel write buffer does not work with poll()
+    
+    Problem:    Channel write buffer does not work with poll().
+    Solution:   Use the same mechanism as with select().
+
+commit d21f8b54b24e08d1f2b7c6ae32a9bc75ac4fa9fc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 15:40:01 2017 +0200
+
+    patch 8.0.0963: terminal test fails on MacOS
+    
+    Problem:    Terminal test fails on MacOS. (chdiza)
+    Solution:   Wait for the shell to echo the characters. (closes #1991)
+
+commit 9aa156912867c05e0a6480925afe11c590378f09
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 15:05:32 2017 +0200
+
+    patch 8.0.0962: crash with virtualedit and joining lines
+    
+    Problem:    Crash with virtualedit and joining lines. (Joshua T Corbin, Neovim
+                #6726)
+    Solution:   When using a mark check that coladd is valid.
+
+commit 98ebd2bbec3443878dd0ed772ab67efb618f2fad
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Aug 19 13:29:19 2017 +0200
+
+    patch 8.0.0961: the script to build the installer does not include winpty
+    
+    Problem:    The script to build the installer does not include winpty.
+    Solution:   Add winpty32.dll and winpty-agent.exe like diff.exe
+
+commit 8e539c51c31461fc602071373bdff9edd1aed25f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Aug 18 22:57:06 2017 +0200
+
+    patch 8.0.0960: job in terminal does not get CTRL-C
+    
+    Problem:    Job in terminal does not get CTRL-C, we send a SIGINT instead.
+    Solution:   Don't call may_send_sigint() on CTRL-C.  Make CTRL-W CTRL-C end
+                the job.
+
+commit f66a2cda2c425c441fc5e20c8f8893c9630e3aaa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Aug 18 21:53:22 2017 +0200
+
+    patch 8.0.0959: build failure on MS-Windows
+    
+    Problem:    Build failure on MS-Windows.
+    Solution:   Use ioctlsocket() instead of fcntl().
+
+commit ea5d6fadbbba614e51e819cb537a3d52600bfcc5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Aug 18 21:07:11 2017 +0200
+
+    patch 8.0.0958: terminal test fails on Windows when winpty dll is missing
+    
+    Problem:    The terminal test fails on MS-Windows when compiled with the
+                terminal feature but the winpty DLL is missing.
+    Solution:   Check if the terminal feature works. (Ken Takata)
+
+commit 97bd5e6527bf2b48acdd1550acba161e82a5bc99
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Aug 18 20:50:30 2017 +0200
+
+    patch 8.0.0957: a terminal job can deadlock when sending many keys
+    
+    Problem:    When term_sendkeys() sends many keys it may get stuck in writing
+                to the job.
+    Solution:   Make the write non-blocking, buffer keys to be sent.
+
+commit cfce71710b6a2e1fb7f7f27d2a359e4b926f3af9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 20:31:48 2017 +0200
+
+    patch 8.0.0956: scrolling in a terminal window has flicker
+    
+    Problem:    Scrolling in a terminal hwindow as flicker when the Normal
+                background differs from the terminal window background.
+    Solution:   Set the attribute to clear with.
+
+commit 82de3c2c036bc89c2d9bdea236e0a7f1208a5571
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 17:35:36 2017 +0200
+
+    patch 8.0.0955: Test_existent_file() fails on some file systems
+    
+    Problem:    Test_existent_file() fails on some file systems.
+    Solution:   Run the test again with a sleep when the test fails without a
+                sleep. (James McCoy, closes #1984)
+
+commit bc906e445c77eb4fb5ef97465a45b46499bba111
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 17:21:05 2017 +0200
+
+    patch 8.0.0954: /proc/self/exe might be a relative path
+    
+    Problem:    /proc/self/exe might be a relative path.
+    Solution:   Make the path a full path. (James McCoy, closes #1983)
+
+commit f5be7cd01642fafc4b7d68894eb60cca60c7a405
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 16:55:13 2017 +0200
+
+    patch 8.0.0953: get "no write since last change" error in terminal window
+    
+    Problem:    Get "no write since last change" error in terminal window.
+    Solution:   Use another message when closing a terminal window. Make ":quit!"
+                also end the job.
+
+commit a83e3962ac0e4bbfef15a072ad9a7390fc255409
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 14:39:07 2017 +0200
+
+    patch 8.0.0952: has('terminal') does not check existence of dll file
+    
+    Problem:    MS-Windows: has('terminal') does not check existence of dll file.
+    Solution:   Check if the winpty dll file can be loaded. (Ken Takata)
+
+commit 84ed4ad08486f85948d4fe10a47aa2e312699eb9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 11:33:42 2017 +0200
+
+    patch 8.0.0951: another wrong #ifdef
+    
+    Problem:    Another wrong #ifdef.
+    Solution:   Change TERMINAL to FEAT_TERMINAL. (closes #1981)
+
+commit ade59630c737026edfaeff2d76985b304a34afb5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Aug 17 11:22:46 2017 +0200
+
+    patch 8.0.0950: MS-Windows: wrong #ifdef, compiler warnings
+    
+    Problem:    MS-Windows: wrong #ifdef, compiler warnings for signed/unsigned.
+    Solution:   Change variable type. Change TERMINAL to FEAT_TERMINAL.
+
+commit 9e13aa7729486d79a530ecae1a7a95d10da27d61
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 16 23:14:08 2017 +0200
+
+    patch 8.0.0949: winpty.dll name is fixed
+    
+    Problem:    winpty.dll name is fixed.
+    Solution:   Add the 'winptydll' option. Make the default name depend on
+                whether it is a 32-bit or 64-bit build. (idea by Yasuhiro
+                Matsumoto, closes #1978)
+
+commit 989a70c590c2bd109eb362d3a0e48cb1427ae13d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 16 22:46:01 2017 +0200
+
+    patch 8.0.0948: crash if timer closes window while dragging status line
+    
+    Problem:    Crash if timer closes window while dragging status line.
+    Solution:   Check if the window still exists. (Yasuhiro Matsumoto, closes
+                #1979)
+
+commit 6fe15bbc87cb996912fe3c2c4068e356071ac516
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 16 21:09:18 2017 +0200
+
+    patch 8.0.0947: entering terminal using C-O C-W C-W goes to Insert mode
+    
+    Problem:    When in Insert mode and using CTRL-O CTRL-W CTRL-W to move to a
+                termainal window, get in a weird Insert mode.
+    Solution:   Don't go to Insert mode in a terminal window. (closes #1977)
+
 commit a9f8ee05f46f2d6621a3719cd15150155d33eed4
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Aug 14 23:40:45 2017 +0200
