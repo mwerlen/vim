@@ -1,3 +1,41 @@
+commit d2c45a1964ddb0d9ac16c9c985051fab41f37840
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 22 22:29:00 2017 +0200
+
+    patch 8.0.0987: terminal: second byte of double-byte char wrong
+    
+    Problem:    terminal: second byte of double-byte char wrong
+    Solution:   Set the second byte to NUL only for utf-8 and non-multibyte.
+
+commit ec0e07a32484ab70f1c7668294c3d8d67f8aca82
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 22 22:21:37 2017 +0200
+
+    patch 8.0.0986: terminal feature always requires multi-byte feature
+    
+    Problem:    Terminal feature always requires multi-byte feature.
+    Solution:   Remove #ifdef FEAT_MBYTE, disable terminal without multi-byte.
+
+commit 6d0826dfbba9880820d9ec221327e4250bbf6540
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 22 22:12:17 2017 +0200
+
+    patch 8.0.0985: libvterm has its own idea of character width
+    
+    Problem:    Libvterm has its own idea of character width.
+    Solution:   Use the Vim functions for character width and composing to avoid a
+                mismatch. (idea by Yasuhiro Matsumoto)
+
+commit 5830232c021102e47a4e6fc81857604e4a031ddf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Aug 22 20:33:53 2017 +0200
+
+    patch 8.0.0984: terminal blinking cursor not correct in the GUI
+    
+    Problem:    Terminal blinking cursor not correct in the GUI.
+    Solution:   Set blinkoff correctly.  Also make the cursor blink on MS-Windows
+                by default. (Ken Takata)
+
 commit 3f9a1ff141412e9e85f7dff47d02946cb9be9228
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Aug 21 22:06:02 2017 +0200
