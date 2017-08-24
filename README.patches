@@ -1,3 +1,52 @@
+commit 33d66bd9fa0e1b3fbba33d6a1a0609915ac79441
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 23 23:51:58 2017 +0200
+
+    patch 8.0.0992: terminal title is wrong when 'encoding' is DBCS
+    
+    Problem:    Terminal title is wrong when 'encoding' is DBCS.
+    Solution:   Convert the title from DBCS to utf-8. (Yasuhiro Matsumoto, closes
+                #2009)
+
+commit 6c4d12c5278fc6b7a6dee2043bc1af713f894ae5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 23 23:36:25 2017 +0200
+
+    patch 8.0.0991: using wrong character conversion for DBCS
+    
+    Problem:    Using wrong character conversion for DBCS.
+    Solution:   Use utf_char2bytes instead of mb_char2bytes. (Yasuhiro Matsumoto,
+                closes #2012)
+
+commit 285f243e506f15230270e4d15679acc29e489e7c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 23 23:10:21 2017 +0200
+
+    patch 8.0.0990: with DBCS 'encoding' wrong pasting register into terminal
+    
+    Problem:    When 'encoding' is a double-byte encoding, pasting a register into
+                a terminal ends up with the wrong characters.
+    Solution:   Convert from 'encoding' to utf-8. (Yasuhiro Matsumoto, closes
+                #2007)
+
+commit 77f7474d089cbc68cb7df32cc3828a9dec80fd93
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 23 22:40:41 2017 +0200
+
+    patch 8.0.0989: ActiveTcl dll name has changed in 8.6.6
+    
+    Problem:    ActiveTcl dll name has changed in 8.6.6.
+    Solution:   Adjust the makefile. (Ken Takata)
+
+commit 829aa64cf5a113bb683ddf8b32e483e0696602ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Aug 23 22:32:35 2017 +0200
+
+    patch 8.0.0988: warning from Covscan about using NULL pointer
+    
+    Problem:    Warning from Covscan about using NULL pointer.
+    Solution:   Add extra check for NULL. (zdohnal)
+
 commit d2c45a1964ddb0d9ac16c9c985051fab41f37840
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Aug 22 22:29:00 2017 +0200
