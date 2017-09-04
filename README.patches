@@ -1,3 +1,209 @@
+commit e88fc7a574263fd399c6815378bcd8fd228d8b54
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 20:59:40 2017 +0200
+
+    patch 8.0.1052: term_start() does not allow in_io, out_io and err_io options
+    
+    Problem:    term_start() does not allow in_io, out_io and err_io options.
+    Solution:   Add JO_OUT_IO to get_job_options().
+
+commit 9d654a8d8cd3421307445f111785fb303a38c2a0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 19:52:17 2017 +0200
+
+    patch 8.0.1051: cannot run terminal with spaces in argument
+    
+    Problem:    Cannot run terminal with spaces in argument.
+    Solution:   Accept backslash to escape space and other characters. (closes
+                #1999)
+
+commit 595a40226ea1285689b622042534fd8442402db3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 19:15:57 2017 +0200
+
+    patch 8.0.1050: terminal window feature not included by default
+    
+    Problem:    Terminal window feature not included by default.
+    Solution:   Include the terminal feature for the "huge" build.
+
+commit d8d85bfb7d650d2fb584ea48aaaebdbc8a2e3dce
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 18:08:00 2017 +0200
+
+    patch 8.0.1049: shell on Mac can't handle long text
+    
+    Problem:    Shell on Mac can't handle long text, making terminal test fail.
+    Solution:   Only write 1000 characters instead of 5000.
+
+commit 5e80de3f3e572805fe734b66bc42c13303ad9bdb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 15:48:12 2017 +0200
+
+    patch 8.0.1048: no test for what 8.0.1020 fixes
+    
+    Problem:    No test for what 8.0.1020 fixes.
+    Solution:   Add test_feedinput().  Add a test. (Ozaki Kiichi, closes #2046)
+
+commit 00ccf54630dc68a9b8aedb92b268f3b697081f68
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 15:17:48 2017 +0200
+
+    patch 8.0.1047: buffer overflow in Ruby
+    
+    Problem:    Buffer overflow in Ruby.
+    Solution:   Allocate one more byte. (Dominique Pelle)
+
+commit ae96b8d058cffd9d07b78cb7a9ccd382185b9dd6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 15:04:21 2017 +0200
+
+    patch 8.0.1046: code duplication in diff mode
+    
+    Problem:    Code duplication in diff mode.
+    Solution:   Use diff_equal_char() also in diff_cmp(). (Rick Howe)
+
+commit 6a8691d483914606213a24356a9124fa41c93b69
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 14:31:02 2017 +0200
+
+    patch 8.0.1045: running tests may pollute shell history
+    
+    Problem:    Running tests may pollute shell history. (Manuel Ortega)
+    Solution:   Make $HISTFILE empty.
+
+commit 2254a8ad0cb596a0a0863b1af92353f018c0b355
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 3 14:03:43 2017 +0200
+
+    patch 8.0.1044: warning for uninitialized variable
+    
+    Problem:    Warning for uninitialized variable. (John Marriott)
+    Solution:   Initialize ind_pre.
+
+commit 4ec86ddd77a89766e42bd0a6cfcf10af4c3d03b2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 23:28:54 2017 +0200
+
+    patch 8.0.1043: warning for uninitialized variable
+    
+    Problem:    Warning for uninitialized variable. (John Marriott)
+    Solution:   Move code to check indent inside "if".
+
+commit 9f45ccd1bf2d2de979d252fdd7e5c9eb3fa6cceb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 20:40:35 2017 +0200
+
+    patch 8.0.1042: without the syntax feature highlighting doesn't work
+    
+    Problem:    Without the syntax feature highlighting doesn't work.
+    Solution:   Always use unsigned short to store attributes.
+
+commit e2e69e48134cbfdedea7802810932f8592705024
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 20:30:35 2017 +0200
+
+    patch 8.0.1041: bogus characters when indenting during visual-block append
+    
+    Problem:    Bogus characters appear when indenting kicks in while doing a
+                visual-block append.
+    Solution:   Recompute when indenting is done. (Christian Brabandt)
+
+commit 3653822546fb0f1005c32bb5b70dc9bfacdfc954
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 19:51:44 2017 +0200
+
+    patch 8.0.1040: cannot use another error format in getqflist()
+    
+    Problem:    Cannot use another error format in getqflist().
+    Solution:   Add the "efm" argument to getqflist(). (Yegappan Lakshmanan)
+
+commit b31cf2bb0be95d106bd8eef93cc07550591c1d0d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 19:45:19 2017 +0200
+
+    patch 8.0.1039: cannot change a line in not current buffer
+    
+    Problem:    Cannot change a line in a buffer other than the current one.
+    Solution:   Add setbufline(). (Yasuhiro Matsumoto, Ozaki Kiichi, closes #1953)
+
+commit cf4b00c856ef714482d8d060332ac9a4d74e6b88
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 18:33:56 2017 +0200
+
+    patch 8.0.1038: strike-through text not supported
+    
+    Problem:    Strike-through text not supported.
+    Solution:   Add support for the "strikethrough" attribute. (Christian
+                Brabandt, Ken Takata)
+
+commit da22b8cc8b1b96fabd5a4c35c57b04a351340fb1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 18:01:50 2017 +0200
+
+    patch 8.0.1037: "icase" of 'diffopt' is not used for highlighting
+    
+    Problem:    "icase" of 'diffopt' is not used for highlighting differences.
+    Solution:   Also use "icase". (Rick Howe)
+
+commit dada6d2a8e887309e88cb126f1251d81f91b4b9d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 17:18:35 2017 +0200
+
+    patch 8.0.1036: ++eof argument for terminal only available on MS-Windows
+    
+    Problem:    ++eof argument for terminal only available on MS-Windows.
+    Solution:   Also support ++eof on Unix.  Add a test.
+
+commit ef68e4fa528165f8dd63156feeffc1af629b8d8a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 16:28:36 2017 +0200
+
+    patch 8.0.1035: sending buffer lines to terminal doesn't work on MS-Windows
+    
+    Problem:    Sending buffer lines to terminal doesn't work on MS-Windows.
+    Solution:   Use CR instead of NL after every line.  Make the EOF text work
+                properly.  Add the ++eof argument to :terminal.
+
+commit 3346cc4ffb459ecddb97a8c19bcc5834afa4dead
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 2 14:54:21 2017 +0200
+
+    patch 8.0.1034: sending buffer lines to terminal doesn't work on MS-Windows
+    
+    Problem:    Sending buffer lines to terminal doesn't work on MS-Windows.
+    Solution:   Send CTRL-D to mark the end of the text. (Yasuhiro Matsumoto,
+                closes #2043) Add the "eof_chars" option.
+
+commit 995e4afcfe60aa3c214ba680e7b027a4e05cf62b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 1 20:24:03 2017 +0200
+
+    patch 8.0.1033: detecting background color does not work in screen
+    
+    Problem:    Detecting background color does not work in screen, even when it
+                is working like an xterm.
+    Solution:   Make "screen.xterm" use termcap entries like an xterm. (Lubomir
+                Rintel, closes #2048)  When termresponse version is huge also
+                recognize as not being an xterm.
+
+commit 9ac9dfa9e2b20659e5806982f027fa4fd637c3c7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 1 18:41:26 2017 +0200
+
+    patch 8.0.1032: "make tags" doesn't work well on MS-Windows
+    
+    Problem:    "make tags" doesn't work well on MS-Windows.
+    Solution:   Add or fix tags target. (Ken Takata)
+
+commit 2c809b7c7d2bb5e4b7fd09c3d312cadecf0c1ff0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 1 18:34:02 2017 +0200
+
+    patch 8.0.1031: "text" argument for getqflist() is confusing
+    
+    Problem:    "text" argument for getqflist() is confusing. (Lcd47)
+    Solution:   Use "lines" instead. (Yegappan Lakshmanan)
+
 commit 9e8dcf9d6fa15523800005a32d40cf0382178ab0
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Aug 31 21:35:45 2017 +0200
