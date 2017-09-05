@@ -1,3 +1,43 @@
+commit 6e32f615eb824048a98666d1da4416bbeb7b2bed
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 4 23:21:07 2017 +0200
+
+    patch 8.0.1056: cannot build with +diff but without +multi_byte
+    
+    Problem:    Cannot build with the diff feature but without the mutli-byte
+                feature.
+    Solution:   Remove #ifdefs. (John Marriott)
+
+commit 11aa62f8f949bb590b4d7792a334885fba5e4137
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 4 22:56:01 2017 +0200
+
+    patch 8.0.1055: bufline test hangs on MS-Windows
+    
+    Problem:    Bufline test hangs on MS-Windows.
+    Solution:   Avoid message for writing file.  Source shared.vim when running
+                test individually.
+
+commit 178333783fac3a5edbc86f2e9c57a21c41f05697
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 4 22:23:19 2017 +0200
+
+    patch 8.0.1054: terminal test fails on MS-Windows
+    
+    Problem:    Terminal test fails on MS-Windows.
+    Solution:   Disable the redirection test for now.  Improve scrape test to make
+                it less flaky.
+
+commit 9d954207e2cc807b475bb04f8b59ef5bb3772d99
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 4 20:34:19 2017 +0200
+
+    patch 8.0.1053: setline() does not work on startup
+    
+    Problem:    setline() does not work on startup. (Manuel Ortega)
+    Solution:   Do not check for ml_mfp to be set for the current buffer.
+                (Christian Brabandt)
+
 commit e88fc7a574263fd399c6815378bcd8fd228d8b54
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Sep 3 20:59:40 2017 +0200
