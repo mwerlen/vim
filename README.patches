@@ -1,3 +1,79 @@
+commit 1b9f9d315f137cc883c7aecd39f3df329b7f9085
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 23:32:38 2017 +0200
+
+    patch 8.0.1064: Coverity warns for leaking resource
+    
+    Problem:    Coverity warns for leaking resource.
+    Solution:   Free pty_master_fd on failure.
+
+commit 28550b74bb4373417eb6fbf132bd4211b7b92afa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 23:31:01 2017 +0200
+
+    patch 8.0.1063: Coverity warns for NULL check and array use
+    
+    Problem:    Coverity warns for NULL check and using variable pointer as an
+                array.
+    Solution:   Remove the NULL check.  Make "argvar" an array.
+
+commit c3f81394eff2b3edc7ea08405743f0d32048374a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 23:29:34 2017 +0200
+
+    patch 8.0.1062: Coverity warnings in libvterm
+    
+    Problem:    Coverity warnings in libvterm.
+    Solution:   Add (void) to avoid warning for not checking return value.
+                Add "break" before "case".
+
+commit 6756c7037f07e1fb54e1b9d8e92567ac388617c4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 23:01:12 2017 +0200
+
+    patch 8.0.1061: Coverity: no check for NULL command
+    
+    Problem:    Coverity: no check for NULL command.
+    Solution:   Check for NULL list item.
+
+commit 3971905bac0fe7e7519b35b1e558b4f1de55708d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 22:20:46 2017 +0200
+
+    patch 8.0.1060: when imstyle is one, mapping <Left> breaks preediting
+    
+    Problem:    When imstyle is one, mapping <Left> breaks preediting.
+    Solution:   Pass though preediting key-events. (Yasuhiro Matsumoto, closes
+                #2064, closes #2063)
+
+commit 3d8d2c7ca5dda5bfd62c6d5df6659cf62e960a3d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 21:57:27 2017 +0200
+
+    patch 8.0.1059: older Gnome terminal returns smaller version number
+    
+    Problem:    older Gnome terminal returns smaller version number. (antarestrue)
+    Solution:   Lower version limit from 2800 to 2500. (#2032)
+
+commit 8b53b79ea5304c7714cbb873210c82aa3fc8772f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 20:29:25 2017 +0200
+
+    patch 8.0.1058: terminal redirection test is flaky
+    
+    Problem:    Terminal redirection test is flaky.
+    Solution:   Wait for job to finish.
+
+commit 1bfdc07a4996b5905b4971e18a6487a18e6461a4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 5 20:19:42 2017 +0200
+
+    patch 8.0.1057: terminal scrape test waits too long
+    
+    Problem:    Terminal scrape test waits too long, it checks for one instead of
+                three.
+    Solution:   Check there are three characters. (micbou)
+
 commit 6e32f615eb824048a98666d1da4416bbeb7b2bed
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Sep 4 23:21:07 2017 +0200
