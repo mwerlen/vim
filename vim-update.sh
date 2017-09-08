@@ -1,6 +1,8 @@
 #!/bin/bash
 debug=""
 #debug="echo "
+releases=( "f25" "f26" "f27" "master" )
+releases_index=0
 
 cd `dirname $0`
 LANG=C
@@ -13,7 +15,8 @@ if [ "x$1" == "x--force" ]; then
 fi
 
 DATE=`date +"%a %b %d %Y"`
-fedpkg switch-branch $1
+fedpkg switch-branch "${releases[@]: $releases_index: 1}"
+
 
 if [ $? -ne 0 ]; then
   echo "Error with switching branch"
@@ -68,6 +71,30 @@ if [ $CHANGES -ne 0 ]; then
    $debug git add vim.spec README.patches
    $debug git commit -m "- patchlevel $LASTPL" 
    $debug fedpkg mockbuild
+
+   if [ $? -eq 0 ]; then
+     for release in "${releases[@]:(1)}";
+     do
+       fedpkg push
+       if [ $? -ne 0 ]; then
+         echo "Error: fedpkg push"
+         exit 1
+       fi
+       fedpkg switch-branch $release
+       git merge "${releases[@]: $release_index: 1} <<<':x'"
+       if [ $? -ne 0 ]; then
+         echo "Error: git merge ${releases[@]: $release_index: 1}"
+         exit 1
+       fi
+       let "release_index+=1"
+       fedpkg mockbuild
+       if [ $? -ne 0 ]; then
+         echo "Error: fedpkg mockbuild failed"
+         exit 1
+       fi
+     done
+   fi
+
    #$debug git push
    #if [ $? -eq 0 ]; then
    #   $debug rm -f $HOME/.koji/config
