@@ -1,3 +1,42 @@
+commit c6da01a5b8efe9ca4931074c0cf2189d357707a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 7 22:37:36 2017 +0200
+
+    patch 8.0.1071: putty-color and cygwin-color are not recognized
+    
+    Problem:    $TERM names starting with "putty" and "cygwin" are likely to have
+                a dark background, but are not recognized.
+    Solution:   Only check the first few characters of $TERM to match "putty" or
+                "cygwin". (Christian Brabandt)
+
+commit 75a60f74ce1000b0ffed2e6a203a05f3cd160c6a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 7 22:24:41 2017 +0200
+
+    patch 8.0.1070: terminal test is flaky on Mac
+    
+    Problem:    Terminal test is flaky on Mac.
+    Solution:   Add Test_terminal_noblock() to list of flaky tests.
+
+commit 37b53270e1a65d1d56187a3d68439e666e8b75fd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 7 20:18:40 2017 +0200
+
+    patch 8.0.1069: still get CTRL-X sometimes
+    
+    Problem:    Still get CTRL-X sometimes for t_RS request.
+    Solution:   Also skip 0x18 after a key code response.
+
+commit 618d6d277e7b64ea03fcefdd75d673e8973b46c4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 7 12:59:25 2017 +0200
+
+    patch 8.0.1068: vandyke SecureCRT terminal can't handle cursor mode request
+    
+    Problem:    Vandyke SecureCRT terminal can't handle cursor mode request.
+                (Steven Hartland)
+    Solution:   Fix pointer computation. (closes #2008)
+
 commit e723c42836d971180d1bf9f98916966c5543fff1
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Sep 6 23:40:10 2017 +0200
