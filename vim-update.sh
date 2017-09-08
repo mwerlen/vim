@@ -71,28 +71,35 @@ if [ $CHANGES -ne 0 ]; then
    $debug git add vim.spec README.patches
    $debug git commit -m "- patchlevel $LASTPL" 
    $debug fedpkg mockbuild
-
+   if [ $? -ne 0 ]; then
+     echo "Error: fedpkg mockbuild"
+     exit 1
+   fi 
+   $debug fedpkg push
    if [ $? -eq 0 ]; then
      for release in "${releases[@]:(1)}";
      do
-       fedpkg push
-       if [ $? -ne 0 ]; then
-         echo "Error: fedpkg push"
-         exit 1
-       fi
-       fedpkg switch-branch $release
-       git merge "${releases[@]: $release_index: 1} <<<':x'"
+       $debug fedpkg switch-branch $release
+       $debug bash -c "git merge ${releases[@]: $release_index: 1} <<<':x'"
        if [ $? -ne 0 ]; then
          echo "Error: git merge ${releases[@]: $release_index: 1}"
          exit 1
        fi
        let "release_index+=1"
-       fedpkg mockbuild
+       $debug fedpkg mockbuild
        if [ $? -ne 0 ]; then
          echo "Error: fedpkg mockbuild failed"
          exit 1
        fi
+       $debug fedpkg push
+       if [ $? -ne 0 ]; then
+         echo "Error: fedpkg push"
+         exit 1
+       fi 
      done
+   else
+     echo "Error: fedpkg push"
+     exit 1
    fi
 
    #$debug git push
@@ -104,3 +111,4 @@ if [ $CHANGES -ne 0 ]; then
    #   echo "GIT push failed"
    #fi
 fi
+exit 0
