@@ -1,3 +1,203 @@
+commit 45d5f26d11d9aac2383453d2c1a8582cad1c8a3d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 10 19:14:31 2017 +0200
+
+    patch 8.0.1092: terminal debugger can't evaluate expressions
+    
+    Problem:    Terminal debugger can't evaluate expressions.
+    Solution:   Add :Evaluate and K.  Various other improvements.
+
+commit 95c83c64be8d4af74bfda1f283a5bcf3f110719e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 10 18:44:29 2017 +0200
+
+    patch 8.0.1091: test for <cexpr> fails without +balloon_eval feature
+    
+    Problem:    Test for <cexpr> fails without +balloon_eval feature.
+    Solution:   Remove #ifdefs.
+
+commit 65f084749b260746d7f186af4f080298be2df55b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 10 18:16:20 2017 +0200
+
+    patch 8.0.1090: cannot get the text under the cursor like v:beval_text
+    
+    Problem:    cannot get the text under the cursor like v:beval_text
+    Solution:   Add <cexpr>.
+
+commit c168bd4bd3a9b856fc410fc4515dcca1d10d7461
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 10 17:34:35 2017 +0200
+
+    patch 8.0.1089: cannot get range count in user command
+    
+    Problem:    Cannot get range count in user command.
+    Solution:   Add <range> argument.
+
+commit 414168d97fad45387a3d7dd16449d15b27079ad8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 10 15:21:55 2017 +0200
+
+    patch 8.0.1088: occasional memory use after free
+    
+    Problem:    Occasional memory use after free.
+    Solution:   Use the highlight table directly, don't keep a pointer.
+
+commit e9f6fd27d0e2dcae3f4aa40c459d5e6a3b3dd102
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 10 14:25:49 2017 +0200
+
+    patch 8.0.1087: Test_terminal_cwd is flaky
+    
+    Problem:    Test_terminal_cwd is flaky. MS-Windows: term_start() "cwd"
+                argument does not work.
+    Solution:   Wait for the condition to be true instead of using a sleep.
+                Pass the directory to winpty.
+
+commit 8696bbaf52cca7c1fcbd5000c83406e462b7dbf4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 23:00:56 2017 +0200
+
+    patch 8.0.1086: can't build with GTK 3
+    
+    Problem:    Can't build with GTK 3.
+    Solution:   Rename function argument. (Kazunobu Kuriyama)
+
+commit e09ba7bae5c867f6d3abc184709dd27488318e97
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 22:19:47 2017 +0200
+
+    patch 8.0.1085: terminal debugger can't set breakpoints
+    
+    Problem:    The terminal debugger can't set breakpoints.
+    Solution:   Add :Break and :Delete commands.  Also commands for stepping
+                through code.
+
+commit 7be9b50fd7e238722c9ba5c0ef1d2a7e7e52b9e3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 18:45:26 2017 +0200
+
+    patch 8.0.1084: GTK build has compiler warnings
+    
+    Problem:    GTK build has compiler warnings. (Christian Brabandt)
+    Solution:   Get screen size with a different function. (Ken Takata, Yasuhiro
+                Matsumoto)
+
+commit 5b5adf5b9cd226d775643872e65c62674d6ada95
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 18:16:43 2017 +0200
+
+    patch 8.0.1083: leaking memory in input part of channel
+    
+    Problem:    Leaking memory in input part of channel.
+    Solution:   Clear the input part of channel.  Free the entry. Move failing
+                command test to a separate file to avoid bogus leak reports
+                clouding tests that should not leak.
+
+commit 9d18961323a2a5c3b609c98ce0d78613c71f3532
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 18:11:00 2017 +0200
+
+    patch 8.0.1082: tests fail when run under valgrind
+    
+    Problem:    Tests fail when run under valgrind.
+    Solution:   Increase waiting times.
+
+commit aba680a8513124e9556956115db4df35bd4a0e56
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 16:42:53 2017 +0200
+
+    patch 8.0.1081: memory leak for the channel write queue
+    
+    Problem:    Memory leak for the channel write queue.
+    Solution:   Free the write queue when clearing a channel.
+
+commit 74121231be50e245d18c64281fdef08e7ec1ed5b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 16:34:32 2017 +0200
+
+    patch 8.0.1080: memory leak for eof_chars terminal option and buffer name
+    
+    Problem:    Memory leak for eof_chars terminal option and buffer name.
+    Solution:   Free job options. Free the buffer name
+
+commit 09d6c3818d7451a659f4d12a4e974237fe823f7d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 16:25:54 2017 +0200
+
+    patch 8.0.1079: memory leak when remote_foreground() fails
+    
+    Problem:    Memory leak when remote_foreground() fails.
+    Solution:   Free the error message.
+
+commit b4ea1914b8ca7c368253bd96e6b3cb9e3392da1c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 9 15:28:14 2017 +0200
+
+    patch 8.0.1078: using freed memory with ":hi Normal"
+    
+    Problem:    Using freed memory with ":hi Normal".
+    Solution:   Get "item" again after updating the table.
+
+commit fe386641b0c56c5de2bca8e1f4cd5e2a1f1aea7e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 8 21:10:04 2017 +0200
+
+    patch 8.0.1077: no debugger making use of the terminal window
+    
+    Problem:    No debugger making use of the terminal window.
+    Solution:   Add the term debugger plugin.  So far only displays the current
+                line when stopped.
+
+commit 3c518400d1a51929572dd9fcf77dba94d78d7545
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 8 20:47:00 2017 +0200
+
+    patch 8.0.1076: term_start() does not take callbacks
+    
+    Problem:    term_start() does not take callbacks. When using two terminals
+                without a job only one is read from.  A terminal without a window
+                returns the wrong pty.
+    Solution:   Support "callback", "out_cb" and "err_cb".  Fix terminal without a
+                window. Fix reading from multiple channels.
+
+commit 1a735d6c9bf4204492b9f9aeba280737fab46ed3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 8 16:25:54 2017 +0200
+
+    patch 8.0.1075: MS-Windows: mouse does not work in terminal
+    
+    Problem:    MS-Windows: mouse does not work in terminal.
+    Solution:   Force the winpty mouse on. (Yasuhiro Matsumoto, closes #2072)
+
+commit 2dc9d26c14e410c09e538cccfa90da19ae344ba4
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 8 14:39:30 2017 +0200
+
+    patch 8.0.1074: ":term NONE" does not work on MS-Windows
+    
+    Problem:    ":term NONE" does not work on MS-Windows.
+    Solution:   Make it work.  Split "pty" into "pty_in" and "pty_out". (Yasuhiro
+                Matsumoto, closes #2058, closes #2045)
+
+commit ba2929b6afd2fc20479912a8dec789be26a38244
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 8 13:59:21 2017 +0200
+
+    patch 8.0.1073: may get an endless loop if 'statusline' changes a highlight
+    
+    Problem:    May get an endless loop if 'statusline' changes a highlight.
+    Solution:   Do not let evaluating 'statusline' trigger a redraw.
+
+commit 99433291b135094d9592c41f96d3ccd60073e2c1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 8 12:37:47 2017 +0200
+
+    patch 8.0.1072: :highlight command causes a redraw even when nothing changed
+    
+    Problem:    The :highlight command causes a redraw even when nothing changed.
+    Solution:   Only set "need_highlight_changed" when an attribute changed.
+
 commit c6da01a5b8efe9ca4931074c0cf2189d357707a2
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Sep 7 22:37:36 2017 +0200
