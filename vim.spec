@@ -766,6 +766,7 @@ rm -rf %{buildroot}
 
 %changelog
 * Mon Sep 11 2017 Karsten Hopp <karsten@redhat.com> 8.0.1092-1
+- editing vim-update.sh for building package
 - patchlevel 1092
 
 * Fri Sep 08 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1071-2

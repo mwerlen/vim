@@ -1,8 +1,9 @@
 #!/bin/bash
 debug=""
 #debug="echo "
-releases=( "f25" "f26" "f27" "master" )
-releases_index=0
+branches=( "f25" "f26" "f27" "master" )
+releases=( "fc25" "fc26" "fc27" "fc28" )
+branches_index=0
 
 cd `dirname $0`
 LANG=C
@@ -15,7 +16,7 @@ if [ "x$1" == "x--force" ]; then
 fi
 
 DATE=`date +"%a %b %d %Y"`
-fedpkg switch-branch "${releases[@]: $releases_index: 1}"
+fedpkg switch-branch "${branches[@]: $branches_index: 1}"
 
 
 if [ $? -ne 0 ]; then
@@ -70,38 +71,58 @@ if [ $CHANGES -ne 0 ]; then
    $debug fedpkg new-sources vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
    $debug git add vim.spec README.patches
    $debug git commit -m "- patchlevel $LASTPL" 
+   # mockbuild
    $debug fedpkg mockbuild
    if [ $? -ne 0 ]; then
      echo "Error: fedpkg mockbuild"
      exit 1
-   fi 
+   fi
+   # push
    $debug fedpkg push
    if [ $? -eq 0 ]; then
-     for release in "${releases[@]:(1)}";
-     do
-       $debug fedpkg switch-branch $release
-       $debug bash -c "git merge ${releases[@]: $release_index: 1} <<<':x'"
-       if [ $? -ne 0 ]; then
-         echo "Error: git merge ${releases[@]: $release_index: 1}"
-         exit 1
-       fi
-       let "release_index+=1"
-       $debug fedpkg mockbuild
-       if [ $? -ne 0 ]; then
-         echo "Error: fedpkg mockbuild failed"
-         exit 1
-       fi
-       $debug fedpkg push
-       if [ $? -ne 0 ]; then
-         echo "Error: fedpkg push"
-         exit 1
-       fi 
-     done
-   else
      echo "Error: fedpkg push"
      exit 1
    fi
-
+   # Check if release has pending or testing update - if not, build package
+   pending_update=`bodhi updates query --packages vim --status pending \
+     | grep "${releases[@]: $branches_index: 1}"`
+   testing_update=`bodhi updates query --packages vim --status testing \
+     | grep "${releases[@]: $branches_index: 1}"`
+   if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
+     fedpkg build --nowait
+   fi
+   for branch in "${branches[@]:(1)}";
+   do
+     # switch to branch
+     $debug fedpkg switch-branch $branch
+     # merge with previous branch
+     $debug bash -c "git merge ${branches[@]: $branches_index: 1} <<<':x'"
+     if [ $? -ne 0 ]; then
+       echo "Error: git merge ${branches[@]: $branches_index: 1}"
+       exit 1
+     fi
+     # mockbuild
+     $debug fedpkg mockbuild
+     if [ $? -ne 0 ]; then
+       echo "Error: fedpkg mockbuild failed"
+       exit 1
+     fi
+     # push
+     $debug fedpkg push
+     if [ $? -ne 0 ]; then
+       echo "Error: fedpkg push"
+       exit 1
+     fi
+     # Check if release has pending or testing update - if not, build package
+     pending_update=`bodhi updates query --packages vim --status pending \
+       | grep "${releases[@]: $branches_index: 1}"`
+     testing_update=`bodhi updates query --packages vim --status testing \
+       | grep "${releases[@]: $branches_index: 1}"`
+     if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
+       fedpkg build --nowait
+     fi
+     let "branches_index+=1"
+   done
    #$debug git push
    #if [ $? -eq 0 ]; then
    #   $debug rm -f $HOME/.koji/config
