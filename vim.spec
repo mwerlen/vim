@@ -104,6 +104,8 @@ Group: Applications/Editors
 Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
+# Because of conflicting man pages
+Conflicts: %{name}-minimal < %{version}-%{release}
 Requires: %{name}-filesystem
 
 %description common
@@ -129,6 +131,8 @@ many different languages.
 %package minimal
 Summary: A minimal version of the VIM editor
 Group: Applications/Editors
+# Because of conflicting manpages
+Conflicts: %{name}-common < %{version}-%{release}
 Provides: vi = %{version}-%{release}
 Provides: /bin/vi
 
@@ -771,7 +775,9 @@ rm -rf %{buildroot}
 
 %changelog
 * Mon Sep 11 2017 Karsten Hopp <karsten@redhat.com> 8.0.1092-1
+- editing vim-update.sh for building package
 - patchlevel 1092
+- 1487175 - VIm conflicts in man pages
 
 * Fri Sep 08 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1071-2
 - fixing merge and push in vim-update.sh
