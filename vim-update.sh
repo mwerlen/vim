@@ -79,7 +79,7 @@ if [ $CHANGES -ne 0 ]; then
    fi
    # push
    $debug fedpkg push
-   if [ $? -eq 0 ]; then
+   if [ $? -ne 0 ]; then
      echo "Error: fedpkg push"
      exit 1
    fi
