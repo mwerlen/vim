@@ -1,4 +1,4 @@
-%define patchlevel 1092
+%define patchlevel 1097
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -774,6 +774,10 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Sep 12 2017 Karsten Hopp <karsten@redhat.com> 8.0.1097-1
+- patchlevel 1097
+- editing vim-update.sh - wrong condition for checking fedkpg push return value
+
 * Mon Sep 11 2017 Karsten Hopp <karsten@redhat.com> 8.0.1092-1
 - editing vim-update.sh for building package
 - patchlevel 1092
