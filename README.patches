@@ -1,3 +1,52 @@
+commit 49a613f84aaa7cccd1d12a2ffc4ebb1956f973aa
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 11 23:05:44 2017 +0200
+
+    patch 8.0.1097: background color wrong if job changes background color
+    
+    Problem:    Background color wrong if job changes background color.
+    Solution:   Get the background color from vterm.
+
+commit 238d43b32859d1b4e6b7072d552289a748cbfee1
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 11 22:00:51 2017 +0200
+
+    patch 8.0.1096: terminal window in Normal mode has wrong background
+    
+    Problem:    Terminal window in Normal mode has wrong background.
+    Solution:   Store the default background and use it for clearning until the
+                end of the line.  Not for below the last line, since there is no
+                text there.
+
+commit a038cb5eab24a9c395861694d9b8f610ec0ccb61
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 11 20:45:23 2017 +0200
+
+    patch 8.0.1095: terminal multibyte escrape test is flaky
+    
+    Problem:    Terminal multibyte escrape test is flaky.
+    Solution:   Add another condition to wait for.
+
+commit c212798333cab2239acd387725987f27c6d8a3f7
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 11 20:34:13 2017 +0200
+
+    patch 8.0.1094: using ssh from Terminal.app runs into xterm incompatibility
+    
+    Problem:    Using ssh from Terminal.app runs into xterm incompatibility.
+    Solution:   Also detect Terminal.app on non-Mac systems.
+
+commit b4d5fbabc99917a8069ba32a60c2d73d4f60e128
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 11 19:31:28 2017 +0200
+
+    patch 8.0.1093: various small quickfix issues
+    
+    Problem:    Various small quickfix issues.
+    Solution:   Remove ":" prefix from title set by a user. Add the qf_id2nr().
+                function. Add a couple more tests.  Update documentation.
+                (Yegappan Lakshmanan)
+
 commit 45d5f26d11d9aac2383453d2c1a8582cad1c8a3d
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Sep 10 19:14:31 2017 +0200
