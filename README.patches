@@ -1,3 +1,13 @@
+commit b984b80cd835a483bdca1928bc50eb09b071f373
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 12 22:59:58 2017 +0200
+
+    patch 8.0.1098: build failure if libvterm installed
+    
+    Problem:    Build failure if libvterm installed on the system. (Oleh
+                Hushchenkov)
+    Solution:   Change the CCCTERM argument order. (Ken Takata, closes #2080)
+
 commit 49a613f84aaa7cccd1d12a2ffc4ebb1956f973aa
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Sep 11 23:05:44 2017 +0200
