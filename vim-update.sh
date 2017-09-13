@@ -2,7 +2,9 @@
 debug=""
 #debug="echo "
 branches=( "f25" "f26" "f27" "master" )
-releases=( "fc25" "fc26" "fc27" "fc28" )
+releases=( "fc26" "fc26" "fc27" "fc28" )
+branches_count=4
+releases_regexp=fc25\\\|fc26\\\|fc27\\\|fc28
 branches_index=0
 
 cd `dirname $0`
@@ -85,12 +87,22 @@ if [ $CHANGES -ne 0 ]; then
    fi
    # Check if release has pending or testing update - if not, build package
    pending_update=`bodhi updates query --packages vim --status pending \
-     | grep "${releases[@]: $branches_index: 1}"`
+     | grep $releases`
    testing_update=`bodhi updates query --packages vim --status testing \
-     | grep "${releases[@]: $branches_index: 1}"`
+     | grep $releases`
    if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
      fedpkg build --nowait
+     bodhi updates new --user zdohnal --type enhancement --notes "The newest \
+       upstream commit" --request testing --autokarma --stable-karma 3 \
+       --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
+       ${releases[@]: $branches_index: 1}
+   else
+     echo "There are pending/testing updates, do not build package."
    fi
+
+   # Cut first release
+   releases_regexp=${releases_regexp#*|}
+
    for branch in "${branches[@]:(1)}";
    do
      # switch to branch
@@ -115,13 +127,22 @@ if [ $CHANGES -ne 0 ]; then
      fi
      # Check if release has pending or testing update - if not, build package
      pending_update=`bodhi updates query --packages vim --status pending \
-       | grep "${releases[@]: $branches_index: 1}"`
+       | grep $releases`
      testing_update=`bodhi updates query --packages vim --status testing \
-       | grep "${releases[@]: $branches_index: 1}"`
+       | grep $releases`
      if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
        fedpkg build --nowait
+       if [ ${branches[@]: $branches_index: 1} != "master" ]; then
+         bodhi updates new --user zdohnal --type enhancement --notes "The newest \
+           upstream commit" --request testing --autokarma --stable-karma 3 \
+           --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
+           ${releases[@]: $branches_index: 1}
+       fi
      fi
+
+     # Increment index and cut first release
      let "branches_index+=1"
+     releases_regexp=${releases_regexp#*|}
    done
    #$debug git push
    #if [ $? -eq 0 ]; then
