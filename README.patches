@@ -1,3 +1,44 @@
+commit c71053c61180ed1ad0c98ba6063b769757832932
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 00:00:44 2017 +0200
+
+    patch 8.0.1102: terminal window does not use Normal colors
+    
+    Problem:    Terminal window does not use Normal colors.
+    Solution:   For the GUI and when 'termguicolors' is enabled, use the actual
+                foreground and background colors for the terminal.  (Yasuhiro
+                Matsumoto, closes #2067)
+                Use the "Terminal" highlight group if defined.
+
+commit 71eeb74a608ddae2b52fb43766616672d0cdda18
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 13 22:18:01 2017 +0200
+
+    patch 8.0.1101: channel write fails if writing to log fails
+    
+    Problem:    Channel write fails if writing to log fails.
+    Solution:   Ignore return value of fwrite(). (Ozaki Kiichi, closes #2081)
+
+commit 072412ed45aa20a67aaa7e387d7f6bf59c7d3fbe
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 13 22:11:35 2017 +0200
+
+    patch 8.0.1100: stuck in redraw loop when 'lazyredraw' is set
+    
+    Problem:    Stuck in redraw loop when 'lazyredraw' is set.
+    Solution:   Don't loop on update_screen() when not redrawing. (Yasuhiro
+                Matsumoto, closes #2082)
+
+commit 518d6996998b35ccbc408b1b323f8869c0c1b4d8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 13 22:09:58 2017 +0200
+
+    patch 8.0.1099: warnings for GDK calls
+    
+    Problem:    Warnings for GDK calls.
+    Solution:   Use other calls for GTK 3 and fix a few problems. (Kazunobu
+                Kuriyama)
+
 commit b984b80cd835a483bdca1928bc50eb09b071f373
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Tue Sep 12 22:59:58 2017 +0200
