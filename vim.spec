@@ -770,6 +770,7 @@ rm -rf %{buildroot}
 
 %changelog
 * Thu Sep 14 2017 Karsten Hopp <karsten@redhat.com> 8.0.1102-1
+- vim-update.sh - add test for succesful build and fixing grepping of update's list
 - patchlevel 1102
 
 * Wed Sep 13 2017 Karsten Hopp <karsten@redhat.com> 8.0.1098-1
