@@ -86,16 +86,22 @@ if [ $CHANGES -ne 0 ]; then
      exit 1
    fi
    # Check if release has pending or testing update - if not, build package
+   # and submit update for testing
    pending_update=`bodhi updates query --packages vim --status pending \
-     | grep $releases`
+     | grep $releases_regexp`
    testing_update=`bodhi updates query --packages vim --status testing \
-     | grep $releases`
+     | grep $releases_regexp`
    if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
-     fedpkg build --nowait
-     bodhi updates new --user zdohnal --type enhancement --notes "The newest \
-       upstream commit" --request testing --autokarma --stable-karma 3 \
-       --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
-       ${releases[@]: $branches_index: 1}
+     fedpkg build
+     if [ $? -eq 0 ]; then
+       bodhi updates new --user zdohnal --type enhancement --notes "The newest \
+         upstream commit" --request testing --autokarma --stable-karma 3 \
+         --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
+         ${releases[@]: $branches_index: 1}
+     else
+       echo "Error when building package in $branch"
+       exit 1
+     fi
    else
      echo "There are pending/testing updates, do not build package."
    fi
@@ -126,17 +132,23 @@ if [ $CHANGES -ne 0 ]; then
        exit 1
      fi
      # Check if release has pending or testing update - if not, build package
+     # and submit update for testing
      pending_update=`bodhi updates query --packages vim --status pending \
-       | grep $releases`
+       | grep $releases_regexp`
      testing_update=`bodhi updates query --packages vim --status testing \
-       | grep $releases`
+       | grep $releases_regexp`
      if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
-       fedpkg build --nowait
-       if [ ${branches[@]: $branches_index: 1} != "master" ]; then
-         bodhi updates new --user zdohnal --type enhancement --notes "The newest \
-           upstream commit" --request testing --autokarma --stable-karma 3 \
-           --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
-           ${releases[@]: $branches_index: 1}
+       fedpkg build
+       if [ $? -eq 0 ]; then
+         if [ ${branches[@]: $branches_index: 1} != "master" ]; then
+           bodhi updates new --user zdohnal --type enhancement --notes "The newest \
+             upstream commit" --request testing --autokarma --stable-karma 3 \
+             --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
+             ${releases[@]: $branches_index: 1}
+         fi
+       else
+         echo "Error when building package for $branch"
+         exit 1
        fi
      fi
 
