@@ -1,4 +1,4 @@
-%define patchlevel 1102
+%define patchlevel 1123
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -769,6 +769,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Sep 18 2017 Karsten Hopp <karsten@redhat.com> 8.0.1123-1
+- patchlevel 1123
+
 * Thu Sep 14 2017 Karsten Hopp <karsten@redhat.com> 8.0.1102-1
 - vim-update.sh - add test for succesful build and fixing grepping of update's list
 - patchlevel 1102

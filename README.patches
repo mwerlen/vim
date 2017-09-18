@@ -1,3 +1,202 @@
+commit 1b9645de3c05f37b5c30e78f999351b0cf486ade
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 17 23:03:31 2017 +0200
+
+    patch 8.0.1123: cannot define a toolbar for a window
+    
+    Problem:    Cannot define a toolbar for a window.
+    Solution:   Add a window-local toolbar.
+
+commit dde403c2d8f3dabe6fefa7b526958b49a8f2e6e9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 17 21:43:00 2017 +0200
+
+    patch 8.0.1122: vimtutor.bat doesn't work well with vim.bat
+    
+    Problem:    vimtutor.bat doesn't work well with vim.bat.
+    Solution:   Use "call vim". (Ken Takata, closes #2105)
+
+commit 49150a41f86ff5c50de6d679168532682f49c672
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 17 21:00:03 2017 +0200
+
+    patch 8.0.1121: can uncheck executables in MS-Windows installer
+    
+    Problem:    Can uncheck executables in MS-Windows installer.
+    Solution:   Make the choice read-only. (Ken Takata, closes #2106)
+
+commit 63c4e8a1986796094e6f15b893f2deccdf482617
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 17 20:32:20 2017 +0200
+
+    patch 8.0.1120: :tm means :tmap instead of :tmenu
+    
+    Problem:    :tm means :tmap instead of :tmenu. (Taro Muraoka)
+    Solution:   Move the new entry below the old entry. (closes #2102)
+
+commit 8adb0d03ca2694922da915356d7ede05e31c5a5c
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 17 19:08:02 2017 +0200
+
+    patch 8.0.1119: quitting a split terminal window kills the job
+    
+    Problem:    Quitting a split terminal window kills the job. (Yasuhiro
+                Matsumoto)
+    Solution:   Only stop terminal job if it is the last window.
+
+commit 4033c55eca575777718c0701e26635a0cc47d907
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 16 20:54:51 2017 +0200
+
+    patch 8.0.1118: FEAT_WINDOWS adds a lot of #ifdefs
+    
+    Problem:    FEAT_WINDOWS adds a lot of #ifdefs while it is nearly always
+                enabled and only adds 7% to the binary size of the tiny build.
+    Solution:   Graduate FEAT_WINDOWS.
+
+commit e738a1a033cd31cd2568ba99a9e2dca1e65b45ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 16 17:42:41 2017 +0200
+
+    patch 8.0.1117: Test_terminal_no_cmd hangs on MS-Windows with GUI
+    
+    Problem:    Test_terminal_no_cmd hangs on MS-Windows with GUI. (Christian
+                Brabandt)
+    Solution:   Run the command with "start" and wait for the text to appear.
+                (micbou, closes #2096)
+
+commit 1514e8f4271d0039740b968a9f7d0d7f81a262a2
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 16 17:35:13 2017 +0200
+
+    patch 8.0.1116: terminal test fails on MS-Windows
+    
+    Problem:    Terminal test fails on MS-Windows.
+    Solution:   Wait for the text to appear. (micbou, closes #2097)
+
+commit 495b7dd213e096361e6f15e7aed313c1d63d9d3e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 16 17:19:22 2017 +0200
+
+    patch 8.0.1115: crash when using foldtextresult() recursively
+    
+    Problem:    Crash when using foldtextresult() recursively.
+    Solution:   Avoid recursive calls. (Yasuhiro Matsumoto, closes #2098)
+
+commit 4cf56bbc85f77846aeb378cfb071677336dfad6d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 16 15:50:32 2017 +0200
+
+    patch 8.0.1114: default for 'iminsert' is annoying
+    
+    Problem:    Default for 'iminsert' is annoying.
+    Solution:   Make the default always zero. (Yasuhiro Matsumoto, closes #2071)
+
+commit eef9adddab4c7fc7bb1c54267e76849caf565edf
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 16 15:38:04 2017 +0200
+
+    patch 8.0.1113: can go to Insert mode from Terminal-Normal mode
+    
+    Problem:    Can go to Insert mode from Terminal-Normal mode.
+    Solution:   Prevent :startinsert and "VA" to enter Insert mode. (Yasuhiro
+                Matsumoto, closes #2092)
+
+commit fc2b270cfd36230166df486aae4d96d9d1f32755
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 15 22:43:07 2017 +0200
+
+    patch 8.0.1112: can't get size or current index from quickfix list
+    
+    Problem:    Can't get size or current index from quickfix list.
+    Solution:   Add "idx" and "size" options. (Yegappan Lakshmanan)
+
+commit b5e79ef5a9e85f5bb70eb4cc6e12cbeec2a820ca
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 15 12:40:53 2017 +0200
+
+    patch 8.0.1111: syntax error in configure when using Perl
+    
+    Problem:    Syntax error in configure when using Perl.
+    Solution:   Add missing quote
+
+commit e8ff56b28ed67bff4ee1dbe7b4bd620c1c04a535
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 23:06:23 2017 +0200
+
+    patch 8.0.1110: FORTIFY_SOURCE from Perl causes problems
+    
+    Problem:    FORTIFY_SOURCE from Perl causes problems. (Scott Baker)
+    Solution:   Filter out the flag. (Christian Brabandt, closes #2068)
+
+commit f5291f301e9322545f0621b2157e93050d1d4fb3
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 22:55:37 2017 +0200
+
+    patch 8.0.1109: timer causes error on exit from Ex mode
+    
+    Problem:    Timer causes error on exit from Ex mode. (xtal8)
+    Solution:   save and restore the ex_pressedreturn flag. (Christian Brabandt,
+                closes #2079)
+
+commit 69fbc9e1dab176f345719436cd89d854df0a2abd
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 20:37:57 2017 +0200
+
+    patch 8.0.1108: cannot specify mappings for the terminal window
+    
+    Problem:    Cannot specify mappings for the terminal window.
+    Solution:   Add the :tmap command and associated code.  (Jacob Askeland,
+                closes #2073)
+
+commit 38baa3e63427112d389de5e5942243414d9b1336
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 16:10:38 2017 +0200
+
+    patch 8.0.1107: terminal debugger jumps to non-existing file
+    
+    Problem:    Terminal debugger jumps to non-existing file.
+    Solution:   Check that the file exists.  Add an option to make the Vim wide
+                wide. Fix removing highlight groups.
+
+commit 69e8aa75112a0b12811a4f4d11061adceffbbabc
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 15:55:13 2017 +0200
+
+    patch 8.0.1106: terminal colors wrong on an MS-Windows console
+    
+    Problem:    Terminal colors on an MS-Windows console are not matching the
+                normal colors.
+    Solution:   Use the normal colors for the terminal. (Yasuhiro Matsumoto,
+                closes #2087)
+
+commit 1190cf68e27a123cf9f6fb57897782a3b9f7b810
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 14:31:18 2017 +0200
+
+    patch 8.0.1105: match() and matchend() are not tested
+    
+    Problem:    match() and matchend() are not tested.
+    Solution:   Add tests. (Ozaki Kiichi, closes #2088)
+
+commit ef6b8de42f439271edcf5cf22b2450f2cf302c2e
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 13:57:37 2017 +0200
+
+    patch 8.0.1104: the qf_jump() function is too long
+    
+    Problem:    The qf_jump() function is too long.
+    Solution:   Split of parts to separate functions. (Yegappan Lakshmanan)
+
+commit 478e3a78c37de214aadf7399fac77227b7316f40
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 14 13:37:00 2017 +0200
+
+    patch 8.0.1103: converting cterm color fails for grey ramp
+    
+    Problem:    Converting cterm color fails for grey ramp.
+    Solution:   Use index instead of number.
+
 commit c71053c61180ed1ad0c98ba6063b769757832932
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Sep 14 00:00:44 2017 +0200
