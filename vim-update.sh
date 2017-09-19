@@ -6,6 +6,7 @@ releases=( "fc26" "fc26" "fc27" "fc28" )
 branches_count=4
 releases_regexp=fc25\\\|fc26\\\|fc27\\\|fc28
 branches_index=0
+release_index=0
 
 cd `dirname $0`
 LANG=C
@@ -91,13 +92,17 @@ if [ $CHANGES -ne 0 ]; then
      | grep $releases_regexp`
    testing_update=`bodhi updates query --packages vim --status testing \
      | grep $releases_regexp`
+   # Cut the head of releases_regexp string
+   releases_regexp=${releases_regexp#*|}
+
    if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
      fedpkg build
      if [ $? -eq 0 ]; then
        bodhi updates new --user zdohnal --type enhancement --notes "The newest \
          upstream commit" --request testing --autokarma --stable-karma 3 \
          --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
-         ${releases[@]: $branches_index: 1}
+         ${releases[@]: $release_index: 1}
+       let "release_index+=1"
      else
        echo "Error when building package in $branch"
        exit 1
@@ -105,9 +110,6 @@ if [ $CHANGES -ne 0 ]; then
    else
      echo "There are pending/testing updates, do not build package."
    fi
-
-   # Cut first release
-   releases_regexp=${releases_regexp#*|}
 
    for branch in "${branches[@]:(1)}";
    do
@@ -144,7 +146,8 @@ if [ $CHANGES -ne 0 ]; then
            bodhi updates new --user zdohnal --type enhancement --notes "The newest \
              upstream commit" --request testing --autokarma --stable-karma 3 \
              --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
-             ${releases[@]: $branches_index: 1}
+             ${releases[@]: $release_index: 1}
+           let "release_index+=1"
          fi
        else
          echo "Error when building package for $branch"
@@ -152,7 +155,7 @@ if [ $CHANGES -ne 0 ]; then
        fi
      fi
 
-     # Increment index and cut first release
+     # Increment index and cut the head of releases_regexp string
      let "branches_index+=1"
      releases_regexp=${releases_regexp#*|}
    done
