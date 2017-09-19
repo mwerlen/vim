@@ -1,3 +1,41 @@
+commit a8e93d63e308020ee06eb5782e766941ac417a5a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 18 21:50:47 2017 +0200
+
+    patch 8.0.1127: Test_peek_and_get_char fails on 32 bit system
+    
+    Problem:    Test_peek_and_get_char fails on 32 bit system. (Eliminate
+                Riesebieter)
+    Solution:   Avoid an integer overflow. (James McCoy, closes #2116)
+
+commit 71b29640669872b0209985fc5a3b447de62a4cf0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 18 21:24:56 2017 +0200
+
+    patch 8.0.1126: endless resize when terminal showing in two buffers
+    
+    Problem:    Endless resize when terminal showing in two buffers. (Hirohito
+                Higashi)
+    Solution:   Set a flag to prevent resizing the window.
+
+commit d326ad6e93604222c64bae51f47521fe9114d1ea
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 18 20:31:41 2017 +0200
+
+    patch 8.0.1125: wrong window height when splitting window with window toolbar
+    
+    Problem:    Wrong window height when splitting window with window toolbar.
+    Solution:   Add or subtract the window toolbar height.
+
+commit f16c71b66927a28196b25a42795d083784ab1b9a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Mon Sep 18 20:01:02 2017 +0200
+
+    patch 8.0.1124: use of MZSCHEME_VER is unclear
+    
+    Problem:    Use of MZSCHEME_VER is unclear.
+    Solution:   Add a comment. (Ken Takata)
+
 commit 1b9645de3c05f37b5c30e78f999351b0cf486ade
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Sun Sep 17 23:03:31 2017 +0200
