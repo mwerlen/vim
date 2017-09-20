@@ -98,11 +98,7 @@ if [ $CHANGES -ne 0 ]; then
    if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
      fedpkg build
      if [ $? -eq 0 ]; then
-       bodhi updates new --user zdohnal --type enhancement --notes "The newest \
-         upstream commit" --request testing --autokarma --stable-karma 3 \
-         --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
-         ${releases[@]: $release_index: 1}
-       let "release_index+=1"
+       bodhi updates new --user zdohnal --type enhancement --notes "The newest upstream commit" --request testing --autokarma --stable-karma 3 --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.${releases[@]: $release_index: 1}
      else
        echo "Error when building package in $branch"
        exit 1
@@ -110,6 +106,8 @@ if [ $CHANGES -ne 0 ]; then
    else
      echo "There are pending/testing updates, do not build package."
    fi
+
+   let "release_index+=1"
 
    for branch in "${branches[@]:(1)}";
    do
@@ -143,11 +141,7 @@ if [ $CHANGES -ne 0 ]; then
        fedpkg build
        if [ $? -eq 0 ]; then
          if [ ${branches[@]: $branches_index: 1} != "master" ]; then
-           bodhi updates new --user zdohnal --type enhancement --notes "The newest \
-             upstream commit" --request testing --autokarma --stable-karma 3 \
-             --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.\
-             ${releases[@]: $release_index: 1}
-           let "release_index+=1"
+           bodhi updates new --user zdohnal --type enhancement --notes "The newest upstream commit" --request testing --autokarma --stable-karma 3 --unstable-karma -3 vim-${UPSTREAMMAJOR}-${LASTPLFILLED}-1.${releases[@]: $release_index: 1}
          fi
        else
          echo "Error when building package for $branch"
@@ -157,6 +151,7 @@ if [ $CHANGES -ne 0 ]; then
 
      # Increment index and cut the head of releases_regexp string
      let "branches_index+=1"
+     let "release_index+=1"
      releases_regexp=${releases_regexp#*|}
    done
    #$debug git push
