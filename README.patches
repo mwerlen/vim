@@ -1,3 +1,34 @@
+commit 2e6ab18729a634f3223a92be318e98e87b572a7b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 20 10:03:07 2017 +0200
+
+    Add back terminal.c
+
+commit a5a2be26febee62da480265ed9a52f782d5b4388
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 19 22:08:04 2017 +0200
+
+    patch 8.0.1129: window toolbar missing a part of the patch
+    
+    Problem:    Window toolbar missing a part of the patch.
+    Solution:   Add change in vim.h.
+
+commit 37c64c78fd87e086b5a945ad7032787c274e2dcb
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 19 22:06:03 2017 +0200
+
+    Update runtime files.
+
+commit e22bbf65088a01b465918919782c19eb291f9cf0
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Tue Sep 19 20:47:16 2017 +0200
+
+    patch 8.0.1128: old xterm sends CTRL-X in response to t_RS
+    
+    Problem:    Old xterm sends CTRL-X in response to t_RS.
+    Solution:   Only send t_RS for xterm 279 and later.  Remove the workaround to
+                ignore CTRL-X.
+
 commit a8e93d63e308020ee06eb5782e766941ac417a5a
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Mon Sep 18 21:50:47 2017 +0200
