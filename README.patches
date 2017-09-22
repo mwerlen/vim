@@ -1,3 +1,31 @@
+commit fc7649f8b82efbb4c7066567dd69192d97a2749f
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 21 22:46:47 2017 +0200
+
+    patch 8.0.1132: #if condition is not portable
+    
+    Problem:    #if condition is not portable.
+    Solution:   Add defined(). (Zuloloxi, closes #2136)
+
+commit b00fdf6eed5fec589a86655249a851c2d9ba3bb8
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Thu Sep 21 22:16:21 2017 +0200
+
+    patch 8.0.1131: not easy to trigger an autocommand for new terminal window
+    
+    Problem:    It is not easy to trigger an autocommand for new terminal window.
+                (Marco Restelli)
+    Solution:   Trigger BufWinEnter after setting 'buftype'.
+
+commit 9cb03716c963338f9a98d2ebc7aa3ac8b9c1eea6
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Wed Sep 20 22:43:02 2017 +0200
+
+    patch 8.0.1130: the qf_jump() function is still too long
+    
+    Problem:    The qf_jump() function is still too long.
+    Solution:   Split of parts to separate functions. (Yegappan Lakshmanan)
+
 commit 2e6ab18729a634f3223a92be318e98e87b572a7b
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Wed Sep 20 10:03:07 2017 +0200
