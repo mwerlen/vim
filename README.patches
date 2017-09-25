@@ -1,3 +1,119 @@
+commit 0b05e491b473dbf39cd9f519030bf6363c272300
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 24 19:39:09 2017 +0200
+
+    patch 8.0.1144: using wrong #ifdef for computing length
+    
+    Problem:    Using wrong #ifdef for computing length.
+    Solution:   use BACKSLASH_IN_FILENAME instead of COLON_IN_FILENAME. (Yasuhiro
+                Matsomoto, closes #2153)
+
+commit e0de17d84e1612dbc9362989194de5674f221de5
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sun Sep 24 16:24:34 2017 +0200
+
+    patch 8.0.1143: macros always expand to the same thing
+    
+    Problem:    Macros always expand to the same thing.
+    Solution:   Remove W_VSEP_WIDTH() and W_STATUS_HEIGHT().
+
+commit 378daf87d380b9f3c4f822786dfbfdcad9ca2db9
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 23 23:58:28 2017 +0200
+
+    patch 8.0.1142: window toolbar menu gets a tear-off item
+    
+    Problem:    Window toolbar menu gets a tear-off item.
+    Solution:   Recognize the window toolbar.
+
+commit 96e7a6ee4569526c71b1e89f641526775831ac63
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 23 19:48:29 2017 +0200
+
+    patch 8.0.1141: MS-Windows build dependencies are incomplete
+    
+    Problem:    MS-Windows build dependencies are incomplete.
+    Solution:   Fix the dependencies. (Ken Takata)
+
+commit bb3e6416f157f68799ccb6070fa2f91df6780e79
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 23 19:24:46 2017 +0200
+
+    patch 8.0.1140: still old style tests
+    
+    Problem:    Still old style tests.
+    Solution:   Convert two tests to new style. (Yegappan Lakshmanan)
+
+commit a21a6a9ade7bec3a07992d4d900d4ce82eeb8a29
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 23 16:33:50 2017 +0200
+
+    patch 8.0.1139: using window toolbar changes state
+    
+    Problem:    Using window toolbar changes state.
+    Solution:   Always execute window toolbar actions in Normal mode.
+
+commit eb163d73b11c10b461a2839530173a33d7915a33
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Sat Sep 23 15:08:17 2017 +0200
+
+    patch 8.0.1138: click in window toolbar starts Visual mode
+    
+    Problem:    Click in window toolbar starts Visual mode.
+    Solution:   Add the MOUSE_WINBAR flag.
+
+commit e745d75c3e0d976e73bd17c395e9cce98f671692
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 22 16:56:22 2017 +0200
+
+    patch 8.0.1137: cannot build with Ruby
+    
+    Problem:    Cannot build with Ruby.
+    Solution:   Fix misplaced brace.
+
+commit 0263146b5dbbb6c120ce2e7720256503b864425d
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 22 15:20:32 2017 +0200
+
+    patch 8.0.1136: W_WIDTH() is always the same
+    
+    Problem:    W_WIDTH() is always the same.
+    Solution:   Expand the macro.
+
+commit 53f8174eaeb93b381cf74c58863f8fe82748a22a
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 22 14:35:51 2017 +0200
+
+    patch 8.0.1135: W_WINCOL() is always the same
+    
+    Problem:    W_WINCOL() is always the same.
+    Solution:   Expand the macro.
+
+commit 76301956f0c079d893cfd927b11456328bed4f9b
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 22 13:53:37 2017 +0200
+
+    patch 8.0.1134: superfluous call to syn_get_final_id()
+    
+    Problem:    Superfluous call to syn_get_final_id().
+    Solution:   Remove it. (Ken Takata)
+
+commit f3d769a585040ac47f7054057758809024ef6377
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 22 13:44:56 2017 +0200
+
+    patch 8.0.1133: syntax timeout not used correctly
+    
+    Problem:    Syntax timeout not used correctly.
+    Solution:   Do not pass the timeout to syntax_start() but set it explicitly.
+                (Yasuhiro Matsumoto, closes #2139)
+
+commit 8b21de33bb288738c1445bc7241d3d5106124d66
+Author: Bram Moolenaar <Bram@vim.org>
+Date:   Fri Sep 22 11:13:52 2017 +0200
+
+    Missing part of 8.0.1131.
+
 commit fc7649f8b82efbb4c7066567dd69192d97a2749f
 Author: Bram Moolenaar <Bram@vim.org>
 Date:   Thu Sep 21 22:46:47 2017 +0200
