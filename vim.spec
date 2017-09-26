@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -29,7 +29,6 @@ Source1: vim.sh
 Source2: vim.csh
 Source4: virc
 Source5: vimrc
-Source6: ftp://ftp.vim.org/pub/vim/patches/README.patches
 Source7: gvim16.png
 Source8: gvim32.png
 Source9: gvim48.png
@@ -226,7 +225,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3016 -p1 -b .bindsyntax
 
 %build
-cp -f %{SOURCE6} .
 cd src
 autoconf
 
@@ -769,6 +767,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Sep 26 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1144-2
+- removing README.patches
+
 * Mon Sep 25 2017 Karsten Hopp <karsten@redhat.com> 8.0.1144-1
 - patchlevel 1144
 
