@@ -56,10 +56,8 @@ make unixall
 mv dist/vim-${UPSTREAMMAJOR}.tar.bz2 dist/vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
 # We don't include the full upstream changelog in the rpm changelog, just ship a file with
 # the changes:
-git log > dist/README.patches
 popd
 
-cp -f vim-upstream/dist/README.patches README.patches
 cp -f vim-upstream/dist/vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2 .
 #wget https://raw.githubusercontent.com/ignatenkobrain/vim-spec-plugin/master/ftplugin/spec.vim -O ftplugin-spec.vim
 #wget https://raw.githubusercontent.com/ignatenkobrain/vim-spec-plugin/master/syntax/spec.vim -O syntax-spec.vim
@@ -72,7 +70,7 @@ if [ $CHANGES -ne 0 ]; then
    $debug sed -i -e "s/define patchlevel $ORIGPLFILLED/define patchlevel $LASTPLFILLED/" $SPEC
    $debug sed -i -e "/\%changelog/a$CHLOG.$LASTPLFILLED-1\n- patchlevel $LASTPLFILLED\n" $SPEC
    $debug fedpkg new-sources vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
-   $debug git add vim.spec README.patches
+   $debug git add vim.spec
    $debug git commit -m "- patchlevel $LASTPL" 
    # mockbuild
    $debug fedpkg mockbuild
