@@ -1,4 +1,4 @@
-%define patchlevel 1155
+%define patchlevel 1171
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -599,6 +599,7 @@ rm -rf %{buildroot}
 %lang(ja.sjis) %{_datadir}/%{name}/%{vimdir}/lang/ja.sjis
 %lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko
 %lang(ko) %{_datadir}/%{name}/%{vimdir}/lang/ko.UTF-8
+%lang(lv) %{_datadir}/%{name}/%{vimdir}/lang/lv
 %lang(nb) %{_datadir}/%{name}/%{vimdir}/lang/nb
 %lang(nl) %{_datadir}/%{name}/%{vimdir}/lang/nl
 %lang(no) %{_datadir}/%{name}/%{vimdir}/lang/no
@@ -767,6 +768,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Oct 02 2017 Karsten Hopp <karsten@redhat.com> 8.0.1171-1
+- patchlevel 1171
+
 * Wed Sep 27 2017 Karsten Hopp <karsten@redhat.com> 8.0.1155-1
 - patchlevel 1155
 
