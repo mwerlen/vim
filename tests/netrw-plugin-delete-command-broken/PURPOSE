@@ -1,0 +1,9 @@
+PURPOSE of netrw-plugin-delete-command-broken
+Description: Test for netrw plugin: delete command broken
+Author: Petr Splichal <psplicha@redhat.com>
+Summary: netrw plugin: delete command broken
+
+Description:
+
+Regression to to verify the delete command of netrw plugin
+successfully deletes files or directories.
