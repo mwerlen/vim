@@ -6,7 +6,7 @@ diff -up vim80/runtime/filetype.vim.bindsyntax vim80/runtime/filetype.vim
  " BIND configuration
  " sudoedit uses namedXXXX.conf
 -au BufNewFile,BufRead named*.conf,rndc*.conf	setf named
-+au BufNewFile,BufRead named*.conf,rndc*.conf,rndc*.key,named.*	setf named
++au BufNewFile,BufRead named*.conf,rndc*.conf,rndc*.key	setf named
  
  " BIND zone
  au BufNewFile,BufRead named.root		setf bindzone
