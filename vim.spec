@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -175,7 +175,7 @@ This package provides some directories which are required by other
 packages that add vim files, p.e.  additional syntax files or filetypes.
 
 %package X11
-Summary: The VIM version of the vi editor for the X Window System
+Summary: The VIM version of the vi editor for the X Window System - GVim
 Group: Applications/Editors
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
@@ -191,7 +191,7 @@ still very popular.  VIM improves on vi by adding new features:
 multiple windows, multi-level undo, block highlighting and
 more. VIM-X11 is a version of the VIM editor which will run within the
 X Window System.  If you install this package, you can run VIM as an X
-application with a full GUI interface and mouse support.
+application with a full GUI interface and mouse support by command gvim.
 
 Install the vim-X11 package if you'd like to try out a version of vi
 with graphics and mouse capabilities.  You'll also need to install the
@@ -773,6 +773,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Oct 26 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1216-2
+- mention GVim in Summary and Description of vim-x11 subpackage
+
 * Wed Oct 25 2017 Karsten Hopp <karsten@redhat.com> 8.0.1216-1
 - patchlevel 1216
 
