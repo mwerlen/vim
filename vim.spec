@@ -770,6 +770,7 @@ rm -rf %{buildroot}
 %changelog
 * Thu Oct 26 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1216-2
 - mention GVim in Summary and Description of vim-x11 subpackage
+- update vim-update.sh to merge with the oldest branch
 
 * Wed Oct 25 2017 Karsten Hopp <karsten@redhat.com> 8.0.1216-1
 - patchlevel 1216
