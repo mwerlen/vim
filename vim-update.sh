@@ -148,6 +148,7 @@ if [ $CHANGES -ne 0 ]; then
      fi
 
      # Increment index and cut the head of releases_regexp string
+     let "branches_index+=1"
      let "release_index+=1"
      releases_regexp=${releases_regexp#*|}
    done
