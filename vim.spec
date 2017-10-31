@@ -1,4 +1,4 @@
-%define patchlevel 1238
+%define patchlevel 1240
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -773,6 +773,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Oct 31 2017 Karsten Hopp <karsten@redhat.com> 8.0.1240-1
+- patchlevel 1240
+
 * Mon Oct 30 2017 Karsten Hopp <karsten@redhat.com> 8.0.1238-1
 - patchlevel 1238
 
