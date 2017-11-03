@@ -1,4 +1,4 @@
-%define patchlevel 1241
+%define patchlevel 1257
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -67,7 +67,6 @@ Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3015: vim-8.0-rhbz1365258.patch
 Patch3016: vim-8.0-copy-paste.patch
-Patch3017: vim-8.0-bindsyntax.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python-devel python3-devel ncurses-devel gettext perl-devel
@@ -227,7 +226,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3015 -p1
 %patch3016 -p1
-%patch3017 -p1
 
 %build
 cd src
@@ -773,6 +771,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Nov 03 2017 Karsten Hopp <karsten@redhat.com> 8.0.1257-1
+- patchlevel 1257
+
 * Wed Nov 01 2017 Karsten Hopp <karsten@redhat.com> 8.0.1241-1
 - patchlevel 1241
 
