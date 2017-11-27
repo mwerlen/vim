@@ -1,10 +1,10 @@
 #!/bin/bash
 debug=""
 #debug="echo "
-branches=( "f25" "f26" "f27" "master" )
+branches=( "f26" "f27" "master" )
 releases=( "fc26" "fc26" "fc27" "fc28" )
 branches_count=4
-releases_regexp=fc25\\\|fc26\\\|fc27\\\|fc28
+releases_regexp=fc26\\\|fc27\\\|fc28
 branches_index=0
 release_index=0
 
