@@ -2,7 +2,7 @@
 debug=""
 #debug="echo "
 branches=( "f26" "f27" "master" )
-releases=( "fc26" "fc26" "fc27" "fc28" )
+releases=( "fc26" "fc27" "fc28" )
 branches_count=4
 releases_regexp=fc26\\\|fc27\\\|fc28
 branches_index=0
