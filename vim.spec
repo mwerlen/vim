@@ -771,6 +771,7 @@ rm -rf %{buildroot}
 %changelog
 * Wed Nov 29 2017 Karsten Hopp <karsten@redhat.com> 8.0.1358-1
 - patchlevel 1358
+- fix error in vim-update.sh
 
 * Tue Nov 28 2017 Karsten Hopp <karsten@redhat.com> 8.0.1351-1
 - patchlevel 1351
