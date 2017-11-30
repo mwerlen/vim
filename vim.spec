@@ -1,4 +1,4 @@
-%define patchlevel 1358
+%define patchlevel 1359
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -769,6 +769,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Nov 30 2017 Karsten Hopp <karsten@redhat.com> 8.0.1359-1
+- patchlevel 1359
+
 * Wed Nov 29 2017 Karsten Hopp <karsten@redhat.com> 8.0.1358-1
 - patchlevel 1358
 - fix error in vim-update.sh
