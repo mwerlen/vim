@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -542,14 +542,11 @@ update-desktop-database &> /dev/null ||:
 
 # Refresh documentation helptags
 %transfiletriggerin common -- %{_datadir}/%{name}/vimfiles/doc
-vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null
+%{_bindir}/vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null || :
 
 %transfiletriggerpostun common -- %{_datadir}/%{name}/vimfiles/doc
-> %{_datadir}/%{name}/vimfiles/doc/tags
-vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null
-
-%clean
-rm -rf %{buildroot}
+> %{_datadir}/%{name}/vimfiles/doc/tags || :
+%{_bindir}/vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null || :
 
 %files common
 %defattr(-,root,root)
@@ -769,6 +766,9 @@ rm -rf %{buildroot}
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Nov 30 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1359-2
+- 1508629 - missing full path and safe guards in file triggers in -common
+
 * Thu Nov 30 2017 Karsten Hopp <karsten@redhat.com> 8.0.1359-1
 - patchlevel 1359
 
