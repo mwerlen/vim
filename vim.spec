@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -766,6 +766,9 @@ update-desktop-database &> /dev/null ||:
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Dec 01 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1359-3
+- rewrite vim-update to update from the newest branch to the oldest
+
 * Thu Nov 30 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1359-2
 - 1508629 - missing full path and safe guards in file triggers in -common
 

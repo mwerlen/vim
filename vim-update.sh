@@ -1,12 +1,17 @@
 #!/bin/bash
 debug=""
 #debug="echo "
-branches=( "f26" "f27" "master" )
-releases=( "fc26" "fc27" "fc28" )
+branches=( "master" "f27" "f26" )
+releases=( "fc28" "fc27" "fc26" )
+regexps=( "fc28" "\\\|fc27" "\\\|fc26" )
 branches_count=4
-releases_regexp=fc26\\\|fc27\\\|fc28
+#releases_regexp=fc28\\\|fc27\\\|fc28
+
 branches_index=0
 release_index=0
+regexp_index=0
+releases_regexp="${regexps[@]: regexp_index: 1}"
+let "regexp_index+=1"
 
 cd `dirname $0`
 LANG=C
@@ -40,8 +45,10 @@ else
 fi
 
 pushd vim-upstream
+
 # get the latest tag. Might be tricky with other packages, but upstream vim uses just a single branch:
 LASTTAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+
 # vim upstream tags have the form v7.4.123. Remove the 'v' and get major release and patchlevel:
 UPSTREAMMAJOR=$(echo $LASTTAG | sed -e 's/v\([0-9]*\.[0-9]*\).*/\1/')
 LASTPL=`echo $LASTTAG| sed -e 's/.*\.//;s/^0*//'`
@@ -52,8 +59,10 @@ if [ $force -ne 1 -a "$ORIGPLFILLED" == "$LASTPLFILLED" ]; then
 fi
 rm -rf dist/* 2>/dev/null
 make unixall
+
 # include patchlevel in tarball name so that older sources won't get overwritten:
 mv dist/vim-${UPSTREAMMAJOR}.tar.bz2 dist/vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
+
 # We don't include the full upstream changelog in the rpm changelog, just ship a file with
 # the changes:
 popd
@@ -72,26 +81,27 @@ if [ $CHANGES -ne 0 ]; then
    $debug fedpkg new-sources vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2
    $debug git add vim.spec
    $debug git commit -m "- patchlevel $LASTPL" 
+
    # mockbuild
    $debug fedpkg mockbuild
    if [ $? -ne 0 ]; then
      echo "Error: fedpkg mockbuild"
      exit 1
    fi
+
    # push
    $debug fedpkg push
    if [ $? -ne 0 ]; then
      echo "Error: fedpkg push"
      exit 1
    fi
+
    # Check if release has pending or testing update - if not, build package
    # and submit update for testing
    pending_update=`bodhi updates query --packages vim --status pending \
      | grep $releases_regexp`
    testing_update=`bodhi updates query --packages vim --status testing \
      | grep $releases_regexp`
-   # Cut the head of releases_regexp string
-   releases_regexp=${releases_regexp#*|}
 
    if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
      fedpkg build
@@ -111,24 +121,31 @@ if [ $CHANGES -ne 0 ]; then
    do
      # switch to branch
      $debug fedpkg switch-branch $branch
+
      # merge with previous branch
      $debug bash -c "git merge ${branches[@]: $branches_index: 1} <<<':x'"
      if [ $? -ne 0 ]; then
        echo "Error: git merge ${branches[@]: $branches_index: 1}"
        exit 1
      fi
+
      # mockbuild
      $debug fedpkg mockbuild
      if [ $? -ne 0 ]; then
        echo "Error: fedpkg mockbuild failed"
        exit 1
      fi
+
      # push
      $debug fedpkg push
      if [ $? -ne 0 ]; then
        echo "Error: fedpkg push"
        exit 1
      fi
+
+     # append next release to regexp
+     releases_regexp="$releases_regexp${regexps[@]: regexp_index: 1}"
+
      # Check if release has pending or testing update - if not, build package
      # and submit update for testing
      pending_update=`bodhi updates query --packages vim --status pending \
@@ -150,7 +167,7 @@ if [ $CHANGES -ne 0 ]; then
      # Increment index and cut the head of releases_regexp string
      let "branches_index+=1"
      let "release_index+=1"
-     releases_regexp=${releases_regexp#*|}
+     let "regexp_index+=1"
    done
    #$debug git push
    #if [ $? -eq 0 ]; then
