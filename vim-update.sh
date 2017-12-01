@@ -10,6 +10,7 @@ branches_count=4
 branches_index=0
 release_index=0
 regexp_index=0
+done_build=0
 releases_regexp="${regexps[@]: regexp_index: 1}"
 let "regexp_index+=1"
 
@@ -106,7 +107,7 @@ if [ $CHANGES -ne 0 ]; then
    if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
      fedpkg build
      if [ $? -eq 0 ]; then
-       bodhi updates new --user zdohnal --type enhancement --notes "The newest upstream commit" --request testing --autokarma --stable-karma 3 --unstable-karma -3 vim-${UPSTREAMMAJOR}.${LASTPLFILLED}-1.${releases[@]: $release_index: 1}
+       done_build=1
      else
        echo "Error when building package in $branch"
        exit 1
@@ -152,7 +153,7 @@ if [ $CHANGES -ne 0 ]; then
        | grep $releases_regexp`
      testing_update=`bodhi updates query --packages vim --status testing \
        | grep $releases_regexp`
-     if [ "$pending_update" == "" ] && [ "$testing_update" == "" ]; then
+     if [ "$pending_update" == "" ] && [ "$testing_update" == "" ] && [ $done_build -eq 1 ]; then
        fedpkg build
        if [ $? -eq 0 ]; then
          if [ $branch != "master" ]; then
@@ -162,6 +163,8 @@ if [ $CHANGES -ne 0 ]; then
          echo "Error when building package for $branch"
          exit 1
        fi
+     else
+       done_build=0
      fi
 
      # Increment index and cut the head of releases_regexp string
