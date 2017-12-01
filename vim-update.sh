@@ -178,4 +178,8 @@ if [ $CHANGES -ne 0 ]; then
    #   echo "GIT push failed"
    #fi
 fi
+
+#go back to master
+$debug fedpkg switch-branch master
+
 exit 0
