@@ -1,4 +1,4 @@
-%define patchlevel 1359
+%define patchlevel 1360
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 1%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -766,6 +766,9 @@ update-desktop-database &> /dev/null ||:
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Dec 01 2017 Karsten Hopp <karsten@redhat.com> 8.0.1360-1
+- patchlevel 1360
+
 * Fri Dec 01 2017 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1359-3
 - rewrite vim-update to update from the newest branch to the oldest
 
