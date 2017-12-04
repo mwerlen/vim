@@ -3,7 +3,7 @@ debug=""
 #debug="echo "
 branches=( "master" "f27" "f26" )
 releases=( "fc28" "fc27" "fc26" )
-regexps=( "fc28" "\\\|fc27" "\\\|fc26" )
+regexps=( "fc28" "\|fc27" "\|fc26" )
 branches_count=4
 #releases_regexp=fc28\\\|fc27\\\|fc28
 
