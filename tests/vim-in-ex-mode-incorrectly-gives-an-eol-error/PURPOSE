@@ -1,0 +1,3 @@
+PURPOSE of /CoreOS/vim/Regression/vim-in-ex-mode-incorrectly-gives-an-eol-error
+Description: Test for vim in ex mode incorrectly gives an eol error
+Author: David Kutalek <dkutalek@redhat.com>

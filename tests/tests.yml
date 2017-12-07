@@ -1,0 +1,23 @@
+---
+# This first play always runs on the local staging system
+- hosts: localhost
+  roles:
+  - role: standard-test-beakerlib
+    tags:
+    - classic
+    - container
+    tests:
+    - netrw-plugin-delete-command-broken
+    - vim-in-ex-mode-incorrectly-gives-an-eol-error
+    required_packages:
+    - vim-minimal
+    - vim-enhanced
+
+# Tests for Atomic Host
+- hosts: localhost
+  roles:
+  - role: standard-test-beakerlib
+    tags:
+    - atomic
+    tests:
+    - vim-in-ex-mode-incorrectly-gives-an-eol-error
