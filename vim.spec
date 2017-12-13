@@ -1,4 +1,4 @@
-%define patchlevel 1387
+%define patchlevel 1389
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -766,6 +766,9 @@ update-desktop-database &> /dev/null ||:
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Dec 13 2017 Karsten Hopp <karsten@redhat.com> 8.0.1389-1
+- patchlevel 1389
+
 * Tue Dec 12 2017 Karsten Hopp <karsten@redhat.com> 8.0.1387-1
 - patchlevel 1387
 
