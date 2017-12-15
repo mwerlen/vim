@@ -149,11 +149,11 @@ if [ $CHANGES -ne 0 ]; then
 
      # Check if release has pending or testing update - if not, build package
      # and submit update for testing
-     pending_update=`bodhi updates query --packages vim --status pending \
-       | grep $releases_regexp`
+     #pending_update=`bodhi updates query --packages vim --status pending \
+     #  | grep $releases_regexp`
      testing_update=`bodhi updates query --packages vim --status testing \
        | grep $releases_regexp`
-     if [ "$pending_update" == "" ] && [ "$testing_update" == "" ] && [ $done_build -eq 1 ]; then
+     if [[ "$testing_update" == ""  &&  $done_build -eq 1 ]]; then
        fedpkg build
        if [ $? -eq 0 ]; then
          if [ $branch != "master" ]; then
