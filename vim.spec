@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -526,20 +526,6 @@ for i in virc.5 vimrc.5; do
 done
 touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
-%post X11
-touch --no-create %{_datadir}/icons/hicolor
-if [ -x /%{_bindir}/gtk-update-icon-cache ]; then
-  gtk-update-icon-cache --ignore-theme-index -q %{_datadir}/icons/hicolor
-fi
-update-desktop-database &> /dev/null ||:
-
-%postun X11
-touch --no-create %{_datadir}/icons/hicolor
-if [ -x /%{_bindir}/gtk-update-icon-cache ]; then
-  gtk-update-icon-cache --ignore-theme-index -q %{_datadir}/icons/hicolor
-fi
-update-desktop-database &> /dev/null ||:
-
 # Refresh documentation helptags
 %transfiletriggerin common -- %{_datadir}/%{name}/vimfiles/doc
 %{_bindir}/vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null || :
@@ -766,6 +752,9 @@ update-desktop-database &> /dev/null ||:
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jan 12 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1428-2
+- removing old icon cache update
+
 * Wed Jan 03 2018 Karsten Hopp <karsten@redhat.com> 8.0.1428-1
 - patchlevel 1428
 
