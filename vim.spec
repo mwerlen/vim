@@ -370,8 +370,8 @@ install -p -m644 %{SOURCE10} \
 #
 # See http://www.freedesktop.org/software/appstream/docs/ for more details.
 #
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/appdata
-cat > $RPM_BUILD_ROOT%{_datadir}/appdata/gvim.appdata.xml <<EOF
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/metainfo
+cat > $RPM_BUILD_ROOT%{_datadir}/metainfo/gvim.appdata.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2014 Richard Hughes <richard@hughsie.com> -->
 <!--
@@ -441,7 +441,7 @@ EOF
     ln -sf menu_ja_jp.ujis.vim menu_ja_jp.eucjp.vim )
 )
 
-appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/*.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdata.xml
 
 pushd %{buildroot}/%{_datadir}/%{name}/%{vimdir}/tutor
 mkdir conv
@@ -724,7 +724,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %files X11
 %defattr(-,root,root)
 %if "%{desktop_file}" == "1"
-%{_datadir}/appdata/*.appdata.xml
+%{_datadir}/metainfo/*.appdata.xml
 /%{_datadir}/applications/*
 %exclude /%{_datadir}/applications/vim.desktop
 %else
@@ -745,6 +745,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %changelog
 * Tue Jan 23 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1428-4
 - throw vim.1.gz out from vim-minimal and other manpages from vim-common
+- appdata should be in metainfo folder now
 
 * Fri Jan 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1428-3
 - 1525506 - gvim goes into infinite loop when blink_state is OFF
