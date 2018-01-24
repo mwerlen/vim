@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: Vim
 Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
@@ -102,8 +102,6 @@ Group: Applications/Editors
 Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
-# Because of conflicting man pages
-Conflicts: %{name}-minimal < %{version}-%{release}
 Requires: %{name}-filesystem
 
 %description common
@@ -129,8 +127,6 @@ many different languages.
 %package minimal
 Summary: A minimal version of the VIM editor
 Group: Applications/Editors
-# Because of conflicting manpages
-Conflicts: %{name}-common < %{version}-%{release}
 Provides: vi = %{version}-%{release}
 Provides: /bin/vi
 
@@ -419,8 +415,8 @@ EOF
   ln -sf vim ./%{_bindir}/vimdiff
   perl -pi -e "s,%{buildroot},," .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vimtutor.1
   rm -f .%{_mandir}/man1/rvim.1
-  ln -sf vim.1.gz .%{_mandir}/man1/vi.1.gz
-  ln -sf vim.1.gz .%{_mandir}/man1/rvi.1.gz
+  cp -p .%{_mandir}/man1/vim.1 .%{_mandir}/man1/vi.1
+  ln -sf vi.1.gz .%{_mandir}/man1/rvi.1.gz
   ln -sf vim.1.gz .%{_mandir}/man1/vimdiff.1.gz
   ln -sf gvim ./%{_bindir}/gview
   ln -sf gvim ./%{_bindir}/gex
@@ -523,9 +519,8 @@ done
 echo ".so man1/vimdiff.1" > %{buildroot}/%{_mandir}/man1/gvimdiff.1
 echo ".so man1/vimtutor.1" > %{buildroot}/%{_mandir}/man1/gvimtutor.1
 mkdir -p %{buildroot}/%{_mandir}/man5
-for i in virc.5 vimrc.5; do 
-  echo ".so man1/vim.1" > %{buildroot}/%{_mandir}/man5/$i
-done
+echo ".so man1/vim.1" > %{buildroot}/%{_mandir}/man5/vimrc.5
+echo ".so man1/vi.1" > %{buildroot}/%{_mandir}/man5/virc.5
 touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 # Refresh documentation helptags
@@ -607,15 +602,10 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %lang(zh_CN.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_CN.UTF-8
 %lang(zh_TW.UTF-8) %{_datadir}/%{name}/%{vimdir}/lang/zh_TW.UTF-8
 /%{_bindir}/xxd
-%{_mandir}/man1/ex.*
 %{_mandir}/man1/gex.*
 %{_mandir}/man1/gview.*
 %{_mandir}/man1/gvim*
-%{_mandir}/man1/rvi.*
-%{_mandir}/man1/rview.*
 %{_mandir}/man1/rvim.*
-%{_mandir}/man1/vi.*
-%{_mandir}/man1/view.*
 %{_mandir}/man1/vim.*
 %{_mandir}/man1/vimdiff.*
 %{_mandir}/man1/vimtutor.*
@@ -693,7 +683,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_bindir}/view
 %{_bindir}/rvi
 %{_bindir}/rview
-%{_mandir}/man1/vim.*
 %{_mandir}/man1/vi.*
 %{_mandir}/man1/ex.*
 %{_mandir}/man1/rvi.*
@@ -754,6 +743,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Jan 23 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1428-4
+- throw vim.1.gz out from vim-minimal and other manpages from vim-common
+
 * Fri Jan 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1428-3
 - 1525506 - gvim goes into infinite loop when blink_state is OFF
 
