@@ -84,6 +84,7 @@ Buildrequires: lua-devel
 Requires: desktop-file-utils
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
+Epoch: 2
 Conflicts: filesystem < 3
 
 %description
@@ -112,7 +113,7 @@ to install the vim-common package.
 
 %package spell
 Summary: The dictionaries for spell checking. This package is optional
-Requires: vim-common = %{version}-%{release}
+Requires: vim-common = %{epoch}:%{version}-%{release}
 
 %description spell
 This subpackage contains dictionaries for vim spell checking in
@@ -135,7 +136,7 @@ package is installed.
 
 %package enhanced
 Summary: A version of the VIM editor which includes recent enhancements
-Requires: vim-common = %{version}-%{release} which
+Requires: vim-common = %{epoch}:%{version}-%{release} which
 Provides: vim = %{version}-%{release}
 Provides: mergetool
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
@@ -162,7 +163,7 @@ packages that add vim files, p.e.  additional syntax files or filetypes.
 
 %package X11
 Summary: The VIM version of the vi editor for the X Window System - GVim
-Requires: vim-common = %{version}-%{release} libattr >= 2.4 gtk3 
+Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
 Provides: mergetool
 BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
@@ -726,7 +727,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %changelog
 * Thu Feb 08 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1475-2
-- remove old stuff and epoch - epoch was because 7.0.0 was lesser than 7.0.g0
+- remove old stuff
 
 * Wed Feb 07 2018 Karsten Hopp <karsten@redhat.com> 8.0.1475-1
 - patchlevel 1475
