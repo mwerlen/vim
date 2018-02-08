@@ -24,9 +24,8 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
-Group: Applications/Editors
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
 Source2: vim.csh
@@ -67,7 +66,6 @@ Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 
-Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: python2-devel python3-devel ncurses-devel gettext perl-devel
 BuildRequires: perl-generators
 BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
@@ -86,7 +84,6 @@ Buildrequires: lua-devel
 Requires: desktop-file-utils
 BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
-Epoch: 2
 Conflicts: filesystem < 3
 
 %description
@@ -97,7 +94,6 @@ multiple windows, multi-level undo, block highlighting and more.
 
 %package common
 Summary: The common files needed by any version of the VIM editor
-Group: Applications/Editors
 Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
@@ -116,8 +112,7 @@ to install the vim-common package.
 
 %package spell
 Summary: The dictionaries for spell checking. This package is optional
-Group: Applications/Editors
-Requires: vim-common = %{epoch}:%{version}-%{release}
+Requires: vim-common = %{version}-%{release}
 
 %description spell
 This subpackage contains dictionaries for vim spell checking in
@@ -125,7 +120,6 @@ many different languages.
 
 %package minimal
 Summary: A minimal version of the VIM editor
-Group: Applications/Editors
 Provides: vi = %{version}-%{release}
 Provides: /bin/vi
 
@@ -141,8 +135,7 @@ package is installed.
 
 %package enhanced
 Summary: A version of the VIM editor which includes recent enhancements
-Group: Applications/Editors
-Requires: vim-common = %{epoch}:%{version}-%{release} which
+Requires: vim-common = %{version}-%{release} which
 Provides: vim = %{version}-%{release}
 Provides: mergetool
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
@@ -162,7 +155,6 @@ need to install the vim-common package.
 
 %package filesystem
 Summary: VIM filesystem layout
-Group: Applications/Editors
 
 %Description filesystem
 This package provides some directories which are required by other
@@ -170,8 +162,7 @@ packages that add vim files, p.e.  additional syntax files or filetypes.
 
 %package X11
 Summary: The VIM version of the vi editor for the X Window System - GVim
-Group: Applications/Editors
-Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
+Requires: vim-common = %{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
 Provides: mergetool
 BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
@@ -328,7 +319,6 @@ make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim enhanced-vim
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
@@ -530,7 +520,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_bindir}/vim -c ":helptags %{_datadir}/%{name}/vimfiles/doc" -c :q &> /dev/null || :
 
 %files common
-%defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/vimrc
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
@@ -618,7 +607,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %if %{withvimspell}
 %files spell
-%defattr(-,root,root)
 %dir %{_datadir}/%{name}/%{vimdir}/spell
 %{_datadir}/%{name}/vim70/spell/cleanadd.vim
 %lang(af) %{_datadir}/%{name}/%{vimdir}/spell/af.*
@@ -674,7 +662,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %endif
 
 %files minimal
-%defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/virc
 %{_bindir}/ex
 %{_bindir}/vi
@@ -689,7 +676,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_mandir}/man5/virc.*
 
 %files enhanced
-%defattr(-,root,root)
 %{_bindir}/vim
 %{_bindir}/rvim
 %{_bindir}/vimdiff
@@ -697,7 +683,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %config(noreplace) %{_sysconfdir}/profile.d/vim.*
 
 %files filesystem
-%defattr(-,root,root)
 %{_rpmconfigdir}/macros.d/macros.vim
 %dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}/vimfiles
@@ -720,7 +705,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %dir %{_datadir}/%{name}/vimfiles/tutor
 
 %files X11
-%defattr(-,root,root)
 %if "%{desktop_file}" == "1"
 %{_datadir}/metainfo/*.appdata.xml
 /%{_datadir}/applications/*
@@ -741,6 +725,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Feb 08 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1475-2
+- remove old stuff and epoch - epoch was because 7.0.0 was lesser than 7.0.g0
+
 * Wed Feb 07 2018 Karsten Hopp <karsten@redhat.com> 8.0.1475-1
 - patchlevel 1475
 
