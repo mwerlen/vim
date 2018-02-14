@@ -1,4 +1,4 @@
-%define patchlevel 1509
+%define patchlevel 1520
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -726,6 +726,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Feb 14 2018 Karsten Hopp <karsten@redhat.com> 8.0.1520-1
+- patchlevel 1520
+
 * Tue Feb 13 2018 Karsten Hopp <karsten@redhat.com> 8.0.1509-1
 - patchlevel 1509
 
