@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -156,6 +156,7 @@ need to install the vim-common package.
 
 %package filesystem
 Summary: VIM filesystem layout
+BuildArch: noarch
 
 %Description filesystem
 This package provides some directories which are required by other
@@ -726,6 +727,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Feb 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1523-2
+- 1546116 - make vim-filesystem noarch package
+
 * Mon Feb 19 2018 Karsten Hopp <karsten@redhat.com> 8.0.1523-1
 - patchlevel 1523
 
