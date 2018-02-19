@@ -66,6 +66,9 @@ Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 
+# gcc is no longer in buildroot by default
+BuildRequires: gcc
+
 BuildRequires: python2-devel python3-devel ncurses-devel gettext perl-devel
 BuildRequires: perl-generators
 BuildRequires: perl(ExtUtils::Embed) perl(ExtUtils::ParseXS)
@@ -728,6 +731,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %changelog
 * Mon Feb 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1523-2
+- gcc is no longer in buildroot by default
 - 1546116 - make vim-filesystem noarch package
 
 * Mon Feb 19 2018 Karsten Hopp <karsten@redhat.com> 8.0.1523-1
