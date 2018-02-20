@@ -473,7 +473,6 @@ chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/vim.*
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
 install -p -m644 %{SOURCE5} %{buildroot}/%{_sysconfdir}/vimrc
 
-mkdir -p %{buildroot}%{_libdir}/%{name}
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
 install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
 
@@ -689,7 +688,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %files filesystem
 %{_rpmconfigdir}/macros.d/macros.vim
-%dir %{_libdir}/%{name}
 %dir %{_datadir}/%{name}/vimfiles
 %dir %{_datadir}/%{name}/vimfiles/after
 %dir %{_datadir}/%{name}/vimfiles/after/*
@@ -733,6 +731,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 * Mon Feb 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1523-2
 - gcc is no longer in buildroot by default
 - 1546116 - make vim-filesystem noarch package
+- remove %%{_libdir}/vim, because it is unused
 
 * Mon Feb 19 2018 Karsten Hopp <karsten@redhat.com> 8.0.1523-1
 - patchlevel 1523
