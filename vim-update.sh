@@ -1,15 +1,17 @@
 #!/bin/bash
 debug=""
 #debug="echo "
-branches=( "master" "f27" "f26" )
-releases=( "fc28" "fc27" "fc26" )
-regexps=( "fc28" "\|fc27" "\|fc26" )
+branches=( "master" "f28" "f27" "f26" )
+releases=( "fc29" "fc28" "fc27" "fc26" )
+regexps=( "fc29" "\|fc28" "\|fc27" "\|fc26" )
+bodhi_enabled=( "0" "0" "1" "1")
 branches_count=4
 #releases_regexp=fc28\\\|fc27\\\|fc28
 
 branches_index=0
 release_index=0
 regexp_index=0
+bodhi_enabled_index=0
 done_build=0
 releases_regexp="${regexps[@]: regexp_index: 1}"
 let "regexp_index+=1"
@@ -117,6 +119,7 @@ if [ $CHANGES -ne 0 ]; then
    fi
 
    let "release_index+=1"
+   let "bodhi_enabled_index+=1"
 
    for branch in "${branches[@]:(1)}";
    do
@@ -144,19 +147,23 @@ if [ $CHANGES -ne 0 ]; then
        exit 1
      fi
 
-     # append next release to regexp
+     # append next release to regexp - because we need to check if there aren't
+     # any testing updates from higher branches (lower branch cannot have
+     # bigger NVR than higher branch) in next iteration
      releases_regexp="$releases_regexp${regexps[@]: regexp_index: 1}"
 
      # Check if release has pending or testing update - if not, build package
      # and submit update for testing
-     #pending_update=`bodhi updates query --packages vim --status pending \
      #  | grep $releases_regexp`
+     # done_build is checking, if previous branch did build - lower branch can do
+     # a build only when higher branch build was ok.
      testing_update=`bodhi updates query --packages vim --status testing \
        | grep $releases_regexp`
      if [[ "$testing_update" == ""  &&  $done_build -eq 1 ]]; then
        fedpkg build
        if [ $? -eq 0 ]; then
-         if [ $branch != "master" ]; then
+         # if branch isn't master or branch is enabled in bodhi, create update
+         if [ $branch != "master" || "${bodhi_enabled[@]: $bodhi_enabled_index: 1}"=="1" ]; then
            bodhi updates new --user zdohnal --type enhancement --notes "The newest upstream commit" --request testing --autokarma --stable-karma 3 --unstable-karma -3 vim-${UPSTREAMMAJOR}.${LASTPLFILLED}-1.${releases[@]: $release_index: 1}
          fi
        else
@@ -167,10 +174,11 @@ if [ $CHANGES -ne 0 ]; then
        done_build=0
      fi
 
-     # Increment index and cut the head of releases_regexp string
+     # Increment index
      let "branches_index+=1"
      let "release_index+=1"
      let "regexp_index+=1"
+     let "bodhi_enabled_index+=1"
    done
    #$debug git push
    #if [ $? -eq 0 ]; then
