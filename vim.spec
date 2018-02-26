@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 4%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -125,7 +125,7 @@ many different languages.
 %package minimal
 Summary: A minimal version of the VIM editor
 Provides: vi = %{version}-%{release}
-Provides: /bin/vi
+Provides: %{_bindir}/vi
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -141,7 +141,8 @@ package is installed.
 Summary: A version of the VIM editor which includes recent enhancements
 Requires: vim-common = %{epoch}:%{version}-%{release} which
 Provides: vim = %{version}-%{release}
-Provides: mergetool
+Provides: %{_bindir}/mergetool
+Provides: %{_bindir}/vim
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
 %description enhanced
@@ -169,7 +170,8 @@ packages that add vim files, p.e.  additional syntax files or filetypes.
 Summary: The VIM version of the vi editor for the X Window System - GVim
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
-Provides: mergetool
+Provides: %{_bindir}/mergetool
+Provides: %{_bindir}/gvim
 BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires: hicolor-icon-theme
@@ -728,6 +730,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Feb 26 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1527-3
+- add Provides for vim, gvim and correcting paths to /usr/bin
+
 * Wed Feb 21 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1527-2
 - adapt vim-update.sh for Fedora 28 and adding check for bodhi enablement
 
