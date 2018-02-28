@@ -456,7 +456,7 @@ mkdir conv
    iconv -f ISO-8859-2 -t UTF8 tutor.sk > conv/tutor.sk
    iconv -f KOI8R -t UTF8 tutor.ru > conv/tutor.ru
    iconv -f CP1252 -t UTF8 tutor.sv > conv/tutor.sv
-   mv -f tutor.ja.euc tutor.ja.sjis tutor.ko.euc tutor.pl.cp1250 tutor.zh.big5 tutor.ru.cp1251 tutor.zh.euc conv/
+   mv -f tutor.ja.euc tutor.ja.sjis tutor.ko.euc tutor.pl.cp1250 tutor.zh.big5 tutor.ru.cp1251 tutor.zh.euc tutor.sr.cp1250 tutor.sr.utf-8 conv/
    rm -f tutor.ca tutor.de tutor.es tutor.fr tutor.gr tutor.it tutor.ja.utf-8 tutor.ko.utf-8 tutor.no tutor.pl tutor.sk tutor.ru tutor.sv
 mv -f conv/* .
 rmdir conv
@@ -585,6 +585,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %lang(ru.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/ru.cp1251
 %lang(sk) %{_datadir}/%{name}/%{vimdir}/lang/sk
 %lang(sk.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/sk.cp1250
+%lang(sr) %{_datadir}/%{name}/%{vimdir}/lang/sr
 %lang(sv) %{_datadir}/%{name}/%{vimdir}/lang/sv
 %lang(uk) %{_datadir}/%{name}/%{vimdir}/lang/uk
 %lang(uk.cp1251) %{_datadir}/%{name}/%{vimdir}/lang/uk.cp1251
@@ -655,6 +656,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %lang(rw) %{_datadir}/%{name}/%{vimdir}/spell/rw.*
 %lang(sk) %{_datadir}/%{name}/%{vimdir}/spell/sk.*
 %lang(sl) %{_datadir}/%{name}/%{vimdir}/spell/sl.*
+%lang(sr) %{_datadir}/%{name}/%{vimdir}/spell/sr.*
 %lang(sv) %{_datadir}/%{name}/%{vimdir}/spell/sv.*
 %lang(sw) %{_datadir}/%{name}/%{vimdir}/spell/sw.*
 %lang(tet) %{_datadir}/%{name}/%{vimdir}/spell/tet.*
@@ -731,6 +733,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 
 %changelog
 * Wed Feb 28 2018 Karsten Hopp <karsten@redhat.com> 8.0.1553-1
+- added Serbian localization files
 - patchlevel 1553
 
 * Wed Feb 28 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.1543-2
