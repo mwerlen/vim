@@ -1,4 +1,4 @@
-%define patchlevel 1553
+%define patchlevel 1569
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -732,6 +732,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Mar 05 2018 Karsten Hopp <karsten@redhat.com> 8.0.1569-1
+- patchlevel 1569
+
 * Wed Feb 28 2018 Karsten Hopp <karsten@redhat.com> 8.0.1553-1
 - added Serbian localization files
 - patchlevel 1553
