@@ -159,11 +159,11 @@ if [ $CHANGES -ne 0 ]; then
      # a build only when higher branch build was ok.
      testing_update=`bodhi updates query --packages vim --status testing \
        | grep $releases_regexp`
-     if [[ "$testing_update" == ""  &&  $done_build -eq 1 ]]; then
+     if [ "$testing_update" == "" ] && [ $done_build -eq 1 ]; then
        fedpkg build
        if [ $? -eq 0 ]; then
          # if branch isn't master or branch is enabled in bodhi, create update
-         if [ $branch != "master" || ${bodhi_enabled[@]: $bodhi_enabled_index: 1} -eq 1 ]; then
+         if [ $branch != "master" ] || [ ${bodhi_enabled[@]: $bodhi_enabled_index: 1} -eq 1 ]; then
            bodhi updates new --user zdohnal --type enhancement --notes "The newest upstream commit" --request testing --autokarma --stable-karma 3 --unstable-karma -3 vim-${UPSTREAMMAJOR}.${LASTPLFILLED}-1.${releases[@]: $release_index: 1}
          fi
        else
