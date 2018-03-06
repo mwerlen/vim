@@ -4,7 +4,7 @@ debug=""
 branches=( "master" "f28" "f27" "f26" )
 releases=( "fc29" "fc28" "fc27" "fc26" )
 regexps=( "fc29" "\|fc28" "\|fc27" "\|fc26" )
-bodhi_enabled=( "0" "0" "1" "1")
+bodhi_enabled=( "0" "1" "1" "1")
 branches_count=4
 #releases_regexp=fc28\\\|fc27\\\|fc28
 
