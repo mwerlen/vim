@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -77,10 +77,10 @@ BuildRequires: libacl-devel gpm-devel autoconf file
 BuildRequires: libselinux-devel
 %endif
 %if "%{withruby}" == "1"
-Buildrequires: ruby-devel ruby
+BuildRequires: ruby-devel ruby
 %endif
 %if "%{withlua}" == "1"
-Buildrequires: lua-devel
+BuildRequires: lua-devel
 %endif
 %if %{desktop_file}
 # for /usr/bin/desktop-file-install
@@ -144,6 +144,7 @@ Provides: vim = %{version}-%{release}
 Provides: %{_bindir}/mergetool
 Provides: %{_bindir}/vim
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Suggests: python2-libs python3-libs perl-libs lua-libs ruby-libs
 
 %description enhanced
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -175,6 +176,7 @@ Provides: %{_bindir}/gvim
 BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires: hicolor-icon-theme
+Suggests: python2-libs python3-libs perl-libs lua-libs ruby-libs
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -732,6 +734,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Apr 06 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1666-2
+- suggests ruby-libs, python2-libs, python3-libs, perl-libs and lua-libs for vim and gvim(bug #1562057)
+
 * Fri Apr 06 2018 Karsten Hopp <karsten@redhat.com> 8.0.1666-1
 - patchlevel 1666
 
