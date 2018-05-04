@@ -1,4 +1,4 @@
-%define patchlevel 1788
+%define patchlevel 1789
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -734,6 +734,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri May 04 2018 Karsten Hopp <karsten@redhat.com> 8.0.1789-1
+- patchlevel 1789
+
 * Thu May 03 2018 Karsten Hopp <karsten@redhat.com> 8.0.1788-1
 - patchlevel 1788
 
