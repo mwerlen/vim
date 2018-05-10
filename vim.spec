@@ -1,3 +1,7 @@
+%if 0%{?rhel} > 7
+export RHEL_ALLOW_PYTHON2_FOR_BUILD=1
+%endif
+
 %define patchlevel 1789
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
@@ -24,7 +28,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -143,8 +147,17 @@ Requires: vim-common = %{epoch}:%{version}-%{release} which
 Provides: vim = %{version}-%{release}
 Provides: %{_bindir}/mergetool
 Provides: %{_bindir}/vim
-Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
-Suggests: python2-libs python3-libs perl-libs lua-libs ruby-libs
+# suggest python3, python2, lua, ruby and perl packages because of their 
+# embedded functionality in Vim/GVim
+Suggests: python2 python2-libs 
+Suggests: python3 python3-libs
+Suggests: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version)) perl-libs perl-devel
+%if "%{withruby}" == "1"
+Suggests: ruby-libs ruby
+%endif
+%if "%{withlua}" == "1"
+Suggests: lua-libs
+%endif
 
 %description enhanced
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -174,9 +187,18 @@ Provides: gvim = %{version}-%{release}
 Provides: %{_bindir}/mergetool
 Provides: %{_bindir}/gvim
 BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
-Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires: hicolor-icon-theme
-Suggests: python2-libs python3-libs perl-libs lua-libs ruby-libs
+# suggest python3, python2, lua, ruby and perl packages because of their 
+# embedded functionality in Vim/GVim
+Suggests: python2 python2-libs 
+Suggests: python3 python3-libs
+Suggests: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version)) perl-libs perl-devel
+%if "%{withruby}" == "1"
+Suggests: ruby-libs ruby
+%endif
+%if "%{withlua}" == "1"
+Suggests: lua-libs
+%endif
 
 %description X11
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -734,6 +756,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed May 09 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1789-2
+- 1575354 - suggest more packages for embedded interpreters
+
 * Fri May 04 2018 Karsten Hopp <karsten@redhat.com> 8.0.1789-1
 - patchlevel 1789
 
