@@ -28,7 +28,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -69,6 +69,8 @@ Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
+# migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
+Patch3017: vim-python3-tests.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -242,6 +244,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3013 -p1
 %patch3014 -p1
 %patch3016 -p1
+%patch3017 -p1
 
 %build
 cd src
@@ -756,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri May 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1806-2
+- use python2 and python3 in code
+
 * Thu May 10 2018 Karsten Hopp <karsten@redhat.com> 8.0.1806-1
 - patchlevel 1806
 
