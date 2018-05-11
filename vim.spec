@@ -2,7 +2,7 @@
 export RHEL_ALLOW_PYTHON2_FOR_BUILD=1
 %endif
 
-%define patchlevel 1806
+%define patchlevel 1813
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -28,7 +28,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -759,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri May 11 2018 Karsten Hopp <karsten@redhat.com> 8.0.1813-1
+- patchlevel 1813
+
 * Fri May 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1806-2
 - use python2 and python3 in code
 
