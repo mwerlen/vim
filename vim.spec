@@ -1,7 +1,3 @@
-%if 0%{?rhel} > 7
-export RHEL_ALLOW_PYTHON2_FOR_BUILD=1
-%endif
-
 %define patchlevel 1813
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
@@ -28,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -247,6 +243,10 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3017 -p1
 
 %build
+%if 0%{?rhel} > 7
+export RHEL_ALLOW_PYTHON2_FOR_BUILD=1
+%endif
+
 cd src
 autoconf
 
@@ -759,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue May 15 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1813-2
+- use environment variable in build phase
+
 * Fri May 11 2018 Karsten Hopp <karsten@redhat.com> 8.0.1813-1
 - patchlevel 1813
 
