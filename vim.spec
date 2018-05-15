@@ -1,4 +1,4 @@
-%define patchlevel 1813
+%define patchlevel 1842
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -759,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue May 15 2018 Karsten Hopp <karsten@redhat.com> 8.0.1842-1
+- patchlevel 1842
+
 * Tue May 15 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1813-2
 - use environment variable in build phase
 
