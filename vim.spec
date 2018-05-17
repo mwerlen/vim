@@ -1,4 +1,4 @@
-%define patchlevel 1842
+%define patchlevel 1848
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -759,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu May 17 2018 Karsten Hopp <karsten@redhat.com> 8.0.1848-1
+- patchlevel 1848
+
 * Tue May 15 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1842-2
 - do not update F26 anymore - EOL in 2 weeks
 
