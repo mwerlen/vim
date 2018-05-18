@@ -36,6 +36,7 @@ if [ $? -ne 0 ]; then
 fi
 
 MAJORVERSION=`grep "define baseversion" vim.spec | cut -d ' ' -f 3`
+MAJORVERDIR=$(echo $MAJORVERSION | sed -e 's/\.//')
 ORIGPL=`grep "define patchlevel" vim.spec | cut -d ' ' -f 3 | sed -e "s/^0*//g"`
 ORIGPLFILLED=`printf "%03d" $ORIGPL`
 
@@ -54,6 +55,7 @@ LASTTAG=$(git describe --tags $(git rev-list --tags --max-count=1))
 
 # vim upstream tags have the form v7.4.123. Remove the 'v' and get major release and patchlevel:
 UPSTREAMMAJOR=$(echo $LASTTAG | sed -e 's/v\([0-9]*\.[0-9]*\).*/\1/')
+UPSTREAMMAJORDIR=$(echo $UPSTREAMMAJOR | sed -e 's/\.//')
 LASTPL=`echo $LASTTAG| sed -e 's/.*\.//;s/^0*//'`
 LASTPLFILLED=`printf "%03d" $LASTPL`
 if [ $force -ne 1 -a "$ORIGPLFILLED" == "$LASTPLFILLED" ]; then
@@ -77,7 +79,8 @@ if [ $CHANGES -ne 0 ]; then
    CHLOG="* $DATE Karsten Hopp <karsten@redhat.com> $UPSTREAMMAJOR"
    $debug sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
    if [ "x$MAJORVERSION" != "x$UPSTREAMMAJOR" ]; then
-      $debug sed -i -s "s/define baseversion: $MAJORVERSION/define baseversion: $UPSTREAMMAJOR=/" $SPEC
+      $debug sed -i -s "s/define baseversion $MAJORVERSION/define baseversion $UPSTREAMMAJOR/" $SPEC
+      $debug sed -i -s "s/define vimdir vim$MAJORVERDIR/define vimdir vim$UPSTREAMMAJORDIR/" $SPEC
    fi
    $debug sed -i -e "s/define patchlevel $ORIGPLFILLED/define patchlevel $LASTPLFILLED/" $SPEC
    $debug sed -i -e "/\%changelog/a$CHLOG.$LASTPLFILLED-1\n- patchlevel $LASTPLFILLED\n" $SPEC
