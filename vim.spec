@@ -759,8 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
-* Fri May 18 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.0.1848-2
-- vim-update.sh - update vimdir and baseversion
+* Fri May 18 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1848-2
+- vim-update.sh - update vimdir and baseversion(for major rebases)
+- vim-update.sh - enhance debugging of vim-update script
 
 * Thu May 17 2018 Karsten Hopp <karsten@redhat.com> 8.0.1848-1
 - patchlevel 1848
