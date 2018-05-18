@@ -1,4 +1,4 @@
-%define patchlevel 1848
+%define patchlevel 001
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -17,14 +17,14 @@
 %define python3 python3.6m
 %define python3path %{_includedir}/%{python3}
 
-%define baseversion 8.0
-%define vimdir vim80
+%define baseversion 8.1
+%define vimdir vim81
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -759,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri May 18 2018 Karsten Hopp <karsten@redhat.com> 8.1.001-1
+- patchlevel 001
+
 * Fri May 18 2018 Zdenek Dohnal <zdohnal@redhat.com> - 8.0.1848-2
 - vim-update.sh - update vimdir and baseversion(for major rebases)
 - vim-update.sh - enhance debugging of vim-update script
