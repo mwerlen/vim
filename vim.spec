@@ -1,4 +1,4 @@
-%define patchlevel 016
+%define patchlevel 020
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -759,6 +759,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed May 23 2018 Karsten Hopp <karsten@redhat.com> 8.1.020-1
+- patchlevel 020
+
 * Tue May 22 2018 Karsten Hopp <karsten@redhat.com> 8.1.016-1
 - patchlevel 016
 
