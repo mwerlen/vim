@@ -1,4 +1,4 @@
-%define patchlevel 095
+%define patchlevel 115
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -587,6 +587,7 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %lang(ca) %{_datadir}/%{name}/%{vimdir}/lang/ca
 %lang(cs) %{_datadir}/%{name}/%{vimdir}/lang/cs
 %lang(cs.cp1250) %{_datadir}/%{name}/%{vimdir}/lang/cs.cp1250
+%lang(da) %{_datadir}/%{name}/%{vimdir}/lang/da
 %lang(de) %{_datadir}/%{name}/%{vimdir}/lang/de
 %lang(en_GB) %{_datadir}/%{name}/%{vimdir}/lang/en_GB
 %lang(eo) %{_datadir}/%{name}/%{vimdir}/lang/eo
@@ -759,6 +760,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Jun 25 2018 Karsten Hopp <karsten@redhat.com> 8.1.115-1
+- patchlevel 115
+
 * Fri Jun 22 2018 Karsten Hopp <karsten@redhat.com> 8.1.095-1
 - patchlevel 095
 
