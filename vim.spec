@@ -1,4 +1,4 @@
-%define patchlevel 115
+%define patchlevel 117
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -760,6 +760,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jun 27 2018 Karsten Hopp <karsten@redhat.com> 8.1.117-1
+- patchlevel 117
+
 * Mon Jun 25 2018 Karsten Hopp <karsten@redhat.com> 8.1.115-1
 - patchlevel 115
 
