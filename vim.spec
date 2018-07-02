@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -760,6 +760,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Jul 02 2018 Miro Hrončok <mhroncok@redhat.com> - 2:8.1.119-2
+- Rebuilt for Python 3.7
+
 * Thu Jun 28 2018 Karsten Hopp <karsten@redhat.com> 8.1.119-1
 - patchlevel 119
 
