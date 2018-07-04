@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -67,6 +67,9 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
+
+# Upstream patch:
+Patch3018: 0001-patch-8.1.0121-crash-when-using-ballooneval-related-.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -241,6 +244,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
+%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -760,6 +764,10 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jul 04 2018 Ondřej Lysoněk <olysonek@redhat.com> - 2:8.1.119-2
+- Backport patch 8.1.0121: crash when using ballooneval related to 'vartabstop'
+- Resolves: rhbz#1597842
+
 * Thu Jun 28 2018 Karsten Hopp <karsten@redhat.com> 8.1.119-1
 - patchlevel 119
 

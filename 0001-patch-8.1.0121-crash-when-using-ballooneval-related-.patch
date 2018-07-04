@@ -1,0 +1,130 @@
+From 1e36677f8d4c57bb0e90b8a1136c392cc3b301c7 Mon Sep 17 00:00:00 2001
+From: Bram Moolenaar <Bram@vim.org>
+Date: Thu, 28 Jun 2018 12:05:11 +0200
+Subject: [PATCH] patch 8.1.0121: crash when using ballooneval related to
+ 'vartabstop'
+
+Problem:    Crash when using ballooneval related to 'vartabstop'.
+Solution:   Initialize balloonEval->vts to NULL. (Markus Braun)
+---
+ src/ex_cmds2.c  |  2 +-
+ src/gui.c       |  5 +++++
+ src/gui_beval.c | 11 +----------
+ src/gui_w32.c   |  9 +--------
+ src/version.c   |  2 ++
+ 5 files changed, 10 insertions(+), 19 deletions(-)
+
+diff --git a/src/ex_cmds2.c b/src/ex_cmds2.c
+index 01bc357f4..5f58fedfb 100644
+--- a/src/ex_cmds2.c
++++ b/src/ex_cmds2.c
+@@ -1419,7 +1419,7 @@ check_due_timer(void)
+ 	    bevalexpr_due_set = FALSE;
+ 	    if (balloonEval == NULL)
+ 	    {
+-		balloonEval = (BalloonEval *)alloc(sizeof(BalloonEval));
++		balloonEval = (BalloonEval *)alloc_clear(sizeof(BalloonEval));
+ 		balloonEvalForTerm = TRUE;
+ 	    }
+ 	    if (balloonEval != NULL)
+diff --git a/src/gui.c b/src/gui.c
+index 87ea5ce2b..f51b81f86 100644
+--- a/src/gui.c
++++ b/src/gui.c
+@@ -745,7 +745,12 @@ gui_init(void)
+ 	/* Always create the Balloon Evaluation area, but disable it when
+ 	 * 'ballooneval' is off. */
+ 	if (balloonEval != NULL)
++	{
++# ifdef FEAT_VARTABS
++	    vim_free(balloonEval->vts);
++# endif
+ 	    vim_free(balloonEval);
++	}
+ 	balloonEvalForTerm = FALSE;
+ # ifdef FEAT_GUI_GTK
+ 	balloonEval = gui_mch_create_beval_area(gui.drawarea, NULL,
+diff --git a/src/gui_beval.c b/src/gui_beval.c
+index 7e4625080..49694cfdd 100644
+--- a/src/gui_beval.c
++++ b/src/gui_beval.c
+@@ -111,28 +111,19 @@ gui_mch_create_beval_area(
+ 	return NULL;
+     }
+ 
+-    beval = (BalloonEval *)alloc(sizeof(BalloonEval));
++    beval = (BalloonEval *)alloc_clear(sizeof(BalloonEval));
+     if (beval != NULL)
+     {
+ #ifdef FEAT_GUI_GTK
+ 	beval->target = GTK_WIDGET(target);
+-	beval->balloonShell = NULL;
+-	beval->timerID = 0;
+ #else
+ 	beval->target = (Widget)target;
+-	beval->balloonShell = NULL;
+-	beval->timerID = (XtIntervalId)NULL;
+ 	beval->appContext = XtWidgetToApplicationContext((Widget)target);
+ #endif
+ 	beval->showState = ShS_NEUTRAL;
+-	beval->x = 0;
+-	beval->y = 0;
+ 	beval->msg = mesg;
+ 	beval->msgCB = mesgCB;
+ 	beval->clientData = clientData;
+-#ifdef FEAT_VARTABS
+-	beval->vts = NULL;
+-#endif
+ 
+ 	/*
+ 	 * Set up event handler which will keep its eyes on the pointer,
+diff --git a/src/gui_w32.c b/src/gui_w32.c
+index 855381108..147d98b39 100644
+--- a/src/gui_w32.c
++++ b/src/gui_w32.c
+@@ -8922,28 +8922,21 @@ gui_mch_create_beval_area(
+ 	return NULL;
+     }
+ 
+-    beval = (BalloonEval *)alloc(sizeof(BalloonEval));
++    beval = (BalloonEval *)alloc_clear(sizeof(BalloonEval));
+     if (beval != NULL)
+     {
+ 	beval->target = s_textArea;
+-	beval->balloon = NULL;
+ 
+ 	beval->showState = ShS_NEUTRAL;
+-	beval->x = 0;
+-	beval->y = 0;
+ 	beval->msg = mesg;
+ 	beval->msgCB = mesgCB;
+ 	beval->clientData = clientData;
+-#ifdef FEAT_VARTABS
+-	beval->vts = NULL;
+-#endif
+ 
+ 	InitCommonControls();
+ 	cur_beval = beval;
+ 
+ 	if (p_beval)
+ 	    gui_mch_enable_beval_area(beval);
+-
+     }
+     return beval;
+ }
+diff --git a/src/version.c b/src/version.c
+index a7a96b396..563a70be6 100644
+--- a/src/version.c
++++ b/src/version.c
+@@ -789,6 +789,8 @@ static char *(features[]) =
+ 
+ static int included_patches[] =
+ {   /* Add new patch number below this line */
++/**/
++    121,
+ /**/
+     119,
+ /**/
+-- 
+2.14.4
+
