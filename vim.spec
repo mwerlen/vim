@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -764,6 +764,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jul 06 2018 Petr Pisar <ppisar@redhat.com> - 2:8.1.119-5
+- Perl 5.28 rebuild
+
 * Wed Jul 04 2018 Ondřej Lysoněk <olysonek@redhat.com> - 2:8.1.119-4
 - Backport patch 8.1.0121: crash when using ballooneval related to 'vartabstop'
 - Resolves: rhbz#1597842
