@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -107,6 +107,8 @@ Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
 Requires: %{name}-filesystem
+# conflicts in package because of manpage move (bug #1599663)
+Conflicts: %{name}-minimal < 8.0.1428-4
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -131,6 +133,8 @@ many different languages.
 Summary: A minimal version of the VIM editor
 Provides: vi = %{version}-%{release}
 Provides: %{_bindir}/vi
+# conflicts in package because of manpage move (bug #1599663)
+Conflicts: %{name}-common < 8.0.1428-4
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -764,6 +768,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Jul 10 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.119-6
+- 1599663 - Conflicting manpages rvi.1.gz and vi.1.gz during update
+
 * Fri Jul 06 2018 Petr Pisar <ppisar@redhat.com> - 2:8.1.119-5
 - Perl 5.28 rebuild
 
