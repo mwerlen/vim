@@ -78,7 +78,7 @@ cp -f vim-upstream/dist/vim-${UPSTREAMMAJOR}-${LASTPLFILLED}.tar.bz2 .
 #wget https://raw.githubusercontent.com/ignatenkobrain/vim-spec-plugin/master/ftplugin/spec.vim -O ftplugin-spec.vim
 #wget https://raw.githubusercontent.com/ignatenkobrain/vim-spec-plugin/master/syntax/spec.vim -O syntax-spec.vim
 if [ $CHANGES -ne 0 ]; then
-   CHLOG="* $DATE $PACKAGER - $EPOCH:$UPSTREAMMAJOR"
+   CHLOG="* $DATE $PACKAGER -$EPOCH:$UPSTREAMMAJOR"
    $debug sed -i -e "/Release: /cRelease: 1%{?dist}" $SPEC
    if [ "x$MAJORVERSION" != "x$UPSTREAMMAJOR" ]; then
       $debug sed -i -s "s/define baseversion $MAJORVERSION/define baseversion $UPSTREAMMAJOR/" $SPEC

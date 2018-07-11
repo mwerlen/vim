@@ -1,4 +1,4 @@
-%define patchlevel 119
+%define patchlevel 177
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 8%{?dist}
+Release: 1%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -67,9 +67,6 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
-
-# Upstream patch:
-Patch3018: 0001-patch-8.1.0121-crash-when-using-ballooneval-related-.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -252,7 +249,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
-%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -534,7 +530,7 @@ rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/tutor/tutor.gr.utf-8~
 )
 
 # Remove not UTF-8 manpages
-for i in pl.ISO8859-2 it.ISO8859-1 ru.KOI8-R fr.ISO8859-1; do
+for i in pl.ISO8859-2 it.ISO8859-1 ru.KOI8-R fr.ISO8859-1 da.ISO8859-1 de.ISO8859-1; do
   rm -rf %{buildroot}/%{_mandir}/$i
 done
 
@@ -542,7 +538,7 @@ done
 mv %{buildroot}/%{_mandir}/ru.UTF-8 %{buildroot}/%{_mandir}/ru
 
 # Remove duplicate man pages
-for i in fr.UTF-8 it.UTF-8 pl.UTF-8; do
+for i in fr.UTF-8 it.UTF-8 pl.UTF-8 da.UTF-8 de.UTF-8; do
   rm -rf %{buildroot}/%{_mandir}/$i
 done
 
@@ -647,6 +643,8 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_mandir}/man1/xxd.*
 %{_mandir}/man5/vimrc.*
 %lang(fr) %{_mandir}/fr/man1/*
+%lang(da) %{_mandir}/da/man1/*
+%lang(de) %{_mandir}/de/man1/*
 %lang(it) %{_mandir}/it/man1/*
 %lang(ja) %{_mandir}/ja/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
@@ -772,6 +770,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jul 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.177-1
+- patchlevel 177
+
 * Wed Jul 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.119-8
 - add packager and epoch into update script to have better changelog
 
