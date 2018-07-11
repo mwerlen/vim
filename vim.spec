@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 6%{?dist}
+Release: 7%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -220,6 +220,10 @@ vim-common package.
 
 %prep
 %setup -q -b 0 -n %{vimdir}
+
+# use %%{__python3} macro for defining shebangs in python3 tests
+sed -i -e 's,/usr/bin/python3,%{__python3},' %{PATCH3017}
+
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1
@@ -768,6 +772,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jul 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.119-7
+- use %%{__python3} macro for defining shebang in python3 tests
+
 * Tue Jul 10 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.119-6
 - 1599663 - Conflicting manpages rvi.1.gz and vi.1.gz during update
 
