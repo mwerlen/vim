@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 7%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -107,6 +107,8 @@ Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
 Requires: %{name}-filesystem
+# conflicts in package because of manpage move (bug #1599663)
+Conflicts: %{name}-minimal < 8.0.1428-4
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -131,6 +133,8 @@ many different languages.
 Summary: A minimal version of the VIM editor
 Provides: vi = %{version}-%{release}
 Provides: %{_bindir}/vi
+# conflicts in package because of manpage move (bug #1599663)
+Conflicts: %{name}-common < 8.0.1428-4
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -216,6 +220,10 @@ vim-common package.
 
 %prep
 %setup -q -b 0 -n %{vimdir}
+
+# use %%{__python3} macro for defining shebangs in python3 tests
+sed -i -e 's,/usr/bin/python3,%{__python3},' %{PATCH3017}
+
 # fix rogue dependencies from sample code
 chmod -x runtime/tools/mve.awk
 %patch2002 -p1
@@ -764,9 +772,24 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
-* Wed Jul 04 2018 Ondřej Lysoněk <olysonek@redhat.com> - 2:8.1.119-2
+* Wed Jul 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.119-7
+- use %%{__python3} macro for defining shebang in python3 tests
+
+* Tue Jul 10 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.119-6
+- 1599663 - Conflicting manpages rvi.1.gz and vi.1.gz during update
+
+* Fri Jul 06 2018 Petr Pisar <ppisar@redhat.com> - 2:8.1.119-5
+- Perl 5.28 rebuild
+
+* Wed Jul 04 2018 Ondřej Lysoněk <olysonek@redhat.com> - 2:8.1.119-4
 - Backport patch 8.1.0121: crash when using ballooneval related to 'vartabstop'
 - Resolves: rhbz#1597842
+
+* Tue Jul 03 2018 Petr Pisar <ppisar@redhat.com> - 2:8.1.119-3
+- Perl 5.28 rebuild
+
+* Mon Jul 02 2018 Miro Hrončok <mhroncok@redhat.com> - 2:8.1.119-2
+- Rebuilt for Python 3.7
 
 * Thu Jun 28 2018 Karsten Hopp <karsten@redhat.com> 8.1.119-1
 - patchlevel 119
