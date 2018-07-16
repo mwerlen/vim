@@ -1,4 +1,4 @@
-%define patchlevel 177
+%define patchlevel 189
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -295,7 +295,6 @@ mv -f ex_cmds.c.save ex_cmds.c
   --disable-tclinterp --with-x=yes \
   --enable-xim --enable-multibyte \
   --with-tlib=ncurses \
-  --disable-gtk3-check \
   --enable-gtk3-check --enable-gui=gtk3 \
   --with-compiledby="<bugzilla@redhat.com>" --enable-cscope \
   --with-modified-by="<bugzilla@redhat.com>" \
@@ -770,6 +769,15 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Jul 16 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.189-1
+- patchlevel 189
+
+* Mon Jul 16 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.177-3
+- remove disable-gtk3-check configure option
+
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2:8.1.177-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Wed Jul 11 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.177-1
 - patchlevel 177
 
