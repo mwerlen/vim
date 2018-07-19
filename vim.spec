@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -184,6 +184,14 @@ packages that add vim files, p.e.  additional syntax files or filetypes.
 
 %package X11
 Summary: The VIM version of the vi editor for the X Window System - GVim
+# needed in configure script to have correct macros enabled for GUI (#1603272)
+BuildRequires: gtk3-devel
+BuildRequires: libX11-devel
+BuildRequires: libSM-devel
+BuildRequires: libXt-devel
+BuildRequires: libXpm-devel
+BuildRequires: libICE-devel
+
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
 Provides: gvim = %{version}-%{release}
 Provides: %{_bindir}/mergetool
@@ -769,6 +777,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Jul 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.189-2
+- 1603272 - vim-X11 doesn't provide the gui when certain devel packages missing from buildroot
+
 * Mon Jul 16 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.189-1
 - patchlevel 189
 
