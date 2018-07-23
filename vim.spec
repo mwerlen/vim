@@ -1,4 +1,4 @@
-%define patchlevel 197
+%define patchlevel 207
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -777,6 +777,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Jul 23 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.207-1
+- patchlevel 207
+
 * Fri Jul 20 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.197-1
 - patchlevel 197
 
