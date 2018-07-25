@@ -1,4 +1,4 @@
-%define patchlevel 207
+%define patchlevel 209
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -25,7 +25,7 @@ URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
 Release: 1%{?dist}
-License: Vim
+License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
 Source2: vim.csh
@@ -777,6 +777,12 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jul 25 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.209-1
+- patchlevel 209
+
+* Tue Jul 24 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.207-2
+- correcting license
+
 * Mon Jul 23 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.207-1
 - patchlevel 207
 
