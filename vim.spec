@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -275,6 +275,18 @@ export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOU
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
 
+# Configure options:
+# --enable-fail-if-missing - we need to fail if configure options aren't satisfied
+# --with-features - for setting how big amount of features is enabled
+# --enable-multibyte - enabling multibyte editing support - for editing files in languages, which one character
+#                      cannot be represented by one byte - Asian languages, Unicode
+# --disable-netbeans - disabling socket interface for integrating Vim into NetBeans IDE
+# --enable-selinux - enabling selinux support
+# --enable-Ninterp - enabling internal interpreter
+# --with-x - yes if we want X11 support (graphical Vim for X11)
+# --with-tlib - which terminal library to use
+# --disable-gpm - disabling support for General Purpose Mouse - Linux mouse daemon
+
 perl -pi -e "s/vimrc/virc/"  os_unix.h
 %configure --prefix=%{_prefix} --with-features=small --with-x=no \
   --enable-multibyte \
@@ -287,7 +299,8 @@ perl -pi -e "s/vimrc/virc/"  os_unix.h
   --disable-pythoninterp --disable-perlinterp --disable-tclinterp \
   --with-tlib=ncurses --enable-gui=no --disable-gpm --exec-prefix=/ \
   --with-compiledby="<bugzilla@redhat.com>" \
-  --with-modified-by="<bugzilla@redhat.com>"
+  --with-modified-by="<bugzilla@redhat.com>" \
+  --enable-fail-if-missing
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim minimal-vim
@@ -295,6 +308,11 @@ make clean
 
 mv -f os_unix.h.save os_unix.h
 mv -f ex_cmds.c.save ex_cmds.c
+
+# More configure options:
+# --enable-xim - enabling X Input Method - international input module for X,
+#                it is for multibyte languages in Vim with X
+# --enable-termtruecolor - use terminal with true colors
 
 %configure --with-features=huge \
   --enable-pythoninterp=dynamic \
@@ -326,7 +344,7 @@ mv -f ex_cmds.c.save ex_cmds.c
 %else
   --disable-luainterp \
 %endif
-  --enable-termtruecolor
+  --enable-fail-if-missing
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim gvim
@@ -362,7 +380,7 @@ make clean
 %else
   --disable-luainterp \
 %endif
-  --enable-termtruecolor
+  --enable-fail-if-missing
 
 make VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} %{?_smp_mflags}
 cp vim enhanced-vim
@@ -777,6 +795,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jul 27 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.209-2
+- fail if configure option isn't satisfied
+
 * Wed Jul 25 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.209-1
 - patchlevel 209
 
