@@ -1,4 +1,4 @@
-%define patchlevel 209
+%define patchlevel 229
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -795,6 +795,12 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Jul 30 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.229-1
+- patchlevel 229
+
+* Fri Jul 27 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.213-1
+- patchlevel 213
+
 * Fri Jul 27 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.209-2
 - fail if configure option isn't satisfied
 
