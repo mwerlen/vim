@@ -1,4 +1,4 @@
-%define patchlevel 233
+%define patchlevel 240
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -795,6 +795,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Aug 06 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.240-1
+- patchlevel 240
+
 * Thu Aug 02 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.233-1
 - patchlevel 233
 
