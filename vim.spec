@@ -1,4 +1,4 @@
-%define patchlevel 408
+%define patchlevel 450
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -67,8 +67,6 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
-# reported upstream https://github.com/vim/vim/pull/3449 - missing file
-Patch3018: vim-missing-file.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -259,7 +257,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
-%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -798,6 +795,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Oct 03 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.450-1
+- patchlevel 450
+
 * Wed Sep 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.408-1
 - patchlevel 408
 - src/libvterm/src/termscreen.c is missing
