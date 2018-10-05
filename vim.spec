@@ -1,4 +1,4 @@
-%define patchlevel 450
+%define patchlevel 451
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -795,6 +795,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Oct 05 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.451-1
+- patchlevel 451
+
 * Wed Oct 03 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.450-1
 - patchlevel 450
 
