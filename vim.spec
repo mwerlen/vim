@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -535,6 +535,12 @@ chmod 0644 %{buildroot}/%{_sysconfdir}/profile.d/vim.*
 install -p -m644 %{SOURCE4} %{buildroot}/%{_sysconfdir}/virc
 install -p -m644 %{SOURCE5} %{buildroot}/%{_sysconfdir}/vimrc
 
+# if Vim isn't built for Fedora, use redhat augroup
+%if 0%{?rhel} >= 7
+sed -i -e "s/augroup fedora/augroup redhat/" %{buildroot}/%{_sysconfdir}/vimrc
+sed -i -e "s/augroup fedora/augroup redhat/" %{buildroot}/%{_sysconfdir}/virc
+%endif
+
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
 install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
 
@@ -795,6 +801,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Oct 19 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.451-2
+- 1640972 - vimrc/virc should reflect correct augroup
+
 * Fri Oct 05 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.451-1
 - patchlevel 451
 
