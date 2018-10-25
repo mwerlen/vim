@@ -138,10 +138,9 @@ VIM (VIsual editor iMproved) is an updated and improved version of the
 vi editor.  Vi was the first real screen-based editor for UNIX, and is
 still very popular.  VIM improves on vi by adding new features:
 multiple windows, multi-level undo, block highlighting and more. The
-vim-minimal package includes a minimal version of VIM, which is
-installed into /bin/vi for use when only the root partition is
-present. NOTE: The online help is only available when the vim-common
-package is installed.
+vim-minimal package includes a minimal version of VIM, providing
+the commands vi, view, ex, rvi, and rview. NOTE: The online help is
+only available when the vim-common package is installed.
 
 %package enhanced
 Summary: A version of the VIM editor which includes recent enhancements
