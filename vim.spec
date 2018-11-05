@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -105,7 +105,7 @@ Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
 Requires: %{name}-filesystem
 # conflicts in package because of manpage move (bug #1599663)
-Conflicts: %{name}-minimal < 8.0.1428-4
+Conflicts: %{name}-minimal < %{version}-%{release}
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -131,7 +131,7 @@ Summary: A minimal version of the VIM editor
 Provides: vi = %{version}-%{release}
 Provides: %{_bindir}/vi
 # conflicts in package because of manpage move (bug #1599663)
-Conflicts: %{name}-common < 8.0.1428-4
+Conflicts: %{name}-common < %{version}-%{release}
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -800,6 +800,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Nov 05 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.497-2
+- 1646183 - Man file conflict for vim-minimal and vim-enhanced
+
 * Fri Oct 26 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.497-1
 - patchlevel 497
 
