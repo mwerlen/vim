@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -104,8 +104,6 @@ Conflicts: man-pages-fr < 0.9.7-14
 Conflicts: man-pages-it < 0.3.0-17
 Conflicts: man-pages-pl < 0.24-2
 Requires: %{name}-filesystem
-# conflicts in package because of manpage move (bug #1599663)
-Conflicts: %{name}-minimal < %{version}-%{release}
 
 %description common
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -131,7 +129,7 @@ Summary: A minimal version of the VIM editor
 Provides: vi = %{version}-%{release}
 Provides: %{_bindir}/vi
 # conflicts in package because of manpage move (bug #1599663)
-Conflicts: %{name}-common < %{version}-%{release}
+Conflicts: %{name}-enhanced < %{version}-%{release}
 
 %description minimal
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -148,6 +146,8 @@ Requires: vim-common = %{epoch}:%{version}-%{release} which
 Provides: vim = %{version}-%{release}
 Provides: %{_bindir}/mergetool
 Provides: %{_bindir}/vim
+# conflicts in package because of manpage move (bug #1599663)
+Conflicts: %{name}-minimal < %{version}-%{release}
 # suggest python3, python2, lua, ruby and perl packages because of their 
 # embedded functionality in Vim/GVim
 Suggests: python2 python2-libs 
@@ -800,6 +800,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Nov 08 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.511-2
+- fix #1646183 properly - we need to conflict with vim-enhanced, not vim-common
+
 * Mon Nov 05 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.511-1
 - patchlevel 511
 
