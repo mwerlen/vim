@@ -1,10 +1,10 @@
 #!/bin/bash
 debug=""
 #debug="echo "
-branches=( "master" "f29" "f28" "f27" )
-releases=( "fc30" "fc29" "fc28" "fc27" )
-regexps=( "fc30" "\|fc29" "\|fc28" "\|fc27" )
-bodhi_enabled=( "0" "1" "1" "1")
+branches=( "master" "f29" "f28" )
+releases=( "fc30" "fc29" "fc28" )
+regexps=( "fc30" "\|fc29" "\|fc28" )
+bodhi_enabled=( "0" "1" "1" )
 branches_count=3
 #releases_regexp=fc28\\\|fc27\\\|fc28
 
