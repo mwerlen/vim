@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -399,7 +399,10 @@ rm -f README*.info
 
 
 cd src
-make install DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
+# Adding STRIP=/bin/true, because Vim wants to strip the binaries by himself
+# and put the stripped files into correct dirs. Build system (koji/brew) 
+# does it for us, so there is no need to do it in Vim
+make install DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir} STRIP=/bin/true
 make installgtutorbin  DESTDIR=%{buildroot} BINDIR=%{_bindir} VIMRCLOC=/etc VIMRUNTIMEDIR=/usr/share/vim/%{vimdir}
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/{16x16,32x32,48x48,64x64}/apps
 install -m755 minimal-vim %{buildroot}%{_bindir}/vi
@@ -799,6 +802,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Dec 05 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.549-2
+- do not strip binaries before build system strips it
+
 * Tue Nov 27 2018 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.549-1
 - patchlevel 549
 
