@@ -1,4 +1,4 @@
-%define patchlevel 818
+%define patchlevel 847
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -67,6 +67,15 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
+# Ruby 2.6 introduced API breakage in dll_rb_int2big() function - the function
+# had one parameter of SIGNED_VALUE type, but now it has one parameter of 
+# intptr_t type. It needed to be fixed in Vim, because it caused FTBFS on
+# i686 and armv7hl archs - the new type of parameter seems to be expanded
+# to the same amount of memory in 64b archs as the old type, but into different
+# on 32b archs.
+# Ruby upstream issue: https://bugs.ruby-lang.org/issues/15570
+# Vim upstream issue: will need to be reported
+Patch3018: vim-ruby26.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -255,6 +264,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
+%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -802,6 +812,18 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Jan 30 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.847-2
+- fix patch for new ruby-2.6
+
+* Wed Jan 30 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.847-1
+- patchlevel 847
+
+* Tue Jan 29 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.837-2
+- FTBFS with new ruby-2.6
+
+* Mon Jan 28 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.837-1
+- patchlevel 837
+
 * Fri Jan 25 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.818-1
 - patchlevel 818
 
