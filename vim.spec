@@ -35,7 +35,6 @@ Source7: gvim16.png
 Source8: gvim32.png
 Source9: gvim48.png
 Source10: gvim64.png
-Source11: Changelog.rpm
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
@@ -397,7 +396,6 @@ cp vim enhanced-vim
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
-cp -f %{SOURCE11} .
 %if %{?fedora}%{!?fedora:0} >= 16 || %{?rhel}%{!?rhel:0} >= 6
 cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %else
@@ -608,7 +606,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %license LICENSE
 %doc README*
 %doc runtime/docs
-%doc Changelog.rpm
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/vimfiles/template.spec
 %dir %{_datadir}/%{name}/%{vimdir}
@@ -812,6 +809,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Jan 31 2019  Karsten Hopp <karsten@redhat.com> - 2:8.1.847-2
+- remove ancient Changelog.rpm
+
 * Wed Jan 30 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.847-2
 - fix patch for new ruby-2.6
 
