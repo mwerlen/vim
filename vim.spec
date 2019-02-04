@@ -1,4 +1,4 @@
-%define patchlevel 847
+%define patchlevel 873
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -35,7 +35,6 @@ Source7: gvim16.png
 Source8: gvim32.png
 Source9: gvim48.png
 Source10: gvim64.png
-Source11: Changelog.rpm
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
@@ -67,15 +66,6 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
-# Ruby 2.6 introduced API breakage in dll_rb_int2big() function - the function
-# had one parameter of SIGNED_VALUE type, but now it has one parameter of 
-# intptr_t type. It needed to be fixed in Vim, because it caused FTBFS on
-# i686 and armv7hl archs - the new type of parameter seems to be expanded
-# to the same amount of memory in 64b archs as the old type, but into different
-# on 32b archs.
-# Ruby upstream issue: https://bugs.ruby-lang.org/issues/15570
-# Vim upstream issue: will need to be reported
-Patch3018: vim-ruby26.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -264,7 +254,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
-%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -397,7 +386,6 @@ cp vim enhanced-vim
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
-cp -f %{SOURCE11} .
 %if %{?fedora}%{!?fedora:0} >= 16 || %{?rhel}%{!?rhel:0} >= 6
 cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
 %else
@@ -608,7 +596,6 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %license LICENSE
 %doc README*
 %doc runtime/docs
-%doc Changelog.rpm
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/vimfiles/template.spec
 %dir %{_datadir}/%{name}/%{vimdir}
@@ -812,6 +799,18 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Feb 04 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.873-1
+- patchlevel 873
+
+* Mon Feb 04 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.847-4
+- remove downstream fix for new ruby, upstream solved it different way
+
+* Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2:8.1.847-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Thu Jan 31 2019  Karsten Hopp <karsten@redhat.com> - 2:8.1.847-2
+- remove ancient Changelog.rpm
+
 * Wed Jan 30 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.847-2
 - fix patch for new ruby-2.6
 
