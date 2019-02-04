@@ -1,4 +1,4 @@
-%define patchlevel 847
+%define patchlevel 873
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -24,7 +24,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 4%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -799,6 +799,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Feb 04 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.873-1
+- patchlevel 873
+
 * Mon Feb 04 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.847-4
 - remove downstream fix for new ruby, upstream solved it different way
 
