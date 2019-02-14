@@ -14,9 +14,6 @@
 %define withruby 1
 %define withlua 1
 
-%define python3 python3.6m
-%define python3path %{_includedir}/%{python3}
-
 %define baseversion 8.1
 %define vimdir vim81
 
@@ -24,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -266,8 +263,8 @@ autoconf
 sed -e "s+VIMRCLOC	= \$(VIMLOC)+VIMRCLOC	= /etc+" Makefile > Makefile.tmp
 mv -f Makefile.tmp Makefile
 
-export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2 -I%{python3path}"
-export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2 -I%{python3path}"
+export CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
+export CXXFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_FORTIFY_SOURCE=2"
 
 cp -f os_unix.h os_unix.h.save
 cp -f ex_cmds.c ex_cmds.c.save
@@ -799,6 +796,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Feb 14 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.897-2
+- we do not need exact include path for python3 now
+
 * Tue Feb 12 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.897-1
 - patchlevel 897
 
