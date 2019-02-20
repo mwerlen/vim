@@ -1,4 +1,4 @@
-%define patchlevel 918
+%define patchlevel 956
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -57,7 +57,6 @@ Patch3008: vim-7.4-syncolor.patch
 Patch3009: vim-7.0-specedit.patch
 Patch3010: vim-7.3-manpage-typo-668894-675480.patch
 Patch3011: vim-manpagefixes-948566.patch
-Patch3012: vim-7.4-licensemacro-1151450.patch
 Patch3013: vim-7.4-globalsyntax.patch
 Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
@@ -246,7 +245,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 #patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
-%patch3012 -p1
 %patch3013 -p1
 %patch3014 -p1
 %patch3016 -p1
@@ -796,6 +794,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Wed Feb 20 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.956-1
+- patchlevel 956
+
 * Wed Feb 20 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.918-2
 - we have Fedora 30 branch now, enable updates for it in vim-update.sh
 
