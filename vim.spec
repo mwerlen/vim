@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -794,6 +794,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Mar 08 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.994-2
+- F30 is already active in bodhi 
+
 * Mon Mar 04 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.994-1
 - patchlevel 994
 
