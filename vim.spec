@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -86,6 +86,11 @@ BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 2
 Conflicts: filesystem < 3
+
+# vim bundles libvterm, which is used during build - so we need to provide
+# bundled libvterm for catching possible libvterm CVEs
+Provides: bundled(libvterm)
+
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -794,6 +799,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Mar 26 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1048-2
+- add bundled libvterm
+
 * Mon Mar 25 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1048-1
 - patchlevel 1048
 
