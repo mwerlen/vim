@@ -1,4 +1,4 @@
-%define patchlevel 1048
+%define patchlevel 1099
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -86,6 +86,11 @@ BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
 %endif
 Epoch: 2
 Conflicts: filesystem < 3
+
+# vim bundles libvterm, which is used during build - so we need to provide
+# bundled libvterm for catching possible libvterm CVEs
+Provides: bundled(libvterm)
+
 
 %description
 VIM (VIsual editor iMproved) is an updated and improved version of the
@@ -794,6 +799,12 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Apr 02 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1099-1
+- patchlevel 1099
+
+* Tue Mar 26 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1048-2
+- add bundled libvterm
+
 * Mon Mar 25 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1048-1
 - patchlevel 1048
 
