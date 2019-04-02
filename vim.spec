@@ -1,4 +1,4 @@
-%define patchlevel 1048
+%define patchlevel 1099
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -799,6 +799,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Apr 02 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1099-1
+- patchlevel 1099
+
 * Tue Mar 26 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1048-2
 - add bundled libvterm
 
