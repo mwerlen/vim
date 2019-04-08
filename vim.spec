@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -35,9 +35,8 @@ Source10: gvim64.png
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
-Source14: spec-template
-Source15: spec-template.new
-Source16: macros.vim
+Source14: spec-template.new
+Source15: macros.vim
 #Source17: ftplugin-spec.vim
 #Source18: syntax-spec.vim
 
@@ -386,11 +385,7 @@ cp vim enhanced-vim
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
-%if %{?fedora}%{!?fedora:0} >= 16 || %{?rhel}%{!?rhel:0} >= 6
-cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
-%else
 cp -f %{SOURCE14} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
-%endif
 cp runtime/doc/uganda.txt LICENSE
 # Those aren't Linux info files but some binary files for Amiga:
 rm -f README*.info
@@ -541,7 +536,7 @@ sed -i -e "s/augroup fedora/augroup redhat/" %{buildroot}/%{_sysconfdir}/virc
 %endif
 
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
-install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
+install -p -m644 %{SOURCE15} %{buildroot}%{_rpmconfigdir}/macros.d/
 
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
@@ -799,6 +794,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Apr 08 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1099-2
+- 1697104 - new spec file template contains deprecated tags
+
 * Tue Apr 02 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1099-1
 - patchlevel 1099
 
