@@ -1,0 +1,25 @@
+From 89454405df6d9a3063267ca28e07498bcda77b18 Mon Sep 17 00:00:00 2001
+From: Zdenek Dohnal <zdohnal@redhat.com>
+Date: Mon, 8 Apr 2019 13:04:31 +0200
+Subject: [PATCH] Typo in gvim.desktop file.
+
+---
+ runtime/gvim.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/runtime/gvim.desktop b/runtime/gvim.desktop
+index 945bfb9bc..095ddb564 100644
+--- a/runtime/gvim.desktop
++++ b/runtime/gvim.desktop
+@@ -6,7 +6,7 @@ GenericName[de]=Texteditor
+ GenericName[eo]=Tekstoredaktilo
+ GenericName[fr]=Éditeur de texte
+ GenericName[pl]=Edytor tekstu
+-GenericName[is}=Ritvinnsluforrit
++GenericName[is]=Ritvinnsluforrit
+ Comment=Edit text files
+ Comment[af]=Redigeer tekslêers
+ Comment[am]=የጽሑፍ ፋይሎች ያስተካክሉ
+-- 
+2.20.1
+
