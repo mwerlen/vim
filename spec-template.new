@@ -1,9 +1,14 @@
+# SPEC file overview:
+# https://docs.fedoraproject.org/en-US/quick-docs/creating-rpm-packages/#con_rpm-spec-file-overview
+# Fedora packaging guidelines:
+# https://docs.fedoraproject.org/en-US/packaging-guidelines/
+
+
 Name:		
 Version:	
-Release:	1%{?dist}
+Release:	0%{?dist}
 Summary:	
 
-Group:		
 License:	
 URL:		
 Source0:	
@@ -29,6 +34,7 @@ make %{?_smp_mflags}
 
 %files
 %doc
+%license
 
 
 

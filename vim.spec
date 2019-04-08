@@ -1,4 +1,4 @@
-%define patchlevel 1099
+%define patchlevel 1137
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -35,9 +35,8 @@ Source10: gvim64.png
 %if %{withvimspell}
 Source13: vim-spell-files.tar.bz2
 %endif
-Source14: spec-template
-Source15: spec-template.new
-Source16: macros.vim
+Source14: spec-template.new
+Source15: macros.vim
 #Source17: ftplugin-spec.vim
 #Source18: syntax-spec.vim
 
@@ -62,6 +61,8 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
+# typo introduced in the latest upstream commit, reported upstream with patch
+Patch3018: 0001-Typo-in-gvim.desktop-file.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -254,6 +255,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
+%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -386,11 +388,7 @@ cp vim enhanced-vim
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/{after,autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
 mkdir -p %{buildroot}/%{_datadir}/%{name}/vimfiles/after/{autoload,colors,compiler,doc,ftdetect,ftplugin,indent,keymap,lang,plugin,print,spell,syntax,tutor}
-%if %{?fedora}%{!?fedora:0} >= 16 || %{?rhel}%{!?rhel:0} >= 6
-cp -f %{SOURCE15} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
-%else
 cp -f %{SOURCE14} %{buildroot}/%{_datadir}/%{name}/vimfiles/template.spec
-%endif
 cp runtime/doc/uganda.txt LICENSE
 # Those aren't Linux info files but some binary files for Amiga:
 rm -f README*.info
@@ -541,7 +539,7 @@ sed -i -e "s/augroup fedora/augroup redhat/" %{buildroot}/%{_sysconfdir}/virc
 %endif
 
 mkdir -p %{buildroot}%{_rpmconfigdir}/macros.d/
-install -p -m644 %{SOURCE16} %{buildroot}%{_rpmconfigdir}/macros.d/
+install -p -m644 %{SOURCE15} %{buildroot}%{_rpmconfigdir}/macros.d/
 
 (cd ../runtime; rm -rf doc; ln -svf ../../vim/%{vimdir}/doc docs;) 
 rm -f %{buildroot}/%{_datadir}/vim/%{vimdir}/macros/maze/maze*.c
@@ -799,6 +797,12 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Apr 08 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1137-1
+- patchlevel 1137
+
+* Mon Apr 08 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1099-2
+- 1697104 - new spec file template contains deprecated tags
+
 * Tue Apr 02 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1099-1
 - patchlevel 1099
 
