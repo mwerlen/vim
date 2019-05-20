@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -794,6 +794,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon May 20 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1359-2
+- stop updating f28
+
 * Mon May 20 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1359-1
 - patchlevel 1359
 
