@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -61,8 +61,6 @@ Patch3014: vim-7.4-releasestring-1318991.patch
 Patch3016: vim-8.0-copy-paste.patch
 # migrate shebangs in script to /usr/bin/python3 and use python2 when necessary
 Patch3017: vim-python3-tests.patch
-# duplicate desktop entries
-Patch3018: vim-desktop-duplicate-entries.patch
 
 # gcc is no longer in buildroot by default
 BuildRequires: gcc
@@ -255,7 +253,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3014 -p1
 %patch3016 -p1
 %patch3017 -p1
-%patch3018 -p1
 
 %build
 %if 0%{?rhel} > 7
@@ -793,6 +790,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Jun 11 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1471-2
+- remove desktop patch, already in upstream
+
 * Thu Jun 06 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1471-1
 - patchlevel 1471
 
