@@ -1,4 +1,4 @@
-%define patchlevel 1471
+%define patchlevel 1517
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -244,7 +244,7 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3002 -p1
 %patch3004 -p1
 %patch3006 -p1
-%patch3007 -p1
+%patch3007 -p1 -b .fstabsyntax
 %patch3008 -p1 -b .syncolor
 #patch3009 -p1
 %patch3010 -p1
@@ -790,6 +790,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Jun 11 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1517-1
+- patchlevel 1517
+
 * Tue Jun 11 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1471-2
 - remove desktop patch, already in upstream
 
