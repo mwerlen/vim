@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -790,6 +790,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Thu Jul 18 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1661-2
+- 1643311 - add several defaults from Vim upstream and remove forcing fileencodings
+
 * Thu Jul 11 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1661-1
 - patchlevel 1661
 
