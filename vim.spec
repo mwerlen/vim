@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -53,7 +53,6 @@ Patch3004: vim-7.0-rclocation.patch
 Patch3006: vim-7.4-checkhl.patch
 Patch3007: vim-7.4-fstabsyntax.patch
 Patch3008: vim-7.4-syncolor.patch
-Patch3009: vim-7.0-specedit.patch
 Patch3010: vim-7.3-manpage-typo-668894-675480.patch
 Patch3011: vim-manpagefixes-948566.patch
 Patch3013: vim-7.4-globalsyntax.patch
@@ -246,7 +245,6 @@ perl -pi -e "s,bin/nawk,bin/awk,g" runtime/tools/mve.awk
 %patch3006 -p1
 %patch3007 -p1 -b .fstabsyntax
 %patch3008 -p1 -b .syncolor
-#patch3009 -p1
 %patch3010 -p1
 %patch3011 -p1
 %patch3013 -p1
@@ -790,6 +788,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jul 19 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-4
+- remove unused patch
+
 * Fri Jul 19 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-3
 - 1724126 - disable showing spec template for new file with .spec suffix
 - minor changes in spec.template - tabs->spaces
