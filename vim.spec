@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -790,6 +790,10 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jul 19 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-3
+- 1724126 - disable showing spec template for new file with .spec suffix
+- minor changes in spec.template - tabs->spaces
+
 * Fri Jul 19 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-2
 - remove skip_defaults_vim - it does not make sense to have it in system vimrc
 

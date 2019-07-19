@@ -4,17 +4,17 @@
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/
 
 
-Name:		
-Version:	
-Release:	0%{?dist}
-Summary:	
+Name:
+Version:
+Release: 0%{?dist}
+Summary:
 
-License:	
-URL:		
-Source0:	
+License:
+URL:
+Source0:
 
-BuildRequires:	
-Requires:	
+BuildRequires:
+Requires:
 
 %description
 
