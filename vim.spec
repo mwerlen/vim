@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -149,7 +149,7 @@ Provides: %{_bindir}/vim
 # embedded functionality in Vim/GVim
 Suggests: python2 python2-libs 
 Suggests: python3 python3-libs
-Suggests: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version)) perl-libs perl-devel
+Suggests: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version)) perl-devel
 %if "%{withruby}" == "1"
 Suggests: ruby-libs ruby
 %endif
@@ -198,7 +198,7 @@ Requires: hicolor-icon-theme
 # embedded functionality in Vim/GVim
 Suggests: python2 python2-libs 
 Suggests: python3 python3-libs
-Suggests: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version)) perl-libs perl-devel
+Suggests: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version)) perl-devel
 %if "%{withruby}" == "1"
 Suggests: ruby-libs ruby
 %endif
@@ -788,6 +788,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Mon Jul 22 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-5
+- remove perl-libs, because they are supplied perl MODULE_COMPAT
+
 * Fri Jul 19 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-4
 - remove unused patch
 
