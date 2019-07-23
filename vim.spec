@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -125,7 +125,7 @@ many different languages.
 
 %package minimal
 Summary: A minimal version of the VIM editor
-Provides: vi = %{version}-%{release}
+Provides: vi
 Provides: %{_bindir}/vi
 # conflicts in package because of manpage move (bug #1599663)
 Conflicts: %{name}-common < %{epoch}:8.1.1-1
@@ -142,7 +142,7 @@ only available when the vim-common package is installed.
 %package enhanced
 Summary: A version of the VIM editor which includes recent enhancements
 Requires: vim-common = %{epoch}:%{version}-%{release} which
-Provides: vim = %{version}-%{release}
+Provides: vim
 Provides: %{_bindir}/mergetool
 Provides: %{_bindir}/vim
 # suggest python3, python2, lua, ruby and perl packages because of their 
@@ -189,7 +189,7 @@ BuildRequires: libXpm-devel
 BuildRequires: libICE-devel
 
 Requires: vim-common = %{epoch}:%{version}-%{release} libattr >= 2.4 gtk3 
-Provides: gvim = %{version}-%{release}
+Provides: gvim
 Provides: %{_bindir}/mergetool
 Provides: %{_bindir}/gvim
 BuildRequires: gtk3-devel libSM-devel libXt-devel libXpm-devel libappstream-glib
@@ -788,6 +788,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Jul 23 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-6
+- Provides must be unversioned according FPG
+
 * Mon Jul 22 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-5
 - remove perl-libs, because they are supplied perl MODULE_COMPAT
 
