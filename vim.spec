@@ -1,4 +1,4 @@
-%define patchlevel 1713
+%define patchlevel 1749
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -21,7 +21,7 @@ Summary: The VIM editor
 URL:     http://www.vim.org/
 Name: vim
 Version: %{baseversion}.%{patchlevel}
-Release: 6%{?dist}
+Release: 1%{?dist}
 License: Vim and MIT
 Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
 Source1: vim.sh
@@ -788,6 +788,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Fri Jul 26 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1749-1
+- patchlevel 1749
+
 * Tue Jul 23 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1713-6
 - Provides must be unversioned according FPG
 
