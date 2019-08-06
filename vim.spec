@@ -1,4 +1,4 @@
-%define patchlevel 1790
+%define patchlevel 1820
 %if %{?WITH_SELINUX:0}%{!?WITH_SELINUX:1}
 %define WITH_SELINUX 1
 %endif
@@ -23,7 +23,7 @@ Name: vim
 Version: %{baseversion}.%{patchlevel}
 Release: 1%{?dist}
 License: Vim and MIT
-Source0: ftp://ftp.vim.org/pub/vim/unix/vim-%{baseversion}-%{patchlevel}.tar.bz2
+Source0: https://github.com/vim/vim/archive/v%{baseversion}.%{patchlevel}.tar.gz
 Source1: vim.sh
 Source2: vim.csh
 Source4: virc
@@ -788,6 +788,9 @@ touch %{buildroot}/%{_datadir}/%{name}/vimfiles/doc/tags
 %{_datadir}/icons/locolor/*/apps/*
 
 %changelog
+* Tue Aug 06 2019 Maxime Werlen <maxime@werlen.fr> - 2:8.1.1820-1
+- patchlevel 1820
+
 * Fri Aug 02 2019 Zdenek Dohnal <zdohnal@redhat.com> - 2:8.1.1790-1
 - patchlevel 1790
 
