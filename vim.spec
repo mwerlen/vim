@@ -15,7 +15,7 @@
 %define withlua 1
 
 %define baseversion 8.1
-%define vimdir vim81
+%define vimdir vim-%{baseversion}.%{patchlevel}
 
 Summary: The VIM editor
 URL:     http://www.vim.org/
